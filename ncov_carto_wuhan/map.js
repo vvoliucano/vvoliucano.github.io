@@ -142,7 +142,9 @@ left_button.on("click", function(d){
     .attr("fill", "#D75E5E")
   right_button.select("rect")
     .attr("fill", "#98999A")
-  update_final_day()
+  if (!is_playing){
+      update_final_day()
+  }
 })
 
 right_button.on("click", function(d){
@@ -151,7 +153,9 @@ right_button.on("click", function(d){
     .attr("fill", "#D75E5E")
   left_button.select("rect")
     .attr("fill", "#98999A")
-  update_final_day()
+  if (!is_playing){
+      update_final_day()
+  }
 })
 
 
