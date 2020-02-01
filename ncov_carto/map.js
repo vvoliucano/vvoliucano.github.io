@@ -289,7 +289,8 @@ d3.json("china.json")
         })
         // .attr("fill-opacity", 1)
         .attr("d", path)
-        .attr("stroke", "#ddd")
+        .attr("stroke", "#fff")
+        .attr("stroke-width", "2px")
         .attr("fill-opacity", 0.8)
     
     texts = texts.selectAll(".name")
@@ -375,7 +376,7 @@ function add_nanhai(){
   d3.select("#nanhai").append("image")
     .attr("xlink:href", "./nanhai.png")
     .attr("x", map_width * 0.8)
-    .attr("y", map_height * 0.6)
+    .attr("y", map_height * 0.7)
     .attr("width", map_width * 0.1)
     .attr("height", map_width * 0.12);
 }
