@@ -12,6 +12,7 @@ if (range == "China")
 if (range == "Hubei")
   block_num = 17
 
+let color_ncov = ["#FFC1BB", "#F6978E", "#D9736A", "#DF5C50", "#CF4033", '#9F3026', '#881719', '#5F0103']
 
 let provinces = ["新疆", "西藏", "内蒙古", "青海", "四川", "黑龙江", "甘肃", "云南", "广西", "湖南", "陕西", "广东", "吉林", "河北", "湖北", "贵州", "山东", "江西", "河南", "辽宁", "山西", "安徽", "福建", "浙江", "江苏", "重庆", "宁夏", "海南", "台湾", "北京", "天津", "上海", "香港", "澳门"]
 // [14,1,18,6,142,428,129,182,17,46,8,114,29,112,10,7]
@@ -56,6 +57,112 @@ let date = map_svg.append("g")
   .attr('text-anchor', "start")
   .style("fill", "#666")
 
+
+
+let scale_button = map_svg.append('g')
+  .attr('id', "scale_button")
+  .attr("transform", function(d){
+    return "translate(" + map_width * 0.95 + "," + map_height * 0.08 + ")"
+  })
+
+let left_button = scale_button.append("g")
+  .attr("transform", "translate(-235, 0)")
+
+let right_button = scale_button.append("g")
+  .attr("transform", "translate(-114, 0)")
+
+
+left_button.append("rect")
+  .attr("width",114 ) 
+  .attr("height", 43)
+  .attr("fill", "#D75E5E")
+  .attr("rx", 8)
+
+left_button.append("text")
+  .text("对数比例")
+  .attr("y", "1.8em")
+  .attr("x", "1.5em")
+  .style("fill", "white")
+
+
+right_button.append("rect")
+  .attr("width",114 ) 
+  .attr("height", 43)
+  .attr("fill", "#98999A")
+  .attr("rx", 8)
+
+right_button.append("text")
+  .text("线性比例")
+  .attr("y", "1.8em")
+  .attr("x", "1.5em")
+  .style("fill", "white")
+
+left_button.on("click", function(d){
+  method = "log"
+  left_button.select("rect")
+    .attr("fill", "#D75E5E")
+  right_button.select("rect")
+    .attr("fill", "#98999A")
+  update_final_day()
+})
+
+right_button.on("click", function(d){
+  method = "linear"
+  right_button.select("rect")
+    .attr("fill", "#D75E5E")
+  left_button.select("rect")
+    .attr("fill", "#98999A")
+  update_final_day()
+})
+
+let legend = map_svg.append("g")
+  .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.3  + ")")
+
+let single_legend_contain = legend.selectAll(".single_legend")
+  .data(color_ncov)
+  .enter()
+  .append("g")
+  .attr("class", "single_legend")
+  .attr("transform", function(d, i){
+    return "translate(0," + i * 20 + ")"
+  })
+
+single_legend_contain.append("rect")
+  .attr("fill", function(d){
+    return d
+  })
+  .attr("width", 80 )
+  .attr("height", 18 )
+  .attr("opacity", 0.8)
+
+single_legend_contain.append("text")
+  .attr("transform", "translate(1, 17)")
+  .text(function(d, i){
+    let small = Math.pow(2, i) * 10 + 1
+    let big  = Math.pow(2, i + 1) * 10
+    if (i === 0)
+    {
+      small = 1
+    }
+    if (i === 6)
+    {
+      big = ""
+    }
+    return small + "-" + big
+  })
+  .style("fill", "#fff")
+
+
+
+
+function update_final_day(){
+  let ncov_value = get_value_from_someday(province_data, "1月31日");
+  console.log(ncov_value);
+  update_ncov_data(ncov_value, 500)
+}
+
+
+
 // let copyright = map_svg.append("g")
 //   .attr("transform", "translate(" + map_width * 0.5  + "," + map_height * 0.96  + ")")
 //   .append("text")
@@ -83,14 +190,25 @@ let total_info = map_svg.append("g")
   .text("")
 
 let data_info = map_svg.append("g")
-  .attr("transform", "translate(" + map_width * 0.95  + "," + map_height * 0.96  + ")")
+  .attr("transform", "translate(" + map_width * 0.75  + "," + map_height * 0.94  + ")")
   .append("text")
   .attr("id", "day")
   .attr('font-size', "0.7em")
-  .attr('text-anchor', "end")
+  .attr('text-anchor', "start")
   .text("数据来源：国家卫生健康委员会")
   .style("fill", "#444")
   .style("text-decoration", "underline")
+
+let src_info = map_svg.append("g")
+  .attr("transform", "translate(" + map_width * 0.75  + "," + map_height * 0.96  + ")")
+  .append("text")
+  .attr("id", "day")
+  .attr('font-size', "0.7em")
+  .attr('text-anchor', "start")
+  .text("变形地图库：gist.github.com/emeeks/d57083a45e60a64fe976")
+  .style("fill", "#444")
+  .style("text-decoration", "underline")
+
 
 
 let min_edge = map_width 
@@ -100,7 +218,7 @@ if (map_height < map_width)
 }
 
 let projection = d3.geoAlbers()
-  .rotate([-104.5, 0])
+  .rotate([-105, 0])
   .center([-0, 35.6])
   .scale(min_edge * 1.3)
   .translate([map_width / 2, map_height / 2])
@@ -296,7 +414,12 @@ function update_ncov_data(day_ncov_value, set_time = 3000){
         return 1
       })
       .attr("font-size", function(d, i){
-        return (value_array[provinces.indexOf(d)] /10 + 1) + "em"
+        let font_size = value_array[provinces.indexOf(d)]
+        if (method == "log")
+          return (font_size/10 + 1) + "em"
+
+        return (Math.log(value_array[provinces.indexOf(d)] + 1) / 10 + 1) + "em"
+        // return (value_array[provinces.indexOf(d)] /10 + 1) + "em"
       })
       .attr("y", "1em")
 
@@ -343,8 +466,6 @@ d3.json("china.json")
 
     add_nanhai()
     add_play()
-
-
 
 
     states = states.data(features)
@@ -419,7 +540,7 @@ function get_centroid(coords){
 
 
 function get_color(value){
-  let color_ncov = ["#FFC1BB", "#F6978E", "#D9736A", "#DF5C50", "#CF4033", '#9F3026', '#881719', '#5F0103']
+  
   if (value == 0)
     return "#F2F2F2"
   if (value < 20)
