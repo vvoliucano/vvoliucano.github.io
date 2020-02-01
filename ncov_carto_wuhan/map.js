@@ -1,12 +1,12 @@
 
 let need_update_states = false
 // let method = "log"
-let method = "linear"
+let method = "log"
 
 let is_playing = true
 
 
-
+let color_ncov = ["#FFC1BB", "#F6978E", "#D9736A", "#DF5C50", "#CF4033", '#9F3026', '#881719']
 
 
 let provinces = ["恩施", "十堰", "宜昌", "襄阳", "黄冈", "荆州", "荆门", "咸宁", "随州", "孝感", "武汉", "黄石", "神农架", "天门", "仙桃", "潜江", "鄂州"]
@@ -98,6 +98,109 @@ let date = map_svg.append("g")
   .attr('text-anchor', "start")
   .style("fill", "#666")
 
+let scale_button = map_svg.append('g')
+  .attr('id', "scale_button")
+  .attr("transform", function(d){
+    return "translate(" + map_width * 0.95 + "," + map_height * 0.08 + ")"
+  })
+
+let left_button = scale_button.append("g")
+  .attr("transform", "translate(-235, 0)")
+
+let right_button = scale_button.append("g")
+  .attr("transform", "translate(-114, 0)")
+
+
+left_button.append("rect")
+  .attr("width",114 ) 
+  .attr("height", 43)
+  .attr("fill", "#D75E5E")
+  .attr("rx", 8)
+
+left_button.append("text")
+  .text("对数比例")
+  .attr("y", "1.8em")
+  .attr("x", "1.5em")
+  .style("fill", "white")
+
+
+right_button.append("rect")
+  .attr("width",114 ) 
+  .attr("height", 43)
+  .attr("fill", "#98999A")
+  .attr("rx", 8)
+
+right_button.append("text")
+  .text("线性比例")
+  .attr("y", "1.8em")
+  .attr("x", "1.5em")
+  .style("fill", "white")
+
+left_button.on("click", function(d){
+  method = "log"
+  left_button.select("rect")
+    .attr("fill", "#D75E5E")
+  right_button.select("rect")
+    .attr("fill", "#98999A")
+  update_final_day()
+})
+
+right_button.on("click", function(d){
+  method = "linear"
+  right_button.select("rect")
+    .attr("fill", "#D75E5E")
+  left_button.select("rect")
+    .attr("fill", "#98999A")
+  update_final_day()
+})
+
+
+function update_final_day(){
+  let ncov_value = get_value_from_someday(ncov_data, ncov_data[0].length - 1);
+  console.log(ncov_value);
+  update_ncov_data(ncov_value, 500)
+}
+
+
+let legend = map_svg.append("g")
+  .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.3  + ")")
+
+let single_legend_contain = legend.selectAll(".single_legend")
+  .data(color_ncov)
+  .enter()
+  .append("g")
+  .attr("class", "single_legend")
+  .attr("transform", function(d, i){
+    return "translate(0," + i * 20 + ")"
+  })
+
+single_legend_contain.append("rect")
+  .attr("fill", function(d){
+    return d
+  })
+  .attr("width", 80 )
+  .attr("height", 18 )
+  .attr("opacity", 0.8)
+
+single_legend_contain.append("text")
+  .attr("transform", "translate(1, 17)")
+  .text(function(d, i){
+    let small = Math.pow(2, i) * 10 + 1
+    let big  = Math.pow(2, i + 1) * 10
+    if (i === 0)
+    {
+      small = 1
+    }
+    if (i === 6)
+    {
+      big = ""
+    }
+    return small + "-" + big
+  })
+  .style("fill", "#fff")
+
+
+
 // let copyright = map_svg.append("g")
 //   .attr("transform", "translate(" + map_width * 0.5  + "," + map_height * 0.96  + ")")
 //   .append("text")
@@ -125,26 +228,37 @@ let total_info = map_svg.append("g")
   .text("")
 
 let data_info = map_svg.append("g")
-  .attr("transform", "translate(" + map_width * 0.95  + "," + map_height * 0.96  + ")")
+  .attr("transform", "translate(" + map_width * 0.75  + "," + map_height * 0.94  + ")")
   .append("text")
   .attr("id", "day")
   .attr('font-size', "0.7em")
-  .attr('text-anchor', "end")
+  .attr('text-anchor', "start")
   .text("数据来源：国家卫生健康委员会")
   .style("fill", "#444")
   .style("text-decoration", "underline")
 
+let src_info = map_svg.append("g")
+  .attr("transform", "translate(" + map_width * 0.75  + "," + map_height * 0.96  + ")")
+  .append("text")
+  .attr("id", "day")
+  .attr('font-size', "0.7em")
+  .attr('text-anchor', "start")
+  .text("变形地图库：gist.github.com/emeeks/d57083a45e60a64fe976")
+  .style("fill", "#444")
+  .style("text-decoration", "underline")
+
+// https://gist.github.com/emeeks/d57083a45e60a64fe976
 
 let min_edge = map_width 
-if (map_height < map_width)
+if (map_height < map_width * 3/4)
 {
-  min_edge = map_height
+  min_edge = map_height * 4/3
 }
 
 let projection = d3.geoAlbers()
   .rotate([-112.78, 0])
   .center([-0, 31])
-  .scale(map_width * 8)
+  .scale(min_edge * 8)
   .translate([map_width / 2, map_height / 2])
 
 let topology,
@@ -157,7 +271,7 @@ let hexTooltip = d3.select("body").append("div").attr("class", "hexTooltip")
 
 let carto = d3.cartogram()
     .projection(projection)
-    .iterations(20)
+    .iterations(30)
     .properties(function (d) {
       // this adds the "properties" properties to the geometries
       return d;
@@ -178,18 +292,6 @@ let student_data
 let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc','#e5d8bd','#fddaec','#f2f2f2']
 
 
-
-
-function read_data(){
-  d3.csv("0130.csv")
-    .then(function(table_data){
-      province_data = table_data
-      window._table_data = table_data
-      console.log(table_data)
-      play(table_data)
-
-    })
-}
 
 function play(table_data)
 {
@@ -258,7 +360,7 @@ function update_ncov_data(day_ncov_value, set_time = 3000){
   let value_array = new Array()//[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
   for (i = 0; i < provinces_number; i ++){
     if (method == "log"){
-      value_array[i] = Math.log(day_ncov_value[i] + 1 ) + provinces_area[provinces[i]]/1000
+      value_array[i] = Math.log(day_ncov_value[i] + 1 ) + provinces_area[provinces[i]]/50000
       if (provinces[i] == "湖北")
         value_array[i] = value_array[i] * 1.5
     }
@@ -474,20 +576,20 @@ function get_centroid(coords){
 
 
 function get_color(value){
-  let color_ncov = ["#FFC1BB", "#F6978E", "#D9736A", "#DF5C50", "#CF4033", '#9F3026', '#881719', '#5F0103']
+  
   if (value == 0)
     return "#F2F2F2"
-  if (value < 20)
+  if (value <= 20)
     return color_ncov[0]
-  if (value < 40)
+  if (value <= 40)
     return color_ncov[1]
-  if (value < 80)
+  if (value <= 80)
     return color_ncov[2]
-  if (value < 160)
+  if (value <= 160)
     return color_ncov[3]
-  if (value < 320)
+  if (value <= 320)
     return color_ncov[4]
-  if (value < 640)
+  if (value <= 640)
     return color_ncov[5]
   // if (value < 640)
   //   return color_ncov[6]
