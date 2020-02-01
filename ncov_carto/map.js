@@ -1,5 +1,7 @@
 
 let need_update_states = false
+let method = "log"
+// let method = "linear"
 
 let provinces = ["新疆", "西藏", "内蒙古", "青海", "四川", "黑龙江", "甘肃", "云南", "广西", "湖南", "陕西", "广东", "吉林", "河北", "湖北", "贵州", "山东", "江西", "河南", "辽宁", "山西", "安徽", "福建", "浙江", "江苏", "重庆", "宁夏", "海南", "台湾", "北京", "天津", "上海", "香港", "澳门"]
 // [14,1,18,6,142,428,129,182,17,46,8,114,29,112,10,7]
@@ -57,17 +59,17 @@ let day_info = map_svg.append("g")
   .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.95  + ")")
   .append("text")
   .attr("id", "day")
-  .attr('font-size', "6em")
+  .attr('font-size', "3em")
   .attr('text-anchor', "start")
-  .style("fill", "#ddd")
+  .style("fill", "#666")
 
 let total_info = map_svg.append("g")
-  .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.8  + ")")
+  .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.85  + ")")
   .append("text")
   .attr("id", "day")
   .attr('font-size', "2em")
   .attr('text-anchor', "start")
-  .style("fill", "#777")
+  .style("fill", "#666")
   .text("")
 
 let data_info = map_svg.append("g")
@@ -109,6 +111,8 @@ let carto = d3.cartogram()
       return d;
     });
 
+let province_data
+
 
 let city_polygon = new Array()
 let city_pathNode = new Array()
@@ -122,12 +126,26 @@ let student_data
 let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc','#e5d8bd','#fddaec','#f2f2f2']
 
 
+
+
 function read_data(){
   d3.csv("0130.csv")
     .then(function(table_data){
+      province_data = table_data
       window._table_data = table_data
       console.log(table_data)
-      for (let i = 4; i < 32; i ++){
+      play(table_data)
+      
+
+      // setTimeout(function(){
+      //    update_ncov_data()
+      // },3000)
+    })
+}
+
+function play(table_data)
+{
+  for (let i = 4; i < 32; i ++){
         setTimeout(function(){
           day = "1月" + i + "日";
           console.log(day);
@@ -139,12 +157,15 @@ function read_data(){
           update_total(total_number)
           update_day(day)
         },600 * (i - 3))
-      }
+  }
+}
 
-      // setTimeout(function(){
-      //    update_ncov_data()
-      // },3000)
-    })
+function reload_map()
+{
+  // update_day("")
+  // total_info.text("")
+
+  play(province_data)  
 }
 
 function update_day(day)
@@ -175,10 +196,15 @@ function get_value_from_someday(table_data, day){
 function update_ncov_data(day_ncov_value, set_time = 3000){
   let value_array = new Array()//[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
   for (i = 0; i < 34; i ++){
-    value_array[i] = Math.log(day_ncov_value[i] + 1 ) + provinces_area[provinces[i]]/100
-    if (provinces[i] == "湖北")
-      value_array[i] = value_array[i] * 1.5
-    // value_array[i] = day_ncov_value[i] + provinces_area[provinces[i]]/50
+    if (method == "log"){
+      value_array[i] = Math.log(day_ncov_value[i] + 1 ) + provinces_area[provinces[i]]/100
+      if (provinces[i] == "湖北")
+        value_array[i] = value_array[i] * 1.5
+    }
+    else{
+      value_array[i] = day_ncov_value[i] + provinces_area[provinces[i]]/50
+    }
+    // 
   }
   console.log(value_array)
 
@@ -228,7 +254,7 @@ function update_ncov_data(day_ncov_value, set_time = 3000){
           let value = day_ncov_value[i];
           return get_color(value)
           // return "white"
-        })
+      })
 
   // console.log(carto.path)
 
@@ -299,6 +325,7 @@ d3.json("china.json")
     console.log(features)
 
     add_nanhai()
+    add_play()
 
 
 
@@ -409,6 +436,19 @@ function add_nanhai(){
     .attr("y", map_height * 0.7)
     .attr("width", map_width * 0.1)
     .attr("height", map_width * 0.12);
+}
+
+function add_play(){
+  map_svg.append("image")
+    .attr("xlink:href", "./play-button.png")
+    .attr("x", map_width * 0.9)
+    .attr("y", map_height * 0.5)
+    .attr("width", map_width * 0.05)
+    .attr("opacity", 0.3)
+    .on("click", function(d, i){
+      reload_map()
+    })
+    // .attr("height", map_width * 0.12);
 }
 
 
