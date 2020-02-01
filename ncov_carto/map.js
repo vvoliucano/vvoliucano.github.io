@@ -12,6 +12,8 @@ if (range == "China")
 if (range == "Hubei")
   block_num = 17
 
+let current_step = 0
+
 let color_ncov = ["#FFC1BB", "#F6978E", "#D9736A", "#DF5C50", "#CF4033", '#9F3026', '#881719', '#5F0103']
 
 let provinces = ["新疆", "西藏", "内蒙古", "青海", "四川", "黑龙江", "甘肃", "云南", "广西", "湖南", "陕西", "广东", "吉林", "河北", "湖北", "贵州", "山东", "江西", "河南", "辽宁", "山西", "安徽", "福建", "浙江", "江苏", "重庆", "宁夏", "海南", "台湾", "北京", "天津", "上海", "香港", "澳门"]
@@ -162,7 +164,7 @@ single_legend_contain.append("text")
 
 
 function update_final_day(){
-  let ncov_value = get_value_from_someday(province_data, "1月31日");
+  let ncov_value = get_value_from_someday(ncov_data, "1月" + (4 + current_step) + "日");
   console.log(ncov_value);
   update_ncov_data(ncov_value, 500)
 }
@@ -245,7 +247,7 @@ let carto = d3.cartogram()
       return d;
     });
 
-let province_data
+let ncov_data
 
 
 let city_polygon = new Array()
@@ -265,7 +267,7 @@ let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc
 function read_data(){
   d3.csv("0130.csv")
     .then(function(table_data){
-      province_data = table_data
+      ncov_data = table_data
       window._table_data = table_data
       console.log(table_data)
       play(table_data)
@@ -280,25 +282,51 @@ function read_data(){
 function play(table_data)
 {
   is_playing = true
-  d3.select("#play").attr("opacity", 0)
-  for (let i = 4; i < 32; i ++){
-        setTimeout(function(){
-          day = "1月" + i + "日";
-          console.log(day);
-          let ncov_value = get_value_from_someday(table_data, day);
-          console.log(ncov_value);
-          update_ncov_data(ncov_value, 500)
-          total_number = parseInt(table_data[34][day]) + parseInt(table_data[28][day]) + parseInt(table_data[32][day]) + parseInt(table_data[33][day])
-          console.log(total_number)
-          update_total(total_number)
-          update_day(day)
-          if (i == 31){
-            is_playing = false
-            d3.select("#play").attr("opacity", 0.3)
-          }
+  d3.select("#play").attr("xlink:href", "./stop-button.png")
 
-        },600 * (i - 3))
-  }
+  run_on_step(0)
+  // for (let i = 4; i < ncov_data; i ++){
+  //       setTimeout(function(){
+  //         day = "1月" + i + "日";
+  //         console.log(day);
+  //         let ncov_value = get_value_from_someday(table_data, day);
+  //         console.log(ncov_value);
+  //         update_ncov_data(ncov_value, 500)
+  //         total_number = parseInt(table_data[34][day]) + parseInt(table_data[28][day]) + parseInt(table_data[32][day]) + parseInt(table_data[33][day])
+  //         console.log(total_number)
+  //         update_total(total_number)
+  //         update_day(day)
+  //         if (i == 31){
+  //           is_playing = false
+  //           d3.select("#play").attr("opacity", 0.3)
+  //         }
+  //       },600 * (i - 3))
+  // }
+}
+
+function run_on_step(i)
+{
+  if (!is_playing)
+    return
+  setTimeout(function(){
+    if (!is_playing)
+      return
+    day = "1月" + (i + 4) + "日";
+    console.log(day);
+    let ncov_value = get_value_from_someday(ncov_data, day);
+    console.log(ncov_value);
+    update_ncov_data(ncov_value, 500)
+    total_number = parseInt(ncov_data[34][day]) + parseInt(ncov_data[28][day]) + parseInt(ncov_data[32][day]) + parseInt(ncov_data[33][day])
+    console.log(total_number)
+    update_total(total_number)
+    update_day(day)
+    current_step = i
+    if (i == ncov_data["columns"].length - 2){
+      stop_button()
+    }
+    
+    run_on_step(i + 1)
+  },600)
 }
 
 function reload_map()
@@ -306,7 +334,7 @@ function reload_map()
   // update_day("")
   // total_info.text("")
 
-  play(province_data)  
+  play(ncov_data)  
 }
 
 function update_day(day)
@@ -325,7 +353,7 @@ function draw_day(){
 
 function get_value_from_someday(table_data, day){
   let ncov_value = new Array()
-  for (i = 0; i < 34; i ++ )
+  for (i = 0; i < provinces.length; i ++ )
   {
     // console.log(table_data[i])
     // console.log(table_data[i]["1月5日'"])
@@ -336,7 +364,7 @@ function get_value_from_someday(table_data, day){
 }
 function update_ncov_data(day_ncov_value, set_time = 3000){
   let value_array = new Array()//[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-  for (i = 0; i < 34; i ++){
+  for (i = 0; i < provinces.length; i ++){
     if (method == "log"){
       value_array[i] = Math.log(day_ncov_value[i] + 1 ) + provinces_area[provinces[i]]/100
       if (provinces[i] == "湖北")
@@ -585,11 +613,32 @@ function add_play(){
     .attr("width", map_width * 0.05)
     .attr("opacity", 0.3)
     .on("click", function(d, i){
-      if (!is_playing)
-        reload_map()
+      if (!is_playing){
+        console.log("continue play")
+        play_button()
+      }
+      else if (is_playing){
+        stop_button()
+      }
     })
     // .attr("height", map_width * 0.12);
 }
+
+function stop_button(){
+  is_playing = false
+  d3.select("#play").attr("xlink:href", "./play-button.png")
+}
+
+function play_button(){
+  is_playing = true
+  console.log("enter play")
+  d3.select("#play").attr("xlink:href", "./stop-button.png")
+  if (current_step == ncov_data["columns"].length - 2)
+    run_on_step(0)
+  else
+    run_on_step(current_step + 1)
+}
+
 
 
 function sleep(delay) {

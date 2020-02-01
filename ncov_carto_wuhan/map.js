@@ -14,6 +14,8 @@ let provinces = ["恩施", "十堰", "宜昌", "襄阳", "黄冈", "荆州", "�
 
 let provinces_number = provinces.length
 
+let current_step = 0
+
 let map_margin = {left: 0, right: 0, top: 0, bottom: 0}
 let map_width = document.getElementById('map').clientWidth - map_margin.left - map_margin.right,
     map_height = document.getElementById('map').clientHeight - map_margin.top - map_margin.bottom;
@@ -143,7 +145,7 @@ left_button.on("click", function(d){
   right_button.select("rect")
     .attr("fill", "#98999A")
   if (!is_playing){
-      update_final_day()
+      update_current_step()
   }
 })
 
@@ -154,13 +156,13 @@ right_button.on("click", function(d){
   left_button.select("rect")
     .attr("fill", "#98999A")
   if (!is_playing){
-      update_final_day()
+      update_current_step()
   }
 })
 
 
-function update_final_day(){
-  let ncov_value = get_value_from_someday(ncov_data, ncov_data[0].length - 1);
+function update_current_step(){
+  let ncov_value = get_value_from_someday(ncov_data, current_step);
   console.log(ncov_value);
   update_ncov_data(ncov_value, 500)
 }
@@ -300,30 +302,61 @@ let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc
 function play(table_data)
 {
   is_playing = true
-  d3.select("#play").attr("opacity", 0)
+  d3.select("#play").attr("xlink:href", "./stop-button.png")
   console.log("???")
+  run_on_step(0)
 
-  for (let i = 0; i < ncov_data[0].length - 1; i ++){
-        setTimeout(function(){
-          day = "1月" + (i + 4) + "日";
-          console.log(day);
-          let ncov_value = get_value_from_someday(table_data, i + 1);
-          console.log(ncov_value);
-          update_ncov_data(ncov_value, 500)
-          let total_number = 0;
-          for (j = 0; j < provinces_number; j ++){
-            total_number = total_number + table_data[j][i + 1]
-          }
-          // parseInt(table_data[34][day]) + parseInt(table_data[28][day]) + parseInt(table_data[32][day]) + parseInt(table_data[33][day])
-          console.log(total_number)
-          update_total(total_number)
-          update_day(day)
-          if (i == ncov_data[0].length - 2){
-            is_playing = false
-            d3.select("#play").attr("opacity", 0.3)
-          }
-        },600 * (i - 3))
-  }
+
+  // for (let i = 0; i < ncov_data[0].length - 1; i ++){
+  //       setTimeout(function(){
+  //         day = "1月" + (i + 4) + "日";
+  //         console.log(day);
+  //         let ncov_value = get_value_from_someday(table_data, i + 1);
+  //         console.log(ncov_value);
+  //         update_ncov_data(ncov_value, 500)
+  //         let total_number = 0;
+  //         for (j = 0; j < provinces_number; j ++){
+  //           total_number = total_number + table_data[j][i + 1]
+  //         }
+  //         // parseInt(table_data[34][day]) + parseInt(table_data[28][day]) + parseInt(table_data[32][day]) + parseInt(table_data[33][day])
+  //         console.log(total_number)
+  //         update_total(total_number)
+  //         update_day(day)
+  //         if (i == ncov_data[0].length - 2){
+  //           is_playing = false
+  //           d3.select("#play").attr("xlink:href", "./play-button.png")
+  //         }
+  //       },600 * i)
+  // }
+}
+
+function run_on_step(i)
+{
+  if (!is_playing)
+    return
+  setTimeout(function(){
+    if (!is_playing)
+      return
+    day = "1月" + (i + 4) + "日";
+    console.log(day);
+    let ncov_value = get_value_from_someday(ncov_data, i + 1);
+    console.log(ncov_value);
+    update_ncov_data(ncov_value, 500)
+    let total_number = 0;
+    for (j = 0; j < provinces_number; j ++){
+      total_number = total_number + ncov_data[j][i + 1]
+    }
+    // parseInt(table_data[34][day]) + parseInt(table_data[28][day]) + parseInt(table_data[32][day]) + parseInt(table_data[33][day])
+    console.log(total_number)
+    update_total(total_number)
+    update_day(day)
+    current_step = i
+    if (i == ncov_data[0].length - 2){
+      stop_button()
+    }
+    
+    run_on_step(i + 1)
+  },600)
 }
 
 function reload_map()
@@ -619,10 +652,30 @@ function add_play(){
     .attr("width", map_width * 0.05)
     .attr("opacity", 0.3)
     .on("click", function(d, i){
-      if (!is_playing)
-        reload_map()
+      if (!is_playing){
+        console.log("continue play")
+        play_button()
+      }
+      else if (is_playing){
+        stop_button()
+      }
     })
     // .attr("height", map_width * 0.12);
+}
+
+function stop_button(){
+  is_playing = false
+  d3.select("#play").attr("xlink:href", "./play-button.png")
+}
+
+function play_button(){
+  is_playing = true
+  console.log("enter play")
+  d3.select("#play").attr("xlink:href", "./stop-button.png")
+  if (current_step == ncov_data[0].length - 2)
+    run_on_step(0)
+  else
+    run_on_step(current_step + 1)
 }
 
 
