@@ -3,15 +3,6 @@ let need_update_states = false
 let method = "log"
 // let method = "linear"
 
-let range = "China"
-let block_num = 34
-let is_playing = true
-
-if (range == "China")
-  block_num = 34
-if (range == "Hubei")
-  block_num = 17
-
 
 let provinces = ["新疆", "西藏", "内蒙古", "青海", "四川", "黑龙江", "甘肃", "云南", "广西", "湖南", "陕西", "广东", "吉林", "河北", "湖北", "贵州", "山东", "江西", "河南", "辽宁", "山西", "安徽", "福建", "浙江", "江苏", "重庆", "宁夏", "海南", "台湾", "北京", "天津", "上海", "香港", "澳门"]
 // [14,1,18,6,142,428,129,182,17,46,8,114,29,112,10,7]
@@ -41,7 +32,7 @@ let texts = map_svg.append("g")
 let title = map_svg.append("g")
   .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.09  + ")")
   .append("text")
-  .text("新型冠状病毒感染肺炎疫情: 全国态势感知")
+  .text("新型冠状病毒感染肺炎疫情: 湖北省态势感知")
   .attr('font-size', "1.5em")
   .attr('text-anchor', "start")
   .style("fill", "#D75E5E")
@@ -155,8 +146,6 @@ function read_data(){
 
 function play(table_data)
 {
-  is_playing = true
-  d3.select("#play").attr("opacity", 0)
   for (let i = 4; i < 32; i ++){
         setTimeout(function(){
           day = "1月" + i + "日";
@@ -168,11 +157,6 @@ function play(table_data)
           console.log(total_number)
           update_total(total_number)
           update_day(day)
-          if (i == 31){
-            is_playing = false
-            d3.select("#play").attr("opacity", 0.3)
-          }
-
         },600 * (i - 3))
   }
 }
@@ -329,7 +313,7 @@ function adjust_position(center, i){
 }
 
 
-d3.json("china.json")
+d3.json("hubei_city_topo.json")
   .then(function(data){
     topology = data;
     geometries = topology.objects.states.geometries;
@@ -404,6 +388,12 @@ d3.json("china.json")
      // handle error
   })
 
+// map_svg.on("click", function(){
+//   let m = d3.mouse(this)
+//   console.log(m)
+//   // draw_closest(m)
+// })
+//
 
 function get_centroid(coords){
     coords = coords.replace(/ *[LC] */g,'],[').replace(/ *M */g,'[[[').replace(/ *Z */g,']]]').replace(/ *z */g,']]]').replace(/ /g,'],[');
@@ -452,14 +442,12 @@ function add_nanhai(){
 function add_play(){
   map_svg.append("image")
     .attr("xlink:href", "./play-button.png")
-    .attr("id", "play")
     .attr("x", map_width * 0.9)
     .attr("y", map_height * 0.5)
     .attr("width", map_width * 0.05)
     .attr("opacity", 0.3)
     .on("click", function(d, i){
-      if (!is_playing)
-        reload_map()
+      reload_map()
     })
     // .attr("height", map_width * 0.12);
 }
