@@ -1,40 +1,5 @@
 
 let need_update_states = false
-let ncov_data = [[14,0,0],
-    [1.0,0,0],
-    [18.0,0,0],
-    [6,0,0],
-    [142,1,1],
-    [43,1,0],
-    [26,0,0],
-    [70,0,0],
-    [78,0,2],
-    [277,0,2],
-    [63,0,0],
-    [354,0,8],
-    [14,0,1],
-    [65,1,0],
-    [4586.0,162,90],//4586
-    [12,0,1],
-    [158,0,1],
-    [162,0,5],
-    [278,2,2],
-    [41,0,1],
-    [35,0,1],
-    [200,0,2],
-    [101,0,0],
-    [428,0,4],
-    [129,0,1],
-    [182,0,1],
-    [17,0,0],
-    [46,1,1],
-    [8,0,0],
-    [114,1,4],
-    [29,0,0],
-    [112,1,5],
-    [10,0,0],
-    [7,0,0]
-]
 
 let provinces = ["新疆", "西藏", "内蒙古", "青海", "四川", "黑龙江", "甘肃", "云南", "广西", "湖南", "陕西", "广东", "吉林", "河北", "湖北", "贵州", "山东", "江西", "河南", "辽宁", "山西", "安徽", "福建", "浙江", "江苏", "重庆", "宁夏", "海南", "台湾", "北京", "天津", "上海", "香港", "澳门"]
 // [14,1,18,6,142,428,129,182,17,46,8,114,29,112,10,7]
@@ -50,9 +15,13 @@ let map_svg = d3.select("#map").append("svg")
   .attr("width", map_width - map_margin.left - map_margin.right)
   .attr("height", map_height - map_margin.top - map_margin.bottom);
 
+
 let states = map_svg.append("g")
   .attr("id", "states")
   .selectAll("path");
+
+let nanhai_svg = map_svg.append("g")
+  .attr("id", "nanhai")
 
 let texts = map_svg.append("g")
   .attr("id", "text")
@@ -64,6 +33,15 @@ let title = map_svg.append("g")
   .attr('font-size', "2.5em")
   .attr('text-anchor', "start")
   .style("fill", "#D75E5E")
+
+let copyright = map_svg.append("g")
+  .attr("transform", "translate(" + map_width * 0.5  + "," + map_height * 0.96  + ")")
+  .append("text")
+  .text("© PKU Visualization and Visual Analytics Group")
+  .attr('font-size', "1em")
+  .attr('text-anchor', "middle")
+  .style("font-family", "Khand-Regular")
+  .style("fill", "#444")
 
 let day_info = map_svg.append("g")
   .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.96  + ")")
@@ -83,10 +61,16 @@ let data_info = map_svg.append("g")
   .style("fill", "#ddd")
 
 
+let min_edge = map_width 
+if (map_height < map_width)
+{
+  min_edge = map_height
+}
+
 let projection = d3.geoAlbers()
   .rotate([-104.5, 0])
   .center([-0, 36])
-  .scale(map_height * 1.3)
+  .scale(min_edge * 1.3)
   .translate([map_width / 2, map_height / 2])
 
 let topology,
@@ -123,7 +107,7 @@ function read_data(){
     .then(function(table_data){
       window._table_data = table_data
       console.log(table_data)
-      for (let i = 4; i < 31; i ++){
+      for (let i = 4; i < 32; i ++){
         setTimeout(function(){
           day = "1月" + i + "日";
           console.log(day);
@@ -284,6 +268,8 @@ d3.json("china.json")
 
     console.log(features)
 
+    add_nanhai()
+
 
 
 
@@ -383,6 +369,15 @@ function get_color(value){
   //   return color_ncov[6]
   return color_ncov[6]
 
+}
+
+function add_nanhai(){
+  d3.select("#nanhai").append("image")
+    .attr("xlink:href", "./nanhai.png")
+    .attr("x", map_width * 0.8)
+    .attr("y", map_height * 0.6)
+    .attr("width", map_width * 0.1)
+    .attr("height", map_width * 0.12);
 }
 
 
