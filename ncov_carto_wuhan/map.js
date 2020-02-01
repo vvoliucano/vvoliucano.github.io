@@ -143,8 +143,8 @@ if (map_height < map_width)
 
 let projection = d3.geoAlbers()
   .rotate([-112.78, 0])
-  .center([-0, 31.1])
-  .scale(min_edge * 12)
+  .center([-0, 31])
+  .scale(map_width * 8)
   .translate([map_width / 2, map_height / 2])
 
 let topology,
