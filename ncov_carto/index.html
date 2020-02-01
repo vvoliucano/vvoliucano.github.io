@@ -26,6 +26,9 @@
   .province_number {
     text-shadow: -2px -2px white, 2px 2px #F6978E
   }
+  .province_name {
+    text-shadow: -1px -1px white, 1px 1px #444
+  }
 
   text{
     fill: #777;
@@ -92,6 +95,32 @@
     stroke-width: 2;
     fill-opacity: 0.8;
   }
+  .title_text{
+      font-size: 30;
+      fill: #ffffff;
+      fill-opacity: .4;
+  }
+  #header{
+      position: absolute;
+      top:0%;
+      left:0%;
+      width:100%;
+      height:6%;
+      border:.2vmin solid rgb(60,60,60);
+      background:rgb(40,40,40);
+  } 
+  #floor {            
+      clear: both;
+      display: block;
+      text-align: center; 
+      margin: 0px auto;
+      position: absolute;
+      bottom: 2.5%;
+      width: 30%;
+      left: 35%;
+      color: rgb(60,60,60);
+      font-family: Khand-Regular;
+  }
 
 
   </style>
@@ -99,7 +128,13 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-    <div id = "map"  style="position: absolute; top: 1%; left: 1%; width: 98%; height: 100%; margin: 0px; padding: 0px; ">
+    <div id = "header"  style="position: absolute; top: 0%; left: 0%; width: 100%; height: 5%; margin: 0px; padding: 0px; background:#000; color:#ddd; font-family: PingFang-SC; font-size: 1.8em">
+      <text class="titleText">nCoV 可视分析系列</div>
+    </div>
+    <div id = "map"  style="position: absolute; top: 5%; left: 1%; width: 98%; height: 95%; margin: 0px; padding: 0px; ">
+    </div>
+    <div id="floor" >
+        <img id="icon_img" height = 30px; " src="icon.png"/>
     </div>
 <!--
 		<div id="legendholder">
