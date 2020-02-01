@@ -1,16 +1,67 @@
 
 let need_update_states = false
-let method = "log"
-// let method = "linear"
+// let method = "log"
+let method = "linear"
+
+let is_playing = true
 
 
-let provinces = ["新疆", "西藏", "内蒙古", "青海", "四川", "黑龙江", "甘肃", "云南", "广西", "湖南", "陕西", "广东", "吉林", "河北", "湖北", "贵州", "山东", "江西", "河南", "辽宁", "山西", "安徽", "福建", "浙江", "江苏", "重庆", "宁夏", "海南", "台湾", "北京", "天津", "上海", "香港", "澳门"]
+
+
+
+let provinces = ["恩施", "十堰", "宜昌", "襄阳", "黄冈", "荆州", "荆门", "咸宁", "随州", "孝感", "武汉", "黄石", "神农架", "天门", "仙桃", "潜江", "鄂州"]
 // [14,1,18,6,142,428,129,182,17,46,8,114,29,112,10,7]
-let provinces_area = {"新疆": 166.49, "西藏": 122.84, "内蒙古": 118.3, "青海": 72, "四川": 48.5, "黑龙江": 47.3, "甘肃": 45.5, "云南": 39.4, "广西": 23.63, "湖南": 21.18, "陕西": 20.58, "河北": 19, "吉林": 18.74, "湖北": 18.59, "广东": 17.98, "贵州": 17.62, "河南": 16.7, "江西": 16.69, "山东": 15.7, "山西": 15.6, "辽宁": 14.57, "安徽": 13.96, "福建": 12.14, "江苏": 10.26, "浙江": 10.18, "重庆": 8.3, "宁夏": 6.64, "台湾": 3.62, "海南": 3.392, "北京": 1.6807, "天津": 1.13, "上海": 0.634, "香港": 0.1098, "澳门": 0.0254}
+
+let provinces_number = provinces.length
+
 let map_margin = {left: 0, right: 0, top: 0, bottom: 0}
 let map_width = document.getElementById('map').clientWidth - map_margin.left - map_margin.right,
     map_height = document.getElementById('map').clientHeight - map_margin.top - map_margin.bottom;
+let ncov_data = [["武汉",0,0,0,0,0,0,41,0,0,0,0,0,0,4,17,136,60,167,0,70,77,46,80,892,315,356,378,576],
+["黄冈",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12,0,0,0,52,58,32,59,111,172,77,153],
+["宜昌",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,19,11,20,12,54,50,109],
+["孝感",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22,4,29,45,73,101,125,142,87],
+["随州",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,31,16,18,46,27,85,76],
+["荆门",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,7,13,17,52,24,28,49,36,64],
+["襄阳",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,34,34,61,32,123,61],
+["黄石",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,31,0,5,17,33,27,55,41],
+["咸宁",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,43,21,27,21,18,36,40],
+["鄂州",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,19,37,27,39,66,38],
+["十堰",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,4,15,20,25,23,31,31,27],
+["荆州",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,2,2,23,14,24,30,50,70,26],
+["天门",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,2,8,10,11,10,23,15],
+["潜江",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,2,1,2,2,15],
+["恩施",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,6,8,13,13,15,9,12],
+["仙桃",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,8,1,1,15,5,23,35,7],
+["神农架",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,0]]
 
+for (let i = 0; i < ncov_data.length; i ++ )
+{
+  for (let j = 2; j < ncov_data[i].length; j ++ )
+    ncov_data[i][j] = ncov_data[i][j - 1] + ncov_data[i][j]
+}
+
+console.log(ncov_data)
+
+let provinces_area = {
+  "武汉": 8569.15,
+  "黄石": 4564.56,
+  "十堰": 23666.16,
+  "宜昌": 21230.14,
+  "襄阳": 19727.68,
+  "鄂州": 1596.46,
+  "荆门": 12339.43,
+  "孝感": 8904.41,
+  "荆州": 14099.21,
+  "黄冈": 17457.20,
+  "咸宁": 9751.50,
+  "随州": 9613.86,
+  "恩施": 24060.26,
+  "仙桃": 2519.06,
+  "潜江": 1993.14,
+  "天门": 2612.42,
+  "神农架": 3232.77
+}
 
 let map_svg = d3.select("#map").append("svg")
   .attr("id", "fujian_map")
@@ -91,9 +142,9 @@ if (map_height < map_width)
 }
 
 let projection = d3.geoAlbers()
-  .rotate([-104.5, 0])
-  .center([-0, 35.6])
-  .scale(min_edge * 1.3)
+  .rotate([-112.78, 0])
+  .center([-0, 31.1])
+  .scale(min_edge * 12)
   .translate([map_width / 2, map_height / 2])
 
 let topology,
@@ -136,27 +187,35 @@ function read_data(){
       window._table_data = table_data
       console.log(table_data)
       play(table_data)
-      
 
-      // setTimeout(function(){
-      //    update_ncov_data()
-      // },3000)
     })
 }
 
 function play(table_data)
 {
-  for (let i = 4; i < 32; i ++){
+  is_playing = true
+  d3.select("#play").attr("opacity", 0)
+  console.log("???")
+
+  for (let i = 0; i < ncov_data[0].length - 1; i ++){
         setTimeout(function(){
-          day = "1月" + i + "日";
+          day = "1月" + (i + 4) + "日";
           console.log(day);
-          let ncov_value = get_value_from_someday(table_data, day);
+          let ncov_value = get_value_from_someday(table_data, i + 1);
           console.log(ncov_value);
           update_ncov_data(ncov_value, 500)
-          total_number = parseInt(table_data[34][day]) + parseInt(table_data[28][day]) + parseInt(table_data[32][day]) + parseInt(table_data[33][day])
+          let total_number = 0;
+          for (j = 0; j < provinces_number; j ++){
+            total_number = total_number + table_data[j][i + 1]
+          }
+          // parseInt(table_data[34][day]) + parseInt(table_data[28][day]) + parseInt(table_data[32][day]) + parseInt(table_data[33][day])
           console.log(total_number)
           update_total(total_number)
           update_day(day)
+          if (i == ncov_data[0].length - 2){
+            is_playing = false
+            d3.select("#play").attr("opacity", 0.3)
+          }
         },600 * (i - 3))
   }
 }
@@ -166,7 +225,7 @@ function reload_map()
   // update_day("")
   // total_info.text("")
 
-  play(province_data)  
+  play(ncov_data)  
 }
 
 function update_day(day)
@@ -176,7 +235,7 @@ function update_day(day)
 
 function update_total(total_number)
 {
-  total_info.text("全国确诊：" + total_number)
+  total_info.text("湖北确诊：" + total_number)
 }
 
 function draw_day(){
@@ -185,25 +244,26 @@ function draw_day(){
 
 function get_value_from_someday(table_data, day){
   let ncov_value = new Array()
-  for (i = 0; i < 34; i ++ )
+  for (i = 0; i < 17; i ++ )
   {
     // console.log(table_data[i])
     // console.log(table_data[i]["1月5日'"])
-    let index = provinces.indexOf(table_data[i]["time"])
+    let index = provinces.indexOf(table_data[i][0])
     ncov_value[index] = parseInt(table_data[i][day])
   }
+  console.log(ncov_value)
   return ncov_value;
 }
 function update_ncov_data(day_ncov_value, set_time = 3000){
   let value_array = new Array()//[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-  for (i = 0; i < 34; i ++){
+  for (i = 0; i < provinces_number; i ++){
     if (method == "log"){
-      value_array[i] = Math.log(day_ncov_value[i] + 1 ) + provinces_area[provinces[i]]/100
+      value_array[i] = Math.log(day_ncov_value[i] + 1 ) + provinces_area[provinces[i]]/1000
       if (provinces[i] == "湖北")
         value_array[i] = value_array[i] * 1.5
     }
     else{
-      value_array[i] = day_ncov_value[i] + provinces_area[provinces[i]]/50
+      value_array[i] = day_ncov_value[i] + provinces_area[provinces[i]]/1000
     }
     // 
   }
@@ -280,7 +340,11 @@ function update_ncov_data(day_ncov_value, set_time = 3000){
         return 1
       })
       .attr("font-size", function(d, i){
-        return (value_array[provinces.indexOf(d)] /10 + 1) + "em"
+        let font_size = value_array[provinces.indexOf(d)]
+        if (method == "log")
+          return (font_size/10 + 1) + "em"
+
+        return (Math.log(value_array[provinces.indexOf(d)] + 1) / 10 + 1) + "em"
       })
       .attr("y", "1em")
 
@@ -312,11 +376,11 @@ function adjust_position(center, i){
   return position
 }
 
-
-d3.json("hubei_city_topo.json")
+d3.json("./hubei_city_topo.json")
   .then(function(data){
     topology = data;
-    geometries = topology.objects.states.geometries;
+    console.log(data)
+    geometries = topology.objects.collection.geometries;
 
     console.log(geometries)
     let features = carto.features(topology, geometries),
@@ -325,11 +389,8 @@ d3.json("hubei_city_topo.json")
 
     console.log(features)
 
-    add_nanhai()
+    // add_nanhai()
     add_play()
-
-
-
 
     states = states.data(features)
         .enter()
@@ -378,13 +439,17 @@ d3.json("hubei_city_topo.json")
       .attr("class", "province_number")
       .attr("text-anchor", "middle")
 
-      
     
+      // province_data = table_data
+      // window._table_data = table_data
+      // console.log(table_data)
+      play(ncov_data)
 
 
-    read_data()
+    // read_data()
   })
   .catch(function(error){
+    console.log("error")
      // handle error
   })
 
@@ -444,10 +509,12 @@ function add_play(){
     .attr("xlink:href", "./play-button.png")
     .attr("x", map_width * 0.9)
     .attr("y", map_height * 0.5)
+    .attr("id", "play")
     .attr("width", map_width * 0.05)
     .attr("opacity", 0.3)
     .on("click", function(d, i){
-      reload_map()
+      if (!is_playing)
+        reload_map()
     })
     // .attr("height", map_width * 0.12);
 }
