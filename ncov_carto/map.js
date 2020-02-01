@@ -36,6 +36,14 @@ let title = map_svg.append("g")
   .style("text-decoration", "underline")
   .style("text-shadow", "-2px -2px white, 2px 2px #F6978E")
 
+let date = map_svg.append("g")
+  .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.12  + ")")
+  .append("text")
+  .text("数据截止至1月31日24时")
+  .attr('font-size', "1em")
+  .attr('text-anchor', "start")
+  .style("fill", "#666")
+
 // let copyright = map_svg.append("g")
 //   .attr("transform", "translate(" + map_width * 0.5  + "," + map_height * 0.96  + ")")
 //   .append("text")
@@ -52,6 +60,15 @@ let day_info = map_svg.append("g")
   .attr('font-size', "6em")
   .attr('text-anchor', "start")
   .style("fill", "#ddd")
+
+let total_info = map_svg.append("g")
+  .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.8  + ")")
+  .append("text")
+  .attr("id", "day")
+  .attr('font-size', "2em")
+  .attr('text-anchor', "start")
+  .style("fill", "#777")
+  .text("")
 
 let data_info = map_svg.append("g")
   .attr("transform", "translate(" + map_width * 0.95  + "," + map_height * 0.96  + ")")
@@ -117,6 +134,9 @@ function read_data(){
           let ncov_value = get_value_from_someday(table_data, day);
           console.log(ncov_value);
           update_ncov_data(ncov_value, 500)
+          total_number = parseInt(table_data[34][day]) + parseInt(table_data[28][day]) + parseInt(table_data[32][day]) + parseInt(table_data[33][day])
+          console.log(total_number)
+          update_total(total_number)
           update_day(day)
         },600 * (i - 3))
       }
@@ -130,6 +150,11 @@ function read_data(){
 function update_day(day)
 {
   day_info.text(day)
+}
+
+function update_total(total_number)
+{
+  total_info.text("全国确诊：" + total_number)
 }
 
 function draw_day(){
@@ -151,6 +176,8 @@ function update_ncov_data(day_ncov_value, set_time = 3000){
   let value_array = new Array()//[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
   for (i = 0; i < 34; i ++){
     value_array[i] = Math.log(day_ncov_value[i] + 1 ) + provinces_area[provinces[i]]/100
+    if (provinces[i] == "湖北")
+      value_array[i] = value_array[i] * 1.5
     // value_array[i] = day_ncov_value[i] + provinces_area[provinces[i]]/50
   }
   console.log(value_array)
