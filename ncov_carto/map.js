@@ -465,7 +465,7 @@ let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc
 
 
 function read_data(){
-  d3.csv("./data.csv")
+  d3.csv("http://vis.pku.edu.cn/ncov/data/province.csv")
     .then(function(table_data){
       ncov_data = table_data
       ncov_data = leiji_data(ncov_data)
@@ -666,7 +666,7 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
         
         // console.log(bbox)
         center = get_centroid(d3.select('#province_' + i).attr("new_d"))
-        console.log("center", center)
+        // console.log("center", center)
         // console.log(bbox.x + bbox.width/2, bbox.y + bbox.height/2)
         center = adjust_position(center, i)
         return "translate(" + center[0] + "," + center[1] + ")"
