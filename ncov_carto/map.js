@@ -465,7 +465,7 @@ let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc
 
 
 function read_data(){
-  d3.csv("data.csv")
+  d3.csv("http://vis.pku.edu.cn/ncov/data/province.csv")
     .then(function(table_data){
       ncov_data = table_data
       ncov_data = leiji_data(ncov_data)
@@ -485,6 +485,8 @@ function leiji_data(ncov_data)
 {
   for (i = 0; i < provinces.length; i ++)
   {
+    ncov_data[i][time].replace("省", "").replace("市", "").replace("", "").replace("省", "").replace("省", "")
+
     for (j = 2; j < ncov_data.columns.length; j ++)
     {
       ncov_data[i][ncov_data.columns[j]] = parseInt(ncov_data[i][ncov_data.columns[j]]) + parseInt(ncov_data[i][ncov_data.columns[j - 1]])
