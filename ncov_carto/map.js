@@ -465,7 +465,7 @@ let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc
 
 
 function read_data(){
-  d3.csv("data.csv")
+  d3.csv("./data.csv")
     .then(function(table_data){
       ncov_data = table_data
       ncov_data = leiji_data(ncov_data)
@@ -782,7 +782,7 @@ d3.json("china.json")
       .attr('class', "name")
       .attr("transform", function(d, i){
         center = get_centroid(d3.select('#province_' + i).attr("d"))
-        console.log("center", center)
+        // console.log("center", center)
         // console.log(bbox.x + bbox.width/2, bbox.y + bbox.height/2)
         center = adjust_position(center, i)
         return "translate(" + center[0] + "," + center[1] + ")"
