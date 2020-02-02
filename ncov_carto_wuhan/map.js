@@ -40,21 +40,26 @@ let map_width = document.getElementById('map').clientWidth - map_margin.left - m
 let ncov_data = [["武汉市",41,0,0,0,0,0,0,4,17,136,60,105,62,70,77,46,80,892,315,356,378,576,894],["黄冈市",0,0,0,0,0,0,0,0,0,0,12,0,0,0,52,58,32,59,111,172,77,153,276],["孝感市",0,0,0,0,0,0,0,0,0,0,0,0,0,22,4,29,45,73,101,125,142,87,121],["襄阳市",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,34,34,61,32,123,61,94],["随州市",0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,31,16,18,46,27,85,76,80],["荆门市",0,0,0,0,0,0,0,0,0,0,0,0,1,7,13,17,52,24,28,49,36,64,78],["宜昌市",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,19,11,20,12,54,50,109,77],["鄂州市",0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,19,37,27,39,66,38,51],["荆州市",0,0,0,0,0,0,0,0,0,0,0,0,6,2,2,23,14,24,30,50,70,26,46],["黄石市",0,0,0,0,0,0,0,0,0,0,0,0,0,0,31,0,5,17,33,27,55,41,43],["仙桃市",0,0,0,0,0,0,0,0,0,0,0,0,0,2,8,1,1,15,5,23,35,7,43],["咸宁市",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,43,21,27,21,18,36,40,40],["十堰市",0,0,0,0,0,0,0,0,0,0,0,0,0,1,4,15,20,25,23,31,31,27,35],["恩施州",0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,6,8,13,13,15,9,12,18],["天门市",0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,2,8,10,11,10,23,15,17],["潜江市",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,2,1,2,2,15,8],["神农架林区",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,0,0]]
 
 
-
-for (let i = 0; i < ncov_data.length; i ++ )
+function modify_city_name()
 {
-  if (ncov_data[i][0].indexOf("市") > -1)
-    ncov_data[i][0] = ncov_data[i][0].replace("市", "")
-  else if (ncov_data[i][0].indexOf("州") > -1)
-    ncov_data[i][0] = ncov_data[i][0].replace("州", "")
-  else if (ncov_data[i][0].indexOf("林区") > -1)
-    ncov_data[i][0] = ncov_data[i][0].replace("林区", "")
+  for (let i = 0; i < ncov_data.length; i ++ )
+  {
+    if (ncov_data[i][0].indexOf("市") > -1)
+      ncov_data[i][0] = ncov_data[i][0].replace("市", "")
+    else if (ncov_data[i][0].indexOf("州") > -1)
+      ncov_data[i][0] = ncov_data[i][0].replace("州", "")
+    else if (ncov_data[i][0].indexOf("林区") > -1)
+      ncov_data[i][0] = ncov_data[i][0].replace("林区", "")
 
-  for (let j = 2; j < ncov_data[i].length; j ++ )
-    ncov_data[i][j] = ncov_data[i][j - 1] + ncov_data[i][j]
+    for (let j = 2; j < ncov_data[i].length; j ++ )
+      ncov_data[i][j] = ncov_data[i][j - 1] + ncov_data[i][j]
+  }
 }
 
-console.log(ncov_data)
+
+
+
+// console.log(ncov_data)
 
 let provinces_area = {
   "武汉": 8569.15,
@@ -211,7 +216,6 @@ let date = map_svg.append("g")
   .attr("transform", "translate(" + date_left  + "," + date_top  + ")")
   
 date.append("text")
-  .text("数据截止至" + get_day(ncov_data[0].length - 2) + "24时")
   .attr('font-size', date_font_size)
   .attr('text-anchor', "start")
   .style("fill", "#666")
@@ -798,7 +802,35 @@ d3.json("./hubei_city_topo.json")
       // province_data = table_data
       // window._table_data = table_data
       // console.log(table_data)
+
+    d3.csv("https://tanshaocong.github.io/2019-nCoV/detail.csv")
+    .then(function(data){
+      // a = data[1000]
+      modify_city_name()
+      console.log("old", ncov_data)
+      ncov_data = convert_data(data)
+      modify_city_name() 
+      console.log("new", ncov_data)
+      date.select("text").text("数据截止至" + get_day(ncov_data[0].length - 2) + "24时")
       play(ncov_data)
+    })
+    .catch(function(error){
+      console.log("read from local")
+      d3.csv("city.csv")
+      .then(function(data){
+        modify_city_name()
+        console.log("old", ncov_data)
+        ncov_data = convert_data(data)
+        modify_city_name() 
+        console.log("new", ncov_data)
+        date.select("text").text("数据截止至" + get_day(ncov_data[0].length - 2) + "24时")
+        play(ncov_data)
+      })
+    })
+
+
+    
+      
 
 
     // read_data()
@@ -918,3 +950,81 @@ function get_day(i)
   }
   return "1月" + date + "日"
 }
+
+function get_day_index(day_str)
+{
+  let date_array = day_str.split(/月|日/)
+  let month = parseInt(date_array[0])
+  let day = parseInt(date_array[1])
+  if (month == 1)
+    return day
+  if (month == 2)
+    return day + 31
+  if (month == 3)
+    return day + 60
+  return (month - 1) * 30 + day 
+
+
+  // let date = i + 10
+  // if (date > 31)
+  // {
+  //   return "2月" + (date - 31) + "日"
+  // }
+  // return "1月" + date + "日"
+  return 0
+}
+
+
+function convert_data(data){ 
+    console.log(data)
+    let item_number = data.length
+    let new_data = new Array()
+    let date_list = new Array()
+    for (i = 0; i < item_number; i ++)
+    {
+      let current_item = data[i]
+      if (current_item["省份"] != "湖北")
+        continue
+      let city_name = current_item["城市"]
+      if (!new_data.hasOwnProperty(city_name))
+        new_data[city_name] = new Array()
+      if (!new_data[city_name].hasOwnProperty(current_item["公开时间"]))
+        new_data[city_name][current_item["公开时间"]] = parseInt(current_item["新增确诊病例"])
+      else {
+        new_data[city_name][current_item["公开时间"]] += parseInt(current_item["新增确诊病例"])
+        // if (parseInt(current_item["新增确诊病例"]) > new_data[city_name][current_item["公开时间"]])
+        //   new_data[city_name][current_item["公开时间"]] = parseInt(current_item["新增确诊病例"])
+      }
+      if (date_list.indexOf(current_item["公开时间"]) === -1)
+        date_list.push(current_item["公开时间"])
+    }
+    console.log(new_data)
+    date_list = date_list.sort()
+    console.log(date_list)
+    begin_date = get_day_index(date_list[0])
+    end_date = get_day_index(date_list[date_list.length - 1])
+    console.log("end_date", begin_date)
+    console.log("end_date", end_date)
+    diff_day = end_date - begin_date
+    console.log(diff_day)
+
+    let table_data = new Array()
+    let city_list = Object.keys(new_data)
+    for (i = 0; i < city_list.length; i ++ )
+    {
+      table_data[i] = new Array()
+      table_data[i][0] = city_list[i]
+      for (j = 0; j < diff_day + 1; j ++)
+      {
+        if (new_data[city_list[i]].hasOwnProperty(get_day(j + 1)))
+          table_data[i][j + 1] = new_data[city_list[i]][get_day(j + 1)]
+        else table_data[i][j + 1] = 0
+      }
+      // for (j = 1; j < )
+    }
+    console.log(city_list)
+    console.log(table_data)
+    return table_data
+}
+
+
