@@ -106,55 +106,99 @@ let scale_button = map_svg.append('g')
     return "translate(" + map_width * 0.95 + "," + map_height * 0.08 + ")"
   })
 
-let left_button = scale_button.append("g")
-  .attr("transform", "translate(-235, 0)")
+let scale_button_width = 100
+let scale_button_height = 35
+let scale_button_font = 18
 
-let right_button = scale_button.append("g")
-  .attr("transform", "translate(-114, 0)")
+let log_button = scale_button.append("g")
+  .attr("transform", "translate(" + (-scale_button_width) +", 0)")
+
+let linear_button = scale_button.append("g")
+  .attr("transform", "translate(" + (-scale_button_width) +", " + (scale_button_height + 7) + ")")
+
+let normal_button = scale_button.append("g")
+  .attr("transform", "translate(" + (-scale_button_width) +", " + (scale_button_height + 7) * 2 + ")")
 
 
-left_button.append("rect")
-  .attr("width",114 ) 
-  .attr("height", 43)
+log_button.append("rect")
+  .attr("width", scale_button_width ) 
+  .attr("height", scale_button_height)
   .attr("fill", "#D75E5E")
   .attr("rx", 8)
 
-left_button.append("text")
+log_button.append("text")
   .text("对数比例")
-  .attr("y", "1.8em")
-  .attr("x", "1.5em")
+  .attr("text-anchor", "middle")
+  .attr("y", (scale_button_height + scale_button_font ) / 2 - 2)
+  .attr("x", scale_button_width / 2 )
   .style("fill", "white")
+  .attr("font-size", scale_button_font)
 
 
-right_button.append("rect")
-  .attr("width",114 ) 
-  .attr("height", 43)
+linear_button.append("rect")
+  .attr("width",scale_button_width ) 
+  .attr("height", scale_button_height)
   .attr("fill", "#98999A")
   .attr("rx", 8)
 
-right_button.append("text")
+linear_button.append("text")
   .text("线性比例")
-  .attr("y", "1.8em")
-  .attr("x", "1.5em")
+  .attr("text-anchor", "middle")
+  .attr("y", (scale_button_height + scale_button_font ) / 2 - 2)
+  .attr("x", scale_button_width / 2 )
   .style("fill", "white")
+  .attr("font-size", scale_button_font)
 
-left_button.on("click", function(d){
+normal_button.append("rect")
+  .attr("width",scale_button_width ) 
+  .attr("height", scale_button_height)
+  .attr("fill", "#98999A")
+  .attr("rx", 8)
+
+normal_button.append("text")
+  .text("正常比例")
+  .attr("text-anchor", "middle")
+  .attr("y", (scale_button_height + scale_button_font ) / 2 - 2)
+  .attr("x", scale_button_width / 2 )
+  .style("fill", "white")
+  .attr("font-size", scale_button_font)
+
+
+
+log_button.on("click", function(d){
   method = "log"
-  left_button.select("rect")
+  log_button.select("rect")
     .attr("fill", "#D75E5E")
-  right_button.select("rect")
+  linear_button.select("rect")
+    .attr("fill", "#98999A")
+  normal_button.select("rect")
     .attr("fill", "#98999A")
   if (!is_playing){
       update_current_step()
   }
 })
 
-right_button.on("click", function(d){
+linear_button.on("click", function(d){
   method = "linear"
-  right_button.select("rect")
-    .attr("fill", "#D75E5E")
-  left_button.select("rect")
+  log_button.select("rect")
     .attr("fill", "#98999A")
+  linear_button.select("rect")
+    .attr("fill", "#D75E5E")
+  normal_button.select("rect")
+    .attr("fill", "#98999A")
+  if (!is_playing){
+      update_current_step()
+  }
+})
+
+normal_button.on("click", function(d){
+  method = "normal"
+  log_button.select("rect")
+    .attr("fill", "#98999A")
+  linear_button.select("rect")
+    .attr("fill", "#98999A")
+  normal_button.select("rect")
+    .attr("fill", "#D75E5E")
   if (!is_playing){
       update_current_step()
   }
@@ -200,6 +244,7 @@ single_legend_contain.append("text")
     if (i === 6)
     {
       big = ""
+      return "> " + small
     }
     return small + "-" + big
   })
@@ -374,7 +419,7 @@ function update_day(day)
 
 function update_total(total_number)
 {
-  total_info.text("湖北确诊：" + total_number)
+  total_info.text("累计确诊：" + total_number)
 }
 
 function draw_day(){
@@ -401,6 +446,8 @@ function update_ncov_data(day_ncov_value, set_time = 3000){
       if (provinces[i] == "湖北")
         value_array[i] = value_array[i] * 1.5
     }
+    else if (method == "normal")
+      value_array[i] = provinces_area[provinces[i]]
     else{
       value_array[i] = day_ncov_value[i] + provinces_area[provinces[i]]/1000
     }
@@ -482,6 +529,8 @@ function update_ncov_data(day_ncov_value, set_time = 3000){
         let font_size = value_array[provinces.indexOf(d)]
         if (method == "log")
           return (font_size/10 + 1) + "em"
+        // if (method == "normal")
+        //   return "1em"
 
         return (Math.log(value_array[provinces.indexOf(d)] + 1) / 10 + 1) + "em"
       })

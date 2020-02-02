@@ -14,7 +14,7 @@ if (range == "Hubei")
 
 let current_step = 0
 
-let color_ncov = ["#FFC1BB", "#F6978E", "#D9736A", "#DF5C50", "#CF4033", '#9F3026', '#881719', '#5F0103']
+let color_ncov = ["#FFC1BB", "#F6978E", "#D9736A", "#DF5C50", "#CF4033", '#9F3026', '#881719']
 
 let provinces = ["新疆", "西藏", "内蒙古", "青海", "四川", "黑龙江", "甘肃", "云南", "广西", "湖南", "陕西", "广东", "吉林", "河北", "湖北", "贵州", "山东", "江西", "河南", "辽宁", "山西", "安徽", "福建", "浙江", "江苏", "重庆", "宁夏", "海南", "台湾", "北京", "天津", "上海", "香港", "澳门"]
 // [14,1,18,6,142,428,129,182,17,46,8,114,29,112,10,7]
@@ -67,59 +67,101 @@ let scale_button = map_svg.append('g')
     return "translate(" + map_width * 0.95 + "," + map_height * 0.08 + ")"
   })
 
-let left_button = scale_button.append("g")
-  .attr("transform", "translate(-235, 0)")
+let scale_button_width = 100
+let scale_button_height = 35
+let scale_button_font = 18
 
-let right_button = scale_button.append("g")
-  .attr("transform", "translate(-114, 0)")
+let log_button = scale_button.append("g")
+  .attr("transform", "translate(" + (-scale_button_width) +", 0)")
+
+let linear_button = scale_button.append("g")
+  .attr("transform", "translate(" + (-scale_button_width) +", " + (scale_button_height + 7) + ")")
+
+let normal_button = scale_button.append("g")
+  .attr("transform", "translate(" + (-scale_button_width) +", " + (scale_button_height + 7) * 2 + ")")
 
 
-left_button.append("rect")
-  .attr("width",114 ) 
-  .attr("height", 43)
+log_button.append("rect")
+  .attr("width", scale_button_width ) 
+  .attr("height", scale_button_height)
   .attr("fill", "#D75E5E")
   .attr("rx", 8)
 
-left_button.append("text")
+log_button.append("text")
   .text("对数比例")
-  .attr("y", "1.8em")
-  .attr("x", "1.5em")
+  .attr("text-anchor", "middle")
+  .attr("y", (scale_button_height + scale_button_font ) / 2 - 2)
+  .attr("x", scale_button_width / 2 )
   .style("fill", "white")
+  .attr("font-size", scale_button_font)
 
 
-right_button.append("rect")
-  .attr("width",114 ) 
-  .attr("height", 43)
+linear_button.append("rect")
+  .attr("width",scale_button_width ) 
+  .attr("height", scale_button_height)
   .attr("fill", "#98999A")
   .attr("rx", 8)
 
-right_button.append("text")
+linear_button.append("text")
   .text("线性比例")
-  .attr("y", "1.8em")
-  .attr("x", "1.5em")
+  .attr("text-anchor", "middle")
+  .attr("y", (scale_button_height + scale_button_font ) / 2 - 2)
+  .attr("x", scale_button_width / 2 )
   .style("fill", "white")
+  .attr("font-size", scale_button_font)
 
-left_button.on("click", function(d){
+normal_button.append("rect")
+  .attr("width",scale_button_width ) 
+  .attr("height", scale_button_height)
+  .attr("fill", "#98999A")
+  .attr("rx", 8)
+
+normal_button.append("text")
+  .text("正常比例")
+  .attr("text-anchor", "middle")
+  .attr("y", (scale_button_height + scale_button_font ) / 2 - 2)
+  .attr("x", scale_button_width / 2 )
+  .style("fill", "white")
+  .attr("font-size", scale_button_font)
+
+
+
+log_button.on("click", function(d){
   method = "log"
-  left_button.select("rect")
+  log_button.select("rect")
     .attr("fill", "#D75E5E")
-  right_button.select("rect")
+  linear_button.select("rect")
     .attr("fill", "#98999A")
-
+  normal_button.select("rect")
+    .attr("fill", "#98999A")
   if (!is_playing){
-      update_final_day()
+      update_current_step()
   }
 })
 
-right_button.on("click", function(d){
+linear_button.on("click", function(d){
   method = "linear"
-  right_button.select("rect")
-    .attr("fill", "#D75E5E")
-  left_button.select("rect")
+  log_button.select("rect")
     .attr("fill", "#98999A")
-
+  linear_button.select("rect")
+    .attr("fill", "#D75E5E")
+  normal_button.select("rect")
+    .attr("fill", "#98999A")
   if (!is_playing){
-    update_final_day()
+      update_current_step()
+  }
+})
+
+normal_button.on("click", function(d){
+  method = "normal"
+  log_button.select("rect")
+    .attr("fill", "#98999A")
+  linear_button.select("rect")
+    .attr("fill", "#98999A")
+  normal_button.select("rect")
+    .attr("fill", "#D75E5E")
+  if (!is_playing){
+      update_current_step()
   }
 })
 
@@ -155,6 +197,7 @@ single_legend_contain.append("text")
     if (i === 6)
     {
       big = ""
+      return "> " + small
     }
     return small + "-" + big
   })
@@ -163,8 +206,8 @@ single_legend_contain.append("text")
 
 
 
-function update_final_day(){
-  let ncov_value = get_value_from_someday(ncov_data, "1月" + (4 + current_step) + "日");
+function update_current_step(){
+  let ncov_value = get_value_from_someday(ncov_data, i);
   console.log(ncov_value);
   update_ncov_data(ncov_value, 500)
 }
@@ -311,9 +354,9 @@ function run_on_step(i)
   setTimeout(function(){
     if (!is_playing)
       return
-    day = "1月" + (i + 4) + "日";
+    day = get_day(i);
     console.log(day);
-    let ncov_value = get_value_from_someday(ncov_data, day);
+    let ncov_value = get_value_from_someday(ncov_data, i);
     console.log(ncov_value);
     update_ncov_data(ncov_value, 500)
     total_number = parseInt(ncov_data[34][day]) + parseInt(ncov_data[28][day]) + parseInt(ncov_data[32][day]) + parseInt(ncov_data[33][day])
@@ -327,6 +370,11 @@ function run_on_step(i)
     
     run_on_step(i + 1)
   },600)
+}
+
+function get_day(i)
+{
+  return ncov_data["columns"][i + 1]
 }
 
 function reload_map()
@@ -344,14 +392,15 @@ function update_day(day)
 
 function update_total(total_number)
 {
-  total_info.text("全国确诊：" + total_number)
+  total_info.text("累计确诊：" + total_number)
 }
 
 function draw_day(){
 
 }
 
-function get_value_from_someday(table_data, day){
+function get_value_from_someday(table_data, day_index){
+  day = get_day(day_index)
   let ncov_value = new Array()
   for (i = 0; i < provinces.length; i ++ )
   {
@@ -369,6 +418,9 @@ function update_ncov_data(day_ncov_value, set_time = 3000){
       value_array[i] = Math.log(day_ncov_value[i] + 1 ) + provinces_area[provinces[i]]/100
       if (provinces[i] == "湖北")
         value_array[i] = value_array[i] * 1.5
+    }
+    else if (method == "normal"){
+      value_array[i] = provinces_area[provinces[i]]
     }
     else{
       value_array[i] = day_ncov_value[i] + provinces_area[provinces[i]]/50
@@ -451,6 +503,8 @@ function update_ncov_data(day_ncov_value, set_time = 3000){
         let font_size = value_array[provinces.indexOf(d)]
         if (method == "log")
           return (font_size/10 + 1) + "em"
+        else if (map_width == "normal")
+          return "1.5em"
 
         return (Math.log(value_array[provinces.indexOf(d)] + 1) / 10 + 1) + "em"
         // return (value_array[provinces.indexOf(d)] /10 + 1) + "em"
@@ -470,8 +524,14 @@ function adjust_position(center, i){
   position[0] = center[0]
   position[1] = center[1]
 
-  if (provinces[i] == "香港" || provinces[i] == "澳门")
-    position[1] = center[1] + map_height * 0.05
+  if (provinces[i] == "香港"){
+    position[0] = center[0] + map_width * 0.02
+    position[1] = center[1] + map_width * 0.02
+  }
+  if (provinces[i] == "澳门"){
+    position[0] = center[0] - map_width * 0.01
+    position[1] = center[1] + map_width * 0.02
+  }
   if (provinces[i] == "内蒙古")
   {  
     position[0] = center[0] - map_width * 0.03
@@ -481,6 +541,11 @@ function adjust_position(center, i){
   {  
     position[0] = center[0] + map_width * 0.01
     position[1] = center[1] + map_height * 0.01
+  }
+  if (provinces[i] == "河北")
+  {  
+    // position[0] = center[0] + map_width * 0.01
+    position[1] = center[1] + map_height * 0.03
   }
   return position
 }
