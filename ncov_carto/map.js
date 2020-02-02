@@ -465,8 +465,10 @@ let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc
 
 
 function read_data(){
-  d3.csv("http://vis.pku.edu.cn/ncov/data/province.csv")
+  d3.csv("https://vis.pku.edu.cn/ncov/data/province.csv")
+  // d3.csv("https://disk.pku.edu.cn:443/link/E6C1C996FB2B96E0F30B35432481BF98")
     .then(function(table_data){
+      console.log("get data from github")
       ncov_data = table_data
       ncov_data = leiji_data(ncov_data)
       date.select("text").text("数据截止至" + get_day(ncov_data.columns.length - 2) + "24时")
