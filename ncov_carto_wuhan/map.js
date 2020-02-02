@@ -82,33 +82,136 @@ let nanhai_svg = map_svg.append("g")
 let texts = map_svg.append("g")
   .attr("id", "text")
 
+let title_left = map_width * 0.05
+let title_top = map_height * 0.09
+let title_font_size = "1.5em"
+
+let date_left = map_width * 0.05
+let date_top = map_height * 0.12
+let date_font_size = "1em"
+
+
+let scale_button_right = map_width * 0.95
+let scale_button_top = map_height * 0.08
+let scale_button_width = 100
+let scale_button_height = 35
+let scale_button_font = 18
+
+let legend_left = map_width * 0.05
+let legend_top = map_height * 0.3
+let legend_width = 80
+let legend_height = 18
+let legend_opacity = 0.8
+let legend_skip = 2
+
+let play_left = map_width * 0.9
+let play_top = map_height * 0.5
+let play_width = map_width * 0.05
+let play_opacity = 0.3
+
+let day_left = map_width * 0.05
+let day_top = map_height * 0.95 
+let day_size = "3em"
+
+let total_left = map_width * 0.05 
+let total_top = map_height * 0.85
+let total_font_size = "2em"
+
+// 数据来源
+let info_left = map_width * 0.75
+let info_top = map_height * 0.94
+let info_font_size = "0.7em"
+let info_top_second = map_height * 0.96
+
+let copyright_left = map_width * 0.5 - map_height * 0.1
+let copyright_top = map_height * 0.92
+let copyright_height = map_height * 0.04
+
+
+
+// 适配手机
+
+if (map_height > map_width)
+{
+  d3.select(".titleText").style("font-size", "2em")
+  title_left = map_width * 0.05
+  title_top = map_height * 0.07
+  title_font_size = map_width / 20
+
+  date_left = map_width * 0.05
+  date_top = map_height * 0.10
+  date_font_size = map_width / 40
+
+
+
+  scale_button_right = map_width * 0.95
+  scale_button_top = map_height * 0.12
+  scale_button_width = map_width / 5
+  scale_button_height = map_width / 15
+  scale_button_font = scale_button_height / 2
+
+  legend_left = title_left
+  legend_top = map_height * 0.12
+  legend_width = map_width * 0.13
+  legend_height = date_font_size * 1.2
+  legend_opacity = 0.8
+  legend_skip = 2
+
+  play_left = map_width * 0.8
+  play_top = map_height * 0.7
+  play_width = map_width * 0.1
+  play_opacity = 0.3
+
+  day_left = title_left
+  day_top = map_height * 0.8 
+  day_size = "4em"
+
+  total_left = title_left
+  total_top = map_height * 0.75
+  total_font_size = "2em"
+
+  // 数据来源
+ info_left = map_width * 0.05
+ info_top = map_height * 0.9
+ info_font_size = date_font_size
+ info_top_second = info_top + map_height * 0.02
+
+   copyright_left = map_width * 0.5 - map_height * 0.1
+   copyright_top = map_height * 0.95
+   copyright_height = map_height * 0.04
+
+}
+
+
+
 let title = map_svg.append("g")
-  .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.09  + ")")
-  .append("text")
+  .attr("transform", "translate(" + title_left + "," + title_top  + ")")
+  // change
+title.append("text")
   .text("新型冠状病毒感染肺炎疫情: 湖北省态势")
-  .attr('font-size', "1.5em")
+  .attr('font-size', title_font_size)
   .attr('text-anchor', "start")
   .style("fill", "#D75E5E")
   .style("text-decoration", "underline")
   .style("text-shadow", "-2px -2px white, 2px 2px #F6978E")
 
+
 let date = map_svg.append("g")
-  .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.12  + ")")
-  .append("text")
+  .attr("transform", "translate(" + date_left  + "," + date_top  + ")")
+  
+date.append("text")
   .text("数据截止至1月31日24时")
-  .attr('font-size', "1em")
+  .attr('font-size', date_font_size)
   .attr('text-anchor', "start")
   .style("fill", "#666")
 
 let scale_button = map_svg.append('g')
   .attr('id', "scale_button")
   .attr("transform", function(d){
-    return "translate(" + map_width * 0.95 + "," + map_height * 0.08 + ")"
+    return "translate(" + scale_button_right + "," + scale_button_top + ")"
   })
 
-let scale_button_width = 100
-let scale_button_height = 35
-let scale_button_font = 18
+
 
 let log_button = scale_button.append("g")
   .attr("transform", "translate(" + (-scale_button_width) +", 0)")
@@ -205,15 +308,11 @@ normal_button.on("click", function(d){
 })
 
 
-function update_current_step(){
-  let ncov_value = get_value_from_someday(ncov_data, current_step);
-  console.log(ncov_value);
-  update_ncov_data(ncov_value, 500)
-}
+
 
 
 let legend = map_svg.append("g")
-  .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.3  + ")")
+  .attr("transform", "translate(" + legend_left  + "," + legend_top  + ")")
 
 let single_legend_contain = legend.selectAll(".single_legend")
   .data(color_ncov)
@@ -221,16 +320,16 @@ let single_legend_contain = legend.selectAll(".single_legend")
   .append("g")
   .attr("class", "single_legend")
   .attr("transform", function(d, i){
-    return "translate(0," + i * 20 + ")"
+    return "translate(0," + i * (legend_height + legend_skip) + ")"
   })
 
 single_legend_contain.append("rect")
   .attr("fill", function(d){
     return d
   })
-  .attr("width", 80 )
-  .attr("height", 18 )
-  .attr("opacity", 0.8)
+  .attr("width", legend_width )
+  .attr("height", legend_height )
+  .attr("opacity", legend_opacity)
 
 single_legend_contain.append("text")
   .attr("transform", "translate(1, 17)")
@@ -250,6 +349,38 @@ single_legend_contain.append("text")
   })
   .style("fill", "#fff")
 
+//添加播放按钮
+
+
+
+map_svg.append("image")
+    .attr("xlink:href", "./play-button.png")
+    .attr("x", play_left)
+    .attr("y", play_top)
+    .attr("id", "play")
+    .attr("width", play_width)
+    .attr("opacity", play_opacity)
+    .on("click", function(d, i){
+      if (!is_playing){
+        console.log("continue play")
+        play_button()
+      }
+      else if (is_playing){
+        stop_button()
+      }
+    })
+
+
+
+
+map_svg.append("image")
+    .attr("xlink:href", "./icon.png")
+    .attr("x", copyright_left)
+    .attr("y", copyright_top)
+    .attr("id", "play")
+    .attr("height", copyright_height)
+
+
 
 
 // let copyright = map_svg.append("g")
@@ -261,38 +392,41 @@ single_legend_contain.append("text")
 //   .style("font-family", "Khand-Regular")
 //   .style("fill", "#444")
 
+
 let day_info = map_svg.append("g")
-  .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.95  + ")")
+  .attr("transform", "translate(" + day_left + "," + day_top + ")")
   .append("text")
   .attr("id", "day")
-  .attr('font-size', "3em")
+  .attr('font-size', day_size)
   .attr('text-anchor', "start")
   .style("fill", "#666")
 
+
+
 let total_info = map_svg.append("g")
-  .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.85  + ")")
+  .attr("transform", "translate(" + total_left  + "," + total_top + ")")
   .append("text")
   .attr("id", "day")
-  .attr('font-size', "2em")
+  .attr('font-size', total_font_size)
   .attr('text-anchor', "start")
   .style("fill", "#666")
   .text("")
 
 let data_info = map_svg.append("g")
-  .attr("transform", "translate(" + map_width * 0.75  + "," + map_height * 0.94  + ")")
+  .attr("transform", "translate(" + info_left  + "," +  info_top + ")")
   .append("text")
   .attr("id", "day")
-  .attr('font-size', "0.7em")
+  .attr('font-size', info_font_size)
   .attr('text-anchor', "start")
   .text("数据来源：国家卫生健康委员会")
   .style("fill", "#444")
   .style("text-decoration", "underline")
 
 let src_info = map_svg.append("g")
-  .attr("transform", "translate(" + map_width * 0.75  + "," + map_height * 0.96  + ")")
+  .attr("transform", "translate(" + info_left  + "," + info_top_second  + ")")
   .append("text")
   .attr("id", "day")
-  .attr('font-size', "0.7em")
+  .attr('font-size', info_font_size)
   .attr('text-anchor', "start")
   .text("变形地图库：gist.github.com/emeeks/d57083a45e60a64fe976")
   .style("fill", "#444")
@@ -300,11 +434,22 @@ let src_info = map_svg.append("g")
 
 // https://gist.github.com/emeeks/d57083a45e60a64fe976
 
+
+
+
+function update_current_step(){
+  let ncov_value = get_value_from_someday(ncov_data, current_step);
+  console.log(ncov_value);
+  update_ncov_data(ncov_value, 500)
+}
+
 let min_edge = map_width 
 if (map_height < map_width * 3/4)
 {
   min_edge = map_height * 4/3
 }
+
+
 
 let projection = d3.geoAlbers()
   .rotate([-112.78, 0])
@@ -578,8 +723,7 @@ d3.json("./hubei_city_topo.json")
     console.log(features)
 
     // add_nanhai()
-    add_play()
-
+    
     states = states.data(features)
         .enter()
         .append("path")
@@ -683,14 +827,6 @@ function get_color(value){
 
 }
 
-function add_nanhai(){
-  d3.select("#nanhai").append("image")
-    .attr("xlink:href", "./nanhai.png")
-    .attr("x", map_width * 0.8)
-    .attr("y", map_height * 0.7)
-    .attr("width", map_width * 0.1)
-    .attr("height", map_width * 0.12);
-}
 
 function add_play(){
   map_svg.append("image")
