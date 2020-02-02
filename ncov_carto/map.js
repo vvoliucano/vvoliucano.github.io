@@ -465,7 +465,7 @@ let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc
 
 
 function read_data(){
-  d3.csv("https://vis.pku.edu.cn/ncov/data/province.csv")
+  d3.csv("https://tanshaocong.github.io/2019-nCoV/data.csv")
   // d3.csv("https://disk.pku.edu.cn:443/link/E6C1C996FB2B96E0F30B35432481BF98")
     .then(function(table_data){
       console.log("get data from github")
