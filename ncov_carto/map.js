@@ -569,10 +569,13 @@ function get_value_from_someday(table_data, day_index){
   }
   return ncov_value;
 }
-function update_ncov_data(day_ncov_value, set_time = 3000){
+function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
   let value_array = new Array()//[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
   for (i = 0; i < provinces.length; i ++){
-    if (method == "log"){
+    if (initialize){
+      value_array[i] = provinces_area[provinces[i]]
+    }
+    else if (method == "log"){
       value_array[i] = Math.log(day_ncov_value[i] + 1 ) + provinces_area[provinces[i]]/100
       if (provinces[i] == "湖北")
         value_array[i] = value_array[i] * 1.5
@@ -653,12 +656,16 @@ function update_ncov_data(day_ncov_value, set_time = 3000){
         return day_ncov_value[provinces.indexOf(d)]
       })
       .attr("fill-opacity", function(d,i){
+        if (initialize)
+          return 0
         if (day_ncov_value[provinces.indexOf(d)] == 0)
           return 0
         return 1
       })
       .attr("font-size", function(d, i){
         let font_size = value_array[provinces.indexOf(d)]
+        if (initialize)
+          return "1.5em"
         if (method == "log")
           return (font_size/10 + 1) + "em"
         else if (map_width == "normal")
@@ -671,6 +678,8 @@ function update_ncov_data(day_ncov_value, set_time = 3000){
 
   province_name.selectAll(".province_name")
       .attr("fill-opacity", function(d, i){
+        if (initialize)
+          return 1
         if (day_ncov_value[provinces.indexOf(d)] == 0)
           return 0
         return 1
@@ -858,8 +867,10 @@ function play_button(){
   is_playing = true
   console.log("enter play")
   d3.select("#play").attr("xlink:href", "./stop-button.png")
-  if (current_step == ncov_data["columns"].length - 2)
+  if (current_step == ncov_data["columns"].length - 2){
+    initialize()
     run_on_step(0)
+  }
   else
     run_on_step(current_step + 1)
 }
@@ -874,3 +885,13 @@ function sleep(delay) {
 Array.prototype.insert = function (index, item) {
   this.splice(index, 0, item);
 };
+
+function initialize(set_time = 500)
+{
+
+  let ncov_value = get_value_from_someday(ncov_data, current_step);
+  console.log(ncov_value);
+  update_ncov_data(ncov_value, set_time, true)
+
+}
+
