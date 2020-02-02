@@ -452,7 +452,7 @@ if (map_height < map_width * 3/4)
 
 
 let projection = d3.geoAlbers()
-  .rotate([-112.58, 0])
+  .rotate([-112.38, 0])
   .center([-0, 31])
   .scale(min_edge * 8)
   .translate([map_width / 2, map_height / 2])
