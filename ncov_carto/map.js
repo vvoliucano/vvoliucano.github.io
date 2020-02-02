@@ -167,7 +167,6 @@ let date = map_svg.append("g")
   .attr("transform", "translate(" + date_left  + "," + date_top  + ")")
   
 date.append("text")
-  .text("数据截止至1月31日24时")
   .attr('font-size', date_font_size)
   .attr('text-anchor', "start")
   .style("fill", "#666")
@@ -466,18 +465,32 @@ let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc
 
 
 function read_data(){
-  d3.csv("0130.csv")
+  d3.csv("data.csv")
     .then(function(table_data){
       ncov_data = table_data
+      ncov_data = leiji_data(ncov_data)
+      date.select("text").text("数据截止至" + get_day(ncov_data.columns.length - 2) + "24时")
       window._table_data = table_data
       console.log(table_data)
       play(table_data)
       
-
+      
       // setTimeout(function(){
       //    update_ncov_data()
       // },3000)
     })
+}
+
+function leiji_data(ncov_data)
+{
+  for (i = 0; i < provinces.length; i ++)
+  {
+    for (j = 2; j < ncov_data.columns.length; j ++)
+    {
+      ncov_data[i][ncov_data.columns[j]] = parseInt(ncov_data[i][ncov_data.columns[j]]) + parseInt(ncov_data[i][ncov_data.columns[j - 1]])
+    }
+  }
+  return ncov_data
 }
 
 function play(table_data)
@@ -517,8 +530,13 @@ function run_on_step(i)
     let ncov_value = get_value_from_someday(ncov_data, i);
     console.log(ncov_value);
     update_ncov_data(ncov_value, 500)
-    total_number = parseInt(ncov_data[34][day]) + parseInt(ncov_data[28][day]) + parseInt(ncov_data[32][day]) + parseInt(ncov_data[33][day])
-    console.log(total_number)
+    let total_number = 0
+    for (j = 0 ; j < provinces.length; j ++)
+    {
+      // console.log(get_day(i))
+      total_number = total_number + parseInt(ncov_data[j][get_day(i)])
+    }
+    console.log("total_number", total_number)
     update_total(total_number)
     update_day(day)
     current_step = i
@@ -799,7 +817,7 @@ function get_centroid(coords){
     if (coords.split("]]][[[").length > 1 ){
       coords = coords.split("]]][[[")[0] + "]]]"
     }
-    console.log(coords)
+    // console.log(coords)
     return d3.geoPath().centroid({
       "type":"Feature",
       "geometry":{"type":"Polygon","coordinates":JSON.parse(coords)}
