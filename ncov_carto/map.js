@@ -664,7 +664,7 @@ function add_nanhai(){
   d3.select("#nanhai").append("image")
     .attr("xlink:href", "./nanhai.png")
     .attr("x", map_width * 0.8)
-    .attr("y", map_height * 0.7)
+    .attr("y", map_height * 0.67)
     .attr("width", map_width * 0.1)
     .attr("height", map_width * 0.12);
 }
