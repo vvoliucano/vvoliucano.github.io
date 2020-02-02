@@ -464,8 +464,10 @@ let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc
 
 
 
-function read_data(){
-  d3.csv("https://tanshaocong.github.io/2019-nCoV/data.csv")
+function read_data(url = "https://tanshaocong.github.io/2019-nCoV/data.csv"){
+  d3.csv(url)
+  //   http://vis.pku.edu.cn/ncov/data/province.csv
+  // https://tanshaocong.github.io/2019-nCoV/data.csv
   // d3.csv("https://disk.pku.edu.cn:443/link/E6C1C996FB2B96E0F30B35432481BF98")
     .then(function(table_data){
       console.log("get data from github")
@@ -480,6 +482,11 @@ function read_data(){
       // setTimeout(function(){
       //    update_ncov_data()
       // },3000)
+    })
+    .catch(function(error){
+     // handle error
+     console.log('read from local data')
+      read_data("data.csv")
     })
 }
 
@@ -803,10 +810,6 @@ d3.json("china.json")
     texts.append("text")
       .attr("class", "province_number")
       .attr("text-anchor", "middle")
-
-      
-    
-
 
     read_data()
   })
