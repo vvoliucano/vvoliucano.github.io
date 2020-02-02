@@ -156,7 +156,7 @@ normal_button.append("rect")
   .attr("rx", 8)
 
 normal_button.append("text")
-  .text("正常比例")
+  .text("面积固定")
   .attr("text-anchor", "middle")
   .attr("y", (scale_button_height + scale_button_font ) / 2 - 2)
   .attr("x", scale_button_width / 2 )
