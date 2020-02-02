@@ -44,7 +44,7 @@ let texts = map_svg.append("g")
 let title = map_svg.append("g")
   .attr("transform", "translate(" + map_width * 0.05  + "," + map_height * 0.09  + ")")
   .append("text")
-  .text("新型冠状病毒感染肺炎疫情: 全国态势感知")
+  .text("新型冠状病毒感染肺炎疫情: 全国态势")
   .attr('font-size', "1.5em")
   .attr('text-anchor', "start")
   .style("fill", "#D75E5E")
@@ -207,7 +207,7 @@ single_legend_contain.append("text")
 
 
 function update_current_step(){
-  let ncov_value = get_value_from_someday(ncov_data, i);
+  let ncov_value = get_value_from_someday(ncov_data, current_step);
   console.log(ncov_value);
   update_ncov_data(ncov_value, 500)
 }
@@ -630,7 +630,7 @@ function get_centroid(coords){
     if (coords.split("]]][[[").length > 1 ){
       coords = coords.split("]]][[[")[0] + "]]]"
     }
-    // console.log(coords)
+    console.log(coords)
     return d3.geoPath().centroid({
       "type":"Feature",
       "geometry":{"type":"Polygon","coordinates":JSON.parse(coords)}
