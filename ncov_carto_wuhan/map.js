@@ -869,7 +869,9 @@ function play_button(){
   d3.select("#play").attr("xlink:href", "./stop-button.png")
   if (current_step == ncov_data[0].length - 2){
     initialize()
-    run_on_step(0)
+    setTimeout(function(){
+         run_on_step(0)
+    },2000)
   }
   else
     run_on_step(current_step + 1)

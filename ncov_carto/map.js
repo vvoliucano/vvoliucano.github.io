@@ -632,6 +632,8 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
   duration_contain.selectAll(".state")
       .attr("d", carto.path)
       .attr("fill", function(d, i){
+        if (initialize)
+          return get_color(0)
           // let city_index = parseInt(d.properties.id[3]) - 1
           let value = day_ncov_value[i];
           return get_color(value)
@@ -869,7 +871,10 @@ function play_button(){
   d3.select("#play").attr("xlink:href", "./stop-button.png")
   if (current_step == ncov_data["columns"].length - 2){
     initialize()
-    run_on_step(0)
+    setTimeout(function(){
+         run_on_step(0)
+    },2000)
+    
   }
   else
     run_on_step(current_step + 1)
