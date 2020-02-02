@@ -244,7 +244,7 @@ single_legend_contain.append("text")
     if (i === 6)
     {
       big = ""
-      return "> " + small
+      return "> " + (small - 1)
     }
     return small + "-" + big
   })
