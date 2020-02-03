@@ -820,6 +820,9 @@ d3.json("./hubei_city_topo.json")
         date.select("text").text("数据截止至 " + update_time[0]["time"])
 
       })
+      .catch(function(error){
+        date.select("text").text("数据截止至" + get_day(ncov_data[0].length - 2) + "24时")
+      })
       // date.select("text").text("数据截止至" + get_day(ncov_data[0].length - 2) + "24时")
       play(ncov_data)
     })

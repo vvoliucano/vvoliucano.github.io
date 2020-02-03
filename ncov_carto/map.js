@@ -479,6 +479,9 @@ function read_data(url = "https://tanshaocong.github.io/2019-nCoV/data.csv"){
         date.select("text").text("数据截止至 " + update_time[0]["time"])
 
       })
+      .catch(function(error){
+        date.select("text").text("数据截止至" + get_day(ncov_data.columns.length - 2) + "24时")
+      })
       // date.select("text").text("数据截止至" + get_day(ncov_data.columns.length - 2) + "24时")
       window._table_data = table_data
       console.log(table_data)
