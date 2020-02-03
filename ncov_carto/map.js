@@ -23,7 +23,7 @@ let map_margin = {left: 0, right: 0, top: 0, bottom: 0}
 let map_width = document.getElementById('map').clientWidth - map_margin.left - map_margin.right,
     map_height = document.getElementById('map').clientHeight - map_margin.top - map_margin.bottom;
 
-
+let total_number_list 
 let map_svg = d3.select("#map").append("svg")
   .attr("id", "fujian_map")
   .attr("font-family", "Arial")
@@ -465,12 +465,12 @@ let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc
 
 
 function read_data(url = "https://tanshaocong.github.io/2019-nCoV/data.csv"){
-  d3.csv(url)
+  d3.csv("data.csv")
   //   http://vis.pku.edu.cn/ncov/data/province.csv
   // https://tanshaocong.github.io/2019-nCoV/data.csv
   // d3.csv("https://disk.pku.edu.cn:443/link/E6C1C996FB2B96E0F30B35432481BF98")
     .then(function(table_data){
-      console.log("get data from github")
+      console.log("table", table_data)
       ncov_data = table_data
       ncov_data = leiji_data(ncov_data)
       date.select("text").text("数据截止至" + get_day(ncov_data.columns.length - 2) + "24时")
@@ -499,6 +499,9 @@ function leiji_data(ncov_data)
     {
       ncov_data[i][ncov_data.columns[j]] = parseInt(ncov_data[i][ncov_data.columns[j]]) + parseInt(ncov_data[i][ncov_data.columns[j - 1]])
     }
+  }
+  if (ncov_data.length > provinces.length){
+    total_number_list = ncov_data[provinces.length]
   }
   return ncov_data
 }
@@ -546,9 +549,17 @@ function run_on_step(i)
       // console.log(get_day(i))
       total_number = total_number + parseInt(ncov_data[j][get_day(i)])
     }
-    if (ncov_value.hasOwnProperty(provinces.length))
-      total_number = parseInt(ncov_data[provinces.length][get_day(i)])
+    if (ncov_data.hasOwnProperty(provinces.length)){
+      if (ncov_data[provinces.length].hasOwnProperty(get_day(i)))
+        if (ncov_data[provinces.length][get_day(i)] != ""){
+          total_number = parseInt(ncov_data[provinces.length][get_day(i)])
+
+        }
+    }
     console.log("total_number", total_number)
+    
+    // if (ncov_data[provinces.length][get_day(i)] != "")
+    //   total_number = ncov_data[provinces.length][get_day(i)]
     update_total(total_number)
     update_day(day)
     current_step = i
@@ -580,6 +591,7 @@ function update_day(day)
 
 function update_total(total_number)
 {
+  console.log(total_number)
   total_info.text("累计确诊：" + total_number)
 }
 
