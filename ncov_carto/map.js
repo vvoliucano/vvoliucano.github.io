@@ -473,7 +473,13 @@ function read_data(url = "https://tanshaocong.github.io/2019-nCoV/data.csv"){
       console.log("table", table_data)
       ncov_data = table_data
       ncov_data = leiji_data(ncov_data)
-      date.select("text").text("数据截止至" + get_day(ncov_data.columns.length - 2) + "24时")
+      d3.csv("https://tanshaocong.github.io/2019-nCoV/time.csv")
+      .then(function(update_time){
+        console.log(update_time[0]["time"])
+        date.select("text").text("数据截止至 " + update_time[0]["time"])
+
+      })
+      // date.select("text").text("数据截止至" + get_day(ncov_data.columns.length - 2) + "24时")
       window._table_data = table_data
       console.log(table_data)
       play(table_data)

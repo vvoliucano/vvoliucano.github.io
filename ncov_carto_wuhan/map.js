@@ -803,15 +803,24 @@ d3.json("./hubei_city_topo.json")
       // window._table_data = table_data
       // console.log(table_data)
 
-    d3.csv("https://tanshaocong.github.io/2019-nCoV/detail.csv")
+    // d3.csv("https://tanshaocong.github.io/2019-nCoV/detail.csv")
+    url = "https://tanshaocong.github.io/2019-nCoV/hubei.csv"
+    d3.csv(url)
     .then(function(data){
       // a = data[1000]
+      console.log(url)
       modify_city_name()
       console.log("old", ncov_data)
       ncov_data = convert_data(data)
       modify_city_name() 
       console.log("new", ncov_data)
-      date.select("text").text("数据截止至" + get_day(ncov_data[0].length - 2) + "24时")
+      d3.csv("https://tanshaocong.github.io/2019-nCoV/time.csv")
+      .then(function(update_time){
+        console.log(update_time[0]["time"])
+        date.select("text").text("数据截止至 " + update_time[0]["time"])
+
+      })
+      // date.select("text").text("数据截止至" + get_day(ncov_data[0].length - 2) + "24时")
       play(ncov_data)
     })
     .catch(function(error){
@@ -852,7 +861,7 @@ function get_centroid(coords){
     if (coords.split("]]][[[").length > 1 ){
       coords = coords.split("]]][[[")[0] + "]]]"
     }
-    console.log(coords)
+    // console.log(coords)
     return d3.geoPath().centroid({
       "type":"Feature",
       "geometry":{"type":"Polygon","coordinates":JSON.parse(coords)}
