@@ -546,6 +546,8 @@ function run_on_step(i)
       // console.log(get_day(i))
       total_number = total_number + parseInt(ncov_data[j][get_day(i)])
     }
+    if (ncov_value.hasOwnProperty(provinces.length))
+      total_number = parseInt(ncov_data[provinces.length][get_day(i)])
     console.log("total_number", total_number)
     update_total(total_number)
     update_day(day)
