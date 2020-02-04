@@ -44,13 +44,7 @@ function modify_city_name()
 {
   for (let i = 0; i < ncov_data.length; i ++ )
   {
-    if (ncov_data[i][0].indexOf("市") > -1)
-      ncov_data[i][0] = ncov_data[i][0].replace("市", "")
-    else if (ncov_data[i][0].indexOf("州") > -1)
-      ncov_data[i][0] = ncov_data[i][0].replace("州", "")
-    else if (ncov_data[i][0].indexOf("林区") > -1)
-      ncov_data[i][0] = ncov_data[i][0].replace("林区", "")
-
+    // ncov_data[i][0] = modify_name(ncov_data[i][0])
     for (let j = 2; j < ncov_data[i].length; j ++ )
       ncov_data[i][j] = ncov_data[i][j - 1] + ncov_data[i][j]
   }
@@ -804,7 +798,7 @@ d3.json("./hubei_city_topo.json")
       // console.log(table_data)
 
     // d3.csv("https://tanshaocong.github.io/2019-nCoV/detail.csv")
-    url = "https://tanshaocong.github.io/2019-nCoV/hubei.csv"
+    url = "https://tanshaocong.github.io/2019-nCoV/map.csv"
     d3.csv(url)
     .then(function(data){
       // a = data[1000]
@@ -995,22 +989,32 @@ function convert_data(data){
     for (i = 0; i < item_number; i ++)
     {
       let current_item = data[i]
+      if (current_item["类别"] != "地区级")
+        continue
       if (current_item["省份"] != "湖北")
         continue
-      let city_name = current_item["城市"]
+      let city_name = current_item["城市"].replace("市", "").replace("恩施州", "恩施").replace("林", "").replace("林区", "")
       if (!new_data.hasOwnProperty(city_name))
         new_data[city_name] = new Array()
-      if (!new_data[city_name].hasOwnProperty(current_item["公开时间"]))
-        new_data[city_name][current_item["公开时间"]] = parseInt(current_item["新增确诊病例"])
+      let new_add = current_item["新增确诊病例"]
+      if (new_add === "")
+        new_add = 0
+      else 
+        new_add = parseInt(new_add)
+
+      if (!new_data[city_name].hasOwnProperty(current_item["公开时间"])){
+
+        new_data[city_name][current_item["公开时间"]] = new_add
+      }
       else {
-        new_data[city_name][current_item["公开时间"]] += parseInt(current_item["新增确诊病例"])
+        new_data[city_name][current_item["公开时间"]] += new_add
         // if (parseInt(current_item["新增确诊病例"]) > new_data[city_name][current_item["公开时间"]])
         //   new_data[city_name][current_item["公开时间"]] = parseInt(current_item["新增确诊病例"])
       }
       if (date_list.indexOf(current_item["公开时间"]) === -1)
         date_list.push(current_item["公开时间"])
     }
-    console.log(new_data)
+    console.log("new_data ", new_data)
     date_list = date_list.sort()
     console.log(date_list)
     begin_date = get_day_index(date_list[0])
@@ -1028,8 +1032,8 @@ function convert_data(data){
       table_data[i][0] = city_list[i]
       for (j = 0; j < diff_day + 1; j ++)
       {
-        if (new_data[city_list[i]].hasOwnProperty(get_day(j + 1)))
-          table_data[i][j + 1] = new_data[city_list[i]][get_day(j + 1)]
+        if (new_data[city_list[i]].hasOwnProperty(get_day(j)))
+          table_data[i][j + 1] = new_data[city_list[i]][get_day(j)]
         else table_data[i][j + 1] = 0
       }
       // for (j = 1; j < )
@@ -1039,4 +1043,14 @@ function convert_data(data){
     return table_data
 }
 
+function modify_name(city_name){
+  let new_name 
+  if (city_name.indexOf("市") > -1)
+    new_name = city_name.replace("市", "")
+  else if (city_name.indexOf("州") > -1)
+    new_name = city_name.replace("州", "")
+  else if (city_name.indexOf("林区") > -1)
+    new_name = city_name.replace("林区", "")
+  return new_name
+}
 
