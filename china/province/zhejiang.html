@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+  <style>
+
+ /* @font-face {
+            font-family: Khand-Regular;
+            src: url(./font/Khand-Regular.ttf)
+  }*/
+/*  @font-face {
+      font-family: PingFang-SC;
+      src: url(./font/PingFang-SC-Regular.ttf)
+  }
+*/
+  .chart .background {
+    fill: #ddd;
+    /* stroke: #777; */
+  }
+  /* .chart .foreground.selected {
+    fill: #41b6c4;
+    opacity: 1;
+  } */
+  .chart .foreground {
+    fill: #41b6c4;
+    opacity: 1;
+  }
+
+  .province_number {
+    text-shadow: -2px -2px white, 2px 2px #F6978E
+  }
+  .province_name {
+    text-shadow: -1px -1px white, 1px 1px #444
+  }
+
+  text{
+    fill: #777;
+    font-family: PingFangSC-Regular, Khand-Regular;
+  }
+
+
+  .hexTooltip {
+    position: absolute;
+    display: none;
+    pointer-events: none;
+    background: #fff;
+    padding: 5px;
+    text-align: left;
+    border: solid #ccc 1px;
+    color: #666;
+    font-size: 14px;
+    font-family: sans-serif;
+  }
+  .kuang {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .fix_hex.highlight path{
+    stroke:#41b6c4;
+    stroke-width: 2
+  }
+
+  .hex.highlight path{
+    stroke: #41b6c4;
+    stroke-width: 2
+  }
+
+  .box.highlight rect{
+    stroke: #41b6c4;
+    stroke-width: 2
+  }
+
+  .fix_hex path{
+    fill-opacity: 0.2;
+  }
+
+  .hex path{
+    fill-opacity: 0.2;
+
+  }
+
+  .box rect{
+    fill-opacity: 0.2;
+  }
+
+  .fix_hex.selected path{
+    stroke-width: 2;
+    fill-opacity: 0.8;
+  }
+
+  .hex.selected path{
+    stroke-width: 2;
+    fill-opacity: 0.8;
+  }
+
+  .box.selected rect{
+    stroke-width: 2;
+    fill-opacity: 0.8;
+  }
+  .title_text{
+      font-size: 30;
+      fill: #ffffff;
+      fill-opacity: .4;
+  }
+  #header{
+      position: absolute;
+      top:0%;
+      left:0%;
+      width:100%;
+      height:6%;
+      border:.2vmin solid rgb(60,60,60);
+      background:rgb(40,40,40);
+  } 
+  #floor {            
+      clear: both;
+      display: block;
+      text-align: center; 
+      margin: 0px auto;
+      position: absolute;
+      bottom: 2.5%;
+      width: 30%;
+      left: 35%;
+      color: rgb(60,60,60);
+      font-family: Khand-Regular;
+  }
+
+
+  </style>
+	<head>
+    <title>浙江疫情态势</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+    <!-- <div id = "header"  style="position: absolute; top: 0%; left: 0%; width: 100%; height: 5%; margin: 0px; padding: 0px; background:#000; color:#ddd; font-family: PingFang-SC; font-size: 1.8em">
+      <text class="titleText">北京大学 nCoV 可视分析系列</div>
+    </div> -->
+    <div id = "map"  style="position: absolute; top: 0%; left: 0%; width: 100%; height: 100%; margin: 0px; padding: 0px; ">
+    </div>
+<!--     <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" right=0 width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26655232&auto=1&height=66"></iframe> -->
+    <!-- <div id="floor" >
+        <img id="icon_img" height = 30px; " src="./icon.png"/>
+    </div> -->
+<!--
+		<div id="legendholder">
+		  <button id="click_to_run" onclick="do_update()">View by Population</button>
+		  <button id="click_to_normal" onclick="do_normal()">View Normal</button>
+		</div> -->
+
+		<div id="map-wrapper"></div>
+
+		<script src="../js/d3.min.js"></script>
+		<script src="../js/topojson.js"></script>
+		<script src="../js/cartogram.js"></script>
+    <!-- <script src="global.js"></script> -->
+    <!-- <script src="chart.js"></script> -->
+    <!-- <script src="update_all.js"></script> -->
+    <script>
+      let simple_province_name = "浙江"
+    </script>
+    <script src="../js/map.js"></script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?0a45d805b343c96ec6d61409732b13fe";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7b87692d3143f56bc2a1daa48fe0c3dd";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ab5fde9ca174d44b81b9d73b58218d14";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+	</body>
+</html>

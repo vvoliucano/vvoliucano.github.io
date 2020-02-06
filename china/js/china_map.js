@@ -15,8 +15,9 @@ if (range == "Hubei")
 let current_step = 0
 
 let color_ncov = ["#FFC1BB", "#F6978E", "#D9736A", "#DF5C50", "#CF4033", '#9F3026', '#881719']
-
+let pinyin = {"天津": "tianjin", "上海": "shanghai", "重庆": "chongqing", "河北": "hebei", "山西": "shanxi", "辽宁": "liaoning", "吉林": "jilin", "黑龙江": "heilongjiang", "江苏": "jiangsu", "浙江": "zhejiang", "安徽": "anhui", "福建": "fujian", "江西": "jiangxi", "山东": "shandong", "河南": "henan", "湖北": "hubei", "湖南": "hunan", "广东": "guangdong", "海南": "hainan", "四川": "sichuan", "贵州": "guizhou", "云南": "yunnan", "陕西": "shaanxi", "甘肃": "gansu", "青海": "qinghai", "台湾": "taiwan", "内蒙古": "neimenggu", "广西": "guangxi", "西藏": "xizang", "宁夏": "ningxia", "新疆": "xinjiang", "香港": "xianggang", "澳门": "aomen"}
 let provinces = ["新疆", "西藏", "内蒙古", "青海", "四川", "黑龙江", "甘肃", "云南", "广西", "湖南", "陕西", "广东", "吉林", "河北", "湖北", "贵州", "山东", "江西", "河南", "辽宁", "山西", "安徽", "福建", "浙江", "江苏", "重庆", "宁夏", "海南", "台湾", "北京", "天津", "上海", "香港", "澳门"]
+let direct_city = ["台湾", "北京", "天津", "上海", "香港", "澳门", "重庆"]
 // [14,1,18,6,142,428,129,182,17,46,8,114,29,112,10,7]
 let provinces_area = {"新疆": 166.49, "西藏": 122.84, "内蒙古": 118.3, "青海": 72, "四川": 48.5, "黑龙江": 47.3, "甘肃": 45.5, "云南": 39.4, "广西": 23.63, "湖南": 21.18, "陕西": 20.58, "河北": 19, "吉林": 18.74, "湖北": 18.59, "广东": 17.98, "贵州": 17.62, "河南": 16.7, "江西": 16.69, "山东": 15.7, "山西": 15.6, "辽宁": 14.57, "安徽": 13.96, "福建": 12.14, "江苏": 10.26, "浙江": 10.18, "重庆": 8.3, "宁夏": 6.64, "台湾": 3.62, "海南": 3.392, "北京": 1.6807, "天津": 1.13, "上海": 0.634, "香港": 0.1098, "澳门": 0.0254}
 let map_margin = {left: 0, right: 0, top: 0, bottom: 0}
@@ -320,7 +321,7 @@ single_legend_contain.append("text")
 
 
 map_svg.append("image")
-    .attr("xlink:href", "./play-button.png")
+    .attr("xlink:href", "./image/play-button.png")
     .attr("x", play_left)
     .attr("y", play_top)
     .attr("id", "play")
@@ -340,7 +341,7 @@ map_svg.append("image")
 
 
 map_svg.append("image")
-    .attr("xlink:href", "./icon.png")
+    .attr("xlink:href", "./image/icon.png")
     .attr("x", copyright_left)
     .attr("y", copyright_top)
     .attr("id", "play")
@@ -521,7 +522,7 @@ function leiji_data(ncov_data)
 function play(table_data)
 {
   is_playing = true
-  d3.select("#play").attr("xlink:href", "./stop-button.png")
+  d3.select("#play").attr("xlink:href", "./image/stop-button.png")
 
   run_on_step(0)
   // for (let i = 4; i < ncov_data; i ++){
@@ -774,7 +775,7 @@ function adjust_position(center, i){
 }
 
 
-d3.json("china.json")
+d3.json("china-topojson/china.json")
   .then(function(data){
     topology = data;
     geometries = topology.objects.states.geometries;
@@ -809,6 +810,7 @@ d3.json("china.json")
         .attr("stroke", "#fff")
         .attr("stroke-width", "2px")
         .attr("fill-opacity", 0.9)
+        .attr("pointer-events", "none");
     
     texts = texts.selectAll(".name")
       .data(provinces)
@@ -825,6 +827,10 @@ d3.json("china.json")
       .attr("id", function(d, i){
         return "province_name_" + i
       })
+      .on("click", function(d, i){
+        jump_to_province(i)
+      })
+
 
     texts.append("text")
       .attr("class", "province_name")
@@ -843,6 +849,17 @@ d3.json("china.json")
      // handle error
   })
 
+function jump_to_province(i){
+  pv_name = provinces[i]
+  if (direct_city.indexOf(pv_name) >= 0)
+  {
+    alert("直辖市、港澳台暂不提供分省试图")
+    return 
+  }
+  pinyin_pv_name = pinyin[pv_name]
+  console.log(pinyin_pv_name)
+  window.location = "province/" + pinyin_pv_name + ".html"
+}
 
 function get_centroid(coords){
     coords = coords.replace(/ *[LC] */g,'],[').replace(/ *M */g,'[[[').replace(/ *Z */g,']]]').replace(/ *z */g,']]]').replace(/ /g,'],[');
@@ -883,7 +900,7 @@ function get_color(value){
 
 function add_nanhai(){
   d3.select("#nanhai").append("image")
-    .attr("xlink:href", "./nanhai.png")
+    .attr("xlink:href", "./image/nanhai.png")
     .attr("x", nanhai_left)
     .attr("y", nanhai_top)
     .attr("width", nanhai_width)
@@ -892,7 +909,7 @@ function add_nanhai(){
 
 function add_play(){
   map_svg.append("image")
-    .attr("xlink:href", "./play-button.png")
+    .attr("xlink:href", "./image/play-button.png")
     .attr("id", "play")
     .attr("x", map_width * 0.9)
     .attr("y", map_height * 0.5)
@@ -912,13 +929,13 @@ function add_play(){
 
 function stop_button(){
   is_playing = false
-  d3.select("#play").attr("xlink:href", "./play-button.png")
+  d3.select("#play").attr("xlink:href", "./image/play-button.png")
 }
 
 function play_button(){
   is_playing = true
   console.log("enter play")
-  d3.select("#play").attr("xlink:href", "./stop-button.png")
+  d3.select("#play").attr("xlink:href", "./image/stop-button.png")
   if (current_step == ncov_data["columns"].length - 2){
     initialize()
     setTimeout(function(){

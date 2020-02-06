@@ -320,7 +320,7 @@ single_legend_contain.append("text")
 
 
 map_svg.append("image")
-    .attr("xlink:href", "./play-button.png")
+    .attr("xlink:href", "./image/play-button.png")
     .attr("x", play_left)
     .attr("y", play_top)
     .attr("id", "play")
@@ -340,7 +340,7 @@ map_svg.append("image")
 
 
 map_svg.append("image")
-    .attr("xlink:href", "./icon.png")
+    .attr("xlink:href", "./image/icon.png")
     .attr("x", copyright_left)
     .attr("y", copyright_top)
     .attr("id", "play")
@@ -521,7 +521,7 @@ function leiji_data(ncov_data)
 function play(table_data)
 {
   is_playing = true
-  d3.select("#play").attr("xlink:href", "./stop-button.png")
+  d3.select("#play").attr("xlink:href", "./image/stop-button.png")
 
   run_on_step(0)
   // for (let i = 4; i < ncov_data; i ++){
@@ -774,7 +774,7 @@ function adjust_position(center, i){
 }
 
 
-d3.json("china.json")
+d3.json("china-topojson/china.json")
   .then(function(data){
     topology = data;
     geometries = topology.objects.states.geometries;
@@ -883,7 +883,7 @@ function get_color(value){
 
 function add_nanhai(){
   d3.select("#nanhai").append("image")
-    .attr("xlink:href", "./nanhai.png")
+    .attr("xlink:href", "./image/nanhai.png")
     .attr("x", nanhai_left)
     .attr("y", nanhai_top)
     .attr("width", nanhai_width)
@@ -892,7 +892,7 @@ function add_nanhai(){
 
 function add_play(){
   map_svg.append("image")
-    .attr("xlink:href", "./play-button.png")
+    .attr("xlink:href", "./image/play-button.png")
     .attr("id", "play")
     .attr("x", map_width * 0.9)
     .attr("y", map_height * 0.5)
@@ -912,13 +912,13 @@ function add_play(){
 
 function stop_button(){
   is_playing = false
-  d3.select("#play").attr("xlink:href", "./play-button.png")
+  d3.select("#play").attr("xlink:href", "./image/play-button.png")
 }
 
 function play_button(){
   is_playing = true
   console.log("enter play")
-  d3.select("#play").attr("xlink:href", "./stop-button.png")
+  d3.select("#play").attr("xlink:href", "./image/stop-button.png")
   if (current_step == ncov_data["columns"].length - 2){
     initialize()
     setTimeout(function(){
