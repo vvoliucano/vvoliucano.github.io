@@ -1,8 +1,24 @@
 
-let need_update_states = false
-let method = "log"
-// let method = "linear"
+let need_update_states = false;
+let method = "log";
+// let method = "linear";
 
+
+let small_index = 50;
+let last_ncov_value
+let ncov_value
+let for_yangshi = false
+let legend_index = 20
+if (for_yangshi)
+{
+  method = "normal"
+}
+if (change_mode === 'add')
+{
+  for_yangshi = false
+  small_index = 5
+}
+let defalt_method = method
 let range = "China"
 let block_num = 34
 let is_playing = true
@@ -13,11 +29,15 @@ if (range == "Hubei")
   block_num = 17
 
 let current_step = 0
+let from_last = true
+if (for_yangshi || from_last)
+  current_step = 28
 
 let color_ncov = ["#FFC1BB", "#F6978E", "#D9736A", "#DF5C50", "#CF4033", '#9F3026', '#881719']
-let pinyin = {"天津": "tianjin", "上海": "shanghai", "重庆": "chongqing", "河北": "hebei", "山西": "shanxi", "辽宁": "liaoning", "吉林": "jilin", "黑龙江": "heilongjiang", "江苏": "jiangsu", "浙江": "zhejiang", "安徽": "anhui", "福建": "fujian", "江西": "jiangxi", "山东": "shandong", "河南": "henan", "湖北": "hubei", "湖南": "hunan", "广东": "guangdong", "海南": "hainan", "四川": "sichuan", "贵州": "guizhou", "云南": "yunnan", "陕西": "shaanxi", "甘肃": "gansu", "青海": "qinghai", "台湾": "taiwan", "内蒙古": "neimenggu", "广西": "guangxi", "西藏": "xizang", "宁夏": "ningxia", "新疆": "xinjiang", "香港": "xianggang", "澳门": "aomen"}
+let pinyin = {"北京": "beijing", "天津": "tianjin", "上海": "shanghai", "重庆": "chongqing", "河北": "hebei", "山西": "shanxi", "辽宁": "liaoning", "吉林": "jilin", "黑龙江": "heilongjiang", "江苏": "jiangsu", "浙江": "zhejiang", "安徽": "anhui", "福建": "fujian", "江西": "jiangxi", "山东": "shandong", "河南": "henan", "湖北": "hubei", "湖南": "hunan", "广东": "guangdong", "海南": "hainan", "四川": "sichuan", "贵州": "guizhou", "云南": "yunnan", "陕西": "shaanxi", "甘肃": "gansu", "青海": "qinghai", "台湾": "taiwan", "内蒙古": "neimenggu", "广西": "guangxi", "西藏": "xizang", "宁夏": "ningxia", "新疆": "xinjiang", "香港": "xianggang", "澳门": "aomen"}
+let full_province_name = {"天津": "天津市", "上海": "上海市", "重庆": "重庆市", "河北": "河北省", "山西": "陕西省", "辽宁": "辽宁省", "北京": "北京市", "吉林": "吉林省", "黑龙江": "黑龙江省", "江苏": "江苏省", "浙江": "浙江省", "安徽": "安徽省", "福建": "福建省", "江西": "江西省", "山东": "山东省", "河南": "河南省", "湖北": "湖北省", "湖南": "湖南省", "广东": "广东省", "海南": "海南省", "四川": "四川省", "贵州": "贵州省", "云南": "云南省", "陕西": "陕西省", "甘肃": "甘肃省", "青海": "青海省", "台湾": "台湾省", "内蒙古": "内蒙古自治区", "广西": "广西壮族自治区", "西藏": "西藏自治区", "宁夏": "宁夏回族自治区", "新疆": "新疆维吾尔自治区", "香港": "香港特别行政区", "澳门": "澳门特别行政区"}
 let provinces = ["新疆", "西藏", "内蒙古", "青海", "四川", "黑龙江", "甘肃", "云南", "广西", "湖南", "陕西", "广东", "吉林", "河北", "湖北", "贵州", "山东", "江西", "河南", "辽宁", "山西", "安徽", "福建", "浙江", "江苏", "重庆", "宁夏", "海南", "台湾", "北京", "天津", "上海", "香港", "澳门"]
-let direct_city = ["台湾", "北京", "天津", "上海", "香港", "澳门", "重庆"]
+let direct_city = ["台湾", "天津", "上海", "香港", "澳门", "重庆"]
 // [14,1,18,6,142,428,129,182,17,46,8,114,29,112,10,7]
 let provinces_area = {"新疆": 166.49, "西藏": 122.84, "内蒙古": 118.3, "青海": 72, "四川": 48.5, "黑龙江": 47.3, "甘肃": 45.5, "云南": 39.4, "广西": 23.63, "湖南": 21.18, "陕西": 20.58, "河北": 19, "吉林": 18.74, "湖北": 18.59, "广东": 17.98, "贵州": 17.62, "河南": 16.7, "江西": 16.69, "山东": 15.7, "山西": 15.6, "辽宁": 14.57, "安徽": 13.96, "福建": 12.14, "江苏": 10.26, "浙江": 10.18, "重庆": 8.3, "宁夏": 6.64, "台湾": 3.62, "海南": 3.392, "北京": 1.6807, "天津": 1.13, "上海": 0.634, "香港": 0.1098, "澳门": 0.0254}
 let map_margin = {left: 0, right: 0, top: 0, bottom: 0}
@@ -85,7 +105,9 @@ let info_top_second = map_height * 0.96
 
 let copyright_left = map_width * 0.5 - map_height * 0.1
 let copyright_top = map_height * 0.92
-let copyright_height = map_height * 0.04
+let copyright_height = map_height * 0.05
+
+
 
 let nanhai_left = map_width * 0.8
 let nanhai_top = map_height * 0.67
@@ -156,12 +178,12 @@ let title = map_svg.append("g")
   .attr("transform", "translate(" + title_left + "," + title_top  + ")")
   // change
 title.append("text")
-  .text("新型冠状病毒感染肺炎疫情: 全国态势")
+  .text(title_text)
   .attr('font-size', title_font_size)
   .attr('text-anchor', "start")
   .style("fill", "#D75E5E")
   .style("text-decoration", "underline")
-  .style("text-shadow", "-2px -2px white, 2px 2px #F6978E")
+  .style("text-shadow", "-1px -1px white, 1px 1px #F6978E")
 
 
 let date = map_svg.append("g")
@@ -178,6 +200,16 @@ let scale_button = map_svg.append('g')
     return "translate(" + scale_button_right + "," + scale_button_top + ")"
   })
 
+let click_hint = map_svg.append("g")
+  .attr("transform", "translate(" + title_left + "," + title_top  + ")")
+  
+// click_hint.append("text")
+//   .text("点击地图省份查看分省态势")
+//   .attr('font-size', date_font_size)
+//   .attr('text-anchor', "start")
+//   .style("fill", "#666")
+  // .style("text-decoration", "underline")
+  // .style("text-shadow", "-2px -2px white, 2px 2px #F6978E")
 
 
 let log_button = scale_button.append("g")
@@ -193,7 +225,7 @@ let normal_button = scale_button.append("g")
 log_button.append("rect")
   .attr("width", scale_button_width ) 
   .attr("height", scale_button_height)
-  .attr("fill", "#D75E5E")
+  .attr("fill", "#98999A")
   .attr("rx", 8)
 
 log_button.append("text")
@@ -232,6 +264,19 @@ normal_button.append("text")
   .attr("x", scale_button_width / 2 )
   .style("fill", "white")
   .attr("font-size", scale_button_font)
+
+if (defalt_method === "log"){
+  log_button.select("rect")
+    .attr("fill", "#D75E5E")
+}
+else if (defalt_method === "linear"){
+  linear_button.select("rect")
+    .attr("fill", "#D75E5E")
+}
+else {
+  normal_button.select("rect")
+    .attr("fill", "#D75E5E")
+}
 
 
 
@@ -276,45 +321,78 @@ normal_button.on("click", function(d){
 
 
 
+if (change_mode === "accu"){
+  let legend = map_svg.append("g")
+    .attr("transform", "translate(" + legend_left  + "," + legend_top  + ")")
+
+  let single_legend_contain = legend.selectAll(".single_legend")
+    .data(color_ncov)
+    .enter()
+    .append("g")
+    .attr("class", "single_legend")
+    .attr("transform", function(d, i){
+      return "translate(0," + i * (legend_height + legend_skip) + ")"
+    })
+
+  single_legend_contain.append("rect")
+    .attr("fill", function(d){
+      return d
+    })
+    .attr("width", legend_width )
+    .attr("height", legend_height )
+    .attr("opacity", legend_opacity)
+
+  single_legend_contain.append("text")
+    .attr("transform", "translate(1, 17)")
+    .text(function(d, i){
+      let small = Math.pow(2, i) * legend_index + 1
+      let big  = Math.pow(2, i + 1) * legend_index
+      if (i === 0)
+      {
+        small = 1
+      }
+      if (i === 6)
+      {
+        big = ""
+        return "> " + (small - 1)
+      }
+      return small + "-" + big
+    })
+    .style("fill", "#fff")
+}
+else{
+  let color_add = [{"color": "#78CE6A", "text": "新增下降"}, {"color": "#FCC265", "text": "新增持平"}, {"color": "#F4806A", "text": "新增上升"}]
+  let legend = map_svg.append("g")
+    .attr("transform", "translate(" + legend_left  + "," + legend_top  + ")")
+
+  let single_legend_contain = legend.selectAll(".single_legend")
+    .data(color_add)
+    .enter()
+    .append("g")
+    .attr("class", "single_legend")
+    .attr("transform", function(d, i){
+      return "translate(0," + i * (legend_height + legend_skip) + ")"
+    })
+
+  single_legend_contain.append("rect")
+    .attr("fill", function(d){
+      return d.color
+    })
+    .attr("width", legend_width )
+    .attr("height", legend_height )
+    .attr("opacity", legend_opacity)
+
+  single_legend_contain.append("text")
+    .attr("transform", "translate(1, 17)")
+    .text(function(d, i){
+      return d.text
+    })
+    .style("fill", "#fff")
+}
 
 
-let legend = map_svg.append("g")
-  .attr("transform", "translate(" + legend_left  + "," + legend_top  + ")")
 
-let single_legend_contain = legend.selectAll(".single_legend")
-  .data(color_ncov)
-  .enter()
-  .append("g")
-  .attr("class", "single_legend")
-  .attr("transform", function(d, i){
-    return "translate(0," + i * (legend_height + legend_skip) + ")"
-  })
 
-single_legend_contain.append("rect")
-  .attr("fill", function(d){
-    return d
-  })
-  .attr("width", legend_width )
-  .attr("height", legend_height )
-  .attr("opacity", legend_opacity)
-
-single_legend_contain.append("text")
-  .attr("transform", "translate(1, 17)")
-  .text(function(d, i){
-    let small = Math.pow(2, i) * 10 + 1
-    let big  = Math.pow(2, i + 1) * 10
-    if (i === 0)
-    {
-      small = 1
-    }
-    if (i === 6)
-    {
-      big = ""
-      return "> " + (small - 1)
-    }
-    return small + "-" + big
-  })
-  .style("fill", "#fff")
 
 //添加播放按钮
 
@@ -379,6 +457,18 @@ let total_info = map_svg.append("g")
   .style("fill", "#666")
   .text("")
 
+let new_add_info = map_svg.append("g")
+  .attr("transform", "translate(" + total_left  + "," + (total_top -40) + ")")
+  .append("text")
+  .attr("id", "day")
+  .attr('font-size', total_font_size)
+  .attr('text-anchor', "start")
+  .style("fill", "#666")
+  .text("")
+
+
+
+
 let data_info = map_svg.append("g")
   .attr("transform", "translate(" + info_left  + "," +  info_top + ")")
   .append("text")
@@ -395,14 +485,15 @@ let src_info = map_svg.append("g")
   .attr("id", "day")
   .attr('font-size', info_font_size)
   .attr('text-anchor', "start")
-  .text("变形地图库：gist.github.com/emeeks/d57083a45e60a64fe976")
+  .text("变形地图库：github.com/emeeks")
   .style("fill", "#444")
   .style("text-decoration", "underline")
 
 
 
 function update_current_step(){
-  let ncov_value = get_value_from_someday(ncov_data, current_step);
+  // last_ncov_value = ncov_value
+  ncov_value = get_value_from_someday(ncov_data, current_step);
   console.log(ncov_value);
   update_ncov_data(ncov_value, 500)
 }
@@ -449,6 +540,8 @@ let carto = d3.cartogram()
     });
 
 let ncov_data
+let ncov_data_add
+let ncov_data_accu
 
 
 let city_polygon = new Array()
@@ -463,17 +556,15 @@ let student_data
 let color_choices =  ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6','#ffffcc','#e5d8bd','#fddaec','#f2f2f2']
 
 
-
-
 function read_data(url = "https://tanshaocong.github.io/2019-nCoV/data.csv"){
   d3.csv(url)
   //   http://vis.pku.edu.cn/ncov/data/province.csv
   // https://tanshaocong.github.io/2019-nCoV/data.csv
   // d3.csv("https://disk.pku.edu.cn:443/link/E6C1C996FB2B96E0F30B35432481BF98")
     .then(function(table_data){
-      console.log("table", table_data)
-      ncov_data = table_data
-      ncov_data = leiji_data(ncov_data)
+      // window._data  = table_data
+      console.log("begin_data" +  table_data)
+      ncov_data = leiji_data(table_data)
       d3.csv("https://tanshaocong.github.io/2019-nCoV/time.csv")
       .then(function(update_time){
         console.log(update_time[0]["time"])
@@ -493,38 +584,51 @@ function read_data(url = "https://tanshaocong.github.io/2019-nCoV/data.csv"){
       //    update_ncov_data()
       // },3000)
     })
-    .catch(function(error){
-     // handle error
-     console.log('read from local data')
-      read_data("data.csv")
-    })
+    // .catch(function(error){
+    //  // handle error
+    //  console.log('read from local data')
+    //   read_data("data.csv")
+    // })
 }
 
-function leiji_data(ncov_data)
+function leiji_data(table_data)
 {
+  ncov_data_add = new Array()
+  ncov_data_accu = new Array()
+  let columns = table_data.columns
   for (i = 0; i < provinces.length; i ++)
   {
-    ncov_data[i]["time"].replace("省", "").replace("市", "").replace("维吾尔族自治区", "").replace("壮族自治区", "").replace("回族自治区", "").replace("藏族自治区", "").replace("自治区", "")
-    for (j = 2; j < ncov_data.columns.length; j ++)
+
+    ncov_data_add[i] = new Array()
+    ncov_data_accu[i] = new Array()
+    province_name = table_data[i][columns[0]].replace("省", "").replace("市", "").replace("维吾尔族自治区", "").replace("壮族自治区", "").replace("回族自治区", "").replace("藏族自治区", "").replace("自治区", "")
+    ncov_data_add[i][columns[0]] = province_name
+    ncov_data_accu[i][columns[0]] = province_name
+    ncov_data_add[i][columns[1]] = parseInt(table_data[i][columns[1]])
+    ncov_data_accu[i][columns[1]] = parseInt(table_data[i][columns[1]])
+
+    for (j = 2; j < columns.length; j ++)
     {
-      let current_number = parseInt(ncov_data[i][ncov_data.columns[j]])
+      let current_number = parseInt(table_data[i][columns[j]])
       if (current_number < 0)
         current_number = 0
-      ncov_data[i][ncov_data.columns[j]] = current_number + parseInt(ncov_data[i][ncov_data.columns[j - 1]])
+      ncov_data_add[i][columns[j]] = current_number
+      ncov_data_accu[i][columns[j]] = current_number + ncov_data_accu[i][columns[j - 1]]
     }
   }
-  if (ncov_data.length > provinces.length){
-    total_number_list = ncov_data[provinces.length]
-  }
-  return ncov_data
+  if (change_mode === "accu")
+    return ncov_data_accu
+  return ncov_data_add
 }
 
 function play(table_data)
 {
   is_playing = true
   d3.select("#play").attr("xlink:href", "./image/stop-button.png")
-
-  run_on_step(0)
+  if (for_yangshi)
+    run_on_step(ncov_data["columns"].length - 2)
+  else 
+    run_on_step(current_step)
   // for (let i = 4; i < ncov_data; i ++){
   //       setTimeout(function(){
   //         day = "1月" + i + "日";
@@ -553,22 +657,12 @@ function run_on_step(i)
       return
     day = get_day(i);
     console.log(day);
-    let ncov_value = get_value_from_someday(ncov_data, i);
+    last_ncov_value = ncov_value
+    ncov_value = get_value_from_someday(ncov_data, i);
     console.log(ncov_value);
     update_ncov_data(ncov_value, 500)
-    let total_number = 0
-    for (j = 0 ; j < provinces.length; j ++)
-    {
-      // console.log(get_day(i))
-      total_number = total_number + parseInt(ncov_data[j][get_day(i)])
-    }
-    if (ncov_data.hasOwnProperty(provinces.length)){
-      if (ncov_data[provinces.length].hasOwnProperty(get_day(i)))
-        if (ncov_data[provinces.length][get_day(i)] != ""){
-          total_number = parseInt(ncov_data[provinces.length][get_day(i)])
-
-        }
-    }
+    total_number = get_total_number(i)
+    
     console.log("total_number", total_number)
     
     // if (ncov_data[provinces.length][get_day(i)] != "")
@@ -582,6 +676,27 @@ function run_on_step(i)
     
     run_on_step(i + 1)
   },600)
+}
+function get_total_number(i){
+  let total_number = 0
+  let current_day = get_day(i)
+  console.log(current_day)
+  for (j = 0 ; j < provinces.length; j ++)
+  {
+    // console.log(get_day(i))
+    total_number = total_number + parseInt(ncov_data[j][current_day])
+  }
+  if (change_mode === "accu"){
+    if (ncov_data.hasOwnProperty(provinces.length)){
+      if (ncov_data[provinces.length].hasOwnProperty(current_day)){
+        if (ncov_data[provinces.length][get_day(i)] != "")
+        {
+          total_number = parseInt(ncov_data[provinces.length][current_day])
+        }
+      }
+    }
+  }
+  return total_number
 }
 
 function get_day(i)
@@ -605,7 +720,10 @@ function update_day(day)
 function update_total(total_number)
 {
   console.log(total_number)
-  total_info.text("累计确诊：" + total_number)
+  if (for_yangshi){
+    new_add_info.text("新增确诊：" + (parseInt(total_number) - (get_total_number(current_step - 1))))
+  }
+  total_info.text(show_information + total_number)
 }
 
 function draw_day(){
@@ -631,7 +749,10 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
       value_array[i] = provinces_area[provinces[i]]
     }
     else if (method == "log"){
-      value_array[i] = Math.log(day_ncov_value[i] + 1 ) + provinces_area[provinces[i]]/100
+      current_day_value = day_ncov_value[i] + 1
+      if (current_day_value <= 0)
+        current_day_value = 1
+      value_array[i] = Math.log(current_day_value) + provinces_area[provinces[i]]/(small_index * 2)
       if (provinces[i] == "湖北")
         value_array[i] = value_array[i] * 1.5
     }
@@ -639,7 +760,7 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
       value_array[i] = provinces_area[provinces[i]]
     }
     else{
-      value_array[i] = day_ncov_value[i] + provinces_area[provinces[i]]/50
+      value_array[i] = day_ncov_value[i] + provinces_area[provinces[i]]/small_index
     }
     // 
   }
@@ -669,7 +790,7 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
   //     .attr("fill", function(d, i){
   //         // let city_index = parseInt(d.properties.id[3]) - 1
   //         let value = day_ncov_value[i];
-  //         return get_color(value)
+  //         return (value)
 
   //         // return "white"
   //       })
@@ -684,20 +805,80 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
   let duration_contain = d3.transition()
       .duration(set_time)
 
-  duration_contain.selectAll(".state")
+
+  if (for_yangshi && method === "normal"){
+    duration_contain.selectAll(".state")
+      .attr("fill", function(d, i){
+        if (initialize)
+          return get_color(0)
+          // let city_index = parseInt(d.properties.id[3]) - 1
+        if (change_mode === "add"){
+          let this_value = 0
+          if (day_ncov_value[i] == "0")
+            return get_color(0)
+          if (last_ncov_value === undefined)
+            this_value = day_ncov_value[i]
+          else 
+            this_value = (day_ncov_value[i] - last_ncov_value[i])/parseFloat(last_ncov_value[i])
+          // if (Math.abs(this_value) < 0.05 )
+          console.log(this_value)
+          if (this_value < -0.05)
+            return "#78CE6A"
+          if (this_value > 0.05)
+            return "#F4806A"
+          return "#FCC265"
+        }
+
+        let value = day_ncov_value[i];
+        return get_color(value)
+          // return "white"
+      })
+  }
+  else {
+    duration_contain.selectAll(".state")
       .attr("d", carto.path)
       .attr("fill", function(d, i){
         if (initialize)
           return get_color(0)
           // let city_index = parseInt(d.properties.id[3]) - 1
-          let value = day_ncov_value[i];
-          return get_color(value)
+        if (change_mode === "add"){
+          let this_value = 0
+          if (day_ncov_value[i] == "0")
+            return "#78CE6A"
+          if (last_ncov_value === undefined)
+            this_value = day_ncov_value[i]
+          else 
+            this_value = (day_ncov_value[i] - last_ncov_value[i])/parseFloat(last_ncov_value[i])
+          // if (Math.abs(this_value) < 0.05 )
+          // console.log(this_value)
+          if (this_value < -0.05)
+            return "#78CE6A"
+          if (this_value > 0.05)
+            return "#F4806A"
+          return "#FCC265"
+        }
+
+        let value = day_ncov_value[i];
+        return get_color(value)
           // return "white"
       })
+  }
+
+  
+
+  if (!for_yangshi)
+  {
+    
+  }
 
   // console.log(carto.path)
+  let province_name
 
-  let province_name = duration_contain.selectAll(".name")
+  if (for_yangshi && method === "normal"){
+    province_name = duration_contain.selectAll(".name")
+  }
+  else {
+    province_name = duration_contain.selectAll(".name")
       .attr("transform", function(d, i){
         
         // console.log(bbox)
@@ -707,6 +888,9 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
         center = adjust_position(center, i)
         return "translate(" + center[0] + "," + center[1] + ")"
       })
+     
+  }
+  
 
   province_name.selectAll(".province_number")
       .text(function(d){
@@ -720,7 +904,7 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
         return 1
       })
       .attr("font-size", function(d, i){
-        let font_size = value_array[provinces.indexOf(d)]
+        let font_size = Math.log(day_ncov_value[provinces.indexOf(d)])
         if (initialize)
           return "1.5em"
         if (method == "log")
@@ -728,13 +912,15 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
         else if (map_width == "normal")
           return "1.5em"
 
-        return (Math.log(value_array[provinces.indexOf(d)] + 1) / 10 + 1) + "em"
+        return (Math.log(day_ncov_value[provinces.indexOf(d)] + 1) / 100 + 1) + "em"
         // return (value_array[provinces.indexOf(d)] /10 + 1) + "em"
       })
       .attr("y", "1em")
 
   province_name.selectAll(".province_name")
       .attr("fill-opacity", function(d, i){
+        if (for_yangshi)
+          return 1
         if (initialize)
           return 1
         if (day_ncov_value[provinces.indexOf(d)] == 0)
@@ -749,27 +935,32 @@ function adjust_position(center, i){
   position[1] = center[1]
 
   if (provinces[i] == "香港"){
-    position[0] = center[0] + map_width * 0.02
-    position[1] = center[1] + map_width * 0.02
+    position[0] = center[0] + map_width * 0.030
+    position[1] = center[1] + map_width * 0.015
   }
   if (provinces[i] == "澳门"){
     position[0] = center[0] - map_width * 0.01
-    position[1] = center[1] + map_width * 0.02
+    position[1] = center[1] + map_width * 0.024
   }
   if (provinces[i] == "内蒙古")
   {  
     position[0] = center[0] - map_width * 0.03
-    position[1] = center[1] + map_height * 0.04
+    position[1] = center[1] + map_height * 0.055
   }
   if (provinces[i] == "天津")
   {  
-    position[0] = center[0] + map_width * 0.01
+    position[0] = center[0] + map_width * 0.013
     position[1] = center[1] + map_height * 0.01
   }
   if (provinces[i] == "河北")
   {  
     // position[0] = center[0] + map_width * 0.01
     position[1] = center[1] + map_height * 0.03
+  }
+  if (provinces[i] == "甘肃")
+  {  
+    position[0] = center[0] + map_width * 0.01
+    position[1] = center[1] - map_height * 0.01
   }
   return position
 }
@@ -778,7 +969,7 @@ function adjust_position(center, i){
 d3.json("china-topojson/china.json")
   .then(function(data){
     topology = data;
-    geometries = topology.objects.states.geometries;
+    geometries = topology.objects.collection.geometries;
 
     console.log(geometries)
     let features = carto.features(topology, geometries),
@@ -797,6 +988,8 @@ d3.json("china-topojson/china.json")
         .attr("class", "state")
         .attr("id", function (d, i) { return "province_" + i; })
         .attr("name", function(d, i){
+          if (for_yangshi)
+            return full_province_name[provinces[i]]
           return provinces[i]
         })
         .attr("fill", function(d, i){
@@ -809,7 +1002,7 @@ d3.json("china-topojson/china.json")
         .attr("d", path)
         .attr("stroke", "#fff")
         .attr("stroke-width", "2px")
-        .attr("fill-opacity", 0.9)
+        .attr("fill-opacity", 0.8)
         .attr("pointer-events", "none");
     
     texts = texts.selectAll(".name")
@@ -832,16 +1025,28 @@ d3.json("china-topojson/china.json")
       })
 
 
-    texts.append("text")
+
+    let province_name_text = texts.append("text")
       .attr("class", "province_name")
       .attr("text-anchor", "middle")
       .text(function(d){
+        if (for_yangshi)
+            return full_province_name[d]
         return d
       })
+      .attr("font-size", function(d){
+        if (for_yangshi)
+          return "0.7em"
+        return "1em"
+      })
+    if (for_yangshi)
+      province_name_text.style("fill", "#444")
     
-    texts.append("text")
+    let province_number_text = texts.append("text")
       .attr("class", "province_number")
       .attr("text-anchor", "middle")
+    if (for_yangshi)
+      province_number_text.style("fill", "#444")
 
     read_data()
   })
@@ -853,9 +1058,10 @@ function jump_to_province(i){
   pv_name = provinces[i]
   if (direct_city.indexOf(pv_name) >= 0)
   {
-    alert("直辖市、港澳台暂不提供分省试图")
+    alert("部分直辖市、港澳台暂不提供分省试图")
     return 
   }
+  console.log(pv_name)
   pinyin_pv_name = pinyin[pv_name]
   console.log(pinyin_pv_name)
   window.location = "province/" + pinyin_pv_name + ".html"
@@ -878,17 +1084,17 @@ function get_color(value){
   
   if (value == 0)
     return "#F2F2F2"
-  if (value < 20)
+  if (value < 2 * legend_index)
     return color_ncov[0]
-  if (value < 40)
+  if (value < 4 * legend_index)
     return color_ncov[1]
-  if (value < 80)
+  if (value < 8 * legend_index)
     return color_ncov[2]
-  if (value < 160)
+  if (value < 16 * legend_index)
     return color_ncov[3]
-  if (value < 320)
+  if (value < 32 * legend_index)
     return color_ncov[4]
-  if (value < 640)
+  if (value < 64 * legend_index)
     return color_ncov[5]
   // if (value < 640)
   //   return color_ncov[6]
@@ -938,8 +1144,9 @@ function play_button(){
   d3.select("#play").attr("xlink:href", "./image/stop-button.png")
   if (current_step == ncov_data["columns"].length - 2){
     initialize()
+    current_step = 0
     setTimeout(function(){
-         run_on_step(0)
+         run_on_step(current_step)
     },2000)
     
   }
@@ -960,8 +1167,8 @@ Array.prototype.insert = function (index, item) {
 
 function initialize(set_time = 500)
 {
-
-  let ncov_value = get_value_from_someday(ncov_data, current_step);
+  last_ncov_value = ncov_value
+  ncov_value = get_value_from_someday(ncov_data, current_step);
   console.log(ncov_value);
   update_ncov_data(ncov_value, set_time, true)
 

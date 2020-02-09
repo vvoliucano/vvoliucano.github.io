@@ -1,7 +1,7 @@
 {
     "type": "Topology",
     "objects": {
-        "states": {
+        "collection": {
             "type": "GeometryCollection",
             "geometries": [
                 {
