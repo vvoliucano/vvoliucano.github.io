@@ -1445,7 +1445,7 @@ function initialize_province_set(simple_province_name){
     legend_index = 1
     range_index = 6
     map_file = "china-topojson/22.json"
-    cities_area = {'延边': 43300, '吉林': 187400, '白城': 25685, '松原': 22000, '长春': 20593.5, '白山': 17485, '通化': 15698, '四平': 14323, '辽源': 5140.45}
+    cities_area = {'延边': 43300, '吉林': 27120, '白城': 25685, '松原': 22000, '长春': 20593.5, '白山': 17485, '通化': 15698, '四平': 14323, '辽源': 5140.45}
   }
 
 
