@@ -1,4 +1,4 @@
- [{
+ {
  	"type": "FeatureCollection",
  	"features": [{
  		"type": "Feature",
@@ -116,4 +116,4 @@
  			"childNum": 12
  		}
  	}]
- }]
+}
