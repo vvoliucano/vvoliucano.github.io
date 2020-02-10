@@ -8,7 +8,7 @@ let color_add = [{"color": "#78CE6A", "text": "新增下降"}, {"color": "#FCC26
 
 let change_mode = "accu"
 // change_mode = "add"
-let direct_city = ["台湾", "天津", "上海", "香港", "澳门", "重庆"]
+let direct_city = ["台湾", "上海", "香港", "澳门", "重庆"]
 
 let full_province_name;
 let legend_index;
@@ -56,6 +56,9 @@ let is_playing = true
 let provinces
 let provinces_number
 let ncov_data
+let smooth_color = false
+let green_series = ['#f7fcf5','#e5f5e0','#c7e9c0','#a1d99b','#74c476','#41ab5d','#238b45','#006d2c','#00441b']
+let red_series = ['#fff5f0','#fee0d2','#fcbba1','#fc9272','#fb6a4a','#ef3b2c','#cb181d','#a50f15','#67000d']
 let ncov_data_new
 let ncov_data_accu
 let begin_date
@@ -355,11 +358,6 @@ function run_on_step(i)
     update_ncov_data(ncov_value, 500)
     total_number = get_total_number(i)
     update_extra_info(ncov_value)
-    // total_number_guojia = get_total_number_from_guojia(i)
-    // console.log("total number", total_number)
-    // console.log("total_number_guojia", total_number_guojia)
-    // parseInt(table_data[34][day]) + parseInt(table_data[28][day]) + parseInt(table_data[32][day]) + parseInt(table_data[33][day])
-    // console.log(total_number)   
     update_total()
     update_day(day)
     if (i == ncov_data[0].length - 1){
@@ -547,32 +545,21 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
         return get_color(0)
       if (change_mode === "add"){
         // console.log("change_mode add")
-        if (current_accu[i] === 0)
-        {
-          // return get_color(0)
-          return color_add[0].color
-        }
-        else if (current_accu[i] > 0 && current_new_add[i] === 0)
-        {
-          return color_add[0].color
-        }
-        
         let this_new_add_single = day_ncov_value[i]
         let last_new_add_single = last_new_add[i]
-        console.log(cities[i] + "this value:" + this_new_add_single + "last value:" + last_new_add_single)
-        let this_value = (this_new_add_single - last_new_add_single)/parseFloat(last_new_add_single + 0.001)
-        // if (Math.abs(this_value) < 0.05 )
-        console.log("color value", this_value)
-        if (this_value < -0.05)
-          return color_add[0].color
-        if (this_value > 0.05)
-          return color_add[2].color
-        return color_add[1].color
+        return get_add_color(this_new_add_single, last_new_add_single, current_accu[i])
+        
       }
       console.log("?????")
       let value = day_ncov_value[i];
       return get_color(value)
       // return "white"
+  })
+  .attr("fill-opacity", function(d, i){
+    console.log(provinces[i])
+    if (smooth_color && change_mode == "add")
+      return get_add_smooth_opacity(day_ncov_value[i], last_new_add[i], current_accu[i])
+    return 1
   })
 
 
@@ -612,6 +599,56 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
       })
 
 }
+function get_add_color(current_value, last_value, current_total){
+  if (smooth_color)
+    return get_add_smooth_color(current_value, last_value)
+  if (current_total === 0)
+  {
+    // return get_color(0)
+    return color_add[0].color
+  }
+  else if (current_total > 0 && current_value === 0)
+  {
+    return color_add[0].color
+  }
+  // console.log(cities[i] + "this value:" + this_new_add_single + "last value:" + last_new_add_single)
+  let this_value = (current_value - last_value)/parseFloat(last_value + 0.001)
+  // if (Math.abs(this_value) < 0.05 )
+  console.log("color value", this_value)
+  if (this_value < -0.05)
+    return color_add[0].color
+  if (this_value > 0.05)
+    return color_add[2].color
+  return color_add[1].color
+}
+function get_add_smooth_opacity(current_value, last_value, current_accu){
+  let this_value = (current_value - last_value) / parseFloat(last_value + 0.001) // * Math.log(current_value - last_value + 1.01) 
+  console.log("opacity", this_value)
+  if (this_value > 0)
+  {
+    if (this_value < 1)
+    {
+      return this_value
+    }
+    return 1
+  }
+  else {
+    if (this_value > -1)
+      return - this_value
+    return 1
+  }
+}
+
+function get_add_smooth_color(current_value, last_value){
+  let this_value = (current_value - last_value)/parseFloat(last_value + 0.001)
+  // if (Math.abs(this_value) < 0.05 )
+  console.log("color value", this_value)
+  if (this_value < 0)
+    return color_add[0].color //"#006d2c"
+  if (this_value > 0)
+    return color_add[2].color//"#a50f15"
+  return "#ffffff"
+}
 
 function adjust_position(center, i){
   let position = new Array()
@@ -636,7 +673,7 @@ function adjust_position(center, i){
     position[0] = center[0] + map_width * 0.013
     position[1] = center[1] + map_height * 0.01
   }
-  else if (provinces[i] == "河北")
+  else if (simple_province_name === "全国" && provinces[i] == "河北")
   {  
     // position[0] = center[0] + map_width * 0.01
     position[1] = center[1] + map_height * 0.03
@@ -764,13 +801,18 @@ function main_load()
           })
           .attr("fill", function(d, i){
             // let city_index = parseInt(d.properties.id[3]) - 1
+
             return "#F2F2F2"
 
             // return "white"
           })
           // .attr("fill-opacity", 1)
           .attr("d", path)
-          .attr("stroke", "#fff")
+          .attr("stroke", function(d){
+            if (smooth_color)
+              return "#ccc"
+            return "#ffffff"
+          })
           .attr("stroke-width", "2px")
           .attr("fill-opacity", 0.9)
           .on("click", function(){
@@ -1315,6 +1357,14 @@ function initialize_province_set(simple_province_name){
     map_file = "china-topojson/china.json"
     cities_area = {"新疆": 166.49, "西藏": 122.84, "内蒙古": 118.3, "青海": 72, "四川": 48.5, "黑龙江": 47.3, "甘肃": 45.5, "云南": 39.4, "广西": 23.63, "湖南": 21.18, "陕西": 20.58, "河北": 19, "吉林": 18.74, "湖北": 18.59, "广东": 17.98, "贵州": 17.62, "河南": 16.7, "江西": 16.69, "山东": 15.7, "山西": 15.6, "辽宁": 14.57, "安徽": 13.96, "福建": 12.14, "江苏": 10.26, "浙江": 10.18, "重庆": 8.3, "宁夏": 6.64, "台湾": 3.62, "海南": 3.392, "北京": 1.6807, "天津": 1.13, "上海": 0.634, "香港": 0.1098, "澳门": 0.0254}
   }
+  else if (simple_province_name == "天津") {
+    cities = ['蓟州', '武清', '宝坻', '静海', '宁河', '西青', '北辰', '东丽', '津南', '河西', '河东', '南开', '河北', '红桥', '和平', '滨海']
+    center_location = [117.2, 39.3]
+    legend_index = 2
+    range_index = 20
+    map_file = "china-topojson/12.json"
+    cities_area = {'蓟州': 1593, '武清': 1574, '宝坻': 1509, '静海': 1476, '宁河': 1414, '西青': 570.8, '北辰': 478, '东丽': 477.34, '津南': 420.72, '河西': 94, '河东': 39.63, '南开': 39, '河北': 29.62, '红桥': 21.3, '和平': 9.98, '滨海': 2270}
+  }
   else if (simple_province_name == "北京") {
     cities = ['密云', '怀柔', '房山', '延庆', '门头沟', '昌平', '大兴', '顺义', '平谷', '通州', '朝阳', '海淀', '丰台', '石景山', '西城', '东城']
     center_location = [116.2,40.2]
@@ -1324,12 +1374,12 @@ function initialize_province_set(simple_province_name){
     cities_area = {'密云': 2229.45, '怀柔': 2123, '房山': 2019, '延庆': 1993.75, '门头沟': 1455, '昌平': 1352, '大兴': 1031, '顺义': 1021, '平谷': 948.24, '通州': 906, '朝阳': 470.8, '海淀': 431, '丰台': 306, '石景山': 84, '西城': 50.70, '东城': 41.84}
   }
   else if (simple_province_name == "新疆") {
-    cities = ['巴州', '铁门关', '和田', '昆玉', '哈密', '阿克苏', '阿勒泰', '北屯', '喀什', '塔城', '昌吉州', '克孜勒苏柯尔克孜自治州', '吐鲁番', '伊犁', '可克达拉', '博尔塔拉州', '双河', '乌鲁木齐', '克拉玛依', '阿拉尔', '图木舒克', '五家渠', '石河子'];
+    cities = ['巴州', '铁门关', '和田', '昆玉', '哈密', '阿克苏', '阿勒泰', '北屯', '喀什', '塔城', '昌吉州', '克孜勒苏', '吐鲁番', '伊犁', '可克达拉', '博尔塔拉州', '双河', '乌鲁木齐', '克拉玛依', '阿拉尔', '图木舒克', '五家渠', '石河子'];
     center_location = [85,41];
     legend_index = 1;
     range_index = 2.5;
     map_file = "china-topojson/65.json";
-    cities_area = {'巴州': 471500, '铁门关': 590.27, '和田': 247800, '昆玉': 687.13, '哈密': 138919, '阿克苏': 14450, '阿勒泰': 117989.21, '北屯': 911, '喀什': 162000, '塔城': 105400, '昌吉州': 73900, '克孜勒苏柯尔克孜自治州': 72500, '吐鲁番': 69713, '伊犁': 268593, '可克达拉': 979.71, '博尔塔拉州': 27000, '双河': 742.18, '乌鲁木齐': 14216.3, '克拉玛依': 7733, '阿拉尔': 6256.68, '图木舒克': 2003, '五家渠': 742, '石河子': 460};
+    cities_area = {'巴州': 471500, '铁门关': 590.27, '和田': 247800, '昆玉': 687.13, '哈密': 138919, '阿克苏': 127144, '阿勒泰': 117989.21, '北屯': 911, '喀什': 137578, '塔城': 105400, '昌吉州': 73900, '克孜勒苏': 72500, '吐鲁番': 69713, '伊犁': 56381, '可克达拉': 979.71, '博尔塔拉州': 27000, '双河': 742.18, '乌鲁木齐': 14216.3, '克拉玛依': 7733, '阿拉尔': 6256.68, '图木舒克': 2003, '五家渠': 742, '石河子': 460};
   }
   // 这边设置
   else if (simple_province_name === "福建")
@@ -1353,9 +1403,20 @@ function initialize_province_set(simple_province_name){
     legend_index = 5; // 最大值是 legend_index * 64
     range_index = 8;
     map_file = "china-topojson/33.json"; // topojson 的位置，先使用网站将geojson 转化为 topojson， https://jeffpaine.github.io/geojson-topojson/ 
-    cities_area = {"杭州": 16850.03, "宁波": 9714.65, "温州": 12064.77, "嘉兴": 4222.87, "湖州": 5820.26, "绍兴": 8279.08, "金华": 10941.75, "衢州": 8844.55, "舟山": 1454.70, "台州": 10037.91, "丽水": 17275.20};
+    cities_area = {"杭州": 16850.03, "宁波": 9714.65, "温州": 12064.77, "嘉兴": 4222.87, "湖州": 5820.26, "绍兴": 8279.08, "金华": 10941.75, "衢州": 8844.55, "舟山": 22200, "台州": 10037.91, "丽水": 17275.20}
     // 各个地级市的面积，请务必使用简称（不带市或者州之类的内容）
   }
+//   else if (simple_province_name === "浙江"){
+//   simple_province_name = "浙江" // 省份简称
+//   // 地级市简称，顺序务必按照geojson的顺序
+//   cities = ['丽水', "杭州", "温州", "宁波", "舟山", "台州", "金华", "衢州", "绍兴", "嘉兴", "湖州"]
+//   center_location = [120.498,29.0918]
+//   legend_index = 5 // 最大值是 legend_index * 64
+//   range_index = 8
+//   map_file = "../china-topojson/33.json" // topojson 的位置，先使用网站将geojson 转化为 topojson， https://jeffpaine.github.io/geojson-topojson/ 
+//   cities_area = {"杭州": 16850.03, "宁波": 9714.65, "温州": 12064.77, "嘉兴": 4222.87, "湖州": 5820.26, "绍兴": 8279.08, "金华": 10941.75, "衢州": 8844.55, "舟山": 22200, "台州": 10037.91, "丽水": 17275.20}
+//   // 各个地级市的面积，请务必使用简称（不带市或者州之类的内容）
+// }
 
   else if (simple_province_name === "河北"){
     simple_province_name = "河北";
@@ -1450,7 +1511,7 @@ function initialize_province_set(simple_province_name){
   }
   else if (simple_province_name == "安徽") {
     // 疫情数据中包含宿松，它是直辖县，不在下面的列表中
-    cities = ['六安', '安庆', '滁州', '宣城', '宿州', '阜阳', '黄山', '亳州', '池州', '合肥', '蚌埠', '芜湖', '淮北', '淮南', '马鞍山', '铜陵']
+    cities = ['六安', '安庆', '滁州', '宣城', '阜阳', '宿州', '黄山', '亳州', '池州', '合肥', '蚌埠', '芜湖', '淮北', '淮南', '马鞍山', '铜陵']
     center_location = [116.3123,31.8329]
     legend_index = 4
     range_index = 7
@@ -1590,6 +1651,12 @@ function add_toggle(svg)
     .attr("fill", "red")
 
   toggle_kernal.append("circle")
+    .attr("transform", function(d){
+      if (change_mode === "accu")
+        return "translate(0,0)"
+      else 
+        return "translate(" + (toggle_switch_width - toggle_switch_height) + ",0)"
+    })
     .attr("cx", toggle_switch_height / 2)
     .attr("cy", toggle_switch_height / 2)
     .attr("r", toggle_switch_height * 0.55)
@@ -1804,12 +1871,12 @@ function load_legend(){
       .attr("opacity", legend_opacity)
 
     single_legend_contain.append("text")
-      .attr("transform", "translate(" + legend_width * 0.1 + "," + legend_height * 1.2 + ")")
+      .attr("transform", "translate(" + legend_width * 0.1 + "," + legend_height * 1.1 + ")")
       .text(function(d, i){
         return d.text
       })
       .style("fill", "#fff")
-      .attr("font-size", legend_height * 0.8)
+      .attr("font-size", legend_height * 0.7)
   }
 }
 function initialize_method_button()
