@@ -7,7 +7,17 @@
       src: url(./font/PingFang-SC-Regular.ttf)
   }*/
 
+  #nanhai_kuang {
+    fill-opacity: 0;
+    stroke: #ddd;
+    stroke-width: 2px;
+  }
 
+  
+
+ /* #九段线{
+    stroke-width: 10px;
+  }*/
   .chart .background {
     fill: #ddd;
     /* stroke: #777; */
