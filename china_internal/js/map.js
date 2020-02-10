@@ -162,6 +162,7 @@ function carto_map_load(simple_name)
   d3.select("head").select("title").text(simple_name + "新冠肺炎疫情")
   simple_province_name = simple_name
   initialize_province_set(simple_province_name) // 设置一些基本的函数
+  small_index = 100000
   adjust_for_phone(map_height, map_width)
   provinces = cities
   provinces_number = provinces.length
