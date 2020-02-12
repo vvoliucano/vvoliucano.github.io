@@ -27,10 +27,10 @@
 </head>
 <body>
 	<div id = "map"  style="position: absolute; top: 0%; left: 2%; width: 90%; height: 100%; margin: 0px; padding: 0px; ">
-	  <text id="a">1</text><br>
-	  <text id="b">2</text><br>
-	  <text id="c">3</text><br>
-	  <text id="d">4</text><br>
+	  <text id="a"></text><br>
+	  <text id="b"></text><br>
+	  <text id="c"></text><br>
+	  <text id="d"></text><br>
 	  <label for="lname">答案:</label>
 	  <input type="text" id="lname" name="lname"><br>
 	  <button type="button">「提交」</button><br>
@@ -42,6 +42,7 @@
     	let a, b, c, d;
     	let right = 0
     	let wrong = 0
+    	random()
     	function random(){
     		a = Math.floor((Math.random() * 10) + 1);
 	    	b = Math.floor((Math.random() * (10 + a)) - a);
@@ -61,8 +62,7 @@
     	function get_answer(){
     		return parseInt(document.getElementById("lname").value)
     	}
-    	random()
-
+    
     	d3.select("button")
     		.on("click", function(){
     			answer = parseInt(document.getElementById("lname").value)
