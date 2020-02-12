@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>简单的加减法</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+	<style>
+		text {
+			font-size: 80px;
+			text-anchor: middle
+		}
+		input {
+			font-size: 80px;
+			text-anchor: middle
+		}
+		label {
+			font-size: 80px;
+			text-anchor: middle
+		}
+		button {
+			font-size: 80px
+
+		}
+	</style>
+</head>
+<body>
+	<div id = "map"  style="position: absolute; top: 0%; left: 2%; width: 90%; height: 100%; margin: 0px; padding: 0px; ">
+	  <text id="a">1</text><br>
+	  <text id="b">2</text><br>
+	  <text id="c">3</text><br>
+	  <text id="d">4</text><br>
+	  <label for="lname">答案:</label>
+	  <input type="text" id="lname" name="lname"><br>
+	  <button type="button">「提交」</button><br>
+	  <text id="shangci"></text><br>
+	  <text id="duile"></text><br>
+    </div>
+    <script src="d3.min.js"></script>
+    <script>
+    	let a, b, c, d;
+    	let right = 0
+    	let wrong = 0
+    	function random(){
+    		a = Math.floor((Math.random() * 10) + 1);
+	    	b = Math.floor((Math.random() * (10 + a)) - a);
+	    	c = Math.floor((Math.random() * (10 + a + b)) - a - b);
+	    	d = Math.floor((Math.random() * (10 + a + b + c)) - a - b - c);
+	    	answer = a + b + c + d
+	    	d3.select("#a")
+    		.text(a)
+    		d3.select("#b")
+    		.text(b)
+    		d3.select("#c")
+    		.text(c)
+    		d3.select("#d")
+    		.text(d)
+
+    	}
+    	function get_answer(){
+    		return parseInt(document.getElementById("lname").value)
+    	}
+    	random()
+
+    	d3.select("button")
+    		.on("click", function(){
+    			answer = parseInt(document.getElementById("lname").value)
+    			console.log(answer)
+    			console.log(a, b, c, d, a + b + c + d)
+    			if (answer === (a + b + c + d)){
+    				d3.select("#shangci").text("😊😊😊上题正确")
+    				// alert("回答正确！！！")
+    				right += 1
+    					// select("#jieguo").text("回答正确！")
+    			}
+    			else {
+    				d3.select("#shangci").text("😢😢😢上题错误")
+    				wrong += 1
+    			}
+
+    			d3.select("#duile").text("😊做对" + right + "题，😢做错" + wrong + "题")
+    			random()
+    			document.getElementById("lname").value = ""
+    		})
+    </script>
+    
+</body>
+</html>

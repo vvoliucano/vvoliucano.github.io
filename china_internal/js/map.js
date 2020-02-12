@@ -553,12 +553,12 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
       return get_state_color(i)
       // return "white"
   })
-  .attr("fill-opacity", function(d, i){
-    console.log(provinces[i])
-    if (smooth_color && change_mode == "add")
-      return get_add_smooth_opacity(day_ncov_value[i], last_new_add[i], current_accu[i])
-    return 1
-  })
+  // .attr("fill-opacity", function(d, i){
+  //   console.log(provinces[i])
+  //   if (smooth_color && change_mode == "add")
+  //     return get_add_smooth_opacity(day_ncov_value[i], last_new_add[i], current_accu[i])
+  //   return 1
+  // })
 
   duration_contain.select("#nanhai")
     .selectAll(".small_province")
@@ -675,38 +675,62 @@ function adjust_position(center, i){
   position[0] = center[0]
   position[1] = center[1]
 
-  if (provinces[i] == "香港"){
-    position[0] = center[0] + map_width * 0.030
-    position[1] = center[1] + map_width * 0.015
+
+  if (simple_province_name === "重庆" ){
+    if (provinces[i] == "大渡口"){
+      position[0] = center[0] + map_width * 0.0
+      position[1] = center[1] + map_width * 0.02
+    }
+    else if (provinces[i] == "璧山"){
+      position[0] = center[0] - map_width * 0.01
+      position[1] = center[1] + map_width * 0.00
+    }
+    else if (provinces[i] == "南岸"){
+      position[0] = center[0] - map_width * 0.00
+      position[1] = center[1] + map_width * 0.01
+    }
+    else if (provinces[i] == "渝北"){
+      position[0] = center[0] - map_width * 0.00
+      position[1] = center[1] - map_width * 0.02
+    }
+    else if (provinces[i] == "江北"){
+      position[0] = center[0] + map_width * 0.01
+      position[1] = center[1] + map_width * 0.00
+    }
+    else if (provinces[i] == "巴南"){
+      position[0] = center[0] + map_width * 0.01
+      position[1] = center[1] + map_width * 0.00
+    }
   }
-  else if (provinces[i] == "澳门"){
-    position[0] = center[0] - map_width * 0.01
-    position[1] = center[1] + map_width * 0.024
-  }
-  else if (provinces[i] == "内蒙古")
+  else if (simple_province_name === "全国")
   {  
-    position[0] = center[0] - map_width * 0.03
-    position[1] = center[1] + map_height * 0.055
-  }
-  else if (provinces[i] == "天津")
-  {  
-    position[0] = center[0] + map_width * 0.013
-    position[1] = center[1] + map_height * 0.01
-  }
-  else if (simple_province_name === "全国" && provinces[i] == "河北")
-  {  
-    // position[0] = center[0] + map_width * 0.01
-    position[1] = center[1] + map_height * 0.03
-  }
-  else if (provinces[i] == "甘肃")
-  {  
-    position[0] = center[0] + map_width * 0.01
-    position[1] = center[1] - map_height * 0.01
-  }
-  else if (provinces[i] == "天津")
-  {  
-    position[0] = center[0] + map_width * 0.01
-    position[1] = center[1] + map_height * 0.01
+    if (provinces[i] == "河北"){
+      position[0] = center[0] + map_width * 0.00
+      position[1] = center[1] + map_height * 0.03
+    }
+    else if (provinces[i] == "香港"){
+      position[0] = center[0] + map_width * 0.030
+      position[1] = center[1] + map_width * 0.015
+    }
+    else if (provinces[i] == "澳门"){
+      position[0] = center[0] - map_width * 0.01
+      position[1] = center[1] + map_width * 0.024
+    }
+    else if (provinces[i] == "内蒙古")
+    {  
+      position[0] = center[0] - map_width * 0.03
+      position[1] = center[1] + map_height * 0.055
+    }
+    else if (provinces[i] == "天津")
+    {  
+      position[0] = center[0] + map_width * 0.013
+      position[1] = center[1] + map_height * 0.01
+    }
+    else if (provinces[i] == "甘肃")
+    {  
+      position[0] = center[0] + map_width * 0.01
+      position[1] = center[1] - map_height * 0.01
+    }
   }
   else if (provinces[i] == "东城")
   {  
@@ -847,6 +871,14 @@ function main_load()
             console.log(provinces[i])
             jump_to_china(name)
           })
+
+      if (simple_province_name === "重庆")
+      {
+        d3.select("#province_37")
+          .attr("fill-opacity", 0.5)
+          // .attr("stroke-dasharray", "1 2")
+        province_font_size = province_font_size * 0.8
+      }
       
       texts = texts.selectAll(".name")
         .data(provinces)
@@ -1114,16 +1146,16 @@ function convert_data(data){
         // if (parseInt(current_item["新增确诊病例"]) > new_data[city_name][current_item["公开时间"]])
         //   new_data[city_name][current_item["公开时间"]] = parseInt(current_item["新增确诊病例"])
       }
-      if (date_list.indexOf(current_item["公开时间"]) === -1)
-        date_list.push(current_item["公开时间"])
+      if (date_list.indexOf(get_day_index(current_item["公开时间"])) === -1)
+        date_list.push(get_day_index(current_item["公开时间"]))
     }
     console.log("new_data ", new_data)
     console.log("minus data", minus_data)
     date_list = date_list.sort()
     console.log(date_list)
-    begin_date = get_day_index(date_list[0])
-    end_date = get_day_index(date_list[date_list.length - 1])
-    console.log("end_date", begin_date)
+    begin_date = date_list[0]
+    end_date = date_list[date_list.length - 1]
+    console.log("begin_date", begin_date)
     console.log("end_date", end_date)
     diff_day = end_date - begin_date
     console.log(diff_day)
@@ -1245,14 +1277,33 @@ function find_pair(city_list){
     city_dict["第十二师"] = "乌鲁木齐"
     city_dict["第十三师"] = "哈密"
     city_dict["第十四师"] = "昆玉"
+    city_dict["兵团第一师"] = "阿拉尔"
+    city_dict["兵团第二师"] = "铁门关"
+    city_dict["兵团第三师"] = "图木舒克"
+    city_dict["兵团第四师"] = "可克达拉"
+    city_dict["兵团第五师"] = "双河"
+    city_dict["兵团第六师"] = "五家渠"
+    city_dict["兵团第七师"] = "胡杨河"
+    city_dict["兵团第八师"] = "石河子"
+    city_dict["兵团第九师"] = "塔城地区"
+    city_dict["兵团第十师"] = "北屯"
+    city_dict["兵团第十一师"] = "乌鲁木齐"
+    city_dict["兵团第十二师"] = "乌鲁木齐"
+    city_dict["兵团第十三师"] = "哈密"
+    city_dict["兵团第十四师"] = "昆玉"
   }
   else if (simple_province_name === "安徽"){
     city_dict["宿松"] = "安庆"
   }
+  else if (simple_province_name === "重庆"){
+    city_dict["万盛经开区"] = "綦江"
+    // city_dict["高新区"] = "沙坪坝"
+    
+  }
   else if (simple_province_name === "陕西"){
     city_dict["韩城"] = "渭南"
     city_dict["杨凌示范区"] = "咸阳"
-    city_dict["杨凌"] = "杨凌"
+    city_dict["杨凌"] = "咸阳"
   }
   else if (simple_province_name === "吉林"){
     city_dict["公主岭"] = "四平"
@@ -1346,7 +1397,7 @@ function reload_legend_title(){
     add_name = ""
     button_selected_color = "#D75E5E"
   }
-  update_total()
+  
   load_button_color()
   title.select("text")
     .style("fill", function(d){
@@ -1427,6 +1478,8 @@ function add_toggle(svg)
           .duration(100)
           .attr("transform", "translate(0,0)")
       }
+      if (!is_playing)
+        update_total()
       reload_legend_title()
       update_current_step()
 
@@ -1449,7 +1502,7 @@ function adjust_for_phone(map_height, map_width){
     date_top = map_height * 0.10
     date_font_size = map_width / 40
     province_font_size = map_width * 0.02
-    if (simple_province_name === "全国")
+    if (simple_province_name === "全国" || simple_province_name === "重庆")
       province_font_size = map_width * 0.015
 
     scale_button_right = map_width * 0.95
