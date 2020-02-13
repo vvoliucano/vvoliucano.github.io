@@ -7,7 +7,10 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 	<style>
-		text {
+        text {
+            font-family: STHeiti;
+        }
+		/*text {
 			font-size: 80px;
 			text-anchor: middle
 		}
@@ -22,67 +25,264 @@
 		button {
 			font-size: 80px
 
-		}
+		}*/
+        #answer rect{
+            fill: white;
+            stroke: #ccc;
+            stroke-width: 4;
+        }
+
+        #keyboard rect{
+            stroke: #ccc;
+            stroke-width: 4;
+            fill: white;
+        }
+
 	</style>
 </head>
 <body>
-	<div id = "map"  style="position: absolute; top: 0%; left: 2%; width: 90%; height: 100%; margin: 0px; padding: 0px; ">
-	  <text id="a"></text><br>
-	  <text id="b"></text><br>
-	  <text id="c"></text><br>
-	  <text id="d"></text><br>
-	  <label for="lname">答案:</label>
-	  <input type="text" id="lname" name="lname"><br>
-	  <button type="button">「提交」</button><br>
-	  <text id="shangci"></text><br>
-	  <text id="duile"></text><br>
+	<div id = "calculate"  style="position: absolute; top: 5%; left: 2%; width: 96%; height: 90%; margin: 0px; padding: 0px; ">
     </div>
     <script src="d3.min.js"></script>
     <script>
-    	let a, b, c, d;
-    	let right = 0
-    	let wrong = 0
-    	random()
+        let a, b, c, d;
+        let right = 0
+        let wrong = 0
+        let string 
+        let answer_number 
+        let answer_string = ""
+        let width = document.getElementById('calculate').clientWidth,
+            height = document.getElementById('calculate').clientHeight
+
+        let calculate = d3.select("#calculate")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+
+        let answer = calculate.append("g")
+            .attr("id", "answer")
+
+        answer.append('rect')
+            .attr("width", width)
+            .attr("height", height * 0.15)
+            .attr("rx", 5)
+
+        answer_text = answer.append('text')
+            .attr("x", width/2)
+            .attr("y", height * 0.13)
+            .attr("font-size", height * 0.08)
+            .attr("text-anchor", "middle")
+            .text( "")
+
+        keyboard = calculate.append("g")
+            .attr("id", "keyboard")
+            .attr("transform", "translate(" + 0  + "," + height * 0.2  + ")")
+        
+        keyboard_height = height * 0.6
+        keyboard_width = width 
+
+        key_height = keyboard_height / 4
+        key_width = keyboard_width / 3
+
+        key_number = [1,2,3,4,5,6,7,8,9,"重新输入", 0, "确定"]
+
+        keys = keyboard.selectAll(".key")
+            .data(key_number)
+            .enter()
+            .append("g")
+            .attr("transform", function(d,i){
+                line = parseInt(i / 3);
+                col = i - line * 3;
+                console.log(line, col);
+                return "translate(" + (col * key_width) + "," + (line * key_height) + ")";
+            })
+            // .attr("transform", funciton(d,i){
+                
+            //     // return "translate(" + (col * (keyboard_width / 3)) + "," + (line * (keyboard_height / 4)) + ")";
+            // })
+
+        keys.append("rect")
+            // .attr("x", key_width )
+            .attr("width", key_width )
+            .attr("height", key_height)
+            .attr("rx", 5)
+
+        
+
+        keys.append("text")
+            .attr("x", key_width / 2)
+            .attr("y", function(d){
+                if (d === "重新输入" || d === "确定")
+                    return key_height / 2 + key_width/10
+                return key_height / 2 + key_width/4
+                
+            })
+            .attr("text-anchor", "middle")
+            .text(function(d){
+                return d
+            })
+            .attr("font-size", function(d){
+                if (d === "重新输入" || d === "确定")
+                    return key_width/5
+                return key_width/2
+            })
+
+    
+        keys.on("click", function(d){
+            if (d === "重新输入"){
+                answer_string = ""
+                update_screen()
+            }
+            else if (d === "确定"){
+                if (judge_correct())
+                    load_right()
+                else 
+                    load_wrong()
+                reload()
+            }
+            else {
+                answer_string += d
+                console.log(answer_string)
+                update_screen()
+                if (judge_correct()){
+                    load_right() 
+                    reload()
+                }
+            }
+
+        })
+
+        smile = calculate.append("image")
+              .attr("xlink:href", "smile.png")
+              .attr("width", width)
+              .attr("opacity", 0)
+              .attr("pointer-events", "none")
+
+        cry = calculate.append("image")
+              .attr("xlink:href", "ku.png")
+              .attr("width", width)
+              .attr("opacity", 0)
+              .attr("pointer-events", "none")
+
+        result = calculate.append("text")
+            .attr("x", width/2)
+            .attr("y", height * 0.9)
+            .attr("text-anchor", "middle")
+            .attr("font-size", width / 20)
+        
+        let right_num = 0
+        let wrong_num = 0
+        let total_num = 0
+
+        function load_right(){
+            right_num += 1
+            total_num += 1
+            smile.attr('opacity', 1)
+                .attr("pointer-events", "auto")
+            setTimeout(function(){
+                smile.attr('opacity', 0)
+                .attr("pointer-events", "none")
+            },2000)
+            laod_number()
+        }
+        function load_wrong(){
+            wrong_num += 1
+            total_num += 1
+            cry.attr('opacity', 1)
+                .attr("pointer-events", "auto")
+            setTimeout(function(){
+                cry.attr('opacity', 0)
+                .attr("pointer-events", "none")
+            },2000)
+            laod_number()
+        }
+        function laod_number(){
+            result.text("共答" + total_num + "题，答对" + right_num + '题，答错' + wrong_num + "题")
+        }
+        function judge_correct(){
+            input_answer = parseInt(answer_string)
+            return (input_answer === answer_number)
+        }
+        reload()
+        laod_number()
+
+        // d3.select("button")
+        //     .on("click", function(){
+        //         answer = parseInt(document.getElementById("lname").value)
+        //         console.log(answer)
+        //         console.log(a, b, c, d, a + b + c + d)
+        //         if (answer === (a + b + c + d)){
+        //             d3.select("#shangci").text("😊😊😊上题正确")
+        //             // alert("回答正确！！！")
+        //             right += 1
+        //                 // select("#jieguo").text("回答正确！")
+        //         }
+        //         else {
+        //             d3.select("#shangci").text("😢😢😢上题错误")
+        //             wrong += 1
+        //         }
+
+        //         d3.select("#duile").text("😊做对" + right + "题，😢做错" + wrong + "题")
+        //         random()
+        //         document.getElementById("lname").value = ""
+        //     })
+
+
+
+        // keyboard.append("rect")
+        //     .attr('width', width)
+        //     .attr("height", keyboard_height)
+
+        function update_screen(){
+            answer_text.text(string + "= (" +  answer_string + ")" )
+
+        }
+
+
+    	function reload()
+        {
+            contain = random()
+            string = contain.string
+            answer_number = contain.answer
+            update_screen()
+        }
+
+    	
+
+
     	function random(){
+            answer_string = ""
     		a = Math.floor((Math.random() * 10) + 1);
 	    	b = Math.floor((Math.random() * (10 + a)) - a);
 	    	c = Math.floor((Math.random() * (10 + a + b)) - a - b);
 	    	d = Math.floor((Math.random() * (10 + a + b + c)) - a - b - c);
-	    	answer = a + b + c + d
-	    	d3.select("#a")
-    		.text(a)
-    		d3.select("#b")
-    		.text(b)
-    		d3.select("#c")
-    		.text(c)
-    		d3.select("#d")
-    		.text(d)
+            string = ""
+            string += a
+            if (b >= 0)
+                string += "+" + b
+            else 
+                string += b
 
+            if (c >= 0)
+                string += "+" + c
+            else 
+                string += c
+            
+            if (d >= 0)
+                string += "+" + d
+            else 
+                string += d
+        
+	    	answer = a + b + c + d
+            return {string: string, answer: answer}
     	}
     	function get_answer(){
     		return parseInt(document.getElementById("lname").value)
     	}
-    
-    	d3.select("button")
-    		.on("click", function(){
-    			answer = parseInt(document.getElementById("lname").value)
-    			console.log(answer)
-    			console.log(a, b, c, d, a + b + c + d)
-    			if (answer === (a + b + c + d)){
-    				d3.select("#shangci").text("😊😊😊上题正确")
-    				// alert("回答正确！！！")
-    				right += 1
-    					// select("#jieguo").text("回答正确！")
-    			}
-    			else {
-    				d3.select("#shangci").text("😢😢😢上题错误")
-    				wrong += 1
-    			}
 
-    			d3.select("#duile").text("😊做对" + right + "题，😢做错" + wrong + "题")
-    			random()
-    			document.getElementById("lname").value = ""
-    		})
+
+    
+
     </script>
     
 </body>
