@@ -3,7 +3,7 @@ pre_dir = "";
 let play_button_image = pre_dir + "image/play-button.png";
 let stop_button_image = pre_dir + "image/stop-button.png";
 // let last_day 
-let color_add = [{"color": "#78CE6A", "text": "新增下降"}, {"color": "#FCC265", "text": "新增持平"}, {"color": "#F4806A", "text": "新增上升"}]
+let color_add = [{"color": "#78CE6A", "text": "新增下降", "en_text": "Reduce"}, {"color": "#FCC265", "text": "新增持平", "en_text": "Stable"}, {"color": "#F4806A", "text": "新增上升", "en_text": "Increase"}]
 
 
 let change_mode = "accu"
@@ -159,11 +159,19 @@ function carto_map_load(simple_name)
   cities_area = new Array()
   small_index = 100000
   current_step = 1
-  d3.select("head").select("title").text(simple_name + "新冠肺炎疫情")
+  if (language === "en")
+    d3.select("head").select("title").text(simple_name + "新冠肺炎疫情")
+  else 
+    d3.select("head").select("title").text(simple_name + "新冠肺炎疫情")
   simple_province_name = simple_name
   initialize_province_set(simple_province_name) // 设置一些基本的函数
   small_index = 100000
   adjust_for_phone(map_height, map_width)
+  console.log("small_index", small_index)
+  // if (simple_province_name === "全国"){
+  //   small_index = 10000000000
+  // }
+  console.log("small_index", small_index)
   provinces = cities
   provinces_number = provinces.length
   provinces_area = cities_area
@@ -249,6 +257,12 @@ function add_day_info(){
 
 function load_many_info()
 {
+  data_source_text = "数据来源：国家卫生健康委员会"
+  carto_map_text = "变形地图库：github.com/emeeks"
+  if (language === "en")
+    data_source_text = "Data source: National Health Commission of China"
+    carto_map_text = "Cartogram Map: github.com/emeeks"
+
   total_info = map_svg.append("g")
     .attr("transform", "translate(" + total_left  + "," + total_top + ")")
     .append("text")
@@ -282,7 +296,7 @@ function load_many_info()
     .attr("id", "day")
     .attr('font-size', info_font_size)
     .attr('text-anchor', "start")
-    .text("数据来源：国家卫生健康委员会")
+    .text(data_source_text)
     .style("fill", "#444")
     .style("text-decoration", "underline")
 
@@ -292,7 +306,7 @@ function load_many_info()
     .attr("id", "day")
     .attr('font-size', info_font_size)
     .attr('text-anchor', "start")
-    .text("变形地图库：github.com/emeeks")
+    .text(carto_map_text)
     .style("fill", "#444")
     .style("text-decoration", "underline")
 }
@@ -364,10 +378,9 @@ function run_on_step(i)
     ncov_value = get_value_from_someday(ncov_data, i );
     console.log("ncov_value", ncov_value);
     update_ncov_data(ncov_value, 500)
-    total_number = get_total_number(i)
     update_extra_info(ncov_value)
     update_total()
-    update_day(day)
+    update_day(i)
     if (i == ncov_data[0].length - 1){
       stop_button()
     }    
@@ -378,6 +391,13 @@ function run_on_step(i)
 function update_extra_info(ncov_value){
   let extra_info_string = ""
   if (ncov_value.hasOwnProperty(-1) && ncov_value[-1] > 0){
+    if (language === "en"){
+      if (ncov_value[-1] === 1)
+        extra_info_string = "Note: there is " + ncov_value[-1] + " infection does not match the map."
+      else
+        extra_info_string = "Note: there are " + ncov_value[-1] + " infections do not match the map."
+    }
+    else 
       extra_info_string = "注：另有" + ncov_value[-1] + "名确诊患者未匹配地图地区"
   }
 
@@ -395,41 +415,77 @@ function get_total_number(date_index){
   // return total_number
 
   let total_number = 0;
+  let gangaotai = 0;
+  
   for (j = 0; j < ncov_data.length; j ++){
     // console.log(ncov_data[j])
     // console.log(ncov_data[j][date_index ])
     if (ncov_data[j][0] == "total"){
       if (see_guojia)
-        return ncov_data[j][date_index]
-      continue
+        total_number = ncov_data[j][date_index]
+      break
     }
-    total_number = total_number + ncov_data[j][date_index]
+    else if (ncov_data[j][0] === "香港" || ncov_data[j][0] == "澳门" || ncov_data[j][0] == "台湾"){
+      gangaotai += ncov_data[j][date_index]
+    }
+    else{
+      total_number = total_number + ncov_data[j][date_index]
+    }
   }
+
+  let total_minus = 0;
+  for (j = 0; j < minus_ncov_data.length; j ++){
+    // console.log(ncov_data[j])
+    // console.log(ncov_data[j][date_index ])
+    if (minus_ncov_data[j][0] == "total"){
+      if (see_guojia)
+        total_minus = minus_ncov_data[j][date_index]
+      break
+    }
+    else{
+      total_minus = total_minus + minus_ncov_data[j][date_index]
+    }
+  }
+
   console.log("province", total_number)
-  // console.log("guojia", get_total_number_from_guojia(date_index))
-  return total_number
-}
 
-function get_total_number_from_guojia(date_index){
-  let tot
-
-  return total_number
+  return {total: total_number + gangaotai, minus: total_minus, gangaotai: gangaotai}
 }
 
 
-function update_day(day)
+function update_day(day_index)
 {
+  if (language === "en") 
+    day = get_day_en(day_index)
+  else 
+    day = get_day(day_index)
   day_info.text(day)
 }
 
 function update_total()
 {
   console.log("current_step", current_step)
+
   total_number = get_total_number(current_step)
   let pre_name = "累计确诊："
-  if (change_mode === "add")
+  if (language === "en")
+    pre_name = "Cumulative Diagnosed: "
+  if (change_mode === "add"){
     pre_name = "新增确诊："
-  total_info.text(pre_name + total_number)
+    if (language === "en")
+      pre_name = "New Diagnosed: "
+  }
+  let gangaotai = ""
+  if (simple_province_name === "全国"){
+    pre_name = "全国确诊："
+  }
+  if (change_mode === "add"){
+    total_info.text(pre_name + total_number.total + "(" + total_number.minus + ")" + gangaotai)
+  }
+  else {
+    total_info.text(pre_name + total_number.total + gangaotai)
+  }
+
   // total_info.text("累计确诊：" + total_number)
 }
 
@@ -474,10 +530,13 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
     else if (method == "normal")
       value_array[i] = provinces_area[provinces[i]]
     else{
-      value_array[i] = day_ncov_value[i] + provinces_area[provinces[i]]/small_index
+      value_array[i] = day_ncov_value[i] + (provinces_area[provinces[i]] / (small_index * 10) )
     }
     // 
   }
+  console.log("provinces_area", provinces_area)
+  console.log("value_array", value_array)
+  console.log("day_ncov_value", day_ncov_value)
   // console.log("看看数值", value_array)
 
 
@@ -511,6 +570,7 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
   console.log("current step", current_step)
   let current_new_add = get_value_from_someday(ncov_data_new, current_step)
   let last_new_add = get_value_from_someday(ncov_data_new, current_step - 1)
+  let current_minus_value = get_value_from_someday(minus_ncov_data, current_step )
   
   console.log("current new add", current_new_add)
   let current_accu = get_value_from_someday(ncov_data_accu, current_step)
@@ -574,6 +634,15 @@ function update_ncov_data(day_ncov_value, set_time = 3000, initialize = false){
 
   province_name.selectAll(".province_number")
       .text(function(d){
+        if (change_mode === "add"){
+          let province_index = provinces.indexOf(d)
+          if (current_minus_value[province_index] != 0) {
+            return day_ncov_value[province_index] + "(" + current_minus_value[province_index] + ")"
+          }
+          else{
+            return day_ncov_value[province_index]
+          }
+        }
         return day_ncov_value[provinces.indexOf(d)]
       })
       .attr("fill-opacity", function(d,i){
@@ -796,6 +865,16 @@ function main_load()
   if (map_height < map_width * 3/4)
   {
     min_edge = map_height * 4/3
+    // if (map_width / float(map_width) < 1.2 && map_width / float(map_width) >= 1.0){
+    //   console.log("really??")
+    //   min_edge = map_height * 0.5
+    // }
+  }
+  if (map_width > map_height && map_width <= map_height * 1.3)
+  {
+    min_edge = map_height * 0.9
+    // alert("???")
+    console.log("really", min_edge)
   }
   let projection = d3.geoAlbers()
     .rotate([-center_location[0], 0])
@@ -808,9 +887,15 @@ function main_load()
 
   // let pop_data = d3.map();
 
+  let iteration = 30
+  if (simple_province_name === "全国"){
+    iteration = 130
+  }
+  console.log("iteration", iteration)
+
   carto = d3.cartogram()
       .projection(projection)
-      .iterations(30)
+      .iterations(iteration)
       .properties(function (d) {
         // this adds the "properties" properties to the geometries
         return d;
@@ -909,6 +994,8 @@ function main_load()
         .attr("text-anchor", "middle")
         .attr("font-size", province_font_size)
         .text(function(d){
+          if (language === "en")
+            return get_pinyin_name(d)
           return d
         })
       
@@ -922,8 +1009,8 @@ function main_load()
         // console.log(table_data)
 
       // d3.csv("https://tanshaocong.github.io/2019-nCoV/detail.csv")
-      data_url = "https://tanshaocong.github.io/2019-nCoV/data.csv"
-      url = "https://tanshaocong.github.io/2019-nCoV/map.csv"
+      // data_url = "https://tanshaocong.github.io/2019-nCoV/data.csv"
+      url = "https://vis.ucloud365.com/ncov/data/map.csv"
       d3.csv(url)
         .then(function(data){
           // a = data[1000]
@@ -939,15 +1026,18 @@ function main_load()
           console.log("old ncov", ncov_data)
           ncov_data = accumulate_data(ncov_data, minus_ncov_data) 
           console.log("new ncov", ncov_data)
-          d3.csv("https://tanshaocong.github.io/2019-nCoV/time.csv")
+          d3.csv("https://vis.ucloud365.com/ncov/data/time.csv")
           .then(function(update_time){
             console.log(update_time[0]["time"])
-            date.select("text").text("数据截止至 " + update_time[0]["time"])
+            if (language === "en")
+              date.select("text").text("Data updated, " + update_time[0]["time"])
+            else 
+              date.select("text").text("数据截止至 " + update_time[0]["time"])
 
           })
-          .catch(function(error){
-            date.select("text").text("数据截止至" + get_day(ncov_data[0].length - 2) + "24时")
-          })
+          // .catch(function(error){
+          //   date.select("text").text("数据截止至" + get_day(ncov_data[0].length - 2) + "24时")
+          // })
           // date.select("text").text("数据截止至" + get_day(ncov_data[0].length - 2) + "24时")
           play(ncov_data)
         })
@@ -1055,11 +1145,41 @@ function initialize(set_time = 500)
 function get_day(i)
 {
   let date = i + begin_date - 1
-  if (date > 31)
+  if (date > 31 && date <= 60)
   {
     return "2月" + (date - 31) + "日"
   }
+  else if (date > 60 && date <= 91)
+  {
+    return "3月" + (date - 60) + "日"
+  }
+  else if (date > 91)
+  {
+    return "4月" + (date - 91) + "日"
+  }
   return "1月" + date + "日"
+}
+
+function get_day_en(i)
+{
+  let date = i + begin_date - 1
+  if (date > 31)
+  {
+    return "Feb. " + (date - 31) 
+  }
+  else if (date > 60)
+  {
+    return "Mar. " + (date - 60) 
+  }
+  else if (date > 91)
+  {
+    return "Apr. " + (date - 91)
+  }
+  else if (date > 121)
+  {
+    return "May " + (date - 91)
+  }
+  return "Jan. " + date 
 }
 
 function get_day_index(day_str)
@@ -1074,6 +1194,8 @@ function get_day_index(day_str)
     return day + 31
   if (month == 3)
     return day + 60
+  if (month == 4)
+    return day + 91
   return (month - 1) * 30 + day 
 
 
@@ -1152,7 +1274,7 @@ function convert_data(data){
     console.log("new_data ", new_data)
     console.log("minus data", minus_data)
     date_list = date_list.sort()
-    console.log(date_list)
+    console.log("date_list", date_list)
     begin_date = date_list[0]
     end_date = date_list[date_list.length - 1]
     console.log("begin_date", begin_date)
@@ -1240,81 +1362,6 @@ function convert_data(data){
     return {table_data: table_data, minus_table_data: minus_table_data}
 }
 
-function find_pair(city_list){
-  console.log("city_list", city_list)
-  console.log("cities", cities)
-  let city_dict = new Array()
-  for (let i = 0; i < city_list.length; i ++)
-  {
-    city_dict[city_list[i]] = city_list[i]
-    for (let j = 0; j < cities.length; j ++)
-    {
-      if (city_list[i].indexOf(cities[j]) >= 0)
-      {
-        city_dict[city_list[i]] = cities[j]
-      }
-    }
-  }
-  if (simple_province_name === "河南"){
-    city_dict["永城"] = "商丘"
-    city_dict["长垣"] = "新乡"
-    city_dict["滑县"] = "安阳"
-    
-  }
-  else if (simple_province_name === "新疆"){
-    city_dict["新疆生产建设兵团"] = "乌鲁木齐"
-    city_dict["第一师"] = "阿拉尔"
-    city_dict["第二师"] = "铁门关"
-    city_dict["第三师"] = "图木舒克"
-    city_dict["第四师"] = "可克达拉"
-    city_dict["第五师"] = "双河"
-    city_dict["第六师"] = "五家渠"
-    city_dict["第七师"] = "胡杨河"
-    city_dict["第八师"] = "石河子"
-    city_dict["第九师"] = "塔城地区"
-    city_dict["第十师"] = "北屯"
-    city_dict["第十一师"] = "乌鲁木齐"
-    city_dict["第十二师"] = "乌鲁木齐"
-    city_dict["第十三师"] = "哈密"
-    city_dict["第十四师"] = "昆玉"
-    city_dict["兵团第一师"] = "阿拉尔"
-    city_dict["兵团第二师"] = "铁门关"
-    city_dict["兵团第三师"] = "图木舒克"
-    city_dict["兵团第四师"] = "可克达拉"
-    city_dict["兵团第五师"] = "双河"
-    city_dict["兵团第六师"] = "五家渠"
-    city_dict["兵团第七师"] = "胡杨河"
-    city_dict["兵团第八师"] = "石河子"
-    city_dict["兵团第九师"] = "塔城地区"
-    city_dict["兵团第十师"] = "北屯"
-    city_dict["兵团第十一师"] = "乌鲁木齐"
-    city_dict["兵团第十二师"] = "乌鲁木齐"
-    city_dict["兵团第十三师"] = "哈密"
-    city_dict["兵团第十四师"] = "昆玉"
-  }
-  else if (simple_province_name === "安徽"){
-    city_dict["宿松"] = "安庆"
-  }
-  else if (simple_province_name === "重庆"){
-    city_dict["万盛经开区"] = "綦江"
-    // city_dict["高新区"] = "沙坪坝"
-    
-  }
-  else if (simple_province_name === "陕西"){
-    city_dict["韩城"] = "渭南"
-    city_dict["杨凌示范区"] = "咸阳"
-    city_dict["杨凌"] = "咸阳"
-  }
-  else if (simple_province_name === "吉林"){
-    city_dict["公主岭"] = "四平"
-  }
-  else if (simple_province_name === "宁夏"){
-    city_dict["灵武"] = "银川"
-  }
-
-  console.log(city_dict)
-  return city_dict
-}
 
 function modify_name(city_name){
   let new_name 
@@ -1403,7 +1450,16 @@ function reload_legend_title(){
     .style("fill", function(d){
       return button_selected_color
     })
-    .text("新冠肺炎疫情: " + simple_province_name + add_name + "态势")
+    .text(function(d){
+      return get_proper_title()
+    })
+}
+
+function get_proper_title(){
+  if (language === "en")
+    return "Novel Coronavirus Pneumonia: Situation of " + get_pinyin_name(simple_province_name) 
+  else 
+    return "新冠肺炎疫情: " + simple_province_name + add_name + "态势"
 }
 
 function add_svg()
@@ -1419,12 +1475,22 @@ function add_svg()
 
 function add_toggle(svg)
 {
+  toggle_kernal_position = 2.2
+  leiji_name = "累计"
+  new_name = "新增"
+  if (language === "en"){
+    toggle_kernal_position = 4.2
+    leiji_name = "Cumulative"
+    new_name = "New"
+  }
+
+
   toggle_switch = svg.append("g")
     .attr("class", "toggle")
     .attr("transform", "translate(" + (toggle_switch_left ) + "," + toggle_switch_top + ")")
 
   toggle_kernal = toggle_switch.append("g")
-    .attr("transform", "translate(" + (toggle_text_size * 2.2 ) + ", 0)")
+    .attr("transform", "translate(" + (toggle_text_size * toggle_kernal_position ) + ", 0)")
 
 
   toggle_kernal.append("rect")
@@ -1449,13 +1515,13 @@ function add_toggle(svg)
     .attr("transform", "translate(0, " + toggle_text_size * 0.8 + ")")
     .append("text")
     .attr("font-size", toggle_text_size)
-    .text("累计")
+    .text(leiji_name)
 
   toggle_switch.append('g')
-    .attr("transform", "translate(" + (toggle_switch_width + toggle_text_size * 2.4) + ", " + toggle_text_size * 0.8 + ")")
+    .attr("transform", "translate(" + (toggle_switch_width + toggle_text_size * (toggle_kernal_position + 0.2)) + ", " + toggle_text_size * 0.8 + ")")
     .append("text")
     .attr("font-size", toggle_text_size)
-    .text("新增")
+    .text(new_name)
 
   toggle_kernal
     .on("click", function(d){
@@ -1579,7 +1645,9 @@ function add_title(this_svg)
     .attr("transform", "translate(" + title_left + "," + title_top  + ")")
     // change
   title.append("text")
-    .text("新冠肺炎疫情: " + simple_province_name + add_name + "态势")
+    .text(function(d){
+      return get_proper_title()
+    })
     .attr('font-size', title_font_size)
     .attr('text-anchor', "start")
     .style("fill", function(d){
@@ -1658,6 +1726,8 @@ function load_legend(){
     single_legend_contain.append("text")
       .attr("transform", "translate(" + legend_width * 0.1 + "," + legend_height * 1.1 + ")")
       .text(function(d, i){
+        if (language === "en")
+          return d.en_text
         return d.text
       })
       .style("fill", "#fff")
@@ -1666,6 +1736,14 @@ function load_legend(){
 }
 function initialize_method_button()
 {
+  let log_text = "对数比例"
+  let linear_text = "线性比例"
+  let normal_text = "面积固定"
+  if (language === "en"){
+    log_text = "Log Scale"
+    linear_text = "Linear Scale"
+    normal_text = "Fixed Area"
+  }
   log_button = scale_button.append("g")
     .attr("transform", "translate(" + (-scale_button_width) +", 0)")
 
@@ -1684,7 +1762,7 @@ function initialize_method_button()
     .attr("rx", log_button_rx)
 
   log_button.append("text")
-    .text("对数比例")
+    .text(log_text)
     .attr("text-anchor", "middle")
     .attr("y", (scale_button_height + scale_button_font ) / 2  - scale_button_font * 0.1  )
     .attr("x", scale_button_width / 2 )
@@ -1699,7 +1777,7 @@ function initialize_method_button()
     .attr("rx", log_button_rx)
 
   linear_button.append("text")
-    .text("线性比例")
+    .text(linear_text)
     .attr("text-anchor", "middle")
     .attr("y", (scale_button_height + scale_button_font ) / 2 - 2)
     .attr("x", scale_button_width / 2 )
@@ -1713,7 +1791,7 @@ function initialize_method_button()
     .attr("rx", log_button_rx)
 
   normal_button.append("text")
-    .text("面积固定")
+    .text(normal_text)
     .attr("text-anchor", "middle")
     .attr("y", (scale_button_height + scale_button_font ) / 2 - 2)
     .attr("x", scale_button_width / 2 )
@@ -1816,7 +1894,11 @@ function add_nanhai_svg(){
     .attr("x", nanhai_width * 0.98)
     .attr("y", nanhai_height * 0.95)
     .attr("text-anchor", "end")
-    .text('中国南海')
+    .text(function(d){
+      if (language === "ch")
+        return "中国南海"
+      return "South China Sea"
+    })
     .attr("font-size", nanhai_width/10)
 
   d3.json("china-geojson/nanhai.json")
@@ -1844,6 +1926,10 @@ function add_nanhai_svg(){
         .attr("class", "nine_line")
 
     })
+}
+
+function firstUpperCase(str) {
+  return str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
 }
 
 carto_map_load(simple_province_name)

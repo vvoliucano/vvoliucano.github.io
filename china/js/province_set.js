@@ -311,3 +311,119 @@ function initialize_province_set(simple_province_name){
     cities_area = {'黑河': 68726, '大兴安岭': 83000, '哈尔滨': 53100, '齐齐哈尔': 42500, '牡丹江': 40600, '绥化': 34873.1, '伊春': 32800.29, '佳木斯': 32460, '鸡西': 22500, '双鸭山': 22483, '大庆': 22161, '鹤岗': 14684, '七台河': 6221}
   }
 }
+
+function get_pinyin_name(chinese_name){
+  let pinyin_str
+  if (chinese_name === "陕西")
+    pinyin_str = "Shaanxi"
+  else if (chinese_name === "全国")
+    pinyin_str = "China"
+  else if (chinese_name === "香港")
+    pinyin_str = "HongKong"
+  else if (chinese_name === "澳门")
+    pinyin_str = "Macau"
+  else if (chinese_name === "内蒙古")
+    pinyin_str = "Inner Mongolia"
+  else if (chinese_name === "西藏")
+    pinyin_str = "Tibet"
+  else if (chinese_name === "西安")
+    pinyin_str = "Xi'an"
+  else if (chinese_name === "湖南")
+    pinyin_str = "Hunan"
+  else if (chinese_name === "河南")
+    pinyin_str = "Henan"
+  else if (chinese_name === "宁夏")
+    pinyin_str = "Ningxia"
+  else if (chinese_name === "台湾")
+    pinyin_str = "Taiwan"
+  else if (chinese_name === "甘肃")
+    pinyin_str = "Gansu"
+  else if (chinese_name === "辽宁")
+    pinyin_str = "Liaoning"
+  else {
+    let result = pinyinlite(chinese_name)
+    pinyin_str = ""
+    for (let i = 0; i < result.length; i ++)
+    {
+      pinyin_str += result[i][result[i].length - 1]
+    }
+  }
+  return pinyin_str.toUpperCase()
+}
+
+
+function find_pair(city_list){
+  console.log("city_list", city_list)
+  console.log("cities", cities)
+  let city_dict = new Array()
+  for (let i = 0; i < city_list.length; i ++)
+  {
+    city_dict[city_list[i]] = city_list[i]
+    for (let j = 0; j < cities.length; j ++)
+    {
+      if (city_list[i].indexOf(cities[j]) >= 0)
+      {
+        city_dict[city_list[i]] = cities[j]
+      }
+    }
+  }
+  if (simple_province_name === "河南"){
+    city_dict["永城"] = "商丘"
+    city_dict["长垣"] = "新乡"
+    city_dict["滑县"] = "安阳"
+    
+  }
+  else if (simple_province_name === "新疆"){
+    city_dict["新疆生产建设兵团"] = "乌鲁木齐"
+    city_dict["第一师"] = "阿拉尔"
+    city_dict["第二师"] = "铁门关"
+    city_dict["第三师"] = "图木舒克"
+    city_dict["第四师"] = "可克达拉"
+    city_dict["第五师"] = "双河"
+    city_dict["第六师"] = "五家渠"
+    city_dict["第七师"] = "胡杨河"
+    city_dict["第八师"] = "石河子"
+    city_dict["第九师"] = "塔城地区"
+    city_dict["第十师"] = "北屯"
+    city_dict["第十一师"] = "乌鲁木齐"
+    city_dict["第十二师"] = "乌鲁木齐"
+    city_dict["第十三师"] = "哈密"
+    city_dict["第十四师"] = "昆玉"
+    city_dict["兵团第一师"] = "阿拉尔"
+    city_dict["兵团第二师"] = "铁门关"
+    city_dict["兵团第三师"] = "图木舒克"
+    city_dict["兵团第四师"] = "可克达拉"
+    city_dict["兵团第五师"] = "双河"
+    city_dict["兵团第六师"] = "五家渠"
+    city_dict["兵团第七师"] = "胡杨河"
+    city_dict["兵团第八师"] = "石河子"
+    city_dict["兵团第九师"] = "塔城地区"
+    city_dict["兵团第十师"] = "北屯"
+    city_dict["兵团第十一师"] = "乌鲁木齐"
+    city_dict["兵团第十二师"] = "乌鲁木齐"
+    city_dict["兵团第十三师"] = "哈密"
+    city_dict["兵团第十四师"] = "昆玉"
+  }
+  else if (simple_province_name === "安徽"){
+    city_dict["宿松"] = "安庆"
+  }
+  else if (simple_province_name === "重庆"){
+    city_dict["万盛经开区"] = "綦江"
+    // city_dict["高新区"] = "沙坪坝"
+    
+  }
+  else if (simple_province_name === "陕西"){
+    city_dict["韩城"] = "渭南"
+    city_dict["杨凌示范区"] = "咸阳"
+    city_dict["杨凌"] = "咸阳"
+  }
+  else if (simple_province_name === "吉林"){
+    city_dict["公主岭"] = "四平"
+  }
+  else if (simple_province_name === "宁夏"){
+    city_dict["灵武"] = "银川"
+  }
+
+  console.log(city_dict)
+  return city_dict
+}
