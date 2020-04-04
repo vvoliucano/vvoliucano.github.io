@@ -256,6 +256,7 @@
 	    	b = Math.floor((Math.random() * (10 + a)) - a);
 	    	c = Math.floor((Math.random() * (10 + a + b)) - a - b);
 	    	d = Math.floor((Math.random() * (10 + a + b + c)) - a - b - c);
+            e = Math.floor((Math.random() * (10 + a + b + c + d)) - a - b - c - d);
             string = ""
             string += a
             if (b >= 0)
@@ -272,8 +273,13 @@
                 string += "+" + d
             else 
                 string += d
+
+            if (e >= 0)
+                string += "+" + e
+            else 
+                string += e
         
-	    	answer = a + b + c + d
+	    	answer = a + b + c + d + e
             return {string: string, answer: answer}
     	}
     	function get_answer(){
