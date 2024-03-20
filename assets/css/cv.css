@@ -129,6 +129,18 @@ ul {
   max-width: 1000px;
 }
 
+/* 
+.container {
+  min-width: 680px;
+  max-width: 740px;
+} */
+
+
+.container-maoda {
+  min-width: 680px;
+  max-width: 1000px;
+}
+
 .container > * {
   margin-left: 55px;
 }
