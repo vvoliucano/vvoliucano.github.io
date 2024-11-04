@@ -69,7 +69,54 @@ var _hmt = _hmt || [];
 
   <div class="page-content">
     <section class="container ">
-  
+  <style>
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.project {
+    position: relative;
+    flex: 1 0 30%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* 隐藏 checkbox */
+.project input[type="checkbox"] {
+    display: none;
+}
+
+/* 当 checkbox 被选中时放大图片 */
+.project input[type="checkbox"]:checked + label img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+    max-width: 90%;
+    max-height: 90%;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+</style>
+
+<!-- <div class="grid">
+    
+</div> -->
+
 <h2 id="y2024" class="year">2024</h2>
 
 <div class="publication">
@@ -81,23 +128,7 @@ var _hmt = _hmt || [];
     <p> 岷江千里雪融寒，玉磊盘，青城拦。太守作堰，鱼嘴妙分澜。秦卷天下终始汉，丞相挽，万古昙。</p><p> 天堑横亘龙虎桓，三代传，守江南。大魏吴王，十万雄师磐。白衣渡江千古传，明祖赞，护陵南。</p>
     
     
-<div class="grid">
-    
-    <div class="project">
-      <img src="/assets/poetry/202410_hutoushan.jpg" alt="江城子·首尾两端" />
-    </div>
-    
-</div>
-
-    <!-- 
-    <div class="grid">
-      
-      <div class="project">
-    <img src="/assets/poetry/202410_hutoushan.jpg" alt="江城子·首尾两端" />
-    </div>
-    
-    </div>
-     -->
+    <!--  -->
   </div>
 
 <div class="publication">
@@ -107,7 +138,50 @@ var _hmt = _hmt || [];
     <p> 五岭赴平川，西乡享景山</p><p> 太行横燕脉，淑贤如是观</p>
     
     
-    <!--  -->
+
+    <div class="grid">
+    
+    <div class="project">
+      <input type="checkbox" id="toggle西山1" />
+      <label for="toggle西山1">
+        <img src="/assets/poetry/202410_hutoushan.jpg" alt="西山" />
+      </label>
+    </div>
+    
+    <div class="project">
+      <input type="checkbox" id="toggle西山2" />
+      <label for="toggle西山2">
+        <img src="/assets/poetry/202410_hutoushan2.jpg" alt="西山" />
+      </label>
+    </div>
+    
+    <div class="project">
+      <input type="checkbox" id="toggle西山3" />
+      <label for="toggle西山3">
+        <img src="/assets/poetry/202410_hutoushan3.jpg" alt="西山" />
+      </label>
+    </div>
+    
+</div>
+
+    
+    <!-- 
+    <div class="grid">
+      
+      <div class="project">
+    <img src="/assets/poetry/202410_hutoushan.jpg" alt="西山" />
+    </div>
+    
+      <div class="project">
+    <img src="/assets/poetry/202410_hutoushan2.jpg" alt="西山" />
+    </div>
+    
+      <div class="project">
+    <img src="/assets/poetry/202410_hutoushan3.jpg" alt="西山" />
+    </div>
+    
+    </div>
+     -->
   </div>
 
 <div class="publication">
@@ -167,7 +241,7 @@ var _hmt = _hmt || [];
   </div>
 
 <div class="publication">
-    <h3><strong>八荒同</strong>
+    <h3><strong>卜算子·八荒同</strong>
     
     </h3>
     <p> 歇山盖穹窿</p><p> 庭镇红星升</p><p> 敢效昔年三武事，从此和平道</p><p> 鱼雷荡水波</p><p> 天海无需祭</p><p> 十亿神州尽文殊，玛米金珠降</p>
