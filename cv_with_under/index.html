@@ -32,6 +32,39 @@
     s.parentNode.insertBefore(hm, s);
   })();
   </script>
+<!-- 
+  <script src="https://l2dwidget.js.org/lib/L2Dwidget.min.js"></script>
+<script>
+    L2Dwidget.init({
+        "model": {
+            "jsonPath": "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",
+　　        "scale": 1
+        },
+        "display": {
+            "position": "right",
+            "width": 150,
+            "height": 300,
+　　        "hOffset": 0,
+            "vOffset": -20
+        },
+        "mobile": {
+            "show": true,
+            "scale": 0.5
+        },
+        "react": {
+            "opacityDefault": 0.8,
+            "opacityOnHover": 1
+        },
+        "dialog": {
+            "enable": true,
+            "script": {
+                'tap body': '哎呀！别碰我！',
+                'tap face': '人家是在认真写博客哦--前端妹子',
+            }
+        }
+    });
+</script>
+ -->
 
 </head>
 
@@ -1723,6 +1756,9 @@
     </section>
   </div>
   <div id="cat-frame" class="no-print">
+    <div id="language" position="float" style="position: fixed; bottom:0; right: 0;">
+      <iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" id="catIframe" frameborder="0" data-ruffle-polyfilled=""></iframe>
+    </div>
     <div>
       <a id="print-button" class="button" onclick="print()"><i class="fa fa-print" aria-hidden="true"></i></a>
       <a id="return-button" class="button" href="/zh/"><i class="fa fa-home" aria-hidden="true"></i></a>
