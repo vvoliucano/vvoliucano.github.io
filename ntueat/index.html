@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="application-name" content="Can Liu">
+<meta name="theme-color" content="#2c9f64">
+<meta name="keywords" content="liucan, Can Liu, LIU Can, Liu Can, 刘灿, 北京大学刘灿, 可视化刘灿, 可视化, 深度学习, 数据分析, 北京大学, Peking University, Peking, Visualization, Data Analytics, PKU, PKUVIS, Beida, 博士, 博士生, 可视分析, 京师大学堂">
+<meta name="description" content="Website of Can Liu (刘灿), a PhD student. 北京大学可视化博士研究生刘灿">
+<title>Can Liu</title>
+<meta property="og:title" content="Can Liu">
+<meta property="og:site_name" content="http://localhost:1111 Can Liu">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1111">
+<meta property="og:image" content="">
+<meta property="og:description" content="Website of Can Liu (刘灿), a student of data visualization.">
+<meta name="author" content="Can Liu (刘灿)">
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/rss+xml" title="Can Liu" href="http://localhost:1111/feed.xml">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+<link href="/styles.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-146429859-1');
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fbf4b1a0c5c8dd0a7fa5f17ad11a107c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  
+<header class="page-header">
+  <nav class="container">
+    <a class="site-title" href="/zh/">主页</a>
+    <div>
+        <img src="/assets/images/liucan_writing.png" height="30px" alt='Can Liu' />
+    </div>
+    <div><a href="/projects-zh/" >项目</a></div>
+    <div><a href="/publications-zh/" >发表物</a></div>
+   <!--  <div><a href="/misc/" >Misc</a></div>
+  <div><a href="/contact/" >Contact</a></div> -->
+    <!-- <a href="/talks/" >Talks</a>
+    <a href="/blog/" >Blog</a> -->
+    <div><a href="/cv-zh/">简历</a></div>
+    <div><a href="/other/" >其他</a></div>
+    <span class="external">
+      <!-- <div><a target="_blank" href="https://twitter.com/LiwenhanXie"><i class="fab fa-twitter"></i>Twitter</a></div> -->
+      <div><a href="/"></i>English</a></div>
+    </span>
+  </nav>
+</header>
+
+
+  <div class="page-content">
+    <section class="container home">
+  <div style="text-align: center; margin-top: 50px;">
+  <button id="randomButton" style="padding: 20px 40px; font-size: 18px; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">今天吃什么？</button>
+  
+  <div id="result" style="margin-top: 30px; font-size: 24px;"></div>
+</div>
+
+<script>
+const places = [
+  "Koufu：刀削面+肉夹馍",
+  "Koufu: Handmade noodle",
+  "Koufu: Taiwan Cuisine",
+  "Canteen 2: 牛肉炒饭/面",
+  "Canteen 2: 其他",
+  "Canteen 1：麻辣面",
+  "Canteen 1: 麻辣香锅", 
+  "Canteen 1: 青椒炒牛肉拌面"
+];
+
+document.getElementById('randomButton').addEventListener('click', function() {
+  const randomIndex = Math.floor(Math.random() * places.length);
+  document.getElementById('result').textContent = places[randomIndex];
+});
+</script>
+</section>
+
+  </div>
+
+  <footer>
+  <div class="container">
+    <div class="footer-col">
+      <br />
+      志合山海越<br />
+      千里复相逢<br />
+      星汉光年远<br />
+      倏如一江风<br />
+      <br />
+      <!-- <abbr title="Last build on 2025-01-06">上次更新于2025年01月</abbr> -->
+    </div>
+    <div class="footer-col" width = "100px">
+      <!-- <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU"></script> -->
+      <!-- <a href="https://clustrmaps.com/site/1c3hc"  title="ClustrMaps"><img src="//www.clustrmaps.com/map_v2.png?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU&cl=ffffff" /></a> -->
+      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU&cl=ffffff&w=214&co=8b0801"></script>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+  function trim(str) {
+    return str.replace(/^\s+|\s+$/g, '');
+  }
+  var headers = document.querySelectorAll("h2, h3, h4, h5, h6");
+  for (var i=0; i<headers.length; i++) {
+    var h = headers[i];
+    var name = h.getAttribute("id");
+    var title = h.innerHTML;
+    h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
+  }
+</script>
+
+</body>
+</html>
