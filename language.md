@@ -14,28 +14,28 @@ class: home
 | 拼音 | 国际音标 | 例字1 | 例字2 | 例字3 |
 |------|----------|-------------|-------------|-------------|
 | b    | p        | 巴ba¹ (pa¹) | 班ban¹ (pan¹) | 八bat⁷ (pat⁷) |
-| p    | pʰ       | 怕pa⁵ (pʰa⁵) | 普pu³ (pʰu³) | 片phien⁵ (pʰiɛn⁵) |
+| p    | pʰ       | 怕pa⁵ (pʰa⁵) | 普pu³ (pʰu³) | 片pien⁵ (pʰiɛn⁵) |
+| m    | m        | 妈ma¹ (ma¹) | 棉mien² (miɛn²) | 目muk⁷ (muk⁷) |
+| f    | f        | 花fa¹ (fa¹) | 飞fi¹ (fi¹) | 发fat⁷ (fat⁷) |
 | d    | t        | 多do¹ (tɔ¹) | 添tiang¹ (tʰiaŋ¹) | 答dap⁷ (tap⁷) |
 | t    | tʰ       | 拖tho¹ (tʰɔ¹) | 天thien¹ (tʰiɛn¹) | 铁thiet⁷ (tʰiɛt⁷) |
+| n    | n        | 拿na² (na²) | 年ngien² (ŋiɛn²) | 纳nap⁷ (nap⁷) |
+| l    | l        | 拉la¹ (la¹) | 老lau³ (lau³) | 落lok⁷ (lɔk⁷) |
 | g    | k        | 家ga¹ (ka¹) | 古gu³ (ku³) | 角gok⁷ (kɔk⁷) |
-| k    | kʰ       | 卡kha³ (kʰa³) | 苦khu³ (kʰu³) | 确kok⁷ (kʰɔk⁷) |
+| k    | kʰ       | 卡ka³ (kʰa³) | 苦ku³ (kʰu³) | 确kok⁷ (kʰɔk⁷) |
+| h    | h        | 虾ha¹ (ha¹) | 喜hi³ (hi³) | 黑het⁷ (hɛt⁷) |
+| ng   | ŋ        | 牙nga² (ŋa²) | 硬ngang⁶ (ŋaŋ⁶) | 额ngiak⁷ (ŋiak⁷) |
 | z    | ts       | 渣za¹ (tsa¹) | 争zang¹ (tsaŋ¹) | 作zok⁷ (tsɔk⁷) |
 | c    | tsʰ      | 茶ca² (tsʰa²) | 草cau³ (tsʰau³) | 七cit⁷ (tsʰit⁷) |
+| s    | s        | 沙sa¹ (sa¹) | 生sang¹ (saŋ¹) | 杀sat⁷ (sat⁷) |
 | j    | tɕ       | 机ji¹ (tɕi¹) | 九jiu³ (tɕiu³) | 结jiet⁷ (tɕiɛt⁷) |
 | q    | tɕʰ      | 欺qi¹ (tɕʰi¹) | 巧qiau³ (tɕʰiau³) | 缺qiet⁷ (tɕʰiɛt⁷) |
-| m    | m        | 妈ma¹ (ma¹) | 棉mien² (miɛn²) | 目muk⁷ (muk⁷) |
-| n    | n        | 拿na² (na²) | 年ngien² (ŋiɛn²) | 纳nap⁷ (nap⁷) |
-| ng   | ŋ        | 牙nga² (ŋa²) | 硬ngang⁶ (ŋaŋ⁶) | 额ngiak⁷ (ŋiak⁷) |
-| f    | f        | 花fa¹ (fa¹) | 飞fi¹ (fi¹) | 发fat⁷ (fat⁷) |
-| s    | s        | 沙sa¹ (sa¹) | 生sang¹ (saŋ¹) | 杀sat⁷ (sat⁷) |
 | x    | ɕ        | 西xi¹ (ɕi¹) | 修xiu¹ (ɕiu¹) | 雪xiet⁷ (ɕiɛt⁷) |
-| h    | h        | 虾ha¹ (ha¹) | 喜hi³ (hi³) | 黑het⁷ (hɛt⁷) |
-| l    | l        | 拉la¹ (la¹) | 老lau³ (lau³) | 落lok⁷ (lɔk⁷) |
+| zh   | tʂ       | 周zhiu¹ (tʂiu¹) | 中zheng¹ (tʂəŋ¹) | 浊zhuk⁸ (tʂuk⁸) |
+| sh   | ʂ        | 食sheit⁸ (ʂeit⁸) | 书shu¹ (ʂu¹) | 市shi⁵ (ʂi⁵) |
 | v    | v        | 禾vo² (vɔ²) | 碗von³ (vɔn³) | 滑vat⁷ (vat⁷) |
 | y    | j        | 野ya³ (ja³) | 有yu¹ (ju¹) | 药yok⁷ (jɔk⁷) |
 | (零) | ʔ        | 阿a¹ (ʔa¹) | 安on¹ (ʔɔn¹) | 恶ok⁷ (ʔɔk⁷) |
-| sh   | ʂ        | 食sheit⁸ (ʂeit⁸) | 书shu¹ (ʂu¹) | 市shi⁵ (ʂi⁵) |
-| zh   | tʂ       | 周zhiu¹ (tʂiu¹) | 中zheng¹ (tʂəŋ¹) | 浊zhuk⁸ (tʂuk⁸) |
 
 
 
