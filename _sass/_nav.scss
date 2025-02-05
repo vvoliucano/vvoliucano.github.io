@@ -1,0 +1,143 @@
+.page-header {
+  border-bottom: 3px solid $brand-color;
+  padding-bottom: 3px;
+  margin-bottom: 40px;
+  // position: sticky;
+  // bottom: -51px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  line-height: 36px;
+  justify-content: space-between;
+
+  & > *:last-child {
+    margin-left: auto;
+  }
+
+  div {
+    padding: 12px 0.3em 0 0.3em;
+    display: inline-block;
+    margin: 0 0.3em;
+    &:last-child {
+      padding-right: 0;
+      margin-right: 0;
+    }
+  }
+
+  a {
+    color: #333;
+    padding: 0.5em 0 0 0;
+    text-decoration: none;
+    font-weight: $bold-font-weight;
+    opacity: 0.75;
+    border-top: 1px solid transparent;
+    transition: opacity 0.25s ease-in-out, border 0.25s ease-in-out;
+    &:last-child {
+      padding-right: 0;
+    }
+    &.active {
+      border-top-color: $highlight-color;
+      border-width: 2px;
+      opacity: 1;
+    }
+    &:hover {
+      text-decoration: none;
+      opacity: 1;
+      border-top-color: $highlight-color;
+      transition: opacity 0.25s ease-in-out, border 0.25s ease-in-out;
+    }
+  }
+
+  .external {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .site-title {
+    font-weight: $bold-font-weight;
+    margin-top: 8px;
+    padding: 0;
+    margin-left: 0;
+    margin-right: $spacing-unit;
+    flex: 0 0 auto;
+    font-size: 1.5em;
+    border: none;
+    color: #333;
+    opacity: 1;
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+
+@include media-query($on-laptop) {
+  nav {
+    line-height: 42px;
+    div {
+      padding-top: 0;
+    }
+    a {
+      padding: 5px 0 0 0;
+
+      &:nth-child(2) {
+        margin-left: -8px;
+      }
+    }
+
+    .site-title {
+      flex: 0 1 100%;
+      padding-left: 0.4em;
+    }
+  }
+}
+
+@include media-query($on-palm) {
+  nav {
+    justify-content: space-around;
+
+    & > *:last-child {
+      margin-left: initial;
+    }
+
+    .external {
+      flex: 0 1 100%;
+      justify-content: space-around;
+      display: none;
+    }
+    .site-title {
+      text-align: center;
+      margin: 0.5em 0 0 0;
+      padding: 0;
+    }
+    // hide icons from internal links
+    & > a .fas {
+      display: none;
+    }
+
+    div {
+      padding-top: 0;
+    }
+
+    a {
+      border-radius: 3px;
+
+      &:hover {
+        border-color: transparent;
+        background: #bde3ff;//lighten($brand-color, 60%);
+        padding: 3px 4px 3px 4px;
+        border-radius: 3px;
+      }
+
+      &.active {
+        border-color: transparent;
+        background: #ba001a;//lighten($brand-color, 60%);
+        border-radius: 3px;
+        padding: 3px 4px 3px 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,619 @@
+
+- id: dataset
+  title: "Visualization Datasets for Machine Learning"
+  authors:
+    - Can Liu
+    - Ruike Jiang
+    - Shaocong Tan
+    - Jiacheng Yu
+    - Chaofan Yang
+    - Hanning Shao
+    - Xiaoru Yuan
+  type:
+    - preprint
+  highlight: 0
+
+
+- id: autolegend
+  title: "AutoLegend: An Automatic Legend Generator for Visualization"
+  authors:
+    - Can Liu
+    - Xiyao Mei
+    - Zhibang Jiang
+    - Xiaoru Yuan
+  type:
+    - preprint
+  highlight: 0
+
+- id: nlmanipulate
+  title: "In-Situ Visualization Manipulation with Natural Language Queries"
+  authors:
+    - Can Liu
+    - Jiacheng Yu
+    - Yuhan Guo
+    - Jiayi Zhuang
+    - Yuchu Luo
+    - Xiaoru Yuan
+  type:
+    - preprint
+  highlight: 0
+
+
+
+
+- id: spatial_layout
+  title: "A Spatial-Constraint Model for Activating Static Visualizations"
+  authors:
+    - Can Liu
+    - Yu Zhang
+    - Cong Wu
+    - Chen Li 
+    - Xiaoru Yuan
+  venue: ACM Transactions on Intelligent Interactive Systems
+  venue_tags:
+    - TIIS
+  venue_label:
+    - SCI Q2
+    - Transactions
+  type:
+    - Journal
+  year: 2024
+  highlight: 2
+  volume: 14
+  number: 2
+  pages: 1-29
+  pdf: "https://arxiv.org/pdf/2303.14476.pdf"
+  video: https://youtu.be/i8C8lGAVLdI
+  doi: 10.1145/3657642
+  demo: /projects/spatialconstraint/
+
+
+- id: autotitle
+  title: "AutoTitle: An Interactive Title Generator for Visualizations"
+  authors:
+    - Can Liu
+    - Yuhan Guo
+    - Xiaoru Yuan
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  volume: 30
+  number: 8
+  pages: 5276-5288
+  venue_tags:
+    - TVCG
+  venue_label:
+    - CCF A类期刊
+    - SCI 一区
+  doi: 10.1109/TVCG.2023.3290241
+  highlight: 5
+  type:
+    - Journal
+  year: 2023
+  pdf: "/assets/paper/23-autotitle.pdf"
+
+
+- id: advisor
+  title: "ADVISor: Automatic Visualization Answer for Natural-Language Question on Tabular Data"
+  authors:
+    - Can Liu
+    - Yun Han
+    - Ruike Jiang
+    - Xiaoru Yuan
+  year: 2021
+  venue: IEEE Pacific Visualization Symposium
+  highlight: 4
+  doi: 10.1109/PacificVis52677.2021.00010
+  pages:
+    - 6-15
+  location: Tianjin, China
+  venue_tags:
+    - PVIS
+  venue_label:
+    - EI检索
+    - CCF C类会议
+  type:
+    - Conference
+  pdf: "http://vis.pku.edu.cn/research/publication/pacificvis2021_advisor.pdf"
+  venue_dates:
+    - Apr. 19-22
+
+
+- id: smartcube
+  title: "SmartCube: An Adaptive Data Management Architecture for the Real-Time Visualization of Spatiotemporal Datasets"
+  authors:
+    - Can Liu
+    - Cong Wu
+    - Hanning Shao
+    - Xiaoru Yuan
+  year: 2020
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  venue_tags:
+    - TVCG
+    - VIS
+  venue_label:
+    - SCI 一区
+    - CCF A类期刊
+  doi: 10.1109/TVCG.2019.2934434
+  volume: 26
+  number: 1
+  pages: 790-799
+  type:
+    - Journal
+  pdf: "http://vis.pku.edu.cn/research/publication/vis19_smartcube.pdf"
+  highlight: 3
+
+- id: eventbased
+  title: "Event-Based Exploration and Comparison on Time-Varying Ensembles"
+  authors:
+    - Can Liu
+    - Yanda Li
+    - Changhe Yang
+    - Xiaoru Yuan
+  year: 2020
+  doi: 10.1007/s12650-019-00608-y
+  venue: Journal of Visualization (ChinaVis’19, Honorable Mention for Best Paper Award)
+  venue_tags:
+    - JOV
+    - ChinaVis
+  volume: 23
+  number: 1
+  pages: 111-123
+  venue_label:
+    - SCI Q2
+  type:
+    - Journal
+    - Conference
+  pdf: "http://vis.pku.edu.cn/research/publication/jov2020_event.pdf"
+  highlight: 0
+
+- id: autocaption
+  title: "AutoCaption: An Approach to Generate Natural Language Description from Visualization Automatically"
+  authors:
+    - Can Liu
+    - Liwenhan Xie
+    - Yun Han
+    - Datong Wei
+    - Xiaoru Yuan
+  year: 2020
+  venue: IEEE Pacific Visualization Symposium
+  venue_tags:
+    - PVIS
+  pages: 191-195
+  location: Tianjin, China
+  venue_dates: June 3-5
+  type:
+    - Conference
+    - Notes
+  notes: Notes
+  venue_label:
+    - EI检索
+    - CCF C类会议
+  highlight: 0
+  doi: 10.1109/PacificVis48177.2020.1043
+  pdf: "http://vis.pku.edu.cn/research/publication/pvis_notes_2020_autocaption.pdf"
+
+
+- id: flow_survey
+  title: "Deep Learning Approaches in Flow Visualization​"
+  authors:
+    - Can Liu
+    - Ruike Jiang
+    - Datong Wei
+    - Changhe Yang
+    - Yanda Li
+    - Fang Wang
+    - Xiaoru Yuan
+  year: 2022
+  venue: Advances in Aerodynamics
+  venue_tags:
+    - AIAE
+  type:
+    - Journal
+  volume: 4
+  number: 17
+  pages: 1-14
+  highlight: 0
+  venue_label:
+    - EI检索
+  doi: 10.1186/s42774-022-00113-1
+  pdf: "https://aia.springeropen.com/counter/pdf/10.1186/s42774-022-00113-1.pdf"
+
+
+
+- id: dl4vis
+  title: "Visualization Driven by Deep Learning"
+  zh_title: 深度学习驱动的可视化
+  authors:
+    - Can Liu
+    - Chufan Lai
+    - Ruike Jiang
+    - Yanda Li
+    - Changhe Yang
+    - Zhixian Lin
+    - Datong Wei
+    - Xiaoru Yuan
+  zh_authors:
+    - 刘灿
+    - 赖楚凡
+    - 蒋瑞珂
+    - 李彦达
+    - 杨昌和
+    - 林志贤
+    - 魏大同
+    - 袁晓如
+  year: 2020
+  venue: Journal of Computer-Aided Design & Computer Graphics (ChinaVis '20) (In Chinese)
+  zh_venue: 计算机辅助设计与图形学学报
+  venue_tags:
+    - JCAD
+    - ChinaVis
+  type:
+    - Journal
+    - Conference
+  volume: 32
+  number: 10
+  venue_label:
+    - EI检索
+    - CCF 中文顶级期刊
+  zh_venue_label:
+    - 中文核心 
+  pages: 1537-1548
+  highlight: 0
+  pdf: "http://vis.pku.edu.cn/research/publication/chinavis20_dl4vis.pdf"
+  doi: 10.3724/SP.J.1089.2020.18492
+
+
+
+- id: autoannotation
+  title: "Automatic Annotation Synchronizing with Textual Description for Visualization"
+  authors:
+    - Chufan Lai
+    - Zhixian Lin
+    - Ruike Jiang
+    - Yun Han
+    - Can Liu
+    - Xiaoru Yuan
+  year: 2020
+  venue: ACM Conference on Human Factors in Computing Systems (CHI 2020) 
+  venue_tags:
+    - CHI
+  venue_label:
+    - EI检索
+    - CCF A类会议
+  venue_dates:
+    - April 25-30
+  location: Honolulu, Hawai'i, USA
+  type:
+    - Conference
+  doi: 10.1145/3313831.3376443
+  pdf: "http://vis.pku.edu.cn/research/publication/chi20_annotation.pdf"
+  highlight: 2
+
+- id: prompt
+  title: "PrompTHis: Visualizing the Process and Influence of Prompt Editing during Text-to-Image Creation"
+  authors:
+    - Yuhan Guo
+    - Hanning Shao
+    - Can Liu
+    - Kai Xu
+    - Xiaoru Yuan
+  venue: IEEE Transactions on Visualization and Computer Graphics. Early access
+  venue_tags:
+    - TVCG
+  venue_label:
+    - SCI 一区
+    - CCF A类期刊
+    - Transactions
+  type:
+    - Journal
+  year: 2024
+  highlight: 0
+  doi: 10.1109/TVCG.2024.3408255
+
+- id: transition_bars
+  title: "Understanding Transitions in Animated Bar Charts"
+  authors:
+    - Datong Wei
+    - Can Liu
+    - Xiaolong Zhang
+    - Xiaoru Yuan
+  venue: Visual Intelligence
+  venue_tags:
+    - VI
+  highlight: 0
+  volume: 1
+  number: 12
+  pages: 1-15
+  type:
+    - Journal
+  # venue_label:
+    # - 中国图象图形学学会顶刊
+  year: 2023
+  doi: 10.1007/s44267-023-00015-w
+
+- id: oldvisonline
+  title: "OldVisOnline: Curating a Dataset of Historical Visualizations"
+  authors:
+    - Yu Zhang
+    - Ruike Jiang
+    - Liwenhan Xie
+    - Yuheng Zhao
+    - Can Liu
+    - Tianhong Ding
+    - Siming Chen
+    - Xiaoru Yuan
+  venue: IEEE Transactions on Visualization and Computer Graphics.
+  venue_tags:
+    - TVCG
+  venue_label:
+    - SCI 一区
+    - CCF A类期刊
+  highlight: 0
+  volume: 30
+  number: 1
+  pages: 551-561
+  type:
+    - Journal
+  year: 2023
+  pdf: "https://arxiv.org/pdf/2308.16053.pdf"
+  doi: 10.1109/TVCG.2023.3326908
+
+- id: dnnvolvis
+  title: "DNN-VolVis: Interactive Volume Visualization Supported by Deep Neural Network"
+  authors:
+    - Fan Hong
+    - Can Liu
+    - Xiaoru Yuan
+  year: 2019
+  venue: IEEE Pacific Visualization Symposium
+  venue_tages:
+    - VASTChallenge
+  venue_label:
+    - EI检索
+    - CCF C类会议
+  pages:
+    - 282-291
+  location: Bangkok, Thailand
+  venue_tags:
+    - PVIS
+  doi: 10.1109/PacificVis.2019.00041
+  type:
+    - Conference
+  pdf: "http://vis.pku.edu.cn/research/publication/pvis19_dnnvolvis.pdf"
+  highlight: 0
+  venue_dates:
+    - Apr. 23-26
+
+- id: wikiedit
+  title: "Edit-History Vis: An Interactive Visual Exploration and Analysis on Wikipedia Edit History"
+  authors:
+    - Yuhan Guo
+    - Qin Han
+    - Yuke Lou
+    - Yiming Wang
+    - Can Liu
+    - Xiaoru Yuan
+  year: 2023, accepted
+  venue: IEEE Pacific Visualization Symposium
+  venue_label:
+    - EI检索
+    - CCF C类会议
+  pages:
+    - 157-166
+  location: Seoul, South Korea
+  doi: 10.1109/PacificVis56936.2023.00025
+  venue_tags:
+    - PVIS
+  type:
+    - Conference
+  highlight: 0
+  venue_dates:
+    - Apr. 18-21
+
+
+
+- id: viewpoint
+  title: "Deep Learning-Based Viewpoint Recommendation in Volume Visualization"
+  authors:
+    - Changhe Yang
+    - Yanda Li
+    - Can Liu
+    - Xiaoru Yuan
+  year: 2019
+  venue: Journal of Visualization
+  doi: 10.1007/s12650-019-00583-4
+  venue_tags:
+    - JOV
+    - ChinaVis
+  type:
+    - Journal
+    - Conference
+  pages: 991-1003
+  venue_label:
+    - SCI Q2
+  volume: 22
+  number: 5
+  pdf: "http://vis.pku.edu.cn/research/publication/JOV_dlbv_Changhe.pdf"
+  highlight: 0
+
+
+
+
+- id: intelli_vis
+  title: "Intelligent Visualization and Visual Analytics"
+  zh_title: 智能可视化与可视分析
+  authors:
+    - Jun Tao
+    - Yu Zhang
+    - Qing Chen
+    - Can Liu
+    - Siming Chen
+    - Xiaoru Yuan
+  zh_authors:
+    - 陶钧
+    - 张宇
+    - 陈晴
+    - 刘灿
+    - 陈思明
+    - 袁晓如
+  year: 2023
+  venue: Journal of Image and Graphics (In Chinese)
+  zh_venue: 中国图象图形学报
+  venue_tags:
+    - ChinaVis
+  type:
+    - Journal
+  number: 2
+  venue_label:
+    - CCF 中文优秀期刊
+    - 学会年度前沿报告
+  zh_venue_label:
+    - 中文核心
+  highlight: 0
+  doi: 10.11834/jig.230034
+
+
+- id: vis_dh
+  title: "Visualization in digital humanities​"
+  zh_title: 数字人文中的可视化
+  authors:
+    - Yuchu Luo
+    - Hao Wu
+    - Yuhan Guo
+    - Shaocong Tan
+    - Can Liu
+    - Xiaoru Yuan
+  zh_authors:
+    - 罗煜楚
+    - 吴昊
+    - 郭宇涵
+    - 谭绍聪
+    - 刘灿
+    - 袁晓如
+  year: 2022
+  venue: Big Data Research (In Chinese)
+  zh_venue: 大数据
+  venue_tags:
+    - BDR
+  type:
+    - Journal
+  volume: 8
+  number: 6
+  pages: 74-93
+  highlight: 0
+  venue_label:
+    - CCF 中文优秀期刊
+  zh_venue_label:
+    - 中文核心 
+  doi: 10.11959/j.issn.2096-0271.2022085
+
+
+- id: DMvis
+  title: "Direct Manipulation of Static Visualizations"
+  authors:
+    - Can Liu
+    - Yu Zhang
+    - Cong Wu
+    - Xiaoru Yuan
+  year: 2022
+  venue: IEEE Pacific Visualization Symposium
+  venue_tages:
+    - PVIS
+  location: Online
+  venue_dates: Apr. 11-14
+  type:
+    - Poster
+  pdf: /assets/paper/19-Caption.pdf
+  highlight: 0
+
+- id: AutoCap
+  title: "Automatic Caption Genertion for SVG Charts"
+  authors:
+    - Can Liu
+    - Liwenhan Xie
+    - Yun Han
+    - Xiaoru Yuan
+  year: 2019
+  venue: IEEE Pacific Visualization Symposium (Honorable Mention for Best Poster Award)
+  venue_tages:
+    - PVIS
+  location: Bangkok, Thailand
+  venue_dates: Apr. 23-26
+  type:
+    - Poster
+  pdf: /assets/paper/19-Caption.pdf
+  highlight: 0
+
+
+- id: Asteroid
+  title: "Interactive Visual Exploration and Comparison on the Effect of Asteroid Impacts"
+  authors:
+    - Can Liu
+    - Yanda Li
+    - Changhe Yang
+    - Xiaoru Yuan
+  year: 2018
+  venue: IEEE SciVis (Best Visualization of Water in Atmosphere, SciVis Contest)
+  venue_tages:
+    - VIS
+  venue_location: Berlin, German
+  type:
+    - Poster
+  venue_label:
+    - EI检索
+  highlight: 0
+  venue_dates: Oct. 21-26
+
+- id: AutoAno
+  title: "Automatic Annotation of Visualizations"
+  authors:
+    - Chufan Lai
+    - Zhixian Lin
+    - Can Liu
+    - Yun Han
+    - Ruike Jiang
+    - Xiaoru Yuan
+  year: 2019
+  venue: IEEE VIS (Honorable Mention for Best Poster Award)
+  venue_tages:
+    - VIS
+  venue_location: Vancouver, Canada
+  venue_dates: Oct. 20-25
+  type:
+    - Poster
+  highlight: 0
+
+- id: AutoAns
+  title: "Automatic Answer and Visualization Generation for Tabular Data"
+  authors:
+    - Yun Han
+    - Wentao Zhang
+    - Sihang Li
+    - Can Liu
+    - Xiaoru Yuan
+  year: 2019
+  venue: IEEE Pacific Visualization Symposium (Best Poster Award)
+  venue_tages:
+    - PVIS
+  venue_location: Bangkok, Thailand
+  venue_dates: Apr. 23-26
+  type:
+    - Poster
+  highlight: 0
+
+
+- id: Goal-Oriented
+  title: "Goal-Oriented Volume Visualization through Deep Neural Networks"
+  authors:
+    - Fan Hong
+    - Can Liu
+    - Xiaoru Yuan
+  year: 2018
+  venue: China Visualization and Visual Analytics Conference 
+  venue_tages:
+    - ChinaVis
+  venue_location: Shanghai, China
+  type:
+    - Poster
+  highlight: 0
+  venue_dates: June. 25-28
+

@@ -1,0 +1,57 @@
+- code: "202311478902.1"
+  title: 一种针对可视化图表自动生成图例的方法和系统
+  en_title: " A method and system for generate legends for visualization"
+  authors:
+    - 袁晓如
+    - 刘灿
+    - 梅翕尧
+    - 谭绍聪
+  en_authors:
+    - Xiaoru Yuan
+    - Can Liu
+    - Xiyao Mei
+    - Shaocong Tan
+  date: 2023年11月08日
+  year:
+    - 2023
+
+
+
+- code: "202211724285.4"
+  title: 一种基于自然语言构建可视化图表的方法及系统
+  en_title: " A method and system for constructing visualization charts based on natural language"
+  authors:
+    - 袁晓如
+    - 刘灿
+    - 蒋瑞珂
+    - 梁婕
+  en_authors:
+    - Xiaoru Yuan
+    - Can Liu
+    - Ruike Jiang
+    - Jie Liang
+  date: 2022年12月30日
+  year:
+    - 2022
+
+- code: "202211742307.X"
+  title: 一种针对静态可视化添加直接交互的方法及系统
+  en_title: " A method and system for adding direct interaction to static visualization charts"
+  authors:
+    - 袁晓如
+    - 刘灿
+    - 张宇
+    - 吴聪
+    - 李晨
+  en_authors:
+    - Xiaoru Yuan
+    - Can Liu
+    - Yu Zhang
+    - Cong Wu
+    - Chen Li
+  date: 2022年12月30日
+  year:
+    - 2022
+
+
+

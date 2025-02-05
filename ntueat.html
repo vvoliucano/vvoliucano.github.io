@@ -1,0 +1,32 @@
+---
+layout: page-zh
+title: "NTU Eat"
+permalink: /ntueat/
+class: home
+---
+
+<div style="text-align: center; margin-top: 50px;">
+  <button id="randomButton" style="padding: 20px 40px; font-size: 18px; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">今天吃什么？</button>
+  
+  <div id="result" style="margin-top: 30px; font-size: 24px;"></div>
+</div>
+
+<script>
+const places = [
+  "Koufu：刀削面+肉夹馍",
+  "Koufu: Handmade noodle",
+  "Koufu: Taiwan Cuisine",
+  "Koufu: Mixed Vegetable",
+  "Canteen 2: 牛肉炒饭/面",
+  "Canteen 2: 其他",
+  "Canteen 1：麻辣面",
+  "Canteen 1: 麻辣香锅", 
+  "Canteen 1: 青椒炒牛肉拌面",
+  "McDonald's, Subway",
+];
+
+document.getElementById('randomButton').addEventListener('click', function() {
+  const randomIndex = Math.floor(Math.random() * places.length);
+  document.getElementById('result').textContent = places[randomIndex];
+});
+</script>

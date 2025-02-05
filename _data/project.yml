@@ -1,0 +1,85 @@
+- title: Spatial-Constraint Model
+  image: 24_spatial_constraint.gif
+  description: "We proposed a spatial constraint model for activating static visualization."
+  description_zh: "空间约束模型以激活静态可视化：将可视化空间隐喻为物理空间，并引入物理学中力的概念表达视觉元素，并支持用户交互。"
+  paper: "https://arxiv.org/pdf/2303.14476.pdf"
+  video: https://youtu.be/i8C8lGAVLdI
+  highlight: 1
+  demo: /projects/spatialconstraint/
+
+- title: SmartCube
+  image: 20-smartcube.png
+  description: "We proposed an adaptive data management architecture for the real-time visualization of spatiotemporal datasets"
+  description_zh: "一种针对大规模时空数据可视化的自适应数据管理方法。"
+  paper: "https://doi.org/10.1109/TVCG.2019.2934434"
+  highlight: 1
+
+
+- title: DNN-VolVis
+  image: 19_dnnvolvis.gif
+  description: "We proposed a deep learning-based volume rendering pipeline."
+  description_zh: "基于深度学习的三维模拟数据渲染。"
+  paper: "http://vis.pku.edu.cn/research/publication/pvis19_dnnvolvis.pdf"
+
+
+- title: AutoCaption
+  image: 19-AutoCap.gif
+  description: "We designed and trained deep learning models to generate short descriptions for SVG-formatted charts automatically."
+  description_zh: "一种基于深度学习模型来自动生成图表描述的方法。"
+  paper: "https://doi.org/10.1109/PacificVis48177.2020.1043"
+  poster: "/assets/paper/19-Caption.pdf"
+
+- title: Asteroid Visualization
+  image: 18-asteroid.gif
+  description: "We designed a visual analytics system for analyzing the impact of different asteroids."
+  description_zh: "对多参数长时序的模拟数据进行渲染比较的可视分析系统。"
+  paper: "http://vis.pku.edu.cn/research/publication/jov2020_event.pdf"
+  highlight: 3
+  video: /assets/project/2021_ asteroid.mp4
+
+
+- title: Best Viewpoint
+  image: 19_bestview.png
+  description: "We designed a deep learning-based method for volume rendering best view selection."
+  description_zh: "基于深度学习的三维模拟数据体渲染最佳视角选取方法。"
+  paper: "http://vis.pku.edu.cn/research/publication/JOV_dlbv_Changhe.pdf"
+
+- title: AutoTitle
+  image: 23_title.jpg
+  description: "We proposed a semi-automatic method for title generation."
+  description_zh: "交互式智能多维标题生成。"
+  paper: "/assets/paper/23-autotitle.pdf"
+
+- title: Old Visualization
+  image: 24-oldvis.png
+  description: "OldVisOnline is a collection of old visualizations published before 1950. We have been studying a variety of usage scenarios of OldVisOnline."
+  description_zh: "OldVisOnline 是一个收录1950年前发布的旧版可视化作品的集合。我们一直在研究 OldVisOnline 的多种使用场景。"
+  paper: "https://arxiv.org/pdf/2308.16053.pdf"
+  demo: https://oldvis.github.io/gallery/
+  highlight: 3
+
+
+# - title: Auto-Caption
+#   image: 19-AutoCap.gif
+#   description: "I co-authored AutoCaption with Can Liu. We designed and trained deep learning models to generate short descriptions for SVG-formatted charts automatically."
+#   video: "https://youtu.be/-2iXqQUC6Kg"
+#   paper: "https://doi.org/10.1109/PacificVis48177.2020.1043"
+#   poster: "/assets/paper/19-Caption.pdf"
+#   highlight: 2
+
+# - title: Earthquake-Aware
+#   image: 19-Earthquake.png
+#   poster: "https://doi.org/10.1109/VAST47406.2019.8986931"
+#   description: "In VAST Challenge, we managed to analyze the state of city during afterquake with social media data. I contributed emotion analysis and topic extraction to our team."
+#   video: https://vimeo.com/378341230
+# #
+# # - title: Speaker+
+# #   image: 18-Speaker+.png
+# #   description: "Speaker+ provides learners with instant visual feedbacks to facilitate the process of learning from speech examples. I worked with Aoyu Wu & Xinhuan Shu while at HKUST."
+
+# - title: Pixel Matrix Array
+#   image: 18-PIMA.gif
+#   description: "PIMA is a new visualization for dynamic networks. It encodes group features onto a sequence of matrices with pixel technique and supports interations in a top-down manner."
+#   video: "https://vimeo.com/290330277"
+#   poster: /assets/paper/18-PIMA.pdf
+#   highlight: 3

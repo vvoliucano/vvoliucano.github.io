@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="application-name" content="Can Liu">
+<meta name="theme-color" content="#2c9f64">
+<meta name="keywords" content="liucan, Can Liu, LIU Can, Liu Can, 刘灿, 北京大学刘灿, 可视化刘灿, 可视化, 深度学习, 数据分析, 北京大学, Peking University, Peking, Visualization, Data Analytics, PKU, PKUVIS, Beida, 博士, 博士生, 可视分析, 京师大学堂">
+<meta name="description" content="Website of Can Liu (刘灿), a PhD student. 北京大学可视化博士研究生刘灿">
+<title>Can Liu</title>
+<meta property="og:title" content="Can Liu">
+<meta property="og:site_name" content="http://localhost:1111 Can Liu">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1111">
+<meta property="og:image" content="">
+<meta property="og:description" content="Website of Can Liu (刘灿), a student of data visualization.">
+<meta name="author" content="Can Liu (刘灿)">
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/rss+xml" title="Can Liu" href="http://localhost:1111/feed.xml">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+<link href="/styles.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-146429859-1');
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fbf4b1a0c5c8dd0a7fa5f17ad11a107c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  
+<header class="page-header">
+  <nav class="container">
+    <a class="site-title" href="/zh/">主页</a>
+    <div>
+        <img src="/assets/images/liucan_writing.png" height="30px" alt='Can Liu' />
+    </div>
+    <div><a href="/projects-zh/" >项目</a></div>
+    <div><a href="/publications-zh/" >发表物</a></div>
+   <!--  <div><a href="/misc/" >Misc</a></div>
+  <div><a href="/contact/" >Contact</a></div> -->
+    <!-- <a href="/talks/" >Talks</a>
+    <a href="/blog/" >Blog</a> -->
+    <div><a href="/cv-zh/">简历</a></div>
+    <div><a href="/other/" class="active">其他</a></div>
+    <span class="external">
+      <!-- <div><a target="_blank" href="https://twitter.com/LiwenhanXie"><i class="fab fa-twitter"></i>Twitter</a></div> -->
+      <div><a href="/"></i>English</a></div>
+    </span>
+  </nav>
+</header>
+
+
+  <div class="page-content">
+    <section class="container ">
+  <style>
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.project {
+    position: relative;
+    flex: 1 0 30%;
+    cursor: pointer;
+    max-width: 50%;
+    transition: transform 0.3s ease;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* 隐藏 checkbox */
+.project input[type="checkbox"] {
+    display: none;
+}
+
+/* 当 checkbox 被选中时放大图片 */
+.project input[type="checkbox"]:checked + label img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    max-width: 90%;
+    /* max-height: 90%; */
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+</style>
+
+<!-- <div class="grid">
+    
+</div> -->
+
+<h2 id="y2024" class="year">2024</h2>
+
+<div class="publication">
+    <h3><strong>越山海</strong>
+    
+     「诗」
+    
+    </h3>
+    <p> 志合山海越，千里复相逢</p><p> ​星汉光年远？倏如一江风</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>江城子·首尾两端</strong>
+    
+     「词」
+    
+    </h3>
+    <p> 岷江千里雪融寒，玉磊盘，青城拦。太守作堰，鱼嘴妙分澜。秦卷天下终始汉，丞相挽，万古昙。</p><p> 天堑横亘龙虎桓，三代传，守江南。大魏吴王，十万雄师磐。白衣渡江千古传，明祖赞，护陵南。</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>西山</strong>
+    
+    </h3>
+    <p> 五岭赴平川，西乡享景山</p><p> 太行横燕脉，淑贤如是观</p>
+    
+    
+
+    <div class="grid">
+    
+    <div class="project">
+      <input type="checkbox" id="toggle西山1" />
+      <label for="toggle西山1">
+        <img src="/assets/poetry/202410_hutoushan.jpg" alt="西山" />
+      </label>
+    </div>
+    
+    <div class="project">
+      <input type="checkbox" id="toggle西山2" />
+      <label for="toggle西山2">
+        <img src="/assets/poetry/202410_hutoushan2.jpg" alt="西山" />
+      </label>
+    </div>
+    
+    <div class="project">
+      <input type="checkbox" id="toggle西山3" />
+      <label for="toggle西山3">
+        <img src="/assets/poetry/202410_hutoushan3.jpg" alt="西山" />
+      </label>
+    </div>
+    
+</div>
+
+    
+    <!-- 
+    <div class="grid">
+      
+      <div class="project">
+    <img src="/assets/poetry/202410_hutoushan.jpg" alt="西山" />
+    </div>
+    
+      <div class="project">
+    <img src="/assets/poetry/202410_hutoushan2.jpg" alt="西山" />
+    </div>
+    
+      <div class="project">
+    <img src="/assets/poetry/202410_hutoushan3.jpg" alt="西山" />
+    </div>
+    
+    </div>
+     -->
+  </div>
+
+<div class="publication">
+    <h3><strong>二王千秋</strong>
+    
+    </h3>
+    <p> 岷江千里雪，携势冲巴蜀</p><p> 无坝沙水分，穷塞开天府</p><p> 宝瓶百丈深，灌溉干万亩</p><p> 二王千秋利，丞相守汉土</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>东吴大帝</strong>
+    
+    </h3>
+    <p> 东吴大帝垂宇宙</p><p> 虎踞龙盘守江东</p><p> 皇明太祖赞好汉</p><p> 留得钟山护皇陵</p><p> 魏武扬鞭止荆扬</p><p> 生子当如魏吴王</p><p> 厉兵秣马提十万</p><p> 北望合肥又一年</p>
+    
+    
+    <!--  -->
+  </div>
+
+<h2 id="y2023" class="year">2023</h2>
+
+<div class="publication">
+    <h3><strong>纳猫契</strong>
+    
+    </h3>
+    <p> 一只猫儿是狸花，本在西方诸佛前。</p><p> 三藏带归家长养，护持经卷在民间。</p><p> 外表俊俏身世妙，身具虎斑神似豹。</p><p> 藏于豹溪孤慎行，碰瓷南武第一侯。</p><p> 豹溪小豹是某甲，自卖南武终不悔。</p><p> 三面断价小鱼干，聘金随契已交还。</p><p> 买主愿如石崇富，寿如彭祖福高迁。</p><p> 仓禾自此巡无怠，鼠贼从兹补不闲。</p><p> 不吵主人睡懒觉，不得盗食把家翻。</p><p> 日夜在家看守物，莫走东畔与西边。</p><p> 如有故违走外去，堂前引过受笞鞭。</p><p> 十月初七，行契人灿。行契喵豹</p>
+    
+    
+
+    <div class="grid">
+    
+    <div class="project">
+      <input type="checkbox" id="toggle纳猫契1" />
+      <label for="toggle纳猫契1">
+        <img src="/assets/poetry/202412_xiaobao_qiyue.jpg" alt="纳猫契" />
+      </label>
+    </div>
+    
+</div>
+
+    
+    <!-- 
+    <div class="grid">
+      
+      <div class="project">
+    <img src="/assets/poetry/202412_xiaobao_qiyue.jpg" alt="纳猫契" />
+    </div>
+    
+    </div>
+     -->
+  </div>
+
+<div class="publication">
+    <h3><strong>三星四海</strong>
+    
+    </h3>
+    <p> 三星伴月堆，西山俯岷江</p><p> 古蜀三千年，隔绝殷与商</p><p> 开明毕于旦，始皇卷八方</p><p> 悠悠华夏同，四海同一邦</p>
+    
+    
+    <!--  -->
+  </div>
+
+<h2 id="y2022" class="year">2022</h2>
+
+<div class="publication">
+    <h3><strong>未名</strong>
+    
+     「绝句」
+    
+    </h3>
+    <p> 日暮长天亮，闲云镜里悠</p><p> 九衢含朗润，幽径未名由</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>蛙声慢</strong>
+    
+    </h3>
+    <p> 云蒸炎铄石</p><p> 骤雨安步归</p><p> 听取蛙声慢?</p><p> 东风万树飞</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>卜算子·八荒同</strong>
+    
+    </h3>
+    <p> 歇山盖穹窿</p><p> 庭镇红星升</p><p> 敢效昔年三武事，从此和平道</p><p> 鱼雷荡水波</p><p> 天海无需祭</p><p> 十亿神州尽文殊，玛米金珠降</p>
+    
+    
+    <!--  -->
+  </div>
+
+<h2 id="y2021" class="year">2021</h2>
+
+<div class="publication">
+    <h3><strong>如梦令·妙峰观日</strong>
+    
+    </h3>
+    <p> 气盛轻年意至</p><p> 不惧风寒夜路</p><p> 残月伴微灯</p><p> 直上京西首峭</p><p> 凝眺</p><p> 凝眺</p><p> 红霞穿楼万丈</p>
+    
+    
+    <!--  -->
+  </div>
+
+<h2 id="y2020" class="year">2020</h2>
+
+<div class="publication">
+    <h3><strong>万生</strong>
+    
+     「绝句」
+    
+    </h3>
+    <p> 凉风嘻群木，暖月映同伦</p><p> 绝顶万生瞰，千檐若素尘</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>卜算子·返校</strong>
+    
+     「词」
+    
+    </h3>
+    <p> 庚子岁月停，疫始江山锁。</p><p> 谁话平川不是水？云雾生梁野。</p><p> 南武留连时，飞信催人返。</p><p> 应是别离了无憾，我驾白驹启。</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>卷</strong>
+    
+     「新绝句」
+    
+    </h3>
+    <p> 四九千层卷</p><p> 八千拓扑一 (TOP 1)</p><p> 难为人上人</p><p> 就做恩批西 (NPC)</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>秋</strong>
+    
+     「绝句」
+    
+    </h3>
+    <p> 极目遥天净</p><p> 山深秋水凉</p><p> 苍苍翠微辟</p><p> 朱门石径旁</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>浪淘沙·真的在浪淘沙</strong>
+    
+     「诗」
+    
+    </h3>
+    <p> 波涌青蓝浪起白</p><p> 驭梭踏浪牧仆潮</p><p> 人生浮表难平意</p><p> 应上清玄揽月来</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>三琼</strong>
+    
+     「新绝句」
+    
+    </h3>
+    <p> 两日踏三琼</p><p> 半天寻万水</p><p> 酒头起飞对</p><p> 车上来蹦迪</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>如梦令·明天开始洗心革面好好干活</strong>
+    
+     「词」
+    
+    </h3>
+    <p> 愧忆京师经笥，夜夜焚膏继晷</p><p> 从鹭岛归来，又上酒桌催吐</p><p> 闲浪，闲浪</p><p> 何日才能毕业?</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div class="publication">
+    <h3><strong>永平万安</strong>
+    
+     「联」
+    
+    </h3>
+    <p> 上：平川梁野皆春色</p><p> 下：高湖汉家尽东风</p><p> 横：永平万安</p>
+    
+    
+    <!--  -->
+  </div>
+
+<h2 id="y2017" class="year">2017</h2>
+
+<div class="publication">
+    <h3><strong>南武赋</strong>
+    
+    </h3>
+    <p> 川平驷马阔，山野梁上悬。</p><p> 湖湘漫汉水，溪桃引楚山。</p><p> 千岭赴南海，万泾始东流。</p><p> 望象洞，庭内十方远。</p><p> 观狮山，岩前龙虎酣。</p><p> 山中衫方青，坝下柭更切。</p><p> 小兰贵趣雅，大禾乐仓箱。</p><p> 梧高栖凤，堡中潜龙。</p><p> 望良政，保永平。</p><p> 盼善民，主万安。</p>
+    
+    
+    <!--  -->
+  </div>
+
+<div id="language" position="float" style="position: fixed; bottom:0; right: 0;">
+  <iframe src="/cat/cat.html" id="catIframe" frameborder="0" data-ruffle-polyfilled=""></iframe>
+</div>
+
+<!-- 
+<script src="https://cdn.jsdelivr.net/npm/itemsjs@1.0.40/dist/itemsjs.min.js"></script>
+
+<script src="/assets/js/itemsjs.min.js"></script>
+<script src="/assets/js/pubfilter.js"></script>
+ -->
+
+</section>
+
+  </div>
+
+  <footer>
+  <div class="container">
+    <div class="footer-col">
+      <br />
+      志合山海越<br />
+      千里复相逢<br />
+      星汉光年远<br />
+      倏如一江风<br />
+      <br />
+      <!-- <abbr title="Last build on 2025-02-05">上次更新于2025年02月</abbr> -->
+    </div>
+    <div class="footer-col" width = "100px">
+      <!-- <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU"></script> -->
+      <!-- <a href="https://clustrmaps.com/site/1c3hc"  title="ClustrMaps"><img src="//www.clustrmaps.com/map_v2.png?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU&cl=ffffff" /></a> -->
+      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU&cl=ffffff&w=214&co=8b0801"></script>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+  function trim(str) {
+    return str.replace(/^\s+|\s+$/g, '');
+  }
+  var headers = document.querySelectorAll("h2, h3, h4, h5, h6");
+  for (var i=0; i<headers.length; i++) {
+    var h = headers[i];
+    var name = h.getAttribute("id");
+    var title = h.innerHTML;
+    h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
+  }
+</script>
+
+</body>
+</html>

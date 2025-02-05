@@ -1,0 +1,41 @@
+ # Site settings
+title: Can Liu
+email: can.liu.1996[at]gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  A PhD student from PKU VIS Group.
+# baseurl: "/people/canliu" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
+# url: "http://vis.pku.edu.cn/people/canliu/" # the base hostname & protocol for your site  
+url: "https://vvoliucano.github.io" # the base hostname & protocol for your site  https://vvoliucano.github.io
+production_url: "https://vvoliucano.github.io"
+# production_url: "http://vis.pku.edu.cn/people/canliu/"
+github_username: vvoliucano
+permalink: /blog/:year/:month/:title.html
+
+twitter:
+  username: 
+
+# Google Analytics
+google_analytics_tracking_id: UA-146429859-1
+
+sass:
+  style: compressed
+
+sass_dir: _sass
+
+jekyll-mentions:
+  # base_url: http://vis.pku.edu.cn/people/canliu/
+  base_url: https://vvoliucano.github.io
+
+
+port: 1111
+
+gems: ['jekyll/itafroma/collapse_newlines']
+
+# plugins:
+#   - jekyll-sitemap
+#   - jekyll-feed
+#   - jekyll-seo-tag
+#   - jekyll-mentions
+
+

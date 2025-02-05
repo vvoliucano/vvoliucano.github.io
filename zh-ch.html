@@ -1,10 +1,178 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />  
-</head>
-<body>
-  <script language="javascript">
-      window.location = "/zh/";
-  </script>
-</body>
-</html>
+---
+layout: page-zh
+title: "Home"
+permalink: /zh/
+class: home
+---
+<div class="columns">
+
+  <div class="me">
+    <picture>
+      <source srcset="{{ '/assets/images/liucan.jpg'| relative_url }}" type='image/jpg' />
+      <img src="{{ '/assets/images/liucan.jpg'| relative_url }}"  alt='Can Liu' />
+    </picture>
+    <ul class="no-list">
+      <li><a class="no-list" href="mailto:{{ site.email }}"><i class="fas fa-envelope"></i> {{ site.email }}</a></li>
+    </ul>
+  </div>
+
+  <div class="intro">
+    <p>刘灿，北京大学智能学院2023届博士。
+    2018年于北京大学<a href="https://eecs.pku.edu.cn/">信息科学技术学院</a>获计算机理学学士学位；并于北京大学<a href="https://en.nsd.pku.edu.cn/">国家发展研究院</a>获经济学学士学位。
+    主要研究兴趣为深度学习驱动下的数据可视化和人机交互。
+    </p>
+    <p>
+      我喜欢古诗词和登山，尤其是登山时创作诗词。详见<a class="site-title" href="{{ '/other/' | relative_url }}">页面</a>。
+    </p>
+
+
+    <!-- <div class="news">
+      <h5>Latest ----------------------</h5>
+      <div>
+        {% for news in site.data.news limit:4 %}
+        {% include news.html news=news %}
+        {% endfor %}
+        </div>
+    </div> -->
+  </div>
+  
+</div>
+
+<h2>部分文章</h2>
+<div class="featured-publications">
+  {% for pub in site.data.publication %}
+  {% if pub.highlight > 0 %}
+    <div class="publication">
+    {% if pub.doi %}
+    <a href="https://doi.org/{{ pub.doi }}" target="_blank">
+    {%- endif -%}
+    <strong>
+      {% if pub.title_chinese %}
+        {{pub.title_chinese}}（{{pub.title}}）
+      {% else %}
+         {{ pub.title }}.
+        {%- endif -%}
+    </strong>
+    {% if pub.doi %}
+    </a>
+    {%- endif -%}
+    
+       <div class="authors">{% for author in pub.authors %}{% include person.html person=author %}{% unless forloop.last %}, {% endunless %}{% endfor %}.
+      {% if pub.type[0] == "Journal" %}
+        <i>{{pub.venue}}.</i>
+        {% if pub.volume %}
+          {{pub.volume}}({{pub.number}}):{{pub.pages}}, 
+        {%- endif -%}
+        {% if pub.accept %}Accepted, {% endif %}
+        {{pub.year}}.
+      {% elsif pub.type[0] == "Conference" %}
+        In <i>Proceedings of {{pub.venue}}.</i>
+        {% if pub.venue_location %}, {{pub.venue_location}}, {% endif %}
+        {% if pub.pages %}pages {{pub.pages}}, {% endif %}
+        {% if pub.location %}{{pub.location}}, {% endif %}
+        {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
+        {% if pub.accept %}Accepted, {% endif %}
+        {% if pub.type[0]=="Poster" %}Poster, {% endif %}
+        {% if pub.notes %}Notes, {% endif %}
+        {{pub.year}}.
+      {% elsif pub.type[0] == "Poster" %}
+        n <i>Poster Proceedings of {{pub.venue}}.</i>
+        {% if pub.venue_location %}, {{pub.venue_location}}, {% endif %}
+        {% if pub.pages %}pages {{pub.pages}}, {% endif %}
+        {% if pub.location %}{{pub.location}}, {% endif %}
+        {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
+        {% if pub.accept %}Accepted, {% endif %}
+        {% if pub.type[0]=="Poster" %}Poster, {% endif %}
+        {% if pub.notes %}Notes, {% endif %}
+        {{pub.year}}.
+      {%- endif -%}
+      </div>
+  
+    {% for award in pub.awards %}<br /><span class="award"><i class="fas fa-{% if award == "Best Paper Award" %}trophy{% else %}award{% endif %}" aria-hidden="true"></i> {{ award }}</span>{% endfor %}
+    {% if pub.link or pub.pdf or pub.video or pub.blog or pub.slides or pub.doi %}
+      <div class="extra-links">
+      {% if pub.pdf %}
+        <a href="{{ pub.pdf }}" target="_blank">
+          <i class="far fa-file-pdf" aria-hidden="true"></i> PDF
+        </a>
+      {% endif %}
+      {% if pub.doi %}
+        <a target="_blank" href="https://doi.org/{{ pub.doi }}">
+          <i class="fas fa-book" aria-hidden="true"></i> DOI
+        </a>
+      {% endif %}
+      {% if pub.link %}
+        <a target="_blank" href="{{ pub.link }}">
+          <i class="fas fa-link" aria-hidden="true"></i> Project
+        </a>
+      {% endif %}
+      {% if pub.blog %}
+        <a target="_blank" href="{{ pub.blog }}">
+          <i class="fas fa-newspaper" aria-hidden="true"></i> Article
+        </a>
+      {% endif %}
+      {% if pub.video %}
+        <a target="_blank" href="{{ pub.video }}">
+          <i class="fas fa-film" aria-hidden="true"></i> Video
+        </a>
+      {% endif %}
+      {% if pub.recording %}
+        <a target="_blank" href="{{ pub.recording }}">
+          <i class="fas fa-video" aria-hidden="true"></i> Recording
+        </a>
+      {% endif %}
+      {% if pub.slides %}
+        <a target="_blank" href="{{ pub.slides }}">
+          <i class="fas fa-window-maximize" aria-hidden="true"></i> Slides
+        </a>
+      {% endif %}
+      {% if pub.arxiv %}
+        <a target="_blank" href="https://arxiv2bibtex.org/?q={{ pub.arxiv | cgi_escape }}">
+          <i class="fas fa-book" aria-hidden="true"></i> Bibtex
+        </a>
+      {% endif %}
+      {% if pub.short_doi %}
+        <a target="_blank" href="http://doi.org/{{ pub.short_doi }}">
+          <i class="fas fa-anchor" aria-hidden="true"></i> DOI: {{ pub.short_doi }}
+        </a>
+      {% endif %}
+      {% if pub.arxiv %}
+        <a target="_blank" href="https://arxiv.org/abs/{{ pub.arxiv }}">
+          <i class="fas fa-archive" aria-hidden="true"></i> arXiv: {{ pub.arxiv }}
+        </a>
+      {% endif %}
+      {% if pub.osf %}
+        <a target="_blank" href="https://osf.io/{{ pub.osf }}">
+          <i class="fas fa-archive" aria-hidden="true"></i> OSF: {{ pub.osf }}
+        </a>
+      {% endif %}
+      {% if pub.demo %}
+        <a target="_blank" href="{{ pub.demo }}">
+          <i class="fas fa-desktop" aria-hidden="true"></i> Demo
+        </a>
+      {% endif %}
+      </div>
+    {% endif %}
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+<a href="{{ "/publications-zh/" | relative_url }}" class="button">
+  <i class="fas fa-chevron-circle-right"></i>
+  所有发表物
+</a>
+
+<h2>部分项目</h2>
+<div class="featured-projects">
+  {% assign sorted_projects = site.data.project | sort: 'highlight' %}
+  {% for project in sorted_projects %}
+  {% if project.highlight %}
+  {% include project-zh.html project=project %}
+  {% endif %}
+  {% endfor %}
+</div>
+<a href="{{ "/projects-zh/" | relative_url }}" class="button">
+  <i class="fas fa-chevron-circle-right"></i>
+  所有项目
+</a>
+

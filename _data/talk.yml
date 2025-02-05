@@ -1,0 +1,115 @@
+
+- years: 2023年12月
+  years_en: Dec., 2023
+  title: "智能可视化交互"
+  title_en: Intelligent Visualization Natural Interaction
+  venue: 南京师范大学
+  venue_en: Nanjing Normal University
+  place: 南京
+  place_en: Nanjing, China
+
+
+- years: 2023年12月
+  years_en: Dec., 2023
+  title: "智能可视化自然创作"
+  title_en: Intelligent Visualization Natural Authoring
+  venue: 香港科技大学
+  venue_en: Hongkong University of Science and Technology
+  place: 香港
+  place_en: Hongkong, China
+
+
+- years: 2023年7月
+  years_en: Jul., 2023
+  title: "基于机器学习的可视化自然语言交互"
+  title_en: Visualization Natural Language Interaction Based on Machine Learning
+  venue: 中国可视化与可视分析大会 智能可视互动专题
+  venue_en: China Visualization and Visual Analytics Conference
+  place: 重庆
+  place_en: Chongqing, China
+
+- years: 2022年11月
+  years_en: Nov., 2022
+  title: "可视化的智能自然语言交互"
+  title_en: Intelligent Natural Language Interaction for Visualization
+  venue: 中国R会议 可视化专场
+  venue_en: China R Conference
+  place: 北京
+  place_en: Beijing, China
+
+
+- years: 2021年4月
+  years_en: Apr., 2021
+  title: 表格数据的自动自然语言可视化问答
+  title_en: "ADVISor: Automatic Visualization Answer for Natural-Language Question on Tabular Data"
+  venue: IEEE 亚太可视化研讨会（IEEE Pacific Visualization Symposium）
+  venue_en: IEEE Pacific Visualization Symposium
+  place: 线上
+  place_en: Online
+
+
+- years: 2020年7月
+  years_en: Jul., 2020
+  title: "深度学习驱动的可视化"
+  title_en: Visualization Driven by Deep Learning
+  venue: 中国可视化与可视分析大会
+  venue_en: China Visualization and Visual Analytics Conference
+  place: 武汉
+  place_en: Wuhan, China
+
+- years: 2020年10月
+  years_en: Oct., 2020
+  title: 可视化的自动描述生成
+  title_en: "AutoCaption: An Approach to Generate Natural Language Description from Visualization Automatically"
+  venue: IEEE 亚太可视化研讨会（IEEE Pacific Visualization Symposium）
+  venue_en: IEEE Pacific Visualization Symposium
+  place: 线上
+  place_en: Online
+
+- years: 2019年10月
+  years_en: Oct., 2019
+  title: 大规模数据集实时可视化自适应数据管理系统
+  title_en: "SmartCube: An Adaptive Data Management Architecture for the Real-Time Visualization of Spatiotemporal Datasets"
+  venue_en: IEEE Visualization Conference
+  venue: IEEE 国际可视化大会（IEEE Visualization Conference）
+  place: 加拿大温哥华
+  place_en: Vancouver, Canada
+
+- years: 2019年7月
+  years_en: Jul., 2019
+  title: 大规模时空可视化自适应数据管理
+  title_en: An Adaptive Data Management for Large Spatial-Temporal Visualization
+  venue: 中国可视化与可视分析大会 时空索引及可视化专题
+  venue_en: China Visualization and Visual Analytics Conference
+  place: 成都
+  place_en: Chengdu, China
+
+- years: 2019年7月
+  years_en: Jul., 2019
+  title: 基于事件的时变集合数据探索和比较
+  title_en: Event-Based Exploration and Comparison on Time-Varying Ensembles 
+  venue: 中国可视化与可视分析大会
+  venue_en: China Visualization and Visual Analytics Conference
+  place: 成都
+  place_en: Chengdu, China
+
+- years: 2019年4月
+  years_en: Apr., 2019
+  title: 深度学习支持的交互式三维体渲染生成
+  title_en: "DNN-VolVis: Interactive Volume Visualization Supported by Deep Neural Network"
+  venue: IEEE 亚太可视化研讨会（IEEE Pacific Visualization Symposium）
+  venue_en: IEEE Pacific Visualization Symposium
+  place: 泰国曼谷
+  place_en: Bangkok, Thailand
+
+
+# - years: 2019
+#   title: 基于事件的时变集合数据探索和比较
+#   venue: 中国可视化与可视分析大会
+#   place: 成都
+
+# - years: 2019
+#   title: "DNN-VolVis: Interactive Volume Visualization Supported by Deep Neural Network"
+#   venue: IEEE Pacific Visualization Symposium
+#   place: 泰国曼谷
+#   time: 

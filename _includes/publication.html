@@ -1,0 +1,122 @@
+{% capture anchor %}{% if pub.id %}{{ pub.id }}{% else %}{{ (pub.title | slugify) }}{% endif %}{% endcapture %}
+
+<div class="publication" data-pub='{{ pub | jsonify | escape }}'>
+  <h3 id="{{ anchor }}"><strong>{% for award in pub.awards %}<i class="fas fa-{% if award == "Best Paper Award" %}trophy{% else %}award{% endif %} award-icon" title="{{ award }}"></i> {% endfor %}{{ pub.title }}</strong></h3>
+  <div class="authors">{% for author in pub.authors %}{%- include person.html person=author -%}{%-unless forloop.last-%}, {% endunless %}{% endfor %}</div>
+  {% if pub.venue %}
+    <div class="venue">
+      {% if pub.type[0] == "Journal" %}
+        <i>{{pub.venue}}.</i>
+        {% if pub.volume %}
+          {{pub.volume}}({{pub.number}}):{{pub.pages}}, 
+        {%- endif -%}
+        {% if pub.accept %}Accepted, {% endif %}
+        {{pub.year}}.
+      {% elsif pub.type[0] == "Conference" %}
+        In <i>Proceedings of {{pub.venue}}.</i>
+        {% if pub.venue_location %}{{pub.venue_location}}, {% endif %}
+        {% if pub.pages %}pages {{pub.pages}}, {% endif %}
+        {% if pub.location %}{{pub.location}}, {% endif %}
+        {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
+        {% if pub.accept %}Accepted, {% endif %}
+        {% if pub.type[0]=="Poster" %}Poster, {% endif %}
+        {% if pub.notes %}Notes, {% endif %}
+        {{pub.year}}.
+      {% elsif pub.type[0] == "Poster" %}
+        In <i>Poster Proceedings of {{pub.venue}}.</i>
+        {% if pub.venue_location %}{{pub.venue_location}}, {% endif %}
+        {% if pub.pages %}pages {{pub.pages}}, {% endif %}
+        {% if pub.location %}{{pub.location}}, {% endif %}
+        {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
+        {% if pub.accept %}Accepted, {% endif %}
+        {% if pub.type[0]=="Poster" %}Poster, {% endif %}
+        {% if pub.type[0]=="Notes" %}Notes, {% endif %}
+        {{pub.year}}.
+      {%- endif -%}
+    </div>
+  {% endif %}
+
+  {% if pub.description %}
+    <p class="description">
+      {{ pub.description | markdownify | remove: '<p>' | remove: '</p>' }}
+    </p>
+  {% endif %}
+
+  {% if pub.tweet %}
+    <a target="_blank" href="https://twitter.com/intent/tweet?text={{ pub.tweet }}&url={{ site.production_url }}/publications/%23{{ anchor }}&via=LiwenhanXie&related=LiwenhanXie" class="tweet">
+      <i class="fab fa-twitter"></i> <span class="message">{{ pub.tweet }}</span>
+    </a>
+  {% endif %}
+
+  {% if pub.awards %}
+    <div class="awards">
+      {% for award in pub.awards %}{{ award }}{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if pub.link or pub.pdf or pub.video or pub.blog or pub.slides or pub.doi %}
+    <div class="extra-links">
+    {% if pub.doi %}
+      <a target="_blank" href="https://doi.org/{{ pub.doi }}">
+        <i class="fas fa-book" aria-hidden="true"></i> DOI
+      </a>
+    {% endif %}
+    {% if pub.pdf %}
+      <a href="{{ pub.pdf }}" target="_blank">
+        <i class="far fa-file-pdf" aria-hidden="true"></i> PDF
+      </a>
+    {% endif %}
+    {% if pub.link %}
+      <a target="_blank" href="{{ pub.link }}">
+        <i class="fas fa-link" aria-hidden="true"></i> Project
+      </a>
+    {% endif %}
+    {% if pub.blog %}
+      <a target="_blank" href="{{ pub.blog }}">
+        <i class="fas fa-newspaper" aria-hidden="true"></i> Article
+      </a>
+    {% endif %}
+    {% if pub.video %}
+      <a target="_blank" href="{{ pub.video }}">
+        <i class="fas fa-film" aria-hidden="true"></i> Video
+      </a>
+    {% endif %}
+    {% if pub.recording %}
+      <a target="_blank" href="{{ pub.recording }}">
+        <i class="fas fa-video" aria-hidden="true"></i> Recording
+      </a>
+    {% endif %}
+    {% if pub.slides %}
+      <a target="_blank" href="{{ pub.slides }}">
+        <i class="fas fa-window-maximize" aria-hidden="true"></i> Slides
+      </a>
+    {% endif %}
+    {% if pub.arxiv %}
+      <a target="_blank" href="https://arxiv2bibtex.org/?q={{ pub.arxiv | cgi_escape }}">
+        <i class="fas fa-book" aria-hidden="true"></i> Bibtex
+      </a>
+    {% endif %}
+    {% if pub.short_doi %}
+      <a target="_blank" href="http://doi.org/{{ pub.short_doi }}">
+        <i class="fas fa-anchor" aria-hidden="true"></i> DOI: {{ pub.short_doi }}
+      </a>
+    {% endif %}
+    {% if pub.arxiv %}
+      <a target="_blank" href="https://arxiv.org/abs/{{ pub.arxiv }}">
+        <i class="fas fa-archive" aria-hidden="true"></i> arXiv: {{ pub.arxiv }}
+      </a>
+    {% endif %}
+    {% if pub.osf %}
+      <a target="_blank" href="https://osf.io/{{ pub.osf }}">
+        <i class="fas fa-archive" aria-hidden="true"></i> OSF: {{ pub.osf }}
+      </a>
+    {% endif %}
+    {% if pub.demo %}
+      <a target="_blank" href="{{ pub.demo }}">
+        <i class="fas fa-desktop" aria-hidden="true"></i> Demo
+      </a>
+    {% endif %}
+    </div>
+  {% endif %}
+</div>

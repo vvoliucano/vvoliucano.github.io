@@ -1,0 +1,38 @@
+<div class="project">
+<span class="title">{{ project.title }}</span>
+{% if project.link %}
+  <a href="{{ project.link }}" target="_blank" class="preview-image" style="background-image: url('{{ "/assets/project/" | append: project.image | relative_url }}')"></a>
+{% else %}
+  <span class="preview-image" style="background-image: url('{{ "/assets/project/" | append: project.image | relative_url }}')"></span>
+{% endif %}
+<p>
+  {{ project.description_zh | markdownify | remove: '<p>' | remove: '</p>' }}
+</p>
+<div class="spacer"></div>
+<div class="links">
+  {% if project.paper %}
+    <a href="{{ project.paper }}" target="_blank"><i class="far fa-file-pdf"></i> 文章</a>
+  {% endif %}
+  {% if project.article %}
+    <a href="{{ project.article }}" target="_blank"><i class="fas fa-newspaper"></i> Post</a>
+  {% endif %}
+  {% if project.demo %}
+    <a href="{{ project.demo }}" target="_blank"><i class="fas fa-desktop"></i> Demo</a>
+  {% endif %}
+  {% if project.url %}
+    <a href="{{ project.url }}" target="_blank"><i class="fas fa-link" aria-hidden="true"></i> 网页</a>
+  {% endif %}
+  {% if project.code %}
+    <a href="{{ project.code }}" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> 代码</a>
+  {% endif %}
+  {% if project.poster %}
+    <a href="{{ project.poster }}" target="_blank"><i class="far fa-file-pdf"></i> 海报</a>
+  {% endif %}
+  {% if project.video %}
+    <a href="{{ project.video }}" target="_blank"><i class="fas fa-film"></i> 视频</a>
+  {% endif %}
+  {% if project.recording %}
+    <a href="{{ project.recording }}" target="_blank"><i class="fas fa-video"></i> 记录</a>
+  {% endif %}
+</div>
+</div>

@@ -1,0 +1,40 @@
+- university: Peking University
+  university_zh: 北京大学
+  years: 2018 - 2023
+  location: Beijing, China
+  degree: Ph.D. in Science
+  degree_zh: 理学博士
+  location_zh: 北京
+  description:
+    # - Supervised by <a href="http://vis.pku.edu.cn/xiaoruyuan.htmlg">Prof. Xiaoru Yuan</a>.
+    - In School of Intelligence Science and Technology, Peking University.
+  description_zh:
+    - 智能学院
+    # - "导师: 袁晓如研究员"
+    - 毕业论文《基于深度学习的可视化图表自动生成研究》
+
+- university: Peking University
+  years: 2014 - 2018
+  university_zh: 北京大学
+  degree: Bachelor of Science
+  degree_zh: 理学学士
+  location: Beijing, China
+  location_zh: 北京
+  description:
+    - In <a href="https://eecs.pku.edu.cn/">School of Electronic Engineering and Computer Science</a>, Peking University.
+  description_zh:
+    - 信息科学技术学院
+    - 毕业论文《可视化图表自动生成描述的研究》学院优秀毕业论文
+
+- university: Peking University
+  university_zh: 北京大学
+  years: 2015 - 2018
+  degree: Bachelor of Economics
+  degree_zh: 经济学学士
+  location: Beijing, China
+  location_zh: 北京
+  description:
+    - In <a href="https://en.nsd.pku.edu.cn/">National School of Development</a>, Peking University.  
+  description_zh:
+    - 国家发展研究院
+

@@ -1,84 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="application-name" content="Can Liu">
-<meta name="theme-color" content="#2c9f64">
-<meta name="keywords" content="liucan, Can Liu, LIU Can, Liu Can, 刘灿, 北京大学刘灿, 可视化刘灿, 可视化, 深度学习, 数据分析, 北京大学, Peking University, Peking, Visualization, Data Analytics, PKU, PKUVIS, Beida, 博士, 博士生, 可视分析, 京师大学堂">
-<meta name="description" content="Website of Can Liu (刘灿), a PhD student. 北京大学可视化博士研究生刘灿">
-<title>Can Liu</title>
-<meta property="og:title" content="Can Liu">
-<meta property="og:site_name" content="http://localhost:1111 Can Liu">
-<meta property="og:type" content="article">
-<meta property="og:url" content="http://localhost:1111">
-<meta property="og:image" content="">
-<meta property="og:description" content="Website of Can Liu (刘灿), a student of data visualization.">
-<meta name="author" content="Can Liu (刘灿)">
-<link rel="icon" type="image/png" href="/favicon.png" />
-<link rel="alternate" type="application/rss+xml" title="Can Liu" href="http://localhost:1111/feed.xml">
-<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
-<link href="/styles.css" rel="stylesheet">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-146429859-1');
-</script>
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?fbf4b1a0c5c8dd0a7fa5f17ad11a107c";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-</head>
-
-<body>
-  
-<header class="page-header">
-  <nav class="container">
-    <a class="site-title" href="/">Can Liu</a>
-    <div>
-        <img src="/assets/images/liucan_writing.png" height="30px" alt='Can Liu' />
-    </div>
-    <div><a href="/projects/" >Projects</a></div>
-    <div><a href="/publications/" >Publications</a></div>
-   <!--  <div><a href="/misc/" >Misc</a></div>
-  <div><a href="/contact/" >Contact</a></div> -->
-    <!-- <a href="/talks/" >Talks</a>
-    <a href="/blog/" >Blog</a> -->
-    <div><a href="/cv/">CV</a></div>
-    <div><a href="/other/" >Misc</a></div>
-    <span class="external">
-      <!-- <div><a target="_blank" href="https://twitter.com/LiwenhanXie"><i class="fab fa-twitter"></i>Twitter</a></div> -->
-      <!-- <div><a target="_blank" href="https://scholar.google.com/citations?user=c_qeUtUAAAAJ&hl=zh-CN"></i>Google Scholar</a></div> -->
-      <div><a href="/zh/"></i>中文</a></div>
-    </span>
-  </nav>
-</header>
-
-
-  <div class="page-content">
-    <section class="container home">
-  <div class="columns">
+---
+layout: page
+title: "Home"
+class: home
+---
+<div class="columns">
 
   <div class="me">
     <picture>
-      <source srcset="/assets/images/liucan.png" type='image/jpg' />
-      <img src="/assets/images/liucan.png"  alt='Can Liu' />
+      <source srcset="{{ '/assets/images/liucan.png'| relative_url }}" type='image/jpg' />
+      <img src="{{ '/assets/images/liucan.png'| relative_url }}"  alt='Can Liu' />
     </picture>
     <ul class="no-list">
-      <li><a class="no-list" href="mailto:can.liu.1996[at]gmail.com"><i class="fas fa-envelope"></i> can.liu.1996[at]gmail.com</a></li>
+      <li><a class="no-list" href="mailto:{{ site.email }}"><i class="fas fa-envelope"></i> {{ site.email }}</a></li>
       <!-- <li><a class="no-list" href="mailto:can.liu[at]email.cn"><i class="fas fa-envelope"></i> can.liu[at]email.cn</a></li> -->
     </ul>
   </div>
@@ -89,45 +22,15 @@ var _hmt = _hmt || [];
         <!-- especially intelligent data management, intelligent data interaction, and intelligent. -->
     </p>
     <p>
-      I enjoy writing Chinese poetry and hiking, often at the same time. Visit <a class="site-title" href="/other/">this page</a> to read some of my poems.
+      I enjoy writing Chinese poetry and hiking, often at the same time. Visit <a class="site-title" href="{{ '/other/' | relative_url }}">this page</a> to read some of my poems.
     </p>
 
     <!-- <div class="news">
       <h5>Latest ----------------------</h5>
       <div>
-        
-        
-<div class="news-item">
-<div class="news-content">📧 My PKU email will no longer be used. Contact me through the new one :)
-</div>
-<span class="time-span"><time datetime="2020-08-07">Aug 7, 20</time></span>
-</div>
-
-        
-        
-<div class="news-item">
-<div class="news-content">🎈 Received my Bachelor of Science from Peking University.
-</div>
-<span class="time-span"><time datetime="2020-06-30">Jun 30, 20</time></span>
-</div>
-
-        
-        
-<div class="news-item">
-<div class="news-content">👩‍💻 Will start my PhD study in HKUST and work with Prof. Qu again!
-</div>
-<span class="time-span"><time datetime="2020-05-15">May 15, 20</time></span>
-</div>
-
-        
-        
-<div class="news-item">
-<div class="news-content">📢 MeasureFlow was accepted, beyond grateful to Prof. Bach and Prof. Fekete.
-</div>
-<span class="time-span"><time datetime="2020-03-30">Mar 30, 20</time></span>
-</div>
-
-        
+        {% for news in site.data.news limit:4 %}
+        {% include news.html news=news %}
+        {% endfor %}
         </div>
     </div> -->
   </div>
@@ -136,450 +39,131 @@ var _hmt = _hmt || [];
 
 <h2>Featured Publications</h2>
 <div class="featured-publications">
-  
-  
-  
-  
-  
-  
-  
-  
+  {% for pub in site.data.publication %}
+  {% if pub.highlight > 0 %}
   <div class="publication">
-    
-    <a href="https://doi.org/10.1145/3657642" target="_blank"><strong>A Spatial-Constraint Model for Activating Static Visualizations.</strong>
+    {% if pub.doi %}
+    <a href="https://doi.org/{{ pub.doi }}" target="_blank"><strong>{{ pub.title }}.</strong>
     </a>
-    <div class="authors"><a href="https://vvoliucano.github.io/" target="_blank"><b>Can Liu</b></a>, <a href="https://zhangyu94.github.io/" target="_blank">Yu Zhang</a>, <a href="http://vis.pku.edu.cn/people/congwu/" target="_blank">Cong Wu</a>, Chen Li, <a href="http://vis.pku.edu.cn/xiaoruyuan.html" target="_blank">Xiaoru Yuan</a>.
-      
-        <i>ACM Transactions on Intelligent Interactive Systems.</i>
-        
-          14(2):1-29,
-        2024.
+    {% else %}
+    <strong>{{ pub.title }}.</strong>
+    {%- endif -%}
+      <div class="authors">{% for author in pub.authors %}{% include person.html person=author %}{% unless forloop.last %}, {% endunless %}{% endfor %}.
+      {% if pub.type[0] == "Journal" %}
+        <i>{{pub.venue}}.</i>
+        {% if pub.volume %}
+          {{pub.volume}}({{pub.number}}):{{pub.pages}}, 
+        {%- endif -%}
+        {% if pub.accept %}Accepted, {% endif %}
+        {{pub.year}}.
+      {% elsif pub.type[0] == "Conference" %}
+        In <i>Proceedings of {{pub.venue}}.</i>
+        {% if pub.venue_location %}, {{pub.venue_location}}, {% endif %}
+        {% if pub.pages %}pages {{pub.pages}}, {% endif %}
+        {% if pub.location %}{{pub.location}}, {% endif %}
+        {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
+        {% if pub.accept %}Accepted, {% endif %}
+        {% if pub.type[0]=="Poster" %}Poster, {% endif %}
+        {% if pub.type[0]=="Notes" %}Notes, {% endif %}
+        {{pub.year}}.
+      {% elsif pub.type[0] == "Poster" %}
+        In <i>Poster Proceedings of {{pub.venue}}.</i>
+        {% if pub.venue_location %}, {{pub.venue_location}}, {% endif %}
+        {% if pub.pages %}pages {{pub.pages}}, {% endif %}
+        {% if pub.location %}{{pub.location}}, {% endif %}
+        {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
+        {% if pub.accept %}Accepted, {% endif %}
+        {% if pub.type[0]=="Poster" %}Poster, {% endif %}
+        {% if pub.type[0]=="Notes" %}Notes, {% endif %}
+        {{pub.year}}.
+      {%- endif -%}
       </div>
-    
+    {% for award in pub.awards %}<br /><span class="award"><i class="fas fa-{% if award == "Best Paper Award" %}trophy{% else %}award{% endif %}" aria-hidden="true"></i> {{ award }}</span>{% endfor %}
 
-    
+    {% if pub.link or pub.pdf or pub.video or pub.blog or pub.slides or pub.doi or pub.demo%}
       <div class="extra-links">
-      
-        <a href="https://arxiv.org/pdf/2303.14476.pdf" target="_blank">
+      {% if pub.pdf %}
+        <a href="{{ pub.pdf }}" target="_blank">
           <i class="far fa-file-pdf" aria-hidden="true"></i> PDF
         </a>
-      
-      
-        <a target="_blank" href="https://doi.org/10.1145/3657642">
+      {% endif %}
+      {% if pub.doi %}
+        <a target="_blank" href="https://doi.org/{{ pub.doi }}">
           <i class="fas fa-book" aria-hidden="true"></i> DOI
         </a>
-      
-      
-      
-      
-        <a target="_blank" href="https://youtu.be/i8C8lGAVLdI">
+      {% endif %}
+      {% if pub.link %}
+        <a target="_blank" href="{{ pub.link }}">
+          <i class="fas fa-link" aria-hidden="true"></i> Project
+        </a>
+      {% endif %}
+      {% if pub.blog %}
+        <a target="_blank" href="{{ pub.blog }}">
+          <i class="fas fa-newspaper" aria-hidden="true"></i> Article
+        </a>
+      {% endif %}
+      {% if pub.video %}
+        <a target="_blank" href="{{ pub.video }}">
           <i class="fas fa-film" aria-hidden="true"></i> Video
         </a>
-      
-      
-      
-      
-      
-      
-      
-      
-        <a target="_blank" href="/projects/spatialconstraint/">
+      {% endif %}
+      {% if pub.recording %}
+        <a target="_blank" href="{{ pub.recording }}">
+          <i class="fas fa-video" aria-hidden="true"></i> Recording
+        </a>
+      {% endif %}
+      {% if pub.slides %}
+        <a target="_blank" href="{{ pub.slides }}">
+          <i class="fas fa-window-maximize" aria-hidden="true"></i> Slides
+        </a>
+      {% endif %}
+      {% if pub.arxiv %}
+        <a target="_blank" href="https://arxiv2bibtex.org/?q={{ pub.arxiv | cgi_escape }}">
+          <i class="fas fa-book" aria-hidden="true"></i> Bibtex
+        </a>
+      {% endif %}
+      {% if pub.short_doi %}
+        <a target="_blank" href="http://doi.org/{{ pub.short_doi }}">
+          <i class="fas fa-anchor" aria-hidden="true"></i> DOI: {{ pub.short_doi }}
+        </a>
+      {% endif %}
+      {% if pub.arxiv %}
+        <a target="_blank" href="https://arxiv.org/abs/{{ pub.arxiv }}">
+          <i class="fas fa-archive" aria-hidden="true"></i> arXiv: {{ pub.arxiv }}
+        </a>
+      {% endif %}
+      {% if pub.osf %}
+        <a target="_blank" href="https://osf.io/{{ pub.osf }}">
+          <i class="fas fa-archive" aria-hidden="true"></i> OSF: {{ pub.osf }}
+        </a>
+      {% endif %}
+      {% if pub.demo %}
+        <a target="_blank" href="{{ pub.demo| relative_url }}">
           <i class="fas fa-desktop" aria-hidden="true"></i> Demo
         </a>
-      
+      {% endif %}
       </div>
-    
+    {% endif %}
   </div>
-  
-  
-  
-  <div class="publication">
-    
-    <a href="https://doi.org/10.1109/TVCG.2023.3290241" target="_blank"><strong>AutoTitle: An Interactive Title Generator for Visualizations.</strong>
-    </a>
-    <div class="authors"><a href="https://vvoliucano.github.io/" target="_blank"><b>Can Liu</b></a>, <a href="http://vis.pku.edu.cn/people/yuhanguo" target="_blank">Yuhan Guo</a>, <a href="http://vis.pku.edu.cn/xiaoruyuan.html" target="_blank">Xiaoru Yuan</a>.
-      
-        <i>IEEE Transactions on Visualization and Computer Graphics.</i>
-        
-          30(8):5276-5288,
-        2023.
-      </div>
-    
-
-    
-      <div class="extra-links">
-      
-        <a href="/assets/paper/23-autotitle.pdf" target="_blank">
-          <i class="far fa-file-pdf" aria-hidden="true"></i> PDF
-        </a>
-      
-      
-        <a target="_blank" href="https://doi.org/10.1109/TVCG.2023.3290241">
-          <i class="fas fa-book" aria-hidden="true"></i> DOI
-        </a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      </div>
-    
-  </div>
-  
-  
-  
-  <div class="publication">
-    
-    <a href="https://doi.org/10.1109/PacificVis52677.2021.00010" target="_blank"><strong>ADVISor: Automatic Visualization Answer for Natural-Language Question on Tabular Data.</strong>
-    </a>
-    <div class="authors"><a href="https://vvoliucano.github.io/" target="_blank"><b>Can Liu</b></a>, <a href="http://vis.pku.edu.cn/people/yunhan" target="_blank">Yun Han</a>, <a href="http://vis.pku.edu.cn/people/ruikejiang/" target="_blank">Ruike Jiang</a>, <a href="http://vis.pku.edu.cn/xiaoruyuan.html" target="_blank">Xiaoru Yuan</a>.
-      
-        In <i>Proceedings of IEEE Pacific Visualization Symposium.</i>
-        
-        pages 6-15, 
-        Tianjin, China, 
-        Apr. 19-22, 
-        
-        
-        
-        2021.
-      </div>
-    
-
-    
-      <div class="extra-links">
-      
-        <a href="http://vis.pku.edu.cn/research/publication/pacificvis2021_advisor.pdf" target="_blank">
-          <i class="far fa-file-pdf" aria-hidden="true"></i> PDF
-        </a>
-      
-      
-        <a target="_blank" href="https://doi.org/10.1109/PacificVis52677.2021.00010">
-          <i class="fas fa-book" aria-hidden="true"></i> DOI
-        </a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      </div>
-    
-  </div>
-  
-  
-  
-  <div class="publication">
-    
-    <a href="https://doi.org/10.1109/TVCG.2019.2934434" target="_blank"><strong>SmartCube: An Adaptive Data Management Architecture for the Real-Time Visualization of Spatiotemporal Datasets.</strong>
-    </a>
-    <div class="authors"><a href="https://vvoliucano.github.io/" target="_blank"><b>Can Liu</b></a>, <a href="http://vis.pku.edu.cn/people/congwu/" target="_blank">Cong Wu</a>, <a href="http://vis.pku.edu.cn/people/hanningshao/" target="_blank">Hanning Shao</a>, <a href="http://vis.pku.edu.cn/xiaoruyuan.html" target="_blank">Xiaoru Yuan</a>.
-      
-        <i>IEEE Transactions on Visualization and Computer Graphics.</i>
-        
-          26(1):790-799,
-        2020.
-      </div>
-    
-
-    
-      <div class="extra-links">
-      
-        <a href="http://vis.pku.edu.cn/research/publication/vis19_smartcube.pdf" target="_blank">
-          <i class="far fa-file-pdf" aria-hidden="true"></i> PDF
-        </a>
-      
-      
-        <a target="_blank" href="https://doi.org/10.1109/TVCG.2019.2934434">
-          <i class="fas fa-book" aria-hidden="true"></i> DOI
-        </a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      </div>
-    
-  </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <div class="publication">
-    
-    <a href="https://doi.org/10.1145/3313831.3376443" target="_blank"><strong>Automatic Annotation Synchronizing with Textual Description for Visualization.</strong>
-    </a>
-    <div class="authors"><a href="http://vis.pku.edu.cn/people/chufanlai/index.html" target="_blank">Chufan Lai</a>, <a href="http://vis.pku.edu.cn/people/zhixianlin/" target="_blank">Zhixian Lin</a>, <a href="http://vis.pku.edu.cn/people/ruikejiang/" target="_blank">Ruike Jiang</a>, <a href="http://vis.pku.edu.cn/people/yunhan" target="_blank">Yun Han</a>, <a href="https://vvoliucano.github.io/" target="_blank"><b>Can Liu</b></a>, <a href="http://vis.pku.edu.cn/xiaoruyuan.html" target="_blank">Xiaoru Yuan</a>.
-      
-        In <i>Proceedings of ACM Conference on Human Factors in Computing Systems (CHI 2020).</i>
-        
-        
-        Honolulu, Hawai'i, USA, 
-        April 25-30, 
-        
-        
-        
-        2020.
-      </div>
-    
-
-    
-      <div class="extra-links">
-      
-        <a href="http://vis.pku.edu.cn/research/publication/chi20_annotation.pdf" target="_blank">
-          <i class="far fa-file-pdf" aria-hidden="true"></i> PDF
-        </a>
-      
-      
-        <a target="_blank" href="https://doi.org/10.1145/3313831.3376443">
-          <i class="fas fa-book" aria-hidden="true"></i> DOI
-        </a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      </div>
-    
-  </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  {% endif %}
+  {% endfor %}
 </div>
-<a href="/publications/" class="button">
+<a href="{{ "/publications/" | relative_url }}" class="button">
   <i class="fas fa-chevron-circle-right"></i>
   All Publications
 </a>
 
 <h2>Featured Projects</h2>
 <div class="featured-projects">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <div class="project">
-<span class="title">Spatial-Constraint Model</span>
-
-  <span class="preview-image" style="background-image: url('/assets/project/24_spatial_constraint.gif')"></span>
-
-<p>
-  We proposed a spatial constraint model for activating static visualization.
-
-</p>
-<div class="spacer"></div>
-<div class="links">
-  
-    <a href="https://arxiv.org/pdf/2303.14476.pdf" target="_blank"><i class="far fa-file-pdf"></i> Paper</a>
-  
-  
-  
-    <a href="/projects/spatialconstraint/" target="_blank"><i class="fas fa-desktop"></i> Demo</a>
-  
-  
-  
-  
-  
-    <a href="https://youtu.be/i8C8lGAVLdI" target="_blank"><i class="fas fa-film"></i> Video</a>
-  
-  
+  {% assign sorted_projects = site.data.project | sort: 'highlight' %}
+  {% for project in sorted_projects %}
+  {% if project.highlight %}
+  {% include project.html project=project %}
+  {% endif %}
+  {% endfor %}
 </div>
-</div>
-
-  
-  
-  
-  <div class="project">
-<span class="title">SmartCube</span>
-
-  <span class="preview-image" style="background-image: url('/assets/project/20-smartcube.png')"></span>
-
-<p>
-  We proposed an adaptive data management architecture for the real-time visualization of spatiotemporal datasets
-
-</p>
-<div class="spacer"></div>
-<div class="links">
-  
-    <a href="https://doi.org/10.1109/TVCG.2019.2934434" target="_blank"><i class="far fa-file-pdf"></i> Paper</a>
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-</div>
-
-  
-  
-  
-  <div class="project">
-<span class="title">Old Visualization</span>
-
-  <span class="preview-image" style="background-image: url('/assets/project/24-oldvis.png')"></span>
-
-<p>
-  OldVisOnline is a collection of old visualizations published before 1950. We have been studying a variety of usage scenarios of OldVisOnline.
-
-</p>
-<div class="spacer"></div>
-<div class="links">
-  
-    <a href="https://arxiv.org/pdf/2308.16053.pdf" target="_blank"><i class="far fa-file-pdf"></i> Paper</a>
-  
-  
-  
-    <a href="https://oldvis.github.io/gallery/" target="_blank"><i class="fas fa-desktop"></i> Demo</a>
-  
-  
-  
-  
-  
-  
-</div>
-</div>
-
-  
-  
-  
-  <div class="project">
-<span class="title">Asteroid Visualization</span>
-
-  <span class="preview-image" style="background-image: url('/assets/project/18-asteroid.gif')"></span>
-
-<p>
-  We designed a visual analytics system for analyzing the impact of different asteroids.
-
-</p>
-<div class="spacer"></div>
-<div class="links">
-  
-    <a href="http://vis.pku.edu.cn/research/publication/jov2020_event.pdf" target="_blank"><i class="far fa-file-pdf"></i> Paper</a>
-  
-  
-  
-  
-  
-  
-  
-    <a href="/assets/project/2021_ asteroid.mp4" target="_blank"><i class="fas fa-film"></i> Video</a>
-  
-  
-</div>
-</div>
-
-  
-  
-</div>
-<a href="/projects/" class="button">
+<a href="{{ "/projects/" | relative_url }}" class="button">
   <i class="fas fa-chevron-circle-right"></i>
   Show More Projects
 </a>
 
-
-</section>
-
-  </div>
-
-  <footer>
-  <div class="container">
-    <div class="footer-col">
-      <br />
-      <br />
-      All Rights Reserved.<br />
-      <abbr title="Last build on 2025-02-05">Last build on February 2025</abbr>
-      <br />
-      <br />
-    </div>
-    <div class="footer-col" width = "100px">
-      <!-- <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU"></script> -->
-      <!-- <a href="https://clustrmaps.com/site/1c3hc"  title="ClustrMaps"><img src="//www.clustrmaps.com/map_v2.png?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU&cl=ffffff" /></a> -->
-      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU&cl=ffffff&w=214&co=8b0801"></script>
-
-
-    </div>
-  </div>
-</footer>
-
-
-  <script>
-  function trim(str) {
-    return str.replace(/^\s+|\s+$/g, '');
-  }
-  var headers = document.querySelectorAll("h2, h3, h4, h5, h6");
-  for (var i=0; i<headers.length; i++) {
-    var h = headers[i];
-    var name = h.getAttribute("id");
-    var title = h.innerHTML;
-    h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
-  }
-</script>
-
-</body>
-</html>

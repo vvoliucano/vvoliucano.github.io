@@ -1,0 +1,89 @@
+- id: italk
+  title: "iTalk: An Intelligent Visualization System Through Talking to Data"
+  authors:
+    - Can Liu
+    - Ruike Jiang
+    - Jie Liang
+    - Xiaoru Yuan
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  venue_tags:
+    - TVCG
+  venue_label:
+    - SCI/EI检索
+    - CCF A类期刊
+    - Transactions
+  type:
+    - Submit
+  status: Major revision
+  status_zh: 大修重投中
+  highlight: 3
+
+
+- id: dataset
+  title: "Visualization Datasets for Machine Learning"
+  authors:
+    - Can Liu
+    - Ruike Jiang
+    - Shaocong Tan
+    - Jiacheng Yu
+    - Chaofan Yang
+    - Hanning Shao
+    - Xiaoru Yuan
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  venue_tags:
+    - CGF
+  venue_label:
+    - SCI/EI检索
+    - CCF A类期刊
+    - Transactions
+  type:
+    - Submit
+  status: Major revision
+  status_zh: 大修重投中
+  highlight: 4
+
+
+- id: autolegend
+  title: "AutoLegend: An Automatic Legend Generator for Visualization"
+  authors:
+    - Can Liu
+    - Xiyao Mei
+    - Zhibang Jiang
+    - Xiaoru Yuan
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  venue_tags:
+    - TVCG
+  venue_label:
+    - SCI/EI检索
+    - CCF A类期刊
+    - Transactions
+  type:
+    - Submit
+  highlight: 3
+
+- id: nlmanipulate
+  title: "In-Situ Visualization Manipulation with Natural Language Queries"
+  authors:
+    - Can Liu
+    - Jiacheng Yu
+    - Yuhan Guo
+    - Jiayi Zhuang
+    - Yuchu Luo
+    - Xiaoru Yuan
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  venue_tags:
+    - CHI
+  venue_label:
+    - CCF A类期刊
+    - Transactions
+  type:
+    - Submit
+  highlight: 3
+
+
+
+
+
+
+
+

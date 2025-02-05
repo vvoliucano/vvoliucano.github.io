@@ -1,0 +1,50 @@
+- name: Best Survey Award
+  zh_name: 最佳综述奖
+  years: 2020
+  venue: ChinaVIS
+  zh_venue: 中国可视化与可视分析大会
+  description: "For \"Visualization Driven by Deep Learning\"."
+  order: 第一作者
+
+- name: Honorable Mention for Best Poster Award
+  zh_name: 最佳海报提名奖
+  years: 2019
+  venue: IEEE VIS
+  zh_venue: 国际可视化与可视分析大会
+  description: "For \"Automatic Annotation of Visualizations\"."
+  order: 第三作者
+  
+- name: Honorable Mention for Best Paper Award
+  zh_name: 最佳论文提名奖
+  years: 2019
+  venue: ChinaVIS
+  zh_venue: 中国可视化与可视分析大会
+  description: "For \"Event-Based Exploration and Comparison on Time-Varying Ensembles\"."
+  order: 第一作者
+
+- name: Best Poster Award
+  zh_name: 最佳海报奖
+  venue: IEEE PacificVis
+  years: 2019
+  zh_venue: 亚太可视化研讨会
+  description: "For \"Automatic Answer and Visualization Generation for Tabular Data\"."
+  order: 第四作者
+
+- name: Honorable Mention for Best Poster Award
+  venue: IEEE PacificVis
+  zh_name: 最佳海报提名奖
+  years: 2019
+  zh_venue: 亚太可视化研讨会
+  description: "For \"Automatic Caption Generation for SVG Charts\"."
+  order: 第一作者
+
+
+- name: Best Visualization of Water in Atmosphere
+  zh_name: “Water in Atmosphere”最佳可视化奖
+  venue: IEEE VIS Scivis Contest
+  years: 2018
+  zh_venue: 国际可视化与可视分析大会
+  description: "For \"Interactive Visual Exploration and Comparison on the Effect of Asteroid Impacts\"."
+  order: 第一作者
+
+

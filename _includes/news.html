@@ -1,0 +1,5 @@
+
+<div class="news-item">
+<div class="news-content">{{ news.message | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+<span class="time-span"><time datetime="{{ news.date }}">{{ news.date | date: "%b %-d, %y" }}</time></span>
+</div>

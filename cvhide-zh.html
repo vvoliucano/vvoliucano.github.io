@@ -1,0 +1,483 @@
+---
+permalink: /cvhide-zh/
+title: CV
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="application-name" content="{{ site.title }}">
+  <meta name="theme-color" content="#2c9f64">
+  <meta name="keywords" content="liucan, Can Liu, LIU Can, 刘灿, 北京大学刘灿, 可视化刘灿">
+  <meta name="description" content="Website of Can Liu (刘灿), a PhD student.">
+  <meta name="author" content="Can Liu">
+  <link rel="icon" type="image/png" href="{{ '/favicon.png' | relative_url }}" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+  <link href="{{ '/styles.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/css/cv.css' | relative_url }}" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-146429859-1');
+  </script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?fbf4b1a0c5c8dd0a7fa5f17ad11a107c";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+
+<body class="cv">
+  <div class="no-print back">
+    <!-- ◄ <a href="{{ absolute_url }}/">Back to Shelly's Homepage</a> -->
+  </div>
+
+  <div class="page-content">
+    <section class="container">
+      <h1>刘灿 <span>Can Liu</span></h1>
+
+      <h4><a href="https://scholar.google.com/citations?user=c_qeUtUAAAAJ" target="_blank">谷歌学术个人主页</a></h4>
+
+      <div class="header-columns">
+        <div>
+          <p class="oneline-intro">博士研究生</p>
+          <p>
+            地址：北京市海淀区颐和园路5号北京大学，邮编100871。
+          </p>
+        </div>
+        <div>
+          <p class="right-align">
+            <a href="mailto:can.liu@pku.edu.cn">电子邮箱：can.liu@pku.edu.cn</a></br>
+            移动电话：+86 18801088637
+          </p>
+        </div>
+      </div>
+
+
+      <!-- <h2>Research Area</h2>
+
+      <p class="intro">
+      </p> -->
+
+      <h2>教育经历</h2>
+
+      {% for ed in site.data.education %}
+      <article>
+        <div class="date-container">
+          <span class="date">{{ ed.years }}</span>
+          <h3>{{ ed.university_zh }} {{ ed.degree_zh }}</h3>
+          <span class="right">{{ ed.location_zh }}</span>
+        </div>
+        <p>
+          {% for des in ed.description_zh %}
+          <span>{{ des | markdownify | remove: '<p>' | remove: '</p>' }}</span>{% unless forloop.last %}<br />{% endunless %}
+          {% endfor %}
+        </p>
+      </article>
+      {% endfor %}
+<!-- 
+      <h2>Positions</h2>
+
+      {% for pos in site.data.position %}
+      <article>
+        <div class="date-container">
+          <span class="date">{{ pos.years }}</span>
+          <h3>{{ pos.title }}{% if pos.company %} at <a href="{{pos.group_link}}" target="_blank">{{pos.group}}</a>, {{pos.company}}{% endif %}</h3>
+          <span class="right">{{ pos.location }}</span>
+          </div>
+          <p>
+            Supervisor:
+            {% for mentor in pos.mentors -%}
+              Prof. {% include person.html person=mentor %}{% unless forloop.last %}, {% endunless %}
+            {%- endfor -%}
+            {%- if pos.description -%}
+            </br>
+            {%- for desc in pos.description -%}
+            — {{desc | markdownify | remove: '<p>' | remove: '</p>'}}</br>
+            {%-endfor-%}
+            {%- endif -%}
+            </p>
+      </article>
+      {% endfor %}
+
+ -->
+<!-- Conference|Journal|Book Chapter|Demo|Workshop|Thesis -->
+     <h2>论文发表情况</h2>
+<!-- <a href="{{ '/publication/' | absolute_url }}">[Interactive Version]</a> -->
+      {% assign types = "Journal|Conference|Poster" | split: "|" %}
+      {% for type in types %}
+      {% assign counter = 1 %}
+      {% for pub in site.data.publication %}
+      {% if pub.type[0] == type %}
+      {% assign counter = counter | plus: 1 %}
+      {% endif %}
+      {% endfor %}
+
+      <h3 class="pub-type">
+        {% if type == "Journal" %}
+          期刊 
+        {%- endif -%}
+        {% if type == "Conference" %}
+          会议长文 
+        {%- endif -%}
+        {% if type == "Poster" %}
+          会议海报 
+        {%- endif -%}
+      </h3>
+  {% assign counter = 0 %}
+      {% for pub in site.data.publication %}
+
+      {% if pub.type[0] == type %}
+      {% assign counter = counter | minus: 1 %}
+      <article class="cv-pub">
+        <div class="ref-container">{{ type | slice: 0 }}{{ counter }}</div>
+        <h4>{% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank">{{ pub.title }}</a>{% else %}{{ pub.title }}{%endif%}.</h4>
+        <div>
+           <div class="authors">{% for author in pub.authors %}{% include person.html person=author %}{% unless forloop.last %}, {% endunless %}{% endfor %}.
+          {% if pub.type[0] == "Journal" %}
+            <i>{{pub.venue}}.</i>
+            {% if pub.volume %}
+              {{pub.volume}}({{pub.number}}):{{pub.pages}}, 
+            {%- endif -%}
+            {% if pub.accept %}Accepted, {% endif %}
+            {{pub.year}}. {% if pub.venue_label %}({% for label in pub.venue_label %}{{label}}{% unless forloop.last %}, {% endunless %}{% endfor %}){%- endif -%}
+          {% elsif pub.type[0] == "Conference" %}
+            In <i>Proceedings of {{pub.venue}}.</i>
+            {% if pub.venue_location %}, {{pub.venue_location}}, {% endif %}
+            {% if pub.pages %}pages {{pub.pages}}, {% endif %}
+            {% if pub.location %}{{pub.location}}, {% endif %}
+            {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
+            {% if pub.accept %}Accepted, {% endif %}
+            {% if pub.type[0]=="Poster" %}Poster, {% endif %}
+            {% if pub.type[0]=="Notes" %}Notes, {% endif %}
+            {{pub.year}}. {% if pub.venue_label %}({% for label in pub.venue_label %}{{label}}{% unless forloop.last %}, {% endunless %}{% endfor %}){%- endif -%}
+          {% elsif pub.type[0] == "Poster" %}
+            In <i>Proceedings of {{pub.venue}}.</i> (Poster)
+            {% if pub.venue_location %}, {{pub.venue_location}}, {% endif %}
+            {% if pub.pages %}pages {{pub.pages}}, {% endif %}
+            {% if pub.location %}{{pub.location}}, {% endif %}
+            {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
+            {% if pub.accept %}Accepted, {% endif %}
+            {% if pub.type[0]=="Poster" %}Poster, {% endif %}
+            {% if pub.type[0]=="Notes" %}Notes, {% endif %}
+            {{pub.year}}. {% if pub.venue_label %}({% for label in pub.venue_label %}{{label}}{% unless forloop.last %}, {% endunless %}{% endfor %}){%- endif -%}
+          {%- endif -%}
+          </div>
+        </div>
+      </article>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+
+      <!-- <h2>海报论文</h2>
+      {% assign counter = 0 %}
+      {% for pub in site.data.publication %}
+      {% if pub.type[0] == "Poster" %}
+      {% assign counter = counter | minus: 1 %}
+      <article class="cv-pub">
+        <div class="ref-container">P{{ counter }}</div>
+        <h4>{% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank">{{ pub.title }}</a>{% elsif pub.pdf %}<a href="{{ pub.pdf }}" target="_blank">{{ pub.title }}</a>{% else %}{{ pub.title }}{%endif%}.</h4>
+        <div>
+           <div class="authors">{% for author in pub.authors %}{% include person.html person=author %}{% unless forloop.last %}, {% endunless %}{% endfor %}.
+        {% if pub.type[0] == "Journal" %}
+          <i>{{pub.venue}}.</i>
+          {% if pub.volume %}
+            {{pub.volume}}({{pub.number}}):{{pub.pages}}, 
+          {%- endif -%}
+          {% if pub.accept %}Accepted, {% endif %}
+          {{pub.year}}.
+        {% elsif pub.type[0] == "Conference" %}
+          In <i>Proceedings of {{pub.venue}}.</i>
+          {% if pub.venue_location %}{{pub.venue_location}}, {% endif %}
+          {% if pub.pages %}pages {{pub.pages}}, {% endif %}
+          {% if pub.location %}{{pub.location}}, {% endif %}
+          {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
+          {% if pub.accept %}Accepted, {% endif %}
+          {% if pub.type[0]=="Poster" %}Poster, {% endif %}
+          {% if pub.type[0]=="Notes" %}Notes, {% endif %}
+          {{pub.year}}.
+        {% elsif pub.type[0] == "Poster" %}
+          In <i>Poster Proceedings of {{pub.venue}}.</i>
+          {% if pub.venue_location %}{{pub.venue_location}}, {% endif %}
+          {% if pub.pages %}pages {{pub.pages}}, {% endif %}
+          {% if pub.location %}{{pub.location}}, {% endif %}
+          {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
+          {% if pub.accept %}Accepted, {% endif %}
+          {% if pub.type[0]=="Poster" %}Poster, {% endif %}
+          {% if pub.type[0]=="Notes" %}Notes, {% endif %}
+          {{pub.year}}.
+        {%- endif -%}
+        </div>
+        </div>
+      </article>
+      {% endif %}
+      {% endfor %} -->
+
+      <h2>学术获奖</h2>
+
+      {% for award in site.data.award %}
+      <article>
+        <div class="date-container">
+          <span class="date">{{ award.years }}</span>
+          <h3>
+            {%- if award.zh_venue -%}
+            {{award.zh_venue}}（{{award.venue}}）:
+            {% endif %}
+            {{ award.zh_name }}
+          </h3>
+          <span class="right">{{ award.sponsor }}</span>
+        </div>
+        <p>
+          {{ award.description }}
+        </p>
+      </article>
+      {% endfor %}
+
+      <h2>参展</h2>
+
+      {% for exhi in site.data.exhibition %}
+      <article>
+        <div class="date-container">
+          <span class="date">{{ exhi.year }}</span>
+          <h3>
+            {% for author in exhi.authors %}{% include person.html person=author %}{% unless forloop.last %}, {% endunless %}{% endfor %}.
+            {%- if exhi.title -%}
+            {{exhi.title}}. {{exhi.venue}}. {{exhi.venue_location}}
+            {% endif %}
+          </h3>
+          <span class="right">{{ award.sponsor }}</span>
+        </div>
+        <p>
+          {{ award.description }}
+        </p>
+      </article>
+      {% endfor %}
+
+     <h2>学术服务</h2>
+
+      {% for service in site.data.service %}
+      <article>
+        <div class="date-container">
+          <span class="date">{{ service.year }}</span>
+          <h3>
+            {{ service.type_zh }}: 
+            <i>{{service.venue}}</i>
+          </h3>
+          
+        </div>
+      </article>
+      {% endfor %}
+
+      <h2>社会兼职</h2>
+
+      {% for service in site.data.social_service %}
+      <article>
+        <div class="date-container">
+          <span class="date">{{ service.year }}</span>
+          <h3>
+            {{service.organization}}: {{ service.type }}
+          </h3>
+          
+        </div>
+      </article>
+      {% endfor %}
+
+      <!-- <h2>Patents</h2>
+
+      {% for patent in site.data.patents %}
+      <div class="date-container">
+        <span class="date">{{ patent.date | date: "%b %Y" }}</span>
+        <h3><a href="{{ patent.url }}">{{ patent.title }}</a></h3>
+      </div>
+      <div class="patent">
+        <p>
+          {% for author in patent.authors %}
+          {% include person.html person=author %}{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </p>
+      </div>
+      {% endfor %} -->
+
+<!--
+      <h2>Talks <a href="{{ '/talks/' | absolute_url }}">[Interactive Version]</a></h2>
+
+      {% assign talktitles = site.data.talks | group_by:"title" %}
+      {% for title in talktitles %}
+      <article>
+        <h3 class="cv-talk-title">{{ title.name }}</h3>
+        {% assign sorted_talks = title.items | sort: 'date' | reverse %}
+        {% for talk in sorted_talks %}
+        <div class="date-container">
+          <time datetime="{{ talk.date }}">{{ talk.date | date: "%b %Y" }}</time>
+          <span class="fill">{{ talk.location }}{% if talk.city %}, <small class="muted">{{ talk.city }}</small>{% endif %}</span>
+
+        </div>
+        {% endfor %}
+      </article>
+      {% endfor %}
+ -->
+
+      <!-- <h2>Teaching Experience</h2>
+
+      {% for teach in site.data.teaching %}
+      <article>
+        <div class="date-container">
+          <span class="date">{{teach.year}}</span>
+          <h3>{{ teach.title }}</h3>
+          <span class="right">{{ teach.location }}</span>
+        </div>
+        <p>
+          {% if teach.professor %}
+          {% if teach.role %}
+          {{ teach.role }} for
+          {% endif %}
+          {% include person.html person=teach.professor %},
+          {{ teach.students }}
+          <br />
+          {% endif %}
+          {{ teach.description | markdownify | remove: '<p>' | remove: '</p>' }}
+        </p>
+      </article>
+      {% endfor %} -->
+
+
+      <!-- <h2>Mentoring Experience</h2>
+
+      {% for mentor in site.data.mentoring %}
+      <div class="date-container">
+        <span class="date">{{mentor.year}}</span>
+        <h3>{{ mentor.title }}</h3>
+        <span class="right">{{ mentor.location }}</span>
+      </div>
+      <p>
+        {{ mentor.description }}
+        {% if mentor.who %}
+        <br />
+        <h4>Mentored:</h4>
+        <ul>
+          {% for person in mentor.who %}
+          <li>{% include person.html person=person %}{% unless forloop.last %}, {% endunless %}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </p>
+      {% endfor %} -->
+
+
+      <!-- <h2>Service</h2>
+
+      <p>
+        Reviewer for ACM CHI, IEEE VIS, TVCG, EuroVis, PacificVis, Computers & Graphics, HILDA, and DSIA.
+        Program committee for <a href="http://hilda.io/2018/">HILDA 2018</a>, <a href="http://hilda.io/2019/">HILDA 2019</a>, adn <a href="http://hilda.io/2020/">HILDA 2020</a> at SIGMOD.
+        Organizer of <a href="https://www.interactive-analysis.org/year/2018/">DSIA 2018</a> and <a href="https://www.interactive-analysis.org/">DSIA 2019</a> at VIS.
+        Session chair at CHI 2019, VIS 2019.
+        <br />
+        Member of the <a href="https://frictionlessdata.io/">Frictionless Data</a> working group that aims to submit a specification to the <a href="https://www.ietf.org/">IETF</a>.
+      </p> -->
+
+
+      <!-- <h2>Relevant Coursework</h2>
+
+      {% for institution in site.data.courses %}
+      <article>
+        <h3>{{ institution.title }}</h3>
+        <div>
+          <ul>
+            {% for course in institution.courses %}<li>{{ course.title }}{% if course.with %}<span class="muted"> ({% include person.html person=course.with %})</span>{% endif %}</li>{% endfor %}
+          </ul>
+        </div>
+      </article>
+      {% endfor %} -->
+
+
+      <!-- <h2>References</h2>
+
+      <div class="refs">
+        <p>
+          <strong>Jeffrey Heer</strong><br />
+          Professor of Computer Science & Engineering<br />
+          <i>University of Washington</i><br />
+          <a href="mailto:jheer@uw.edu">jheer@uw.edu</a>
+        </p>
+
+        <p>
+          <strong>Bill Howe</strong><br />
+          Professor at the Information School<br />
+          <i>University of Washington</i><br />
+          <a href="mailto:billhowe@uw.edu">billhowe@uw.edu</a>
+        </p>
+
+        <p>
+          <strong>Danyel Fisher</strong><br />
+          Principal Design Researcher<br />
+          <i>Honeycomb</i><br />
+          Former Senior Researcher at Microsoft Research<br />
+          <a href="mailto:danyel@gmail.com">danyel@gmail.com</a>
+        </p>
+
+        <p>
+          <strong>Tim Kraska</strong><br />
+          Professor of Electrical Engineering & Computer Science<br />
+          <i>Massachusetts Institute of Technology</i><br />
+          <a href="mailto:kraska@mit.edu">kraska@mit.edu</a>
+        </p>
+
+        <p>
+          <strong>Steven Franconeri</strong><br />
+          Professor of Psychology<br />
+          <i>Northwestern University</i><br />
+          <a href="mailto:franconeri@northwestern.edu">franconeri@northwestern.edu</a>
+        </p>
+      </div> -->
+
+    </section>
+  </div>
+  <div id="cat-frame" class="no-print">
+    <div>
+      <a id="print-button" class="button" onclick="print()"><i class="fa fa-print" aria-hidden="true"></i></a>
+      <a id="return-button" class="button" href="{{ '/zh/' | relative_url }}"><i class="fa fa-home" aria-hidden="true"></i></a>
+      </div>
+    </div>
+</body>
+<!-- <script src="/assets/js/L2Dwidget.min.js"></script>
+<script>
+     L2Dwidget.init({
+        "model": {
+            jsonPath: "https://unpkg.com/live2d-widget-model-tororo@1.0.5/assets/tororo.model.json",
+            "scale": 0.15
+        },
+        "display": {
+            "position": "left",
+            "width": 80,
+            "height": 120,
+            "hOffset": 25,
+            "vOffset": -50,
+        },
+        "mobile": {
+            "show": false,
+            "scale": 0.5
+        },
+        "react": {
+            "opacityDefault": 1,
+            "opacityOnHover": 0.2
+        },
+        "name": {
+          "div": "cat-frame",
+          "canvas": "cat-canvas"
+        }
+    });
+</script> -->
+</html>

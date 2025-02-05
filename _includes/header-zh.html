@@ -1,0 +1,21 @@
+{% assign current = page.url | downcase | split: '/' %}
+<header class="page-header">
+  <nav class="container">
+    <a class="site-title" href="{{ '/zh/' | relative_url }}">主页</a>
+    <div>
+        <img src="{{ './assets/images/liucan_writing.png' | relative_url }}" height="30px" alt='Can Liu' />
+    </div>
+    <div><a href="{{ '/projects-zh/' | relative_url }}" {% if current[1] == 'projects-zh' %}class="active"{% endif %}>项目</a></div>
+    <div><a href="{{ '/publications-zh/' | relative_url }}" {% if current[1] == 'publications-zh' %}class="active"{% endif %}>发表物</a></div>
+   <!--  <div><a href="{{ '/misc/' | relative_url }}" {% if current[1] == 'misc' %}class="active"{% endif %}>Misc</a></div>
+  <div><a href="{{ '/contact/' | relative_url }}" {% if current[1] == 'contact' %}class="active"{% endif %}>Contact</a></div> -->
+    <!-- <a href="{{ '/talks/' | relative_url }}" {% if current[1] == 'talks' %}class="active"{% endif %}>Talks</a>
+    <a href="{{ '/blog/' | relative_url }}" {% if current[1] == 'blog' %}class="active"{% endif %}>Blog</a> -->
+    <div><a href="{{ '/cv-zh/' | relative_url }}">简历</a></div>
+    <div><a href="{{ '/other/' | relative_url }}" {% if current[1] == 'other' %}class="active"{% endif %}>其他</a></div>
+    <span class="external">
+      <!-- <div><a target="_blank" href="https://twitter.com/LiwenhanXie"><i class="fab fa-twitter"></i>Twitter</a></div> -->
+      <div><a href="{{ '/' | relative_url }}"></i>English</a></div>
+    </span>
+  </nav>
+</header>

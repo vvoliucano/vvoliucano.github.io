@@ -1,0 +1,285 @@
+html, body {
+  font-family: 'STFangsong';
+  font-size: 20px;
+  background-color: white;
+}
+
+@media print { html, body {
+    font-family: 'STFangsong';
+    font-size: 19px !important; 
+} }
+
+
+
+
+b, strong {
+  font-weight: 600;
+}
+
+/* It's not good to hide links but looks better in a CV. */
+a {
+  color: #333;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 400;
+  /* border: none; */
+  color: #333;
+  font-family: STSong, Fira Sans, Halvetica Neue, sans-serif;
+  page-break-after: avoid;
+  font-family: 'STHei', 'Fira Sans', Georgia, sans-serif;
+}
+
+h1, h2, .pub-type {
+  color: black;  /*#0A656C;*/
+  margin: .8em 0 .2em 0;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+h2 a {
+  font-size: 0.7em;
+  color: #828282;
+}
+
+.intro {
+  font-size: 13px;
+}
+
+.live-link {
+  margin-bottom: 1em;
+  display: none;
+  opacity: 0.8;
+}
+
+.header-columns {
+  display: flex;
+  flex-direction: row;
+}
+.header-columns > div:first-child {
+  flex: 1;
+}
+.header-columns > div:last-child {
+  flex: 1;
+  width: 150px;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.1em;
+  font-weight: 400;
+  flex: 1;
+}
+
+p {
+  flex: 1;
+}
+
+h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1em;
+  font-weight: 500;
+}
+.oneline-intro {
+  margin-bottom: 0;
+}
+.pub-type {
+  font-size: 1.1em;
+  margin-bottom: 0.4em;
+}
+
+.cv-pub h4 {
+  font-size: 1.2em;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.cv-pub {
+  margin-bottom: 0.5em;
+}
+
+.muted, .muted a {
+  color: #666;
+}
+
+.award {
+  color: firebrick;
+  white-space: nowrap;
+}
+
+.talk_content{
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.container {
+  min-width: 680px;
+  max-width: 1000px;
+}
+
+/* 
+.container {
+  min-width: 680px;
+  max-width: 740px;
+} */
+
+
+.container-maoda {
+  min-width: 680px;
+  max-width: 1000px;
+}
+
+.container > * {
+  margin-left: 55px;
+}
+
+article {
+  margin-left: 0 !important;
+}
+
+article > * {
+  margin-left: 55px;
+}
+
+.ref-container {
+  margin-left: 0;
+  float: left;
+  text-align: right;
+  width: 35px;
+}
+
+.date-container {
+  width: 100%;
+  margin-left: 0 !important;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.date-container h3, .date-container .fill {
+  flex: 1;
+}
+
+.date-container h5, .date-container .fill {
+  flex: 1;
+}
+
+.cv-talk-title {
+  margin-top: 1.2em;
+}
+
+.date-container .date, .date-container time {
+  display: block;
+  width: 45px;
+  text-align: right;
+  padding-right: 10px;
+  flex-shrink: 0;
+}
+
+.date-container .right {
+  padding-left: 10px;
+  color: #828282;
+  font-size: .9em;
+}
+
+/* References */
+
+.refs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.refs > p {
+  width: 50%;
+}
+
+/* Link back to homepage */
+
+.back {
+  font-family: sans-serif;
+  min-width: 480px;  /* same as container */
+  padding: 0.1em 1em;
+  /* background-color: #2c9f64; */
+  background-color: #192a6f;
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.back a {
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.back a:hover {
+  text-decoration: none;
+}
+
+.button {
+  font-size: 2em;
+  color: #192a6f;
+  opacity: 0.95;
+  position: fixed;
+  left: 1em;
+  cursor: pointer;
+  z-index: 9999;
+}
+#print-button {
+  bottom: 5vh;
+}
+#return-button {
+  bottom: 11vh;
+}
+
+@media print {
+  @page {
+    size: portrait;
+    margin: 12mm 12mm 12mm 12mm;
+  }
+
+  body {
+    margin: 1em 0 0 0;
+    font-size: 11px;
+  }
+
+  .no-print, .no-print * {
+    display: none !important;
+  }
+
+  .live-link {
+    display: block;
+  }
+
+  h1, h2 {
+    margin: .4em 0 .1em 0;
+  }
+
+  /* link to interactive talk/publications */
+  h2 a {
+    display: none;
+  }
+}

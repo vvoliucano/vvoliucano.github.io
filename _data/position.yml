@@ -1,0 +1,43 @@
+- title: Undergraduate Research Assistant
+  years: 2017 - 2020
+  company: Peking university
+  group: PKUVIS Group
+  group_link: "http://vis.pku.edu.cn"
+  location: Beijing
+  mentors:
+    - Xiaoru Yuan
+  description:
+    - explored on dynamic network visualization and topics concerning automation in visualization
+
+- title: Research Intern
+  years: Fall 2019
+  company: INRIA
+  group: Aviz group
+  group_link: "https://aviz.fr"
+  location: Paris
+  mentors:
+    - Jean-Daniel Fekete
+  description:
+    - continued working on MeasureFlow and completed a submission to AVI 2020
+
+- title: Research Intern
+  years: Summer 2019
+  company: University of Edinburgh
+  group: Visual + Interactive Data
+  group_link: "https://visualinteractivedata.github.io"
+  location: Edinburgh
+  mentors:
+    - Benjamin Bach
+  description:
+    - designed and built MeasureFlow to facilitate dynamic network exploration with series of graph measures
+
+- title: Research Intern
+  years: Summer 2018
+  company: Hong Kong University of Science and Technology
+  group: HKUST Vislab
+  group_link: "http://vis.cse.ust.hk"
+  location: Hong Kong
+  mentors:
+    - Huamin Qu
+  description:
+    - worked on a project leveraging immitation and reinforcement for public speech skills acquisition
