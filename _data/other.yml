@@ -1,3 +1,14 @@
+- id: 阴晴
+  title: "阴晴"
+  year: 2025
+  type:
+    - 诗
+  content:
+    - 阴晴原无定，海气幻千形
+    - 晴峦分翠霭，雨壑坠珠泠
+  highlight: 3
+
+
 - id: 越山海
   title: "越山海"
   year: 2024
