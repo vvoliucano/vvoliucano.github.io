@@ -70,377 +70,847 @@ var _hmt = _hmt || [];
   <div class="page-content">
     <section class="container ">
   <style>
-.grid {
+/* 诗集整体样式 */
+.poetry-year-section {
+    margin: 3rem 0;
+    padding: 0 1rem;
+}
+
+.poetry-year-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    color: #2c3e50;
+    margin: 2rem 0 1rem 0;
+    font-family: "STKaiti", "KaiTi", "楷体", serif;
+    letter-spacing: 0.2em;
+}
+
+.poetry-year-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #bdc3c7, transparent);
+    margin: 0 auto 3rem auto;
+}
+
+/* 单首诗的样式 */
+.poetry-item {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background: #fefefe;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.poetry-item:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+}
+
+.poetry-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #e74c3c, #f39c12, #e74c3c);
+    border-radius: 0 0 2px 2px;
+}
+
+/* 诗歌标题区域 */
+.poetry-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 1.5rem;
+}
+
+.poetry-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+    font-family: "STKaiti", "KaiTi", "楷体", serif;
+    letter-spacing: 0.1em;
+}
+
+.poetry-type {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    background: #ecf0f1;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-family: "STKaiti", "KaiTi", "楷体", serif;
+    letter-spacing: 0.05em;
+}
+
+/* 诗歌内容 */
+.poetry-content {
+    text-align: center;
+    line-height: 2.2;
+    margin: 2rem 0;
+}
+
+.poetry-line {
+    font-size: 1.2rem;
+    color: #34495e;
+    margin: 0.8rem 0;
+    font-family: "STKaiti", "KaiTi", "楷体", serif;
+    letter-spacing: 0.05em;
+    position: relative;
+}
+
+.poetry-line:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: #bdc3c7;
+    margin: 0.5rem auto;
+    opacity: 0.5;
+}
+
+/* 注释样式 */
+.poetry-notes {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-left: 4px solid #e74c3c;
+    border-radius: 0 4px 4px 0;
+}
+
+.notes-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #e74c3c;
+    margin-bottom: 0.8rem;
+    font-family: "STKaiti", "KaiTi", "楷体", serif;
+}
+
+.notes-line {
+    font-size: 0.9rem;
+    color: #5a6c7d;
+    line-height: 1.6;
+    margin: 0.4rem 0;
+    font-style: italic;
+}
+
+/* 图片展示 */
+.poetry-images {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ecf0f1;
 }
 
-
-.project {
+.poetry-image-item {
     position: relative;
-    flex: 1 0 30%;
     cursor: pointer;
-    max-width: 50%;
+    max-width: 200px;
     transition: transform 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.project img {
+.poetry-image-item:hover {
+    transform: scale(1.05);
+}
+
+.poetry-image-item img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    display: block;
     transition: transform 0.3s ease;
 }
 
 /* 隐藏 checkbox */
-.project input[type="checkbox"] {
+.poetry-image-item input[type="checkbox"] {
     display: none;
 }
 
 /* 当 checkbox 被选中时放大图片 */
-.project input[type="checkbox"]:checked + label img {
+.poetry-image-item input[type="checkbox"]:checked + label img {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     max-width: 90%;
-    /* max-height: 90%; */
+    max-height: 90%;
     z-index: 1000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
 }
 
-
-
-
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .poetry-item {
+        margin: 2rem 0.5rem;
+        padding: 1.5rem;
+    }
+    
+    .poetry-year-title {
+        font-size: 2rem;
+    }
+    
+    .poetry-title {
+        font-size: 1.5rem;
+    }
+    
+    .poetry-line {
+        font-size: 1.1rem;
+    }
+    
+    .poetry-images {
+        gap: 10px;
+    }
+    
+    .poetry-image-item {
+        max-width: 150px;
+    }
+}
 </style>
 
 <!-- <div class="grid">
     
 </div> -->
 
-<h2 id="y2025" class="year">2025</h2>
-
-<div class="publication">
-    <h3><strong>苏幕遮·万里作客</strong>
-    
-     「词」
-    
-    </h3>
-    <p> 越鲸涛，开筚路。七剑星舟，直破沧溟雾。山海沧茫寻生处，织就蓬莱，竹网连天幕。</p><p> 赤旗张，烽火怒。剑指崖山，万里衣冠渡。谁道河殇湮夏土？天海扬帆，银汉为归路。</p>
-    
-    
-    <!--  -->
-  </div>
-
-<div class="publication">
-    <h3><strong>阴晴</strong>
-    
-     「诗」
-    
-    </h3>
-    <p> 阴晴原无定，海气幻千形</p><p> 晴峦分翠霭，雨壑坠珠泠</p>
-    
-    
-    <!--  -->
-  </div>
-
-<h2 id="y2024" class="year">2024</h2>
-
-<div class="publication">
-    <h3><strong>越山海</strong>
-    
-     「诗」
-    
-    </h3>
-    <p> 志合山海越，千里复相逢</p><p> ​星汉光年远？倏如一江风</p>
-    
-    
-    <!--  -->
-  </div>
-
-<div class="publication">
-    <h3><strong>江城子·首尾两端</strong>
-    
-     「词」
-    
-    </h3>
-    <p> 岷江千里雪融寒，玉磊盘，青城拦。太守作堰，鱼嘴妙分澜。秦卷天下终始汉，丞相挽，万古昙。</p><p> 天堑横亘龙虎桓，三代传，守江南。大魏吴王，十万雄师磐。白衣渡江千古传，明祖赞，护陵南。</p>
-    
-    
-    <!--  -->
-  </div>
-
-<div class="publication">
-    <h3><strong>西山</strong>
-    
-    </h3>
-    <p> 五岭赴平川，西乡享景山</p><p> 太行横燕脉，淑贤如是观</p>
-    
-    
-
-    <div class="grid">
-    
-    <div class="project">
-      <input type="checkbox" id="toggle西山1" />
-      <label for="toggle西山1">
-        <img src="/assets/poetry/202410_hutoushan.jpg" alt="西山" />
-      </label>
-    </div>
-    
-    <div class="project">
-      <input type="checkbox" id="toggle西山2" />
-      <label for="toggle西山2">
-        <img src="/assets/poetry/202410_hutoushan2.jpg" alt="西山" />
-      </label>
-    </div>
-    
-    <div class="project">
-      <input type="checkbox" id="toggle西山3" />
-      <label for="toggle西山3">
-        <img src="/assets/poetry/202410_hutoushan3.jpg" alt="西山" />
-      </label>
-    </div>
-    
-</div>
-
-    
-    <!-- 
-    <div class="grid">
+<div class="poetry-year-section">
+  <h2 class="poetry-year-title">2025</h2>
+  <div class="poetry-year-divider"></div>
+  
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">苏幕遮·万里作客</h3>
       
-      <div class="project">
-    <img src="/assets/poetry/202410_hutoushan.jpg" alt="西山" />
-    </div>
-    
-      <div class="project">
-    <img src="/assets/poetry/202410_hutoushan2.jpg" alt="西山" />
-    </div>
-    
-      <div class="project">
-    <img src="/assets/poetry/202410_hutoushan3.jpg" alt="西山" />
-    </div>
-    
-    </div>
-     -->
-  </div>
-
-<div class="publication">
-    <h3><strong>二王千秋</strong>
-    
-    </h3>
-    <p> 岷江千里雪，携势冲巴蜀</p><p> 无坝沙水分，穷塞开天府</p><p> 宝瓶百丈深，灌溉干万亩</p><p> 二王千秋利，丞相守汉土</p>
-    
-    
-    <!--  -->
-  </div>
-
-<div class="publication">
-    <h3><strong>东吴大帝</strong>
-    
-    </h3>
-    <p> 东吴大帝垂宇宙</p><p> 虎踞龙盘守江东</p><p> 皇明太祖赞好汉</p><p> 留得钟山护皇陵</p><p> 魏武扬鞭止荆扬</p><p> 生子当如魏吴王</p><p> 厉兵秣马提十万</p><p> 北望合肥又一年</p>
-    
-    
-    <!--  -->
-  </div>
-
-<h2 id="y2023" class="year">2023</h2>
-
-<div class="publication">
-    <h3><strong>纳猫契</strong>
-    
-    </h3>
-    <p> 一只猫儿是狸花，本在西方诸佛前。</p><p> 三藏带归家长养，护持经卷在民间。</p><p> 外表俊俏身世妙，身具虎斑神似豹。</p><p> 藏于豹溪孤慎行，碰瓷南武第一侯。</p><p> 豹溪小豹是某甲，自卖南武终不悔。</p><p> 三面断价小鱼干，聘金随契已交还。</p><p> 买主愿如石崇富，寿如彭祖福高迁。</p><p> 仓禾自此巡无怠，鼠贼从兹补不闲。</p><p> 不吵主人睡懒觉，不得盗食把家翻。</p><p> 日夜在家看守物，莫走东畔与西边。</p><p> 如有故违走外去，堂前引过受笞鞭。</p><p> 十月初七，行契人灿。行契喵豹</p>
-    
-    
-
-    <div class="grid">
-    
-    <div class="project">
-      <input type="checkbox" id="toggle纳猫契1" />
-      <label for="toggle纳猫契1">
-        <img src="/assets/poetry/202412_xiaobao_qiyue.jpg" alt="纳猫契" />
-      </label>
-    </div>
-    
-</div>
-
-    
-    <!-- 
-    <div class="grid">
+      <span class="poetry-type">词</span>
       
-      <div class="project">
-    <img src="/assets/poetry/202412_xiaobao_qiyue.jpg" alt="纳猫契" />
     </div>
     
+    <div class="poetry-content">
+      
+      <div class="poetry-line">越鲸涛，开筚路。七剑星舟，直破沧溟雾。山海沧茫寻生处，织就蓬莱，竹网连天幕。</div>
+      
+      <div class="poetry-line">赤旗张，烽火怒。剑指崖山，万里衣冠渡。谁道河殇湮夏土？天海扬帆，银汉为归路。</div>
+      
     </div>
-     -->
+    
+    
+    
+    
   </div>
-
-<div class="publication">
-    <h3><strong>三星四海</strong>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">阴晴</h3>
+      
+      <span class="poetry-type">诗</span>
+      
+    </div>
     
-    </h3>
-    <p> 三星伴月堆，西山俯岷江</p><p> 古蜀三千年，隔绝殷与商</p><p> 开明毕于旦，始皇卷八方</p><p> 悠悠华夏同，四海同一邦</p>
+    <div class="poetry-content">
+      
+      <div class="poetry-line">阴晴原无定，海气幻千形</div>
+      
+      <div class="poetry-line">晴峦分翠霭，雨壑坠珠泠</div>
+      
+    </div>
     
     
-    <!--  -->
+    
+    
   </div>
-
-<h2 id="y2022" class="year">2022</h2>
-
-<div class="publication">
-    <h3><strong>未名</strong>
+  
+</div>
+<div class="poetry-year-section">
+  <h2 class="poetry-year-title">2024</h2>
+  <div class="poetry-year-divider"></div>
+  
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">越山海</h3>
+      
+      <span class="poetry-type">诗</span>
+      
+    </div>
     
-     「绝句」
+    <div class="poetry-content">
+      
+      <div class="poetry-line">志合山海越，千里复相逢</div>
+      
+      <div class="poetry-line">​星汉光年远？倏如一江风</div>
+      
+    </div>
     
-    </h3>
-    <p> 日暮长天亮，闲云镜里悠</p><p> 九衢含朗润，幽径未名由</p>
     
     
-    <!--  -->
+    
   </div>
-
-<div class="publication">
-    <h3><strong>蛙声慢</strong>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">江城子·首尾两端</h3>
+      
+      <span class="poetry-type">词</span>
+      
+    </div>
     
-    </h3>
-    <p> 云蒸炎铄石</p><p> 骤雨安步归</p><p> 听取蛙声慢?</p><p> 东风万树飞</p>
+    <div class="poetry-content">
+      
+      <div class="poetry-line">岷江千里雪融寒，玉磊盘，青城拦。太守作堰，鱼嘴妙分澜。秦卷天下终始汉，丞相挽，万古昙。</div>
+      
+      <div class="poetry-line">天堑横亘龙虎桓，三代传，守江南。大魏吴王，十万雄师磐。白衣渡江千古传，明祖赞，护陵南。</div>
+      
+    </div>
     
     
-    <!--  -->
+    
+    
   </div>
-
-<div class="publication">
-    <h3><strong>卜算子·八荒同</strong>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">西山</h3>
+      
+    </div>
     
-    </h3>
-    <p> 歇山盖穹窿</p><p> 庭镇红星升</p><p> 敢效昔年三武事，从此和平道</p><p> 鱼雷荡水波</p><p> 天海无需祭</p><p> 十亿神州尽文殊，玛米金珠降</p>
+    <div class="poetry-content">
+      
+      <div class="poetry-line">五岭赴平川，西乡享景山</div>
+      
+      <div class="poetry-line">太行横燕脉，淑贤如是观</div>
+      
+    </div>
     
     
-    <!--  -->
+    
+    
+    <div class="poetry-images">
+      
+      <div class="poetry-image-item">
+        <input type="checkbox" id="toggle西山1" />
+        <label for="toggle西山1">
+          <img src="/assets/poetry/202410_hutoushan.jpg" alt="西山" />
+        </label>
+      </div>
+      
+      <div class="poetry-image-item">
+        <input type="checkbox" id="toggle西山2" />
+        <label for="toggle西山2">
+          <img src="/assets/poetry/202410_hutoushan2.jpg" alt="西山" />
+        </label>
+      </div>
+      
+      <div class="poetry-image-item">
+        <input type="checkbox" id="toggle西山3" />
+        <label for="toggle西山3">
+          <img src="/assets/poetry/202410_hutoushan3.jpg" alt="西山" />
+        </label>
+      </div>
+      
+    </div>
+    
   </div>
-
-<h2 id="y2021" class="year">2021</h2>
-
-<div class="publication">
-    <h3><strong>如梦令·妙峰观日</strong>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">二王千秋</h3>
+      
+    </div>
     
-    </h3>
-    <p> 气盛轻年意至</p><p> 不惧风寒夜路</p><p> 残月伴微灯</p><p> 直上京西首峭</p><p> 凝眺</p><p> 凝眺</p><p> 红霞穿楼万丈</p>
+    <div class="poetry-content">
+      
+      <div class="poetry-line">岷江千里雪，携势冲巴蜀</div>
+      
+      <div class="poetry-line">无坝沙水分，穷塞开天府</div>
+      
+      <div class="poetry-line">宝瓶百丈深，灌溉干万亩</div>
+      
+      <div class="poetry-line">二王千秋利，丞相守汉土</div>
+      
+    </div>
     
     
-    <!--  -->
+    
+    
   </div>
-
-<h2 id="y2020" class="year">2020</h2>
-
-<div class="publication">
-    <h3><strong>万生</strong>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">东吴大帝</h3>
+      
+    </div>
     
-     「绝句」
+    <div class="poetry-content">
+      
+      <div class="poetry-line">东吴大帝垂宇宙</div>
+      
+      <div class="poetry-line">虎踞龙盘守江东</div>
+      
+      <div class="poetry-line">皇明太祖赞好汉</div>
+      
+      <div class="poetry-line">留得钟山护皇陵</div>
+      
+      <div class="poetry-line">魏武扬鞭止荆扬</div>
+      
+      <div class="poetry-line">生子当如魏吴王</div>
+      
+      <div class="poetry-line">厉兵秣马提十万</div>
+      
+      <div class="poetry-line">北望合肥又一年</div>
+      
+    </div>
     
-    </h3>
-    <p> 凉风嘻群木，暖月映同伦</p><p> 绝顶万生瞰，千檐若素尘</p>
     
     
-    <!--  -->
+    
   </div>
-
-<div class="publication">
-    <h3><strong>卜算子·返校</strong>
+  
+</div>
+<div class="poetry-year-section">
+  <h2 class="poetry-year-title">2023</h2>
+  <div class="poetry-year-divider"></div>
+  
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">纳猫契</h3>
+      
+    </div>
     
-     「词」
+    <div class="poetry-content">
+      
+      <div class="poetry-line">一只猫儿是狸花，本在西方诸佛前。</div>
+      
+      <div class="poetry-line">三藏带归家长养，护持经卷在民间。</div>
+      
+      <div class="poetry-line">外表俊俏身世妙，身具虎斑神似豹。</div>
+      
+      <div class="poetry-line">藏于豹溪孤慎行，碰瓷南武第一侯。</div>
+      
+      <div class="poetry-line">豹溪小豹是某甲，自卖南武终不悔。</div>
+      
+      <div class="poetry-line">三面断价小鱼干，聘金随契已交还。</div>
+      
+      <div class="poetry-line">买主愿如石崇富，寿如彭祖福高迁。</div>
+      
+      <div class="poetry-line">仓禾自此巡无怠，鼠贼从兹补不闲。</div>
+      
+      <div class="poetry-line">不吵主人睡懒觉，不得盗食把家翻。</div>
+      
+      <div class="poetry-line">日夜在家看守物，莫走东畔与西边。</div>
+      
+      <div class="poetry-line">如有故违走外去，堂前引过受笞鞭。</div>
+      
+      <div class="poetry-line">十月初七，行契人灿。行契喵豹</div>
+      
+    </div>
     
-    </h3>
-    <p> 庚子岁月停，疫始江山锁。</p><p> 谁话平川不是水？云雾生梁野。</p><p> 南武留连时，飞信催人返。</p><p> 应是别离了无憾，我驾白驹启。</p>
     
     
-    <!--  -->
+    
+    <div class="poetry-images">
+      
+      <div class="poetry-image-item">
+        <input type="checkbox" id="toggle纳猫契1" />
+        <label for="toggle纳猫契1">
+          <img src="/assets/poetry/202412_xiaobao_qiyue.jpg" alt="纳猫契" />
+        </label>
+      </div>
+      
+    </div>
+    
   </div>
-
-<div class="publication">
-    <h3><strong>卷</strong>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">三星四海</h3>
+      
+    </div>
     
-     「新绝句」
+    <div class="poetry-content">
+      
+      <div class="poetry-line">三星伴月堆，西山俯岷江</div>
+      
+      <div class="poetry-line">古蜀三千年，隔绝殷与商</div>
+      
+      <div class="poetry-line">开明毕于旦，始皇卷八方</div>
+      
+      <div class="poetry-line">悠悠华夏同，四海同一邦</div>
+      
+    </div>
     
-    </h3>
-    <p> 四九千层卷</p><p> 八千拓扑一 (TOP 1)</p><p> 难为人上人</p><p> 就做恩批西 (NPC)</p>
     
     
-    <!--  -->
+    
   </div>
-
-<div class="publication">
-    <h3><strong>秋</strong>
+  
+</div>
+<div class="poetry-year-section">
+  <h2 class="poetry-year-title">2022</h2>
+  <div class="poetry-year-divider"></div>
+  
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">未名</h3>
+      
+      <span class="poetry-type">绝句</span>
+      
+    </div>
     
-     「绝句」
+    <div class="poetry-content">
+      
+      <div class="poetry-line">日暮长天亮，闲云镜里悠</div>
+      
+      <div class="poetry-line">九衢含朗润，幽径未名由</div>
+      
+    </div>
     
-    </h3>
-    <p> 极目遥天净</p><p> 山深秋水凉</p><p> 苍苍翠微辟</p><p> 朱门石径旁</p>
     
     
-    <!--  -->
+    
   </div>
-
-<div class="publication">
-    <h3><strong>浪淘沙·真的在浪淘沙</strong>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">蛙声慢</h3>
+      
+    </div>
     
-     「诗」
+    <div class="poetry-content">
+      
+      <div class="poetry-line">云蒸炎铄石</div>
+      
+      <div class="poetry-line">骤雨安步归</div>
+      
+      <div class="poetry-line">听取蛙声慢?</div>
+      
+      <div class="poetry-line">东风万树飞</div>
+      
+    </div>
     
-    </h3>
-    <p> 波涌青蓝浪起白</p><p> 驭梭踏浪牧仆潮</p><p> 人生浮表难平意</p><p> 应上清玄揽月来</p>
     
     
-    <!--  -->
+    
   </div>
-
-<div class="publication">
-    <h3><strong>三琼</strong>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">卜算子·八荒同</h3>
+      
+    </div>
     
-     「新绝句」
+    <div class="poetry-content">
+      
+      <div class="poetry-line">歇山盖穹窿</div>
+      
+      <div class="poetry-line">庭镇红星升</div>
+      
+      <div class="poetry-line">敢效昔年三武事，从此和平道</div>
+      
+      <div class="poetry-line">鱼雷荡水波</div>
+      
+      <div class="poetry-line">天海无需祭</div>
+      
+      <div class="poetry-line">十亿神州尽文殊，玛米金珠降</div>
+      
+    </div>
     
-    </h3>
-    <p> 两日踏三琼</p><p> 半天寻万水</p><p> 酒头起飞对</p><p> 车上来蹦迪</p>
     
     
-    <!--  -->
+    
   </div>
-
-<div class="publication">
-    <h3><strong>如梦令·明天开始洗心革面好好干活</strong>
+  
+</div>
+<div class="poetry-year-section">
+  <h2 class="poetry-year-title">2021</h2>
+  <div class="poetry-year-divider"></div>
+  
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">如梦令·妙峰观日</h3>
+      
+    </div>
     
-     「词」
+    <div class="poetry-content">
+      
+      <div class="poetry-line">气盛轻年意至</div>
+      
+      <div class="poetry-line">不惧风寒夜路</div>
+      
+      <div class="poetry-line">残月伴微灯</div>
+      
+      <div class="poetry-line">直上京西首峭</div>
+      
+      <div class="poetry-line">凝眺</div>
+      
+      <div class="poetry-line">凝眺</div>
+      
+      <div class="poetry-line">红霞穿楼万丈</div>
+      
+    </div>
     
-    </h3>
-    <p> 愧忆京师经笥，夜夜焚膏继晷</p><p> 从鹭岛归来，又上酒桌催吐</p><p> 闲浪，闲浪</p><p> 何日才能毕业?</p>
     
     
-    <!--  -->
+    
   </div>
-
-<div class="publication">
-    <h3><strong>永平万安</strong>
+  
+</div>
+<div class="poetry-year-section">
+  <h2 class="poetry-year-title">2020</h2>
+  <div class="poetry-year-divider"></div>
+  
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">万生</h3>
+      
+      <span class="poetry-type">绝句</span>
+      
+    </div>
     
-     「联」
+    <div class="poetry-content">
+      
+      <div class="poetry-line">凉风嘻群木，暖月映同伦</div>
+      
+      <div class="poetry-line">绝顶万生瞰，千檐若素尘</div>
+      
+    </div>
     
-    </h3>
-    <p> 上：平川梁野皆春色</p><p> 下：高湖汉家尽东风</p><p> 横：永平万安</p>
     
     
-    <!--  -->
+    
   </div>
-
-<h2 id="y2017" class="year">2017</h2>
-
-<div class="publication">
-    <h3><strong>南武赋</strong>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">卜算子·返校</h3>
+      
+      <span class="poetry-type">词</span>
+      
+    </div>
     
-    </h3>
-    <p> 川平驷马阔，山野梁上悬。</p><p> 湖湘漫汉水，溪桃引楚山。</p><p> 千岭赴南海，万泾始东流。</p><p> 望象洞，庭内十方远。</p><p> 观狮山，岩前龙虎酣。</p><p> 山中衫方青，坝下柭更切。</p><p> 小兰贵趣雅，大禾乐仓箱。</p><p> 梧高栖凤，堡中潜龙。</p><p> 望良政，保永平。</p><p> 盼善民，主万安。</p>
+    <div class="poetry-content">
+      
+      <div class="poetry-line">庚子岁月停，疫始江山锁。</div>
+      
+      <div class="poetry-line">谁话平川不是水？云雾生梁野。</div>
+      
+      <div class="poetry-line">南武留连时，飞信催人返。</div>
+      
+      <div class="poetry-line">应是别离了无憾，我驾白驹启。</div>
+      
+    </div>
     
     
-    <!--  -->
+    
+    
   </div>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">卷</h3>
+      
+      <span class="poetry-type">新绝句</span>
+      
+    </div>
+    
+    <div class="poetry-content">
+      
+      <div class="poetry-line">四九千层卷</div>
+      
+      <div class="poetry-line">八千拓扑一 (TOP 1)</div>
+      
+      <div class="poetry-line">难为人上人</div>
+      
+      <div class="poetry-line">就做恩批西 (NPC)</div>
+      
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">秋</h3>
+      
+      <span class="poetry-type">绝句</span>
+      
+    </div>
+    
+    <div class="poetry-content">
+      
+      <div class="poetry-line">极目遥天净</div>
+      
+      <div class="poetry-line">山深秋水凉</div>
+      
+      <div class="poetry-line">苍苍翠微辟</div>
+      
+      <div class="poetry-line">朱门石径旁</div>
+      
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">浪淘沙·真的在浪淘沙</h3>
+      
+      <span class="poetry-type">诗</span>
+      
+    </div>
+    
+    <div class="poetry-content">
+      
+      <div class="poetry-line">波涌青蓝浪起白</div>
+      
+      <div class="poetry-line">驭梭踏浪牧仆潮</div>
+      
+      <div class="poetry-line">人生浮表难平意</div>
+      
+      <div class="poetry-line">应上清玄揽月来</div>
+      
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">三琼</h3>
+      
+      <span class="poetry-type">新绝句</span>
+      
+    </div>
+    
+    <div class="poetry-content">
+      
+      <div class="poetry-line">两日踏三琼</div>
+      
+      <div class="poetry-line">半天寻万水</div>
+      
+      <div class="poetry-line">酒头起飞对</div>
+      
+      <div class="poetry-line">车上来蹦迪</div>
+      
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">如梦令·明天开始洗心革面好好干活</h3>
+      
+      <span class="poetry-type">词</span>
+      
+    </div>
+    
+    <div class="poetry-content">
+      
+      <div class="poetry-line">愧忆京师经笥，夜夜焚膏继晷</div>
+      
+      <div class="poetry-line">从鹭岛归来，又上酒桌催吐</div>
+      
+      <div class="poetry-line">闲浪，闲浪</div>
+      
+      <div class="poetry-line">何日才能毕业?</div>
+      
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">永平万安</h3>
+      
+      <span class="poetry-type">联</span>
+      
+    </div>
+    
+    <div class="poetry-content">
+      
+      <div class="poetry-line">上：平川梁野皆春色</div>
+      
+      <div class="poetry-line">下：高湖汉家尽东风</div>
+      
+      <div class="poetry-line">横：永平万安</div>
+      
+    </div>
+    
+    
+    
+    
+  </div>
+  
+</div>
+<div class="poetry-year-section">
+  <h2 class="poetry-year-title">2017</h2>
+  <div class="poetry-year-divider"></div>
+  
+  
+  <div class="poetry-item">
+    <div class="poetry-header">
+      <h3 class="poetry-title">南武赋</h3>
+      
+    </div>
+    
+    <div class="poetry-content">
+      
+      <div class="poetry-line">川平驷马阔，山野梁上悬。</div>
+      
+      <div class="poetry-line">湖湘漫汉水，溪桃引楚山。</div>
+      
+      <div class="poetry-line">千岭赴南海，万泾始东流。</div>
+      
+      <div class="poetry-line">望象洞，庭内十方远。</div>
+      
+      <div class="poetry-line">观狮山，岩前龙虎酣。</div>
+      
+      <div class="poetry-line">山中衫方青，坝下柭更切。</div>
+      
+      <div class="poetry-line">小兰贵趣雅，大禾乐仓箱。</div>
+      
+      <div class="poetry-line">梧高栖凤，堡中潜龙。</div>
+      
+      <div class="poetry-line">望良政，保永平。</div>
+      
+      <div class="poetry-line">盼善民，主万安。</div>
+      
+    </div>
+    
+    
+    
+    
+  </div>
+  
+</div>
 
 <div id="language" position="float" style="position: fixed; bottom:0; right: 0;">
   <iframe src="/cat/cat.html" id="catIframe" frameborder="0" data-ruffle-polyfilled=""></iframe>
