@@ -91,6 +91,10 @@
   pdf: "/assets/paper/23-autotitle.pdf"
 
 
+
+
+
+
 - id: advisor
   title: "ADVISor: Automatic Visualization Answer for Natural-Language Question on Tabular Data"
   authors:
@@ -331,6 +335,30 @@
   year: 2024
   highlight: 0
   doi: 10.1109/TVCG.2024.3408255
+
+
+- id: datawink
+  title: "DataWink: Reusing and Adapting SVG-based Visualization Examples with Large Multimodal Models"
+  authors:
+    - Liwenhan Xie
+    - Yanna Lin
+    - Can Liu
+    - Huamin Qu
+    - Xinhuan Shu
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  venue_tags:
+    - TVCG
+  venue_label:
+    - CCF A类期刊
+    - SCI 一区
+  doi: null
+  highlight: 0
+  type:
+    - Journal
+  year: 2025
+  pdf: "https://arXiv.org/abs/2507.17734"
+  website: "/projects/DataWink"
+  video: "https://youtu.be/hSWl-XKrv88"
 
 - id: transition_bars
   title: "Understanding Transitions in Animated Bar Charts"
