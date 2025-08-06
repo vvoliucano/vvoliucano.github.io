@@ -192,6 +192,26 @@
   pdf: "http://vis.pku.edu.cn/research/publication/pvis_notes_2020_autocaption.pdf"
 
 
+- id: simvecvis
+  title: "SimVecVis: A Dataset for Enhancing MLLMs in Visualization Understanding"
+  authors:
+    - Can Liu
+    - Chunlin Da
+    - Xiaoxiao Long
+    - Yuxiao Yang
+    - Yu Zhang
+    - Yong Wang
+  year: 2025
+  venue: IEEE Visualization and Visual Analytics
+  venue_tags:
+    - PVIS
+  type:
+    - Conference
+  notes: Short Paper
+  highlight: 0
+  pdf: "https://arxiv.org/pdf/2506.21319"
+  code: "https://github.com/VIDA-Lab/SimVecVis"
+
 - id: flow_survey
   title: "Deep Learning Approaches in Flow Visualization​"
   authors:
@@ -297,6 +317,9 @@
     - Kai Xu
     - Xiaoru Yuan
   venue: IEEE Transactions on Visualization and Computer Graphics. Early access
+  volume: 31
+  number: 9
+  pages: 4547-4559
   venue_tags:
     - TVCG
   venue_label:
