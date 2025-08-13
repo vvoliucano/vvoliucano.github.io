@@ -215,41 +215,79 @@ var _hmt = _hmt || [];
 
 .poetry-image-item {
     position: relative;
-    cursor: pointer;
+    cursor: zoom-in;
     max-width: 200px;
-    transition: transform 0.3s ease;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.poetry-image-item:hover {
-    transform: scale(1.05);
 }
 
 .poetry-image-item img {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s ease;
+    transition: none;
 }
 
-/* 隐藏 checkbox */
-.poetry-image-item input[type="checkbox"] {
-    display: none;
-}
-
-/* 当 checkbox 被选中时放大图片 */
-.poetry-image-item input[type="checkbox"]:checked + label img {
+/* 全屏图片覆盖层 */
+.image-fullscreen-overlay {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    max-width: 90%;
-    max-height: 90%;
-    z-index: 1000;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.image-fullscreen-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.image-fullscreen-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+/* 关闭按钮 */
+.image-fullscreen-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    transition: background 0.2s ease;
+}
+
+.image-fullscreen-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.image-fullscreen-close::before {
+    content: '×';
+    font-weight: bold;
 }
 
 /* 响应式设计 */
@@ -413,25 +451,16 @@ var _hmt = _hmt || [];
     
     <div class="poetry-images">
       
-      <div class="poetry-image-item">
-        <input type="checkbox" id="toggle西山1" />
-        <label for="toggle西山1">
-          <img src="/assets/poetry/202410_hutoushan.jpg" alt="西山" />
-        </label>
+      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
+        <img src="/assets/poetry/202410_hutoushan.jpg" alt="西山" />
       </div>
       
-      <div class="poetry-image-item">
-        <input type="checkbox" id="toggle西山2" />
-        <label for="toggle西山2">
-          <img src="/assets/poetry/202410_hutoushan2.jpg" alt="西山" />
-        </label>
+      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
+        <img src="/assets/poetry/202410_hutoushan2.jpg" alt="西山" />
       </div>
       
-      <div class="poetry-image-item">
-        <input type="checkbox" id="toggle西山3" />
-        <label for="toggle西山3">
-          <img src="/assets/poetry/202410_hutoushan3.jpg" alt="西山" />
-        </label>
+      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
+        <img src="/assets/poetry/202410_hutoushan3.jpg" alt="西山" />
       </div>
       
     </div>
@@ -537,11 +566,8 @@ var _hmt = _hmt || [];
     
     <div class="poetry-images">
       
-      <div class="poetry-image-item">
-        <input type="checkbox" id="toggle纳猫契1" />
-        <label for="toggle纳猫契1">
-          <img src="/assets/poetry/202412_xiaobao_qiyue.jpg" alt="纳猫契" />
-        </label>
+      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
+        <img src="/assets/poetry/202412_xiaobao_qiyue.jpg" alt="纳猫契" />
       </div>
       
     </div>
@@ -929,6 +955,98 @@ var _hmt = _hmt || [];
 <div id="language" position="float" style="position: fixed; bottom:0; right: 0;">
   <iframe src="/cat/cat.html" id="catIframe" frameborder="0" data-ruffle-polyfilled=""></iframe>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let fullscreenOverlay = null;
+    
+    // 创建全屏覆盖层
+    function createFullscreenOverlay() {
+        if (fullscreenOverlay) return fullscreenOverlay;
+        
+        const overlay = document.createElement('div');
+        overlay.className = 'image-fullscreen-overlay';
+        
+        const closeBtn = document.createElement('div');
+        closeBtn.className = 'image-fullscreen-close';
+        
+        overlay.appendChild(closeBtn);
+        document.body.appendChild(overlay);
+        
+        fullscreenOverlay = overlay;
+        return overlay;
+    }
+    
+    // 显示全屏图片
+    function showFullscreenImage(imgSrc, imgAlt) {
+        const overlay = createFullscreenOverlay();
+        
+        // 移除之前的图片
+        const existingImg = overlay.querySelector('img');
+        if (existingImg) {
+            existingImg.remove();
+        }
+        
+        // 创建新图片
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = imgAlt || '';
+        
+        // 将图片插入到关闭按钮之前
+        const closeBtn = overlay.querySelector('.image-fullscreen-close');
+        overlay.insertBefore(img, closeBtn);
+        
+        // 显示覆盖层
+        overlay.classList.add('active');
+        
+        // 防止页面滚动
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // 关闭全屏图片
+    function closeFullscreenImage() {
+        if (fullscreenOverlay) {
+            fullscreenOverlay.classList.remove('active');
+            // 恢复页面滚动
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // 为所有图片添加点击事件
+    const imageItems = document.querySelectorAll('.poetry-image-item');
+    imageItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const img = this.querySelector('img');
+            if (img) {
+                showFullscreenImage(img.src, img.alt);
+            }
+        });
+    });
+    
+    // 点击覆盖层关闭全屏图片
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('image-fullscreen-overlay') || 
+            e.target.classList.contains('image-fullscreen-close')) {
+            closeFullscreenImage();
+        }
+    });
+    
+    // ESC键关闭全屏图片
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeFullscreenImage();
+        }
+    });
+    
+    // 窗口大小改变时关闭全屏图片
+    window.addEventListener('resize', function() {
+        closeFullscreenImage();
+    });
+});
+</script>
 
 <!-- 
 <script src="https://cdn.jsdelivr.net/npm/itemsjs@1.0.40/dist/itemsjs.min.js"></script>
