@@ -53,7 +53,7 @@
 - title: Old Visualization
   image: 24-oldvis.png
   description: "OldVisOnline is a collection of old visualizations published before 1950. We have been studying a variety of usage scenarios of OldVisOnline."
-  description_zh: "OldVisOnline 是一个收录1950年前发布的旧版可视化作品的集合。我们一直在研究 OldVisOnline 的多种使用场景。"
+  description_zh: "OldVisOnline 是一个收录公元1950年之前发布的历史可视化作品的集合。"
   paper: "https://arxiv.org/pdf/2308.16053.pdf"
   demo: https://oldvis.github.io/gallery/
   highlight: 3
