@@ -1,0 +1,97 @@
+---
+layout: page-zh
+title: "NTU What to eat"
+permalink: /ntuchifan/
+class: home
+---
+
+<div style="text-align: center; margin-top: 50px;">
+  <button id="randomButton" style="padding: 20px 40px; font-size: 18px; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">今天吃什么？</button>
+  
+  <div id="result" style="margin-top: 30px; font-size: 24px;"></div>
+  <div id="timeInfo" style="margin-top: 15px; font-size: 16px; color: #666;"></div>
+</div>
+
+<script>
+const scheduledMeals = {
+  // 周一中午 NIE
+  1: { lunch: "NIE" },
+  // 周二中午 肉加馍
+  2: { lunch: "肉加馍" },
+  // 周三中午 Canteen 9
+  3: { lunch: "Canteen 9" },
+  // 周四中午 Hall 11, 周四晚上 Saraka
+  4: { lunch: "Hall 11", dinner: "Saraka" },
+  // 周五中午 NIE
+  5: { lunch: "NIE" }
+};
+
+const randomPlaces = [
+  "Koufu：刀削面+肉夹馍",
+  "Koufu: Handmade noodle",
+  "Koufu: Taiwan Cuisine",
+  "Koufu: Mixed Vegetable",
+  "Canteen 2: 牛肉炒饭/面",
+  "Canteen 2: 其他",
+  "Canteen 1：麻辣面",
+  "Canteen 1: 麻辣香锅", 
+  "Canteen 1: 青椒炒牛肉拌面",
+  "McDonald's, Subway",
+  "NIE",
+  "肉加馍",
+  "Canteen 9",
+  "Hall 11",
+  "Saraka"
+];
+
+function getCurrentSingaporeTime() {
+  const now = new Date();
+  // UTC+8 时区
+  const utc8Time = new Date(now.getTime() + (8 * 60 * 60 * 1000));
+  return utc8Time;
+}
+
+function getMealRecommendation() {
+  const now = getCurrentSingaporeTime();
+  const dayOfWeek = now.getDay(); // 0=Sunday, 1=Monday, ..., 6=Saturday
+  const hour = now.getHours();
+  
+  // 显示当前时间信息
+  const timeStr = now.toLocaleString('zh-CN', {
+    timeZone: 'Asia/Singapore',
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+  document.getElementById('timeInfo').textContent = `当前时间: ${timeStr}`;
+  
+  let mealType = '';
+  let recommendation = '';
+  
+  // 判断是午餐还是晚餐时间
+  if (hour >= 11 && hour <= 14) {
+    mealType = 'lunch';
+  } else if (hour >= 17 && hour <= 20) {
+    mealType = 'dinner';
+  }
+  
+  // 检查是否有特定的安排
+  if (scheduledMeals[dayOfWeek] && scheduledMeals[dayOfWeek][mealType]) {
+    recommendation = scheduledMeals[dayOfWeek][mealType];
+  } else {
+    // 其他时间随机选择
+    const randomIndex = Math.floor(Math.random() * randomPlaces.length);
+    recommendation = randomPlaces[randomIndex];
+  }
+  
+  return recommendation;
+}
+
+document.getElementById('randomButton').addEventListener('click', function() {
+  const recommendation = getMealRecommendation();
+  document.getElementById('result').textContent = recommendation;
+});
+</script>
