@@ -45,10 +45,13 @@ const randomPlaces = [
 ];
 
 function getCurrentSingaporeTime() {
+  // 直接创建新加坡时区的时间
   const now = new Date();
-  // UTC+8 时区
-  const utc8Time = new Date(now.getTime() + (8 * 60 * 60 * 1000));
-  return utc8Time;
+  // 使用toLocaleString获取新加坡时间，然后重新创建Date对象
+  const singaporeTimeStr = now.toLocaleString('en-US', {
+    timeZone: 'Asia/Singapore'
+  });
+  return new Date(singaporeTimeStr);
 }
 
 function getMealRecommendation() {
