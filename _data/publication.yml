@@ -211,7 +211,6 @@
     - PVIS
   type:
     - Conference
-  notes: Short Paper
   highlight: 0
   pdf: "https://arxiv.org/pdf/2506.21319"
   code: "https://github.com/VIDA-Lab/SimVecVis"

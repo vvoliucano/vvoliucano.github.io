@@ -162,6 +162,10 @@ title: Others
     width: 100%;
     height: auto;
     display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: none;
 }
 
