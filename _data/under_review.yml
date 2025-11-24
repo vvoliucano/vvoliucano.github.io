@@ -1,3 +1,62 @@
+
+- id: Glyphweaver
+  title: "GlyphWeaver: Unlocking Glyph Design Creativity with Uniform Glyph DSL and AI"
+  authors:
+    - Can Liu
+    - Shiwei Chen
+    - Zhibang Jiang
+    - Yong Wang
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  venue_tags:
+    - TVCG
+  type:
+    - Submit
+  venue_label:
+    - SCI/EI检索
+    - CCF A类期刊
+
+
+
+- id: MagicVis
+  title: "MagicVis: A Multi-Agent Guided System for Data-Driven Infographic Creation"
+  authors:
+    - Can Liu
+    - Haijie Yuan
+    - Shiwei Chen
+    - Yong Wang
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  venue_tags:
+    - TVCG
+  type:
+    - Submit
+  venue_label:
+    - SCI/EI检索
+    - CCF A类期刊
+
+
+
+- id: author_inter
+  title: "From Static to Interactive: Authoring Interactive Visualizations via Natural Language"
+  authors:
+    - Can Liu
+    - Jaeuk Lee
+    - Tianhe Chen
+    - Zhibang Jiang
+    - Xiaolin Wen
+    - Yong Wang
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  venue_tags:
+    - TVCG
+  type:
+    - Submit
+  venue_label:
+    - SCI/EI检索
+    - CCF A类期刊
+
+
+
+
+
 - id: italk
   title: "iTalk: An Intelligent Visualization System Through Talking to Data"
   authors:
@@ -86,4 +145,22 @@
 
 
 
+
+
+- id: Accessible
+  title: "Accessible Fine-grained Data Representation via Spatial Audio"
+  authors:
+    - Wenjie Jiang
+    - Can Liu
+    - Shaolun Ruan
+    - Kotaro Hara
+    - Yong Wang
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  venue_tags:
+    - TVCG
+  type:
+    - Submit
+  venue_label:
+    - SCI/EI检索
+    - CCF A类期刊
 

@@ -4,6 +4,7 @@
   location: Beijing, China
   degree: Ph.D. in Science
   degree_zh: 理学博士
+  school_zh: 智能学院
   location_zh: 北京
   description:
     # - Supervised by <a href="http://vis.pku.edu.cn/xiaoruyuan.htmlg">Prof. Xiaoru Yuan</a>.
@@ -18,6 +19,7 @@
   university_zh: 北京大学
   degree: Bachelor of Science
   degree_zh: 理学学士
+  school_zh: 信息科学技术学院
   location: Beijing, China
   location_zh: 北京
   description:
@@ -31,6 +33,7 @@
   years: 2015 - 2018
   degree: Bachelor of Economics
   degree_zh: 经济学学士
+  school_zh: 国家发展研究院
   location: Beijing, China
   location_zh: 北京
   description:
