@@ -8,7 +8,7 @@
   location_zh: 北京
   description:
     # - Supervised by <a href="http://vis.pku.edu.cn/xiaoruyuan.htmlg">Prof. Xiaoru Yuan</a>.
-    - In School of Intelligence Science and Technology, Peking University.
+    - In School of Intelligence Science and Technology.
   description_zh:
     - 智能学院
     # - "导师: 袁晓如研究员"
@@ -23,7 +23,7 @@
   location: Beijing, China
   location_zh: 北京
   description:
-    - In <a href="https://eecs.pku.edu.cn/">School of Electronic Engineering and Computer Science</a>, Peking University.
+    - In <a href="https://eecs.pku.edu.cn/">School of Electronic Engineering and Computer Science</a>.
   description_zh:
     - 信息科学技术学院
     - 毕业论文《可视化图表自动生成描述的研究》学院优秀毕业论文
@@ -37,7 +37,7 @@
   location: Beijing, China
   location_zh: 北京
   description:
-    - In <a href="https://en.nsd.pku.edu.cn/">National School of Development</a>, Peking University.  
+    - In <a href="https://en.nsd.pku.edu.cn/">National School of Development</a>.  
   description_zh:
     - 国家发展研究院
 

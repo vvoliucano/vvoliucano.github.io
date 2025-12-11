@@ -10,7 +10,7 @@
   venue_tags:
     - TIIS
   venue_label:
-    - SCI Q2
+    - SCI Q1
     - Transactions
   type:
     - Journal
@@ -115,9 +115,6 @@
   type:
     - preprint
   highlight: 0
-
-
-
 
 
 
@@ -317,7 +314,6 @@
   venue_tags:
     - CHI
   venue_label:
-    - EI检索
     - CCF A类会议
   venue_dates:
     - April 25-30
