@@ -16,6 +16,39 @@
     - 202511_budapest_1.jpg
 
 
+- id: 云径
+  title: "云径"
+  year: 2025
+  type:
+    - 诗
+  content:
+    - 远上云中径，烟树绕九溪
+    - 枫香星影碎，浅潭一叶栖
+  highlight: 3
+  image:
+    - 2025_yunxi_1.jpg
+    - 2025_yunxi_2.jpg
+    - 2025_yunxi_3.jpg
+
+- id: 河池
+  title: "河池"
+  year: 2025
+  type:
+    - 诗
+  content:
+    - 山影随舟远，河池纳天光
+    - ​云峰高斯立，风抚一江芳
+    - ​千仞虽无欲，清流自皴霞
+    - 汀漳本同襟，何故穿龙岩
+  highlight: 3
+  image:
+    - 2025_hechi_1.jpg
+    - 2025_hechi_2.jpg
+    - 2025_hechi_3.jpg
+
+
+
+
 
 - id: 天下
   title: "江城子·天下首见"
@@ -38,14 +71,14 @@
   type:
     - 词
   content:
-    - 越鲸涛，开筚路。七剑星舟，直破沧溟雾。
-    - 山海沧茫寻生处，织就蓬莱，竹网连天幕。
+    - 越鲸涛，开筚路。七剑星舟[1]，直破沧溟雾。
+    - 山海沧茫寻生处，织就蓬莱，竹网连天幕[2]。
     - 赤旗张，烽火怒。剑指崖山，万里衣冠渡。
     - 谁道河殇湮夏土？天海扬帆，银汉为归路。
   highlight: 3
-  # description:
-  #   - 1、"七剑星舟"：指郑和七下西洋
-  #   - 2、"竹幕连天暮"：竹幕参见维基百科
+  description:
+    - "[1] 七剑星舟：指七下西洋"
+    - "[2] 竹网：竹网参见维基百科"
 
 
 - id: 阴晴
@@ -137,6 +170,9 @@
     - 十月初七，行契人灿。行契喵豹
   image:
     - 202412_xiaobao_qiyue.jpg
+  description:
+    - "1. Na Mao Qi was a ritualized cat adoption contract in ancient China, especially during the Song dynasty. It recorded the cat’s information, the adopter’s expectations and responsibilities, and was accompanied by betrothal gifts and formal rituals. The contract symbolically treated the cat as a family member, with a promise of kind treatment, in the hope that the cat would protect the household and bring good fortune."
+    - "2. The spiral layout of the Na Mao Qi owes thanks to the assistance of Dr. Crab (shellywhen.github.io)."
 
 
 
