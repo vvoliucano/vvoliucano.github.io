@@ -25,7 +25,7 @@
   demo: /projects/spatialconstraint/
 
 - id: author_inter
-  title: "From Static to Interactive: Authoring Interactive Visualizations via Natural Language"
+  title: "Athanor: Authoring Action Modification-based Interactions on Static Visualizations via Natural Language"
   authors:
     - Can Liu
     - Jaeuk Lee
@@ -35,6 +35,8 @@
     - Yong Wang
   venue: IEEE Pacific Visualization Symposium
   year: 2026, Accepted
+  doi: https://doi.org/10.48550/arXiv.2601.17736
+  pdf: "https://arxiv.org/pdf/2601.17736.pdf"
   venue_tags:
     - TVCG
   type:

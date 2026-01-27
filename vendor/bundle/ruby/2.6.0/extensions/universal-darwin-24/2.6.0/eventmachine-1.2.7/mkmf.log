@@ -16,4 +16,6 @@ checked program was:
 6: }
 /* end */
 
-package configuration for openssl is not found
+"pkg-config --exists openssl"
+| pkg-config --libs openssl
+=> "-L/usr/local/Cellar/openssl@3/3.3.1/lib -lssl -lcrypto\n"
