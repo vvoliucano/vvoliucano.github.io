@@ -37,8 +37,6 @@
   year: 2026, Accepted
   doi: https://doi.org/10.48550/arXiv.2601.17736
   pdf: "https://arxiv.org/pdf/2601.17736.pdf"
-  venue_tags:
-    - TVCG
   type:
     - Conference
 
