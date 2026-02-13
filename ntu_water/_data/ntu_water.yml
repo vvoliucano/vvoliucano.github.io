@@ -1,0 +1,17 @@
+points:
+  - id: n4-b2-disp1
+    name_en: N4 B2 Dispenser
+    name_zh: N4 地下二层饮水台
+    building_en: Block N4
+    building_zh: N4 楼
+    location: Basement 2 (B2)
+    img: '' # 可后续补充
+    tds: ''
+    cold: ''
+    hot: ''
+    hygiene: ''
+    grade: A
+    status: operational
+    tags: ["Low spout", "Audible noise"]
+    comment_en: High water quality; good ice temperature; but high running noise and low bottle fill spout.
+    comment_zh: 水质好、冰度佳，但运行噪声大，水壶出水口较低。

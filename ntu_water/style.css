@@ -1,0 +1,96 @@
+/* ntu_water/style.css — 深色科技蓝专属风格 */
+body {
+  font-family: 'Inter', 'Noto Sans SC', Arial, sans-serif;
+  background: #0d1c2d;
+  color: #e3f6ff;
+  margin: 0;
+}
+.container {
+  max-width: 860px;
+  margin: 2.5rem auto 1.5rem;
+  background: #192841cc;
+  box-shadow: 0 8px 32px #0006;
+  border-radius: 16px;
+  padding: 2.2rem 2vw 2.2rem;
+  border: 1px solid #12335c99;
+}
+h1, h2, h3 {
+  color: #7ec7ff;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+  margin-bottom: 0.7em;
+}
+a, .lang-switch a {
+  color: #b0e3fd;
+  text-decoration: none;
+  font-weight: 600;
+}
+a:hover { color: #3bafff; text-decoration: underline; }
+
+.lang-switch {
+  position: absolute; right: 2vw; top: 2vw;
+}
+.lang-switch a {
+  margin: 0 0.2em;
+  padding: 0.25em 0.6em;
+  border-radius: 8px;
+  background: #182a42 44%;
+  border: 1px solid #277ce8;
+  transition: all 0.16s;
+  color: #7ec7ff;
+}
+.lang-switch a.active { background: #0160c6; color: #fff; }
+
+.ntu-card {
+  display: flex; align-items: flex-start; gap: 1rem;  margin-bottom: 2.2em;
+  background: #112139dd;
+  border: 1.5px solid #2262d39a;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px #0003;
+  transition: transform 0.17s;
+  padding: 1.1em 1.3em 1em;
+}
+.ntu-card:hover {
+  border-color: #43a8ff;
+  transform: translateY(-2px) scale(1.012);
+}
+
+.ntu-card-img {
+  width: 88px; height: 88px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #213c52;
+  border: 1.5px solid #2473b49c;
+}
+
+.ntu-card-main { flex: 1 1 60%; }
+.ntu-card-title {
+  font-size: 1.27rem;
+  font-weight: 600;
+  color: #cbe9ff;
+  margin-bottom: 0.22em;
+  letter-spacing: 0.01em;
+}
+.ntu-card-sub {
+  font-size: 1.05rem;
+  color: #79baff;
+  margin-bottom: 0.32em;
+}
+.ntu-card-tags,
+.ntu-card-notes {
+  font-size: 0.97rem;
+  margin-top: 0.27em;
+  color: #a1d3fb;
+}
+.ntu-card-grade {
+  font-weight: bold;
+  font-size: 1.12rem;
+  color: #9ce8fc;
+  margin-bottom: 0.32em;
+}
+.ntu-card-status { font-size: 0.96rem; color: #32d1c9; margin-left: 0.9em; }
+@media (max-width: 600px) {
+  .container     { padding: 0.7em 0.7em 1.1em; }
+  .ntu-card      { flex-direction: column; gap: 0.6em; }
+  .ntu-card-img  { width: 98vw; height: 140px; max-width: 99%; }
+}
