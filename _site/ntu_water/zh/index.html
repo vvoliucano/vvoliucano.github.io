@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NTU 校园水质系统</title>
+<link rel="stylesheet" href="/ntu_water/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <header class="hud-header">
+    <div class="title-box">
+      <h1>NTU Water<span style="color:var(--accent-cyan)">_Sys</span></h1>
+      <small>校园饮用水实时监控网络</small>
+    </div>
+    
+    <div class="sys-status">
+      <div>SYS_STATUS: <span class="blink">ONLINE</span></div>
+      <div>LAST_UPDATE: 14:26:38</div>
+    </div>
+
+    <div class="lang-switch">
+      <a href="/ntu_water/" class="lang-btn">EN</a>
+      <a href="/ntu_water/zh/" class="lang-btn active">CN</a>
+    </div>
+  </header>
+
+  <!-- Grid -->
+  <div class="monitor-grid">
+    
+    <div class="unit-card">
+      <div class="card-header">
+        <span class="unit-id">UNIT-N4-B2-DISP1</span>
+        <span class="grade-mark grade-A">A</span>
+      </div>
+      
+      <div class="card-body">
+        <div class="info-row">
+          <div class="img-frame">
+            
+            
+            <img src="/ntu_water/placeholder.svg" alt="img">
+          </div>
+          <div class="info-text">
+            <h3>N4 地下二层饮水台</h3>
+            <div class="location-tag">N4 楼 / Basement 2 (B2)</div>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="chart-n4-b2-disp1"></canvas>
+          <div class="chart-overlay">A</div>
+        </div>
+
+        <div class="desc-box">
+          水质好、冰度佳，但运行噪声大，水壶出水口较低。
+        </div>
+
+        <div class="tags-row">
+          <span class="tech-tag">状态: OPERATIONAL</span>
+          
+            
+            <span class="tech-tag">LOW SPOUT</span>
+            
+            <span class="tech-tag">AUDIBLE NOISE</span>
+            
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+  // Chart Config
+  const chartOptions = {
+    scales: {
+      r: {
+        angleLines: { color: 'rgba(0, 243, 255, 0.2)' },
+        grid: { color: 'rgba(0, 243, 255, 0.2)' },
+        pointLabels: {
+          color: '#5a7b9c',
+          font: { family: 'Share Tech Mono', size: 10 }
+        },
+        ticks: { display: false, max: 100, min: 0 }
+      }
+    },
+    plugins: {
+      legend: { display: false }
+    },
+    maintainAspectRatio: false
+  };
+
+  // Data Injection
+  const pointsData = [
+    
+    {
+      id: "chart-n4-b2-disp1",
+      grade: "A",
+      metrics: {
+        purity: 95,
+        temp: 40,
+        pressure: 95,
+        filter: 85,
+        flow: 90
+      }
+    },
+    
+  ];
+
+  // Init Charts
+  pointsData.forEach(pt => {
+    const ctx = document.getElementById(pt.id);
+    if(ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['纯净度', '水温', '水压', '滤芯', '流速'],
+          datasets: [{
+            data: [pt.metrics.purity, pt.metrics.temp, pt.metrics.pressure, pt.metrics.filter, pt.metrics.flow],
+            backgroundColor: 'rgba(0, 243, 255, 0.2)',
+            borderColor: '#00f3ff',
+            borderWidth: 2,
+            pointBackgroundColor: '#fff',
+            pointBorderColor: '#00f3ff'
+          }]
+        },
+        options: chartOptions
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+---
+layout: none
+title: NTU 校园水质系统
+permalink: /ntu_water/zh/
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+<link rel="stylesheet" href="{{ '/ntu_water/style.css' | relative_url }}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <header class="hud-header">
+    <div class="title-box">
+      <h1>NTU Water<span style="color:var(--accent-cyan)">_Sys</span></h1>
+      <small>校园饮用水实时监控网络</small>
+    </div>
+    
+    <div class="sys-status">
+      <div>SYS_STATUS: <span class="blink">ONLINE</span></div>
+      <div>LAST_UPDATE: {{ site.time | date: "%H:%M:%S" }}</div>
+    </div>
+
+    <div class="lang-switch">
+      <a href="{{ '/ntu_water/' | relative_url }}" class="lang-btn">EN</a>
+      <a href="{{ '/ntu_water/zh/' | relative_url }}" class="lang-btn active">CN</a>
+    </div>
+  </header>
+
+  <!-- Grid -->
+  <div class="monitor-grid">
+    {% for pt in site.data.ntu_water.points %}
+    <div class="unit-card">
+      <div class="card-header">
+        <span class="unit-id">UNIT-{{ pt.id | upcase }}</span>
+        <span class="grade-mark grade-{{ pt.grade }}">{{ pt.grade }}</span>
+      </div>
+      
+      <div class="card-body">
+        <div class="info-row">
+          <div class="img-frame">
+            {% assign img_url = pt.img | default: '/ntu_water/placeholder.svg' %}
+            {% if img_url == "" %}{% assign img_url = '/ntu_water/placeholder.svg' %}{% endif %}
+            <img src="{{ img_url | relative_url }}" alt="img">
+          </div>
+          <div class="info-text">
+            <h3>{{ pt.name_zh }}</h3>
+            <div class="location-tag">{{ pt.building_zh }} / {{ pt.location }}</div>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="chart-{{ pt.id }}"></canvas>
+          <div class="chart-overlay">{{ pt.grade }}</div>
+        </div>
+
+        <div class="desc-box">
+          {{ pt.comment_zh }}
+        </div>
+
+        <div class="tags-row">
+          <span class="tech-tag">状态: {{ pt.status | upcase }}</span>
+          {% if pt.tags %}
+            {% for tag in pt.tags %}
+            <span class="tech-tag">{{ tag | upcase }}</span>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  // Chart Config
+  const chartOptions = {
+    scales: {
+      r: {
+        angleLines: { color: 'rgba(0, 243, 255, 0.2)' },
+        grid: { color: 'rgba(0, 243, 255, 0.2)' },
+        pointLabels: {
+          color: '#5a7b9c',
+          font: { family: 'Share Tech Mono', size: 10 }
+        },
+        ticks: { display: false, max: 100, min: 0 }
+      }
+    },
+    plugins: {
+      legend: { display: false }
+    },
+    maintainAspectRatio: false
+  };
+
+  // Data Injection
+  const pointsData = [
+    {% for pt in site.data.ntu_water.points %}
+    {
+      id: "chart-{{ pt.id }}",
+      grade: "{{ pt.grade }}",
+      metrics: {
+        purity: {{ pt.grade | replace:'A',95 | replace:'B',80 | replace:'C',60 | replace:'D',40 | default: 70 }},
+        temp: {% if pt.tags contains 'Cold' %}90{% else %}40{% endif %},
+        pressure: {% if pt.status == 'operational' %}95{% else %}20{% endif %},
+        filter: 85,
+        flow: {% if pt.grade == 'A' %}90{% else %}70{% endif %}
+      }
+    },
+    {% endfor %}
+  ];
+
+  // Init Charts
+  pointsData.forEach(pt => {
+    const ctx = document.getElementById(pt.id);
+    if(ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['纯净度', '水温', '水压', '滤芯', '流速'],
+          datasets: [{
+            data: [pt.metrics.purity, pt.metrics.temp, pt.metrics.pressure, pt.metrics.filter, pt.metrics.flow],
+            backgroundColor: 'rgba(0, 243, 255, 0.2)',
+            borderColor: '#00f3ff',
+            borderWidth: 2,
+            pointBackgroundColor: '#fff',
+            pointBorderColor: '#00f3ff'
+          }]
+        },
+        options: chartOptions
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
