@@ -79,10 +79,13 @@
     - CCF A类期刊
     - SCI 一区
   doi: 10.1109/TVCG.2025.3634635
+  pages: 824-834
+  volume: 32
+  number: 1
   highlight: 0
   type:
     - Journal
-  year: 2025
+  year: 2026
   pdf: "https://arXiv.org/abs/2507.17734"
   website: "/projects/DataWink"
   video: "https://youtu.be/hSWl-XKrv88"
