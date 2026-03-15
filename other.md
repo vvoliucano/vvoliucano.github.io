@@ -276,12 +276,12 @@ title: Others
 {% for year in pubyears %}
 {%-assign yeartitle = year.name | floor-%}
 
-<div class="poetry-year-section">
-  <h2 class="poetry-year-title">{{ yeartitle }}</h2>
+<div class="poetry-year-section" id="year-{{ yeartitle }}">
+  <h2 class="poetry-year-title" id="year-title-{{ yeartitle }}">{{ yeartitle }}</h2>
   <div class="poetry-year-divider"></div>
   
   {% for pub in year.items %}
-  <div class="poetry-item">
+  <div class="poetry-item" id="{{ pub.id }}">
     <div class="poetry-header">
       <h3 class="poetry-title">{{ pub.title }}</h3>
       {% if pub.type %}
