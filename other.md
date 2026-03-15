@@ -135,7 +135,8 @@ title: Others
     color: #5a6c7d;
     line-height: 1.6;
     margin: 0.4rem 0;
-    font-style: italic;
+    font-style: normal;
+    font-family: "STFangsong", "FangSong", "华文仿宋", "FangSong_GB2312", serif;
 }
 
 /* 图片展示 */
