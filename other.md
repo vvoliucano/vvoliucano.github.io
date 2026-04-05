@@ -300,7 +300,7 @@ title: Others
     <div class="poetry-notes">
       <div class="notes-title">注释</div>
       {% for line in pub.description %}
-      <div class="notes-line">{{ line }}</div>
+      <div class="notes-line">{{ line | markdownify | remove: '<p>' | remove: '</p>' }}</div>
       {% endfor %}
     </div>
     {% endif %}
