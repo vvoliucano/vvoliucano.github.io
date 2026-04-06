@@ -415,6 +415,7 @@ class: poem-page-wrapper
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script id="poem-data" type="application/json">{{ site.data.other | jsonify }}</script>
 <script>
 const poemPage = document.getElementById('poem-page');
@@ -599,40 +600,30 @@ function buildReading(poem) {
 }
 
 async function downloadPoemPng(poem) {
-  if (document.fonts && document.fonts.load) {
-    try {
-      await document.fonts.load('16px "OuyangxunKaishu"');
-    } catch (error) {
-      // Ignore font loading failures and continue with browser fallback.
-    }
+  const sheet = document.querySelector('.poem-sheet');
+  const hint = document.getElementById('poem-scroll-hint');
+  if (!sheet) return;
+  if (typeof html2canvas !== 'function') {
+    throw new Error('html2canvas not available');
   }
 
-  const svgMarkup = buildPoemSvg(poem);
-  const viewBoxMatch = svgMarkup.match(/viewBox="0 0 ([0-9.]+) ([0-9.]+)"/);
-  const width = viewBoxMatch ? Number(viewBoxMatch[1]) : 1200;
-  const height = viewBoxMatch ? Number(viewBoxMatch[2]) : 920;
-  const svgBlob = new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' });
-  const svgUrl = URL.createObjectURL(svgBlob);
+  const previousHintOpacity = hint ? hint.style.opacity : '';
+  if (hint) {
+    hint.style.opacity = '0';
+  }
 
   try {
-    const image = new Image();
-    image.decoding = 'async';
-    const loaded = new Promise((resolve, reject) => {
-      image.onload = resolve;
-      image.onerror = reject;
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
+    const canvas = await html2canvas(sheet, {
+      backgroundColor: null,
+      scale: Math.min(3, window.devicePixelRatio || 2),
+      useCORS: true,
+      logging: false,
     });
-    image.src = svgUrl;
-    await loaded;
-
-    const scale = 2;
-    const canvas = document.createElement('canvas');
-    canvas.width = Math.round(width * scale);
-    canvas.height = Math.round(height * scale);
-    const context = canvas.getContext('2d');
-    if (!context) return;
-
-    context.setTransform(scale, 0, 0, scale, 0, 0);
-    context.drawImage(image, 0, 0, width, height);
 
     const pngBlob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
     if (!pngBlob) return;
@@ -646,7 +637,9 @@ async function downloadPoemPng(poem) {
     downloadLink.remove();
     URL.revokeObjectURL(pngUrl);
   } finally {
-    URL.revokeObjectURL(svgUrl);
+    if (hint) {
+      hint.style.opacity = previousHintOpacity;
+    }
   }
 }
 
