@@ -100,17 +100,18 @@ title: Others
     margin: 0.8rem 0;
     font-family: "STKaiti", "KaiTi", "楷体", serif;
     letter-spacing: 0.05em;
-    position: relative;
 }
 
-.poetry-line:not(:last-child)::after {
-    content: '';
-    display: block;
+.poetry-divider {
     width: 20px;
     height: 1px;
     background: #bdc3c7;
-    margin: 0.5rem auto;
+    margin: 1rem auto;
     opacity: 0.5;
+}
+
+.poetry-spacer {
+    height: 1.2rem;
 }
 
 /* 注释样式 */
@@ -292,7 +293,14 @@ title: Others
     
     <div class="poetry-content">
       {% for line in pub.content %}
+      {% assign stripped_line = line | strip %}
+      {% if stripped_line == '' %}
+      <div class="poetry-spacer" aria-hidden="true"></div>
+      {% elsif stripped_line == '---' %}
+      <div class="poetry-divider" aria-hidden="true"></div>
+      {% else %}
       <div class="poetry-line">{{ line }}</div>
+      {% endif %}
       {% endfor %}
     </div>
     
