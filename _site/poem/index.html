@@ -256,8 +256,7 @@ var _hmt = _hmt || [];
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    height: min(76vh, 860px);
-    min-height: 420px;
+    min-height: 0;
     padding: 0.6rem 4.9rem 0.6rem 0.9rem;
 }
 
@@ -425,8 +424,7 @@ var _hmt = _hmt || [];
     }
 
     .poem-sheet-body {
-        height: min(66vh, 700px);
-        min-height: 320px;
+        min-height: 0;
         padding-right: 3.8rem;
     }
 
@@ -539,6 +537,14 @@ function buildContent(lines) {
   }).join('');
 }
 
+function estimatePoemHeight(entries) {
+  const textEntries = entries.filter((entry) => entry.type === 'text');
+  if (!textEntries.length) return 420;
+  const charCounts = textEntries.map((entry) => Array.from(entry.text).length);
+  const maxChars = Math.max(...charCounts, 8);
+  return Math.max(320, Math.min(860, maxChars * 42 + 90));
+}
+
 function buildPoemSvg(poem) {
   const entries = getContentEntries(poem.content);
   const paddingTop = 88;
@@ -547,7 +553,8 @@ function buildPoemSvg(poem) {
   const textColumnWidth = 62;
   const dividerWidth = 26;
   const spacerWidth = 26;
-  const height = 920;
+  const contentHeight = estimatePoemHeight(entries);
+  const height = contentHeight + paddingTop + paddingBottom;
   const frameHeight = height - paddingTop - paddingBottom;
   const totalContentWidth = entries.reduce((sum, entry) => {
     if (entry.type === 'spacer') return sum + spacerWidth;
@@ -637,6 +644,7 @@ function buildPoemSvg(poem) {
 }
 
 function buildReading(poem) {
+  const contentHeight = estimatePoemHeight(getContentEntries(poem.content));
   return `
     <div class="poem-sheet-hint" id="poem-scroll-hint">左右滑动</div>
     <div class="poem-sheet-scroll">
@@ -644,7 +652,7 @@ function buildReading(poem) {
         <div class="poem-sheet-titleblock">
           <div class="poem-sheet-title">${escapeHtml(poem.title || poem.id)}</div>
         </div>
-        <div class="poem-sheet-body">
+        <div class="poem-sheet-body" style="height:${contentHeight}px">
           <div class="poem-lines">
             ${buildContent(poem.content)}
           </div>
