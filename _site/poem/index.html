@@ -253,13 +253,19 @@ var _hmt = _hmt || [];
 }
 
 .poem-sheet-body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: min(76vh, 860px);
+    min-height: 420px;
+    padding: 0.6rem 4.9rem 0.6rem 0.9rem;
+}
+
+.poem-lines {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-family: var(--poem-font-main);
     color: var(--poem-ink);
-    height: min(76vh, 860px);
-    min-height: 420px;
-    padding: 0.6rem 4.9rem 0.6rem 0.9rem;
     font-size: 2.1rem;
     line-height: 1.8;
     letter-spacing: 0.12em;
@@ -422,6 +428,9 @@ var _hmt = _hmt || [];
         height: min(66vh, 700px);
         min-height: 320px;
         padding-right: 3.8rem;
+    }
+
+    .poem-lines {
         font-size: 1.52rem;
         letter-spacing: 0.08em;
     }
@@ -546,15 +555,16 @@ function buildPoemSvg(poem) {
     return sum + textColumnWidth;
   }, 0);
   const titleColumnWidth = 54;
-  const metaColumnWidth = 28;
-  const headerGap = 24;
+  const headerGap = 34;
   const width = Math.max(
-    paddingX * 2 + totalContentWidth + titleColumnWidth + metaColumnWidth + headerGap + 76,
+    paddingX * 2 + totalContentWidth + titleColumnWidth + headerGap + 140,
     620
   );
   const titleX = width - paddingX;
-  const metaX = titleX - titleColumnWidth;
-  let currentX = metaX - metaColumnWidth - headerGap;
+  const contentAreaRight = titleX - titleColumnWidth - headerGap;
+  const contentAreaLeft = paddingX + 18;
+  const availableWidth = contentAreaRight - contentAreaLeft;
+  let currentX = contentAreaLeft + (availableWidth + totalContentWidth) / 2;
   const svgParts = [];
 
   svgParts.push(`<text class="poem-svg-title" x="${titleX}" y="78">${escapeHtml(poem.title || poem.id)}</text>`);
@@ -635,7 +645,9 @@ function buildReading(poem) {
           <div class="poem-sheet-title">${escapeHtml(poem.title || poem.id)}</div>
         </div>
         <div class="poem-sheet-body">
-          ${buildContent(poem.content)}
+          <div class="poem-lines">
+            ${buildContent(poem.content)}
+          </div>
         </div>
       </div>
     </div>
@@ -702,12 +714,12 @@ function bindExportButton(poem) {
     downloadButton.textContent = '生成中...';
     try {
       await downloadPoemPng(poem);
-      downloadButton.textContent = '下载 PNG';
+      downloadButton.textContent = '下载';
     } catch (error) {
       console.error(error);
       downloadButton.textContent = '下载失败';
       setTimeout(() => {
-        downloadButton.textContent = '下载 PNG';
+        downloadButton.textContent = '下载';
       }, 1200);
     } finally {
       downloadButton.disabled = false;
@@ -783,7 +795,7 @@ function renderPoem(root, poem, index) {
         <section class="poem-panel">
           <h2 class="poem-panel-title">图片导出</h2>
           <div class="poem-detail-nav">
-            <button type="button" class="poem-detail-link poem-export-button" id="poem-download-png">下载 PNG</button>
+            <button type="button" class="poem-detail-link poem-export-button" id="poem-download-png">下载</button>
           </div>
         </section>
         ${buildNotes(poem.description)}
