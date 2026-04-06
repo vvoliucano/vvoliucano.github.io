@@ -190,11 +190,11 @@ var _hmt = _hmt || [];
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.28s ease, opacity 0.18s ease, padding 0.18s ease;
     padding: 0 0.8rem;
+    transition: max-height 0.36s ease, opacity 0.22s ease, padding 0.22s ease;
 }
 
-.mushan-item:hover .mushan-expand,
+.mushan-item.is-open .mushan-expand,
 .mushan-item:focus-within .mushan-expand {
     max-height: 28rem;
     opacity: 1;
@@ -206,7 +206,7 @@ var _hmt = _hmt || [];
     padding: 0.9rem 1rem;
     border: 1px solid rgba(186, 170, 146, 0.3);
     border-radius: 10px;
-    background: rgba(255, 251, 243, 0.8);
+    background: rgba(255, 251, 243, 0.82);
     color: #445769;
     font-family: var(--mushan-font);
     line-height: 1.9;
@@ -247,20 +247,8 @@ var _hmt = _hmt || [];
         font-size: 0.95rem;
     }
 
-    .mushan-item:hover .mushan-expand,
-    .mushan-item:focus-within .mushan-expand {
-        max-height: 32rem;
-        padding: 0 0.2rem 0.85rem;
-    }
-
     .mushan-expand {
-        padding: 0 0.2rem;
-    }
-
-    .mushan-poem {
-        padding: 0.8rem 0.85rem;
-        font-size: 0.98rem;
-        line-height: 1.85;
+        display: none;
     }
 }
 </style>
@@ -1529,6 +1517,38 @@ var _hmt = _hmt || [];
   </section>
   
 </div>
+<script>
+document.querySelectorAll('.mushan-item').forEach((item) => {
+  let closeTimer = null;
+
+  const openPreview = () => {
+    if (closeTimer) {
+      clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+    item.classList.add('is-open');
+  };
+
+  const closePreview = () => {
+    closeTimer = window.setTimeout(() => {
+      if (!item.matches(':hover') && !item.contains(document.activeElement)) {
+        item.classList.remove('is-open');
+      }
+    }, 220);
+  };
+
+  item.addEventListener('mouseenter', openPreview);
+  item.addEventListener('focusin', openPreview);
+  item.addEventListener('mouseleave', closePreview);
+  item.addEventListener('focusout', () => {
+    closeTimer = window.setTimeout(() => {
+      if (!item.contains(document.activeElement)) {
+        item.classList.remove('is-open');
+      }
+    }, 220);
+  });
+});
+</script>
 
 </section>
 
