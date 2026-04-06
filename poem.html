@@ -1,0 +1,708 @@
+---
+layout: page-zh
+permalink: /poem/
+title: 诗词
+class: poem-page-wrapper
+---
+
+<style>
+@font-face {
+    font-family: "OuyangxunKaishu";
+    src: url("{{ '/assets/font/正欧阳询楷书+简繁.TTF' | relative_url | replace: '+', '%2B' }}") format("truetype");
+    font-display: swap;
+}
+
+.poem-detail-page {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    --poem-font-main: "OuyangxunKaishu", "STKaiti", "KaiTi", "Kaiti SC", serif;
+    --poem-paper: #f5eddc;
+    --poem-paper-deep: #e7d8b8;
+    --poem-ink: #25384a;
+    --poem-muted: #786851;
+    --poem-rule: rgba(130, 99, 58, 0.26);
+}
+
+.poem-detail-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.poem-detail-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+.poem-detail-link {
+    display: inline-block;
+    padding: 0.1rem 0.2rem;
+    color: #5a4a34;
+    text-decoration: none;
+    font-family: var(--poem-font-main);
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid rgba(121, 101, 71, 0.18);
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.poem-detail-link:hover {
+    color: #392d1f;
+    border-color: rgba(121, 101, 71, 0.44);
+    transform: translateY(-1px);
+}
+
+.poem-detail-card {
+    background: linear-gradient(180deg, rgba(252, 249, 242, 0.98), rgba(247, 241, 226, 0.98));
+    border: 1px solid rgba(145, 121, 86, 0.18);
+    border-radius: 22px;
+    box-shadow: 0 18px 40px rgba(63, 42, 19, 0.08);
+    overflow: hidden;
+}
+
+.poem-detail-body {
+    position: relative;
+    padding: 1.1rem 1.25rem 1.8rem;
+}
+
+.poem-sheet-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 0.5rem;
+    scroll-behavior: smooth;
+}
+
+.poem-sheet-scroll::-webkit-scrollbar {
+    height: 10px;
+}
+
+.poem-sheet-scroll::-webkit-scrollbar-thumb {
+    background: rgba(121, 101, 71, 0.22);
+    border-radius: 999px;
+}
+
+.poem-sheet {
+    position: relative;
+    display: inline-block;
+    min-width: 680px;
+    padding: 1.8rem 2.2rem;
+    border-radius: 18px;
+    border: 1px solid rgba(145, 121, 86, 0.16);
+    background:
+        linear-gradient(180deg, rgba(255, 251, 244, 0.72), rgba(249, 241, 225, 0.92)),
+        repeating-linear-gradient(
+            0deg,
+            rgba(110, 87, 53, 0.018) 0px,
+            rgba(110, 87, 53, 0.018) 1px,
+            rgba(255, 255, 255, 0) 2px,
+            rgba(255, 255, 255, 0) 6px
+        ),
+        radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.48), transparent 28%),
+        radial-gradient(circle at 78% 72%, rgba(190, 160, 112, 0.12), transparent 36%),
+        linear-gradient(180deg, var(--poem-paper) 0%, #f3ead4 100%);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.38),
+        0 10px 26px rgba(84, 57, 27, 0.08);
+    filter: url(#paper-texture);
+}
+
+.poem-sheet-hint {
+    position: absolute;
+    top: 0.1rem;
+    right: 1.6rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0.55rem;
+    color: rgba(96, 78, 54, 0.78);
+    font-family: var(--poem-font-main);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    background: linear-gradient(90deg, rgba(255, 252, 246, 0), rgba(255, 252, 246, 0.9), rgba(255, 252, 246, 0));
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.poem-sheet-hint::before,
+.poem-sheet-hint::after {
+    content: "";
+    width: 1.6rem;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(123, 98, 67, 0), rgba(123, 98, 67, 0.55));
+}
+
+.poem-sheet-hint::after {
+    transform: scaleX(-1);
+}
+
+.poem-sheet::before,
+.poem-sheet::after {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    bottom: 1rem;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(167, 47, 37, 0.18), rgba(167, 47, 37, 0.34), rgba(167, 47, 37, 0.18));
+}
+
+.poem-sheet::before {
+    right: 1.15rem;
+}
+
+.poem-sheet::after {
+    left: 1.15rem;
+}
+
+.poem-sheet-titleblock {
+    position: absolute;
+    top: 1.65rem;
+    right: 1.95rem;
+    color: var(--poem-ink);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+}
+
+.poem-sheet-title {
+    font-family: var(--poem-font-main);
+    font-size: 2rem;
+    line-height: 1.25;
+    letter-spacing: 0.14em;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.poem-sheet-meta {
+    font-size: 0.86rem;
+    line-height: 1.2;
+    color: var(--poem-muted);
+    letter-spacing: 0.08em;
+    writing-mode: horizontal-tb;
+}
+
+.poem-sheet-body {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: var(--poem-font-main);
+    color: var(--poem-ink);
+    height: min(76vh, 860px);
+    min-height: 420px;
+    padding: 0.6rem 4.9rem 0.6rem 0.9rem;
+    font-size: 2.1rem;
+    line-height: 1.8;
+    letter-spacing: 0.12em;
+}
+
+.poem-line {
+    position: relative;
+    white-space: nowrap;
+    padding: 0 0.42rem;
+    min-width: 3.3rem;
+}
+
+.poem-line::before,
+.poem-line::after {
+    content: "";
+    position: absolute;
+    top: 0.2rem;
+    bottom: 0.2rem;
+    width: 1px;
+    background: var(--poem-rule);
+}
+
+.poem-line::before {
+    right: 0;
+}
+
+.poem-line::after {
+    left: 0;
+}
+
+.poem-divider {
+    min-width: 1.45rem;
+}
+
+.poem-spacer {
+    min-width: 1.45rem;
+}
+
+.poem-divider::before,
+.poem-divider::after,
+.poem-spacer::before,
+.poem-spacer::after {
+    display: none;
+}
+
+.poem-supporting {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0 1.6rem 1.8rem;
+}
+
+.poem-panel {
+    background: rgba(255, 251, 243, 0.86);
+    border: 1px solid rgba(145, 121, 86, 0.12);
+    border-radius: 14px;
+    padding: 1.15rem 1.2rem;
+}
+
+.poem-panel-title {
+    margin: 0 0 0.8rem;
+    color: #5e4d36;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+}
+
+.poem-notes-list {
+    margin: 0;
+    padding-left: 0;
+    color: #4f5e6a;
+    line-height: 1.9;
+    list-style: none;
+}
+
+.poem-note-line + .poem-note-line {
+    margin-top: 0.65rem;
+}
+
+.poem-notes-list a {
+    word-break: break-word;
+}
+
+.poem-images {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.poem-images a {
+    display: block;
+    width: 100%;
+}
+
+.poem-images img {
+    width: min(100%, 940px);
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 10px 22px rgba(52, 36, 18, 0.12);
+}
+
+.poem-empty {
+    padding: 3rem 2rem;
+    text-align: center;
+    color: #607286;
+}
+
+.poem-empty h1 {
+    margin-top: 0;
+    font-weight: 500;
+    color: #23384e;
+}
+
+.poem-empty ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+}
+
+.poem-empty li + li {
+    margin-top: 0.6rem;
+}
+
+@media (max-width: 900px) {
+    .poem-detail-body {
+        padding: 1rem 0.7rem 1.2rem;
+    }
+
+    .poem-supporting {
+        padding: 0 0.7rem 1.4rem;
+    }
+
+    .poem-sheet {
+        min-width: 520px;
+        padding: 1.2rem 1.35rem;
+    }
+
+    .poem-sheet-titleblock {
+        top: 1.2rem;
+        right: 1.3rem;
+    }
+
+    .poem-sheet-title {
+        font-size: 1.45rem;
+    }
+
+    .poem-sheet-meta {
+        font-size: 0.74rem;
+    }
+
+    .poem-sheet-body {
+        height: min(66vh, 700px);
+        min-height: 320px;
+        padding-right: 3.8rem;
+        font-size: 1.52rem;
+        letter-spacing: 0.08em;
+    }
+
+    .poem-line {
+        min-width: 2.5rem;
+        padding: 0 0.28rem;
+    }
+
+    .poem-sheet-hint {
+        right: 0.9rem;
+        font-size: 0.72rem;
+    }
+}
+</style>
+
+<svg aria-hidden="true" width="0" height="0" style="position:absolute;left:-9999px;overflow:hidden">
+  <defs>
+    <filter id="paper-texture" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="noise"></feTurbulence>
+      <feColorMatrix in="noise" type="saturate" values="0" result="monoNoise"></feColorMatrix>
+      <feComponentTransfer in="monoNoise" result="grain">
+        <feFuncA type="table" tableValues="0 0.03"></feFuncA>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="grain" mode="multiply"></feBlend>
+    </filter>
+  </defs>
+</svg>
+
+<div
+  class="poem-detail-page"
+  id="poem-page"
+  data-poem-base-url="{{ '/poem/' | relative_url }}"
+  data-other-page-url="{{ '/other/' | relative_url }}"
+  data-poetry-asset-base="{{ '/assets/poetry/' | relative_url }}"
+>
+  <div class="poem-detail-toolbar">
+    <div class="poem-detail-nav">
+      <a class="poem-detail-link" href="{{ '/other/' | relative_url }}">返回诗集</a>
+      <a class="poem-detail-link" id="poem-back-to-item" href="{{ '/other/' | relative_url }}">返回当前条目</a>
+    </div>
+    <div class="poem-detail-nav" id="poem-prev-next"></div>
+  </div>
+
+  <div id="poem-root" class="poem-detail-card">
+    <div class="poem-empty">正在载入诗词...</div>
+  </div>
+</div>
+
+<script id="poem-data" type="application/json">{{ site.data.other | jsonify }}</script>
+<script>
+const poemPage = document.getElementById('poem-page');
+const poemDataNode = document.getElementById('poem-data');
+const poems = poemDataNode ? JSON.parse(poemDataNode.textContent) : [];
+const poemBaseUrl = poemPage ? poemPage.dataset.poemBaseUrl : '/poem/';
+const otherPageUrl = poemPage ? poemPage.dataset.otherPageUrl : '/other/';
+const poetryAssetBase = poemPage ? poemPage.dataset.poetryAssetBase : '/assets/poetry/';
+let currentSvgUrl = null;
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function getPoemId() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('id');
+}
+
+function normalizeList(value) {
+  if (!value) return [];
+  return Array.isArray(value) ? value : [value];
+}
+
+function renderMarkdownLine(text) {
+  let html = escapeHtml(text);
+  html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  html = html.replace(/&lt;(https?:\/\/[^&]+)&gt;/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+  return html;
+}
+
+function getContentEntries(lines) {
+  return normalizeList(lines).map((line) => {
+    const text = String(line == null ? '' : line);
+    const stripped = text.trim();
+    if (!stripped) {
+      return { type: 'spacer', text: '' };
+    }
+    if (stripped === '---') {
+      return { type: 'divider', text: '' };
+    }
+    return { type: 'text', text };
+  });
+}
+
+function buildContent(lines) {
+  return getContentEntries(lines).map((entry) => {
+    if (entry.type === 'spacer') return '<div class="poem-line poem-spacer" aria-hidden="true"></div>';
+    if (entry.type === 'divider') return '<div class="poem-line poem-divider" aria-hidden="true"></div>';
+    return `<div class="poem-line">${escapeHtml(entry.text)}</div>`;
+  }).join('');
+}
+
+function buildPoemSvg(poem) {
+  const entries = getContentEntries(poem.content);
+  const paddingTop = 88;
+  const paddingBottom = 70;
+  const paddingX = 86;
+  const textColumnWidth = 62;
+  const dividerWidth = 26;
+  const spacerWidth = 26;
+  const height = 920;
+  const frameHeight = height - paddingTop - paddingBottom;
+  const totalContentWidth = entries.reduce((sum, entry) => {
+    if (entry.type === 'spacer') return sum + spacerWidth;
+    if (entry.type === 'divider') return sum + dividerWidth;
+    return sum + textColumnWidth;
+  }, 0);
+  const titleColumnWidth = 54;
+  const metaColumnWidth = 28;
+  const headerGap = 24;
+  const width = Math.max(
+    paddingX * 2 + totalContentWidth + titleColumnWidth + metaColumnWidth + headerGap + 76,
+    620
+  );
+  const titleX = width - paddingX;
+  const metaX = titleX - titleColumnWidth;
+  let currentX = metaX - metaColumnWidth - headerGap;
+  const svgParts = [];
+
+  svgParts.push(`<text class="poem-svg-title" x="${titleX}" y="78">${escapeHtml(poem.title || poem.id)}</text>`);
+
+  const meta = buildMeta(poem);
+  if (meta) {
+    svgParts.push(`<text class="poem-svg-meta" x="${metaX}" y="78">${escapeHtml(meta)}</text>`);
+  }
+
+  entries.forEach((entry) => {
+    if (entry.type === 'spacer') {
+      currentX -= spacerWidth;
+      return;
+    }
+
+    if (entry.type === 'divider') {
+      const centerX = currentX - dividerWidth / 2;
+      const lineStartY = paddingTop + frameHeight * 0.24;
+      const lineEndY = paddingTop + frameHeight * 0.46;
+      svgParts.push(`<line class="poem-svg-divider" x1="${centerX}" y1="${lineStartY}" x2="${centerX}" y2="${lineEndY}" />`);
+      currentX -= dividerWidth;
+      return;
+    }
+
+    svgParts.push(
+      `<text class="poem-svg-text" x="${currentX}" y="${paddingTop}">${escapeHtml(entry.text)}</text>`
+    );
+    currentX -= textColumnWidth;
+  });
+
+  return `
+    <svg class="poem-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(poem.title || poem.id)}">
+      <defs>
+        <filter id="paper-grain" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="noise" />
+          <feColorMatrix in="noise" type="saturate" values="0" result="monoNoise" />
+          <feComponentTransfer in="monoNoise" result="grain">
+            <feFuncA type="table" tableValues="0 0.03" />
+          </feComponentTransfer>
+          <feBlend in="SourceGraphic" in2="grain" mode="multiply" />
+        </filter>
+      </defs>
+      <rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="18" fill="#f6efdf" stroke="#dfcfb2" filter="url(#paper-grain)" />
+      <line x1="${width - 28}" y1="28" x2="${width - 28}" y2="${height - 28}" stroke="rgba(167,47,37,0.34)" stroke-width="2" />
+      <line x1="28" y1="28" x2="28" y2="${height - 28}" stroke="rgba(167,47,37,0.24)" stroke-width="2" />
+      ${svgParts.join('')}
+    </svg>
+  `;
+}
+
+function buildReading(poem) {
+  const meta = buildMeta(poem);
+  return `
+    <div class="poem-sheet-hint" id="poem-scroll-hint">左右滑动</div>
+    <div class="poem-sheet-scroll">
+      <div class="poem-sheet">
+        <div class="poem-sheet-titleblock">
+          <div class="poem-sheet-title">${escapeHtml(poem.title || poem.id)}</div>
+          ${meta ? `<div class="poem-sheet-meta">${escapeHtml(meta)}</div>` : ''}
+        </div>
+        <div class="poem-sheet-body">
+          ${buildContent(poem.content)}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function refreshSvgLinks(poem) {
+  const svg = document.querySelector('.poem-svg');
+  const openLink = document.getElementById('poem-open-svg');
+  const downloadLink = document.getElementById('poem-download-svg');
+
+  if (!svg || !openLink || !downloadLink) return;
+
+  if (currentSvgUrl) {
+    URL.revokeObjectURL(currentSvgUrl);
+    currentSvgUrl = null;
+  }
+
+  const svgBlob = new Blob([svg.outerHTML], { type: 'image/svg+xml;charset=utf-8' });
+  currentSvgUrl = URL.createObjectURL(svgBlob);
+
+  openLink.href = currentSvgUrl;
+  downloadLink.href = currentSvgUrl;
+  downloadLink.download = `${poem.id || 'poem'}.svg`;
+}
+
+function buildNotes(description) {
+  const notes = normalizeList(description);
+  if (!notes.length) return '';
+  const items = notes.map((line) => `<div class="poem-note-line">${renderMarkdownLine(String(line))}</div>`).join('');
+  return `
+    <section class="poem-panel">
+      <h2 class="poem-panel-title">注释</h2>
+      <div class="poem-notes-list">${items}</div>
+    </section>
+  `;
+}
+
+function buildImages(images, title) {
+  const imageList = normalizeList(images);
+  if (!imageList.length) return '';
+  const items = imageList.map((img) => {
+    const src = `${poetryAssetBase}${img}`;
+    return `<a href="${src}" target="_blank" rel="noopener noreferrer"><img src="${src}" alt="${escapeHtml(title)}" /></a>`;
+  }).join('');
+  return `
+    <section class="poem-panel">
+      <h2 class="poem-panel-title">配图</h2>
+      <div class="poem-images">${items}</div>
+    </section>
+  `;
+}
+
+function buildMeta(poem) {
+  const parts = [];
+  if (poem.year) parts.push(`${poem.year}`);
+  const type = normalizeList(poem.type).join(' · ');
+  if (type) parts.push(type);
+  return parts.join(' · ');
+}
+
+function poemUrl(id) {
+  return `${poemBaseUrl}?id=${encodeURIComponent(id)}`;
+}
+
+function otherItemUrl(id) {
+  return `${otherPageUrl}#${encodeURIComponent(id)}`;
+}
+
+function renderNotFound(root) {
+  const sampleLinks = poems.slice(0, 8).map((poem) => {
+    return `<li><a href="${poemUrl(poem.id)}">${escapeHtml(poem.title || poem.id)}</a></li>`;
+  }).join('');
+
+  root.innerHTML = `
+    <div class="poem-empty">
+      <h1>没有找到对应诗词</h1>
+      <p>请从诗集列表重新进入，或直接选择一首浏览。</p>
+      <ul>${sampleLinks}</ul>
+    </div>
+  `;
+  document.title = '未找到诗词';
+}
+
+function renderPoem(root, poem, index) {
+  root.innerHTML = `
+    <article>
+      <div class="poem-detail-body">
+        ${buildReading(poem)}
+      </div>
+      <div class="poem-supporting">
+        <section class="poem-panel">
+          <h2 class="poem-panel-title">诗笺导出</h2>
+          <div class="poem-detail-nav">
+            <a class="poem-detail-link" id="poem-open-svg" href="#" target="_blank" rel="noopener noreferrer">打开 SVG</a>
+            <a class="poem-detail-link" id="poem-download-svg" href="#" download="poem.svg">下载 SVG</a>
+          </div>
+        </section>
+        ${buildNotes(poem.description)}
+        ${buildImages(poem.image, poem.title || poem.id)}
+      </div>
+    </article>
+  `;
+
+  const backToItem = document.getElementById('poem-back-to-item');
+  if (backToItem) {
+    backToItem.href = otherItemUrl(poem.id);
+  }
+
+  const prevNext = document.getElementById('poem-prev-next');
+  if (prevNext) {
+    const links = [];
+    if (index > 0) {
+      const prev = poems[index - 1];
+      links.push(`<a class="poem-detail-link" href="${poemUrl(prev.id)}">上一首</a>`);
+    }
+    if (index < poems.length - 1) {
+      const next = poems[index + 1];
+      links.push(`<a class="poem-detail-link" href="${poemUrl(next.id)}">下一首</a>`);
+    }
+    prevNext.innerHTML = links.join('');
+  }
+
+  const scrollBox = root.querySelector('.poem-sheet-scroll');
+  const scrollHint = root.querySelector('#poem-scroll-hint');
+  if (scrollBox) {
+    requestAnimationFrame(() => {
+      scrollBox.scrollLeft = scrollBox.scrollWidth;
+      if (scrollHint && scrollBox.scrollWidth <= scrollBox.clientWidth + 8) {
+        scrollHint.style.opacity = '0';
+      }
+    });
+
+    scrollBox.addEventListener('scroll', () => {
+      if (!scrollHint) return;
+      const maxOffset = scrollBox.scrollWidth - scrollBox.clientWidth;
+      if (maxOffset <= 8) {
+        scrollHint.style.opacity = '0';
+        return;
+      }
+      const nearRight = scrollBox.scrollLeft >= maxOffset - 12;
+      scrollHint.style.opacity = nearRight ? '1' : '0.18';
+    }, { passive: true });
+  }
+
+  refreshSvgLinks(poem);
+  document.title = `${poem.title || poem.id} | 诗词`;
+}
+
+const root = document.getElementById('poem-root');
+const requestedId = getPoemId();
+const poemIndex = requestedId
+  ? poems.findIndex((poem) => String(poem.id) === requestedId)
+  : 0;
+
+if (poemIndex < 0 || !poems[poemIndex]) {
+  renderNotFound(root);
+} else {
+  renderPoem(root, poems[poemIndex], poemIndex);
+}
+</script>

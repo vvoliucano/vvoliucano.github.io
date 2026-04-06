@@ -76,6 +76,18 @@ title: Others
     letter-spacing: 0.1em;
 }
 
+.poetry-title a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.poetry-title a:hover {
+    color: #1f4e79;
+    border-bottom-color: rgba(31, 78, 121, 0.35);
+}
+
 .poetry-type {
     display: inline-block;
     font-size: 0.9rem;
@@ -284,8 +296,10 @@ title: Others
   
   {% for pub in year.items %}
   <div class="poetry-item" id="{{ pub.id }}">
+    {% assign poem_id = pub.id | url_encode %}
+    {% assign poem_url = '/poem/?id=' | append: poem_id %}
     <div class="poetry-header">
-      <h3 class="poetry-title">{{ pub.title }}</h3>
+      <h3 class="poetry-title"><a href="{{ poem_url | relative_url }}">{{ pub.title }}</a></h3>
       {% if pub.type %}
       <span class="poetry-type">{{ pub.type | join: "·" }}</span>
       {% endif %}

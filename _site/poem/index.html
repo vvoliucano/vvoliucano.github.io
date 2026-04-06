@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="application-name" content="Can Liu">
+<meta name="theme-color" content="#2c9f64">
+<meta name="keywords" content="liucan, Can Liu, LIU Can, Liu Can, 刘灿, 北京大学刘灿, 可视化刘灿, 可视化, 深度学习, 数据分析, 北京大学, Peking University, Peking, Visualization, Data Analytics, PKU, PKUVIS, Beida, 博士, 博士生, 可视分析, 京师大学堂">
+<meta name="description" content="Website of Can Liu (刘灿), a PhD student. 北京大学可视化博士研究生刘灿">
+<title>Can Liu</title>
+<meta property="og:title" content="Can Liu">
+<meta property="og:site_name" content="http://0.0.0.0:1111 Can Liu">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://0.0.0.0:1111">
+<meta property="og:image" content="">
+<meta property="og:description" content="Website of Can Liu (刘灿), a student of data visualization.">
+<meta name="author" content="Can Liu (刘灿)">
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/rss+xml" title="Can Liu" href="http://0.0.0.0:1111/feed.xml">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+<link href="/styles.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-146429859-1');
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fbf4b1a0c5c8dd0a7fa5f17ad11a107c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+  
+<header class="page-header">
+  <nav class="container">
+    <a class="site-title" href="/zh/">主页</a>
+    <div>
+        <img src="/assets/images/liucan_writing.png" height="30px" alt='Can Liu' />
+    </div>
+    <div><a href="/projects-zh/" >项目</a></div>
+    <div><a href="/publications-zh/" >发表物</a></div>
+   <!--  <div><a href="/misc/" >Misc</a></div>
+  <div><a href="/contact/" >Contact</a></div> -->
+    <!-- <a href="/talks/" >Talks</a>
+    <a href="/blog/" >Blog</a> -->
+    <div><a href="/cv-zh/">简历</a></div>
+    <div><a href="/other/" >其他</a></div>
+    <span class="external">
+      <!-- <div><a target="_blank" href="https://twitter.com/LiwenhanXie"><i class="fab fa-twitter"></i>Twitter</a></div> -->
+      <div><a href="/"></i>English</a></div>
+    </span>
+  </nav>
+</header>
+
+
+  <div class="page-content">
+    <section class="container poem-page-wrapper">
+  <style>
+@font-face {
+    font-family: "OuyangxunKaishu";
+    src: url("/assets/font/%E6%AD%A3%E6%AC%A7%E9%98%B3%E8%AF%A2%E6%A5%B7%E4%B9%A6%2B%E7%AE%80%E7%B9%81.TTF") format("truetype");
+    font-display: swap;
+}
+
+.poem-detail-page {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    --poem-font-main: "OuyangxunKaishu", "STKaiti", "KaiTi", "Kaiti SC", serif;
+    --poem-paper: #f5eddc;
+    --poem-paper-deep: #e7d8b8;
+    --poem-ink: #25384a;
+    --poem-muted: #786851;
+    --poem-rule: rgba(130, 99, 58, 0.26);
+}
+
+.poem-detail-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.poem-detail-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+.poem-detail-link {
+    display: inline-block;
+    padding: 0.1rem 0.2rem;
+    color: #5a4a34;
+    text-decoration: none;
+    font-family: var(--poem-font-main);
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid rgba(121, 101, 71, 0.18);
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.poem-detail-link:hover {
+    color: #392d1f;
+    border-color: rgba(121, 101, 71, 0.44);
+    transform: translateY(-1px);
+}
+
+.poem-detail-card {
+    background: linear-gradient(180deg, rgba(252, 249, 242, 0.98), rgba(247, 241, 226, 0.98));
+    border: 1px solid rgba(145, 121, 86, 0.18);
+    border-radius: 22px;
+    box-shadow: 0 18px 40px rgba(63, 42, 19, 0.08);
+    overflow: hidden;
+}
+
+.poem-detail-body {
+    position: relative;
+    padding: 1.1rem 1.25rem 1.8rem;
+}
+
+.poem-sheet-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 0.5rem;
+    scroll-behavior: smooth;
+}
+
+.poem-sheet-scroll::-webkit-scrollbar {
+    height: 10px;
+}
+
+.poem-sheet-scroll::-webkit-scrollbar-thumb {
+    background: rgba(121, 101, 71, 0.22);
+    border-radius: 999px;
+}
+
+.poem-sheet {
+    position: relative;
+    display: inline-block;
+    min-width: 680px;
+    padding: 1.8rem 2.2rem;
+    border-radius: 18px;
+    border: 1px solid rgba(145, 121, 86, 0.16);
+    background:
+        linear-gradient(180deg, rgba(255, 251, 244, 0.72), rgba(249, 241, 225, 0.92)),
+        repeating-linear-gradient(
+            0deg,
+            rgba(110, 87, 53, 0.018) 0px,
+            rgba(110, 87, 53, 0.018) 1px,
+            rgba(255, 255, 255, 0) 2px,
+            rgba(255, 255, 255, 0) 6px
+        ),
+        radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.48), transparent 28%),
+        radial-gradient(circle at 78% 72%, rgba(190, 160, 112, 0.12), transparent 36%),
+        linear-gradient(180deg, var(--poem-paper) 0%, #f3ead4 100%);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.38),
+        0 10px 26px rgba(84, 57, 27, 0.08);
+    filter: url(#paper-texture);
+}
+
+.poem-sheet-hint {
+    position: absolute;
+    top: 0.1rem;
+    right: 1.6rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0.55rem;
+    color: rgba(96, 78, 54, 0.78);
+    font-family: var(--poem-font-main);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    background: linear-gradient(90deg, rgba(255, 252, 246, 0), rgba(255, 252, 246, 0.9), rgba(255, 252, 246, 0));
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.poem-sheet-hint::before,
+.poem-sheet-hint::after {
+    content: "";
+    width: 1.6rem;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(123, 98, 67, 0), rgba(123, 98, 67, 0.55));
+}
+
+.poem-sheet-hint::after {
+    transform: scaleX(-1);
+}
+
+.poem-sheet::before,
+.poem-sheet::after {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    bottom: 1rem;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(167, 47, 37, 0.18), rgba(167, 47, 37, 0.34), rgba(167, 47, 37, 0.18));
+}
+
+.poem-sheet::before {
+    right: 1.15rem;
+}
+
+.poem-sheet::after {
+    left: 1.15rem;
+}
+
+.poem-sheet-titleblock {
+    position: absolute;
+    top: 1.65rem;
+    right: 1.95rem;
+    color: var(--poem-ink);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+}
+
+.poem-sheet-title {
+    font-family: var(--poem-font-main);
+    font-size: 2rem;
+    line-height: 1.25;
+    letter-spacing: 0.14em;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.poem-sheet-meta {
+    font-size: 0.86rem;
+    line-height: 1.2;
+    color: var(--poem-muted);
+    letter-spacing: 0.08em;
+    writing-mode: horizontal-tb;
+}
+
+.poem-sheet-body {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: var(--poem-font-main);
+    color: var(--poem-ink);
+    height: min(76vh, 860px);
+    min-height: 420px;
+    padding: 0.6rem 4.9rem 0.6rem 0.9rem;
+    font-size: 2.1rem;
+    line-height: 1.8;
+    letter-spacing: 0.12em;
+}
+
+.poem-line {
+    position: relative;
+    white-space: nowrap;
+    padding: 0 0.42rem;
+    min-width: 3.3rem;
+}
+
+.poem-line::before,
+.poem-line::after {
+    content: "";
+    position: absolute;
+    top: 0.2rem;
+    bottom: 0.2rem;
+    width: 1px;
+    background: var(--poem-rule);
+}
+
+.poem-line::before {
+    right: 0;
+}
+
+.poem-line::after {
+    left: 0;
+}
+
+.poem-divider {
+    min-width: 1.45rem;
+}
+
+.poem-spacer {
+    min-width: 1.45rem;
+}
+
+.poem-divider::before,
+.poem-divider::after,
+.poem-spacer::before,
+.poem-spacer::after {
+    display: none;
+}
+
+.poem-supporting {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0 1.6rem 1.8rem;
+}
+
+.poem-panel {
+    background: rgba(255, 251, 243, 0.86);
+    border: 1px solid rgba(145, 121, 86, 0.12);
+    border-radius: 14px;
+    padding: 1.15rem 1.2rem;
+}
+
+.poem-panel-title {
+    margin: 0 0 0.8rem;
+    color: #5e4d36;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+}
+
+.poem-notes-list {
+    margin: 0;
+    padding-left: 0;
+    color: #4f5e6a;
+    line-height: 1.9;
+    list-style: none;
+}
+
+.poem-note-line + .poem-note-line {
+    margin-top: 0.65rem;
+}
+
+.poem-notes-list a {
+    word-break: break-word;
+}
+
+.poem-images {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.poem-images a {
+    display: block;
+    width: 100%;
+}
+
+.poem-images img {
+    width: min(100%, 940px);
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 10px 22px rgba(52, 36, 18, 0.12);
+}
+
+.poem-empty {
+    padding: 3rem 2rem;
+    text-align: center;
+    color: #607286;
+}
+
+.poem-empty h1 {
+    margin-top: 0;
+    font-weight: 500;
+    color: #23384e;
+}
+
+.poem-empty ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+}
+
+.poem-empty li + li {
+    margin-top: 0.6rem;
+}
+
+@media (max-width: 900px) {
+    .poem-detail-body {
+        padding: 1rem 0.7rem 1.2rem;
+    }
+
+    .poem-supporting {
+        padding: 0 0.7rem 1.4rem;
+    }
+
+    .poem-sheet {
+        min-width: 520px;
+        padding: 1.2rem 1.35rem;
+    }
+
+    .poem-sheet-titleblock {
+        top: 1.2rem;
+        right: 1.3rem;
+    }
+
+    .poem-sheet-title {
+        font-size: 1.45rem;
+    }
+
+    .poem-sheet-meta {
+        font-size: 0.74rem;
+    }
+
+    .poem-sheet-body {
+        height: min(66vh, 700px);
+        min-height: 320px;
+        padding-right: 3.8rem;
+        font-size: 1.52rem;
+        letter-spacing: 0.08em;
+    }
+
+    .poem-line {
+        min-width: 2.5rem;
+        padding: 0 0.28rem;
+    }
+
+    .poem-sheet-hint {
+        right: 0.9rem;
+        font-size: 0.72rem;
+    }
+}
+</style>
+
+<svg aria-hidden="true" width="0" height="0" style="position:absolute;left:-9999px;overflow:hidden">
+  <defs>
+    <filter id="paper-texture" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="noise"></feTurbulence>
+      <feColorMatrix in="noise" type="saturate" values="0" result="monoNoise"></feColorMatrix>
+      <feComponentTransfer in="monoNoise" result="grain">
+        <feFuncA type="table" tableValues="0 0.03"></feFuncA>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="grain" mode="multiply"></feBlend>
+    </filter>
+  </defs>
+</svg>
+
+<div
+  class="poem-detail-page"
+  id="poem-page"
+  data-poem-base-url="/poem/"
+  data-other-page-url="/other/"
+  data-poetry-asset-base="/assets/poetry/"
+>
+  <div class="poem-detail-toolbar">
+    <div class="poem-detail-nav">
+      <a class="poem-detail-link" href="/other/">返回诗集</a>
+      <a class="poem-detail-link" id="poem-back-to-item" href="/other/">返回当前条目</a>
+    </div>
+    <div class="poem-detail-nav" id="poem-prev-next"></div>
+  </div>
+
+  <div id="poem-root" class="poem-detail-card">
+    <div class="poem-empty">正在载入诗词...</div>
+  </div>
+</div>
+
+<script id="poem-data" type="application/json">[{"id":"临江仙","title":"临江仙·东风西逝","year":2025,"type":["词"],"content":["漢骑封大漠，单于西遁","​帝鞭锋自长安出","​君不达今何佩斯？风卷旧袍","---","​金殿议连宵，棋局各营","​东墙薪尽西邻豪","​危桥独倚看断缆，多瑙河凉"],"highlight":3,"image":["202511_budapest_0.jpg","202511_budapest_1.jpg"],"description":["1. 临江仙·东风西逝，以古喻今，将中国汉朝的历史与现代欧洲多瑙河畔的布达佩斯巧妙地串联起来。“东风西逝”既指古代匈奴在汉朝打击下西迁的历史长风，也暗指当今世界格局的变迁与地缘政治的激荡。","2. 汉骑封大漠，单于西遁。帝鞭锋自长安出。起笔气势恢宏，回溯历史：汉朝铁骑大破匈奴，迫使单于西遁。这股来自长安的锋芒，犹如一条历史的长鞭，引发了亚欧大陆的民族大迁徙。同时，“帝鞭”暗指历史上令欧洲震颤的“上帝之鞭”（常指匈人首领阿提拉，其与匈牙利有深厚历史渊源），在此化作一件曾震撼时代的绝世武器。[古基因组揭示欧洲匈人与汉匈奴帝国之间的跨欧亚联系，美国科学院院刊（PNAS），2025。](https://www.pnas.org/doi/epub/10.1073/pnas.2418485122)","3. 君不达今何佩斯？风卷旧袍。此句为全词“诗眼”，将地名与长句完美融合，极尽双关之妙。字面上，“不达”与“佩斯”合成了词人身处的匈牙利首都“布达佩斯”（Budapest）。深层意理上，则是对前句“帝鞭”的沉重叩问：“你若不解这千年变局，试问今日还有谁配执掌、佩戴这把历史的利刃？”（何佩斯：谁来佩戴此物）。“风卷旧袍”写尽千年流转，昔日战袍在异国冷风中翻涌的沧桑感。","4. 金殿议连宵，棋局各营。下阕切入现代欧陆局势。“金殿”指代多瑙河畔金碧辉煌的国会大厦或各类峰会。政客连夜争辩，而整个欧陆早已化作多方博弈的庞大棋局。此句隐写了当下错综复杂的大国拉扯：既有欧陆内部东西利益的错位与倾轧（如劳动力的西倾），也有横亘在欧洲的巨大地缘冲突；更有域外执棋者在背后推波助澜，借力打力，既消耗对手，也削弱盟友。各方同处一局，却阵营壁垒分明，算计重重。","5. 东墙薪尽西邻豪。此句反向化用“薪不尽，火不灭”之理，暗示维持某种对抗或繁荣的资源（如能源、资本乃至国力）正在被急剧消耗甚至枯竭（东墙薪尽），而隔壁的阵营或大国却依然高歌猛进、大发其财（西邻豪）。在宏大博弈中，一方的透支往往成为另一方敛财与控制的筹码，道尽了被当作耗材者的悲哀。","6. 危桥独倚看断缆，多瑙河凉。收尾将视线拉回眼前的具象。“危桥”与“断缆”既是布达佩斯跨河大桥的实景，更是深沉的时代隐喻。“危桥”指代东西方之间摇摇欲坠的沟通纽带；“断缆”不仅象征着世界格局的撕裂、脱钩，更隐喻了那条沉入深海、被强行切断的能源大动脉（暗指“北溪”管道被炸毁等断链事件）。词人独倚桥头，望着冰冷的多瑙河水，体会着大时代下世界割裂的阵痛与刺骨的寒意。"]},{"id":"云径","title":"云径","year":2025,"type":["诗"],"content":["远上云中径，烟树绕九溪","枫香星影碎，浅潭一叶栖"],"highlight":3,"image":["2025_yunxi_1.jpg","2025_yunxi_2.jpg","2025_yunxi_3.jpg"]},{"id":"河池","title":"河池","year":2025,"type":["诗"],"content":["山影随舟远，河池纳天光","​云峰高斯立，风抚一江芳","​千仞虽无欲，清流自皴霞","汀漳本同襟，何故穿龙岩"],"highlight":3,"image":["2025_hechi_1.jpg","2025_hechi_2.jpg","2025_hechi_3.jpg"]},{"id":"天下","title":"江城子·天下首见","year":2025,"type":["词"],"content":["三百万里唱旧伤，舰犁浪，箭穿杨","鹰帜猎猎，邀吾征东方?!","六十四屯沉渊处， 涛犹泣，血未凉","---","桦林犹诉昔年殇，齿唇依？耻先忘","把酒言欢，何安岭平疆?","愿得飞将重靖宇，巡北斗，护龙江!"],"highlight":3},{"id":"赠载煜","title":"赠载煜","year":2025,"type":["诗"],"content":["朝日煜海东","南洋载星舟","异域自同俦","古道共悠悠"],"highlight":3},{"id":"作客","title":"苏幕遮·万里作客","year":2025,"type":["词"],"content":["越鲸涛，开筚路。七剑星舟[1]，直破沧溟雾。","山海沧茫寻生处，织就蓬莱，竹网连天幕[2]。","---","赤旗张，烽火怒。剑指崖山，万里衣冠渡。","谁道河殇湮夏土？天海扬帆，银汉为归路。"],"highlight":3,"description":["[1] 七剑星舟：指七下西洋","[2] 竹网：竹网参见维基百科"]},{"id":"阴晴","title":"阴晴","year":2025,"type":["诗"],"content":["阴晴原无定，海气幻千形","晴峦分翠霭，雨壑坠珠泠"],"highlight":3},{"id":"越山海","title":"越山海","year":2024,"type":["诗"],"content":["志合山海越，千里复相逢","​星汉光年远？倏如一江风"],"highlight":3},{"id":"首尾两端","title":"江城子·首尾两端","year":2024,"type":["词"],"content":["岷江千里雪融寒，玉磊盘，青城拦","太守作堰，鱼嘴妙分澜","秦卷天下终始汉，丞相挽，万古昙;","---","天堑横亘龙虎桓，三代传，守江南","大魏吴王，十万雄师磐","白衣渡江千古传，明祖赞，护陵南。"],"highlight":3,"description":["1. 江城子·首尾两端，江城子是著名的词牌，首尾两端正好是长江的西边和东边的两座江城的对比。在古代岷江一般被认为是长江的主脉。","2. 岷江千里雪融寒，玉磊盘，青城拦。岷江发源于高山雪域，雪水融化而下，奔流千里。玉磊山与青城山夹峙其间，形成天然的水势格局。此三句先写自然地理，以铺垫都江堰工程产生的条件。岷江之水既是灾患之源，也是蜀地农业的命脉。","3. “太守”指秦蜀郡太守李冰。李冰父子主持修建都江堰水利工程，以“鱼嘴”分水，使江水分流灌溉平原、又能泄洪导流。此举不仅解决水患，更使成都平原成为沃野千里，从而奠定蜀地富庶的基础。","4. 蜀地富庶成为秦国统一六国的重要物质基础之一。秦灭六国之后，中国进入大一统时代；而汉朝的兴起亦与蜀地有关, 刘邦曾受封汉中王，以巴蜀为根基发展势力。至三国之时，汉室最后的政权亦立于巴蜀。故言“终始汉”，既指汉室从蜀地兴起，也暗示其最终在蜀地延续。","5. 丞相挽，万古昙。“丞相”指诸葛亮。诸葛亮辅佐蜀汉、整顿内政、北伐中原，以一人之力维系国运。“挽”有挽狂澜之意。蜀汉虽国祚不长，但诸葛亮的政治理想与声名却流传千古，成为中国乃至东亚的精神支柱。","6. 天堑横亘龙虎桓，三代传，守江南。下阕转写江东。长江天险横亘南北，使江东形势险固，自古有“龙盘虎踞”之称。东吴传至孙权是第三代，政权稳固。然而其势力始终局限于江南地区，未能改变天下格局，故言“守江南”。不思进取却又左右横跳，背刺盟友，属实可恨。","7. 大魏吴王，十万雄师磐。孙权曾向曹丕称臣受封吴王，后又自立为帝。“十万雄师”写其兵力强盛，后世尊称孙权为“孙十万”。","8. 白衣渡江千古传。指东吴将领吕蒙伪装商旅偷袭荆州的事件，即白衣渡江。此举在军事上极为成功，但破坏了政治底线。","9. 明祖赞，护陵南。“明祖”指朱元璋。相传明太祖修建明孝陵时，见孙权陵说：“孙权也是好汉子，就留他守门吧。”表面为称赞，实则将一位开国之君降格为守陵武将。"]},{"id":"西山","title":"西山","year":2024,"content":["五岭赴平川，西乡享景山","太行横燕脉，淑贤如是观"],"image":["202410_hutoushan.jpg","202410_hutoushan2.jpg","202410_hutoushan3.jpg"]},{"id":"二王千秋","title":"二王千秋","year":2024,"content":["岷江千里雪，携势冲巴蜀","无坝沙水分，穷塞开天府","宝瓶百丈深，灌溉千万亩","二王千秋利，丞相守汉土"],"image":["2024_erwang1.jpg","2024_erwang2.jpg","2024_erwang3.jpg"]},{"id":"东吴大帝","title":"东吴大帝","year":2024,"content":["东吴大帝垂宇宙","虎踞龙盘守江东","皇明太祖赞好汉","留得钟山护皇陵","魏武扬鞭止荆扬","生子当如魏吴王","厉兵秣马提十万","北望合肥又一年"]},{"id":"纳猫契","title":"纳猫契","year":2023,"content":["一只猫儿是狸花，本在西方诸佛前。","三藏带归家长养，护持经卷在民间。","外表俊俏身世妙，身具虎斑神似豹。","藏于豹溪孤慎行，碰瓷南武第一侯。","豹溪小豹是某甲，自卖南武终不悔。","三面断价小鱼干，聘金随契已交还。","买主愿如石崇富，寿如彭祖福高迁。","仓禾自此巡无怠，鼠贼从兹补不闲。","不吵主人睡懒觉，不得盗食把家翻。","日夜在家看守物，莫走东畔与西边。","如有故违走外去，堂前引过受笞鞭。","十月初七，行契人灿。行契喵豹"],"image":["202412_xiaobao_qiyue.jpg"],"description":["1. Na Mao Qi was a ritualized cat adoption contract in ancient China, especially during the Song dynasty. It recorded the cat’s information, the adopter’s expectations and responsibilities, and was accompanied by symbolic gifts and formal rituals. The contract symbolically treated the cat as a family member, with a promise of kind treatment, in the hope that the cat would protect the household and bring good fortune.","2. The spiral layout of the Na Mao Qi owes thanks to the assistance of Dr. Crab (shellywhen.github.io)."]},{"id":"四海一同","title":"三星四海","year":2023,"content":["三星伴月堆，西山俯岷江","古蜀三千年，隔绝殷与商","开明毕于旦，始皇卷八方","悠悠华夏同，四海同一邦"]},{"id":"未名","title":"未名","year":2022,"type":["绝句"],"content":["日暮长天亮，闲云镜里悠","九衢含朗润，幽径未名由"],"highlight":3},{"id":"蛙声慢","title":"蛙声慢","year":2022,"content":["云蒸炎铄石","骤雨安步归","听取蛙声慢?","东风万树飞"]},{"id":"八荒同","title":"卜算子·八荒同","year":2022,"content":["歇山盖穹窿","庭镇红星升","敢效昔年三武事，从此和平道","鱼雷荡水波","天海无需祭","十亿神州尽文殊，玛米金珠降"]},{"id":"妙峰","title":"如梦令·妙峰观日","year":2021,"content":["气盛轻年意至","不惧风寒夜路","残月伴微灯","直上京西首峭","凝眺","凝眺","红霞穿楼万丈"]},{"id":"万生","title":"万生","year":2020,"type":["绝句"],"content":["凉风嘻群木，暖月映同伦","绝顶万生瞰，千檐若素尘"],"highlight":3},{"id":"返校","title":"卜算子·返校","year":2020,"type":["词"],"content":["庚子岁月停，疫始江山锁。","谁话平川不是水？云雾生梁野。","---","南武留连时，飞信催人返。","应是别离了无憾，我驾白驹启。"],"highlight":3},{"id":"卷","title":"卷","year":2020,"type":"新绝句","content":["四九千层卷","八千拓扑一 (TOP 1)","难为人上人","就做恩批西 (NPC)"]},{"id":"秋","title":"秋","year":2020,"type":"绝句","content":["极目遥天净","山深秋水凉","苍苍翠微辟","朱门石径旁"]},{"id":"冲浪","title":"浪淘沙·真的在浪淘沙","year":2020,"type":["诗"],"content":["波涌青蓝浪起白","驭梭踏浪牧仆潮","人生浮表难平意","应上清玄揽月来"],"highlight":3},{"id":"三琼","title":"三琼","year":2020,"type":["新绝句"],"content":["两日踏三琼","半天寻万水","酒头起飞对","车上来蹦迪"]},{"id":"如梦令·明天开始洗心革面好好干活","title":"如梦令·明天开始洗心革面好好干活","year":2020,"type":["词"],"content":["愧忆京师经笥，夜夜焚膏继晷","从鹭岛归来，又上酒桌催吐","闲浪，闲浪","何日才能毕业?"],"highlight":3},{"id":"对联","title":"永平万安","year":2020,"type":["联"],"content":["上：平川梁野皆春色","下：高湖汉家尽东风","横：永平万安"],"highlight":3},{"id":"武平","title":"南武赋","year":2017,"content":["川平驷马阔，山野梁上悬。","湖湘漫汉水，溪桃引楚山。","千岭赴南海，万泾始东流。","望象洞，庭内十方远。","观狮山，岩前龙虎酣。","山中衫方青，坝下柭更切。","小兰贵趣雅，大禾乐仓箱。","梧高栖凤，堡中潜龙。","望良政，保永平。","盼善民，主万安。"],"highlight":3}]</script>
+<script>
+const poemPage = document.getElementById('poem-page');
+const poemDataNode = document.getElementById('poem-data');
+const poems = poemDataNode ? JSON.parse(poemDataNode.textContent) : [];
+const poemBaseUrl = poemPage ? poemPage.dataset.poemBaseUrl : '/poem/';
+const otherPageUrl = poemPage ? poemPage.dataset.otherPageUrl : '/other/';
+const poetryAssetBase = poemPage ? poemPage.dataset.poetryAssetBase : '/assets/poetry/';
+let currentSvgUrl = null;
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function getPoemId() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('id');
+}
+
+function normalizeList(value) {
+  if (!value) return [];
+  return Array.isArray(value) ? value : [value];
+}
+
+function renderMarkdownLine(text) {
+  let html = escapeHtml(text);
+  html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  html = html.replace(/&lt;(https?:\/\/[^&]+)&gt;/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+  return html;
+}
+
+function getContentEntries(lines) {
+  return normalizeList(lines).map((line) => {
+    const text = String(line == null ? '' : line);
+    const stripped = text.trim();
+    if (!stripped) {
+      return { type: 'spacer', text: '' };
+    }
+    if (stripped === '---') {
+      return { type: 'divider', text: '' };
+    }
+    return { type: 'text', text };
+  });
+}
+
+function buildContent(lines) {
+  return getContentEntries(lines).map((entry) => {
+    if (entry.type === 'spacer') return '<div class="poem-line poem-spacer" aria-hidden="true"></div>';
+    if (entry.type === 'divider') return '<div class="poem-line poem-divider" aria-hidden="true"></div>';
+    return `<div class="poem-line">${escapeHtml(entry.text)}</div>`;
+  }).join('');
+}
+
+function buildPoemSvg(poem) {
+  const entries = getContentEntries(poem.content);
+  const paddingTop = 88;
+  const paddingBottom = 70;
+  const paddingX = 86;
+  const textColumnWidth = 62;
+  const dividerWidth = 26;
+  const spacerWidth = 26;
+  const height = 920;
+  const frameHeight = height - paddingTop - paddingBottom;
+  const totalContentWidth = entries.reduce((sum, entry) => {
+    if (entry.type === 'spacer') return sum + spacerWidth;
+    if (entry.type === 'divider') return sum + dividerWidth;
+    return sum + textColumnWidth;
+  }, 0);
+  const titleColumnWidth = 54;
+  const metaColumnWidth = 28;
+  const headerGap = 24;
+  const width = Math.max(
+    paddingX * 2 + totalContentWidth + titleColumnWidth + metaColumnWidth + headerGap + 76,
+    620
+  );
+  const titleX = width - paddingX;
+  const metaX = titleX - titleColumnWidth;
+  let currentX = metaX - metaColumnWidth - headerGap;
+  const svgParts = [];
+
+  svgParts.push(`<text class="poem-svg-title" x="${titleX}" y="78">${escapeHtml(poem.title || poem.id)}</text>`);
+
+  const meta = buildMeta(poem);
+  if (meta) {
+    svgParts.push(`<text class="poem-svg-meta" x="${metaX}" y="78">${escapeHtml(meta)}</text>`);
+  }
+
+  entries.forEach((entry) => {
+    if (entry.type === 'spacer') {
+      currentX -= spacerWidth;
+      return;
+    }
+
+    if (entry.type === 'divider') {
+      const centerX = currentX - dividerWidth / 2;
+      const lineStartY = paddingTop + frameHeight * 0.24;
+      const lineEndY = paddingTop + frameHeight * 0.46;
+      svgParts.push(`<line class="poem-svg-divider" x1="${centerX}" y1="${lineStartY}" x2="${centerX}" y2="${lineEndY}" />`);
+      currentX -= dividerWidth;
+      return;
+    }
+
+    svgParts.push(
+      `<text class="poem-svg-text" x="${currentX}" y="${paddingTop}">${escapeHtml(entry.text)}</text>`
+    );
+    currentX -= textColumnWidth;
+  });
+
+  return `
+    <svg class="poem-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(poem.title || poem.id)}">
+      <defs>
+        <filter id="paper-grain" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="noise" />
+          <feColorMatrix in="noise" type="saturate" values="0" result="monoNoise" />
+          <feComponentTransfer in="monoNoise" result="grain">
+            <feFuncA type="table" tableValues="0 0.03" />
+          </feComponentTransfer>
+          <feBlend in="SourceGraphic" in2="grain" mode="multiply" />
+        </filter>
+      </defs>
+      <rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="18" fill="#f6efdf" stroke="#dfcfb2" filter="url(#paper-grain)" />
+      <line x1="${width - 28}" y1="28" x2="${width - 28}" y2="${height - 28}" stroke="rgba(167,47,37,0.34)" stroke-width="2" />
+      <line x1="28" y1="28" x2="28" y2="${height - 28}" stroke="rgba(167,47,37,0.24)" stroke-width="2" />
+      ${svgParts.join('')}
+    </svg>
+  `;
+}
+
+function buildReading(poem) {
+  const meta = buildMeta(poem);
+  return `
+    <div class="poem-sheet-hint" id="poem-scroll-hint">左右滑动</div>
+    <div class="poem-sheet-scroll">
+      <div class="poem-sheet">
+        <div class="poem-sheet-titleblock">
+          <div class="poem-sheet-title">${escapeHtml(poem.title || poem.id)}</div>
+          ${meta ? `<div class="poem-sheet-meta">${escapeHtml(meta)}</div>` : ''}
+        </div>
+        <div class="poem-sheet-body">
+          ${buildContent(poem.content)}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function refreshSvgLinks(poem) {
+  const svg = document.querySelector('.poem-svg');
+  const openLink = document.getElementById('poem-open-svg');
+  const downloadLink = document.getElementById('poem-download-svg');
+
+  if (!svg || !openLink || !downloadLink) return;
+
+  if (currentSvgUrl) {
+    URL.revokeObjectURL(currentSvgUrl);
+    currentSvgUrl = null;
+  }
+
+  const svgBlob = new Blob([svg.outerHTML], { type: 'image/svg+xml;charset=utf-8' });
+  currentSvgUrl = URL.createObjectURL(svgBlob);
+
+  openLink.href = currentSvgUrl;
+  downloadLink.href = currentSvgUrl;
+  downloadLink.download = `${poem.id || 'poem'}.svg`;
+}
+
+function buildNotes(description) {
+  const notes = normalizeList(description);
+  if (!notes.length) return '';
+  const items = notes.map((line) => `<div class="poem-note-line">${renderMarkdownLine(String(line))}</div>`).join('');
+  return `
+    <section class="poem-panel">
+      <h2 class="poem-panel-title">注释</h2>
+      <div class="poem-notes-list">${items}</div>
+    </section>
+  `;
+}
+
+function buildImages(images, title) {
+  const imageList = normalizeList(images);
+  if (!imageList.length) return '';
+  const items = imageList.map((img) => {
+    const src = `${poetryAssetBase}${img}`;
+    return `<a href="${src}" target="_blank" rel="noopener noreferrer"><img src="${src}" alt="${escapeHtml(title)}" /></a>`;
+  }).join('');
+  return `
+    <section class="poem-panel">
+      <h2 class="poem-panel-title">配图</h2>
+      <div class="poem-images">${items}</div>
+    </section>
+  `;
+}
+
+function buildMeta(poem) {
+  const parts = [];
+  if (poem.year) parts.push(`${poem.year}`);
+  const type = normalizeList(poem.type).join(' · ');
+  if (type) parts.push(type);
+  return parts.join(' · ');
+}
+
+function poemUrl(id) {
+  return `${poemBaseUrl}?id=${encodeURIComponent(id)}`;
+}
+
+function otherItemUrl(id) {
+  return `${otherPageUrl}#${encodeURIComponent(id)}`;
+}
+
+function renderNotFound(root) {
+  const sampleLinks = poems.slice(0, 8).map((poem) => {
+    return `<li><a href="${poemUrl(poem.id)}">${escapeHtml(poem.title || poem.id)}</a></li>`;
+  }).join('');
+
+  root.innerHTML = `
+    <div class="poem-empty">
+      <h1>没有找到对应诗词</h1>
+      <p>请从诗集列表重新进入，或直接选择一首浏览。</p>
+      <ul>${sampleLinks}</ul>
+    </div>
+  `;
+  document.title = '未找到诗词';
+}
+
+function renderPoem(root, poem, index) {
+  root.innerHTML = `
+    <article>
+      <div class="poem-detail-body">
+        ${buildReading(poem)}
+      </div>
+      <div class="poem-supporting">
+        <section class="poem-panel">
+          <h2 class="poem-panel-title">诗笺导出</h2>
+          <div class="poem-detail-nav">
+            <a class="poem-detail-link" id="poem-open-svg" href="#" target="_blank" rel="noopener noreferrer">打开 SVG</a>
+            <a class="poem-detail-link" id="poem-download-svg" href="#" download="poem.svg">下载 SVG</a>
+          </div>
+        </section>
+        ${buildNotes(poem.description)}
+        ${buildImages(poem.image, poem.title || poem.id)}
+      </div>
+    </article>
+  `;
+
+  const backToItem = document.getElementById('poem-back-to-item');
+  if (backToItem) {
+    backToItem.href = otherItemUrl(poem.id);
+  }
+
+  const prevNext = document.getElementById('poem-prev-next');
+  if (prevNext) {
+    const links = [];
+    if (index > 0) {
+      const prev = poems[index - 1];
+      links.push(`<a class="poem-detail-link" href="${poemUrl(prev.id)}">上一首</a>`);
+    }
+    if (index < poems.length - 1) {
+      const next = poems[index + 1];
+      links.push(`<a class="poem-detail-link" href="${poemUrl(next.id)}">下一首</a>`);
+    }
+    prevNext.innerHTML = links.join('');
+  }
+
+  const scrollBox = root.querySelector('.poem-sheet-scroll');
+  const scrollHint = root.querySelector('#poem-scroll-hint');
+  if (scrollBox) {
+    requestAnimationFrame(() => {
+      scrollBox.scrollLeft = scrollBox.scrollWidth;
+      if (scrollHint && scrollBox.scrollWidth <= scrollBox.clientWidth + 8) {
+        scrollHint.style.opacity = '0';
+      }
+    });
+
+    scrollBox.addEventListener('scroll', () => {
+      if (!scrollHint) return;
+      const maxOffset = scrollBox.scrollWidth - scrollBox.clientWidth;
+      if (maxOffset <= 8) {
+        scrollHint.style.opacity = '0';
+        return;
+      }
+      const nearRight = scrollBox.scrollLeft >= maxOffset - 12;
+      scrollHint.style.opacity = nearRight ? '1' : '0.18';
+    }, { passive: true });
+  }
+
+  refreshSvgLinks(poem);
+  document.title = `${poem.title || poem.id} | 诗词`;
+}
+
+const root = document.getElementById('poem-root');
+const requestedId = getPoemId();
+const poemIndex = requestedId
+  ? poems.findIndex((poem) => String(poem.id) === requestedId)
+  : 0;
+
+if (poemIndex < 0 || !poems[poemIndex]) {
+  renderNotFound(root);
+} else {
+  renderPoem(root, poems[poemIndex], poemIndex);
+}
+</script>
+
+</section>
+
+  </div>
+
+  <footer>
+  <div class="container">
+    <div class="footer-col">
+      <br />
+      志合山海越<br />
+      千里复相逢<br />
+      星汉光年远<br />
+      倏如一江风<br />
+      <br />
+      <!-- <abbr title="Last build on 2026-04-06">上次更新于2026年04月</abbr> -->
+    </div>
+    <div class="footer-col" width = "100px">
+      <!-- <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU"></script> -->
+      <!-- <a href="https://clustrmaps.com/site/1c3hc"  title="ClustrMaps"><img src="//www.clustrmaps.com/map_v2.png?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU&cl=ffffff" /></a> -->
+      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU&cl=ffffff&w=214&co=8b0801"></script>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+  function trim(str) {
+    return str.replace(/^\s+|\s+$/g, '');
+  }
+  var headers = document.querySelectorAll("h2, h3, h4, h5, h6");
+  for (var i=0; i<headers.length; i++) {
+    var h = headers[i];
+    var name = h.getAttribute("id");
+    var title = h.innerHTML;
+    h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
+  }
+</script>
+
+</body>
+</html>
