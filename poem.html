@@ -17,6 +17,7 @@ class: poem-page-wrapper
     margin: 0 auto;
     padding: 2rem 1rem 4rem;
     --poem-font-main: "OuyangxunKaishu", "STKaiti", "KaiTi", "Kaiti SC", serif;
+    --poem-font-note: "STFangsong", "FangSong", "华文仿宋", "FangSong_GB2312", serif;
     --poem-paper: #f5eddc;
     --poem-paper-deep: #e7d8b8;
     --poem-ink: #25384a;
@@ -268,6 +269,7 @@ class: poem-page-wrapper
     color: #4f5e6a;
     line-height: 1.9;
     list-style: none;
+    font-family: var(--poem-font-note);
 }
 
 .poem-note-line + .poem-note-line {
@@ -318,6 +320,11 @@ class: poem-page-wrapper
 
 .poem-empty li + li {
     margin-top: 0.6rem;
+}
+
+.poem-export-button {
+    cursor: pointer;
+    background: none;
 }
 
 @media (max-width: 900px) {
@@ -386,6 +393,7 @@ class: poem-page-wrapper
   data-poem-base-url="{{ '/poem/' | relative_url }}"
   data-other-page-url="{{ '/other/' | relative_url }}"
   data-poetry-asset-base="{{ '/assets/poetry/' | relative_url }}"
+  data-font-url="{{ '/assets/font/正欧阳询楷书+简繁.TTF' | relative_url | replace: '+', '%2B' }}"
 >
   <div class="poem-detail-toolbar">
     <div class="poem-detail-nav">
@@ -408,7 +416,7 @@ const poems = poemDataNode ? JSON.parse(poemDataNode.textContent) : [];
 const poemBaseUrl = poemPage ? poemPage.dataset.poemBaseUrl : '/poem/';
 const otherPageUrl = poemPage ? poemPage.dataset.otherPageUrl : '/other/';
 const poetryAssetBase = poemPage ? poemPage.dataset.poetryAssetBase : '/assets/poetry/';
-let currentSvgUrl = null;
+const poemFontUrl = poemPage ? poemPage.dataset.fontUrl : '';
 
 function escapeHtml(value) {
   return String(value)
@@ -487,11 +495,6 @@ function buildPoemSvg(poem) {
 
   svgParts.push(`<text class="poem-svg-title" x="${titleX}" y="78">${escapeHtml(poem.title || poem.id)}</text>`);
 
-  const meta = buildMeta(poem);
-  if (meta) {
-    svgParts.push(`<text class="poem-svg-meta" x="${metaX}" y="78">${escapeHtml(meta)}</text>`);
-  }
-
   entries.forEach((entry) => {
     if (entry.type === 'spacer') {
       currentX -= spacerWidth;
@@ -516,6 +519,32 @@ function buildPoemSvg(poem) {
   return `
     <svg class="poem-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(poem.title || poem.id)}">
       <defs>
+        <style><![CDATA[
+          @font-face {
+            font-family: 'OuyangxunKaishu';
+            src: url('${poemFontUrl}') format('truetype');
+          }
+          .poem-svg-title, .poem-svg-text {
+            font-family: 'OuyangxunKaishu', serif;
+            fill: #25384a;
+          }
+          .poem-svg-title {
+            font-size: 34px;
+            letter-spacing: 6px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+          }
+          .poem-svg-text {
+            font-size: 36px;
+            letter-spacing: 6px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+          }
+          .poem-svg-divider {
+            stroke: rgba(123, 98, 67, 0.52);
+            stroke-width: 1.5;
+          }
+        ]]></style>
         <filter id="paper-grain" x="-10%" y="-10%" width="120%" height="120%">
           <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="noise" />
           <feColorMatrix in="noise" type="saturate" values="0" result="monoNoise" />
@@ -534,14 +563,12 @@ function buildPoemSvg(poem) {
 }
 
 function buildReading(poem) {
-  const meta = buildMeta(poem);
   return `
     <div class="poem-sheet-hint" id="poem-scroll-hint">左右滑动</div>
     <div class="poem-sheet-scroll">
       <div class="poem-sheet">
         <div class="poem-sheet-titleblock">
           <div class="poem-sheet-title">${escapeHtml(poem.title || poem.id)}</div>
-          ${meta ? `<div class="poem-sheet-meta">${escapeHtml(meta)}</div>` : ''}
         </div>
         <div class="poem-sheet-body">
           ${buildContent(poem.content)}
@@ -551,24 +578,77 @@ function buildReading(poem) {
   `;
 }
 
-function refreshSvgLinks(poem) {
-  const svg = document.querySelector('.poem-svg');
-  const openLink = document.getElementById('poem-open-svg');
-  const downloadLink = document.getElementById('poem-download-svg');
-
-  if (!svg || !openLink || !downloadLink) return;
-
-  if (currentSvgUrl) {
-    URL.revokeObjectURL(currentSvgUrl);
-    currentSvgUrl = null;
+async function downloadPoemPng(poem) {
+  if (document.fonts && document.fonts.load) {
+    try {
+      await document.fonts.load('16px "OuyangxunKaishu"');
+    } catch (error) {
+      // Ignore font loading failures and continue with browser fallback.
+    }
   }
 
-  const svgBlob = new Blob([svg.outerHTML], { type: 'image/svg+xml;charset=utf-8' });
-  currentSvgUrl = URL.createObjectURL(svgBlob);
+  const svgMarkup = buildPoemSvg(poem);
+  const viewBoxMatch = svgMarkup.match(/viewBox="0 0 ([0-9.]+) ([0-9.]+)"/);
+  const width = viewBoxMatch ? Number(viewBoxMatch[1]) : 1200;
+  const height = viewBoxMatch ? Number(viewBoxMatch[2]) : 920;
+  const svgBlob = new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' });
+  const svgUrl = URL.createObjectURL(svgBlob);
 
-  openLink.href = currentSvgUrl;
-  downloadLink.href = currentSvgUrl;
-  downloadLink.download = `${poem.id || 'poem'}.svg`;
+  try {
+    const image = new Image();
+    image.decoding = 'async';
+    const loaded = new Promise((resolve, reject) => {
+      image.onload = resolve;
+      image.onerror = reject;
+    });
+    image.src = svgUrl;
+    await loaded;
+
+    const scale = 2;
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(width * scale);
+    canvas.height = Math.round(height * scale);
+    const context = canvas.getContext('2d');
+    if (!context) return;
+
+    context.setTransform(scale, 0, 0, scale, 0, 0);
+    context.drawImage(image, 0, 0, width, height);
+
+    const pngBlob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+    if (!pngBlob) return;
+
+    const pngUrl = URL.createObjectURL(pngBlob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = pngUrl;
+    downloadLink.download = `${poem.id || 'poem'}.png`;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    downloadLink.remove();
+    URL.revokeObjectURL(pngUrl);
+  } finally {
+    URL.revokeObjectURL(svgUrl);
+  }
+}
+
+function bindExportButton(poem) {
+  const downloadButton = document.getElementById('poem-download-png');
+  if (!downloadButton) return;
+  downloadButton.addEventListener('click', async () => {
+    downloadButton.disabled = true;
+    downloadButton.textContent = '生成中...';
+    try {
+      await downloadPoemPng(poem);
+      downloadButton.textContent = '下载 PNG';
+    } catch (error) {
+      console.error(error);
+      downloadButton.textContent = '下载失败';
+      setTimeout(() => {
+        downloadButton.textContent = '下载 PNG';
+      }, 1200);
+    } finally {
+      downloadButton.disabled = false;
+    }
+  });
 }
 
 function buildNotes(description) {
@@ -637,10 +717,9 @@ function renderPoem(root, poem, index) {
       </div>
       <div class="poem-supporting">
         <section class="poem-panel">
-          <h2 class="poem-panel-title">诗笺导出</h2>
+          <h2 class="poem-panel-title">图片导出</h2>
           <div class="poem-detail-nav">
-            <a class="poem-detail-link" id="poem-open-svg" href="#" target="_blank" rel="noopener noreferrer">打开 SVG</a>
-            <a class="poem-detail-link" id="poem-download-svg" href="#" download="poem.svg">下载 SVG</a>
+            <button type="button" class="poem-detail-link poem-export-button" id="poem-download-png">下载 PNG</button>
           </div>
         </section>
         ${buildNotes(poem.description)}
@@ -690,7 +769,7 @@ function renderPoem(root, poem, index) {
     }, { passive: true });
   }
 
-  refreshSvgLinks(poem);
+  bindExportButton(poem);
   document.title = `${poem.title || poem.id} | 诗词`;
 }
 
