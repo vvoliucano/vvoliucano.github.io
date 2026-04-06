@@ -1,0 +1,183 @@
+---
+layout: page-zh
+ permalink: /mushan/
+title: 牧山集：东风西逝
+class: mushan-page
+---
+
+<style>
+@font-face {
+    font-family: "OuyangxunKaishu";
+    src: url("{{ '/assets/font/正欧阳询楷书+简繁.TTF' | relative_url | replace: '+', '%2B' }}") format("truetype");
+    font-display: swap;
+}
+
+.mushan-catalog {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    --mushan-font: "OuyangxunKaishu", "STKaiti", "KaiTi", "Kaiti SC", serif;
+}
+
+.mushan-header {
+    text-align: center;
+    margin-bottom: 2.4rem;
+}
+
+.mushan-title {
+    margin: 0;
+    font-size: 2.6rem;
+    font-weight: 500;
+    color: #2a3d50;
+    font-family: var(--mushan-font);
+    letter-spacing: 0.14em;
+}
+
+.mushan-subtitle {
+    margin: 0.8rem 0 0;
+    color: #7a6a55;
+    font-size: 1.08rem;
+    letter-spacing: 0.08em;
+    font-family: var(--mushan-font);
+}
+
+.mushan-section {
+    margin-top: 2.4rem;
+}
+
+.mushan-year {
+    margin: 0;
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: #6a5339;
+    letter-spacing: 0.12em;
+    font-family: var(--mushan-font);
+}
+
+.mushan-divider {
+    height: 1px;
+    margin: 0.85rem 0 1.2rem;
+    background: linear-gradient(90deg, rgba(160, 132, 93, 0.45), rgba(160, 132, 93, 0.08));
+}
+
+.mushan-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mushan-item {
+    border-bottom: 1px solid rgba(186, 170, 146, 0.34);
+}
+
+.mushan-item:first-child {
+    border-top: 1px solid rgba(186, 170, 146, 0.34);
+}
+
+.mushan-link {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.1rem 0.35rem;
+    text-decoration: none;
+    color: #30475d;
+    font-family: var(--mushan-font);
+    transition: background 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
+}
+
+.mushan-link:hover {
+    background: rgba(248, 243, 233, 0.72);
+    color: #1f3447;
+    padding-left: 0.7rem;
+}
+
+.mushan-main {
+    min-width: 0;
+}
+
+.mushan-entry-title {
+    display: block;
+    font-size: 1.32rem;
+    letter-spacing: 0.06em;
+}
+
+.mushan-type {
+    color: #8a7254;
+    font-size: 1.04rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+    .mushan-catalog {
+        padding: 1.4rem 0.6rem 3rem;
+    }
+
+    .mushan-title {
+        font-size: 2.05rem;
+    }
+
+    .mushan-year {
+        font-size: 1.42rem;
+    }
+
+    .mushan-entry-title {
+        font-size: 1.18rem;
+    }
+
+    .mushan-link {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.35rem;
+        padding: 0.95rem 0.2rem;
+    }
+
+    .mushan-type {
+        font-size: 0.95rem;
+    }
+}
+</style>
+
+<div class="mushan-catalog">
+  <header class="mushan-header">
+    <h1 class="mushan-title">牧山集：东风西逝</h1>
+    <p class="mushan-subtitle">目录</p>
+  </header>
+
+  {% assign poem_years = site.data.other | group_by: "year" | sort: "name" | reverse %}
+  {% for year in poem_years %}
+  {% assign year_ganzhi = '' %}
+  {% case year.name %}
+    {% when 2025 %}{% assign year_ganzhi = '乙巳' %}
+    {% when 2024 %}{% assign year_ganzhi = '甲辰' %}
+    {% when 2023 %}{% assign year_ganzhi = '癸卯' %}
+    {% when 2022 %}{% assign year_ganzhi = '壬寅' %}
+    {% when 2021 %}{% assign year_ganzhi = '辛丑' %}
+    {% when 2020 %}{% assign year_ganzhi = '庚子' %}
+  {% endcase %}
+  <section class="mushan-section">
+    <h2 class="mushan-year">{{ year.name }}{% if year_ganzhi != '' %} · {{ year_ganzhi }}{% endif %}</h2>
+    <div class="mushan-divider"></div>
+    <ul class="mushan-list">
+      {% for poem in year.items %}
+      {% assign poem_id = poem.id | url_encode %}
+      {% assign poem_url = '/poem/?id=' | append: poem_id | relative_url %}
+      <li class="mushan-item" id="{{ poem.id }}">
+        <a class="mushan-link" href="{{ poem_url }}">
+          <span class="mushan-main">
+            <span class="mushan-entry-title">{{ poem.title }}</span>
+          </span>
+          <span class="mushan-type">
+            {% if poem.type %}
+              {{ poem.type | join: "·" }}
+            {% else %}
+              未分类
+            {% endif %}
+          </span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>

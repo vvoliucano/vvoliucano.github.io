@@ -1,6 +1,6 @@
 ---
 layout: page-zh
-permalink: /poem/
+ permalink: /poem/
 title: 诗词
 class: poem-page-wrapper
 ---
@@ -398,13 +398,13 @@ class: poem-page-wrapper
   class="poem-detail-page"
   id="poem-page"
   data-poem-base-url="{{ '/poem/' | relative_url }}"
-  data-other-page-url="{{ '/other/' | relative_url }}"
+  data-other-page-url="{{ '/mushan/' | relative_url }}"
   data-poetry-asset-base="{{ '/assets/poetry/' | relative_url }}"
   data-font-url="{{ '/assets/font/正欧阳询楷书+简繁.TTF' | relative_url | replace: '+', '%2B' }}"
 >
   <div class="poem-detail-toolbar">
     <div class="poem-detail-nav">
-      <a class="poem-detail-link" href="{{ '/other/' | relative_url }}">返回诗集</a>
+      <a class="poem-detail-link" href="{{ '/mushan/' | relative_url }}">返回诗集</a>
       <a class="poem-detail-link" id="poem-back-to-item" href="{{ '/other/' | relative_url }}">返回当前条目</a>
     </div>
     <div class="poem-detail-nav" id="poem-prev-next"></div>
@@ -422,7 +422,7 @@ const poemPage = document.getElementById('poem-page');
 const poemDataNode = document.getElementById('poem-data');
 const poems = poemDataNode ? JSON.parse(poemDataNode.textContent) : [];
 const poemBaseUrl = poemPage ? poemPage.dataset.poemBaseUrl : '/poem/';
-const otherPageUrl = poemPage ? poemPage.dataset.otherPageUrl : '/other/';
+const otherPageUrl = poemPage ? poemPage.dataset.otherPageUrl : '/mushan/';
 const poetryAssetBase = poemPage ? poemPage.dataset.poetryAssetBase : '/assets/poetry/';
 const poemFontUrl = poemPage ? poemPage.dataset.fontUrl : '';
 
