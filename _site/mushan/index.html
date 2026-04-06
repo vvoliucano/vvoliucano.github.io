@@ -133,10 +133,16 @@ var _hmt = _hmt || [];
 
 .mushan-item {
     border-bottom: 1px solid rgba(186, 170, 146, 0.34);
+    transition: background 0.18s ease;
 }
 
 .mushan-item:first-child {
     border-top: 1px solid rgba(186, 170, 146, 0.34);
+}
+
+.mushan-item:hover,
+.mushan-item:focus-within {
+    background: rgba(248, 243, 233, 0.52);
 }
 
 .mushan-link {
@@ -157,6 +163,12 @@ var _hmt = _hmt || [];
     padding-left: 0.7rem;
 }
 
+.mushan-item:focus-within .mushan-link {
+    background: rgba(248, 243, 233, 0.72);
+    color: #1f3447;
+    padding-left: 0.7rem;
+}
+
 .mushan-main {
     min-width: 0;
 }
@@ -172,6 +184,40 @@ var _hmt = _hmt || [];
     font-size: 1.04rem;
     letter-spacing: 0.08em;
     white-space: nowrap;
+}
+
+.mushan-expand {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.28s ease, opacity 0.18s ease, padding 0.18s ease;
+    padding: 0 0.8rem;
+}
+
+.mushan-item:hover .mushan-expand,
+.mushan-item:focus-within .mushan-expand {
+    max-height: 28rem;
+    opacity: 1;
+    padding: 0 0.8rem 1rem;
+}
+
+.mushan-poem {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(186, 170, 146, 0.3);
+    border-radius: 10px;
+    background: rgba(255, 251, 243, 0.8);
+    color: #445769;
+    font-family: var(--mushan-font);
+    line-height: 1.9;
+}
+
+.mushan-poem-line + .mushan-poem-line {
+    margin-top: 0.25rem;
+}
+
+.mushan-poem-spacer {
+    height: 0.85rem;
 }
 
 @media (max-width: 720px) {
@@ -199,6 +245,22 @@ var _hmt = _hmt || [];
 
     .mushan-type {
         font-size: 0.95rem;
+    }
+
+    .mushan-item:hover .mushan-expand,
+    .mushan-item:focus-within .mushan-expand {
+        max-height: 32rem;
+        padding: 0 0.2rem 0.85rem;
+    }
+
+    .mushan-expand {
+        padding: 0 0.2rem;
+    }
+
+    .mushan-poem {
+        padding: 0.8rem 0.85rem;
+        font-size: 0.98rem;
+        line-height: 1.85;
     }
 }
 </style>
@@ -231,6 +293,46 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">漢骑封大漠，单于西遁</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">​帝鞭锋自长安出</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">​君不达今何佩斯？风卷旧袍</div>
+              
+            
+              
+              
+              <div class="mushan-poem-spacer" aria-hidden="true"></div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">​金殿议连宵，棋局各营</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">​东墙薪尽西邻豪</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">​危桥独倚看断缆，多瑙河凉</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -246,6 +348,21 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">远上云中径，烟树绕九溪</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">枫香星影碎，浅潭一叶栖</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -261,6 +378,31 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">山影随舟远，河池纳天光</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">​云峰高斯立，风抚一江芳</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">​千仞虽无欲，清流自皴霞</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">汀漳本同襟，何故穿龙岩</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -276,6 +418,46 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">三百万里唱旧伤，舰犁浪，箭穿杨</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">鹰帜猎猎，邀吾征东方?!</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">六十四屯沉渊处， 涛犹泣，血未凉</div>
+              
+            
+              
+              
+              <div class="mushan-poem-spacer" aria-hidden="true"></div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">桦林犹诉昔年殇，齿唇依？耻先忘</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">把酒言欢，何安岭平疆?</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">愿得飞将重靖宇，巡北斗，护龙江!</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -291,6 +473,31 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">朝日煜海东</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">南洋载星舟</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">异域自同俦</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">古道共悠悠</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -306,6 +513,36 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">越鲸涛，开筚路。七剑星舟[1]，直破沧溟雾。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">山海沧茫寻生处，织就蓬莱，竹网连天幕[2]。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-spacer" aria-hidden="true"></div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">赤旗张，烽火怒。剑指崖山，万里衣冠渡。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">谁道河殇湮夏土？天海扬帆，银汉为归路。</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -321,6 +558,21 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">阴晴原无定，海气幻千形</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">晴峦分翠霭，雨壑坠珠泠</div>
+              
+            
+          </div>
+        </div>
       </li>
       
     </ul>
@@ -346,6 +598,21 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">志合山海越，千里复相逢</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">​星汉光年远？倏如一江风</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -361,6 +628,46 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">岷江千里雪融寒，玉磊盘，青城拦</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">太守作堰，鱼嘴妙分澜</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">秦卷天下终始汉，丞相挽，万古昙;</div>
+              
+            
+              
+              
+              <div class="mushan-poem-spacer" aria-hidden="true"></div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">天堑横亘龙虎桓，三代传，守江南</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">大魏吴王，十万雄师磐</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">白衣渡江千古传，明祖赞，护陵南。</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -376,6 +683,21 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">五岭赴平川，西乡享景山</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">太行横燕脉，淑贤如是观</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -391,6 +713,31 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">岷江千里雪，携势冲巴蜀</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">无坝沙水分，穷塞开天府</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">宝瓶百丈深，灌溉千万亩</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">二王千秋利，丞相守汉土</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -406,6 +753,51 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">东吴大帝垂宇宙</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">虎踞龙盘守江东</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">皇明太祖赞好汉</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">留得钟山护皇陵</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">魏武扬鞭止荆扬</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">生子当如魏吴王</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">厉兵秣马提十万</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">北望合肥又一年</div>
+              
+            
+          </div>
+        </div>
       </li>
       
     </ul>
@@ -431,6 +823,71 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">一只猫儿是狸花，本在西方诸佛前。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">三藏带归家长养，护持经卷在民间。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">外表俊俏身世妙，身具虎斑神似豹。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">藏于豹溪孤慎行，碰瓷南武第一侯。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">豹溪小豹是某甲，自卖南武终不悔。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">三面断价小鱼干，聘金随契已交还。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">买主愿如石崇富，寿如彭祖福高迁。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">仓禾自此巡无怠，鼠贼从兹补不闲。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">不吵主人睡懒觉，不得盗食把家翻。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">日夜在家看守物，莫走东畔与西边。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">如有故违走外去，堂前引过受笞鞭。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">十月初七，行契人灿。行契喵豹</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -446,6 +903,31 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">三星伴月堆，西山俯岷江</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">古蜀三千年，隔绝殷与商</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">开明毕于旦，始皇卷八方</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">悠悠华夏同，四海同一邦</div>
+              
+            
+          </div>
+        </div>
       </li>
       
     </ul>
@@ -471,6 +953,21 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">日暮长天亮，闲云镜里悠</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">九衢含朗润，幽径未名由</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -486,6 +983,31 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">云蒸炎铄石</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">骤雨安步归</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">听取蛙声慢?</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">东风万树飞</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -501,6 +1023,41 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">歇山盖穹窿</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">庭镇红星升</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">敢效昔年三武事，从此和平道</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">鱼雷荡水波</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">天海无需祭</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">十亿神州尽文殊，玛米金珠降</div>
+              
+            
+          </div>
+        </div>
       </li>
       
     </ul>
@@ -526,6 +1083,46 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">气盛轻年意至</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">不惧风寒夜路</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">残月伴微灯</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">直上京西首峭</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">凝眺</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">凝眺</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">红霞穿楼万丈</div>
+              
+            
+          </div>
+        </div>
       </li>
       
     </ul>
@@ -551,6 +1148,21 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">凉风嘻群木，暖月映同伦</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">绝顶万生瞰，千檐若素尘</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -566,6 +1178,36 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">庚子岁月停，疫始江山锁。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">谁话平川不是水？云雾生梁野。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-spacer" aria-hidden="true"></div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">南武留连时，飞信催人返。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">应是别离了无憾，我驾白驹启。</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -581,6 +1223,31 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">四九千层卷</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">八千拓扑一 (TOP 1)</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">难为人上人</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">就做恩批西 (NPC)</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -596,6 +1263,31 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">极目遥天净</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">山深秋水凉</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">苍苍翠微辟</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">朱门石径旁</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -611,6 +1303,31 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">波涌青蓝浪起白</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">驭梭踏浪牧仆潮</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">人生浮表难平意</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">应上清玄揽月来</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -626,6 +1343,31 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">两日踏三琼</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">半天寻万水</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">酒头起飞对</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">车上来蹦迪</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -641,6 +1383,31 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">愧忆京师经笥，夜夜焚膏继晷</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">从鹭岛归来，又上酒桌催吐</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">闲浪，闲浪</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">何日才能毕业?</div>
+              
+            
+          </div>
+        </div>
       </li>
       
       
@@ -656,6 +1423,26 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">上：平川梁野皆春色</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">下：高湖汉家尽东风</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">横：永平万安</div>
+              
+            
+          </div>
+        </div>
       </li>
       
     </ul>
@@ -681,6 +1468,61 @@ var _hmt = _hmt || [];
             
           </span>
         </a>
+        <div class="mushan-expand">
+          <div class="mushan-poem">
+            
+              
+              
+              <div class="mushan-poem-line">川平驷马阔，山野梁上悬。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">湖湘漫汉水，溪桃引楚山。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">千岭赴南海，万泾始东流。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">望象洞，庭内十方远。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">观狮山，岩前龙虎酣。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">山中衫方青，坝下柭更切。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">小兰贵趣雅，大禾乐仓箱。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">梧高栖凤，堡中潜龙。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">望良政，保永平。</div>
+              
+            
+              
+              
+              <div class="mushan-poem-line">盼善民，主万安。</div>
+              
+            
+          </div>
+        </div>
       </li>
       
     </ul>
