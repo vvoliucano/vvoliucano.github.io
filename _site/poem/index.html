@@ -87,7 +87,7 @@
 .poem-sheet {
     position: relative;
     display: inline-block;
-    width: auto;
+    width: max-content;
     min-width: 100%;
     box-sizing: border-box;
     padding: 1.8rem 2.2rem;
@@ -108,7 +108,29 @@
     box-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.38),
         0 10px 26px rgba(84, 57, 27, 0.08);
-    filter: url(#paper-texture);
+    overflow: hidden;
+}
+
+.poem-sheet-paper-wrap {
+    position: absolute;
+    inset: -2px;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.poem-sheet-paper {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.68;
+    mix-blend-mode: multiply;
+}
+
+.poem-sheet-content {
+    position: relative;
+    z-index: 1;
 }
 
 .poem-sheet-hint {
@@ -191,7 +213,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    min-height: 0;
+    min-height: 18rem;
     padding: 0.6rem 4.9rem 0.6rem 0.9rem;
     width: max-content;
     min-width: calc(100% - 5.8rem);
@@ -213,6 +235,19 @@
     white-space: nowrap;
     padding: 0 0.42rem;
     min-width: 3.3rem;
+}
+
+.poem-line-text {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    background-image:
+        radial-gradient(circle at 18% 22%, rgba(246, 239, 223, 0.5) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 72% 68%, rgba(246, 239, 223, 0.35) 0 1px, transparent 1.8px),
+        linear-gradient(180deg, rgba(37, 56, 74, 0.98) 0%, rgba(37, 56, 74, 0.9) 55%, rgba(37, 56, 74, 0.78) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 0 0.18px rgba(24, 38, 52, 0.32);
 }
 
 .poem-line::before,
@@ -332,6 +367,19 @@
 }
 
 @media (max-width: 900px), (orientation: portrait) {
+    .poem-detail-toolbar {
+        gap: 0.7rem;
+    }
+
+    .poem-detail-nav {
+        gap: 0.65rem;
+    }
+
+    .poem-detail-link {
+        font-size: 1.32rem;
+        line-height: 1.55;
+    }
+
     .poem-detail-body {
         padding: 0.9rem 0.45rem 1rem;
     }
@@ -341,7 +389,7 @@
     }
 
     .poem-sheet {
-        min-width: 620px;
+        min-width: 100%;
         padding: 1rem 1.1rem;
     }
 
@@ -375,18 +423,14 @@
         padding: 0 0.34rem;
     }
 
-    .poem-detail-link {
-        font-size: 1.12rem;
-    }
-
     .poem-sheet-hint {
         right: 0.7rem;
         font-size: 0.82rem;
     }
 
     .poem-notes-list {
-        font-size: 1.12rem;
-        line-height: 2.02;
+        font-size: 1.9rem;
+        line-height: 2.05;
     }
 }
 
@@ -400,7 +444,7 @@
     }
 
     .poem-detail-link {
-        font-size: 1.26rem;
+        font-size: 1.45rem;
         line-height: 1.5;
     }
 
@@ -414,7 +458,7 @@
     }
 
     .poem-sheet {
-        min-width: 860px;
+        min-width: 100%;
         padding: 0.7rem 0.75rem;
     }
 
@@ -453,29 +497,27 @@
     }
 
     .poem-panel-title {
-        font-size: 1.22rem;
+        font-size: 1.9rem;
     }
 
     .poem-notes-list {
-        font-size: 1.34rem;
-        line-height: 2.2;
+        font-size: 2.65rem;
+        line-height: 1.95;
     }
 
     .poem-note-line + .poem-note-line {
-        margin-top: 0.95rem;
+        margin-top: 1.4rem;
     }
 }
 </style>
 
 <svg aria-hidden="true" width="0" height="0" style="position:absolute;left:-9999px;overflow:hidden">
   <defs>
-    <filter id="paper-texture" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="noise"></feTurbulence>
-      <feColorMatrix in="noise" type="saturate" values="0" result="monoNoise"></feColorMatrix>
-      <feComponentTransfer in="monoNoise" result="grain">
-        <feFuncA type="table" tableValues="0 0.03"></feFuncA>
-      </feComponentTransfer>
-      <feBlend in="SourceGraphic" in2="grain" mode="multiply"></feBlend>
+    <filter id="roughpaper" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.050" result="noise" numOctaves="25"></feTurbulence>
+      <feDiffuseLighting in="noise" lighting-color="#E8E7E3" surfaceScale="1.2">
+        <feDistantLight azimuth="20" elevation="50"></feDistantLight>
+      </feDiffuseLighting>
     </filter>
   </defs>
 </svg>
@@ -554,7 +596,7 @@ function buildContent(lines) {
   return getContentEntries(lines).map((entry) => {
     if (entry.type === 'spacer') return '<div class="poem-line poem-spacer" aria-hidden="true"></div>';
     if (entry.type === 'divider') return '<div class="poem-line poem-divider" aria-hidden="true"></div>';
-    return `<div class="poem-line">${escapeHtml(entry.text)}</div>`;
+    return `<div class="poem-line"><span class="poem-line-text">${escapeHtml(entry.text)}</span></div>`;
   }).join('');
 }
 
@@ -567,17 +609,23 @@ function estimatePoemHeight(entries) {
 }
 
 function buildReading(poem) {
-  const contentHeight = estimatePoemHeight(getContentEntries(poem.content));
   return `
     <div class="poem-sheet-hint" id="poem-scroll-hint">左右滑动</div>
     <div class="poem-sheet-scroll">
       <div class="poem-sheet">
-        <div class="poem-sheet-titleblock">
-          <div class="poem-sheet-title">${escapeHtml(poem.title || poem.id)}</div>
+        <div class="poem-sheet-paper-wrap" aria-hidden="true">
+          <svg class="poem-sheet-paper" preserveAspectRatio="none" viewBox="0 0 100 100">
+            <rect x="0" y="0" width="100" height="100" fill="#f6efdf" filter="url(#roughpaper)"></rect>
+          </svg>
         </div>
-        <div class="poem-sheet-body" style="height:${contentHeight}px">
-          <div class="poem-lines">
-            ${buildContent(poem.content)}
+        <div class="poem-sheet-content">
+          <div class="poem-sheet-titleblock">
+            <div class="poem-sheet-title">${escapeHtml(poem.title || poem.id)}</div>
+          </div>
+          <div class="poem-sheet-body">
+            <div class="poem-lines">
+              ${buildContent(poem.content)}
+            </div>
           </div>
         </div>
       </div>
