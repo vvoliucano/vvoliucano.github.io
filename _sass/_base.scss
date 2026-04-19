@@ -8,6 +8,7 @@ html, body {
 }
 
 html {
+  color-scheme: light;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -18,7 +19,7 @@ body {
   line-height: $base-line-height;
   font-weight: $base-font-weight;
   color: $text-color;
-  background: "url(/assets/images/liucan.jpg)";
+  background: white;
 
 
   text-rendering: optimizeLegibility;
