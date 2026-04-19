@@ -121,8 +121,8 @@ var _hmt = _hmt || [];
 
 .mushan-divider {
     height: 1px;
-    margin: 0.85rem 0 1.2rem;
-    background: linear-gradient(90deg, rgba(160, 132, 93, 0.45), rgba(160, 132, 93, 0.08));
+    margin: 0.6rem 0 0.8rem;
+    background: linear-gradient(90deg, rgba(160, 132, 93, 0.35), rgba(160, 132, 93, 0.05));
 }
 
 .mushan-list {
@@ -132,12 +132,16 @@ var _hmt = _hmt || [];
 }
 
 .mushan-item {
-    border-bottom: 1px solid rgba(186, 170, 146, 0.34);
+    border-bottom: 1px solid rgba(186, 170, 146, 0.12);
     transition: background 0.18s ease;
 }
 
+.mushan-item:last-child {
+    border-bottom: none;
+}
+
 .mushan-item:first-child {
-    border-top: 1px solid rgba(186, 170, 146, 0.34);
+    border-top: none;
 }
 
 .mushan-item:hover,
@@ -1618,7 +1622,7 @@ document.querySelectorAll('.mushan-item').forEach((item) => {
       星汉光年远<br />
       倏如一江风<br />
       <br />
-      <!-- <abbr title="Last build on 2026-04-15">上次更新于2026年04月</abbr> -->
+      <!-- <abbr title="Last build on 2026-04-19">上次更新于2026年04月</abbr> -->
     </div>
     <div class="footer-col" width = "100px">
       <!-- <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU"></script> -->
