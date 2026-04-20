@@ -11,14 +11,28 @@
 
     <!-- <link rel="stylesheet" href="css/dsl_renderer_style.css"> -->
     <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
     <nav class="navbar">
-        <h1>Interaction Authoring Gallery</h1>
-        <!-- <button id="dark-mode-toggle">Theme</button> -->
+        <h1>Athanor</h1>
     </nav>
 
+    <header class="project-header">
+        <h1 class="project-title">Athanor: Authoring Action Modification-based Interactions on Static Visualizations via Natural Language</h1>
+        <div class="project-authors">
+            Can Liu, Jaeuk Lee, Tianhe Chen, Zhibang Jiang, Xiaolin Wen and Yong Wang
+        </div>
+        <div class="project-abstract">
+            <h2>Abstract</h2>
+            <p class="abstract-text">
+                Interactivity is crucial for effective data visualizations. However, it is often challenging to implement interactions for existing static visualizations, since the underlying code and data for existing static visualizations are often not available, and it also takes significant time and effort to enable interactions for them even if the original code and data are available. To fill this gap, we propose Athanor, a novel approach to transform existing static visualizations into interactive ones using multimodal large language models (MLLMs) and natural language instructions. Our approach introduces three key innovations: (1) an action-modification interaction design space that maps visualization interactions into user actions and corresponding adjustments, (2) a multi-agent requirement analyzer that translates natural language instructions into an actionable operational space, and (3) a visualization abstraction transformer that converts static visualizations into flexible and interactive representations regardless of their underlying implementation. Athanor allows users to effortlessly author interactions through natural language instructions, eliminating the need for programming. We conducted two case studies and in-depth interviews with target users to evaluate our approach. The results demonstrate the effectiveness and usability of our approach in allowing users to conveniently enable flexible interactions for static visualizations.
+            </p>
+        </div>
+    </header>
+
+    <h2 class="section-title">Interaction Authoring Gallery</h2>
 
     <div class="gallery-container" id="gallery">
         <!-- Gallery items will be dynamically inserted here -->
