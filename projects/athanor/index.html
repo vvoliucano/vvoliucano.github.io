@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Interaction Authoring Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/json/json.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="css/dsl_renderer_style.css"> -->
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1>Interaction Authoring Gallery</h1>
+        <!-- <button id="dark-mode-toggle">Theme</button> -->
+    </nav>
+
+
+    <div class="gallery-container" id="gallery">
+        <!-- Gallery items will be dynamically inserted here -->
+    </div>
+    <script>
+
+        // const darkModeToggle = document.getElementById("dark-mode-toggle");
+
+        // // 读取本地存储并设置模式
+        // if (localStorage.getItem("dark-mode") === "enabled") {
+        //     document.body.classList.add("dark-mode");
+        // }
+
+        // // 监听点击事件切换模式
+        // darkModeToggle.addEventListener("click", () => {
+        //     document.body.classList.toggle("dark-mode");
+
+        //     if (document.body.classList.contains("dark-mode")) {
+        //         localStorage.setItem("dark-mode", "enabled");
+        //     } else {
+        //         localStorage.removeItem("dark-mode");
+        //     }
+        // });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const files = new Set();
+
+            async function fetchData() {
+                try {
+                    // 🔹 shared/shared_list.txt 파일 직접 읽기
+                    const response = await fetch("./shared/shared_list.txt");
+                    if (!response.ok) {
+                        throw new Error("shared_list.txt 파일 로드 실패");
+                    }
+
+                    const text = await response.text();
+                    const lines = text
+                        .split("\n")
+                        .map(line => line.trim())
+                        .filter(line => line.length > 0); // 빈 줄 제거
+
+                    const chartData = { files: lines }; // 🔹 server.py가 주던 구조 모방
+
+                    if (chartData.files && Array.isArray(chartData.files)) {
+                        chartData.files.forEach(file => files.add(file));
+                    } else {
+                        console.error("파일 목록을 처리할 수 없습니다.");
+                    }
+
+                    // 🔹 renderGallery 호출
+                    renderGallery([...files]);
+                } catch (error) {
+                    console.error("파일 읽기 오류:", error);
+                    renderGallery(Array.from(files)); // 실패 시라도 빈 배열 렌더링
+                }
+            }
+
+
+            function renderGallery(fileList) {
+                const gallery = document.getElementById("gallery");
+                gallery.innerHTML = ""; // 기존 갤러리 초기화 (중복 방지)
+
+                fileList.forEach(file => {
+                    const item = document.createElement("div");
+                    item.className = "gallery-item";
+
+                    const fileNameWithoutExt = file.replace(".json", "");
+                    const previewId = `preview-${fileNameWithoutExt}`;
+                    const imagePath = `./shared/image/${fileNameWithoutExt}.svg`;
+
+                    const previewDiv = document.createElement("div");
+                    previewDiv.className = "preview";
+                    previewDiv.id = previewId;
+
+                    // SVG 가져오기
+                    fetch(imagePath)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`SVG 로드 실패: ${response.status}`);
+                            }
+                            return response.text();
+                        })
+                        .then(svgContent => {
+                            previewDiv.innerHTML = svgContent;
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+
+                    // 아이템 정보 추가
+                    const infoDiv = document.createElement("div");
+                    infoDiv.className = "item-info";
+                    infoDiv.innerHTML = `
+                        <h2 class="item-title">${formatFileName(file)}</h2>
+                        <a href="./show.html?${fileNameWithoutExt}" class="view-button">View Chart</a>
+                    `;
+
+                    item.appendChild(previewDiv);
+                    item.appendChild(infoDiv);
+                    gallery.appendChild(item);
+                });
+            }
+
+
+            function formatFileName(fileName) {
+                return fileName
+                    .replace(/\.(json|svg)$/, "")
+                    .replace(/_/g, " ")
+                    .split(" ")
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                    .join(" ");
+            }
+
+            fetchData(); // 🚀 fetchData 실행 (최초 한 번만 실행됨)
+        });
+    </script>
+</body>
+
+</html>
