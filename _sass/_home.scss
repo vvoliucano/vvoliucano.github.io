@@ -64,20 +64,21 @@
 
   .featured-projects {
     font-size: 0.9em;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
     margin-bottom: 1.5em;
 
-    .project {
-      flex-grow: 1;
-      flex-basis: 0;
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
 
+    .project {
       display: flex;
       flex-direction: column;
-
-      &:not(:last-child) {
-        margin-right: 16px;
-      }
 
       border-radius: 3px;
       padding: 16px;
