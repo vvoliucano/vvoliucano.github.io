@@ -1,3 +1,12 @@
+- title: Glyph-Weaver
+  image: .25_glyphweaverpng
+  description: "We proposed a visual design creativity activation model."
+  description_zh: "一种基于统一的Glyph DSL和AI的Glyph设计创造力激活模型。"
+  paper: "https://arxiv.org/pdf/2303.14476.pdf"
+  demo: "https://glyphweaver.github.io/"
+  highlight: 1
+
+
 - title: Spatial-Constraint Model
   image: 24_spatial_constraint.gif
   description: "We proposed a spatial constraint model for activating static visualization."
