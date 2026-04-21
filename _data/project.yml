@@ -1,8 +1,8 @@
 - title: Glyph-Weaver
-  image: .25_glyphweaverpng
+  image: 25_glyphweaver.png
   description: "We proposed a visual design creativity activation model."
   description_zh: "一种基于统一的Glyph DSL和AI的Glyph设计创造力激活模型。"
-  paper: "https://arxiv.org/pdf/2303.14476.pdf"
+  # paper: "https://arxiv.org/pdf/2303.14476.pdf"
   demo: "https://glyphweaver.github.io/"
   highlight: 1
 
