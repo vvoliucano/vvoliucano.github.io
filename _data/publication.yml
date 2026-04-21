@@ -1,3 +1,52 @@
+- id: author_inter
+  title: "Athanor: Authoring Action Modification-based Interactions on Static Visualizations via Natural Language"
+  authors:
+    - Can Liu
+    - Jaeuk Lee
+    - Tianhe Chen
+    - Zhibang Jiang
+    - Xiaolin Wen
+    - Yong Wang
+  venue: IEEE Pacific Visualization Conference
+  year: 2026, to appear
+  highlight: 2
+  doi: https://doi.org/10.48550/arXiv.2601.17736
+  pdf: "https://arxiv.org/pdf/2601.17736.pdf"
+  type:
+    - Conference
+
+
+- id: spatial_audio
+  title: "Accessible Fine-grained Data Representation via Spatial Audio"
+  authors:
+    - Can Liu
+    - Wenjie Jiang
+    - Shaolun Ruan
+    - Kotaro Hara
+    - Yong Wang
+  venue: IEEE Computer Graphics and Applications
+  year: 2026, to appear
+  highlight: 2
+  type:
+    - Journal
+
+
+- id: proteus
+  title: "Proteus: Shapeshifting Desktop Visualizations for Mobile via Multi-level Intelligent Adaptation"
+  authors:
+    - Can Liu
+    - Sizhe Cheng
+    - Feng Liang
+    - Zhibang Jiang
+    - Lingru Huang
+    - Kavinda Athapaththu
+    - Yong Wang
+  venue: ACM Conference on Designing Interactive Systems
+  year: 2026, to appear
+  type:
+    - Conference
+
+
 - id: spatial_layout
   title: "A Spatial-Constraint Model for Activating Static Visualizations"
   authors:
@@ -24,22 +73,7 @@
   doi: 10.1145/3657642
   demo: /projects/spatialconstraint/
 
-- id: author_inter
-  title: "Athanor: Authoring Action Modification-based Interactions on Static Visualizations via Natural Language"
-  authors:
-    - Can Liu
-    - Jaeuk Lee
-    - Tianhe Chen
-    - Zhibang Jiang
-    - Xiaolin Wen
-    - Yong Wang
-  venue: IEEE Pacific Visualization Symposium
-  year: 2026, to appear
-  highlight: 2
-  doi: https://doi.org/10.48550/arXiv.2601.17736
-  pdf: "https://arxiv.org/pdf/2601.17736.pdf"
-  type:
-    - Conference
+
 
 
 
