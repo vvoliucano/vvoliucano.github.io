@@ -75,7 +75,18 @@
 
 
 
-
+- id: mindtrellis
+  title: "MindTrellis: Co-Creating Knowledge Structures with AI through Interactive Visual Exploration"
+  authors:
+    - Xiang Li
+    - Cara Li
+    - Emily Kuang
+    - Can Liu
+    - Jian Zhao
+  venue: ACM Conference on Designing Interactive Systems (DIS)
+  year: 2026, to appear
+  type:
+    - Conference
 
 
 - id: simvecvis
