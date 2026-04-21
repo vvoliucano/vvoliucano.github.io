@@ -1,3 +1,12 @@
+- title: Proteus Mobile
+  image: proteus.png
+  description: "Proteus is a multi-agent framework designed to automatically adapt desktop visualizations for mobile devices."
+  description_zh: "一种基于多智能体的可视化自适应框架，用于自动将桌面可视化适配至移动设备。"
+  # paper: "https://arxiv.org/pdf/2303.14476.pdf"
+  demo: "https://vis2mobile.vercel.app/"
+  highlight: 1
+
+
 - title: Glyph-Weaver
   image: 25_glyphweaver.png
   description: "We proposed a visual design creativity activation model."
