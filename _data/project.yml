@@ -56,19 +56,6 @@
   demo: "https://vis4sense.github.io/prompthis/"
   highlight: 1
 
-- title: Asteroid Visualization
-  image: 18-asteroid.gif
-  description: "We designed a visual analytics system for analyzing the impact of different asteroids."
-  description_zh: "对多参数长时序的模拟数据进行渲染比较的可视分析系统。"
-  paper: "http://vis.pku.edu.cn/research/publication/jov2020_event.pdf"
-  video: /assets/project/2021_ asteroid.mp4
-
-
-- title: Best Viewpoint
-  image: 19_bestview.png
-  description: "We designed a deep learning-based method for volume rendering best view selection."
-  description_zh: "基于深度学习的三维模拟数据体渲染最佳视角选取方法。"
-  paper: "http://vis.pku.edu.cn/research/publication/JOV_dlbv_Changhe.pdf"
 
 - title: AutoTitle
   image: 23_title.jpg
@@ -85,6 +72,21 @@
   demo: https://oldvis.github.io/gallery/
   highlight: 3
 
+
+
+- title: Asteroid Visualization
+  image: 18-asteroid.gif
+  description: "We designed a visual analytics system for analyzing the impact of different asteroids."
+  description_zh: "对多参数长时序的模拟数据进行渲染比较的可视分析系统。"
+  paper: "http://vis.pku.edu.cn/research/publication/jov2020_event.pdf"
+  video: /assets/project/2021_ asteroid.mp4
+
+
+- title: Best Viewpoint
+  image: 19_bestview.png
+  description: "We designed a deep learning-based method for volume rendering best view selection."
+  description_zh: "基于深度学习的三维模拟数据体渲染最佳视角选取方法。"
+  paper: "http://vis.pku.edu.cn/research/publication/JOV_dlbv_Changhe.pdf"
 
 # - title: Auto-Caption
 #   image: 19-AutoCap.gif
