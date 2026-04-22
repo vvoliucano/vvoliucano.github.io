@@ -74,9 +74,10 @@
   image: 23_title.jpg
   description: "We proposed a semi-automatic method for title generation."
   description_zh: "交互式智能多维标题生成。"
+  highlight: 3
   paper: "/assets/paper/23-autotitle.pdf"
 
-- title: Old Visualization
+- title: Historical Visualization
   image: 24-oldvis.png
   description: "OldVisOnline is a collection of old visualizations published before 1950. We have been studying a variety of usage scenarios of OldVisOnline."
   description_zh: "OldVisOnline 是一个收录公元1950年之前发布的历史可视化作品的集合。"
