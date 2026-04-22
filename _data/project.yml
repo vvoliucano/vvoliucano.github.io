@@ -33,7 +33,7 @@
   highlight: 1
 
 
-- title: DataWink: Interactive Data Communication with AI Assistance
+- title: DataWink
   image: datawink.gif
   description: "A system that supports interactive data communication by leveraging AI to help users generate, refine, and present data-driven narratives."
   description_zh: "一个利用 AI 支持数据表达与沟通的交互系统，帮助用户生成、优化并呈现数据驱动的叙事。"
