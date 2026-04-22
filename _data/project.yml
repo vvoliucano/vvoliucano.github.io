@@ -47,12 +47,20 @@
   paper: "https://doi.org/10.1109/PacificVis48177.2020.1043"
   poster: "/assets/paper/19-Caption.pdf"
 
+- title: PrompTHis
+  image: prompthis.webp
+  description: "An interactive system that helps users explore and refine prompts for text-to-image generation through visual and iterative workflows."
+  description_zh: "一个支持文本到图像生成的交互式提示探索系统，通过可视化和迭代方式帮助用户优化 prompt。"
+  paper: "https://doi.org/10.1109/TVCG.2024.3408255"
+  video: "https://drive.google.com/file/d/1-qns__NkgdoOCSp3sJ2m-lsBb5p6OYsL/view?usp=sharing"
+  demo: "https://vis4sense.github.io/prompthis/"
+  highlight: 1
+
 - title: Asteroid Visualization
   image: 18-asteroid.gif
   description: "We designed a visual analytics system for analyzing the impact of different asteroids."
   description_zh: "对多参数长时序的模拟数据进行渲染比较的可视分析系统。"
   paper: "http://vis.pku.edu.cn/research/publication/jov2020_event.pdf"
-  highlight: 3
   video: /assets/project/2021_ asteroid.mp4
 
 
