@@ -33,6 +33,18 @@
   highlight: 1
 
 
+- title: DataWink: Interactive Data Communication with AI Assistance
+  image: datawink.gif
+  description: "A system that supports interactive data communication by leveraging AI to help users generate, refine, and present data-driven narratives."
+  description_zh: "一个利用 AI 支持数据表达与沟通的交互系统，帮助用户生成、优化并呈现数据驱动的叙事。"
+  paper: "https://doi.org/10.1109/TVCG.2025.3634635"
+  arxiv: "https://arxiv.org/abs/2507.17734"
+  demo: "https://shellywhen.github.io/projects/DataWink"
+  video: "https://youtu.be/hSWl-XKrv88"
+  slides: "https://hkustconnect-my.sharepoint.com/:p:/g/personal/lxieai_connect_ust_hk/EU1xLq0pIP5FvfAALX8JZjMBgg3D0RFun4UFQeeMHi69qQ?e=axnBiR"
+  highlight: 1
+
+
 - title: DNN-VolVis
   image: 19_dnnvolvis.gif
   description: "We proposed a deep learning-based volume rendering pipeline."
