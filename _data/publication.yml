@@ -7,7 +7,9 @@
     - Zhibang Jiang
     - Xiaolin Wen
     - Yong Wang
-  venue: IEEE Pacific Visualization Conference (Best Paper Award)
+  venue: IEEE Pacific Visualization Conference
+  awards:
+    - Best Paper Award
   year: 2026, to appear
   highlight: 2
   doi: https://doi.org/10.48550/arXiv.2601.17736
@@ -301,7 +303,9 @@
     - Xiaoru Yuan
   year: 2020
   doi: 10.1007/s12650-019-00608-y
-  venue: Journal of Visualization (ChinaVis’19, Honorable Mention for Best Paper Award)
+  venue: Journal of Visualization (ChinaVis’19)
+  awards:
+    - Honorable Mention for Best Paper Award
   venue_tags:
     - JOV
     - ChinaVis
@@ -643,7 +647,9 @@
     - Yun Han
     - Xiaoru Yuan
   year: 2019
-  venue: IEEE Pacific Visualization Symposium (Honorable Mention for Best Poster Award)
+  venue: IEEE Pacific Visualization Symposium
+  awards:
+    - Honorable Mention for Best Poster Award
   venue_tages:
     - PVIS
   location: Bangkok, Thailand
@@ -683,7 +689,9 @@
     - Ruike Jiang
     - Xiaoru Yuan
   year: 2019
-  venue: IEEE VIS (Honorable Mention for Best Poster Award)
+  venue: IEEE VIS
+  awards:
+    - Honorable Mention for Best Poster Award
   venue_tages:
     - VIS
   venue_location: Vancouver, Canada
@@ -701,7 +709,9 @@
     - Can Liu
     - Xiaoru Yuan
   year: 2019
-  venue: IEEE Pacific Visualization Symposium (Best Poster Award)
+  venue: IEEE Pacific Visualization Symposium
+  awards:
+    - Best Poster Award
   venue_tages:
     - PVIS
   venue_location: Bangkok, Thailand
