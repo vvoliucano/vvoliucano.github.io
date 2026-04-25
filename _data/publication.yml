@@ -1,5 +1,5 @@
 - id: author_inter
-  title: "Athanor: Authoring Action Modification-based Interactions on Static Visualizations via Natural Language"
+  title: "From Static to Interactive: Authoring Interactive Visualizations via Natural Language"
   authors:
     - Can Liu
     - Jaeuk Lee
@@ -7,7 +7,7 @@
     - Zhibang Jiang
     - Xiaolin Wen
     - Yong Wang
-  venue: IEEE Pacific Visualization Conference
+  venue: IEEE Pacific Visualization Conference (Best Paper Award)
   year: 2026, to appear
   highlight: 2
   doi: https://doi.org/10.48550/arXiv.2601.17736
