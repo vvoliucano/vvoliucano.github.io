@@ -157,6 +157,33 @@
         color: firebrick;
       }
 
+      .award-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.85em;
+        font-weight: 600;
+        margin-left: 4px;
+        vertical-align: middle;
+
+        i {
+          margin-right: 4px;
+        }
+
+        &.award-best {
+          background-color: rgba(255, 192, 0, 0.15);
+          color: #d4a017;
+          border: 1px solid rgba(255, 192, 0, 0.3);
+        }
+
+        &.award-honor {
+          background-color: rgba(178, 34, 34, 0.1);
+          color: firebrick;
+          border: 1px solid rgba(178, 34, 34, 0.2);
+        }
+      }
+
       .authors {
         font-weight: 300;
         strong {

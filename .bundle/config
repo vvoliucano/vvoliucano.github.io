@@ -2,3 +2,4 @@
 BUNDLE_PATH: "vendor/bundle"
 BUNDLE_BUILD__EVENTMACHINE: "--with-cxx=clang++ --with-cxxflags=-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1"
 BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/: "http://gems.ruby-china.com/"
+BUNDLE_WITHOUT: "development:test"
