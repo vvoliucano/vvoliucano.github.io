@@ -1,3 +1,12 @@
+- name: Best Paper Award
+  zh_name: 最佳论文奖
+  years: 2026
+  venue: IEEE PacificVis
+  zh_venue: 亚太可视化大会
+  description: "For \"From Static to Interactive: Authoring Interactive Visualizations via Natural Language\"."
+  order: 第一作者
+
+
 - name: Best Survey Award
   zh_name: 最佳综述奖
   years: 2020
