@@ -125,24 +125,3 @@
 
 
 
-
-
-
-
-- id: Accessible
-  title: "Accessible Fine-grained Data Representation via Spatial Audio"
-  authors:
-    - Wenjie Jiang
-    - Can Liu
-    - Shaolun Ruan
-    - Kotaro Hara
-    - Yong Wang
-  venue: IEEE Transactions on Visualization and Computer Graphics
-  venue_tags:
-    - TVCG
-  type:
-    - Submit
-  venue_label:
-    - SCI/EI检索
-    - CCF A类期刊
-
