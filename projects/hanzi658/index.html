@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Hanzi 658</title>
+  <title>漢字</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
@@ -52,15 +52,22 @@
 
     .title {
       margin: 0;
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-size: 1.9rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      font-family: "Noto Serif SC", "Songti SC", "STKaiti", "Kaiti SC", serif;
     }
 
     .subtitle {
       margin: 4px 0 0;
       color: var(--muted);
       font-size: 0.92rem;
+    }
+
+    .support {
+      margin: 2px 0 0;
+      color: rgba(183, 191, 205, 0.82);
+      font-size: 0.8rem;
     }
 
     .badge {
@@ -155,6 +162,15 @@
       word-break: break-word;
     }
 
+    .subvalue {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      letter-spacing: 0.05em;
+      text-transform: lowercase;
+      word-break: break-word;
+    }
+
     .actions {
       display: grid;
       grid-template-columns: 1fr;
@@ -217,8 +233,9 @@
   <main class="shell">
     <div class="topbar">
       <div>
-        <h1 class="title">Hanzi 658</h1>
-        <p class="subtitle">随机刷一个韩中日共通汉字词</p>
+        <h1 class="title">漢字</h1>
+        <p class="subtitle">漢字文化数字计划</p>
+        <p class="support">由大漢南武侯支持</p>
       </div>
       <div class="badge" id="countBadge">加载中</div>
     </div>
@@ -243,9 +260,33 @@
       return next;
     }
 
+    function getRequestedId() {
+      const params = new URLSearchParams(window.location.search);
+      const queryId = Number.parseInt(params.get("id"), 10);
+      if (Number.isInteger(queryId)) return queryId;
+
+      const hashValue = window.location.hash.replace(/^#/, "");
+      const hashId = Number.parseInt(hashValue, 10);
+      if (Number.isInteger(hashId)) return hashId;
+
+      return null;
+    }
+
+    function getIndexFromId(id) {
+      return words.findIndex((word) => word.no === id);
+    }
+
+    function updateUrl(wordId) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("id", String(wordId));
+      url.hash = String(wordId);
+      window.history.replaceState({}, "", url);
+    }
+
     function renderWord(index) {
       currentIndex = index;
       const word = words[index];
+      updateUrl(word.no);
       app.innerHTML = `
         <div class="meta">
           <span>第 ${word.no} / 658 个词</span>
@@ -260,6 +301,7 @@
           <article class="info">
             <p class="label">中文</p>
             <p class="value">${word.chinese}</p>
+            <p class="subvalue">${word.vietnamese_romanization || ""}</p>
           </article>
           <article class="info">
             <p class="label">韩语汉字</p>
@@ -272,6 +314,7 @@
           <article class="info">
             <p class="label">日文</p>
             <p class="value">${word.japanese}</p>
+            <p class="subvalue">${word.japanese_romanization}</p>
           </article>
         </div>
         <div class="actions">
@@ -290,6 +333,12 @@
         if (!response.ok) throw new Error("词库加载失败");
         words = await response.json();
         countBadge.textContent = `${words.length} 个词`;
+        const requestedId = getRequestedId();
+        const requestedIndex = requestedId ? getIndexFromId(requestedId) : -1;
+        if (requestedIndex >= 0) {
+          renderWord(requestedIndex);
+          return;
+        }
         renderWord(Math.floor(Math.random() * words.length));
       } catch (error) {
         app.innerHTML = `<div class="error">加载失败：${error.message}</div>`;

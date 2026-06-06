@@ -1,659 +1,659 @@
-no,hanzi,kor_hanja,hangul,romanization,chinese,japanese
-1,时间,时间,시간,sigan,时间,时间
-2,价格,价格,가격,gagyeok,价格,価格
-3,电话,電話,전화,jeonhwa,电话,电话
-4,世界,世界,세계,segye,世界,世界
-5,以上,以上,이상,isang,以上,以上
-6,商品,商品,상품,sangpum,商品,商品
-7,时代,時代,시대,sidae,时代,时代
-8,作品,作品,작품,jakpum,作品,作品
-9,必要,必要,필요,pilyo,必要,必要
-10,自然,自然,자연,jayeon,自然,自然
-11,使用,使用,사용,sayong,使用,使用
-12,音乐,音樂,음악,eumak,音乐,音楽
-13,生活,生活,생활,saenghwal,生活,生活
-14,问题,問題,문제,munje,问题,问题
-15,可能,可能,가능,ganeung,可能,可能
-16,关系,開係,관계,gwangye,关系,関係
-17,現在,現在,현재,hyeonjae,現在,現在
-18,大学,大学,대학,daehak,大学,大学
-19,利用,利用,이용,iyong,利用,利
-20,效果,效果,효과,hyogwa,效果,効果
-21,部分,部分,부분,bubun,部分,部分
-22,方法,方法,방법,bangbeop,方法,方法
-23,营业,営業,영업,yeongeop,营业,当业
-24,情报,情报,정보,jeongbo,情报,情报
-25,特别,特别,특별,teukbyeol,特别,特别
-26,希望,希望,희망,huimang,希望,希望
-27,文化,文化,문화,munhwa,文化,文化
-28,技术,技术,기술,gisul,技术,技术
-29,基本,基本,기본,gibon,基本,基本
-30,意味,意味,의미,uimi,意味,意味
-31,自动,自動,자동,jadong,自动,自动
-32,内容谷,内容,내용,naeyong,内容谷,内容
-33,自由,自由,자유,jayu,自由,自由
-34,简单,简单,간단,gandan,简单,简单
-35,中心,中心,중심,jungsim,中心,中心
-36,最近,最近,최근,choegeun,最近,最近
-37,参加,参加,참가,chamga,参加,参加
-38,结婚,結婚,결혼,gyeolhon,结婚,结婚
-39,一般,一般,일반,ilban,一般,一般
-40,引社会,社会,사회,sahoe,引社会,社会
-41,保险,保险,보험,boheom,保险,保険
-42,学校,学校,학,hak,学校,学校
-43,开发,开发,개발,gaebal,开发,開発
-44,先生,先生,선생,seonsaeng,先生,先生
-45,程度,程度,정도,jeongdo,程度,程度
-46,大会,大会,대회,daehoe,大会,大会
-47,发表,发表,발표,balpyo,发表,発表
-48,印象,印象,인상,insang,印象,印象
-49,结果,結果,결괴,gyeolgoe,结果,结果
-50,存在,存在,슈즌존재,syujeunjonjae,存在,存在
-51,最初,最初,최초,choecho,最初,最初
-52,装备,装備,장비,jangbi,装备,装備
-53,消费,消費,소비,sobi,消费,消费
-54,采用,探用,채용,chaeyong,采用,採用
-55,全体,全肝,전체,jeonche,全体,全体
-56,世飞行,飛行,비행,bihaeng,世飞行,飛行
-57,国际,国际,국제,gukje,国际,国际
-58,由企业,企业,기업,gieop,由企业,企业
-59,专门,専門,전문,jeonmun,专门,专门
-60,中央,中央,중앙,jungang,中央,中央
-61,普普,普通,보통,botong,普普,普通
-62,经济,经济,경제,gyeongje,经济,経済
-63,现代,现代,현대,hyeondae,现代,现代
-64,当时,当时,당시,dangsi,当时,当时
-65,实际,实际,실제,silje,实际,実際
-66,学学生,学生,학생,haksaeng,学学生,学生
-67,银行,銀行,은행,eunhaeng,银行,银行
-68,旅行,旅行,여행,yeohaeng,旅行,旅行
-69,以下,以下,이하,iha,以下,以下
-70,说明,説明,설명,seolmyeong,说明,説明
-71,感觉,感算,뿔감각,ppulgamgak,感觉,感覚
-72,经验,経験,경험,gyeongheom,经验,経験
-73,活跃,活躍,활약,hwalyak,活跃,活躍
-74,代表,代表,대표,daepyo,代表,代表
-75,通信,信,통신,tongsin,通信,通信
-76,主办,主人,주인,juin,主办,主人
-77,安心,安心由名,못안심,motansim,安心,安心
-78,以外,以外,이외,ioe,以外,以外
-79,表現,表現,표현,pyohyeon,表現,表現
-80,意识,意识,렐의식,reluisik,意识,意識
-81,非常,非常,비상,bisang,非常,非常
-82,活动,活动,활동,hwaldong,活动,活动
-83,运动,運動,운동,undong,运动,運動
-84,新闻,新聞,신문,sinmun,新闻,新闻
-85,理由,理由,이유,iyu,理由,理由
-86,指导,指導,지도,jido,指导,指導
-87,实现,实现,실현,silhyeon,实现,実現
-88,家庭,家庭,가정,gajeong,家庭,家庭
-89,変化,毅化,변화,byeonhwa,変化,変化
-90,位置,位置,위치,wichi,位置,位置
-91,种类,种类,종류,jongryu,种类,种类
-92,完,完全,완전,wanjeon,完,完全
-93,资料,资料,자료,jaryo,资料,资料
-94,同时,同时,동시,dongsi,同时,同时
-95,人,个人,개인,gaein,人,个人
-96,治,政治,정치,jeongchi,治,政治
-97,完成,完成,완성,wanseong,完成,完成
-98,设计,设计,설계,seolgye,设计,设计
-99,表示,表示,표시,pyosi,表示,表示
-100,艺术,艺术,예술,yesul,艺术,芸術
-101,发行,发行,발행,balhaeng,发行,発行
-102,决定,決定,결정,gyeoljeong,决定,決定
-103,重要,重要,중요,jungyo,重要,重要
-104,方式,方式,방식,bangsik,方式,方式
-105,有名,有名,유명,yumyeong,有名,有名
-106,制品,製品,제품,jepum,制品,製品
-107,当然,当然,당연,dangyeon,当然,当然
-108,目的,目的,목적,mokjeok,目的,目的
-109,材料,材料,재료,jaeryo,材料,材料
-110,时期,时期人,뼈시기,ppyeosigi,时期,时期
-111,注意,注意,주의,juui,注意,注意
-112,传统,传统,전통,jeontong,传统,伝統
-113,以前,以前,이전,ijeon,以前,以前
-114,处理,处理,처리,cheori,处理,処理
-115,能力,能力,능력,neungryeok,能力,能力
-116,方向,方向,방향,banghyang,方向,方向
-117,交通,交通,교통,gyotong,交通,交通
-118,读者,读者,독지,dokji,读者,読者
-119,丰富,豊富,풍부,pungbu,丰富,豊富
-120,季节,季節,계절,gyejeol,季节,季節
-121,世纪,世紀,세기,segi,世纪,世紀
-122,构成,構成,구성,guseong,构成,构成
-123,原因,原因,원인,wonin,原因,原因
-124,食品,食品,식품,sikpum,食品,食品
-125,直接,直接,직접,jikjeop,直接,直接
-126,平均,平均,평균,pyeonggyun,平均,平均
-127,美术,美术,미술,misul,美术,美術
-128,教育,教育,교육,gyoyuk,教育,教育
-129,事业,事业,사업,saeop,事业,事业
-130,事实,事实,사실,sasil,事实,事実
-131,文,文字,문자,munja,文,文字
-132,事件,事件付,롤쓰사건,rolsseusageon,事件,事件
-133,文字,文字,문자,munja,文字,文字
-134,对象,对象,대상,daesang,对象,対象
-135,安定,安定,안정,anjeong,安定,安定
-136,安全,安全,안전,anjeon,安全,安全
-137,管理,管理,관리,gwanri,管理,管理
-138,以来,以来,이래,irae,以来,以来
-139,选择,選控,선택,seontaek,选择,選択
-140,以来,以來,이래,irae,以来,以来
-141,选择,選擇,선택,seontaek,选择,選択
-142,指挥,指揮,지휘,jihwi,指挥,指揮
-143,女子,女子,여자,yeoja,女子,女子
-144,地方,地方和车,빼가지방,ppaegajibang,地方,地方
-145,展开,展开,전개,jeongae,展开,展开
-146,有效,有效,유효,yuhyo,有效,有効
-147,成分,成分,성분,seongbun,成分,成分
-148,构造,构造,구조,gujo,构造,构造
-149,成功,成功,성공,seonggong,成功,成功
-150,精神,精神,정신,jeongsin,精神,精神
-151,实施,实施包人,올실시,olsilsi,实施,実施
-152,演出,演出,연출,yeonchul,演出,演出
-153,观测,観測,관측,gwancheuk,观测,観測
-154,生产,生产,생산,saengsan,生产,生産
-155,理解,理解,이해,ihae,理解,理解
-156,出版,出版,출판,chulpan,出版,出版
-157,调整,調整玉妈,래뿐조정,raeppunjojeong,调整,調整玉妈
-158,交換,交換,교환,gyohwan,交換,交換
-159,前后,前後,전후,jeonhu,前后,前後
-160,年,少年人日,소년,sonyeon,年,少年
-161,费用,費用,비용,biyong,费用,費用
-162,日,日常,일상,ilsang,日,日常
-163,作业,作业,작업,jakeop,作业,作业
-164,集中,集中,집중,jipjung,集中,集中
-165,小说,小説,소설,soseol,小说,小説
-166,全部,全部,전,jeon,全部,全部
-167,现实,现实,현실,hyeonsil,现实,現実
-168,个性,個性,개성,gaeseong,个性,個性
-169,比较,比較,비교,bigyo,比较,比較
-170,表情,表情,표정,pyojeong,表情,表情
-171,经营,经营,경영,gyeongyeong,经营,経営
-172,市场,市场人合,시장,sijang,市场,市场
-173,职业,职业,직업,jikeop,职业,职业
-174,不安,不安,주불안,jubulan,不安,不安
-175,外国,外国,외국,oeguk,外国,外国
-176,各种,各种,각종,gakjong,各种,各种
-177,将来,将来,장래,jangrae,将来,将来
-178,各种,各種,각종,gakjong,各种,各種
-179,将来,將來,장래,jangrae,将来,将来
-180,公园,公园,공원,gongwon,公园,公园
-181,治疗,治疗,치료,chiryo,治疗,治疗
-182,自信,自信,자신,jasin,自信,自信
-183,满足,满足,만족,manjok,满足,满足
-184,倾向,傾向,경향,gyeonghyang,倾向,傾向
-185,作家,作家,작가,jakga,作家,作家
-186,电子,电子,전자,jeonja,电子,电子
-187,过去,過去,과거,gwageo,过去,過去
-188,空间,空間,공간,gonggan,空间,空間
-189,生命,生命,생명,saengmyeong,生命,生命
-190,道路,道路,도로,doro,道路,道路
-191,意見,意見,의견,uigyeon,意見,意見
-192,记忆,記憶,기억,gieok,记忆,記憶
-193,操作,操作,조작,jojak,操作,操作
-194,书店,书店,서점,seojeom,书店,書店
-195,计算,计算,계산,gyesan,计算,计算
-196,地球,地球,지구,jigu,地球,地球
-197,责任,責任,책임,chaekim,责任,责任
-198,目标,目標,목표,mokpyo,目标,目标
-199,左右,左右,좌우,jwau,左右,左右
-200,政府,政府,정부,jeongbu,政府,政府
-201,配合,配合,배합,baehap,配合,配合
-202,行动,行动,행동,haengdong,行动,行动
-203,国民,国民,국민,gukmin,国民,国民
-204,学党,文学,문학학,munhakhak,学党,文学
-205,感动,感動,감동,gamdong,感动,感动
-206,新鮮,新鮮,신선,sinseon,新鮮,新鮮
-207,地下,地下,지하,jiha,地下,地下
-208,形式,形式,형식,hyeongsik,形式,形式
-209,公开,公開,공개,gonggae,公开,公開
-210,事故,事故,사고,sago,事故,事故
-211,积极,积极,적극,jeokgeuk,积极,积极
-212,制作,製作,제작,jejak,制作,製作
-213,天然,天然,천연,cheonyeon,天然,天然
-214,移动,移动,이동,idong,移动,移动
-215,动物,动物,동물,dongmul,动物,动物
-216,移动,移動,이동,idong,移动,移動
-217,动物,動物,동물,dongmul,动物,動物
-218,太阳,太阳,태양,taeyang,太阳,太阳
-219,燃料,燃料,연료,yeonryo,燃料,燃料
-220,工夫,工夫,공부,gongbu,工夫,工夫
-221,数字,数字,숫자,sutja,数字,数字
-222,工业,工业,공업,gongeop,工业,工业
-223,参考,参考,참고,chamgo,参考,参考
-224,性格,性格,성격,seonggyeok,性格,性格
-225,实行,实行,실행,silhaeng,实行,実行
-226,速度,速度,속도,sokdo,速度,速度
-227,努力,努力,노력,noryeok,努力,努力
-228,理想,理想,이상,isang,理想,理想
-229,机会,机会,기회,gihoe,机会,机会
-230,出发,出发,출발,chulbal,出发,出発
-231,植物,植物,식물,sikmul,植物,植物
-232,豆腐,豆腐,료때두부,ryottaedubu,豆腐,豆腐
-233,记录,記録,기록,girok,记录,記録
-234,详细,詳細,상세,sangse,详细,详细
-235,政权,政权型异,정권,jeonggwon,政权,政権
-236,风景,风景,풍경,punggyeong,风景,风景
-237,报告,报告,보고,bogo,报告,报告
-238,建筑,建筑,건축,geonchuk,建筑,建筑
-239,判断,列断,판단,pandan,判断,判断
-240,反对,反对,반다,banda,反对,反对
-241,业务务,業務,업무,eopmu,业务务,业务
-242,自己,自己,자기,jagi,自己,自己
-243,少女,少女,호소녀,hosonyeo,少女,少女
-244,知识,知識,지식,jisik,知识,知識
-245,土地,土地,토지,toji,土地,土地
-246,保护,保護,보호,boho,保护,保護
-247,医疗,医疗,의료,uiryo,医疗,医療
-248,确实,确实封包,를확실,reulhwaksil,确实,確実
-249,设备,设备,설비,seolbi,设备,設備
-250,基础,基礎,기초,gicho,基础,基础
-251,宙,宇宙,우주,uju,宙,宇宙
-252,高原,高原,고원,gowon,高原,高原
-253,制度,制度,제도,jedo,制度,制度
-254,高原,高原,고원,gowon,高原,高原
-255,制度,制度,제도,jedo,制度,制度
-256,到固定,固定,고정,gojeong,到固定,固定
-257,团体,围体,단체,danche,团体,团体
-258,加工,加工,가공,gagong,加工,加工
-259,金属,金属,금속,geumsok,金属,金属
-260,教授,教授,교수,gyosu,教授,教授
-261,空気,空气,공기,gonggi,空気,空气
-262,手术,手术,수술,susul,手术,手术
-263,唱突然,突然,돌연,dolyeon,唱突然,突然
-264,思想,思想,사상,sasang,思想,思想
-265,神经,神经,신경,singyeong,神经,神经
-266,男子,男子,남자,namja,男子,男子
-267,发生,发生,발생,balsaeng,发生,発生
-268,面积,面積,면적,myeonjeok,面积,面积
-269,机关,机关,기관,gigwan,机关,機関
-270,作用,作用,작용,jakyong,作用,作用
-271,失败,失敗,실패,silpae,失败,失敗
-272,成绩,成绩,성적,seongjeok,成绩,成績
-273,主要,主要,주요,juyo,主要,主要
-274,发挥,发挥,발휘,balhwi,发挥,発揮
-275,独立,独立,독립,dokrip,独立,独立
-276,表面,表面,표면,pyomyeon,表面,表面
-277,关心,開心,관심,gwansim,关心,関心
-278,内部,内部,내부,naebu,内部,内部
-279,反应,反应,반응,baneung,反应,反应
-280,品质,品质,품질,pumjil,品质,品質
-281,制造,秽造,제조,jejo,制造,製造
-282,相当,相当,상당,sangdang,相当,相当
-283,家具,家具,가구,gagu,家具,家具
-284,主张,主张,주장,jujang,主张,主張
-285,近代,近代,근대,geundae,近代,近代
-286,体育,体育,체육,cheyuk,体育,体育
-287,疑问,疑問,의,ui,疑问,疑問
-288,教室,教室,교실,gyosil,教室,教室
-289,身体,身体,신체,sinche,身体,身体
-290,特殊,特殊,특수,teuksu,特殊,特殊
-291,吸收,吸收,흡수,heupsu,吸收,吸収
-292,特殊,特殊,특수,teuksu,特殊,特殊
-293,吸收,吸收,흡수,heupsu,吸收,吸収
-294,证明,证明,증명,jeungmyeong,证明,证明
-295,背景,背景,배경,baegyeong,背景,背景
-296,维持,维持,유지,yuji,维持,維持
-297,扩大,携大,확디,hwakdi,扩大,拡大
-298,欢迎,炊迎,환영,hwanyeong,欢迎,歓迎
-299,记者,記者,기지,giji,记者,记者
-300,共同,共同,공동,gongdong,共同,共同
-301,实验,实验,실험,silheom,实验,実験
-302,重视,重视,중시,jungsi,重视,重视
-303,分析,分析,분석,bunseok,分析,分析
-304,帽子,帽子,모지,moji,帽子,帽子
-305,医学学,医学,의학,uihak,医学学,医学
-306,加入,加入,가입,gaip,加入,加入
-307,解决,解決,해결,haegyeol,解决,解决
-308,追求,追求,추구,chugu,追求,追求
-309,透明,透明,투명,tumyeong,透明,透明
-310,国家,国家,떼뜻국가,ttetteutgukga,国家,国家
-311,多少,多少,다소,daso,多少,多少
-312,批判,批刊,비판,bipan,批判,批判
-313,皮肤,皮膚,피부,pibu,皮肤,皮膚
-314,优秀,优秀,우수,usu,优秀,優秀
-315,椅子,椅子,구의자,guuija,椅子,椅子
-316,作战,作戦,작전,jakjeon,作战,作戦
-317,单位,单位,단위,danwi,单位,单位
-318,要求,要求,뜻표요구,tteutpyoyogu,要求,要求
-319,改革,改革,개혁,gaehyeok,改革,改革
-320,改善,改善,개선,gaeseon,改善,改善
-321,初期,初期权,친뼈초기,chinppyeochogi,初期,初期
-322,水分,水分,수분,subun,水分,水分
-323,天体,天体,천체,cheonche,天体,天体
-324,秘密,秘密,비밀,bimil,秘密,秘密
-325,开放,開放,개방,gaebang,开放,開放
-326,学习,学习,뿌학습,ppuhakseup,学习,学习
-327,感情,感情,감정,gamjeong,感情,感情
-328,事情,事情,사정,sajeong,事情,事情
-329,出身,出身,출신,chulsin,出身,出身
-330,事情,事情,사정,sajeong,事情,事情
-331,出身,出身,출신,chulsin,出身,出身
-332,血液,血液,혈액,hyeolaek,血液,血液
-333,一定,一定,일정,iljeong,一定,一定
-334,细胞,細胞,세포,sepo,细胞,細胞
-335,原则,原則,원칙,wonchik,原则,原则
-336,习惯,习惯,습관,seupgwan,习惯,习惯
-337,地图,地图,지도,jido,地图,地図
-338,习惯,習慣,습관,seupgwan,习惯,習慣
-339,感谢,感謝,감사,gamsa,感谢,感謝
-340,训练,訓練,훈련,hunryeon,训练,訓練
-341,态度,態度,태도,taedo,态度,態度
-342,动作,动作,동작,dongjak,动作,动作
-343,警察,警察,경찰,gyeongchal,警察,警察
-344,观察,观察,관찰,gwanchal,观察,観察
-345,收入,收入,수입,suip,收入,收入
-346,战略,戦略,전략,jeonryak,战略,戦略
-347,妇人,婦人,부인,buin,妇人,婦人
-348,保存,保存,보존,bojon,保存,保存
-349,爱情,愛情,애정,aejeong,爱情,愛情
-350,学院,学院,학원,hakwon,学院,学院
-351,规定,规定,규정,gyujeong,规定,规定
-352,现象,現象,현상,hyeonsang,现象,现象
-353,胜利,胶利,승리,seungri,胜利,勝利
-354,心理,心理,심리,simri,心理,心理
-355,成果,成果,성괴,seonggoe,成果,成果
-356,选举,选举,선거,seongeo,选举,選挙
-357,牧场,牧场,목장,mokjang,牧场,牧場
-358,物质,物質,물질,muljil,物质,物质
-359,会议,会议,회의,hoeui,会议,会議
-360,支配,支配,지비,jibi,支配,支配
-361,进行,进行,진행,jinhaeng,进行,进行
-362,电车,電車,전치,jeonchi,电车,電車
-363,认识,認識,인식,insik,认识,認識
-364,发展,发展,발전,baljeon,发展,発展
-365,防止,防止局,때방지,ttaebangji,防止,防止
-366,意志,志,의지,uiji,意志,志
-367,永远,永遠,영원,yeongwon,永远,永遠
-368,意志,意志,의지,uiji,意志,意志
-369,永远,永遠,영원,yeongwon,永远,永遠
-370,取得,取得,취득,chwideuk,取得,取得
-371,政策,政策,정책,jeongchaek,政策,政策
-372,成立,成立,성립,seongrip,成立,成立
-373,大量,大量,대량,daeryang,大量,大量
-374,单纯,单纯,단순,dansun,单纯,単純
-375,否定,否定,부정,bujeong,否定,否定
-376,异常,異常,이상,isang,异常,異常
-377,温度,温度,온도,ondo,温度,度
-378,高度,高度,고도,godo,高度,高度
-379,诗人,詩人,시인,siin,诗人,詩人
-380,发言,发言,했음발언,haeteumbaleon,发言,発言
-381,反射,反射,반시,bansi,反射,反射
-382,民族,民族,민족,minjok,民族,民族
-383,危机,危机,위기,wigi,危机,危机
-384,兄弟,兄弟,형제,hyeongje,兄弟,兄弟
-385,修理,修理,팽수리,paengsuri,修理,修理
-386,所有,所有,소유,soyu,所有,所有
-387,进化,進化,진화,jinhwa,进化,进化
-388,保障,保障,보장,bojang,保障,保障
-389,访问,访问,방문,bangmun,访问,訪問
-390,预防,豫防,예방,yebang,预防,予防
-391,未来,未來,미리,miri,未来,未来
-392,轨道,軌道,궤도,gwedo,轨道,軌道
-393,出现,出现,출현,chulhyeon,出现,出现
-394,制作,製作,제작,jejak,制作,制作
-395,变动,变动,뽀삐변동,ppoppibyeondong,变动,变动
-396,民主,民主,모조민주,mojominju,民主,县主
-397,集团,集園,집단,jipdan,集团,集团
-398,文章,文章,문장,munjang,文章,文章
-399,方针,方针,방침,bangchim,方针,方针
-400,行政,行政,행정,haengjeong,行政,行政
-401,普及,普及,보급,bogeup,普及,普及
-402,以后,以後,이후,ihu,以后,以後
-403,课题,課題,과제,gwaje,课题,课题
-404,兴奋,興奮,흥분,heungbun,兴奋,興奮
-405,信号,信号,신호,sinho,信号,信号
-406,兴奋,興奮,흥분,heungbun,兴奋,興奮
-407,信号,信號,신호,sinho,信号,信号
-408,化学,化学,화학,hwahak,化学,化学
-409,外交,外交,외교,oegyo,外交,外交
-410,巨大,巨大,거다,geoda,巨大,巨大
-411,困难,困難,곤란,gonran,困难,困難
-412,消化,消化,소화,sohwa,消化,消化
-413,进步,进步,진보,jinbo,进步,进步
-414,整理,整理,뽀깨정리,ppokkaejeongri,整理,整理
-415,创造,创造,창조,changjo,创造,创造
-416,体力,体力,체력,cheryeok,体力,体力
-417,地位,地位,지위,jiwi,地位,地位
-418,调节,调节,조절,jojeol,调节,调节
-419,统一,统一,통일,tongil,统一,統一
-420,描写,描写,묘시,myosi,描写,描写
-421,应用,应用,응용,eungyong,应用,応用
-422,革命,革命,혁명,hyeokmyeong,革命,革命
-423,竞争,競委,경쟁,gyeongjaeng,竞争,競争
-424,强调,强调,강조,gangjo,强调,强调
-425,交流,交流,교류,gyoryu,交流,交流
-426,混合,混合,혼합,honhap,混合,混合
-427,实践,实践名,올실천,olsilcheon,实践,実践
-428,集合,集合,집합,jiphap,集合,集合
-429,图书,图书,도서,doseo,图书,図書
-430,改良,改良,개량,gaeryang,改良,改良
-431,供给,供给,공급,gonggeup,供给,供给
-432,减少,減少,감소,gamso,减少,減少
-433,支援,支援,지원,jiwon,支援,支援
-434,指示,指示,지시,jisi,指示,指示
-435,手段,手段,수단,sudan,手段,手段
-436,促进,促進,촉진촉진,chokjinchokjin,促进,促进
-437,大気,大気,대기,daegi,大気,大气
-438,适当,适当,적당,jeokdang,适当,适当
-439,疲劳,疲劳,피로,piro,疲劳,疲労
-440,法律,法律,법률,beopryul,法律,法律
-441,解放,解放,해방,haebang,解放,解放
-442,强烈,强烈,강렬,gangryeol,强烈,强烈
-443,幻想,幻想,환상,hwansang,幻想,幻想
-444,强烈,強烈,강렬,gangryeol,强烈,強烈
-445,幻想,幻想,환상,hwansang,幻想,幻想
-446,柔软,柔軟,유연,yuyeon,柔软,柔软
-447,证据,证所,증거,jeunggeo,证据,证所
-448,农业,農業,농업,nongeop,农业,农业
-449,发达,融達時,했즌발달,haetjeunbaldal,发达,発達
-450,半岛,半岛,수름반도,sureumbando,半岛,半島
-451,老人,老人,노인,noin,老人,老人
-452,记载,記載,기재,gijae,记载,记载
-453,禁止,禁止,금지,geumji,禁止,禁止
-454,形成,形成,형성,hyeongseong,形成,形成
-455,人口,人口,인구,ingu,人口,人口
-456,人,人工,인공,ingong,人,人
-457,生物,生物,생물,saengmul,生物,生物
-458,地点,地点,지점,jijeom,地点,地点
-459,中间,中間,중간,junggan,中间,中間
-460,破坏,破壊,파괴,pagoe,破坏,破壊
-461,博士,博士,박사,baksa,博士,博士
-462,感激,感激,감격,gamgyeok,感激,感激
-463,考虑,考慮,고려,goryeo,考虑,考慮
-464,混乱,混乱,혼란,honran,混乱,混乱
-465,水平,水,수평,supyeong,水平,水平
-466,创立,创立,창립,changrip,创立,创立
-467,帝国,帝国,제국,jeguk,帝国,帝国
-468,投入,投入,투입,tuip,投入,投入
-469,日记,日記,일기,ilgi,日记,日記
-470,有利,有利,유리,yuri,有利,有利
-471,一旦,一旦,브일단,beuildan,一旦,一旦
-472,三禾,一致到,일치,ilchi,三禾,一致到
-473,学者,学者,학자,hakja,学者,学者
-474,师,教师,교사,gyosa,师,教师
-475,经过,经过,경과,gyeonggwa,经过,経過
-476,原理,原理,원리,wonri,原理,原理
-477,公共,公共,공공공공,gonggonggonggong,公共,公
-478,幸福,幸福,행복,haengbok,幸福,幸福
-479,思考,思考,사고,sago,思考,思
-480,将军,将军,장군,janggun,将军,将軍
-481,宣传,宣传,선전,seonjeon,宣传,伝
-482,将军,將軍,장군,janggun,将军,将軍
-483,宣传,宣傳,선전,seonjeon,宣传,宣伝
-484,结论,结论,결론,gyeolron,结论,结论
-485,商人,商人,상인,sangin,商人,商人
-486,商店,商店,상점,sangjeom,商店,商店
-487,消耗,消耗,소모,somo,消耗,消耗
-488,招待,招待到,초대,chodae,招待,招待
-489,深刻,深刻,심각,simgak,深刻,深刻
-490,振动,振动,진동,jindong,振动,振动
-491,电力,電力,전력,jeonryeok,电力,電力
-492,热心,熱心,열심,yeolsim,热心,熱心
-493,年代,年代,주연대,juyeondae,年代,年代
-494,官僚,官僚,관료,gwanryo,官僚,官僚
-495,光景,光景,불광경,bulgwanggyeong,光景,光景
-496,合,合成,합성,hapseong,合,合成
-497,色彩,色彩,색치,saekchi,色彩,色彩
-498,死亡,死亡,사망,samang,死亡,死亡
-499,车下,若干,약간,yakgan,车下,若干
-500,亲切,親切,친절,chinjeol,亲切,親切
-501,人类,人類,인류,inryu,人类,人类
-502,石油,石油,석유,seokyu,石油,石油
-503,鲜明,鮮明,선명,seonmyeong,鲜明,鲜明
-504,体系,体系,체계,chegye,体系,体系
-505,停止,停止,정지,jeongji,停止,停止
-506,平行,平行,평행,pyeonghaeng,平行,平行
-507,贸易,貿易,무역,muyeok,贸易,貿易
-508,明确,明确,명확,myeonghwak,明确,明确
-509,违反,違反,위반,wiban,违反,違反
-510,区别,区别,구별,gubyeol,区别,区别
-511,继续,畿績,계속,gyesok,继续,継続
-512,原料,原料,원료,wonryo,原料,原料
-513,古代,古代,고대,godae,古代,古代
-514,顾客,顾客,고객,gogaek,顾客,顧客
-515,根本,根本,근본,geunbon,根本,根本
-516,治,自治,자치,jachi,治,自治
-517,首都,首都,수도,sudo,首都,首都
-518,推进,推进地型,추진,chujin,推进,推进
-519,势力,勢力,세력,seryeok,势力,势力
-520,推进,推進,추진,chujin,推进,推進
-521,势力,勢力,세력,seryeok,势力,勢力
-522,同,同一,동일,dongil,同,周三
-523,爆发,爆发,폭발,pokbal,爆发,爆発
-524,分解,分解,분해,bunhae,分解,分解
-525,修正,修正,수정,sujeong,修正,修正
-526,接触,接镜,접촉,jeopchok,接触,接触
-527,宣言宣言,宣言,선언,seoneon,宣言宣言,宣言
-528,大战,大戦,대전,daejeon,大战,大戦
-529,有力,有力,유력,yuryeok,有力,有力
-530,开幕,開幕,개막,gaemak,开幕,开幕
-531,觉悟,覚悟,촬돔각오,chwaldomgako,觉悟,覚悟
-532,过程,過程寺,쯤과정,jjeumgwajeong,过程,過程
-533,居住,居住,똥수거주,ttongsugeoju,居住,居住
-534,偶然,偶然,우연,uyeon,偶然,偶然
-535,地震,地震,지진,jijin,地震,地震
-536,資本,資本,자본,jabon,資本,資本
-537,政党多,政党,정당,jeongdang,政党多,政党
-538,对立,对立,대립,daerip,对立,对立
-539,大众,大衆呈,대중,daejung,大众,大衆
-540,大地,大地,대지,daeji,大地,大地
-541,通过,通過,통과,tonggwa,通过,通過
-542,动力,动力,동력,dongryeok,动力,动力
-543,农药,農薬,농약,nongyak,农药,农菜
-544,犯罪,犯罪,범죄,beomjoe,犯罪,犯罪
-545,武器,武器,무기,mugi,武器,武器
-546,部长,部长,부장,bujang,部长,部長
-547,压力,压力,압력,apryeok,压力,压力
-548,气压,气压,로기압,rogiap,气压,気圧
-549,会合,結合,결합,gyeolhap,会合,結合
-550,公式,公式,공식,gongsik,公式,公式
-551,财产,財産,재산,jaesan,财产,财产
-552,重大,重大中,토즈중대,tojeujungdae,重大,重大
-553,接近,接近,접근,jeopgeun,接近,接近
-554,大陆,大陸,대륙,daeryuk,大陆,大陸
-555,适合,適合,적적합,jeokjeokhap,适合,適合
-556,反映,反映,반영,banyeong,反映,反映
-557,分布,分布,분포,bunpo,分布,分布
-558,反映,反映,반영,banyeong,反映,反映
-559,分布,分布,분포,bunpo,分布,分布
-560,可怜,可憐型,미가련,migaryeon,可怜,可憐
-561,气象,气象,기상,gisang,气象,気象
-562,义务,義務,의무,uimu,义务,義務
-563,形态,形態,형태,hyeongtae,形态,形態
-564,差别,差别,차별,chabyeol,差别,差别
-565,性质,性质,성질,seongjil,性质,性質
-566,地形,地形,지형,jihyeong,地形,地形
-567,动机,动机,동기,donggi,动机,动机
-568,东南,东南,동남,dongnam,东南,东南
-569,平等,平等,평동등도,pyeongdongdeungdo,平等,平等
-570,勇气,勇气,용기,yonggi,勇气,勇气
-571,英雄,英雄,영웅,yeongung,英雄,英雄
-572,改正,改正,개정,gaejeong,改正,改正
-573,学问,學間,학문,hakmun,学问,学問
-574,基地,基地,기지,giji,基地,基地
-575,军事,軍事,군시,gunsi,军事,軍事
-576,权利,权利,권리,gwonri,权利,権利
-577,紧急,緊急,긴급,gingeup,紧急,紧急
-578,个别,個別,개별,gaebyeol,个别,个别
-579,行为,行为,행위,haengwi,行为,行为
-580,后悔,後悔,후회,huhoe,后悔,后悔
-581,皇帝,皇帝,황제,hwangje,皇帝,皇帝
-582,根据,根据,근거,geungeo,根据,根拠
-583,食堂党,食堂,식당,sikdang,食堂党,食堂
-584,垂直,垂直,수직,sujik,垂直,垂直
-585,睡眠,睡眠,수면,sumyeon,睡眠,睡眠
-586,占领,占領,점령,jeomryeong,占领,占领
-587,尊敬,登敬,존경,jongyeong,尊敬,尊敬
-588,损害,損害,손해,sonhae,损害,损害
-589,热带,热带,열대,yeoldae,热带,热带
-590,无限,無限,무한,muhan,无限,無限
-591,愉快,愉快,유쾌,yukwae,愉快,愉快
-592,伟大,偉大,위대,widae,伟大,偉大
-593,用二和,一带,일대,ildae,用二和,一帯
-594,解释,解释,해석,haeseok,解释,解釈
-595,干部,干部,간부,ganbu,干部,干部
-596,解释,解釋,해석,haeseok,解释,解釈
-597,干部,幹部,간부,ganbu,干部,幹部
-598,抗议,抗議引,항의,hangui,抗议,抗議
-599,工作,工作,공작,gongjak,工作,工作
-600,昆虫,去,보로곤충,borogonchung,昆虫,昆虫
-601,缩小,篇小,축소,chukso,缩小,縮小
-602,出生,出生,출생,chulsaeng,出生,出生
-603,伤害,伤害旨,송좋상해,songjohsanghae,伤害,伤害
-604,出生,出生,출생,chulsaeng,出生,出生
-605,西部,西部,서부,seobu,西部,西部
-606,节约,節約,절약,jeolyak,节约,節約
-607,地面,地面,지면,jimyeon,地面,地面
-608,统计,统计,통계,tonggye,统计,统计
-609,到达,到達,도달,dodal,到达,到達
-610,读书,读书,독서,dokseo,读书,読書
-611,农村,農村,농촌,nongchon,农村,农村
-612,不幸,不幸,불행,bulhaeng,不幸,不幸
-613,武装,武装,무장,mujang,武装,武装
-614,民众,民衆中,모풋민중,moputminjung,民众,民衆
-615,意义,意義,의의,uiui,意义,意義
-616,各自,各自,각지,gakji,各自,各自
-617,讲义,講義,강의,gangui,讲义,講義
-618,数学,数学,수학,suhak,数学,数学
-619,生存,生存,생존,saengjon,生存,生存
-620,地带,地带,지디,jidi,地带,地帯
-621,秩序,秩序,질서,jilseo,秩序,秩序
-622,部队,部際,부디,budi,部队,部队
-623,分裂,分裂,사분열,sabunyeol,分裂,分裂
-624,容器,容器,용기,yonggi,容器,容器
-625,观念,観念,관념,gwannyeom,观念,観念
-626,气候,气候,기후,gihu,气候,気候
-627,刑事,刑事,형시,hyeongsi,刑事,刑事
-628,继承,继承,계승,gyeseung,继承,継承
-629,财政,財政,재정,jaejeong,财政,财政
-630,继承,繼承,계승,gyeseung,继承,継承
-631,财政,財政,재정,jaejeong,财政,財政
-632,少数,少數,소수,sosu,少数,少数
-633,条约,條約,조약,joyak,条约,条約
-634,人体,人體,인체,inche,人体,人体
-635,进入,進入,진입,jinip,进入,進入
-636,正式,正式,정식,jeongsik,正式,正式
-637,电压,電壓,전압,jeonap,电压,電圧
-638,必须,必須,필수,pilsu,必须,必須
-639,分量,分量,분량,bunryang,分量,分量
-640,兵士,兵士,병사,byeongsa,兵士,兵士
-641,平凡,平凡,평범,pyeongbeom,平凡,平凡
-642,万一,萬一,만일,manil,万一,万一
-643,命令,命令,명령,myeongryeong,命令,命令
-644,猛烈,猛烈,맹렬,maengryeol,猛烈,猛烈
-645,预报,豫報,예보,yebo,预报,予報
-646,观点,觀點,관점,gwanjeom,观点,観点
-647,军人,軍人,군인,gunin,军人,軍人
-648,宪法,憲法,헌법,heonbeop,宪法,憲法
-649,山地,山地,산지,sanji,山地,山地
-650,所在,所在,소재,sojae,所在,所在
-651,相互,相互,상호,sangho,相互,相互
-652,总理,總理,총리,chongri,总理,総理
-653,尊重,尊重,존중,jonjung,尊重,尊重
-654,电流,電流,전류,jeonryu,电流,電流
-655,同意,同意,동의,dongui,同意,同意
-656,比例,比例,비례,birye,比例,比例
-657,分配,分配,분배,bunbae,分配,分配
-658,材料,材料,재료,jaeryo,材料,材料
+no,hanzi,kor_hanja,hangul,romanization,chinese,japanese,japanese_romanization,vietnamese_romanization
+1,时间,時間,시간,si gan,时间,時間,jikan,
+2,价格,價格,가격,ga gyeok,价格,価格,kakaku,giá cách
+3,电话,電話,전화,jeon hwa,电话,電話,denwa,
+4,世界,世界,세계,se gye,世界,世界,sekai,thế giới
+5,以上,以上,이상,i sang,以上,以上,ijou,thượng
+6,商品,商品,상품,sang pum,商品,商品,shouhin,thương phẩm
+7,时代,時代,시대,si dae,时代,時代,jidai,đại
+8,作品,作品,작품,jak pum,作品,作品,sakuhin,tác phẩm
+9,必要,必要,필요,pil yo,必要,必要,hitsuyou,tất yếu
+10,自然,自然,자연,ja yeon,自然,自然,shizen,tự nhiên
+11,使用,使用,사용,sa yong,使用,使用,shiyou,sứ dụng
+12,音乐,音樂,음악,eum ak,音乐,音楽,ongaku,âm
+13,生活,生活,생활,saeng hwal,生活,生活,seikatsu,sinh hoạt
+14,问题,問題,문제,mun je,问题,問題,mondai,
+15,可能,可能,가능,ga neung,可能,可能,kanou,khả năng
+16,关系,關係,관계,gwan gye,关系,関係,kankei,hệ
+17,现在,現在,현재,hyeon jae,现在,現在,genzai,tại
+18,大学,大學,대학,dae hak,大学,大学,daigaku,đại
+19,利用,利用,이용,i yong,利用,利用,riyou,lợi dụng
+20,效果,效果,효과,hyo gwa,效果,効果,kouka,hiệu quả
+21,部分,部分,부분,bu bun,部分,部分,bubun,bộ phân
+22,方法,方法,방법,bang beop,方法,方法,houhou,phương pháp
+23,营业,營業,영업,yeong eop,营业,営業,eigyou,
+24,情报,情報,정보,jeong bo,情报,情報,jouhou,tình
+25,特别,特別,특별,teuk byeol,特别,特別,tokubetsu,đặc
+26,希望,希望,희망,hui mang,希望,希望,kibou,hơi vọng
+27,文化,文化,문화,mun hwa,文化,文化,bunka,văn hoá
+28,技术,技術,기술,gi sul,技术,技術,gijutsu,kĩ
+29,基本,基本,기본,gi bon,基本,基本,kihon,cơ bản
+30,意味,意味,의미,ui mi,意味,意味,imi,ý vị
+31,自动,自動,자동,ja dong,自动,自動,jidou,tự
+32,内容,內容,내용,nae yong,内容,内容,naiyou,nội dung
+33,自由,自由,자유,ja yu,自由,自由,jiyuu,tự do
+34,简单,簡單,간단,gan dan,简单,簡単,kantan,
+35,中心,中心,중심,jung sim,中心,中心,chuushin,trung tâm
+36,最近,最近,최근,choe geun,最近,最近,saikin,tối cận
+37,参加,參加,참가,cham ga,参加,参加,sanka,gia
+38,结婚,結婚,결혼,gyeol hon,结婚,結婚,kekkon,
+39,一般,一般,일반,il ban,一般,一般,ippan,nhất bàn
+40,社会,社會,사회,sa hoe,社会,社会,shakai,xã hội
+41,保险,保險,보험,bo heom,保险,保険,hoken,bảo
+42,学校,學校,학교,hak gyo,学校,学校,gakkou,chò
+43,开发,開發,개발,gae bal,开发,開発,kaihatsu,
+44,先生,先生,선생,seon saeng,先生,先生,sensei,tiên sinh
+45,程度,程度,정도,jeong do,程度,程度,teido,trình độ
+46,大会,大會,대회,dae hoe,大会,大会,taikai,đại hội
+47,发表,發表,발표,bal pyo,发表,発表,happyou,biểu
+48,印象,印象,인상,in sang,印象,印象,inshou,ấn tượng
+49,结果,結果,결과,gyeol gwa,结果,結果,kekka,quả
+50,存在,存在,존재,jon jae,存在,存在,sonzai,tồn tại
+51,最初,最初,최초,choe cho,最初,最初,saisho,tối sơ
+52,装备,裝備,장비,jang bi,装备,装備,soubi,
+53,消费,消費,소비,so bi,消费,消費,shouhi,tiêu
+54,采用,採用,채용,chae yong,采用,採用,saiyou,dụng
+55,全体,全體,전체,jeon che,全体,全体,zentai,toàn thể
+56,飞行,飛行,비행,bi haeng,飞行,飛行,hikou,hàng
+57,国际,國際,국제,guk je,国际,国際,kokusai,
+58,企业,企業,기업,gi eop,企业,企業,kigyou,xí
+59,专门,專門,전문,jeon mun,专门,専門,senmon,
+60,中央,中央,중앙,jung ang,中央,中央,chuuou,trung ương
+61,普通,普通,보통,bo tong,普通,普通,futsuu,phổ thông
+62,经济,經濟,경제,gyeong je,经济,経済,keizai,
+63,现代,現代,현대,hyeon dae,现代,現代,gendai,đại
+64,当时,當時,당시,dang si,当时,当時,touji,
+65,实际,實際,실제,sil je,实际,実際,jissai,
+66,学生,學生,학생,hak saeng,学生,学生,gakusei,sinh
+67,银行,銀行,은행,eun haeng,银行,銀行,ginkou,hàng
+68,旅行,旅行,여행,yeo haeng,旅行,旅行,ryokou,lữ hàng
+69,以下,以下,이하,i ha,以下,以下,ika,hạ
+70,说明,說明,설명,seol myeong,说明,説明,setsumei,minh
+71,感觉,感覺,감각,gam gak,感觉,感覚,kankaku,cảm
+72,经验,經驗,경험,gyeong heom,经验,経験,keiken,
+73,活跃,活躍,활약,hwal yak,活跃,活躍,katsuyaku,hoạt
+74,代表,代表,대표,dae pyo,代表,代表,daihyou,đại biểu
+75,通信,通信,통신,tong sin,通信,通信,tsuushin,thông tín
+76,主人,主人,주인,ju in,主人,主人,shujin,chúa nhân
+77,安心,安心,안심,an sim,安心,安心,anshin,an tâm
+78,以外,以外,이외,i oe,以外,以外,igai,ngoại
+79,表现,表現,표현,pyo hyeon,表现,表現,hyougen,biểu
+80,意识,意識,의식,ui sik,意识,意識,ishiki,ý
+81,非常,非常,비상,bi sang,非常,非常,hijou,phi thường
+82,活动,活動,활동,hwal dong,活动,活動,katsudou,hoạt
+83,运动,運動,운동,un dong,运动,運動,undou,
+84,新闻,新聞,신문,sin mun,新闻,新聞,shinbun,tân
+85,理由,理由,이유,i yu,理由,理由,riyuu,lí do
+86,指导,指導,지도,ji do,指导,指導,shidou,chỉ
+87,实现,實現,실현,sil hyeon,实现,実現,jitsugen,
+88,家庭,家庭,가정,ga jeong,家庭,家庭,katei,gia đình
+89,变化,變化,변화,byeon hwa,变化,変化,henka,hoá
+90,位置,位置,위치,wi chi,位置,位置,ichi,vị trí
+91,种类,種類,종류,jong ryu,种类,種類,shurui,
+92,完全,完全,완전,wan jeon,完全,完全,kanzen,hoàn toàn
+93,资料,資料,자료,ja ryo,资料,資料,shiryou,liệu
+94,同时,同時,동시,dong si,同时,同時,douji,đồng
+95,个人,個人,개인,gae in,个人,個人,kojin,cá nhân
+96,政治,政治,정치,jeong chi,政治,政治,seiji,chính trị
+97,完成,完成,완성,wan seong,完成,完成,kansei,hoàn thành
+98,设计,設計,설계,seol gye,设计,設計,sekkei,
+99,表示,表示,표시,pyo si,表示,表示,hyouji,biểu kì
+100,艺术,藝術,예술,ye sul,艺术,芸術,geijutsu,ớt
+101,发行,發行,발행,bal haeng,发行,発行,hakkou,hàng
+102,决定,決定,결정,gyeol jeong,决定,決定,kettei,định
+103,重要,重要,중요,jung yo,重要,重要,juuyou,trọng yếu
+104,评价,評價,평가,pyeong ga,评价,評価,hyouka,giá
+105,是非,是非,시비,si bi,是非,是非,zehi,thị phi
+106,方式,方式,방식,bang sik,方式,方式,houshiki,phương thức
+107,有名,有名,유명,yu myeong,有名,有名,yuumei,hữu danh
+108,制品,製品,제품,je pum,制品,製品,seihin,chế phẩm
+109,当然,當然,당연,dang yeon,当然,当然,touzen,nhiên
+110,目的,目的,목적,mok jeok,目的,目的,mokuteki,mục đích
+111,材料,材料,재료,jae ryo,材料,材料,zairyou,liệu
+112,时期,時期,시기,si gi,时期,時期,jiki,kì
+113,注意,注意,주의,ju ui,注意,注意,chuui,chú ý
+114,传统,傳統,전통,jeon tong,传统,伝統,dentou,
+115,以前,以前,이전,i jeon,以前,以前,izen,tiền
+116,处理,處理,처리,cheo ri,处理,処理,shori,lí
+117,能力,能力,능력,neung ryeok,能力,能力,nouryoku,năng lực
+118,方向,方向,방향,bang hyang,方向,方向,houkou,phương hướng
+119,交通,交通,교통,gyo tong,交通,交通,koutsuu,giao thông
+120,读者,讀者,독자,dok ja,读者,読者,dokusha,
+121,丰富,豊富,풍부,pung bu,丰富,豊富,houfu,phong phú
+122,季节,季節,계절,gye jeol,季节,季節,kisetsu,quí
+123,世纪,世紀,세기,se gi,世纪,世紀,seiki,thế
+124,构成,構成,구성,gu seong,构成,構成,kousei,thành
+125,原因,原因,원인,won in,原因,原因,gen'in,nguyên nhân
+126,食品,食品,식품,sik pum,食品,食品,shokuhin,phẩm
+127,直接,直接,직접,jik jeop,直接,直接,chokusetsu,tiếp
+128,平均,平均,평균,pyeong gyun,平均,平均,heikin,bình quân
+129,美术,美術,미술,mi sul,美术,美術,bijutsu,mỉ
+130,教育,敎育,교육,gyo yuk,教育,教育,kyouiku,giáo dục
+131,事业,事業,사업,sa eop,事业,事業,jigyou,sự
+132,事实,事實,사실,sa sil,事实,事実,jijitsu,sự
+133,文字,文字,문자,mun ja,文字,文字,moji,văn tự
+134,事件,事件,사건,sa geon,事件,事件,jiken,sự kiện
+135,请求,請求,청구,cheong gu,请求,請求,seikyuu,cầu
+136,对象,對象,대상,dae sang,对象,対象,taishou,đối tượng
+137,安定,安定,안정,an jeong,安定,安定,antei,an định
+138,安全,安全,안전,an jeon,安全,安全,anzen,an toàn
+139,管理,管理,관리,gwan ri,管理,管理,kanri,quản lí
+140,以来,以來,이래,i rae,以来,以来,irai,
+141,选择,選擇,선택,seon taek,选择,選択,sentaku,
+142,诞生,誕生,탄생,tan saeng,诞生,誕生,tanjou,sinh
+143,地区,地區,지구,ji gu,地区,地区,chiku,địa
+144,指挥,指揮,지휘,ji hwi,指挥,指揮,shiki,chỉ
+145,女子,女子,여자,yeo ja,女子,女子,joshi,nữa tí
+146,地方,地方,지방,ji bang,地方,地方,chihou,địa phương
+147,展开,展開,전개,jeon gae,展开,展開,tenkai,triển
+148,有效,有效,유효,yu hyo,有效,有効,yuukou,hữu hiệu
+149,成分,成分,성분,seong bun,成分,成分,seibun,thành phân
+150,构造,構造,구조,gu jo,构造,構造,kouzou,tạo
+151,成功,成功,성공,seong gong,成功,成功,seikou,thành công
+152,精神,精神,정신,jeong sin,精神,精神,seishin,tinh thần
+153,实施,實施,실시,sil si,实施,実施,jisshi,thi
+154,演出,演出,연출,yeon chul,演出,演出,enshutsu,diễn xuất
+155,观测,觀測,관측,gwan cheuk,观测,観測,kansoku,
+156,生产,生産,생산,saeng san,生产,生産,seisan,sinh
+157,理解,理解,이해,i hae,理解,理解,rikai,lí giải
+158,出版,出版,출판,chul pan,出版,出版,shuppan,xuất bản
+159,调整,調整,조정,jo jeong,调整,調整,chousei,chỉnh
+160,交换,交換,교환,gyo hwan,交换,交換,koukan,giao
+161,前后,前後,전후,jeon hu,前后,前後,zengo,tiền hậu
+162,少年,少年,소년,so nyeon,少年,少年,shounen,thiểu nên
+163,费用,費用,비용,bi yong,费用,費用,hiyou,dụng
+164,日常,日常,일상,il sang,日常,日常,nichijou,nhật thường
+165,作业,作業,작업,jak eop,作业,作業,sagyou,tác
+166,集中,集中,집중,jip jung,集中,集中,shuuchuu,tập trung
+167,小说,小說,소설,so seol,小说,小説,shousetsu,tiểu
+168,全部,全部,전부,jeon bu,全部,全部,zenbu,toàn bộ
+169,现实,現實,현실,hyeon sil,现实,現実,genjitsu,
+170,个性,個性,개성,gae seong,个性,個性,kosei,cá tính
+171,比较,比較,비교,bi gyo,比较,比較,hikaku,tỉ
+172,表情,表情,표정,pyo jeong,表情,表情,hyoujou,biểu tình
+173,经营,經營,경영,gyeong yeong,经营,経営,keiei,
+174,市场,市場,시장,si jang,市场,市場,shijou,thị
+175,职业,職業,직업,jik eop,职业,職業,shokugyou,
+176,不安,不安,불안,bul an,不安,不安,fuan,bất an
+177,外国,外國,외국,oe guk,外国,外国,gaikoku,ngoại
+178,各种,各種,각종,gak jong,各种,各種,kakushu,các
+179,将来,將來,장래,jang rae,将来,将来,shourai,
+180,战争,戰爭,전쟁,jeon jaeng,战争,戦争,sensou,
+181,成长,成長,성장,seong jang,成长,成長,seichou,thành
+182,公园,公園,공원,gong won,公园,公園,kouen,công vườn
+183,治疗,治療,치료,chi ryo,治疗,治療,chiryou,trị lểu
+184,自信,自信,자신,ja sin,自信,自信,jishin,tự tín
+185,满足,滿足,만족,man jok,满足,満足,manzoku,túc
+186,倾向,傾向,경향,gyeong hyang,倾向,傾向,keikou,hướng
+187,作家,作家,작가,jak ga,作家,作家,sakka,tác gia
+188,电子,電子,전자,jeon ja,电子,電子,denshi,tí
+189,过去,過去,과거,gwa geo,过去,過去,kako,quá khứ
+190,空间,空間,공간,gong gan,空间,空間,kuukan,không
+191,生命,生命,생명,saeng myeong,生命,生命,seimei,sinh mệnh
+192,道路,道路,도로,do ro,道路,道路,douro,đạo lộ
+193,意见,意見,의견,ui gyeon,意见,意見,iken,ý
+194,记忆,記憶,기억,gi eok,记忆,記憶,kioku,hắt
+195,操作,操作,조작,jo jak,操作,操作,sousa,tác
+196,书店,書店,서점,seo jeom,书店,書店,shoten,điếm
+197,计算,計算,계산,gye san,计算,計算,keisan,toán
+198,地球,地球,지구,ji gu,地球,地球,chikyuu,địa cầu
+199,责任,責任,책임,chaek im,责任,責任,sekinin,nhậm
+200,目标,目標,목표,mok pyo,目标,目標,mokuhyou,mục
+201,左右,左右,좌우,jwa u,左右,左右,sayuu,tả hữu
+202,政府,政府,정부,jeong bu,政府,政府,seifu,chính phủ
+203,配合,配合,배합,bae hap,配合,配合,haigou,phối hợp
+204,行动,行動,행동,haeng dong,行动,行動,koudou,hàng
+205,国民,國民,국민,guk min,国民,国民,kokumin,dân
+206,文学,文學,문학,mun hak,文学,文学,bungaku,văn
+207,感动,感動,감동,gam dong,感动,感動,kandou,cảm
+208,新鲜,新鮮,신선,sin seon,新鲜,新鮮,shinsen,tân
+209,地下,地下,지하,ji ha,地下,地下,chika,địa hạ
+210,形式,形式,형식,hyeong sik,形式,形式,keishiki,hình thức
+211,公开,公開,공개,gong gae,公开,公開,koukai,công
+212,事故,事故,사고,sa go,事故,事故,jiko,sự cố
+213,积极,積極,적극,jeok geuk,积极,積極,sekkyoku,
+214,制作,製作,제작,je jak,制作,製作,seisaku,chế tác
+215,天然,天然,천연,cheon yeon,天然,天然,tennen,thiên nhiên
+216,移动,移動,이동,i dong,移动,移動,idou,dời
+217,动物,動物,동물,dong mul,动物,動物,doubutsu,vật
+218,不足,不足,부족,bu jok,不足,不足,fusoku,bất túc
+219,科学,科學,과학,gwa hak,科学,科学,kagaku,khoa
+220,太阳,太陽,태양,tae yang,太阳,太陽,taiyou,thái
+221,燃料,燃料,연료,yeon ryo,燃料,燃料,nenryou,nhen liệu
+222,工夫,工夫,공부,gong bu,工夫,工夫,kufuu,công phu
+223,数字,數字,숫자,sut ja,数字,数字,suuji,tự
+224,工业,工業,공업,gong eop,工业,工業,kougyou,công
+225,参考,參考,참고,cham go,参考,参考,sankou,khảo
+226,性格,性格,성격,seong gyeok,性格,性格,seikaku,tính cách
+227,实行,實行,실행,sil haeng,实行,実行,jikkou,hàng
+228,速度,速度,속도,sok do,速度,速度,sokudo,tốc độ
+229,努力,努力,노력,no ryeok,努力,努力,doryoku,lực
+230,理想,理想,이상,i sang,理想,理想,risou,lí tưởng
+231,机会,機會,기회,gi hoe,机会,機会,kikai,cơ hội
+232,出发,出發,출발,chul bal,出发,出発,shuppatsu,xuất
+233,植物,植物,식물,sik mul,植物,植物,shokubutsu,thực vật
+234,豆腐,豆腐,두부,du bu,豆腐,豆腐,toufu,đậu hủ
+235,记录,記錄,기록,gi rok,记录,記録,kiroku,
+236,详细,詳細,상세,sang se,详细,詳細,shousai,
+237,政权,政權,정권,jeong gwon,政权,政権,seiken,chính
+238,风景,風景,풍경,pung gyeong,风景,風景,fuukei,cảnh
+239,报告,報告,보고,bo go,报告,報告,houkoku,
+240,建筑,建築,건축,geon chuk,建筑,建築,kenchiku,kiến trúc
+241,判断,判斷,판단,pan dan,判断,判断,handan,phán đoạn
+242,反对,反對,반대,ban dae,反对,反対,hantai,phản đối
+243,业务,業務,업무,eop mu,业务,業務,gyoumu,
+244,自己,自己,자기,ja gi,自己,自己,jiko,tự kỉ
+245,少女,少女,소녀,so nyeo,少女,少女,shoujo,thiểu nữa
+246,知识,知識,지식,ji sik,知识,知識,chishiki,tri
+247,土地,土地,토지,to ji,土地,土地,tochi,thổ địa
+248,保护,保護,보호,bo ho,保护,保護,hogo,bảo
+249,医疗,醫療,의료,ui ryo,医疗,医療,iryou,lểu
+250,确实,確實,확실,hwak sil,确实,確実,kakujitsu,
+251,设备,設備,설비,seol bi,设备,設備,setsubi,
+252,基础,基礎,기초,gi cho,基础,基礎,kiso,cơ
+253,宇宙,宇宙,우주,u ju,宇宙,宇宙,uchuu,vũ trụ
+254,高原,高原,고원,go won,高原,高原,kougen,cao nguyên
+255,制度,制度,제도,je do,制度,制度,seido,chế độ
+256,本来,本來,본래,bon rae,本来,本来,honrai,bản
+257,姿势,姿勢,자세,ja se,姿势,姿勢,shisei,tư
+258,固定,固定,고정,go jeong,固定,固定,kotei,cố định
+259,团体,團體,단체,dan che,团体,団体,dantai,thể
+260,加工,加工,가공,ga gong,加工,加工,kakou,gia công
+261,金属,金屬,금속,geum sok,金属,金属,kinzoku,kim
+262,教授,敎授,교수,gyo su,教授,教授,kyouju,giáo thụ
+263,空气,空氣,공기,gong gi,空气,空気,kuuki,không
+264,手术,手術,수술,su sul,手术,手術,shujutsu,thủ
+265,突然,突然,돌연,dol yeon,突然,突然,totsuzen,đột nhiên
+266,思想,思想,사상,sa sang,思想,思想,shisou,tư tưởng
+267,神经,神經,신경,sin gyeong,神经,神経,shinkei,thần
+268,男子,男子,남자,nam ja,男子,男子,danshi,nam tí
+269,发生,發生,발생,bal saeng,发生,発生,hassei,sinh
+270,面积,面積,면적,myeon jeok,面积,面積,menseki,
+271,机关,機關,기관,gi gwan,机关,機関,kikan,cơ
+272,作用,作用,작용,jak yong,作用,作用,sayou,tác dụng
+273,失败,失敗,실패,sil pae,失败,失敗,shippai,thất
+274,成绩,成績,성적,seong jeok,成绩,成績,seiseki,thành
+275,主要,主要,주요,ju yo,主要,主要,shuyou,chúa yếu
+276,发挥,發揮,발휘,bal hwi,发挥,発揮,hakki,
+277,独立,獨立,독립,dok rip,独立,独立,dokuritsu,lập
+278,表面,表面,표면,pyo myeon,表面,表面,hyoumen,biểu
+279,关心,關心,관심,gwan sim,关心,関心,kanshin,tâm
+280,内部,內部,내부,nae bu,内部,内部,naibu,nội bộ
+281,反应,反應,반응,ban eung,反应,反応,hannou,phản
+282,品质,品質,품질,pum jil,品质,品質,hinshitsu,phẩm
+283,制造,製造,제조,je jo,制造,製造,seizou,chế tạo
+284,相当,相當,상당,sang dang,相当,相当,soutou,tương
+285,家具,家具,가구,ga gu,家具,家具,kagu,gia cụ
+286,主张,主張,주장,ju jang,主张,主張,shuchou,chúa
+287,近代,近代,근대,geun dae,近代,近代,kindai,cận đại
+288,体育,體育,체육,che yuk,体育,体育,taiiku,thể dục
+289,疑问,疑問,의문,ui mun,疑问,疑問,gimon,
+290,教室,敎室,교실,gyo sil,教室,教室,kyoushitsu,giáo thất
+291,身体,身體,신체,sin che,身体,身体,shintai,thân thể
+292,特殊,特殊,특수,teuk su,特殊,特殊,tokushu,đặc thùa
+293,吸收,吸收,흡수,heup su,吸收,吸収,kyuushuu,cộp thu
+294,建设,建設,건설,geon seol,建设,建設,kensetsu,kiến
+295,正确,正確,정확,jeong hwak,正确,正確,seikaku,chính
+296,证明,證明,증명,jeung myeong,证明,証明,shoumei,minh
+297,背景,背景,배경,bae gyeong,背景,背景,haikei,bối cảnh
+298,维持,維持,유지,yu ji,维持,維持,iji,trì
+299,扩大,擴大,확대,hwak dae,扩大,拡大,kakudai,đại
+300,欢迎,歡迎,환영,hwan yeong,欢迎,歓迎,kangei,nghênh
+301,记者,記者,기자,gi ja,记者,記者,kisha,
+302,共同,共同,공동,gong dong,共同,共同,kyoudou,cộng đồng
+303,实验,實驗,실험,sil heom,实验,実験,jikken,
+304,重视,重視,중시,jung si,重视,重視,juushi,trọng
+305,分析,分析,분석,bun seok,分析,分析,bunseki,phân
+306,帽子,帽子,모자,mo ja,帽子,帽子,boushi,mão tí
+307,医学,醫學,의학,ui hak,医学,医学,igaku,
+308,加入,加入,가입,ga ip,加入,加入,kanyuu,gia nhập
+309,解决,解決,해결,hae gyeol,解决,解決,kaiketsu,giải
+310,追求,追求,추구,chu gu,追求,追求,tsuikyuu,truy cầu
+311,透明,透明,투명,tu myeong,透明,透明,toumei,thấu minh
+312,国家,國家,국가,guk ga,国家,国家,kokka,gia
+313,多少,多少,다소,da so,多少,多少,tashou,đa thiểu
+314,批判,批判,비판,bi pan,批判,批判,hihan,phê phán
+315,皮肤,皮膚,피부,pi bu,皮肤,皮膚,hifu,bì
+316,优秀,優秀,우수,u su,优秀,優秀,yuushuu,tú
+317,椅子,椅子,의자,ui ja,椅子,椅子,isu,tí
+318,作战,作戰,작전,jak jeon,作战,作戦,sakusen,tác
+319,单位,單位,단위,dan wi,单位,単位,tan'i,vị
+320,要求,要求,요구,yo gu,要求,要求,youkyuu,yếu cầu
+321,改革,改革,개혁,gae hyeok,改革,改革,kaikaku,
+322,改善,改善,개선,gae seon,改善,改善,kaizen,thiện
+323,初期,初期,초기,cho gi,初期,初期,shoki,sơ kì
+324,水分,水分,수분,su bun,水分,水分,suibun,thuỷ phân
+325,天体,天體,천체,cheon che,天体,天体,tentai,thiên thể
+326,秘密,秘密,비밀,bi mil,秘密,秘密,himitsu,mật
+327,开放,開放,개방,gae bang,开放,開放,kaihou,phóng
+328,学习,學習,학습,hak seup,学习,学習,gakushuu,
+329,感情,感情,감정,gam jeong,感情,感情,kanjou,cảm tình
+330,事情,事情,사정,sa jeong,事情,事情,jijou,sự tình
+331,出身,出身,출신,chul sin,出身,出身,shusshin,xuất thân
+332,劳动,勞動,노동,no dong,劳动,労働,roudou,
+333,危险,危險,위험,wi heom,危险,危険,kiken,nguy
+334,血液,血液,혈액,hyeol aek,血液,血液,ketsueki,huyết giá
+335,一定,一定,일정,il jeong,一定,一定,ittei,nhất định
+336,细胞,細胞,세포,se po,细胞,細胞,saibou,bào
+337,原则,原則,원칙,won chik,原则,原則,gensoku,nguyên
+338,习惯,習慣,습관,seup gwan,习惯,習慣,shuukan,
+339,地图,地圖,지도,ji do,地图,地図,chizu,địa
+340,一生,一生,일생,il saeng,一生,一生,isshou,nhất sinh
+341,感谢,感謝,감사,gam sa,感谢,感謝,kansha,cảm
+342,训练,訓練,훈련,hun ryeon,训练,訓練,kunren,
+343,态度,態度,태도,tae do,态度,態度,taido,độ
+344,动作,動作,동작,dong jak,动作,動作,dousa,tác
+345,警察,警察,경찰,gyeong chal,警察,警察,keisatsu,khểnh sát
+346,观察,觀察,관찰,gwan chal,观察,観察,kansatsu,sát
+347,收入,收入,수입,su ip,收入,収入,shuunyuu,thu nhập
+348,战略,戰略,전략,jeon ryak,战略,戦略,senryaku,lược
+349,妇人,婦人,부인,bu in,妇人,婦人,fujin,nhân
+350,保存,保存,보존,bo jon,保存,保存,hozon,bảo tồn
+351,爱情,愛情,애정,ae jeong,爱情,愛情,aijou,tình
+352,学院,學院,학원,hak won,学院,学院,gakuin,viện
+353,规定,規定,규정,gyu jeong,规定,規定,kitei,định
+354,现象,現象,현상,hyeon sang,现象,現象,genshou,tượng
+355,胜利,勝利,승리,seung ri,胜利,勝利,shouri,thắng lợi
+356,心理,心理,심리,sim ri,心理,心理,shinri,tâm lí
+357,成果,成果,성과,seong gwa,成果,成果,seika,thành quả
+358,选举,選擧,선거,seon geo,选举,選挙,senkyo,
+359,牧场,牧場,목장,mok jang,牧场,牧場,bokujou,
+360,物质,物質,물질,mul jil,物质,物質,busshitsu,vật
+361,会议,會議,회의,hoe ui,会议,会議,kaigi,hội
+362,支配,支配,지배,ji bae,支配,支配,shihai,chi phối
+363,进行,進行,진행,jin haeng,进行,進行,shinkou,hàng
+364,电车,電車,전차,jeon cha,电车,電車,densha,
+365,认识,認識,인식,in sik,认识,認識,ninshiki,
+366,发展,發展,발전,bal jeon,发展,発展,hatten,triển
+367,防止,防止,방지,bang ji,防止,防止,boushi,phòng chỉ
+368,意志,意志,의지,ui ji,意志,意志,ishi,ý chí
+369,永远,永遠,영원,yeong won,永远,永遠,eien,vắng viễn
+370,项目,項目,항목,hang mok,项目,項目,koumoku,mục
+371,支持,支持,지지,ji ji,支持,支持,shiji,chi trì
+372,取得,取得,취득,chwi deuk,取得,取得,shutoku,thủ đắc
+373,政策,政策,정책,jeong chaek,政策,政策,seisaku,chính sách
+374,成立,成立,성립,seong rip,成立,成立,seiritsu,thành lập
+375,大量,大量,대량,dae ryang,大量,大量,tairyou,đại
+376,单纯,單純,단순,dan sun,单纯,単純,tanjun,
+377,否定,否定,부정,bu jeong,否定,否定,hitei,bĩ định
+378,异常,異常,이상,i sang,异常,異常,ijou,thường
+379,温度,溫度,온도,on do,温度,温度,ondo,ồn độ
+380,高度,高度,고도,go do,高度,高度,koudo,cao độ
+381,诗人,詩人,시인,si in,诗人,詩人,shijin,nhân
+382,发言,發言,발언,bal eon,发言,発言,hatsugen,ngôn
+383,反射,反射,반사,ban sa,反射,反射,hansha,phản xạ
+384,民族,民族,민족,min jok,民族,民族,minzoku,dân tộc
+385,危机,危機,위기,wi gi,危机,危機,kiki,nguy cơ
+386,兄弟,兄弟,형제,hyeong je,兄弟,兄弟,kyoudai,huynh đệ
+387,修理,修理,수리,su ri,修理,修理,shuuri,tu lí
+388,所有,所有,소유,so yu,所有,所有,shoyuu,sỡ hữu
+389,进化,進化,진화,jin hwa,进化,進化,shinka,hoá
+390,保障,保障,보장,bo jang,保障,保障,hoshou,bảo chướng
+391,访问,訪問,방문,bang mun,访问,訪問,houmon,
+392,预防,豫防,예방,ye bang,预防,予防,yobou,phòng
+393,未来,未來,미래,mi rae,未来,未来,mirai,mùi
+394,轨道,軌道,궤도,gwe do,轨道,軌道,kidou,đạo
+395,出现,出現,출현,chul hyeon,出现,出現,shutsugen,xuất
+396,制作,製作,제작,je jak,制作,制作,seisaku,chế tác
+397,变动,變動,변동,byeon dong,变动,変動,hendou,
+398,民主,民主,민주,min ju,民主,民主,minshu,dân chúa
+399,集团,集團,집단,jip dan,集团,集団,shuudan,tập
+400,文章,文章,문장,mun jang,文章,文章,bunshou,văn chương
+401,方针,方針,방침,bang chim,方针,方針,houshin,phương
+402,行政,行政,행정,haeng jeong,行政,行政,gyousei,hàng chính
+403,普及,普及,보급,bo geup,普及,普及,fukyuu,phổ cập
+404,以后,以後,이후,i hu,以后,以後,igo,hậu
+405,课题,課題,과제,gwa je,课题,課題,kadai,
+406,兴奋,興奮,흥분,heung bun,兴奋,興奮,koufun,
+407,信号,信號,신호,sin ho,信号,信号,shingou,tín hiệu
+408,增加,增加,증가,jeung ga,增加,増加,zouka,tăng gia
+409,报道,報道,보도,bo do,报道,報道,houdou,đạo
+410,化学,化學,화학,hwa hak,化学,化学,kagaku,hoá
+411,外交,外交,외교,oe gyo,外交,外交,gaikou,ngoại giao
+412,巨大,巨大,거대,geo dae,巨大,巨大,kyodai,đại
+413,困难,困難,곤란,gon ran,困难,困難,konnan,khốn
+414,消化,消化,소화,so hwa,消化,消化,shouka,tiêu hoá
+415,进步,進步,진보,jin bo,进步,進歩,shinpo,bộ
+416,整理,整理,정리,jeong ri,整理,整理,seiri,chỉnh lí
+417,创造,創造,창조,chang jo,创造,創造,souzou,tạo
+418,体力,體力,체력,che ryeok,体力,体力,tairyoku,thể lực
+419,地位,地位,지위,ji wi,地位,地位,chii,địa vị
+420,调节,調節,조절,jo jeol,调节,調節,chousetsu,
+421,统一,統一,통일,tong il,统一,統一,touitsu,nhất
+422,描写,描寫,묘사,myo sa,描写,描写,byousha,miêu
+423,应用,應用,응용,eung yong,应用,応用,ouyou,dụng
+424,革命,革命,혁명,hyeok myeong,革命,革命,kakumei,mệnh
+425,竞争,競爭,경쟁,gyeong jaeng,竞争,競争,kyousou,
+426,强调,强調,강조,gang jo,强调,強調,kyouchou,
+427,交流,交流,교류,gyo ryu,交流,交流,kouryuu,giao lưu
+428,混合,混合,혼합,hon hap,混合,混合,kongou,hổn hợp
+429,实践,實踐,실천,sil cheon,实践,実践,jissen,
+430,集合,集合,집합,jip hap,集合,集合,shuugou,tập hợp
+431,图书,圖書,도서,do seo,图书,図書,tosho,
+432,改良,改良,개량,gae ryang,改良,改良,kairyou,lương
+433,供给,供給,공급,gong geup,供给,供給,kyoukyuu,cung
+434,减少,減少,감소,gam so,减少,減少,genshou,thiểu
+435,支援,支援,지원,ji won,支援,支援,shien,chi viện
+436,指示,指示,지시,ji si,指示,指示,shiji,chỉ kì
+437,手段,手段,수단,su dan,手段,手段,shudan,thủ đoạn
+438,促进,促進,촉진,chok jin,促进,促進,sokushin,xúc
+439,大气,大氣,대기,dae gi,大气,大気,taiki,đại
+440,适当,適當,적당,jeok dang,适当,適当,tekitou,
+441,疲劳,疲勞,피로,pi ro,疲劳,疲労,hirou,bì
+442,法律,法律,법률,beop ryul,法律,法律,houritsu,pháp luật
+443,解放,解放,해방,hae bang,解放,解放,kaihou,giải phóng
+444,强烈,强烈,강렬,gang ryeol,强烈,強烈,kyouretsu,liệt
+445,幻想,幻想,환상,hwan sang,幻想,幻想,gensou,ảo tưởng
+446,呼吸,呼吸,호흡,ho heup,呼吸,呼吸,kokyuu,hô cộp
+447,时刻,時刻,시각,si gak,时刻,時刻,jikoku,khắc
+448,柔软,柔軟,유연,yu yeon,柔软,柔軟,juunan,nhu
+449,证据,證據,증거,jeung geo,证据,証拠,shouko,cứ
+450,农业,農業,농업,nong eop,农业,農業,nougyou,
+451,发达,發達,발달,bal dal,发达,発達,hattatsu,
+452,半岛,半島,반도,ban do,半岛,半島,han shima,bán
+453,老人,老人,노인,no in,老人,老人,roujin,lão nhân
+454,记载,記載,기재,gi jae,记载,記載,kisai,
+455,禁止,禁止,금지,geum ji,禁止,禁止,kinshi,cấm chỉ
+456,形成,形成,형성,hyeong seong,形成,形成,keisei,hình thành
+457,人口,人口,인구,in gu,人口,人口,jinkou,nhân khẩu
+458,人工,人工,인공,in gong,人工,人工,jinkou,nhân công
+459,生物,生物,생물,saeng mul,生物,生物,seibutsu,sinh vật
+460,地点,地點,지점,ji jeom,地点,地点,chiten,địa điểm
+461,中间,中間,중간,jung gan,中间,中間,chuukan,trung
+462,破坏,破壞,파괴,pa goe,破坏,破壊,hakai,phá hoại
+463,博士,博士,박사,bak sa,博士,博士,hakase,bác sĩ
+464,感激,感激,감격,gam gyeok,感激,感激,kangeki,cảm khích
+465,考虑,考慮,고려,go ryeo,考虑,考慮,kouryo,khảo
+466,混乱,混亂,혼란,hon ran,混乱,混乱,konran,hổn loạn
+467,水平,水平,수평,su pyeong,水平,水平,suihei,thuỷ bình
+468,创立,創立,창립,chang rip,创立,創立,souritsu,lập
+469,帝国,帝國,제국,je guk,帝国,帝国,teikoku,đấy
+470,投入,投入,투입,tu ip,投入,投入,tounyuu,đầu nhập
+471,日记,日記,일기,il gi,日记,日記,nikki,nhật
+472,有利,有利,유리,yu ri,有利,有利,yuuri,hữu lợi
+473,一旦,一旦,일단,il dan,一旦,一旦,ittan,nhất đán
+474,一致,一致,일치,il chi,一致,一致,itchi,nhất nhí
+475,学者,學者,학자,hak ja,学者,学者,gakusha,
+476,教师,敎師,교사,gyo sa,教师,教師,kyoushi,giáo
+477,经过,經過,경과,gyeong gwa,经过,経過,keika,quá
+478,原理,原理,원리,won ri,原理,原理,genri,nguyên lí
+479,公共,公共,공공,gong gong,公共,公共,koukyou,công cộng
+480,幸福,幸福,행복,haeng bok,幸福,幸福,koufuku,phúc
+481,思考,思考,사고,sa go,思考,思考,shikou,tư khảo
+482,将军,將軍,장군,jang gun,将军,将軍,shougun,
+483,宣传,宣傳,선전,seon jeon,宣传,宣伝,senden,tuyên
+484,爱好,愛好,애호,ae ho,爱好,愛好,aikou,háo
+485,角度,角度,각도,gak do,角度,角度,kakudo,góc độ
+486,结论,結論,결론,gyeol ron,结论,結論,ketsuron,
+487,商人,商人,상인,sang in,商人,商人,shounin,thương nhân
+488,商店,商店,상점,sang jeom,商店,商店,shouten,thương điếm
+489,消耗,消耗,소모,so mo,消耗,消耗,shoumou,tiêu hao
+490,招待,招待,초대,cho dae,招待,招待,shoutai,chiêu đãi
+491,深刻,深刻,심각,sim gak,深刻,深刻,shinkoku,thâm khắc
+492,振动,振動,진동,jin dong,振动,振動,shindou,chấn
+493,电力,電力,전력,jeon ryeok,电力,電力,denryoku,lực
+494,热心,熱心,열심,yeol sim,热心,熱心,nesshin,tâm
+495,年代,年代,연대,yeon dae,年代,年代,nendai,nên đại
+496,官僚,官僚,관료,gwan ryo,官僚,官僚,kanryou,quan liêu
+497,光景,光景,광경,gwang gyeong,光景,光景,koukei,quang cảnh
+498,合成,合成,합성,hap seong,合成,合成,gousei,hợp thành
+499,色彩,色彩,색채,saek chae,色彩,色彩,shikisai,sắc thái
+500,死亡,死亡,사망,sa mang,死亡,死亡,shibou,tợ vong
+501,若干,若干,약간,yak gan,若干,若干,jakkan,nhược can
+502,亲切,親切,친절,chin jeol,亲切,親切,shinsetsu,thiết
+503,人类,人類,인류,in ryu,人类,人類,jinrui,nhân
+504,石油,石油,석유,seok yu,石油,石油,sekiyu,thạch dầu
+505,鲜明,鮮明,선명,seon myeong,鲜明,鮮明,senmei,minh
+506,体系,體系,체계,che gye,体系,体系,taikei,thể hệ
+507,停止,停止,정지,jeong ji,停止,停止,teishi,đình chỉ
+508,平行,平行,평행,pyeong haeng,平行,平行,heikou,bình hàng
+509,贸易,貿易,무역,mu yeok,贸易,貿易,boueki,dịch
+510,明确,明確,명확,myeong hwak,明确,明確,meikaku,minh
+511,违反,違反,위반,wi ban,违反,違反,ihan,phản
+512,区别,區別,구별,gu byeol,区别,区別,kubetsu,
+513,继续,繼續,계속,gye sok,继续,継続,keizoku,
+514,原料,原料,원료,won ryo,原料,原料,genryou,nguyên liệu
+515,古代,古代,고대,go dae,古代,古代,kodai,cổ đại
+516,顾客,顧客,고객,go gaek,顾客,顧客,kokyaku,khách
+517,根本,根本,근본,geun bon,根本,根本,konpon,căn bản
+518,自治,自治,자치,ja chi,自治,自治,jichi,tự trị
+519,首都,首都,수도,su do,首都,首都,shuto,thủ đô
+520,推进,推進,추진,chu jin,推进,推進,suishin,suy
+521,势力,勢力,세력,se ryeok,势力,勢力,seiryoku,lực
+522,创作,創作,창작,chang jak,创作,創作,sousaku,tác
+523,适应,適應,적응,jeok eung,适应,適応,tekiou,
+524,同一,同一,동일,dong il,同一,同一,douitsu,đồng nhất
+525,爆发,爆發,폭발,pok bal,爆发,爆発,bakuhatsu,
+526,分解,分解,분해,bun hae,分解,分解,bunkai,phân giải
+527,修正,修正,수정,su jeong,修正,修正,shuusei,tu chính
+528,接触,接觸,접촉,jeop chok,接触,接触,sesshoku,tiếp
+529,宣言,宣言,선언,seon eon,宣言,宣言,sengen,tuyên ngôn
+530,大战,大戰,대전,dae jeon,大战,大戦,taisen,đại
+531,有力,有力,유력,yu ryeok,有力,有力,yuuryoku,hữu lực
+532,开幕,開幕,개막,gae mak,开幕,開幕,kaimaku,
+533,觉悟,覺悟,각오,gak o,觉悟,覚悟,kakugo,
+534,过程,過程,과정,gwa jeong,过程,過程,katei,quá trình
+535,居住,居住,거주,geo ju,居住,居住,kyojuu,cư trú
+536,偶然,偶然,우연,u yeon,偶然,偶然,guuzen,ngẫu nhiên
+537,地震,地震,지진,ji jin,地震,地震,jishin,địa
+538,资本,資本,자본,ja bon,资本,資本,shihon,bản
+539,政党,政黨,정당,jeong dang,政党,政党,seitou,chính
+540,对立,對立,대립,dae rip,对立,対立,tairitsu,đối lập
+541,大众,大衆,대중,dae jung,大众,大衆,taishuu,đại
+542,大地,大地,대지,dae ji,大地,大地,daichi,đại địa
+543,通过,通過,통과,tong gwa,通过,通過,tsuuka,thông quá
+544,动力,動力,동력,dong ryeok,动力,動力,douryoku,lực
+545,农药,農藥,농약,nong yak,农药,農薬,nouyaku,
+546,犯罪,犯罪,범죄,beom joe,犯罪,犯罪,hanzai,phạm tội
+547,武器,武器,무기,mu gi,武器,武器,buki,vũ khí
+548,部长,部長,부장,bu jang,部长,部長,buchou,bộ
+549,压力,壓力,압력,ap ryeok,压力,圧力,atsuryoku,lực
+550,气压,氣壓,기압,gi ap,气压,気圧,kiatsu,
+551,结合,結合,결합,gyeol hap,结合,結合,ketsugou,hợp
+552,公式,公式,공식,gong sik,公式,公式,koushiki,công thức
+553,财产,財産,재산,jae san,财产,財産,zaisan,
+554,重大,重大,중대,jung dae,重大,重大,juudai,trọng đại
+555,接近,接近,접근,jeop geun,接近,接近,sekkin,tiếp cận
+556,大陆,大陸,대륙,dae ryuk,大陆,大陸,tairiku,đại
+557,适合,適合,적합,jeok hap,适合,適合,tekigou,hợp
+558,反映,反映,반영,ban yeong,反映,反映,han'ei,phản ánh
+559,分布,分布,분포,bun po,分布,分布,bunpu,phân bố
+560,卫星,衛星,위성,wi seong,卫星,衛星,eisei,tinh
+561,确定,確定,확정,hwak jeong,确定,確定,kakutei,định
+562,可怜,可憐,가련,ga ryeon,可怜,可憐,karen,khả lanh
+563,气象,氣象,기상,gi sang,气象,気象,kishou,tượng
+564,义务,義務,의무,ui mu,义务,義務,gimu,
+565,形态,形態,형태,hyeong tae,形态,形態,keitai,hình
+566,差别,差別,차별,cha byeol,差别,差別,sabetsu,sai
+567,性质,性質,성질,seong jil,性质,性質,seishitsu,tính
+568,地形,地形,지형,ji hyeong,地形,地形,chikei,địa hình
+569,动机,動機,동기,dong gi,动机,動機,douki,cơ
+570,东南,東南,동남,dong nam,东南,東南,tounan,nam
+571,平等,平等,평등,pyeong deung,平等,平等,byoudou,bình đẳng
+572,勇气,勇氣,용기,yong gi,勇气,勇気,yuuki,dũng
+573,英雄,英雄,영웅,yeong ung,英雄,英雄,eiyuu,anh hùng
+574,改正,改正,개정,gae jeong,改正,改正,kaisei,chính
+575,学问,學問,학문,hak mun,学问,学問,gakumon,
+576,基地,基地,기지,gi ji,基地,基地,kichi,cơ địa
+577,军事,軍事,군사,gun sa,军事,軍事,gunji,sự
+578,权利,權利,권리,gwon ri,权利,権利,kenri,lợi
+579,紧急,緊急,긴급,gin geup,紧急,緊急,kinkyuu,cấp
+580,个别,個別,개별,gae byeol,个别,個別,kobetsu,cá
+581,行为,行爲,행위,haeng wi,行为,行為,koui,hàng
+582,后悔,後悔,후회,hu hoe,后悔,後悔,koukai,hậu hối
+583,皇帝,皇帝,황제,hwang je,皇帝,皇帝,koutei,hoàng đấy
+584,根据,根據,근거,geun geo,根据,根拠,konkyo,căn cứ
+585,食堂,食堂,식당,sik dang,食堂,食堂,shokudou,đường
+586,垂直,垂直,수직,su jik,垂直,垂直,suichoku,thùy
+587,睡眠,睡眠,수면,su myeon,睡眠,睡眠,suimin,miên
+588,占领,占領,점령,jeom ryeong,占领,占領,senryou,chiêm
+589,尊敬,尊敬,존경,jon gyeong,尊敬,尊敬,sonkei,tôn kính
+590,损害,損害,손해,son hae,损害,損害,songai,hại
+591,热带,熱帶,열대,yeol dae,热带,熱帯,nettai,
+592,无限,無限,무한,mu han,无限,無限,mugen,hạn
+593,愉快,愉快,유쾌,yu kwae,愉快,愉快,yukai,khoái
+594,伟大,偉大,위대,wi dae,伟大,偉大,idai,đại
+595,一带,一帶,일대,il dae,一带,一帯,ittai,nhất
+596,解释,解釋,해석,hae seok,解释,解釈,kaishaku,giải
+597,干部,幹部,간부,gan bu,干部,幹部,kanbu,can bộ
+598,气温,氣溫,기온,gi on,气温,気温,kion,ồn
+599,空中,空中,공중,gong jung,空中,空中,kuuchuu,không trung
+600,抗议,抗議,항의,hang ui,抗议,抗議,kougi,kháng
+601,工作,工作,공작,gong jak,工作,工作,kousaku,công tác
+602,昆虫,昆蟲,곤충,gon chung,昆虫,昆虫,konchuu,con trùng
+603,缩小,縮小,축소,chuk so,缩小,縮小,shukushou,tiểu
+604,出生,出生,출생,chul saeng,出生,出生,shusshou,xuất sinh
+605,伤害,傷害,상해,sang hae,伤害,傷害,shougai,hại
+606,消灭,消滅,소멸,so myeol,消灭,消滅,shoumetsu,tiêu
+607,西部,西部,서부,seo bu,西部,西部,seibu,tây bộ
+608,节约,節約,절약,jeol yak,节约,節約,setsuyaku,
+609,地面,地面,지면,ji myeon,地面,地面,jimen,địa
+610,统计,統計,통계,tong gye,统计,統計,toukei,
+611,到达,到達,도달,do dal,到达,到達,toutatsu,đáo
+612,读书,讀書,독서,dok seo,读书,読書,dokusho,
+613,农村,農村,농촌,nong chon,农村,農村,nouson,thôn
+614,不幸,不幸,불행,bul haeng,不幸,不幸,fukou,bất
+615,武装,武裝,무장,mu jang,武装,武装,busou,vũ
+616,民众,民衆,민중,min jung,民众,民衆,minshuu,dân
+617,意义,意義,의의,ui ui,意义,意義,igi,ý
+618,各自,各自,각자,gak ja,各自,各自,kakuji,các tự
+619,讲义,講義,강의,gang ui,讲义,講義,kougi,
+620,数学,數學,수학,su hak,数学,数学,suugaku,
+621,生存,生存,생존,saeng jon,生存,生存,seizon,sinh tồn
+622,地带,地帶,지대,ji dae,地带,地帯,chitai,địa
+623,秩序,秩序,질서,jil seo,秩序,秩序,chitsujo,trật tựa
+624,部队,部隊,부대,bu dae,部队,部隊,butai,bộ
+625,分裂,分裂,분열,bun yeol,分裂,分裂,bunretsu,phân
+626,容器,容器,용기,yong gi,容器,容器,youki,dung khí
+627,观念,觀念,관념,gwan nyeom,观念,観念,kannen,niệm
+628,气候,氣候,기후,gi hu,气候,気候,kikou,hầu
+629,刑事,刑事,형사,hyeong sa,刑事,刑事,keiji,hình sự
+630,继承,繼承,계승,gye seung,继承,継承,keishou,thừa
+631,财政,財政,재정,jae jeong,财政,財政,zaisei,chính
+632,少数,少數,소수,so su,少数,少数,shousuu,thiểu
+633,条约,條約,조약,jo yak,条约,条約,jouyaku,
+634,人体,人體,인체,in che,人体,人体,jintai,nhân thể
+635,进入,進入,진입,jin ip,进入,進入,shinnyuu,nhập
+636,正式,正式,정식,jeong sik,正式,正式,seishiki,chính thức
+637,电压,電壓,전압,jeon ap,电压,電圧,den'atsu,
+638,必须,必須,필수,pil su,必须,必須,hissu,tất
+639,分量,分量,분량,bun ryang,分量,分量,bunryou,phân
+640,兵士,兵士,병사,byeong sa,兵士,兵士,heishi,binh sĩ
+641,平凡,平凡,평범,pyeong beom,平凡,平凡,heibon,bình phàm
+642,万一,萬一,만일,man il,万一,万一,man'ichi,vạn nhất
+643,命令,命令,명령,myeong ryeong,命令,命令,meirei,mệnh lệnh
+644,猛烈,猛烈,맹렬,maeng ryeol,猛烈,猛烈,mouretsu,mãnh liệt
+645,预报,豫報,예보,ye bo,预报,予報,yohou,
+646,观点,觀點,관점,gwan jeom,观点,観点,kanten,điểm
+647,军人,軍人,군인,gun in,军人,軍人,gunjin,nhân
+648,宪法,憲法,헌법,heon beop,宪法,憲法,kenpou,pháp
+649,山地,山地,산지,san ji,山地,山地,sanchi,sơn địa
+650,所在,所在,소재,so jae,所在,所在,shozai,sỡ tại
+651,相互,相互,상호,sang ho,相互,相互,sougo,tương hỗ
+652,总理,總理,총리,chong ri,总理,総理,souri,lí
+653,尊重,尊重,존중,jon jung,尊重,尊重,sonchou,tôn trọng
+654,电流,電流,전류,jeon ryu,电流,電流,denryuu,lưu
+655,同意,同意,동의,dong ui,同意,同意,doui,đồng ý
+656,比例,比例,비례,bi rye,比例,比例,hirei,tỉ lề
+657,分配,分配,분배,bun bae,分配,分配,bunpai,phân phối
+658,木材,木材,목재,mok jae,木材,木材,mokuzai,mộc
