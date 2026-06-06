@@ -8,7 +8,7 @@
     "chinese": "时间",
     "japanese": "時間",
     "japanese_romanization": "jikan",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "thì gian"
   },
   {
     "no": 2,
@@ -30,7 +30,7 @@
     "chinese": "电话",
     "japanese": "電話",
     "japanese_romanization": "denwa",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "thoại"
   },
   {
     "no": 4,
@@ -74,7 +74,7 @@
     "chinese": "时代",
     "japanese": "時代",
     "japanese_romanization": "jidai",
-    "vietnamese_romanization": "đại"
+    "vietnamese_romanization": "thì đại"
   },
   {
     "no": 8,
@@ -129,7 +129,7 @@
     "chinese": "音乐",
     "japanese": "音楽",
     "japanese_romanization": "ongaku",
-    "vietnamese_romanization": "âm"
+    "vietnamese_romanization": "âm lạc"
   },
   {
     "no": 13,
@@ -173,7 +173,7 @@
     "chinese": "关系",
     "japanese": "関係",
     "japanese_romanization": "kankei",
-    "vietnamese_romanization": "hệ"
+    "vietnamese_romanization": "quan hệ"
   },
   {
     "no": 17,
@@ -184,7 +184,7 @@
     "chinese": "现在",
     "japanese": "現在",
     "japanese_romanization": "genzai",
-    "vietnamese_romanization": "tại"
+    "vietnamese_romanization": "hiện tại"
   },
   {
     "no": 18,
@@ -195,7 +195,7 @@
     "chinese": "大学",
     "japanese": "大学",
     "japanese_romanization": "daigaku",
-    "vietnamese_romanization": "đại"
+    "vietnamese_romanization": "đại học"
   },
   {
     "no": 19,
@@ -250,7 +250,7 @@
     "chinese": "营业",
     "japanese": "営業",
     "japanese_romanization": "eigyou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "nghiệp"
   },
   {
     "no": 24,
@@ -261,7 +261,7 @@
     "chinese": "情报",
     "japanese": "情報",
     "japanese_romanization": "jouhou",
-    "vietnamese_romanization": "tình"
+    "vietnamese_romanization": "tình báo"
   },
   {
     "no": 25,
@@ -272,7 +272,7 @@
     "chinese": "特别",
     "japanese": "特別",
     "japanese_romanization": "tokubetsu",
-    "vietnamese_romanization": "đặc"
+    "vietnamese_romanization": "đặc biết"
   },
   {
     "no": 26,
@@ -305,7 +305,7 @@
     "chinese": "技术",
     "japanese": "技術",
     "japanese_romanization": "gijutsu",
-    "vietnamese_romanization": "kĩ"
+    "vietnamese_romanization": "kĩ thuật"
   },
   {
     "no": 29,
@@ -338,7 +338,7 @@
     "chinese": "自动",
     "japanese": "自動",
     "japanese_romanization": "jidou",
-    "vietnamese_romanization": "tự"
+    "vietnamese_romanization": "tự động"
   },
   {
     "no": 32,
@@ -349,7 +349,7 @@
     "chinese": "内容",
     "japanese": "内容",
     "japanese_romanization": "naiyou",
-    "vietnamese_romanization": "nội dung"
+    "vietnamese_romanization": "dung"
   },
   {
     "no": 33,
@@ -371,7 +371,7 @@
     "chinese": "简单",
     "japanese": "簡単",
     "japanese_romanization": "kantan",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "giản đơn"
   },
   {
     "no": 35,
@@ -404,7 +404,7 @@
     "chinese": "参加",
     "japanese": "参加",
     "japanese_romanization": "sanka",
-    "vietnamese_romanization": "gia"
+    "vietnamese_romanization": "tham gia"
   },
   {
     "no": 38,
@@ -415,7 +415,7 @@
     "chinese": "结婚",
     "japanese": "結婚",
     "japanese_romanization": "kekkon",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "kết"
   },
   {
     "no": 39,
@@ -448,7 +448,7 @@
     "chinese": "保险",
     "japanese": "保険",
     "japanese_romanization": "hoken",
-    "vietnamese_romanization": "bảo"
+    "vietnamese_romanization": "bảo hiểm"
   },
   {
     "no": 42,
@@ -459,7 +459,7 @@
     "chinese": "学校",
     "japanese": "学校",
     "japanese_romanization": "gakkou",
-    "vietnamese_romanization": "chò"
+    "vietnamese_romanization": "học chò"
   },
   {
     "no": 43,
@@ -470,7 +470,7 @@
     "chinese": "开发",
     "japanese": "開発",
     "japanese_romanization": "kaihatsu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "khai phát"
   },
   {
     "no": 44,
@@ -514,7 +514,7 @@
     "chinese": "发表",
     "japanese": "発表",
     "japanese_romanization": "happyou",
-    "vietnamese_romanization": "biểu"
+    "vietnamese_romanization": "phát biểu"
   },
   {
     "no": 48,
@@ -536,7 +536,7 @@
     "chinese": "结果",
     "japanese": "結果",
     "japanese_romanization": "kekka",
-    "vietnamese_romanization": "quả"
+    "vietnamese_romanization": "kết quả"
   },
   {
     "no": 50,
@@ -569,7 +569,7 @@
     "chinese": "装备",
     "japanese": "装備",
     "japanese_romanization": "soubi",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "trang bị"
   },
   {
     "no": 53,
@@ -580,7 +580,7 @@
     "chinese": "消费",
     "japanese": "消費",
     "japanese_romanization": "shouhi",
-    "vietnamese_romanization": "tiêu"
+    "vietnamese_romanization": "tiêu phí"
   },
   {
     "no": 54,
@@ -591,7 +591,7 @@
     "chinese": "采用",
     "japanese": "採用",
     "japanese_romanization": "saiyou",
-    "vietnamese_romanization": "dụng"
+    "vietnamese_romanization": "thái dụng"
   },
   {
     "no": 55,
@@ -613,7 +613,7 @@
     "chinese": "飞行",
     "japanese": "飛行",
     "japanese_romanization": "hikou",
-    "vietnamese_romanization": "hàng"
+    "vietnamese_romanization": "phi hàng"
   },
   {
     "no": 57,
@@ -624,7 +624,7 @@
     "chinese": "国际",
     "japanese": "国際",
     "japanese_romanization": "kokusai",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "quốc"
   },
   {
     "no": 58,
@@ -635,7 +635,7 @@
     "chinese": "企业",
     "japanese": "企業",
     "japanese_romanization": "kigyou",
-    "vietnamese_romanization": "xí"
+    "vietnamese_romanization": "xí nghiệp"
   },
   {
     "no": 59,
@@ -646,7 +646,7 @@
     "chinese": "专门",
     "japanese": "専門",
     "japanese_romanization": "senmon",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "chuyên môn"
   },
   {
     "no": 60,
@@ -679,7 +679,7 @@
     "chinese": "经济",
     "japanese": "経済",
     "japanese_romanization": "keizai",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "kinh"
   },
   {
     "no": 63,
@@ -690,7 +690,7 @@
     "chinese": "现代",
     "japanese": "現代",
     "japanese_romanization": "gendai",
-    "vietnamese_romanization": "đại"
+    "vietnamese_romanization": "hiện đại"
   },
   {
     "no": 64,
@@ -701,7 +701,7 @@
     "chinese": "当时",
     "japanese": "当時",
     "japanese_romanization": "touji",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "đương thì"
   },
   {
     "no": 65,
@@ -712,7 +712,7 @@
     "chinese": "实际",
     "japanese": "実際",
     "japanese_romanization": "jissai",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "thực"
   },
   {
     "no": 66,
@@ -723,7 +723,7 @@
     "chinese": "学生",
     "japanese": "学生",
     "japanese_romanization": "gakusei",
-    "vietnamese_romanization": "sinh"
+    "vietnamese_romanization": "học sinh"
   },
   {
     "no": 67,
@@ -734,7 +734,7 @@
     "chinese": "银行",
     "japanese": "銀行",
     "japanese_romanization": "ginkou",
-    "vietnamese_romanization": "hàng"
+    "vietnamese_romanization": "ngân hàng"
   },
   {
     "no": 68,
@@ -778,7 +778,7 @@
     "chinese": "感觉",
     "japanese": "感覚",
     "japanese_romanization": "kankaku",
-    "vietnamese_romanization": "cảm"
+    "vietnamese_romanization": "cảm giác"
   },
   {
     "no": 72,
@@ -789,7 +789,7 @@
     "chinese": "经验",
     "japanese": "経験",
     "japanese_romanization": "keiken",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "kinh nghiệm"
   },
   {
     "no": 73,
@@ -800,7 +800,7 @@
     "chinese": "活跃",
     "japanese": "活躍",
     "japanese_romanization": "katsuyaku",
-    "vietnamese_romanization": "hoạt"
+    "vietnamese_romanization": "hoạt dược"
   },
   {
     "no": 74,
@@ -866,7 +866,7 @@
     "chinese": "表现",
     "japanese": "表現",
     "japanese_romanization": "hyougen",
-    "vietnamese_romanization": "biểu"
+    "vietnamese_romanization": "biểu hiện"
   },
   {
     "no": 80,
@@ -899,7 +899,7 @@
     "chinese": "活动",
     "japanese": "活動",
     "japanese_romanization": "katsudou",
-    "vietnamese_romanization": "hoạt"
+    "vietnamese_romanization": "hoạt động"
   },
   {
     "no": 83,
@@ -910,7 +910,7 @@
     "chinese": "运动",
     "japanese": "運動",
     "japanese_romanization": "undou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "vận động"
   },
   {
     "no": 84,
@@ -943,7 +943,7 @@
     "chinese": "指导",
     "japanese": "指導",
     "japanese_romanization": "shidou",
-    "vietnamese_romanization": "chỉ"
+    "vietnamese_romanization": "chỉ đạo"
   },
   {
     "no": 87,
@@ -954,7 +954,7 @@
     "chinese": "实现",
     "japanese": "実現",
     "japanese_romanization": "jitsugen",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "thực hiện"
   },
   {
     "no": 88,
@@ -976,7 +976,7 @@
     "chinese": "变化",
     "japanese": "変化",
     "japanese_romanization": "henka",
-    "vietnamese_romanization": "hoá"
+    "vietnamese_romanization": "biến hoá"
   },
   {
     "no": 90,
@@ -998,7 +998,7 @@
     "chinese": "种类",
     "japanese": "種類",
     "japanese_romanization": "shurui",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "chõng loại"
   },
   {
     "no": 92,
@@ -1031,7 +1031,7 @@
     "chinese": "同时",
     "japanese": "同時",
     "japanese_romanization": "douji",
-    "vietnamese_romanization": "đồng"
+    "vietnamese_romanization": "đồng thì"
   },
   {
     "no": 95,
@@ -1075,7 +1075,7 @@
     "chinese": "设计",
     "japanese": "設計",
     "japanese_romanization": "sekkei",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "thết kể"
   },
   {
     "no": 99,
@@ -1097,7 +1097,7 @@
     "chinese": "艺术",
     "japanese": "芸術",
     "japanese_romanization": "geijutsu",
-    "vietnamese_romanization": "ớt"
+    "vietnamese_romanization": "nghệ thuật"
   },
   {
     "no": 101,
@@ -1108,7 +1108,7 @@
     "chinese": "发行",
     "japanese": "発行",
     "japanese_romanization": "hakkou",
-    "vietnamese_romanization": "hàng"
+    "vietnamese_romanization": "phát hàng"
   },
   {
     "no": 102,
@@ -1119,7 +1119,7 @@
     "chinese": "决定",
     "japanese": "決定",
     "japanese_romanization": "kettei",
-    "vietnamese_romanization": "định"
+    "vietnamese_romanization": "quyết định"
   },
   {
     "no": 103,
@@ -1141,7 +1141,7 @@
     "chinese": "评价",
     "japanese": "評価",
     "japanese_romanization": "hyouka",
-    "vietnamese_romanization": "giá"
+    "vietnamese_romanization": "bình giá"
   },
   {
     "no": 105,
@@ -1196,7 +1196,7 @@
     "chinese": "当然",
     "japanese": "当然",
     "japanese_romanization": "touzen",
-    "vietnamese_romanization": "nhiên"
+    "vietnamese_romanization": "đương nhiên"
   },
   {
     "no": 110,
@@ -1229,7 +1229,7 @@
     "chinese": "时期",
     "japanese": "時期",
     "japanese_romanization": "jiki",
-    "vietnamese_romanization": "kì"
+    "vietnamese_romanization": "thì kì"
   },
   {
     "no": 113,
@@ -1251,7 +1251,7 @@
     "chinese": "传统",
     "japanese": "伝統",
     "japanese_romanization": "dentou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "truyền thống"
   },
   {
     "no": 115,
@@ -1273,7 +1273,7 @@
     "chinese": "处理",
     "japanese": "処理",
     "japanese_romanization": "shori",
-    "vietnamese_romanization": "lí"
+    "vietnamese_romanization": "xử lí"
   },
   {
     "no": 117,
@@ -1317,7 +1317,7 @@
     "chinese": "读者",
     "japanese": "読者",
     "japanese_romanization": "dokusha",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "độc"
   },
   {
     "no": 121,
@@ -1328,7 +1328,7 @@
     "chinese": "丰富",
     "japanese": "豊富",
     "japanese_romanization": "houfu",
-    "vietnamese_romanization": "phong phú"
+    "vietnamese_romanization": "phú"
   },
   {
     "no": 122,
@@ -1339,7 +1339,7 @@
     "chinese": "季节",
     "japanese": "季節",
     "japanese_romanization": "kisetsu",
-    "vietnamese_romanization": "quí"
+    "vietnamese_romanization": "quí tiết"
   },
   {
     "no": 123,
@@ -1350,7 +1350,7 @@
     "chinese": "世纪",
     "japanese": "世紀",
     "japanese_romanization": "seiki",
-    "vietnamese_romanization": "thế"
+    "vietnamese_romanization": "thế kỉ"
   },
   {
     "no": 124,
@@ -1416,7 +1416,7 @@
     "chinese": "美术",
     "japanese": "美術",
     "japanese_romanization": "bijutsu",
-    "vietnamese_romanization": "mỉ"
+    "vietnamese_romanization": "mỉ thuật"
   },
   {
     "no": 130,
@@ -1427,7 +1427,7 @@
     "chinese": "教育",
     "japanese": "教育",
     "japanese_romanization": "kyouiku",
-    "vietnamese_romanization": "giáo dục"
+    "vietnamese_romanization": "dục"
   },
   {
     "no": 131,
@@ -1438,7 +1438,7 @@
     "chinese": "事业",
     "japanese": "事業",
     "japanese_romanization": "jigyou",
-    "vietnamese_romanization": "sự"
+    "vietnamese_romanization": "sự nghiệp"
   },
   {
     "no": 132,
@@ -1449,7 +1449,7 @@
     "chinese": "事实",
     "japanese": "事実",
     "japanese_romanization": "jijitsu",
-    "vietnamese_romanization": "sự"
+    "vietnamese_romanization": "sự thực"
   },
   {
     "no": 133,
@@ -1482,7 +1482,7 @@
     "chinese": "请求",
     "japanese": "請求",
     "japanese_romanization": "seikyuu",
-    "vietnamese_romanization": "cầu"
+    "vietnamese_romanization": "thỉnh cầu"
   },
   {
     "no": 136,
@@ -1493,7 +1493,7 @@
     "chinese": "对象",
     "japanese": "対象",
     "japanese_romanization": "taishou",
-    "vietnamese_romanization": "đối tượng"
+    "vietnamese_romanization": "đỗi tượng"
   },
   {
     "no": 137,
@@ -1537,7 +1537,7 @@
     "chinese": "以来",
     "japanese": "以来",
     "japanese_romanization": "irai",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "lai"
   },
   {
     "no": 141,
@@ -1548,7 +1548,7 @@
     "chinese": "选择",
     "japanese": "選択",
     "japanese_romanization": "sentaku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "tuyển trạch"
   },
   {
     "no": 142,
@@ -1570,7 +1570,7 @@
     "chinese": "地区",
     "japanese": "地区",
     "japanese_romanization": "chiku",
-    "vietnamese_romanization": "địa"
+    "vietnamese_romanization": "địa khu"
   },
   {
     "no": 144,
@@ -1581,7 +1581,7 @@
     "chinese": "指挥",
     "japanese": "指揮",
     "japanese_romanization": "shiki",
-    "vietnamese_romanization": "chỉ"
+    "vietnamese_romanization": "chỉ huy"
   },
   {
     "no": 145,
@@ -1592,7 +1592,7 @@
     "chinese": "女子",
     "japanese": "女子",
     "japanese_romanization": "joshi",
-    "vietnamese_romanization": "nữa tí"
+    "vietnamese_romanization": "tí"
   },
   {
     "no": 146,
@@ -1614,7 +1614,7 @@
     "chinese": "展开",
     "japanese": "展開",
     "japanese_romanization": "tenkai",
-    "vietnamese_romanization": "triển"
+    "vietnamese_romanization": "triển khai"
   },
   {
     "no": 148,
@@ -1680,7 +1680,7 @@
     "chinese": "实施",
     "japanese": "実施",
     "japanese_romanization": "jisshi",
-    "vietnamese_romanization": "thi"
+    "vietnamese_romanization": "thực thi"
   },
   {
     "no": 154,
@@ -1702,7 +1702,7 @@
     "chinese": "观测",
     "japanese": "観測",
     "japanese_romanization": "kansoku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "quan trắc"
   },
   {
     "no": 156,
@@ -1713,7 +1713,7 @@
     "chinese": "生产",
     "japanese": "生産",
     "japanese_romanization": "seisan",
-    "vietnamese_romanization": "sinh"
+    "vietnamese_romanization": "sinh sản"
   },
   {
     "no": 157,
@@ -1746,7 +1746,7 @@
     "chinese": "调整",
     "japanese": "調整",
     "japanese_romanization": "chousei",
-    "vietnamese_romanization": "chỉnh"
+    "vietnamese_romanization": "điều chỉnh"
   },
   {
     "no": 160,
@@ -1790,7 +1790,7 @@
     "chinese": "费用",
     "japanese": "費用",
     "japanese_romanization": "hiyou",
-    "vietnamese_romanization": "dụng"
+    "vietnamese_romanization": "phí dụng"
   },
   {
     "no": 164,
@@ -1812,7 +1812,7 @@
     "chinese": "作业",
     "japanese": "作業",
     "japanese_romanization": "sagyou",
-    "vietnamese_romanization": "tác"
+    "vietnamese_romanization": "tác nghiệp"
   },
   {
     "no": 166,
@@ -1856,7 +1856,7 @@
     "chinese": "现实",
     "japanese": "現実",
     "japanese_romanization": "genjitsu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "hiện thực"
   },
   {
     "no": 170,
@@ -1900,7 +1900,7 @@
     "chinese": "经营",
     "japanese": "経営",
     "japanese_romanization": "keiei",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "kinh"
   },
   {
     "no": 174,
@@ -1911,7 +1911,7 @@
     "chinese": "市场",
     "japanese": "市場",
     "japanese_romanization": "shijou",
-    "vietnamese_romanization": "thị"
+    "vietnamese_romanization": "thị trường"
   },
   {
     "no": 175,
@@ -1922,7 +1922,7 @@
     "chinese": "职业",
     "japanese": "職業",
     "japanese_romanization": "shokugyou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "chức nghiệp"
   },
   {
     "no": 176,
@@ -1944,7 +1944,7 @@
     "chinese": "外国",
     "japanese": "外国",
     "japanese_romanization": "gaikoku",
-    "vietnamese_romanization": "ngoại"
+    "vietnamese_romanization": "ngoại quốc"
   },
   {
     "no": 178,
@@ -1955,7 +1955,7 @@
     "chinese": "各种",
     "japanese": "各種",
     "japanese_romanization": "kakushu",
-    "vietnamese_romanization": "các"
+    "vietnamese_romanization": "các chõng"
   },
   {
     "no": 179,
@@ -1966,7 +1966,7 @@
     "chinese": "将来",
     "japanese": "将来",
     "japanese_romanization": "shourai",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "tướng lai"
   },
   {
     "no": 180,
@@ -1977,7 +1977,7 @@
     "chinese": "战争",
     "japanese": "戦争",
     "japanese_romanization": "sensou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "chiến tranh"
   },
   {
     "no": 181,
@@ -1988,7 +1988,7 @@
     "chinese": "成长",
     "japanese": "成長",
     "japanese_romanization": "seichou",
-    "vietnamese_romanization": "thành"
+    "vietnamese_romanization": "thành trường"
   },
   {
     "no": 182,
@@ -1999,7 +1999,7 @@
     "chinese": "公园",
     "japanese": "公園",
     "japanese_romanization": "kouen",
-    "vietnamese_romanization": "công vườn"
+    "vietnamese_romanization": "công viên"
   },
   {
     "no": 183,
@@ -2010,7 +2010,7 @@
     "chinese": "治疗",
     "japanese": "治療",
     "japanese_romanization": "chiryou",
-    "vietnamese_romanization": "trị lểu"
+    "vietnamese_romanization": "trị liệu"
   },
   {
     "no": 184,
@@ -2032,7 +2032,7 @@
     "chinese": "满足",
     "japanese": "満足",
     "japanese_romanization": "manzoku",
-    "vietnamese_romanization": "túc"
+    "vietnamese_romanization": "mãn túc"
   },
   {
     "no": 186,
@@ -2043,7 +2043,7 @@
     "chinese": "倾向",
     "japanese": "傾向",
     "japanese_romanization": "keikou",
-    "vietnamese_romanization": "hướng"
+    "vietnamese_romanization": "khuynh hướng"
   },
   {
     "no": 187,
@@ -2087,7 +2087,7 @@
     "chinese": "空间",
     "japanese": "空間",
     "japanese_romanization": "kuukan",
-    "vietnamese_romanization": "không"
+    "vietnamese_romanization": "không gian"
   },
   {
     "no": 191,
@@ -2120,7 +2120,7 @@
     "chinese": "意见",
     "japanese": "意見",
     "japanese_romanization": "iken",
-    "vietnamese_romanization": "ý"
+    "vietnamese_romanization": "ý kiến"
   },
   {
     "no": 194,
@@ -2131,7 +2131,7 @@
     "chinese": "记忆",
     "japanese": "記憶",
     "japanese_romanization": "kioku",
-    "vietnamese_romanization": "hắt"
+    "vietnamese_romanization": "kí ức"
   },
   {
     "no": 195,
@@ -2153,7 +2153,7 @@
     "chinese": "书店",
     "japanese": "書店",
     "japanese_romanization": "shoten",
-    "vietnamese_romanization": "điếm"
+    "vietnamese_romanization": "thư điếm"
   },
   {
     "no": 197,
@@ -2164,7 +2164,7 @@
     "chinese": "计算",
     "japanese": "計算",
     "japanese_romanization": "keisan",
-    "vietnamese_romanization": "toán"
+    "vietnamese_romanization": "kể toán"
   },
   {
     "no": 198,
@@ -2186,7 +2186,7 @@
     "chinese": "责任",
     "japanese": "責任",
     "japanese_romanization": "sekinin",
-    "vietnamese_romanization": "nhậm"
+    "vietnamese_romanization": "trách nhậm"
   },
   {
     "no": 200,
@@ -2197,7 +2197,7 @@
     "chinese": "目标",
     "japanese": "目標",
     "japanese_romanization": "mokuhyou",
-    "vietnamese_romanization": "mục"
+    "vietnamese_romanization": "mục bêu"
   },
   {
     "no": 201,
@@ -2241,7 +2241,7 @@
     "chinese": "行动",
     "japanese": "行動",
     "japanese_romanization": "koudou",
-    "vietnamese_romanization": "hàng"
+    "vietnamese_romanization": "hàng động"
   },
   {
     "no": 205,
@@ -2252,7 +2252,7 @@
     "chinese": "国民",
     "japanese": "国民",
     "japanese_romanization": "kokumin",
-    "vietnamese_romanization": "dân"
+    "vietnamese_romanization": "quốc dân"
   },
   {
     "no": 206,
@@ -2263,7 +2263,7 @@
     "chinese": "文学",
     "japanese": "文学",
     "japanese_romanization": "bungaku",
-    "vietnamese_romanization": "văn"
+    "vietnamese_romanization": "văn học"
   },
   {
     "no": 207,
@@ -2274,7 +2274,7 @@
     "chinese": "感动",
     "japanese": "感動",
     "japanese_romanization": "kandou",
-    "vietnamese_romanization": "cảm"
+    "vietnamese_romanization": "cảm động"
   },
   {
     "no": 208,
@@ -2285,7 +2285,7 @@
     "chinese": "新鲜",
     "japanese": "新鮮",
     "japanese_romanization": "shinsen",
-    "vietnamese_romanization": "tân"
+    "vietnamese_romanization": "tân tiên"
   },
   {
     "no": 209,
@@ -2318,7 +2318,7 @@
     "chinese": "公开",
     "japanese": "公開",
     "japanese_romanization": "koukai",
-    "vietnamese_romanization": "công"
+    "vietnamese_romanization": "công khai"
   },
   {
     "no": 212,
@@ -2340,7 +2340,7 @@
     "chinese": "积极",
     "japanese": "積極",
     "japanese_romanization": "sekkyoku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "tích cực"
   },
   {
     "no": 214,
@@ -2373,7 +2373,7 @@
     "chinese": "移动",
     "japanese": "移動",
     "japanese_romanization": "idou",
-    "vietnamese_romanization": "dời"
+    "vietnamese_romanization": "dời động"
   },
   {
     "no": 217,
@@ -2384,7 +2384,7 @@
     "chinese": "动物",
     "japanese": "動物",
     "japanese_romanization": "doubutsu",
-    "vietnamese_romanization": "vật"
+    "vietnamese_romanization": "động vật"
   },
   {
     "no": 218,
@@ -2406,7 +2406,7 @@
     "chinese": "科学",
     "japanese": "科学",
     "japanese_romanization": "kagaku",
-    "vietnamese_romanization": "khoa"
+    "vietnamese_romanization": "khoa học"
   },
   {
     "no": 220,
@@ -2417,7 +2417,7 @@
     "chinese": "太阳",
     "japanese": "太陽",
     "japanese_romanization": "taiyou",
-    "vietnamese_romanization": "thái"
+    "vietnamese_romanization": "thái dương"
   },
   {
     "no": 221,
@@ -2450,7 +2450,7 @@
     "chinese": "数字",
     "japanese": "数字",
     "japanese_romanization": "suuji",
-    "vietnamese_romanization": "tự"
+    "vietnamese_romanization": "số tự"
   },
   {
     "no": 224,
@@ -2461,7 +2461,7 @@
     "chinese": "工业",
     "japanese": "工業",
     "japanese_romanization": "kougyou",
-    "vietnamese_romanization": "công"
+    "vietnamese_romanization": "công nghiệp"
   },
   {
     "no": 225,
@@ -2472,7 +2472,7 @@
     "chinese": "参考",
     "japanese": "参考",
     "japanese_romanization": "sankou",
-    "vietnamese_romanization": "khảo"
+    "vietnamese_romanization": "tham khảo"
   },
   {
     "no": 226,
@@ -2494,7 +2494,7 @@
     "chinese": "实行",
     "japanese": "実行",
     "japanese_romanization": "jikkou",
-    "vietnamese_romanization": "hàng"
+    "vietnamese_romanization": "thực hàng"
   },
   {
     "no": 228,
@@ -2549,7 +2549,7 @@
     "chinese": "出发",
     "japanese": "出発",
     "japanese_romanization": "shuppatsu",
-    "vietnamese_romanization": "xuất"
+    "vietnamese_romanization": "xuất phát"
   },
   {
     "no": 233,
@@ -2582,7 +2582,7 @@
     "chinese": "记录",
     "japanese": "記録",
     "japanese_romanization": "kiroku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "kí"
   },
   {
     "no": 236,
@@ -2593,7 +2593,7 @@
     "chinese": "详细",
     "japanese": "詳細",
     "japanese_romanization": "shousai",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "tường tới"
   },
   {
     "no": 237,
@@ -2604,7 +2604,7 @@
     "chinese": "政权",
     "japanese": "政権",
     "japanese_romanization": "seiken",
-    "vietnamese_romanization": "chính"
+    "vietnamese_romanization": "chính quyền"
   },
   {
     "no": 238,
@@ -2615,7 +2615,7 @@
     "chinese": "风景",
     "japanese": "風景",
     "japanese_romanization": "fuukei",
-    "vietnamese_romanization": "cảnh"
+    "vietnamese_romanization": "phong cảnh"
   },
   {
     "no": 239,
@@ -2626,7 +2626,7 @@
     "chinese": "报告",
     "japanese": "報告",
     "japanese_romanization": "houkoku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "báo"
   },
   {
     "no": 240,
@@ -2637,7 +2637,7 @@
     "chinese": "建筑",
     "japanese": "建築",
     "japanese_romanization": "kenchiku",
-    "vietnamese_romanization": "kiến trúc"
+    "vietnamese_romanization": "kiến trốc"
   },
   {
     "no": 241,
@@ -2648,7 +2648,7 @@
     "chinese": "判断",
     "japanese": "判断",
     "japanese_romanization": "handan",
-    "vietnamese_romanization": "phán đoạn"
+    "vietnamese_romanization": "phán"
   },
   {
     "no": 242,
@@ -2659,7 +2659,7 @@
     "chinese": "反对",
     "japanese": "反対",
     "japanese_romanization": "hantai",
-    "vietnamese_romanization": "phản đối"
+    "vietnamese_romanization": "phản đỗi"
   },
   {
     "no": 243,
@@ -2670,7 +2670,7 @@
     "chinese": "业务",
     "japanese": "業務",
     "japanese_romanization": "gyoumu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "nghiệp vụ"
   },
   {
     "no": 244,
@@ -2725,7 +2725,7 @@
     "chinese": "保护",
     "japanese": "保護",
     "japanese_romanization": "hogo",
-    "vietnamese_romanization": "bảo"
+    "vietnamese_romanization": "bảo hộ"
   },
   {
     "no": 249,
@@ -2736,7 +2736,7 @@
     "chinese": "医疗",
     "japanese": "医療",
     "japanese_romanization": "iryou",
-    "vietnamese_romanization": "lểu"
+    "vietnamese_romanization": "y liệu"
   },
   {
     "no": 250,
@@ -2747,7 +2747,7 @@
     "chinese": "确实",
     "japanese": "確実",
     "japanese_romanization": "kakujitsu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "xác thực"
   },
   {
     "no": 251,
@@ -2758,7 +2758,7 @@
     "chinese": "设备",
     "japanese": "設備",
     "japanese_romanization": "setsubi",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "thết bị"
   },
   {
     "no": 252,
@@ -2769,7 +2769,7 @@
     "chinese": "基础",
     "japanese": "基礎",
     "japanese_romanization": "kiso",
-    "vietnamese_romanization": "cơ"
+    "vietnamese_romanization": "cơ sờ"
   },
   {
     "no": 253,
@@ -2813,7 +2813,7 @@
     "chinese": "本来",
     "japanese": "本来",
     "japanese_romanization": "honrai",
-    "vietnamese_romanization": "bản"
+    "vietnamese_romanization": "bản lai"
   },
   {
     "no": 257,
@@ -2824,7 +2824,7 @@
     "chinese": "姿势",
     "japanese": "姿勢",
     "japanese_romanization": "shisei",
-    "vietnamese_romanization": "tư"
+    "vietnamese_romanization": "tư thế"
   },
   {
     "no": 258,
@@ -2846,7 +2846,7 @@
     "chinese": "团体",
     "japanese": "団体",
     "japanese_romanization": "dantai",
-    "vietnamese_romanization": "thể"
+    "vietnamese_romanization": "đoàn thể"
   },
   {
     "no": 260,
@@ -2868,7 +2868,7 @@
     "chinese": "金属",
     "japanese": "金属",
     "japanese_romanization": "kinzoku",
-    "vietnamese_romanization": "kim"
+    "vietnamese_romanization": "kim thuộc"
   },
   {
     "no": 262,
@@ -2879,7 +2879,7 @@
     "chinese": "教授",
     "japanese": "教授",
     "japanese_romanization": "kyouju",
-    "vietnamese_romanization": "giáo thụ"
+    "vietnamese_romanization": "thụ"
   },
   {
     "no": 263,
@@ -2890,7 +2890,7 @@
     "chinese": "空气",
     "japanese": "空気",
     "japanese_romanization": "kuuki",
-    "vietnamese_romanization": "không"
+    "vietnamese_romanization": "không khí"
   },
   {
     "no": 264,
@@ -2901,7 +2901,7 @@
     "chinese": "手术",
     "japanese": "手術",
     "japanese_romanization": "shujutsu",
-    "vietnamese_romanization": "thủ"
+    "vietnamese_romanization": "thủ thuật"
   },
   {
     "no": 265,
@@ -2934,7 +2934,7 @@
     "chinese": "神经",
     "japanese": "神経",
     "japanese_romanization": "shinkei",
-    "vietnamese_romanization": "thần"
+    "vietnamese_romanization": "thần kinh"
   },
   {
     "no": 268,
@@ -2956,7 +2956,7 @@
     "chinese": "发生",
     "japanese": "発生",
     "japanese_romanization": "hassei",
-    "vietnamese_romanization": "sinh"
+    "vietnamese_romanization": "phát sinh"
   },
   {
     "no": 270,
@@ -2967,7 +2967,7 @@
     "chinese": "面积",
     "japanese": "面積",
     "japanese_romanization": "menseki",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "tích"
   },
   {
     "no": 271,
@@ -2978,7 +2978,7 @@
     "chinese": "机关",
     "japanese": "機関",
     "japanese_romanization": "kikan",
-    "vietnamese_romanization": "cơ"
+    "vietnamese_romanization": "cơ quan"
   },
   {
     "no": 272,
@@ -3000,7 +3000,7 @@
     "chinese": "失败",
     "japanese": "失敗",
     "japanese_romanization": "shippai",
-    "vietnamese_romanization": "thất"
+    "vietnamese_romanization": "thất bại"
   },
   {
     "no": 274,
@@ -3011,7 +3011,7 @@
     "chinese": "成绩",
     "japanese": "成績",
     "japanese_romanization": "seiseki",
-    "vietnamese_romanization": "thành"
+    "vietnamese_romanization": "thành tích"
   },
   {
     "no": 275,
@@ -3033,7 +3033,7 @@
     "chinese": "发挥",
     "japanese": "発揮",
     "japanese_romanization": "hakki",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "phát huy"
   },
   {
     "no": 277,
@@ -3044,7 +3044,7 @@
     "chinese": "独立",
     "japanese": "独立",
     "japanese_romanization": "dokuritsu",
-    "vietnamese_romanization": "lập"
+    "vietnamese_romanization": "độc lập"
   },
   {
     "no": 278,
@@ -3066,7 +3066,7 @@
     "chinese": "关心",
     "japanese": "関心",
     "japanese_romanization": "kanshin",
-    "vietnamese_romanization": "tâm"
+    "vietnamese_romanization": "quan tâm"
   },
   {
     "no": 280,
@@ -3077,7 +3077,7 @@
     "chinese": "内部",
     "japanese": "内部",
     "japanese_romanization": "naibu",
-    "vietnamese_romanization": "nội bộ"
+    "vietnamese_romanization": "bộ"
   },
   {
     "no": 281,
@@ -3088,7 +3088,7 @@
     "chinese": "反应",
     "japanese": "反応",
     "japanese_romanization": "hannou",
-    "vietnamese_romanization": "phản"
+    "vietnamese_romanization": "phản ứng"
   },
   {
     "no": 282,
@@ -3099,7 +3099,7 @@
     "chinese": "品质",
     "japanese": "品質",
     "japanese_romanization": "hinshitsu",
-    "vietnamese_romanization": "phẩm"
+    "vietnamese_romanization": "phẩm chất"
   },
   {
     "no": 283,
@@ -3121,7 +3121,7 @@
     "chinese": "相当",
     "japanese": "相当",
     "japanese_romanization": "soutou",
-    "vietnamese_romanization": "tương"
+    "vietnamese_romanization": "tương đương"
   },
   {
     "no": 285,
@@ -3143,7 +3143,7 @@
     "chinese": "主张",
     "japanese": "主張",
     "japanese_romanization": "shuchou",
-    "vietnamese_romanization": "chúa"
+    "vietnamese_romanization": "chúa trương"
   },
   {
     "no": 287,
@@ -3187,7 +3187,7 @@
     "chinese": "教室",
     "japanese": "教室",
     "japanese_romanization": "kyoushitsu",
-    "vietnamese_romanization": "giáo thất"
+    "vietnamese_romanization": "thất"
   },
   {
     "no": 291,
@@ -3231,7 +3231,7 @@
     "chinese": "建设",
     "japanese": "建設",
     "japanese_romanization": "kensetsu",
-    "vietnamese_romanization": "kiến"
+    "vietnamese_romanization": "kiến thết"
   },
   {
     "no": 295,
@@ -3242,7 +3242,7 @@
     "chinese": "正确",
     "japanese": "正確",
     "japanese_romanization": "seikaku",
-    "vietnamese_romanization": "chính"
+    "vietnamese_romanization": "chính xác"
   },
   {
     "no": 296,
@@ -3253,7 +3253,7 @@
     "chinese": "证明",
     "japanese": "証明",
     "japanese_romanization": "shoumei",
-    "vietnamese_romanization": "minh"
+    "vietnamese_romanization": "chứng minh"
   },
   {
     "no": 297,
@@ -3286,7 +3286,7 @@
     "chinese": "扩大",
     "japanese": "拡大",
     "japanese_romanization": "kakudai",
-    "vietnamese_romanization": "đại"
+    "vietnamese_romanization": "quẳng đại"
   },
   {
     "no": 300,
@@ -3297,7 +3297,7 @@
     "chinese": "欢迎",
     "japanese": "歓迎",
     "japanese_romanization": "kangei",
-    "vietnamese_romanization": "nghênh"
+    "vietnamese_romanization": "hoan nghênh"
   },
   {
     "no": 301,
@@ -3308,7 +3308,7 @@
     "chinese": "记者",
     "japanese": "記者",
     "japanese_romanization": "kisha",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "kí"
   },
   {
     "no": 302,
@@ -3330,7 +3330,7 @@
     "chinese": "实验",
     "japanese": "実験",
     "japanese_romanization": "jikken",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "thực nghiệm"
   },
   {
     "no": 304,
@@ -3341,7 +3341,7 @@
     "chinese": "重视",
     "japanese": "重視",
     "japanese_romanization": "juushi",
-    "vietnamese_romanization": "trọng"
+    "vietnamese_romanization": "trọng thị"
   },
   {
     "no": 305,
@@ -3374,7 +3374,7 @@
     "chinese": "医学",
     "japanese": "医学",
     "japanese_romanization": "igaku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "y học"
   },
   {
     "no": 308,
@@ -3396,7 +3396,7 @@
     "chinese": "解决",
     "japanese": "解決",
     "japanese_romanization": "kaiketsu",
-    "vietnamese_romanization": "giải"
+    "vietnamese_romanization": "giải quyết"
   },
   {
     "no": 310,
@@ -3429,7 +3429,7 @@
     "chinese": "国家",
     "japanese": "国家",
     "japanese_romanization": "kokka",
-    "vietnamese_romanization": "gia"
+    "vietnamese_romanization": "quốc gia"
   },
   {
     "no": 313,
@@ -3495,7 +3495,7 @@
     "chinese": "作战",
     "japanese": "作戦",
     "japanese_romanization": "sakusen",
-    "vietnamese_romanization": "tác"
+    "vietnamese_romanization": "tác chiến"
   },
   {
     "no": 319,
@@ -3506,7 +3506,7 @@
     "chinese": "单位",
     "japanese": "単位",
     "japanese_romanization": "tan'i",
-    "vietnamese_romanization": "vị"
+    "vietnamese_romanization": "đơn vị"
   },
   {
     "no": 320,
@@ -3594,7 +3594,7 @@
     "chinese": "开放",
     "japanese": "開放",
     "japanese_romanization": "kaihou",
-    "vietnamese_romanization": "phóng"
+    "vietnamese_romanization": "khai phóng"
   },
   {
     "no": 328,
@@ -3605,7 +3605,7 @@
     "chinese": "学习",
     "japanese": "学習",
     "japanese_romanization": "gakushuu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "học tập"
   },
   {
     "no": 329,
@@ -3649,7 +3649,7 @@
     "chinese": "劳动",
     "japanese": "労働",
     "japanese_romanization": "roudou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "lao động"
   },
   {
     "no": 333,
@@ -3660,7 +3660,7 @@
     "chinese": "危险",
     "japanese": "危険",
     "japanese_romanization": "kiken",
-    "vietnamese_romanization": "nguy"
+    "vietnamese_romanization": "nguy hiểm"
   },
   {
     "no": 334,
@@ -3693,7 +3693,7 @@
     "chinese": "细胞",
     "japanese": "細胞",
     "japanese_romanization": "saibou",
-    "vietnamese_romanization": "bào"
+    "vietnamese_romanization": "tới bào"
   },
   {
     "no": 337,
@@ -3704,7 +3704,7 @@
     "chinese": "原则",
     "japanese": "原則",
     "japanese_romanization": "gensoku",
-    "vietnamese_romanization": "nguyên"
+    "vietnamese_romanization": "nguyên tắc"
   },
   {
     "no": 338,
@@ -3715,7 +3715,7 @@
     "chinese": "习惯",
     "japanese": "習慣",
     "japanese_romanization": "shuukan",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "tập quen"
   },
   {
     "no": 339,
@@ -3726,7 +3726,7 @@
     "chinese": "地图",
     "japanese": "地図",
     "japanese_romanization": "chizu",
-    "vietnamese_romanization": "địa"
+    "vietnamese_romanization": "địa đồ"
   },
   {
     "no": 340,
@@ -3748,7 +3748,7 @@
     "chinese": "感谢",
     "japanese": "感謝",
     "japanese_romanization": "kansha",
-    "vietnamese_romanization": "cảm"
+    "vietnamese_romanization": "cảm tạ"
   },
   {
     "no": 342,
@@ -3759,7 +3759,7 @@
     "chinese": "训练",
     "japanese": "訓練",
     "japanese_romanization": "kunren",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "huấn luyện"
   },
   {
     "no": 343,
@@ -3770,7 +3770,7 @@
     "chinese": "态度",
     "japanese": "態度",
     "japanese_romanization": "taido",
-    "vietnamese_romanization": "độ"
+    "vietnamese_romanization": "thái độ"
   },
   {
     "no": 344,
@@ -3781,7 +3781,7 @@
     "chinese": "动作",
     "japanese": "動作",
     "japanese_romanization": "dousa",
-    "vietnamese_romanization": "tác"
+    "vietnamese_romanization": "động tác"
   },
   {
     "no": 345,
@@ -3803,7 +3803,7 @@
     "chinese": "观察",
     "japanese": "観察",
     "japanese_romanization": "kansatsu",
-    "vietnamese_romanization": "sát"
+    "vietnamese_romanization": "quan sát"
   },
   {
     "no": 347,
@@ -3825,7 +3825,7 @@
     "chinese": "战略",
     "japanese": "戦略",
     "japanese_romanization": "senryaku",
-    "vietnamese_romanization": "lược"
+    "vietnamese_romanization": "chiến lược"
   },
   {
     "no": 349,
@@ -3836,7 +3836,7 @@
     "chinese": "妇人",
     "japanese": "婦人",
     "japanese_romanization": "fujin",
-    "vietnamese_romanization": "nhân"
+    "vietnamese_romanization": "phụ nhân"
   },
   {
     "no": 350,
@@ -3869,7 +3869,7 @@
     "chinese": "学院",
     "japanese": "学院",
     "japanese_romanization": "gakuin",
-    "vietnamese_romanization": "viện"
+    "vietnamese_romanization": "học viện"
   },
   {
     "no": 353,
@@ -3880,7 +3880,7 @@
     "chinese": "规定",
     "japanese": "規定",
     "japanese_romanization": "kitei",
-    "vietnamese_romanization": "định"
+    "vietnamese_romanization": "qui định"
   },
   {
     "no": 354,
@@ -3891,7 +3891,7 @@
     "chinese": "现象",
     "japanese": "現象",
     "japanese_romanization": "genshou",
-    "vietnamese_romanization": "tượng"
+    "vietnamese_romanization": "hiện tượng"
   },
   {
     "no": 355,
@@ -3935,7 +3935,7 @@
     "chinese": "选举",
     "japanese": "選挙",
     "japanese_romanization": "senkyo",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "tuyển"
   },
   {
     "no": 359,
@@ -3946,7 +3946,7 @@
     "chinese": "牧场",
     "japanese": "牧場",
     "japanese_romanization": "bokujou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "trường"
   },
   {
     "no": 360,
@@ -3957,7 +3957,7 @@
     "chinese": "物质",
     "japanese": "物質",
     "japanese_romanization": "busshitsu",
-    "vietnamese_romanization": "vật"
+    "vietnamese_romanization": "vật chất"
   },
   {
     "no": 361,
@@ -3968,7 +3968,7 @@
     "chinese": "会议",
     "japanese": "会議",
     "japanese_romanization": "kaigi",
-    "vietnamese_romanization": "hội"
+    "vietnamese_romanization": "hội nghị"
   },
   {
     "no": 362,
@@ -3990,7 +3990,7 @@
     "chinese": "进行",
     "japanese": "進行",
     "japanese_romanization": "shinkou",
-    "vietnamese_romanization": "hàng"
+    "vietnamese_romanization": "tiến hàng"
   },
   {
     "no": 364,
@@ -4001,7 +4001,7 @@
     "chinese": "电车",
     "japanese": "電車",
     "japanese_romanization": "densha",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "xa"
   },
   {
     "no": 365,
@@ -4012,7 +4012,7 @@
     "chinese": "认识",
     "japanese": "認識",
     "japanese_romanization": "ninshiki",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "nhận"
   },
   {
     "no": 366,
@@ -4023,7 +4023,7 @@
     "chinese": "发展",
     "japanese": "発展",
     "japanese_romanization": "hatten",
-    "vietnamese_romanization": "triển"
+    "vietnamese_romanization": "phát triển"
   },
   {
     "no": 367,
@@ -4067,7 +4067,7 @@
     "chinese": "项目",
     "japanese": "項目",
     "japanese_romanization": "koumoku",
-    "vietnamese_romanization": "mục"
+    "vietnamese_romanization": "hạng mục"
   },
   {
     "no": 371,
@@ -4133,7 +4133,7 @@
     "chinese": "单纯",
     "japanese": "単純",
     "japanese_romanization": "tanjun",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "đơn thuần"
   },
   {
     "no": 377,
@@ -4166,7 +4166,7 @@
     "chinese": "温度",
     "japanese": "温度",
     "japanese_romanization": "ondo",
-    "vietnamese_romanization": "ồn độ"
+    "vietnamese_romanization": "độ"
   },
   {
     "no": 380,
@@ -4188,7 +4188,7 @@
     "chinese": "诗人",
     "japanese": "詩人",
     "japanese_romanization": "shijin",
-    "vietnamese_romanization": "nhân"
+    "vietnamese_romanization": "thi nhân"
   },
   {
     "no": 382,
@@ -4199,7 +4199,7 @@
     "chinese": "发言",
     "japanese": "発言",
     "japanese_romanization": "hatsugen",
-    "vietnamese_romanization": "ngôn"
+    "vietnamese_romanization": "phát ngôn"
   },
   {
     "no": 383,
@@ -4276,7 +4276,7 @@
     "chinese": "进化",
     "japanese": "進化",
     "japanese_romanization": "shinka",
-    "vietnamese_romanization": "hoá"
+    "vietnamese_romanization": "tiến hoá"
   },
   {
     "no": 390,
@@ -4298,7 +4298,7 @@
     "chinese": "访问",
     "japanese": "訪問",
     "japanese_romanization": "houmon",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "phỏng"
   },
   {
     "no": 392,
@@ -4320,7 +4320,7 @@
     "chinese": "未来",
     "japanese": "未来",
     "japanese_romanization": "mirai",
-    "vietnamese_romanization": "mùi"
+    "vietnamese_romanization": "mùi lai"
   },
   {
     "no": 394,
@@ -4331,7 +4331,7 @@
     "chinese": "轨道",
     "japanese": "軌道",
     "japanese_romanization": "kidou",
-    "vietnamese_romanization": "đạo"
+    "vietnamese_romanization": "quẫy đạo"
   },
   {
     "no": 395,
@@ -4342,7 +4342,7 @@
     "chinese": "出现",
     "japanese": "出現",
     "japanese_romanization": "shutsugen",
-    "vietnamese_romanization": "xuất"
+    "vietnamese_romanization": "xuất hiện"
   },
   {
     "no": 396,
@@ -4364,7 +4364,7 @@
     "chinese": "变动",
     "japanese": "変動",
     "japanese_romanization": "hendou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "biến động"
   },
   {
     "no": 398,
@@ -4386,7 +4386,7 @@
     "chinese": "集团",
     "japanese": "集団",
     "japanese_romanization": "shuudan",
-    "vietnamese_romanization": "tập"
+    "vietnamese_romanization": "tập đoàn"
   },
   {
     "no": 400,
@@ -4408,7 +4408,7 @@
     "chinese": "方针",
     "japanese": "方針",
     "japanese_romanization": "houshin",
-    "vietnamese_romanization": "phương"
+    "vietnamese_romanization": "phương châm"
   },
   {
     "no": 402,
@@ -4452,7 +4452,7 @@
     "chinese": "课题",
     "japanese": "課題",
     "japanese_romanization": "kadai",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "khoá"
   },
   {
     "no": 406,
@@ -4463,7 +4463,7 @@
     "chinese": "兴奋",
     "japanese": "興奮",
     "japanese_romanization": "koufun",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "hưng phấn"
   },
   {
     "no": 407,
@@ -4496,7 +4496,7 @@
     "chinese": "报道",
     "japanese": "報道",
     "japanese_romanization": "houdou",
-    "vietnamese_romanization": "đạo"
+    "vietnamese_romanization": "báo đạo"
   },
   {
     "no": 410,
@@ -4507,7 +4507,7 @@
     "chinese": "化学",
     "japanese": "化学",
     "japanese_romanization": "kagaku",
-    "vietnamese_romanization": "hoá"
+    "vietnamese_romanization": "hoá học"
   },
   {
     "no": 411,
@@ -4540,7 +4540,7 @@
     "chinese": "困难",
     "japanese": "困難",
     "japanese_romanization": "konnan",
-    "vietnamese_romanization": "khốn"
+    "vietnamese_romanization": "khốn nan"
   },
   {
     "no": 414,
@@ -4562,7 +4562,7 @@
     "chinese": "进步",
     "japanese": "進歩",
     "japanese_romanization": "shinpo",
-    "vietnamese_romanization": "bộ"
+    "vietnamese_romanization": "tiến bộ"
   },
   {
     "no": 416,
@@ -4584,7 +4584,7 @@
     "chinese": "创造",
     "japanese": "創造",
     "japanese_romanization": "souzou",
-    "vietnamese_romanization": "tạo"
+    "vietnamese_romanization": "sáng tạo"
   },
   {
     "no": 418,
@@ -4617,7 +4617,7 @@
     "chinese": "调节",
     "japanese": "調節",
     "japanese_romanization": "chousetsu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "điều tiết"
   },
   {
     "no": 421,
@@ -4628,7 +4628,7 @@
     "chinese": "统一",
     "japanese": "統一",
     "japanese_romanization": "touitsu",
-    "vietnamese_romanization": "nhất"
+    "vietnamese_romanization": "thống nhất"
   },
   {
     "no": 422,
@@ -4639,7 +4639,7 @@
     "chinese": "描写",
     "japanese": "描写",
     "japanese_romanization": "byousha",
-    "vietnamese_romanization": "miêu"
+    "vietnamese_romanization": "miêu tả"
   },
   {
     "no": 423,
@@ -4650,7 +4650,7 @@
     "chinese": "应用",
     "japanese": "応用",
     "japanese_romanization": "ouyou",
-    "vietnamese_romanization": "dụng"
+    "vietnamese_romanization": "ứng dụng"
   },
   {
     "no": 424,
@@ -4672,7 +4672,7 @@
     "chinese": "竞争",
     "japanese": "競争",
     "japanese_romanization": "kyousou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "tranh"
   },
   {
     "no": 426,
@@ -4683,7 +4683,7 @@
     "chinese": "强调",
     "japanese": "強調",
     "japanese_romanization": "kyouchou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "điều"
   },
   {
     "no": 427,
@@ -4716,7 +4716,7 @@
     "chinese": "实践",
     "japanese": "実践",
     "japanese_romanization": "jissen",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "thực"
   },
   {
     "no": 430,
@@ -4738,7 +4738,7 @@
     "chinese": "图书",
     "japanese": "図書",
     "japanese_romanization": "tosho",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "đồ thư"
   },
   {
     "no": 432,
@@ -4760,7 +4760,7 @@
     "chinese": "供给",
     "japanese": "供給",
     "japanese_romanization": "kyoukyuu",
-    "vietnamese_romanization": "cung"
+    "vietnamese_romanization": "cung cấp"
   },
   {
     "no": 434,
@@ -4771,7 +4771,7 @@
     "chinese": "减少",
     "japanese": "減少",
     "japanese_romanization": "genshou",
-    "vietnamese_romanization": "thiểu"
+    "vietnamese_romanization": "giảm thiểu"
   },
   {
     "no": 435,
@@ -4815,7 +4815,7 @@
     "chinese": "促进",
     "japanese": "促進",
     "japanese_romanization": "sokushin",
-    "vietnamese_romanization": "xúc"
+    "vietnamese_romanization": "xúc tiến"
   },
   {
     "no": 439,
@@ -4826,7 +4826,7 @@
     "chinese": "大气",
     "japanese": "大気",
     "japanese_romanization": "taiki",
-    "vietnamese_romanization": "đại"
+    "vietnamese_romanization": "đại khí"
   },
   {
     "no": 440,
@@ -4837,7 +4837,7 @@
     "chinese": "适当",
     "japanese": "適当",
     "japanese_romanization": "tekitou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "thích đương"
   },
   {
     "no": 441,
@@ -4848,7 +4848,7 @@
     "chinese": "疲劳",
     "japanese": "疲労",
     "japanese_romanization": "hirou",
-    "vietnamese_romanization": "bì"
+    "vietnamese_romanization": "bì lao"
   },
   {
     "no": 442,
@@ -4914,7 +4914,7 @@
     "chinese": "时刻",
     "japanese": "時刻",
     "japanese_romanization": "jikoku",
-    "vietnamese_romanization": "khắc"
+    "vietnamese_romanization": "thì khắc"
   },
   {
     "no": 448,
@@ -4925,7 +4925,7 @@
     "chinese": "柔软",
     "japanese": "柔軟",
     "japanese_romanization": "juunan",
-    "vietnamese_romanization": "nhu"
+    "vietnamese_romanization": "nhu nhuyễn"
   },
   {
     "no": 449,
@@ -4936,7 +4936,7 @@
     "chinese": "证据",
     "japanese": "証拠",
     "japanese_romanization": "shouko",
-    "vietnamese_romanization": "cứ"
+    "vietnamese_romanization": "chứng cớ"
   },
   {
     "no": 450,
@@ -4947,7 +4947,7 @@
     "chinese": "农业",
     "japanese": "農業",
     "japanese_romanization": "nougyou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "nông nghiệp"
   },
   {
     "no": 451,
@@ -4958,7 +4958,7 @@
     "chinese": "发达",
     "japanese": "発達",
     "japanese_romanization": "hattatsu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "phát đạt"
   },
   {
     "no": 452,
@@ -4969,7 +4969,7 @@
     "chinese": "半岛",
     "japanese": "半島",
     "japanese_romanization": "han shima",
-    "vietnamese_romanization": "bán"
+    "vietnamese_romanization": "bán đảo"
   },
   {
     "no": 453,
@@ -4991,7 +4991,7 @@
     "chinese": "记载",
     "japanese": "記載",
     "japanese_romanization": "kisai",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "kí tải"
   },
   {
     "no": 455,
@@ -5068,7 +5068,7 @@
     "chinese": "中间",
     "japanese": "中間",
     "japanese_romanization": "chuukan",
-    "vietnamese_romanization": "trung"
+    "vietnamese_romanization": "trung gian"
   },
   {
     "no": 462,
@@ -5112,7 +5112,7 @@
     "chinese": "考虑",
     "japanese": "考慮",
     "japanese_romanization": "kouryo",
-    "vietnamese_romanization": "khảo"
+    "vietnamese_romanization": "khảo lự"
   },
   {
     "no": 466,
@@ -5145,7 +5145,7 @@
     "chinese": "创立",
     "japanese": "創立",
     "japanese_romanization": "souritsu",
-    "vietnamese_romanization": "lập"
+    "vietnamese_romanization": "sáng lập"
   },
   {
     "no": 469,
@@ -5156,7 +5156,7 @@
     "chinese": "帝国",
     "japanese": "帝国",
     "japanese_romanization": "teikoku",
-    "vietnamese_romanization": "đấy"
+    "vietnamese_romanization": "đấy quốc"
   },
   {
     "no": 470,
@@ -5178,7 +5178,7 @@
     "chinese": "日记",
     "japanese": "日記",
     "japanese_romanization": "nikki",
-    "vietnamese_romanization": "nhật"
+    "vietnamese_romanization": "nhật kí"
   },
   {
     "no": 472,
@@ -5222,7 +5222,7 @@
     "chinese": "学者",
     "japanese": "学者",
     "japanese_romanization": "gakusha",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "học"
   },
   {
     "no": 476,
@@ -5233,7 +5233,7 @@
     "chinese": "教师",
     "japanese": "教師",
     "japanese_romanization": "kyoushi",
-    "vietnamese_romanization": "giáo"
+    "vietnamese_romanization": "sư"
   },
   {
     "no": 477,
@@ -5244,7 +5244,7 @@
     "chinese": "经过",
     "japanese": "経過",
     "japanese_romanization": "keika",
-    "vietnamese_romanization": "quá"
+    "vietnamese_romanization": "kinh quá"
   },
   {
     "no": 478,
@@ -5299,7 +5299,7 @@
     "chinese": "将军",
     "japanese": "将軍",
     "japanese_romanization": "shougun",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "tướng quân"
   },
   {
     "no": 483,
@@ -5310,7 +5310,7 @@
     "chinese": "宣传",
     "japanese": "宣伝",
     "japanese_romanization": "senden",
-    "vietnamese_romanization": "tuyên"
+    "vietnamese_romanization": "tuyên truyền"
   },
   {
     "no": 484,
@@ -5343,7 +5343,7 @@
     "chinese": "结论",
     "japanese": "結論",
     "japanese_romanization": "ketsuron",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "kết luận"
   },
   {
     "no": 487,
@@ -5409,7 +5409,7 @@
     "chinese": "振动",
     "japanese": "振動",
     "japanese_romanization": "shindou",
-    "vietnamese_romanization": "chấn"
+    "vietnamese_romanization": "chấn động"
   },
   {
     "no": 493,
@@ -5431,7 +5431,7 @@
     "chinese": "热心",
     "japanese": "熱心",
     "japanese_romanization": "nesshin",
-    "vietnamese_romanization": "tâm"
+    "vietnamese_romanization": "nhiệt tâm"
   },
   {
     "no": 495,
@@ -5519,7 +5519,7 @@
     "chinese": "亲切",
     "japanese": "親切",
     "japanese_romanization": "shinsetsu",
-    "vietnamese_romanization": "thiết"
+    "vietnamese_romanization": "thân thiết"
   },
   {
     "no": 503,
@@ -5530,7 +5530,7 @@
     "chinese": "人类",
     "japanese": "人類",
     "japanese_romanization": "jinrui",
-    "vietnamese_romanization": "nhân"
+    "vietnamese_romanization": "nhân loại"
   },
   {
     "no": 504,
@@ -5552,7 +5552,7 @@
     "chinese": "鲜明",
     "japanese": "鮮明",
     "japanese_romanization": "senmei",
-    "vietnamese_romanization": "minh"
+    "vietnamese_romanization": "tiên minh"
   },
   {
     "no": 506,
@@ -5607,7 +5607,7 @@
     "chinese": "明确",
     "japanese": "明確",
     "japanese_romanization": "meikaku",
-    "vietnamese_romanization": "minh"
+    "vietnamese_romanization": "minh xác"
   },
   {
     "no": 511,
@@ -5618,7 +5618,7 @@
     "chinese": "违反",
     "japanese": "違反",
     "japanese_romanization": "ihan",
-    "vietnamese_romanization": "phản"
+    "vietnamese_romanization": "vi phản"
   },
   {
     "no": 512,
@@ -5629,7 +5629,7 @@
     "chinese": "区别",
     "japanese": "区別",
     "japanese_romanization": "kubetsu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "khu biết"
   },
   {
     "no": 513,
@@ -5640,7 +5640,7 @@
     "chinese": "继续",
     "japanese": "継続",
     "japanese_romanization": "keizoku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "kế tục"
   },
   {
     "no": 514,
@@ -5673,7 +5673,7 @@
     "chinese": "顾客",
     "japanese": "顧客",
     "japanese_romanization": "kokyaku",
-    "vietnamese_romanization": "khách"
+    "vietnamese_romanization": "cố khách"
   },
   {
     "no": 517,
@@ -5717,7 +5717,7 @@
     "chinese": "推进",
     "japanese": "推進",
     "japanese_romanization": "suishin",
-    "vietnamese_romanization": "suy"
+    "vietnamese_romanization": "suy tiến"
   },
   {
     "no": 521,
@@ -5728,7 +5728,7 @@
     "chinese": "势力",
     "japanese": "勢力",
     "japanese_romanization": "seiryoku",
-    "vietnamese_romanization": "lực"
+    "vietnamese_romanization": "thế lực"
   },
   {
     "no": 522,
@@ -5739,7 +5739,7 @@
     "chinese": "创作",
     "japanese": "創作",
     "japanese_romanization": "sousaku",
-    "vietnamese_romanization": "tác"
+    "vietnamese_romanization": "sáng tác"
   },
   {
     "no": 523,
@@ -5750,7 +5750,7 @@
     "chinese": "适应",
     "japanese": "適応",
     "japanese_romanization": "tekiou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "thích ứng"
   },
   {
     "no": 524,
@@ -5772,7 +5772,7 @@
     "chinese": "爆发",
     "japanese": "爆発",
     "japanese_romanization": "bakuhatsu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "phát"
   },
   {
     "no": 526,
@@ -5805,7 +5805,7 @@
     "chinese": "接触",
     "japanese": "接触",
     "japanese_romanization": "sesshoku",
-    "vietnamese_romanization": "tiếp"
+    "vietnamese_romanization": "tiếp xúc"
   },
   {
     "no": 529,
@@ -5827,7 +5827,7 @@
     "chinese": "大战",
     "japanese": "大戦",
     "japanese_romanization": "taisen",
-    "vietnamese_romanization": "đại"
+    "vietnamese_romanization": "đại chiến"
   },
   {
     "no": 531,
@@ -5849,7 +5849,7 @@
     "chinese": "开幕",
     "japanese": "開幕",
     "japanese_romanization": "kaimaku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "khai"
   },
   {
     "no": 533,
@@ -5860,7 +5860,7 @@
     "chinese": "觉悟",
     "japanese": "覚悟",
     "japanese_romanization": "kakugo",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "giác"
   },
   {
     "no": 534,
@@ -5937,7 +5937,7 @@
     "chinese": "对立",
     "japanese": "対立",
     "japanese_romanization": "tairitsu",
-    "vietnamese_romanization": "đối lập"
+    "vietnamese_romanization": "đỗi lập"
   },
   {
     "no": 541,
@@ -5981,7 +5981,7 @@
     "chinese": "动力",
     "japanese": "動力",
     "japanese_romanization": "douryoku",
-    "vietnamese_romanization": "lực"
+    "vietnamese_romanization": "động lực"
   },
   {
     "no": 545,
@@ -5992,7 +5992,7 @@
     "chinese": "农药",
     "japanese": "農薬",
     "japanese_romanization": "nouyaku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "nông dược"
   },
   {
     "no": 546,
@@ -6025,7 +6025,7 @@
     "chinese": "部长",
     "japanese": "部長",
     "japanese_romanization": "buchou",
-    "vietnamese_romanization": "bộ"
+    "vietnamese_romanization": "bộ trường"
   },
   {
     "no": 549,
@@ -6036,7 +6036,7 @@
     "chinese": "压力",
     "japanese": "圧力",
     "japanese_romanization": "atsuryoku",
-    "vietnamese_romanization": "lực"
+    "vietnamese_romanization": "áp lực"
   },
   {
     "no": 550,
@@ -6047,7 +6047,7 @@
     "chinese": "气压",
     "japanese": "気圧",
     "japanese_romanization": "kiatsu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "khí áp"
   },
   {
     "no": 551,
@@ -6058,7 +6058,7 @@
     "chinese": "结合",
     "japanese": "結合",
     "japanese_romanization": "ketsugou",
-    "vietnamese_romanization": "hợp"
+    "vietnamese_romanization": "kết hợp"
   },
   {
     "no": 552,
@@ -6080,7 +6080,7 @@
     "chinese": "财产",
     "japanese": "財産",
     "japanese_romanization": "zaisan",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "tài sản"
   },
   {
     "no": 554,
@@ -6113,7 +6113,7 @@
     "chinese": "大陆",
     "japanese": "大陸",
     "japanese_romanization": "tairiku",
-    "vietnamese_romanization": "đại"
+    "vietnamese_romanization": "đại lục"
   },
   {
     "no": 557,
@@ -6124,7 +6124,7 @@
     "chinese": "适合",
     "japanese": "適合",
     "japanese_romanization": "tekigou",
-    "vietnamese_romanization": "hợp"
+    "vietnamese_romanization": "thích hợp"
   },
   {
     "no": 558,
@@ -6157,7 +6157,7 @@
     "chinese": "卫星",
     "japanese": "衛星",
     "japanese_romanization": "eisei",
-    "vietnamese_romanization": "tinh"
+    "vietnamese_romanization": "vệ tinh"
   },
   {
     "no": 561,
@@ -6168,7 +6168,7 @@
     "chinese": "确定",
     "japanese": "確定",
     "japanese_romanization": "kakutei",
-    "vietnamese_romanization": "định"
+    "vietnamese_romanization": "xác định"
   },
   {
     "no": 562,
@@ -6179,7 +6179,7 @@
     "chinese": "可怜",
     "japanese": "可憐",
     "japanese_romanization": "karen",
-    "vietnamese_romanization": "khả lanh"
+    "vietnamese_romanization": "khả"
   },
   {
     "no": 563,
@@ -6190,7 +6190,7 @@
     "chinese": "气象",
     "japanese": "気象",
     "japanese_romanization": "kishou",
-    "vietnamese_romanization": "tượng"
+    "vietnamese_romanization": "khí tượng"
   },
   {
     "no": 564,
@@ -6201,7 +6201,7 @@
     "chinese": "义务",
     "japanese": "義務",
     "japanese_romanization": "gimu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "nghĩa vụ"
   },
   {
     "no": 565,
@@ -6212,7 +6212,7 @@
     "chinese": "形态",
     "japanese": "形態",
     "japanese_romanization": "keitai",
-    "vietnamese_romanization": "hình"
+    "vietnamese_romanization": "hình thái"
   },
   {
     "no": 566,
@@ -6223,7 +6223,7 @@
     "chinese": "差别",
     "japanese": "差別",
     "japanese_romanization": "sabetsu",
-    "vietnamese_romanization": "sai"
+    "vietnamese_romanization": "sai biết"
   },
   {
     "no": 567,
@@ -6234,7 +6234,7 @@
     "chinese": "性质",
     "japanese": "性質",
     "japanese_romanization": "seishitsu",
-    "vietnamese_romanization": "tính"
+    "vietnamese_romanization": "tính chất"
   },
   {
     "no": 568,
@@ -6256,7 +6256,7 @@
     "chinese": "动机",
     "japanese": "動機",
     "japanese_romanization": "douki",
-    "vietnamese_romanization": "cơ"
+    "vietnamese_romanization": "động cơ"
   },
   {
     "no": 570,
@@ -6267,7 +6267,7 @@
     "chinese": "东南",
     "japanese": "東南",
     "japanese_romanization": "tounan",
-    "vietnamese_romanization": "nam"
+    "vietnamese_romanization": "đang nam"
   },
   {
     "no": 571,
@@ -6289,7 +6289,7 @@
     "chinese": "勇气",
     "japanese": "勇気",
     "japanese_romanization": "yuuki",
-    "vietnamese_romanization": "dũng"
+    "vietnamese_romanization": "dũng khí"
   },
   {
     "no": 573,
@@ -6322,7 +6322,7 @@
     "chinese": "学问",
     "japanese": "学問",
     "japanese_romanization": "gakumon",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "học"
   },
   {
     "no": 576,
@@ -6344,7 +6344,7 @@
     "chinese": "军事",
     "japanese": "軍事",
     "japanese_romanization": "gunji",
-    "vietnamese_romanization": "sự"
+    "vietnamese_romanization": "quân sự"
   },
   {
     "no": 578,
@@ -6355,7 +6355,7 @@
     "chinese": "权利",
     "japanese": "権利",
     "japanese_romanization": "kenri",
-    "vietnamese_romanization": "lợi"
+    "vietnamese_romanization": "quyền lợi"
   },
   {
     "no": 579,
@@ -6366,7 +6366,7 @@
     "chinese": "紧急",
     "japanese": "緊急",
     "japanese_romanization": "kinkyuu",
-    "vietnamese_romanization": "cấp"
+    "vietnamese_romanization": "khẩn cấp"
   },
   {
     "no": 580,
@@ -6377,7 +6377,7 @@
     "chinese": "个别",
     "japanese": "個別",
     "japanese_romanization": "kobetsu",
-    "vietnamese_romanization": "cá"
+    "vietnamese_romanization": "cá biết"
   },
   {
     "no": 581,
@@ -6388,7 +6388,7 @@
     "chinese": "行为",
     "japanese": "行為",
     "japanese_romanization": "koui",
-    "vietnamese_romanization": "hàng"
+    "vietnamese_romanization": "hàng vay"
   },
   {
     "no": 582,
@@ -6421,7 +6421,7 @@
     "chinese": "根据",
     "japanese": "根拠",
     "japanese_romanization": "konkyo",
-    "vietnamese_romanization": "căn cứ"
+    "vietnamese_romanization": "căn cớ"
   },
   {
     "no": 585,
@@ -6465,7 +6465,7 @@
     "chinese": "占领",
     "japanese": "占領",
     "japanese_romanization": "senryou",
-    "vietnamese_romanization": "chiêm"
+    "vietnamese_romanization": "chiêm lãnh"
   },
   {
     "no": 589,
@@ -6487,7 +6487,7 @@
     "chinese": "损害",
     "japanese": "損害",
     "japanese_romanization": "songai",
-    "vietnamese_romanization": "hại"
+    "vietnamese_romanization": "tốn hại"
   },
   {
     "no": 591,
@@ -6498,7 +6498,7 @@
     "chinese": "热带",
     "japanese": "熱帯",
     "japanese_romanization": "nettai",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "nhiệt đai"
   },
   {
     "no": 592,
@@ -6509,7 +6509,7 @@
     "chinese": "无限",
     "japanese": "無限",
     "japanese_romanization": "mugen",
-    "vietnamese_romanization": "hạn"
+    "vietnamese_romanization": "vô hạn"
   },
   {
     "no": 593,
@@ -6531,7 +6531,7 @@
     "chinese": "伟大",
     "japanese": "偉大",
     "japanese_romanization": "idai",
-    "vietnamese_romanization": "đại"
+    "vietnamese_romanization": "vĩ đại"
   },
   {
     "no": 595,
@@ -6542,7 +6542,7 @@
     "chinese": "一带",
     "japanese": "一帯",
     "japanese_romanization": "ittai",
-    "vietnamese_romanization": "nhất"
+    "vietnamese_romanization": "nhất đai"
   },
   {
     "no": 596,
@@ -6553,7 +6553,7 @@
     "chinese": "解释",
     "japanese": "解釈",
     "japanese_romanization": "kaishaku",
-    "vietnamese_romanization": "giải"
+    "vietnamese_romanization": "giải thích"
   },
   {
     "no": 597,
@@ -6564,7 +6564,7 @@
     "chinese": "干部",
     "japanese": "幹部",
     "japanese_romanization": "kanbu",
-    "vietnamese_romanization": "can bộ"
+    "vietnamese_romanization": "bộ"
   },
   {
     "no": 598,
@@ -6575,7 +6575,7 @@
     "chinese": "气温",
     "japanese": "気温",
     "japanese_romanization": "kion",
-    "vietnamese_romanization": "ồn"
+    "vietnamese_romanization": "khí"
   },
   {
     "no": 599,
@@ -6597,7 +6597,7 @@
     "chinese": "抗议",
     "japanese": "抗議",
     "japanese_romanization": "kougi",
-    "vietnamese_romanization": "kháng"
+    "vietnamese_romanization": "kháng nghị"
   },
   {
     "no": 601,
@@ -6652,7 +6652,7 @@
     "chinese": "伤害",
     "japanese": "傷害",
     "japanese_romanization": "shougai",
-    "vietnamese_romanization": "hại"
+    "vietnamese_romanization": "thương hại"
   },
   {
     "no": 606,
@@ -6663,7 +6663,7 @@
     "chinese": "消灭",
     "japanese": "消滅",
     "japanese_romanization": "shoumetsu",
-    "vietnamese_romanization": "tiêu"
+    "vietnamese_romanization": "tiêu diệt"
   },
   {
     "no": 607,
@@ -6685,7 +6685,7 @@
     "chinese": "节约",
     "japanese": "節約",
     "japanese_romanization": "setsuyaku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "tiết ước"
   },
   {
     "no": 609,
@@ -6707,7 +6707,7 @@
     "chinese": "统计",
     "japanese": "統計",
     "japanese_romanization": "toukei",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "thống kể"
   },
   {
     "no": 611,
@@ -6718,7 +6718,7 @@
     "chinese": "到达",
     "japanese": "到達",
     "japanese_romanization": "toutatsu",
-    "vietnamese_romanization": "đáo"
+    "vietnamese_romanization": "đáo đạt"
   },
   {
     "no": 612,
@@ -6729,7 +6729,7 @@
     "chinese": "读书",
     "japanese": "読書",
     "japanese_romanization": "dokusho",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "độc thư"
   },
   {
     "no": 613,
@@ -6740,7 +6740,7 @@
     "chinese": "农村",
     "japanese": "農村",
     "japanese_romanization": "nouson",
-    "vietnamese_romanization": "thôn"
+    "vietnamese_romanization": "nông thôn"
   },
   {
     "no": 614,
@@ -6762,7 +6762,7 @@
     "chinese": "武装",
     "japanese": "武装",
     "japanese_romanization": "busou",
-    "vietnamese_romanization": "vũ"
+    "vietnamese_romanization": "vũ trang"
   },
   {
     "no": 616,
@@ -6784,7 +6784,7 @@
     "chinese": "意义",
     "japanese": "意義",
     "japanese_romanization": "igi",
-    "vietnamese_romanization": "ý"
+    "vietnamese_romanization": "ý nghĩa"
   },
   {
     "no": 618,
@@ -6806,7 +6806,7 @@
     "chinese": "讲义",
     "japanese": "講義",
     "japanese_romanization": "kougi",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "giảng nghĩa"
   },
   {
     "no": 620,
@@ -6817,7 +6817,7 @@
     "chinese": "数学",
     "japanese": "数学",
     "japanese_romanization": "suugaku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "số học"
   },
   {
     "no": 621,
@@ -6839,7 +6839,7 @@
     "chinese": "地带",
     "japanese": "地帯",
     "japanese_romanization": "chitai",
-    "vietnamese_romanization": "địa"
+    "vietnamese_romanization": "địa đai"
   },
   {
     "no": 623,
@@ -6861,7 +6861,7 @@
     "chinese": "部队",
     "japanese": "部隊",
     "japanese_romanization": "butai",
-    "vietnamese_romanization": "bộ"
+    "vietnamese_romanization": "bộ đội"
   },
   {
     "no": 625,
@@ -6894,7 +6894,7 @@
     "chinese": "观念",
     "japanese": "観念",
     "japanese_romanization": "kannen",
-    "vietnamese_romanization": "niệm"
+    "vietnamese_romanization": "quan niệm"
   },
   {
     "no": 628,
@@ -6905,7 +6905,7 @@
     "chinese": "气候",
     "japanese": "気候",
     "japanese_romanization": "kikou",
-    "vietnamese_romanization": "hầu"
+    "vietnamese_romanization": "khí hầu"
   },
   {
     "no": 629,
@@ -6927,7 +6927,7 @@
     "chinese": "继承",
     "japanese": "継承",
     "japanese_romanization": "keishou",
-    "vietnamese_romanization": "thừa"
+    "vietnamese_romanization": "kế thừa"
   },
   {
     "no": 631,
@@ -6938,7 +6938,7 @@
     "chinese": "财政",
     "japanese": "財政",
     "japanese_romanization": "zaisei",
-    "vietnamese_romanization": "chính"
+    "vietnamese_romanization": "tài chính"
   },
   {
     "no": 632,
@@ -6949,7 +6949,7 @@
     "chinese": "少数",
     "japanese": "少数",
     "japanese_romanization": "shousuu",
-    "vietnamese_romanization": "thiểu"
+    "vietnamese_romanization": "thiểu số"
   },
   {
     "no": 633,
@@ -6960,7 +6960,7 @@
     "chinese": "条约",
     "japanese": "条約",
     "japanese_romanization": "jouyaku",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "điều ước"
   },
   {
     "no": 634,
@@ -6982,7 +6982,7 @@
     "chinese": "进入",
     "japanese": "進入",
     "japanese_romanization": "shinnyuu",
-    "vietnamese_romanization": "nhập"
+    "vietnamese_romanization": "tiến nhập"
   },
   {
     "no": 636,
@@ -7004,7 +7004,7 @@
     "chinese": "电压",
     "japanese": "電圧",
     "japanese_romanization": "den'atsu",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "áp"
   },
   {
     "no": 638,
@@ -7015,7 +7015,7 @@
     "chinese": "必须",
     "japanese": "必須",
     "japanese_romanization": "hissu",
-    "vietnamese_romanization": "tất"
+    "vietnamese_romanization": "tất tua"
   },
   {
     "no": 639,
@@ -7092,7 +7092,7 @@
     "chinese": "预报",
     "japanese": "予報",
     "japanese_romanization": "yohou",
-    "vietnamese_romanization": ""
+    "vietnamese_romanization": "báo"
   },
   {
     "no": 646,
@@ -7103,7 +7103,7 @@
     "chinese": "观点",
     "japanese": "観点",
     "japanese_romanization": "kanten",
-    "vietnamese_romanization": "điểm"
+    "vietnamese_romanization": "quan điểm"
   },
   {
     "no": 647,
@@ -7114,7 +7114,7 @@
     "chinese": "军人",
     "japanese": "軍人",
     "japanese_romanization": "gunjin",
-    "vietnamese_romanization": "nhân"
+    "vietnamese_romanization": "quân nhân"
   },
   {
     "no": 648,
@@ -7125,7 +7125,7 @@
     "chinese": "宪法",
     "japanese": "憲法",
     "japanese_romanization": "kenpou",
-    "vietnamese_romanization": "pháp"
+    "vietnamese_romanization": "hiến pháp"
   },
   {
     "no": 649,
@@ -7169,7 +7169,7 @@
     "chinese": "总理",
     "japanese": "総理",
     "japanese_romanization": "souri",
-    "vietnamese_romanization": "lí"
+    "vietnamese_romanization": "tổng lí"
   },
   {
     "no": 653,
