@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hanzi 658</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0f1116;
+      --bg-soft: #171b24;
+      --card: rgba(23, 27, 36, 0.88);
+      --line: rgba(255, 255, 255, 0.12);
+      --text: #f4f1ea;
+      --muted: #b7bfcd;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.16);
+      --button: linear-gradient(135deg, #f59e0b, #ef4444);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(245, 158, 11, 0.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.2), transparent 25%),
+        var(--bg);
+    }
+
+    .shell {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .subtitle {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #ffd08a;
+      border: 1px solid rgba(245, 158, 11, 0.22);
+      font-size: 0.86rem;
+      white-space: nowrap;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 22px 18px 18px;
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.34);
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hanzi {
+      margin: 0 0 14px;
+      text-align: center;
+      font-family: "Noto Serif SC", "Songti SC", "STKaiti", "Kaiti SC", serif;
+      font-size: clamp(3.6rem, 18vw, 7.2rem);
+      line-height: 1.04;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-shadow: 0 10px 28px rgba(0, 0, 0, 0.36);
+      color: #fff7ed;
+    }
+
+    .reading {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .hangul {
+      margin: 0;
+      font-family: "Noto Serif KR", serif;
+      font-size: clamp(1.5rem, 7vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .romanization {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .info {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      background: var(--bg-soft);
+      min-height: 88px;
+    }
+
+    .label {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .value {
+      margin: 0;
+      font-size: 1.18rem;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 18px;
+      padding: 15px 18px;
+      font: inherit;
+      font-weight: 800;
+      color: white;
+      background: var(--button);
+      box-shadow: 0 12px 30px rgba(239, 68, 68, 0.26);
+    }
+
+    button:active {
+      transform: scale(0.99);
+    }
+
+    .hint {
+      margin: 12px 0 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .loading,
+    .error {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+    }
+
+    @media (min-width: 700px) {
+      .shell {
+        padding-top: 32px;
+      }
+
+      .card {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <div>
+        <h1 class="title">Hanzi 658</h1>
+        <p class="subtitle">随机刷一个韩中日共通汉字词</p>
+      </div>
+      <div class="badge" id="countBadge">加载中</div>
+    </div>
+
+    <section class="card" id="app">
+      <div class="loading">正在加载词库...</div>
+    </section>
+  </main>
+
+  <script>
+    const app = document.getElementById("app");
+    const countBadge = document.getElementById("countBadge");
+    let words = [];
+    let currentIndex = -1;
+
+    function randomIndex() {
+      if (words.length <= 1) return 0;
+      let next = currentIndex;
+      while (next === currentIndex) {
+        next = Math.floor(Math.random() * words.length);
+      }
+      return next;
+    }
+
+    function renderWord(index) {
+      currentIndex = index;
+      const word = words[index];
+      app.innerHTML = `
+        <div class="meta">
+          <span>第 ${word.no} / 658 个词</span>
+          <span>${word.hanzi}</span>
+        </div>
+        <h2 class="hanzi">${word.hanzi}</h2>
+        <div class="reading">
+          <p class="hangul">${word.hangul}</p>
+          <p class="romanization">${word.romanization}</p>
+        </div>
+        <div class="grid">
+          <article class="info">
+            <p class="label">中文</p>
+            <p class="value">${word.chinese}</p>
+          </article>
+          <article class="info">
+            <p class="label">韩语汉字</p>
+            <p class="value">${word.kor_hanja}</p>
+          </article>
+          <article class="info">
+            <p class="label">韩语写法</p>
+            <p class="value">${word.hangul}</p>
+          </article>
+          <article class="info">
+            <p class="label">日文</p>
+            <p class="value">${word.japanese}</p>
+          </article>
+        </div>
+        <div class="actions">
+          <button id="nextButton" type="button">下一个随机词</button>
+        </div>
+        <p class="hint">点按钮随机切换，适合手机上反复刷词。</p>
+      `;
+      document.getElementById("nextButton").addEventListener("click", () => {
+        renderWord(randomIndex());
+      });
+    }
+
+    async function start() {
+      try {
+        const response = await fetch("./words.json");
+        if (!response.ok) throw new Error("词库加载失败");
+        words = await response.json();
+        countBadge.textContent = `${words.length} 个词`;
+        renderWord(Math.floor(Math.random() * words.length));
+      } catch (error) {
+        app.innerHTML = `<div class="error">加载失败：${error.message}</div>`;
+        countBadge.textContent = "加载失败";
+      }
+    }
+
+    start();
+  </script>
+</body>
+</html>

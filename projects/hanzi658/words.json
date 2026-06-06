@@ -1,0 +1,5924 @@
+[
+  {
+    "no": 1,
+    "hanzi": "时间",
+    "kor_hanja": "时间",
+    "hangul": "시간",
+    "romanization": "sigan",
+    "chinese": "时间",
+    "japanese": "时间"
+  },
+  {
+    "no": 2,
+    "hanzi": "价格",
+    "kor_hanja": "价格",
+    "hangul": "가격",
+    "romanization": "gagyeok",
+    "chinese": "价格",
+    "japanese": "価格"
+  },
+  {
+    "no": 3,
+    "hanzi": "电话",
+    "kor_hanja": "電話",
+    "hangul": "전화",
+    "romanization": "jeonhwa",
+    "chinese": "电话",
+    "japanese": "电话"
+  },
+  {
+    "no": 4,
+    "hanzi": "世界",
+    "kor_hanja": "世界",
+    "hangul": "세계",
+    "romanization": "segye",
+    "chinese": "世界",
+    "japanese": "世界"
+  },
+  {
+    "no": 5,
+    "hanzi": "以上",
+    "kor_hanja": "以上",
+    "hangul": "이상",
+    "romanization": "isang",
+    "chinese": "以上",
+    "japanese": "以上"
+  },
+  {
+    "no": 6,
+    "hanzi": "商品",
+    "kor_hanja": "商品",
+    "hangul": "상품",
+    "romanization": "sangpum",
+    "chinese": "商品",
+    "japanese": "商品"
+  },
+  {
+    "no": 7,
+    "hanzi": "时代",
+    "kor_hanja": "時代",
+    "hangul": "시대",
+    "romanization": "sidae",
+    "chinese": "时代",
+    "japanese": "时代"
+  },
+  {
+    "no": 8,
+    "hanzi": "作品",
+    "kor_hanja": "作品",
+    "hangul": "작품",
+    "romanization": "jakpum",
+    "chinese": "作品",
+    "japanese": "作品"
+  },
+  {
+    "no": 9,
+    "hanzi": "必要",
+    "kor_hanja": "必要",
+    "hangul": "필요",
+    "romanization": "pilyo",
+    "chinese": "必要",
+    "japanese": "必要"
+  },
+  {
+    "no": 10,
+    "hanzi": "自然",
+    "kor_hanja": "自然",
+    "hangul": "자연",
+    "romanization": "jayeon",
+    "chinese": "自然",
+    "japanese": "自然"
+  },
+  {
+    "no": 11,
+    "hanzi": "使用",
+    "kor_hanja": "使用",
+    "hangul": "사용",
+    "romanization": "sayong",
+    "chinese": "使用",
+    "japanese": "使用"
+  },
+  {
+    "no": 12,
+    "hanzi": "音乐",
+    "kor_hanja": "音樂",
+    "hangul": "음악",
+    "chinese": "音乐",
+    "japanese": "音楽",
+    "romanization": "eumak"
+  },
+  {
+    "no": 13,
+    "hanzi": "生活",
+    "kor_hanja": "生活",
+    "hangul": "생활",
+    "romanization": "saenghwal",
+    "chinese": "生活",
+    "japanese": "生活"
+  },
+  {
+    "no": 14,
+    "hanzi": "问题",
+    "kor_hanja": "問題",
+    "hangul": "문제",
+    "romanization": "munje",
+    "chinese": "问题",
+    "japanese": "问题"
+  },
+  {
+    "no": 15,
+    "hanzi": "可能",
+    "kor_hanja": "可能",
+    "hangul": "가능",
+    "romanization": "ganeung",
+    "chinese": "可能",
+    "japanese": "可能"
+  },
+  {
+    "no": 16,
+    "hanzi": "关系",
+    "kor_hanja": "開係",
+    "hangul": "관계",
+    "romanization": "gwangye",
+    "chinese": "关系",
+    "japanese": "関係"
+  },
+  {
+    "no": 17,
+    "hanzi": "現在",
+    "kor_hanja": "現在",
+    "hangul": "현재",
+    "romanization": "hyeonjae",
+    "chinese": "現在",
+    "japanese": "現在"
+  },
+  {
+    "no": 18,
+    "hanzi": "大学",
+    "kor_hanja": "大学",
+    "hangul": "대학",
+    "romanization": "daehak",
+    "chinese": "大学",
+    "japanese": "大学"
+  },
+  {
+    "no": 19,
+    "hanzi": "利用",
+    "kor_hanja": "利用",
+    "hangul": "이용",
+    "romanization": "iyong",
+    "chinese": "利用",
+    "japanese": "利"
+  },
+  {
+    "no": 20,
+    "hanzi": "效果",
+    "kor_hanja": "效果",
+    "hangul": "효과",
+    "romanization": "hyogwa",
+    "chinese": "效果",
+    "japanese": "効果"
+  },
+  {
+    "no": 21,
+    "hanzi": "部分",
+    "kor_hanja": "部分",
+    "hangul": "부분",
+    "romanization": "bubun",
+    "chinese": "部分",
+    "japanese": "部分"
+  },
+  {
+    "no": 22,
+    "hanzi": "方法",
+    "kor_hanja": "方法",
+    "hangul": "방법",
+    "romanization": "bangbeop",
+    "chinese": "方法",
+    "japanese": "方法"
+  },
+  {
+    "no": 23,
+    "hanzi": "营业",
+    "kor_hanja": "営業",
+    "hangul": "영업",
+    "romanization": "yeongeop",
+    "chinese": "营业",
+    "japanese": "当业"
+  },
+  {
+    "no": 24,
+    "hanzi": "情报",
+    "kor_hanja": "情报",
+    "hangul": "정보",
+    "romanization": "jeongbo",
+    "chinese": "情报",
+    "japanese": "情报"
+  },
+  {
+    "no": 25,
+    "hanzi": "特别",
+    "kor_hanja": "特别",
+    "hangul": "특별",
+    "romanization": "teukbyeol",
+    "chinese": "特别",
+    "japanese": "特别"
+  },
+  {
+    "no": 26,
+    "hanzi": "希望",
+    "kor_hanja": "希望",
+    "hangul": "희망",
+    "romanization": "huimang",
+    "chinese": "希望",
+    "japanese": "希望"
+  },
+  {
+    "no": 27,
+    "hanzi": "文化",
+    "kor_hanja": "文化",
+    "hangul": "문화",
+    "romanization": "munhwa",
+    "chinese": "文化",
+    "japanese": "文化"
+  },
+  {
+    "no": 28,
+    "hanzi": "技术",
+    "kor_hanja": "技术",
+    "hangul": "기술",
+    "romanization": "gisul",
+    "chinese": "技术",
+    "japanese": "技术"
+  },
+  {
+    "no": 29,
+    "hanzi": "基本",
+    "kor_hanja": "基本",
+    "hangul": "기본",
+    "romanization": "gibon",
+    "chinese": "基本",
+    "japanese": "基本"
+  },
+  {
+    "no": 30,
+    "hanzi": "意味",
+    "kor_hanja": "意味",
+    "hangul": "의미",
+    "romanization": "uimi",
+    "chinese": "意味",
+    "japanese": "意味"
+  },
+  {
+    "no": 31,
+    "hanzi": "自动",
+    "kor_hanja": "自動",
+    "hangul": "자동",
+    "romanization": "jadong",
+    "chinese": "自动",
+    "japanese": "自动"
+  },
+  {
+    "no": 32,
+    "hanzi": "内容谷",
+    "kor_hanja": "内容",
+    "hangul": "내용",
+    "romanization": "naeyong",
+    "chinese": "内容谷",
+    "japanese": "内容"
+  },
+  {
+    "no": 33,
+    "hanzi": "自由",
+    "kor_hanja": "自由",
+    "hangul": "자유",
+    "romanization": "jayu",
+    "chinese": "自由",
+    "japanese": "自由"
+  },
+  {
+    "no": 34,
+    "hanzi": "简单",
+    "kor_hanja": "简单",
+    "hangul": "간단",
+    "romanization": "gandan",
+    "chinese": "简单",
+    "japanese": "简单"
+  },
+  {
+    "no": 35,
+    "hanzi": "中心",
+    "kor_hanja": "中心",
+    "hangul": "중심",
+    "romanization": "jungsim",
+    "chinese": "中心",
+    "japanese": "中心"
+  },
+  {
+    "no": 36,
+    "hanzi": "最近",
+    "kor_hanja": "最近",
+    "hangul": "최근",
+    "romanization": "choegeun",
+    "chinese": "最近",
+    "japanese": "最近"
+  },
+  {
+    "no": 37,
+    "hanzi": "参加",
+    "kor_hanja": "参加",
+    "hangul": "참가",
+    "romanization": "chamga",
+    "chinese": "参加",
+    "japanese": "参加"
+  },
+  {
+    "no": 38,
+    "hanzi": "结婚",
+    "kor_hanja": "結婚",
+    "hangul": "결혼",
+    "romanization": "gyeolhon",
+    "chinese": "结婚",
+    "japanese": "结婚"
+  },
+  {
+    "no": 39,
+    "hanzi": "一般",
+    "kor_hanja": "一般",
+    "hangul": "일반",
+    "romanization": "ilban",
+    "chinese": "一般",
+    "japanese": "一般"
+  },
+  {
+    "no": 40,
+    "hanzi": "引社会",
+    "kor_hanja": "社会",
+    "hangul": "사회",
+    "romanization": "sahoe",
+    "chinese": "引社会",
+    "japanese": "社会"
+  },
+  {
+    "no": 41,
+    "hanzi": "保险",
+    "kor_hanja": "保险",
+    "hangul": "보험",
+    "romanization": "boheom",
+    "chinese": "保险",
+    "japanese": "保険"
+  },
+  {
+    "no": 42,
+    "hanzi": "学校",
+    "kor_hanja": "学校",
+    "hangul": "학",
+    "romanization": "hak",
+    "chinese": "学校",
+    "japanese": "学校"
+  },
+  {
+    "no": 43,
+    "hanzi": "开发",
+    "kor_hanja": "开发",
+    "hangul": "개발",
+    "romanization": "gaebal",
+    "chinese": "开发",
+    "japanese": "開発"
+  },
+  {
+    "no": 44,
+    "hanzi": "先生",
+    "kor_hanja": "先生",
+    "hangul": "선생",
+    "romanization": "seonsaeng",
+    "chinese": "先生",
+    "japanese": "先生"
+  },
+  {
+    "no": 45,
+    "hanzi": "程度",
+    "kor_hanja": "程度",
+    "hangul": "정도",
+    "romanization": "jeongdo",
+    "chinese": "程度",
+    "japanese": "程度"
+  },
+  {
+    "no": 46,
+    "hanzi": "大会",
+    "kor_hanja": "大会",
+    "hangul": "대회",
+    "romanization": "daehoe",
+    "chinese": "大会",
+    "japanese": "大会"
+  },
+  {
+    "no": 47,
+    "hanzi": "发表",
+    "kor_hanja": "发表",
+    "hangul": "발표",
+    "romanization": "balpyo",
+    "chinese": "发表",
+    "japanese": "発表"
+  },
+  {
+    "no": 48,
+    "hanzi": "印象",
+    "kor_hanja": "印象",
+    "hangul": "인상",
+    "romanization": "insang",
+    "chinese": "印象",
+    "japanese": "印象"
+  },
+  {
+    "no": 49,
+    "hanzi": "结果",
+    "kor_hanja": "結果",
+    "hangul": "결괴",
+    "romanization": "gyeolgoe",
+    "chinese": "结果",
+    "japanese": "结果"
+  },
+  {
+    "no": 50,
+    "hanzi": "存在",
+    "kor_hanja": "存在",
+    "hangul": "슈즌존재",
+    "romanization": "syujeunjonjae",
+    "chinese": "存在",
+    "japanese": "存在"
+  },
+  {
+    "no": 51,
+    "hanzi": "最初",
+    "kor_hanja": "最初",
+    "hangul": "최초",
+    "romanization": "choecho",
+    "chinese": "最初",
+    "japanese": "最初"
+  },
+  {
+    "no": 52,
+    "hanzi": "装备",
+    "kor_hanja": "装備",
+    "hangul": "장비",
+    "romanization": "jangbi",
+    "chinese": "装备",
+    "japanese": "装備"
+  },
+  {
+    "no": 53,
+    "hanzi": "消费",
+    "kor_hanja": "消費",
+    "hangul": "소비",
+    "romanization": "sobi",
+    "chinese": "消费",
+    "japanese": "消费"
+  },
+  {
+    "no": 54,
+    "hanzi": "采用",
+    "kor_hanja": "探用",
+    "hangul": "채용",
+    "romanization": "chaeyong",
+    "chinese": "采用",
+    "japanese": "採用"
+  },
+  {
+    "no": 55,
+    "hanzi": "全体",
+    "kor_hanja": "全肝",
+    "hangul": "전체",
+    "romanization": "jeonche",
+    "chinese": "全体",
+    "japanese": "全体"
+  },
+  {
+    "no": 56,
+    "hanzi": "世飞行",
+    "kor_hanja": "飛行",
+    "hangul": "비행",
+    "romanization": "bihaeng",
+    "chinese": "世飞行",
+    "japanese": "飛行"
+  },
+  {
+    "no": 57,
+    "hanzi": "国际",
+    "kor_hanja": "国际",
+    "hangul": "국제",
+    "romanization": "gukje",
+    "chinese": "国际",
+    "japanese": "国际"
+  },
+  {
+    "no": 58,
+    "hanzi": "由企业",
+    "kor_hanja": "企业",
+    "hangul": "기업",
+    "romanization": "gieop",
+    "chinese": "由企业",
+    "japanese": "企业"
+  },
+  {
+    "no": 59,
+    "hanzi": "专门",
+    "kor_hanja": "専門",
+    "hangul": "전문",
+    "romanization": "jeonmun",
+    "chinese": "专门",
+    "japanese": "专门"
+  },
+  {
+    "no": 60,
+    "hanzi": "中央",
+    "kor_hanja": "中央",
+    "hangul": "중앙",
+    "romanization": "jungang",
+    "chinese": "中央",
+    "japanese": "中央"
+  },
+  {
+    "no": 61,
+    "hanzi": "普普",
+    "kor_hanja": "普通",
+    "hangul": "보통",
+    "romanization": "botong",
+    "chinese": "普普",
+    "japanese": "普通"
+  },
+  {
+    "no": 62,
+    "hanzi": "经济",
+    "kor_hanja": "经济",
+    "hangul": "경제",
+    "romanization": "gyeongje",
+    "chinese": "经济",
+    "japanese": "経済"
+  },
+  {
+    "no": 63,
+    "hanzi": "现代",
+    "kor_hanja": "现代",
+    "hangul": "현대",
+    "romanization": "hyeondae",
+    "chinese": "现代",
+    "japanese": "现代"
+  },
+  {
+    "no": 64,
+    "hanzi": "当时",
+    "kor_hanja": "当时",
+    "hangul": "당시",
+    "romanization": "dangsi",
+    "chinese": "当时",
+    "japanese": "当时"
+  },
+  {
+    "no": 65,
+    "hanzi": "实际",
+    "kor_hanja": "实际",
+    "hangul": "실제",
+    "romanization": "silje",
+    "chinese": "实际",
+    "japanese": "実際"
+  },
+  {
+    "no": 66,
+    "hanzi": "学学生",
+    "kor_hanja": "学生",
+    "hangul": "학생",
+    "romanization": "haksaeng",
+    "chinese": "学学生",
+    "japanese": "学生"
+  },
+  {
+    "no": 67,
+    "hanzi": "银行",
+    "kor_hanja": "銀行",
+    "hangul": "은행",
+    "romanization": "eunhaeng",
+    "chinese": "银行",
+    "japanese": "银行"
+  },
+  {
+    "no": 68,
+    "hanzi": "旅行",
+    "kor_hanja": "旅行",
+    "hangul": "여행",
+    "romanization": "yeohaeng",
+    "chinese": "旅行",
+    "japanese": "旅行"
+  },
+  {
+    "no": 69,
+    "hanzi": "以下",
+    "kor_hanja": "以下",
+    "hangul": "이하",
+    "romanization": "iha",
+    "chinese": "以下",
+    "japanese": "以下"
+  },
+  {
+    "no": 70,
+    "hanzi": "说明",
+    "kor_hanja": "説明",
+    "hangul": "설명",
+    "romanization": "seolmyeong",
+    "chinese": "说明",
+    "japanese": "説明"
+  },
+  {
+    "no": 71,
+    "hanzi": "感觉",
+    "kor_hanja": "感算",
+    "hangul": "뿔감각",
+    "romanization": "ppulgamgak",
+    "chinese": "感觉",
+    "japanese": "感覚"
+  },
+  {
+    "no": 72,
+    "hanzi": "经验",
+    "kor_hanja": "経験",
+    "hangul": "경험",
+    "romanization": "gyeongheom",
+    "chinese": "经验",
+    "japanese": "経験"
+  },
+  {
+    "no": 73,
+    "hanzi": "活跃",
+    "kor_hanja": "活躍",
+    "hangul": "활약",
+    "romanization": "hwalyak",
+    "chinese": "活跃",
+    "japanese": "活躍"
+  },
+  {
+    "no": 74,
+    "hanzi": "代表",
+    "kor_hanja": "代表",
+    "hangul": "대표",
+    "romanization": "daepyo",
+    "chinese": "代表",
+    "japanese": "代表"
+  },
+  {
+    "no": 75,
+    "hanzi": "通信",
+    "kor_hanja": "信",
+    "hangul": "통신",
+    "romanization": "tongsin",
+    "chinese": "通信",
+    "japanese": "通信"
+  },
+  {
+    "no": 76,
+    "hanzi": "主办",
+    "kor_hanja": "主人",
+    "hangul": "주인",
+    "romanization": "juin",
+    "chinese": "主办",
+    "japanese": "主人"
+  },
+  {
+    "no": 77,
+    "hanzi": "安心",
+    "kor_hanja": "安心由名",
+    "hangul": "못안심",
+    "romanization": "motansim",
+    "chinese": "安心",
+    "japanese": "安心"
+  },
+  {
+    "no": 78,
+    "hanzi": "以外",
+    "kor_hanja": "以外",
+    "hangul": "이외",
+    "romanization": "ioe",
+    "chinese": "以外",
+    "japanese": "以外"
+  },
+  {
+    "no": 79,
+    "hanzi": "表現",
+    "kor_hanja": "表現",
+    "hangul": "표현",
+    "romanization": "pyohyeon",
+    "chinese": "表現",
+    "japanese": "表現"
+  },
+  {
+    "no": 80,
+    "hanzi": "意识",
+    "kor_hanja": "意识",
+    "hangul": "렐의식",
+    "romanization": "reluisik",
+    "chinese": "意识",
+    "japanese": "意識"
+  },
+  {
+    "no": 81,
+    "hanzi": "非常",
+    "kor_hanja": "非常",
+    "hangul": "비상",
+    "romanization": "bisang",
+    "chinese": "非常",
+    "japanese": "非常"
+  },
+  {
+    "no": 82,
+    "hanzi": "活动",
+    "kor_hanja": "活动",
+    "hangul": "활동",
+    "romanization": "hwaldong",
+    "chinese": "活动",
+    "japanese": "活动"
+  },
+  {
+    "no": 83,
+    "hanzi": "运动",
+    "kor_hanja": "運動",
+    "hangul": "운동",
+    "romanization": "undong",
+    "chinese": "运动",
+    "japanese": "運動"
+  },
+  {
+    "no": 84,
+    "hanzi": "新闻",
+    "kor_hanja": "新聞",
+    "hangul": "신문",
+    "romanization": "sinmun",
+    "chinese": "新闻",
+    "japanese": "新闻"
+  },
+  {
+    "no": 85,
+    "hanzi": "理由",
+    "kor_hanja": "理由",
+    "hangul": "이유",
+    "romanization": "iyu",
+    "chinese": "理由",
+    "japanese": "理由"
+  },
+  {
+    "no": 86,
+    "hanzi": "指导",
+    "kor_hanja": "指導",
+    "hangul": "지도",
+    "romanization": "jido",
+    "chinese": "指导",
+    "japanese": "指導"
+  },
+  {
+    "no": 87,
+    "hanzi": "实现",
+    "kor_hanja": "实现",
+    "hangul": "실현",
+    "romanization": "silhyeon",
+    "chinese": "实现",
+    "japanese": "実現"
+  },
+  {
+    "no": 88,
+    "hanzi": "家庭",
+    "kor_hanja": "家庭",
+    "hangul": "가정",
+    "romanization": "gajeong",
+    "chinese": "家庭",
+    "japanese": "家庭"
+  },
+  {
+    "no": 89,
+    "hanzi": "変化",
+    "kor_hanja": "毅化",
+    "hangul": "변화",
+    "romanization": "byeonhwa",
+    "chinese": "変化",
+    "japanese": "変化"
+  },
+  {
+    "no": 90,
+    "hanzi": "位置",
+    "kor_hanja": "位置",
+    "hangul": "위치",
+    "romanization": "wichi",
+    "chinese": "位置",
+    "japanese": "位置"
+  },
+  {
+    "no": 91,
+    "hanzi": "种类",
+    "kor_hanja": "种类",
+    "hangul": "종류",
+    "romanization": "jongryu",
+    "chinese": "种类",
+    "japanese": "种类"
+  },
+  {
+    "no": 92,
+    "hanzi": "完",
+    "kor_hanja": "完全",
+    "hangul": "완전",
+    "romanization": "wanjeon",
+    "chinese": "完",
+    "japanese": "完全"
+  },
+  {
+    "no": 93,
+    "hanzi": "资料",
+    "kor_hanja": "资料",
+    "hangul": "자료",
+    "romanization": "jaryo",
+    "chinese": "资料",
+    "japanese": "资料"
+  },
+  {
+    "no": 94,
+    "hanzi": "同时",
+    "kor_hanja": "同时",
+    "hangul": "동시",
+    "romanization": "dongsi",
+    "chinese": "同时",
+    "japanese": "同时"
+  },
+  {
+    "no": 95,
+    "hanzi": "人",
+    "kor_hanja": "个人",
+    "hangul": "개인",
+    "romanization": "gaein",
+    "chinese": "人",
+    "japanese": "个人"
+  },
+  {
+    "no": 96,
+    "hanzi": "治",
+    "kor_hanja": "政治",
+    "hangul": "정치",
+    "romanization": "jeongchi",
+    "chinese": "治",
+    "japanese": "政治"
+  },
+  {
+    "no": 97,
+    "hanzi": "完成",
+    "kor_hanja": "完成",
+    "hangul": "완성",
+    "romanization": "wanseong",
+    "chinese": "完成",
+    "japanese": "完成"
+  },
+  {
+    "no": 98,
+    "hanzi": "设计",
+    "kor_hanja": "设计",
+    "hangul": "설계",
+    "romanization": "seolgye",
+    "chinese": "设计",
+    "japanese": "设计"
+  },
+  {
+    "no": 99,
+    "hanzi": "表示",
+    "kor_hanja": "表示",
+    "hangul": "표시",
+    "romanization": "pyosi",
+    "chinese": "表示",
+    "japanese": "表示"
+  },
+  {
+    "no": 100,
+    "hanzi": "艺术",
+    "kor_hanja": "艺术",
+    "hangul": "예술",
+    "romanization": "yesul",
+    "chinese": "艺术",
+    "japanese": "芸術"
+  },
+  {
+    "no": 101,
+    "hanzi": "发行",
+    "kor_hanja": "发行",
+    "hangul": "발행",
+    "romanization": "balhaeng",
+    "chinese": "发行",
+    "japanese": "発行"
+  },
+  {
+    "no": 102,
+    "hanzi": "决定",
+    "kor_hanja": "決定",
+    "hangul": "결정",
+    "romanization": "gyeoljeong",
+    "chinese": "决定",
+    "japanese": "決定"
+  },
+  {
+    "no": 103,
+    "hanzi": "重要",
+    "kor_hanja": "重要",
+    "hangul": "중요",
+    "romanization": "jungyo",
+    "chinese": "重要",
+    "japanese": "重要"
+  },
+  {
+    "no": 104,
+    "hanzi": "方式",
+    "kor_hanja": "方式",
+    "hangul": "방식",
+    "romanization": "bangsik",
+    "chinese": "方式",
+    "japanese": "方式"
+  },
+  {
+    "no": 105,
+    "hanzi": "有名",
+    "kor_hanja": "有名",
+    "hangul": "유명",
+    "romanization": "yumyeong",
+    "chinese": "有名",
+    "japanese": "有名"
+  },
+  {
+    "no": 106,
+    "hanzi": "制品",
+    "kor_hanja": "製品",
+    "hangul": "제품",
+    "romanization": "jepum",
+    "chinese": "制品",
+    "japanese": "製品"
+  },
+  {
+    "no": 107,
+    "hanzi": "当然",
+    "kor_hanja": "当然",
+    "hangul": "당연",
+    "romanization": "dangyeon",
+    "chinese": "当然",
+    "japanese": "当然"
+  },
+  {
+    "no": 108,
+    "hanzi": "目的",
+    "kor_hanja": "目的",
+    "hangul": "목적",
+    "romanization": "mokjeok",
+    "chinese": "目的",
+    "japanese": "目的"
+  },
+  {
+    "no": 109,
+    "hanzi": "材料",
+    "kor_hanja": "材料",
+    "hangul": "재료",
+    "romanization": "jaeryo",
+    "chinese": "材料",
+    "japanese": "材料"
+  },
+  {
+    "no": 110,
+    "hanzi": "时期",
+    "kor_hanja": "时期人",
+    "hangul": "뼈시기",
+    "romanization": "ppyeosigi",
+    "chinese": "时期",
+    "japanese": "时期"
+  },
+  {
+    "no": 111,
+    "hanzi": "注意",
+    "kor_hanja": "注意",
+    "hangul": "주의",
+    "romanization": "juui",
+    "chinese": "注意",
+    "japanese": "注意"
+  },
+  {
+    "no": 112,
+    "hanzi": "传统",
+    "kor_hanja": "传统",
+    "hangul": "전통",
+    "romanization": "jeontong",
+    "chinese": "传统",
+    "japanese": "伝統"
+  },
+  {
+    "no": 113,
+    "hanzi": "以前",
+    "kor_hanja": "以前",
+    "hangul": "이전",
+    "romanization": "ijeon",
+    "chinese": "以前",
+    "japanese": "以前"
+  },
+  {
+    "no": 114,
+    "hanzi": "处理",
+    "kor_hanja": "处理",
+    "hangul": "처리",
+    "romanization": "cheori",
+    "chinese": "处理",
+    "japanese": "処理"
+  },
+  {
+    "no": 115,
+    "hanzi": "能力",
+    "kor_hanja": "能力",
+    "hangul": "능력",
+    "romanization": "neungryeok",
+    "chinese": "能力",
+    "japanese": "能力"
+  },
+  {
+    "no": 116,
+    "hanzi": "方向",
+    "kor_hanja": "方向",
+    "hangul": "방향",
+    "romanization": "banghyang",
+    "chinese": "方向",
+    "japanese": "方向"
+  },
+  {
+    "no": 117,
+    "hanzi": "交通",
+    "kor_hanja": "交通",
+    "hangul": "교통",
+    "romanization": "gyotong",
+    "chinese": "交通",
+    "japanese": "交通"
+  },
+  {
+    "no": 118,
+    "hanzi": "读者",
+    "kor_hanja": "读者",
+    "hangul": "독지",
+    "romanization": "dokji",
+    "chinese": "读者",
+    "japanese": "読者"
+  },
+  {
+    "no": 119,
+    "hanzi": "丰富",
+    "kor_hanja": "豊富",
+    "hangul": "풍부",
+    "romanization": "pungbu",
+    "chinese": "丰富",
+    "japanese": "豊富"
+  },
+  {
+    "no": 120,
+    "hanzi": "季节",
+    "kor_hanja": "季節",
+    "hangul": "계절",
+    "romanization": "gyejeol",
+    "chinese": "季节",
+    "japanese": "季節"
+  },
+  {
+    "no": 121,
+    "hanzi": "世纪",
+    "kor_hanja": "世紀",
+    "hangul": "세기",
+    "romanization": "segi",
+    "chinese": "世纪",
+    "japanese": "世紀"
+  },
+  {
+    "no": 122,
+    "hanzi": "构成",
+    "kor_hanja": "構成",
+    "hangul": "구성",
+    "romanization": "guseong",
+    "chinese": "构成",
+    "japanese": "构成"
+  },
+  {
+    "no": 123,
+    "hanzi": "原因",
+    "kor_hanja": "原因",
+    "hangul": "원인",
+    "romanization": "wonin",
+    "chinese": "原因",
+    "japanese": "原因"
+  },
+  {
+    "no": 124,
+    "hanzi": "食品",
+    "kor_hanja": "食品",
+    "hangul": "식품",
+    "romanization": "sikpum",
+    "chinese": "食品",
+    "japanese": "食品"
+  },
+  {
+    "no": 125,
+    "hanzi": "直接",
+    "kor_hanja": "直接",
+    "hangul": "직접",
+    "romanization": "jikjeop",
+    "chinese": "直接",
+    "japanese": "直接"
+  },
+  {
+    "no": 126,
+    "hanzi": "平均",
+    "kor_hanja": "平均",
+    "hangul": "평균",
+    "romanization": "pyeonggyun",
+    "chinese": "平均",
+    "japanese": "平均"
+  },
+  {
+    "no": 127,
+    "hanzi": "美术",
+    "kor_hanja": "美术",
+    "hangul": "미술",
+    "romanization": "misul",
+    "chinese": "美术",
+    "japanese": "美術"
+  },
+  {
+    "no": 128,
+    "hanzi": "教育",
+    "kor_hanja": "教育",
+    "hangul": "교육",
+    "romanization": "gyoyuk",
+    "chinese": "教育",
+    "japanese": "教育"
+  },
+  {
+    "no": 129,
+    "hanzi": "事业",
+    "kor_hanja": "事业",
+    "hangul": "사업",
+    "romanization": "saeop",
+    "chinese": "事业",
+    "japanese": "事业"
+  },
+  {
+    "no": 130,
+    "hanzi": "事实",
+    "kor_hanja": "事实",
+    "hangul": "사실",
+    "romanization": "sasil",
+    "chinese": "事实",
+    "japanese": "事実"
+  },
+  {
+    "no": 131,
+    "hanzi": "文",
+    "kor_hanja": "文字",
+    "hangul": "문자",
+    "romanization": "munja",
+    "chinese": "文",
+    "japanese": "文字"
+  },
+  {
+    "no": 132,
+    "hanzi": "事件",
+    "kor_hanja": "事件付",
+    "hangul": "롤쓰사건",
+    "romanization": "rolsseusageon",
+    "chinese": "事件",
+    "japanese": "事件"
+  },
+  {
+    "no": 133,
+    "hanzi": "文字",
+    "kor_hanja": "文字",
+    "hangul": "문자",
+    "chinese": "文字",
+    "japanese": "文字",
+    "romanization": "munja"
+  },
+  {
+    "no": 134,
+    "hanzi": "对象",
+    "kor_hanja": "对象",
+    "hangul": "대상",
+    "romanization": "daesang",
+    "chinese": "对象",
+    "japanese": "対象"
+  },
+  {
+    "no": 135,
+    "hanzi": "安定",
+    "kor_hanja": "安定",
+    "hangul": "안정",
+    "romanization": "anjeong",
+    "chinese": "安定",
+    "japanese": "安定"
+  },
+  {
+    "no": 136,
+    "hanzi": "安全",
+    "kor_hanja": "安全",
+    "hangul": "안전",
+    "romanization": "anjeon",
+    "chinese": "安全",
+    "japanese": "安全"
+  },
+  {
+    "no": 137,
+    "hanzi": "管理",
+    "kor_hanja": "管理",
+    "hangul": "관리",
+    "romanization": "gwanri",
+    "chinese": "管理",
+    "japanese": "管理"
+  },
+  {
+    "no": 138,
+    "hanzi": "以来",
+    "kor_hanja": "以来",
+    "hangul": "이래",
+    "romanization": "irae",
+    "chinese": "以来",
+    "japanese": "以来"
+  },
+  {
+    "no": 139,
+    "hanzi": "选择",
+    "kor_hanja": "選控",
+    "hangul": "선택",
+    "romanization": "seontaek",
+    "chinese": "选择",
+    "japanese": "選択"
+  },
+  {
+    "no": 140,
+    "hanzi": "以来",
+    "kor_hanja": "以來",
+    "hangul": "이래",
+    "chinese": "以来",
+    "japanese": "以来",
+    "romanization": "irae"
+  },
+  {
+    "no": 141,
+    "hanzi": "选择",
+    "kor_hanja": "選擇",
+    "hangul": "선택",
+    "chinese": "选择",
+    "japanese": "選択",
+    "romanization": "seontaek"
+  },
+  {
+    "no": 142,
+    "hanzi": "指挥",
+    "kor_hanja": "指揮",
+    "hangul": "지휘",
+    "romanization": "jihwi",
+    "chinese": "指挥",
+    "japanese": "指揮"
+  },
+  {
+    "no": 143,
+    "hanzi": "女子",
+    "kor_hanja": "女子",
+    "hangul": "여자",
+    "romanization": "yeoja",
+    "chinese": "女子",
+    "japanese": "女子"
+  },
+  {
+    "no": 144,
+    "hanzi": "地方",
+    "kor_hanja": "地方和车",
+    "hangul": "빼가지방",
+    "romanization": "ppaegajibang",
+    "chinese": "地方",
+    "japanese": "地方"
+  },
+  {
+    "no": 145,
+    "hanzi": "展开",
+    "kor_hanja": "展开",
+    "hangul": "전개",
+    "romanization": "jeongae",
+    "chinese": "展开",
+    "japanese": "展开"
+  },
+  {
+    "no": 146,
+    "hanzi": "有效",
+    "kor_hanja": "有效",
+    "hangul": "유효",
+    "romanization": "yuhyo",
+    "chinese": "有效",
+    "japanese": "有効"
+  },
+  {
+    "no": 147,
+    "hanzi": "成分",
+    "kor_hanja": "成分",
+    "hangul": "성분",
+    "romanization": "seongbun",
+    "chinese": "成分",
+    "japanese": "成分"
+  },
+  {
+    "no": 148,
+    "hanzi": "构造",
+    "kor_hanja": "构造",
+    "hangul": "구조",
+    "romanization": "gujo",
+    "chinese": "构造",
+    "japanese": "构造"
+  },
+  {
+    "no": 149,
+    "hanzi": "成功",
+    "kor_hanja": "成功",
+    "hangul": "성공",
+    "romanization": "seonggong",
+    "chinese": "成功",
+    "japanese": "成功"
+  },
+  {
+    "no": 150,
+    "hanzi": "精神",
+    "kor_hanja": "精神",
+    "hangul": "정신",
+    "romanization": "jeongsin",
+    "chinese": "精神",
+    "japanese": "精神"
+  },
+  {
+    "no": 151,
+    "hanzi": "实施",
+    "kor_hanja": "实施包人",
+    "hangul": "올실시",
+    "romanization": "olsilsi",
+    "chinese": "实施",
+    "japanese": "実施"
+  },
+  {
+    "no": 152,
+    "hanzi": "演出",
+    "kor_hanja": "演出",
+    "hangul": "연출",
+    "romanization": "yeonchul",
+    "chinese": "演出",
+    "japanese": "演出"
+  },
+  {
+    "no": 153,
+    "hanzi": "观测",
+    "kor_hanja": "観測",
+    "hangul": "관측",
+    "romanization": "gwancheuk",
+    "chinese": "观测",
+    "japanese": "観測"
+  },
+  {
+    "no": 154,
+    "hanzi": "生产",
+    "kor_hanja": "生产",
+    "hangul": "생산",
+    "romanization": "saengsan",
+    "chinese": "生产",
+    "japanese": "生産"
+  },
+  {
+    "no": 155,
+    "hanzi": "理解",
+    "kor_hanja": "理解",
+    "hangul": "이해",
+    "romanization": "ihae",
+    "chinese": "理解",
+    "japanese": "理解"
+  },
+  {
+    "no": 156,
+    "hanzi": "出版",
+    "kor_hanja": "出版",
+    "hangul": "출판",
+    "romanization": "chulpan",
+    "chinese": "出版",
+    "japanese": "出版"
+  },
+  {
+    "no": 157,
+    "hanzi": "调整",
+    "kor_hanja": "調整玉妈",
+    "hangul": "래뿐조정",
+    "romanization": "raeppunjojeong",
+    "chinese": "调整",
+    "japanese": "調整玉妈"
+  },
+  {
+    "no": 158,
+    "hanzi": "交換",
+    "kor_hanja": "交換",
+    "hangul": "교환",
+    "romanization": "gyohwan",
+    "chinese": "交換",
+    "japanese": "交換"
+  },
+  {
+    "no": 159,
+    "hanzi": "前后",
+    "kor_hanja": "前後",
+    "hangul": "전후",
+    "romanization": "jeonhu",
+    "chinese": "前后",
+    "japanese": "前後"
+  },
+  {
+    "no": 160,
+    "hanzi": "年",
+    "kor_hanja": "少年人日",
+    "hangul": "소년",
+    "romanization": "sonyeon",
+    "chinese": "年",
+    "japanese": "少年"
+  },
+  {
+    "no": 161,
+    "hanzi": "费用",
+    "kor_hanja": "費用",
+    "hangul": "비용",
+    "romanization": "biyong",
+    "chinese": "费用",
+    "japanese": "費用"
+  },
+  {
+    "no": 162,
+    "hanzi": "日",
+    "kor_hanja": "日常",
+    "hangul": "일상",
+    "romanization": "ilsang",
+    "chinese": "日",
+    "japanese": "日常"
+  },
+  {
+    "no": 163,
+    "hanzi": "作业",
+    "kor_hanja": "作业",
+    "hangul": "작업",
+    "romanization": "jakeop",
+    "chinese": "作业",
+    "japanese": "作业"
+  },
+  {
+    "no": 164,
+    "hanzi": "集中",
+    "kor_hanja": "集中",
+    "hangul": "집중",
+    "romanization": "jipjung",
+    "chinese": "集中",
+    "japanese": "集中"
+  },
+  {
+    "no": 165,
+    "hanzi": "小说",
+    "kor_hanja": "小説",
+    "hangul": "소설",
+    "romanization": "soseol",
+    "chinese": "小说",
+    "japanese": "小説"
+  },
+  {
+    "no": 166,
+    "hanzi": "全部",
+    "kor_hanja": "全部",
+    "hangul": "전",
+    "romanization": "jeon",
+    "chinese": "全部",
+    "japanese": "全部"
+  },
+  {
+    "no": 167,
+    "hanzi": "现实",
+    "kor_hanja": "现实",
+    "hangul": "현실",
+    "romanization": "hyeonsil",
+    "chinese": "现实",
+    "japanese": "現実"
+  },
+  {
+    "no": 168,
+    "hanzi": "个性",
+    "kor_hanja": "個性",
+    "hangul": "개성",
+    "romanization": "gaeseong",
+    "chinese": "个性",
+    "japanese": "個性"
+  },
+  {
+    "no": 169,
+    "hanzi": "比较",
+    "kor_hanja": "比較",
+    "hangul": "비교",
+    "romanization": "bigyo",
+    "chinese": "比较",
+    "japanese": "比較"
+  },
+  {
+    "no": 170,
+    "hanzi": "表情",
+    "kor_hanja": "表情",
+    "hangul": "표정",
+    "romanization": "pyojeong",
+    "chinese": "表情",
+    "japanese": "表情"
+  },
+  {
+    "no": 171,
+    "hanzi": "经营",
+    "kor_hanja": "经营",
+    "hangul": "경영",
+    "romanization": "gyeongyeong",
+    "chinese": "经营",
+    "japanese": "経営"
+  },
+  {
+    "no": 172,
+    "hanzi": "市场",
+    "kor_hanja": "市场人合",
+    "hangul": "시장",
+    "romanization": "sijang",
+    "chinese": "市场",
+    "japanese": "市场"
+  },
+  {
+    "no": 173,
+    "hanzi": "职业",
+    "kor_hanja": "职业",
+    "hangul": "직업",
+    "romanization": "jikeop",
+    "chinese": "职业",
+    "japanese": "职业"
+  },
+  {
+    "no": 174,
+    "hanzi": "不安",
+    "kor_hanja": "不安",
+    "hangul": "주불안",
+    "romanization": "jubulan",
+    "chinese": "不安",
+    "japanese": "不安"
+  },
+  {
+    "no": 175,
+    "hanzi": "外国",
+    "kor_hanja": "外国",
+    "hangul": "외국",
+    "romanization": "oeguk",
+    "chinese": "外国",
+    "japanese": "外国"
+  },
+  {
+    "no": 176,
+    "hanzi": "各种",
+    "kor_hanja": "各种",
+    "hangul": "각종",
+    "romanization": "gakjong",
+    "chinese": "各种",
+    "japanese": "各种"
+  },
+  {
+    "no": 177,
+    "hanzi": "将来",
+    "kor_hanja": "将来",
+    "hangul": "장래",
+    "romanization": "jangrae",
+    "chinese": "将来",
+    "japanese": "将来"
+  },
+  {
+    "no": 178,
+    "hanzi": "各种",
+    "kor_hanja": "各種",
+    "hangul": "각종",
+    "chinese": "各种",
+    "japanese": "各種",
+    "romanization": "gakjong"
+  },
+  {
+    "no": 179,
+    "hanzi": "将来",
+    "kor_hanja": "將來",
+    "hangul": "장래",
+    "chinese": "将来",
+    "japanese": "将来",
+    "romanization": "jangrae"
+  },
+  {
+    "no": 180,
+    "hanzi": "公园",
+    "kor_hanja": "公园",
+    "hangul": "공원",
+    "romanization": "gongwon",
+    "chinese": "公园",
+    "japanese": "公园"
+  },
+  {
+    "no": 181,
+    "hanzi": "治疗",
+    "kor_hanja": "治疗",
+    "hangul": "치료",
+    "romanization": "chiryo",
+    "chinese": "治疗",
+    "japanese": "治疗"
+  },
+  {
+    "no": 182,
+    "hanzi": "自信",
+    "kor_hanja": "自信",
+    "hangul": "자신",
+    "romanization": "jasin",
+    "chinese": "自信",
+    "japanese": "自信"
+  },
+  {
+    "no": 183,
+    "hanzi": "满足",
+    "kor_hanja": "满足",
+    "hangul": "만족",
+    "romanization": "manjok",
+    "chinese": "满足",
+    "japanese": "满足"
+  },
+  {
+    "no": 184,
+    "hanzi": "倾向",
+    "kor_hanja": "傾向",
+    "hangul": "경향",
+    "romanization": "gyeonghyang",
+    "chinese": "倾向",
+    "japanese": "傾向"
+  },
+  {
+    "no": 185,
+    "hanzi": "作家",
+    "kor_hanja": "作家",
+    "hangul": "작가",
+    "romanization": "jakga",
+    "chinese": "作家",
+    "japanese": "作家"
+  },
+  {
+    "no": 186,
+    "hanzi": "电子",
+    "kor_hanja": "电子",
+    "hangul": "전자",
+    "romanization": "jeonja",
+    "chinese": "电子",
+    "japanese": "电子"
+  },
+  {
+    "no": 187,
+    "hanzi": "过去",
+    "kor_hanja": "過去",
+    "hangul": "과거",
+    "romanization": "gwageo",
+    "chinese": "过去",
+    "japanese": "過去"
+  },
+  {
+    "no": 188,
+    "hanzi": "空间",
+    "kor_hanja": "空間",
+    "hangul": "공간",
+    "romanization": "gonggan",
+    "chinese": "空间",
+    "japanese": "空間"
+  },
+  {
+    "no": 189,
+    "hanzi": "生命",
+    "kor_hanja": "生命",
+    "hangul": "생명",
+    "romanization": "saengmyeong",
+    "chinese": "生命",
+    "japanese": "生命"
+  },
+  {
+    "no": 190,
+    "hanzi": "道路",
+    "kor_hanja": "道路",
+    "hangul": "도로",
+    "romanization": "doro",
+    "chinese": "道路",
+    "japanese": "道路"
+  },
+  {
+    "no": 191,
+    "hanzi": "意見",
+    "kor_hanja": "意見",
+    "hangul": "의견",
+    "romanization": "uigyeon",
+    "chinese": "意見",
+    "japanese": "意見"
+  },
+  {
+    "no": 192,
+    "hanzi": "记忆",
+    "kor_hanja": "記憶",
+    "hangul": "기억",
+    "romanization": "gieok",
+    "chinese": "记忆",
+    "japanese": "記憶"
+  },
+  {
+    "no": 193,
+    "hanzi": "操作",
+    "kor_hanja": "操作",
+    "hangul": "조작",
+    "romanization": "jojak",
+    "chinese": "操作",
+    "japanese": "操作"
+  },
+  {
+    "no": 194,
+    "hanzi": "书店",
+    "kor_hanja": "书店",
+    "hangul": "서점",
+    "romanization": "seojeom",
+    "chinese": "书店",
+    "japanese": "書店"
+  },
+  {
+    "no": 195,
+    "hanzi": "计算",
+    "kor_hanja": "计算",
+    "hangul": "계산",
+    "romanization": "gyesan",
+    "chinese": "计算",
+    "japanese": "计算"
+  },
+  {
+    "no": 196,
+    "hanzi": "地球",
+    "kor_hanja": "地球",
+    "hangul": "지구",
+    "romanization": "jigu",
+    "chinese": "地球",
+    "japanese": "地球"
+  },
+  {
+    "no": 197,
+    "hanzi": "责任",
+    "kor_hanja": "責任",
+    "hangul": "책임",
+    "romanization": "chaekim",
+    "chinese": "责任",
+    "japanese": "责任"
+  },
+  {
+    "no": 198,
+    "hanzi": "目标",
+    "kor_hanja": "目標",
+    "hangul": "목표",
+    "romanization": "mokpyo",
+    "chinese": "目标",
+    "japanese": "目标"
+  },
+  {
+    "no": 199,
+    "hanzi": "左右",
+    "kor_hanja": "左右",
+    "hangul": "좌우",
+    "romanization": "jwau",
+    "chinese": "左右",
+    "japanese": "左右"
+  },
+  {
+    "no": 200,
+    "hanzi": "政府",
+    "kor_hanja": "政府",
+    "hangul": "정부",
+    "romanization": "jeongbu",
+    "chinese": "政府",
+    "japanese": "政府"
+  },
+  {
+    "no": 201,
+    "hanzi": "配合",
+    "kor_hanja": "配合",
+    "hangul": "배합",
+    "romanization": "baehap",
+    "chinese": "配合",
+    "japanese": "配合"
+  },
+  {
+    "no": 202,
+    "hanzi": "行动",
+    "kor_hanja": "行动",
+    "hangul": "행동",
+    "romanization": "haengdong",
+    "chinese": "行动",
+    "japanese": "行动"
+  },
+  {
+    "no": 203,
+    "hanzi": "国民",
+    "kor_hanja": "国民",
+    "hangul": "국민",
+    "romanization": "gukmin",
+    "chinese": "国民",
+    "japanese": "国民"
+  },
+  {
+    "no": 204,
+    "hanzi": "学党",
+    "kor_hanja": "文学",
+    "hangul": "문학학",
+    "romanization": "munhakhak",
+    "chinese": "学党",
+    "japanese": "文学"
+  },
+  {
+    "no": 205,
+    "hanzi": "感动",
+    "kor_hanja": "感動",
+    "hangul": "감동",
+    "romanization": "gamdong",
+    "chinese": "感动",
+    "japanese": "感动"
+  },
+  {
+    "no": 206,
+    "hanzi": "新鮮",
+    "kor_hanja": "新鮮",
+    "hangul": "신선",
+    "romanization": "sinseon",
+    "chinese": "新鮮",
+    "japanese": "新鮮"
+  },
+  {
+    "no": 207,
+    "hanzi": "地下",
+    "kor_hanja": "地下",
+    "hangul": "지하",
+    "romanization": "jiha",
+    "chinese": "地下",
+    "japanese": "地下"
+  },
+  {
+    "no": 208,
+    "hanzi": "形式",
+    "kor_hanja": "形式",
+    "hangul": "형식",
+    "romanization": "hyeongsik",
+    "chinese": "形式",
+    "japanese": "形式"
+  },
+  {
+    "no": 209,
+    "hanzi": "公开",
+    "kor_hanja": "公開",
+    "hangul": "공개",
+    "romanization": "gonggae",
+    "chinese": "公开",
+    "japanese": "公開"
+  },
+  {
+    "no": 210,
+    "hanzi": "事故",
+    "kor_hanja": "事故",
+    "hangul": "사고",
+    "romanization": "sago",
+    "chinese": "事故",
+    "japanese": "事故"
+  },
+  {
+    "no": 211,
+    "hanzi": "积极",
+    "kor_hanja": "积极",
+    "hangul": "적극",
+    "romanization": "jeokgeuk",
+    "chinese": "积极",
+    "japanese": "积极"
+  },
+  {
+    "no": 212,
+    "hanzi": "制作",
+    "kor_hanja": "製作",
+    "hangul": "제작",
+    "romanization": "jejak",
+    "chinese": "制作",
+    "japanese": "製作"
+  },
+  {
+    "no": 213,
+    "hanzi": "天然",
+    "kor_hanja": "天然",
+    "hangul": "천연",
+    "romanization": "cheonyeon",
+    "chinese": "天然",
+    "japanese": "天然"
+  },
+  {
+    "no": 214,
+    "hanzi": "移动",
+    "kor_hanja": "移动",
+    "hangul": "이동",
+    "romanization": "idong",
+    "chinese": "移动",
+    "japanese": "移动"
+  },
+  {
+    "no": 215,
+    "hanzi": "动物",
+    "kor_hanja": "动物",
+    "hangul": "동물",
+    "romanization": "dongmul",
+    "chinese": "动物",
+    "japanese": "动物"
+  },
+  {
+    "no": 216,
+    "hanzi": "移动",
+    "kor_hanja": "移動",
+    "hangul": "이동",
+    "chinese": "移动",
+    "japanese": "移動",
+    "romanization": "idong"
+  },
+  {
+    "no": 217,
+    "hanzi": "动物",
+    "kor_hanja": "動物",
+    "hangul": "동물",
+    "chinese": "动物",
+    "japanese": "動物",
+    "romanization": "dongmul"
+  },
+  {
+    "no": 218,
+    "hanzi": "太阳",
+    "kor_hanja": "太阳",
+    "hangul": "태양",
+    "romanization": "taeyang",
+    "chinese": "太阳",
+    "japanese": "太阳"
+  },
+  {
+    "no": 219,
+    "hanzi": "燃料",
+    "kor_hanja": "燃料",
+    "hangul": "연료",
+    "romanization": "yeonryo",
+    "chinese": "燃料",
+    "japanese": "燃料"
+  },
+  {
+    "no": 220,
+    "hanzi": "工夫",
+    "kor_hanja": "工夫",
+    "hangul": "공부",
+    "romanization": "gongbu",
+    "chinese": "工夫",
+    "japanese": "工夫"
+  },
+  {
+    "no": 221,
+    "hanzi": "数字",
+    "kor_hanja": "数字",
+    "hangul": "숫자",
+    "romanization": "sutja",
+    "chinese": "数字",
+    "japanese": "数字"
+  },
+  {
+    "no": 222,
+    "hanzi": "工业",
+    "kor_hanja": "工业",
+    "hangul": "공업",
+    "romanization": "gongeop",
+    "chinese": "工业",
+    "japanese": "工业"
+  },
+  {
+    "no": 223,
+    "hanzi": "参考",
+    "kor_hanja": "参考",
+    "hangul": "참고",
+    "romanization": "chamgo",
+    "chinese": "参考",
+    "japanese": "参考"
+  },
+  {
+    "no": 224,
+    "hanzi": "性格",
+    "kor_hanja": "性格",
+    "hangul": "성격",
+    "romanization": "seonggyeok",
+    "chinese": "性格",
+    "japanese": "性格"
+  },
+  {
+    "no": 225,
+    "hanzi": "实行",
+    "kor_hanja": "实行",
+    "hangul": "실행",
+    "romanization": "silhaeng",
+    "chinese": "实行",
+    "japanese": "実行"
+  },
+  {
+    "no": 226,
+    "hanzi": "速度",
+    "kor_hanja": "速度",
+    "hangul": "속도",
+    "romanization": "sokdo",
+    "chinese": "速度",
+    "japanese": "速度"
+  },
+  {
+    "no": 227,
+    "hanzi": "努力",
+    "kor_hanja": "努力",
+    "hangul": "노력",
+    "romanization": "noryeok",
+    "chinese": "努力",
+    "japanese": "努力"
+  },
+  {
+    "no": 228,
+    "hanzi": "理想",
+    "kor_hanja": "理想",
+    "hangul": "이상",
+    "romanization": "isang",
+    "chinese": "理想",
+    "japanese": "理想"
+  },
+  {
+    "no": 229,
+    "hanzi": "机会",
+    "kor_hanja": "机会",
+    "hangul": "기회",
+    "romanization": "gihoe",
+    "chinese": "机会",
+    "japanese": "机会"
+  },
+  {
+    "no": 230,
+    "hanzi": "出发",
+    "kor_hanja": "出发",
+    "hangul": "출발",
+    "romanization": "chulbal",
+    "chinese": "出发",
+    "japanese": "出発"
+  },
+  {
+    "no": 231,
+    "hanzi": "植物",
+    "kor_hanja": "植物",
+    "hangul": "식물",
+    "romanization": "sikmul",
+    "chinese": "植物",
+    "japanese": "植物"
+  },
+  {
+    "no": 232,
+    "hanzi": "豆腐",
+    "kor_hanja": "豆腐",
+    "hangul": "료때두부",
+    "romanization": "ryottaedubu",
+    "chinese": "豆腐",
+    "japanese": "豆腐"
+  },
+  {
+    "no": 233,
+    "hanzi": "记录",
+    "kor_hanja": "記録",
+    "hangul": "기록",
+    "romanization": "girok",
+    "chinese": "记录",
+    "japanese": "記録"
+  },
+  {
+    "no": 234,
+    "hanzi": "详细",
+    "kor_hanja": "詳細",
+    "hangul": "상세",
+    "romanization": "sangse",
+    "chinese": "详细",
+    "japanese": "详细"
+  },
+  {
+    "no": 235,
+    "hanzi": "政权",
+    "kor_hanja": "政权型异",
+    "hangul": "정권",
+    "romanization": "jeonggwon",
+    "chinese": "政权",
+    "japanese": "政権"
+  },
+  {
+    "no": 236,
+    "hanzi": "风景",
+    "kor_hanja": "风景",
+    "hangul": "풍경",
+    "romanization": "punggyeong",
+    "chinese": "风景",
+    "japanese": "风景"
+  },
+  {
+    "no": 237,
+    "hanzi": "报告",
+    "kor_hanja": "报告",
+    "hangul": "보고",
+    "romanization": "bogo",
+    "chinese": "报告",
+    "japanese": "报告"
+  },
+  {
+    "no": 238,
+    "hanzi": "建筑",
+    "kor_hanja": "建筑",
+    "hangul": "건축",
+    "romanization": "geonchuk",
+    "chinese": "建筑",
+    "japanese": "建筑"
+  },
+  {
+    "no": 239,
+    "hanzi": "判断",
+    "kor_hanja": "列断",
+    "hangul": "판단",
+    "romanization": "pandan",
+    "chinese": "判断",
+    "japanese": "判断"
+  },
+  {
+    "no": 240,
+    "hanzi": "反对",
+    "kor_hanja": "反对",
+    "hangul": "반다",
+    "romanization": "banda",
+    "chinese": "反对",
+    "japanese": "反对"
+  },
+  {
+    "no": 241,
+    "hanzi": "业务务",
+    "kor_hanja": "業務",
+    "hangul": "업무",
+    "romanization": "eopmu",
+    "chinese": "业务务",
+    "japanese": "业务"
+  },
+  {
+    "no": 242,
+    "hanzi": "自己",
+    "kor_hanja": "自己",
+    "hangul": "자기",
+    "romanization": "jagi",
+    "chinese": "自己",
+    "japanese": "自己"
+  },
+  {
+    "no": 243,
+    "hanzi": "少女",
+    "kor_hanja": "少女",
+    "hangul": "호소녀",
+    "romanization": "hosonyeo",
+    "chinese": "少女",
+    "japanese": "少女"
+  },
+  {
+    "no": 244,
+    "hanzi": "知识",
+    "kor_hanja": "知識",
+    "hangul": "지식",
+    "romanization": "jisik",
+    "chinese": "知识",
+    "japanese": "知識"
+  },
+  {
+    "no": 245,
+    "hanzi": "土地",
+    "kor_hanja": "土地",
+    "hangul": "토지",
+    "romanization": "toji",
+    "chinese": "土地",
+    "japanese": "土地"
+  },
+  {
+    "no": 246,
+    "hanzi": "保护",
+    "kor_hanja": "保護",
+    "hangul": "보호",
+    "romanization": "boho",
+    "chinese": "保护",
+    "japanese": "保護"
+  },
+  {
+    "no": 247,
+    "hanzi": "医疗",
+    "kor_hanja": "医疗",
+    "hangul": "의료",
+    "romanization": "uiryo",
+    "chinese": "医疗",
+    "japanese": "医療"
+  },
+  {
+    "no": 248,
+    "hanzi": "确实",
+    "kor_hanja": "确实封包",
+    "hangul": "를확실",
+    "romanization": "reulhwaksil",
+    "chinese": "确实",
+    "japanese": "確実"
+  },
+  {
+    "no": 249,
+    "hanzi": "设备",
+    "kor_hanja": "设备",
+    "hangul": "설비",
+    "romanization": "seolbi",
+    "chinese": "设备",
+    "japanese": "設備"
+  },
+  {
+    "no": 250,
+    "hanzi": "基础",
+    "kor_hanja": "基礎",
+    "hangul": "기초",
+    "romanization": "gicho",
+    "chinese": "基础",
+    "japanese": "基础"
+  },
+  {
+    "no": 251,
+    "hanzi": "宙",
+    "kor_hanja": "宇宙",
+    "hangul": "우주",
+    "romanization": "uju",
+    "chinese": "宙",
+    "japanese": "宇宙"
+  },
+  {
+    "no": 252,
+    "hanzi": "高原",
+    "kor_hanja": "高原",
+    "hangul": "고원",
+    "romanization": "gowon",
+    "chinese": "高原",
+    "japanese": "高原"
+  },
+  {
+    "no": 253,
+    "hanzi": "制度",
+    "kor_hanja": "制度",
+    "hangul": "제도",
+    "romanization": "jedo",
+    "chinese": "制度",
+    "japanese": "制度"
+  },
+  {
+    "no": 254,
+    "hanzi": "高原",
+    "kor_hanja": "高原",
+    "hangul": "고원",
+    "chinese": "高原",
+    "japanese": "高原",
+    "romanization": "gowon"
+  },
+  {
+    "no": 255,
+    "hanzi": "制度",
+    "kor_hanja": "制度",
+    "hangul": "제도",
+    "chinese": "制度",
+    "japanese": "制度",
+    "romanization": "jedo"
+  },
+  {
+    "no": 256,
+    "hanzi": "到固定",
+    "kor_hanja": "固定",
+    "hangul": "고정",
+    "romanization": "gojeong",
+    "chinese": "到固定",
+    "japanese": "固定"
+  },
+  {
+    "no": 257,
+    "hanzi": "团体",
+    "kor_hanja": "围体",
+    "hangul": "단체",
+    "romanization": "danche",
+    "chinese": "团体",
+    "japanese": "团体"
+  },
+  {
+    "no": 258,
+    "hanzi": "加工",
+    "kor_hanja": "加工",
+    "hangul": "가공",
+    "romanization": "gagong",
+    "chinese": "加工",
+    "japanese": "加工"
+  },
+  {
+    "no": 259,
+    "hanzi": "金属",
+    "kor_hanja": "金属",
+    "hangul": "금속",
+    "romanization": "geumsok",
+    "chinese": "金属",
+    "japanese": "金属"
+  },
+  {
+    "no": 260,
+    "hanzi": "教授",
+    "kor_hanja": "教授",
+    "hangul": "교수",
+    "romanization": "gyosu",
+    "chinese": "教授",
+    "japanese": "教授"
+  },
+  {
+    "no": 261,
+    "hanzi": "空気",
+    "kor_hanja": "空气",
+    "hangul": "공기",
+    "romanization": "gonggi",
+    "chinese": "空気",
+    "japanese": "空气"
+  },
+  {
+    "no": 262,
+    "hanzi": "手术",
+    "kor_hanja": "手术",
+    "hangul": "수술",
+    "romanization": "susul",
+    "chinese": "手术",
+    "japanese": "手术"
+  },
+  {
+    "no": 263,
+    "hanzi": "唱突然",
+    "kor_hanja": "突然",
+    "hangul": "돌연",
+    "romanization": "dolyeon",
+    "chinese": "唱突然",
+    "japanese": "突然"
+  },
+  {
+    "no": 264,
+    "hanzi": "思想",
+    "kor_hanja": "思想",
+    "hangul": "사상",
+    "romanization": "sasang",
+    "chinese": "思想",
+    "japanese": "思想"
+  },
+  {
+    "no": 265,
+    "hanzi": "神经",
+    "kor_hanja": "神经",
+    "hangul": "신경",
+    "romanization": "singyeong",
+    "chinese": "神经",
+    "japanese": "神经"
+  },
+  {
+    "no": 266,
+    "hanzi": "男子",
+    "kor_hanja": "男子",
+    "hangul": "남자",
+    "romanization": "namja",
+    "chinese": "男子",
+    "japanese": "男子"
+  },
+  {
+    "no": 267,
+    "hanzi": "发生",
+    "kor_hanja": "发生",
+    "hangul": "발생",
+    "romanization": "balsaeng",
+    "chinese": "发生",
+    "japanese": "発生"
+  },
+  {
+    "no": 268,
+    "hanzi": "面积",
+    "kor_hanja": "面積",
+    "hangul": "면적",
+    "romanization": "myeonjeok",
+    "chinese": "面积",
+    "japanese": "面积"
+  },
+  {
+    "no": 269,
+    "hanzi": "机关",
+    "kor_hanja": "机关",
+    "hangul": "기관",
+    "romanization": "gigwan",
+    "chinese": "机关",
+    "japanese": "機関"
+  },
+  {
+    "no": 270,
+    "hanzi": "作用",
+    "kor_hanja": "作用",
+    "hangul": "작용",
+    "romanization": "jakyong",
+    "chinese": "作用",
+    "japanese": "作用"
+  },
+  {
+    "no": 271,
+    "hanzi": "失败",
+    "kor_hanja": "失敗",
+    "hangul": "실패",
+    "romanization": "silpae",
+    "chinese": "失败",
+    "japanese": "失敗"
+  },
+  {
+    "no": 272,
+    "hanzi": "成绩",
+    "kor_hanja": "成绩",
+    "hangul": "성적",
+    "romanization": "seongjeok",
+    "chinese": "成绩",
+    "japanese": "成績"
+  },
+  {
+    "no": 273,
+    "hanzi": "主要",
+    "kor_hanja": "主要",
+    "hangul": "주요",
+    "romanization": "juyo",
+    "chinese": "主要",
+    "japanese": "主要"
+  },
+  {
+    "no": 274,
+    "hanzi": "发挥",
+    "kor_hanja": "发挥",
+    "hangul": "발휘",
+    "romanization": "balhwi",
+    "chinese": "发挥",
+    "japanese": "発揮"
+  },
+  {
+    "no": 275,
+    "hanzi": "独立",
+    "kor_hanja": "独立",
+    "hangul": "독립",
+    "romanization": "dokrip",
+    "chinese": "独立",
+    "japanese": "独立"
+  },
+  {
+    "no": 276,
+    "hanzi": "表面",
+    "kor_hanja": "表面",
+    "hangul": "표면",
+    "romanization": "pyomyeon",
+    "chinese": "表面",
+    "japanese": "表面"
+  },
+  {
+    "no": 277,
+    "hanzi": "关心",
+    "kor_hanja": "開心",
+    "hangul": "관심",
+    "romanization": "gwansim",
+    "chinese": "关心",
+    "japanese": "関心"
+  },
+  {
+    "no": 278,
+    "hanzi": "内部",
+    "kor_hanja": "内部",
+    "hangul": "내부",
+    "romanization": "naebu",
+    "chinese": "内部",
+    "japanese": "内部"
+  },
+  {
+    "no": 279,
+    "hanzi": "反应",
+    "kor_hanja": "反应",
+    "hangul": "반응",
+    "romanization": "baneung",
+    "chinese": "反应",
+    "japanese": "反应"
+  },
+  {
+    "no": 280,
+    "hanzi": "品质",
+    "kor_hanja": "品质",
+    "hangul": "품질",
+    "romanization": "pumjil",
+    "chinese": "品质",
+    "japanese": "品質"
+  },
+  {
+    "no": 281,
+    "hanzi": "制造",
+    "kor_hanja": "秽造",
+    "hangul": "제조",
+    "romanization": "jejo",
+    "chinese": "制造",
+    "japanese": "製造"
+  },
+  {
+    "no": 282,
+    "hanzi": "相当",
+    "kor_hanja": "相当",
+    "hangul": "상당",
+    "romanization": "sangdang",
+    "chinese": "相当",
+    "japanese": "相当"
+  },
+  {
+    "no": 283,
+    "hanzi": "家具",
+    "kor_hanja": "家具",
+    "hangul": "가구",
+    "romanization": "gagu",
+    "chinese": "家具",
+    "japanese": "家具"
+  },
+  {
+    "no": 284,
+    "hanzi": "主张",
+    "kor_hanja": "主张",
+    "hangul": "주장",
+    "romanization": "jujang",
+    "chinese": "主张",
+    "japanese": "主張"
+  },
+  {
+    "no": 285,
+    "hanzi": "近代",
+    "kor_hanja": "近代",
+    "hangul": "근대",
+    "romanization": "geundae",
+    "chinese": "近代",
+    "japanese": "近代"
+  },
+  {
+    "no": 286,
+    "hanzi": "体育",
+    "kor_hanja": "体育",
+    "hangul": "체육",
+    "romanization": "cheyuk",
+    "chinese": "体育",
+    "japanese": "体育"
+  },
+  {
+    "no": 287,
+    "hanzi": "疑问",
+    "kor_hanja": "疑問",
+    "hangul": "의",
+    "romanization": "ui",
+    "chinese": "疑问",
+    "japanese": "疑問"
+  },
+  {
+    "no": 288,
+    "hanzi": "教室",
+    "kor_hanja": "教室",
+    "hangul": "교실",
+    "romanization": "gyosil",
+    "chinese": "教室",
+    "japanese": "教室"
+  },
+  {
+    "no": 289,
+    "hanzi": "身体",
+    "kor_hanja": "身体",
+    "hangul": "신체",
+    "romanization": "sinche",
+    "chinese": "身体",
+    "japanese": "身体"
+  },
+  {
+    "no": 290,
+    "hanzi": "特殊",
+    "kor_hanja": "特殊",
+    "hangul": "특수",
+    "romanization": "teuksu",
+    "chinese": "特殊",
+    "japanese": "特殊"
+  },
+  {
+    "no": 291,
+    "hanzi": "吸收",
+    "kor_hanja": "吸收",
+    "hangul": "흡수",
+    "romanization": "heupsu",
+    "chinese": "吸收",
+    "japanese": "吸収"
+  },
+  {
+    "no": 292,
+    "hanzi": "特殊",
+    "kor_hanja": "特殊",
+    "hangul": "특수",
+    "chinese": "特殊",
+    "japanese": "特殊",
+    "romanization": "teuksu"
+  },
+  {
+    "no": 293,
+    "hanzi": "吸收",
+    "kor_hanja": "吸收",
+    "hangul": "흡수",
+    "chinese": "吸收",
+    "japanese": "吸収",
+    "romanization": "heupsu"
+  },
+  {
+    "no": 294,
+    "hanzi": "证明",
+    "kor_hanja": "证明",
+    "hangul": "증명",
+    "romanization": "jeungmyeong",
+    "chinese": "证明",
+    "japanese": "证明"
+  },
+  {
+    "no": 295,
+    "hanzi": "背景",
+    "kor_hanja": "背景",
+    "hangul": "배경",
+    "romanization": "baegyeong",
+    "chinese": "背景",
+    "japanese": "背景"
+  },
+  {
+    "no": 296,
+    "hanzi": "维持",
+    "kor_hanja": "维持",
+    "hangul": "유지",
+    "romanization": "yuji",
+    "chinese": "维持",
+    "japanese": "維持"
+  },
+  {
+    "no": 297,
+    "hanzi": "扩大",
+    "kor_hanja": "携大",
+    "hangul": "확디",
+    "romanization": "hwakdi",
+    "chinese": "扩大",
+    "japanese": "拡大"
+  },
+  {
+    "no": 298,
+    "hanzi": "欢迎",
+    "kor_hanja": "炊迎",
+    "hangul": "환영",
+    "romanization": "hwanyeong",
+    "chinese": "欢迎",
+    "japanese": "歓迎"
+  },
+  {
+    "no": 299,
+    "hanzi": "记者",
+    "kor_hanja": "記者",
+    "hangul": "기지",
+    "romanization": "giji",
+    "chinese": "记者",
+    "japanese": "记者"
+  },
+  {
+    "no": 300,
+    "hanzi": "共同",
+    "kor_hanja": "共同",
+    "hangul": "공동",
+    "romanization": "gongdong",
+    "chinese": "共同",
+    "japanese": "共同"
+  },
+  {
+    "no": 301,
+    "hanzi": "实验",
+    "kor_hanja": "实验",
+    "hangul": "실험",
+    "romanization": "silheom",
+    "chinese": "实验",
+    "japanese": "実験"
+  },
+  {
+    "no": 302,
+    "hanzi": "重视",
+    "kor_hanja": "重视",
+    "hangul": "중시",
+    "romanization": "jungsi",
+    "chinese": "重视",
+    "japanese": "重视"
+  },
+  {
+    "no": 303,
+    "hanzi": "分析",
+    "kor_hanja": "分析",
+    "hangul": "분석",
+    "romanization": "bunseok",
+    "chinese": "分析",
+    "japanese": "分析"
+  },
+  {
+    "no": 304,
+    "hanzi": "帽子",
+    "kor_hanja": "帽子",
+    "hangul": "모지",
+    "romanization": "moji",
+    "chinese": "帽子",
+    "japanese": "帽子"
+  },
+  {
+    "no": 305,
+    "hanzi": "医学学",
+    "kor_hanja": "医学",
+    "hangul": "의학",
+    "romanization": "uihak",
+    "chinese": "医学学",
+    "japanese": "医学"
+  },
+  {
+    "no": 306,
+    "hanzi": "加入",
+    "kor_hanja": "加入",
+    "hangul": "가입",
+    "romanization": "gaip",
+    "chinese": "加入",
+    "japanese": "加入"
+  },
+  {
+    "no": 307,
+    "hanzi": "解决",
+    "kor_hanja": "解決",
+    "hangul": "해결",
+    "romanization": "haegyeol",
+    "chinese": "解决",
+    "japanese": "解决"
+  },
+  {
+    "no": 308,
+    "hanzi": "追求",
+    "kor_hanja": "追求",
+    "hangul": "추구",
+    "romanization": "chugu",
+    "chinese": "追求",
+    "japanese": "追求"
+  },
+  {
+    "no": 309,
+    "hanzi": "透明",
+    "kor_hanja": "透明",
+    "hangul": "투명",
+    "romanization": "tumyeong",
+    "chinese": "透明",
+    "japanese": "透明"
+  },
+  {
+    "no": 310,
+    "hanzi": "国家",
+    "kor_hanja": "国家",
+    "hangul": "떼뜻국가",
+    "romanization": "ttetteutgukga",
+    "chinese": "国家",
+    "japanese": "国家"
+  },
+  {
+    "no": 311,
+    "hanzi": "多少",
+    "kor_hanja": "多少",
+    "hangul": "다소",
+    "romanization": "daso",
+    "chinese": "多少",
+    "japanese": "多少"
+  },
+  {
+    "no": 312,
+    "hanzi": "批判",
+    "kor_hanja": "批刊",
+    "hangul": "비판",
+    "romanization": "bipan",
+    "chinese": "批判",
+    "japanese": "批判"
+  },
+  {
+    "no": 313,
+    "hanzi": "皮肤",
+    "kor_hanja": "皮膚",
+    "hangul": "피부",
+    "romanization": "pibu",
+    "chinese": "皮肤",
+    "japanese": "皮膚"
+  },
+  {
+    "no": 314,
+    "hanzi": "优秀",
+    "kor_hanja": "优秀",
+    "hangul": "우수",
+    "romanization": "usu",
+    "chinese": "优秀",
+    "japanese": "優秀"
+  },
+  {
+    "no": 315,
+    "hanzi": "椅子",
+    "kor_hanja": "椅子",
+    "hangul": "구의자",
+    "romanization": "guuija",
+    "chinese": "椅子",
+    "japanese": "椅子"
+  },
+  {
+    "no": 316,
+    "hanzi": "作战",
+    "kor_hanja": "作戦",
+    "hangul": "작전",
+    "romanization": "jakjeon",
+    "chinese": "作战",
+    "japanese": "作戦"
+  },
+  {
+    "no": 317,
+    "hanzi": "单位",
+    "kor_hanja": "单位",
+    "hangul": "단위",
+    "romanization": "danwi",
+    "chinese": "单位",
+    "japanese": "单位"
+  },
+  {
+    "no": 318,
+    "hanzi": "要求",
+    "kor_hanja": "要求",
+    "hangul": "뜻표요구",
+    "romanization": "tteutpyoyogu",
+    "chinese": "要求",
+    "japanese": "要求"
+  },
+  {
+    "no": 319,
+    "hanzi": "改革",
+    "kor_hanja": "改革",
+    "hangul": "개혁",
+    "romanization": "gaehyeok",
+    "chinese": "改革",
+    "japanese": "改革"
+  },
+  {
+    "no": 320,
+    "hanzi": "改善",
+    "kor_hanja": "改善",
+    "hangul": "개선",
+    "romanization": "gaeseon",
+    "chinese": "改善",
+    "japanese": "改善"
+  },
+  {
+    "no": 321,
+    "hanzi": "初期",
+    "kor_hanja": "初期权",
+    "hangul": "친뼈초기",
+    "romanization": "chinppyeochogi",
+    "chinese": "初期",
+    "japanese": "初期"
+  },
+  {
+    "no": 322,
+    "hanzi": "水分",
+    "kor_hanja": "水分",
+    "hangul": "수분",
+    "romanization": "subun",
+    "chinese": "水分",
+    "japanese": "水分"
+  },
+  {
+    "no": 323,
+    "hanzi": "天体",
+    "kor_hanja": "天体",
+    "hangul": "천체",
+    "romanization": "cheonche",
+    "chinese": "天体",
+    "japanese": "天体"
+  },
+  {
+    "no": 324,
+    "hanzi": "秘密",
+    "kor_hanja": "秘密",
+    "hangul": "비밀",
+    "romanization": "bimil",
+    "chinese": "秘密",
+    "japanese": "秘密"
+  },
+  {
+    "no": 325,
+    "hanzi": "开放",
+    "kor_hanja": "開放",
+    "hangul": "개방",
+    "romanization": "gaebang",
+    "chinese": "开放",
+    "japanese": "開放"
+  },
+  {
+    "no": 326,
+    "hanzi": "学习",
+    "kor_hanja": "学习",
+    "hangul": "뿌학습",
+    "romanization": "ppuhakseup",
+    "chinese": "学习",
+    "japanese": "学习"
+  },
+  {
+    "no": 327,
+    "hanzi": "感情",
+    "kor_hanja": "感情",
+    "hangul": "감정",
+    "romanization": "gamjeong",
+    "chinese": "感情",
+    "japanese": "感情"
+  },
+  {
+    "no": 328,
+    "hanzi": "事情",
+    "kor_hanja": "事情",
+    "hangul": "사정",
+    "romanization": "sajeong",
+    "chinese": "事情",
+    "japanese": "事情"
+  },
+  {
+    "no": 329,
+    "hanzi": "出身",
+    "kor_hanja": "出身",
+    "hangul": "출신",
+    "romanization": "chulsin",
+    "chinese": "出身",
+    "japanese": "出身"
+  },
+  {
+    "no": 330,
+    "hanzi": "事情",
+    "kor_hanja": "事情",
+    "hangul": "사정",
+    "chinese": "事情",
+    "japanese": "事情",
+    "romanization": "sajeong"
+  },
+  {
+    "no": 331,
+    "hanzi": "出身",
+    "kor_hanja": "出身",
+    "hangul": "출신",
+    "chinese": "出身",
+    "japanese": "出身",
+    "romanization": "chulsin"
+  },
+  {
+    "no": 332,
+    "hanzi": "血液",
+    "kor_hanja": "血液",
+    "hangul": "혈액",
+    "romanization": "hyeolaek",
+    "chinese": "血液",
+    "japanese": "血液"
+  },
+  {
+    "no": 333,
+    "hanzi": "一定",
+    "kor_hanja": "一定",
+    "hangul": "일정",
+    "romanization": "iljeong",
+    "chinese": "一定",
+    "japanese": "一定"
+  },
+  {
+    "no": 334,
+    "hanzi": "细胞",
+    "kor_hanja": "細胞",
+    "hangul": "세포",
+    "romanization": "sepo",
+    "chinese": "细胞",
+    "japanese": "細胞"
+  },
+  {
+    "no": 335,
+    "hanzi": "原则",
+    "kor_hanja": "原則",
+    "hangul": "원칙",
+    "romanization": "wonchik",
+    "chinese": "原则",
+    "japanese": "原则"
+  },
+  {
+    "no": 336,
+    "hanzi": "习惯",
+    "kor_hanja": "习惯",
+    "hangul": "습관",
+    "romanization": "seupgwan",
+    "chinese": "习惯",
+    "japanese": "习惯"
+  },
+  {
+    "no": 337,
+    "hanzi": "地图",
+    "kor_hanja": "地图",
+    "hangul": "지도",
+    "romanization": "jido",
+    "chinese": "地图",
+    "japanese": "地図"
+  },
+  {
+    "no": 338,
+    "hanzi": "习惯",
+    "kor_hanja": "習慣",
+    "hangul": "습관",
+    "chinese": "习惯",
+    "japanese": "習慣",
+    "romanization": "seupgwan"
+  },
+  {
+    "no": 339,
+    "hanzi": "感谢",
+    "kor_hanja": "感謝",
+    "hangul": "감사",
+    "romanization": "gamsa",
+    "chinese": "感谢",
+    "japanese": "感謝"
+  },
+  {
+    "no": 340,
+    "hanzi": "训练",
+    "kor_hanja": "訓練",
+    "hangul": "훈련",
+    "romanization": "hunryeon",
+    "chinese": "训练",
+    "japanese": "訓練"
+  },
+  {
+    "no": 341,
+    "hanzi": "态度",
+    "kor_hanja": "態度",
+    "hangul": "태도",
+    "romanization": "taedo",
+    "chinese": "态度",
+    "japanese": "態度"
+  },
+  {
+    "no": 342,
+    "hanzi": "动作",
+    "kor_hanja": "动作",
+    "hangul": "동작",
+    "romanization": "dongjak",
+    "chinese": "动作",
+    "japanese": "动作"
+  },
+  {
+    "no": 343,
+    "hanzi": "警察",
+    "kor_hanja": "警察",
+    "hangul": "경찰",
+    "romanization": "gyeongchal",
+    "chinese": "警察",
+    "japanese": "警察"
+  },
+  {
+    "no": 344,
+    "hanzi": "观察",
+    "kor_hanja": "观察",
+    "hangul": "관찰",
+    "romanization": "gwanchal",
+    "chinese": "观察",
+    "japanese": "観察"
+  },
+  {
+    "no": 345,
+    "hanzi": "收入",
+    "kor_hanja": "收入",
+    "hangul": "수입",
+    "romanization": "suip",
+    "chinese": "收入",
+    "japanese": "收入"
+  },
+  {
+    "no": 346,
+    "hanzi": "战略",
+    "kor_hanja": "戦略",
+    "hangul": "전략",
+    "romanization": "jeonryak",
+    "chinese": "战略",
+    "japanese": "戦略"
+  },
+  {
+    "no": 347,
+    "hanzi": "妇人",
+    "kor_hanja": "婦人",
+    "hangul": "부인",
+    "romanization": "buin",
+    "chinese": "妇人",
+    "japanese": "婦人"
+  },
+  {
+    "no": 348,
+    "hanzi": "保存",
+    "kor_hanja": "保存",
+    "hangul": "보존",
+    "romanization": "bojon",
+    "chinese": "保存",
+    "japanese": "保存"
+  },
+  {
+    "no": 349,
+    "hanzi": "爱情",
+    "kor_hanja": "愛情",
+    "hangul": "애정",
+    "romanization": "aejeong",
+    "chinese": "爱情",
+    "japanese": "愛情"
+  },
+  {
+    "no": 350,
+    "hanzi": "学院",
+    "kor_hanja": "学院",
+    "hangul": "학원",
+    "romanization": "hakwon",
+    "chinese": "学院",
+    "japanese": "学院"
+  },
+  {
+    "no": 351,
+    "hanzi": "规定",
+    "kor_hanja": "规定",
+    "hangul": "규정",
+    "romanization": "gyujeong",
+    "chinese": "规定",
+    "japanese": "规定"
+  },
+  {
+    "no": 352,
+    "hanzi": "现象",
+    "kor_hanja": "現象",
+    "hangul": "현상",
+    "romanization": "hyeonsang",
+    "chinese": "现象",
+    "japanese": "现象"
+  },
+  {
+    "no": 353,
+    "hanzi": "胜利",
+    "kor_hanja": "胶利",
+    "hangul": "승리",
+    "romanization": "seungri",
+    "chinese": "胜利",
+    "japanese": "勝利"
+  },
+  {
+    "no": 354,
+    "hanzi": "心理",
+    "kor_hanja": "心理",
+    "hangul": "심리",
+    "romanization": "simri",
+    "chinese": "心理",
+    "japanese": "心理"
+  },
+  {
+    "no": 355,
+    "hanzi": "成果",
+    "kor_hanja": "成果",
+    "hangul": "성괴",
+    "romanization": "seonggoe",
+    "chinese": "成果",
+    "japanese": "成果"
+  },
+  {
+    "no": 356,
+    "hanzi": "选举",
+    "kor_hanja": "选举",
+    "hangul": "선거",
+    "romanization": "seongeo",
+    "chinese": "选举",
+    "japanese": "選挙"
+  },
+  {
+    "no": 357,
+    "hanzi": "牧场",
+    "kor_hanja": "牧场",
+    "hangul": "목장",
+    "romanization": "mokjang",
+    "chinese": "牧场",
+    "japanese": "牧場"
+  },
+  {
+    "no": 358,
+    "hanzi": "物质",
+    "kor_hanja": "物質",
+    "hangul": "물질",
+    "romanization": "muljil",
+    "chinese": "物质",
+    "japanese": "物质"
+  },
+  {
+    "no": 359,
+    "hanzi": "会议",
+    "kor_hanja": "会议",
+    "hangul": "회의",
+    "romanization": "hoeui",
+    "chinese": "会议",
+    "japanese": "会議"
+  },
+  {
+    "no": 360,
+    "hanzi": "支配",
+    "kor_hanja": "支配",
+    "hangul": "지비",
+    "romanization": "jibi",
+    "chinese": "支配",
+    "japanese": "支配"
+  },
+  {
+    "no": 361,
+    "hanzi": "进行",
+    "kor_hanja": "进行",
+    "hangul": "진행",
+    "romanization": "jinhaeng",
+    "chinese": "进行",
+    "japanese": "进行"
+  },
+  {
+    "no": 362,
+    "hanzi": "电车",
+    "kor_hanja": "電車",
+    "hangul": "전치",
+    "romanization": "jeonchi",
+    "chinese": "电车",
+    "japanese": "電車"
+  },
+  {
+    "no": 363,
+    "hanzi": "认识",
+    "kor_hanja": "認識",
+    "hangul": "인식",
+    "romanization": "insik",
+    "chinese": "认识",
+    "japanese": "認識"
+  },
+  {
+    "no": 364,
+    "hanzi": "发展",
+    "kor_hanja": "发展",
+    "hangul": "발전",
+    "romanization": "baljeon",
+    "chinese": "发展",
+    "japanese": "発展"
+  },
+  {
+    "no": 365,
+    "hanzi": "防止",
+    "kor_hanja": "防止局",
+    "hangul": "때방지",
+    "romanization": "ttaebangji",
+    "chinese": "防止",
+    "japanese": "防止"
+  },
+  {
+    "no": 366,
+    "hanzi": "意志",
+    "kor_hanja": "志",
+    "hangul": "의지",
+    "romanization": "uiji",
+    "chinese": "意志",
+    "japanese": "志"
+  },
+  {
+    "no": 367,
+    "hanzi": "永远",
+    "kor_hanja": "永遠",
+    "hangul": "영원",
+    "romanization": "yeongwon",
+    "chinese": "永远",
+    "japanese": "永遠"
+  },
+  {
+    "no": 368,
+    "hanzi": "意志",
+    "kor_hanja": "意志",
+    "hangul": "의지",
+    "chinese": "意志",
+    "japanese": "意志",
+    "romanization": "uiji"
+  },
+  {
+    "no": 369,
+    "hanzi": "永远",
+    "kor_hanja": "永遠",
+    "hangul": "영원",
+    "chinese": "永远",
+    "japanese": "永遠",
+    "romanization": "yeongwon"
+  },
+  {
+    "no": 370,
+    "hanzi": "取得",
+    "kor_hanja": "取得",
+    "hangul": "취득",
+    "romanization": "chwideuk",
+    "chinese": "取得",
+    "japanese": "取得"
+  },
+  {
+    "no": 371,
+    "hanzi": "政策",
+    "kor_hanja": "政策",
+    "hangul": "정책",
+    "romanization": "jeongchaek",
+    "chinese": "政策",
+    "japanese": "政策"
+  },
+  {
+    "no": 372,
+    "hanzi": "成立",
+    "kor_hanja": "成立",
+    "hangul": "성립",
+    "romanization": "seongrip",
+    "chinese": "成立",
+    "japanese": "成立"
+  },
+  {
+    "no": 373,
+    "hanzi": "大量",
+    "kor_hanja": "大量",
+    "hangul": "대량",
+    "romanization": "daeryang",
+    "chinese": "大量",
+    "japanese": "大量"
+  },
+  {
+    "no": 374,
+    "hanzi": "单纯",
+    "kor_hanja": "单纯",
+    "hangul": "단순",
+    "romanization": "dansun",
+    "chinese": "单纯",
+    "japanese": "単純"
+  },
+  {
+    "no": 375,
+    "hanzi": "否定",
+    "kor_hanja": "否定",
+    "hangul": "부정",
+    "romanization": "bujeong",
+    "chinese": "否定",
+    "japanese": "否定"
+  },
+  {
+    "no": 376,
+    "hanzi": "异常",
+    "kor_hanja": "異常",
+    "hangul": "이상",
+    "romanization": "isang",
+    "chinese": "异常",
+    "japanese": "異常"
+  },
+  {
+    "no": 377,
+    "hanzi": "温度",
+    "kor_hanja": "温度",
+    "hangul": "온도",
+    "romanization": "ondo",
+    "chinese": "温度",
+    "japanese": "度"
+  },
+  {
+    "no": 378,
+    "hanzi": "高度",
+    "kor_hanja": "高度",
+    "hangul": "고도",
+    "romanization": "godo",
+    "chinese": "高度",
+    "japanese": "高度"
+  },
+  {
+    "no": 379,
+    "hanzi": "诗人",
+    "kor_hanja": "詩人",
+    "hangul": "시인",
+    "romanization": "siin",
+    "chinese": "诗人",
+    "japanese": "詩人"
+  },
+  {
+    "no": 380,
+    "hanzi": "发言",
+    "kor_hanja": "发言",
+    "hangul": "했음발언",
+    "romanization": "haeteumbaleon",
+    "chinese": "发言",
+    "japanese": "発言"
+  },
+  {
+    "no": 381,
+    "hanzi": "反射",
+    "kor_hanja": "反射",
+    "hangul": "반시",
+    "romanization": "bansi",
+    "chinese": "反射",
+    "japanese": "反射"
+  },
+  {
+    "no": 382,
+    "hanzi": "民族",
+    "kor_hanja": "民族",
+    "hangul": "민족",
+    "romanization": "minjok",
+    "chinese": "民族",
+    "japanese": "民族"
+  },
+  {
+    "no": 383,
+    "hanzi": "危机",
+    "kor_hanja": "危机",
+    "hangul": "위기",
+    "romanization": "wigi",
+    "chinese": "危机",
+    "japanese": "危机"
+  },
+  {
+    "no": 384,
+    "hanzi": "兄弟",
+    "kor_hanja": "兄弟",
+    "hangul": "형제",
+    "romanization": "hyeongje",
+    "chinese": "兄弟",
+    "japanese": "兄弟"
+  },
+  {
+    "no": 385,
+    "hanzi": "修理",
+    "kor_hanja": "修理",
+    "hangul": "팽수리",
+    "romanization": "paengsuri",
+    "chinese": "修理",
+    "japanese": "修理"
+  },
+  {
+    "no": 386,
+    "hanzi": "所有",
+    "kor_hanja": "所有",
+    "hangul": "소유",
+    "romanization": "soyu",
+    "chinese": "所有",
+    "japanese": "所有"
+  },
+  {
+    "no": 387,
+    "hanzi": "进化",
+    "kor_hanja": "進化",
+    "hangul": "진화",
+    "romanization": "jinhwa",
+    "chinese": "进化",
+    "japanese": "进化"
+  },
+  {
+    "no": 388,
+    "hanzi": "保障",
+    "kor_hanja": "保障",
+    "hangul": "보장",
+    "romanization": "bojang",
+    "chinese": "保障",
+    "japanese": "保障"
+  },
+  {
+    "no": 389,
+    "hanzi": "访问",
+    "kor_hanja": "访问",
+    "hangul": "방문",
+    "romanization": "bangmun",
+    "chinese": "访问",
+    "japanese": "訪問"
+  },
+  {
+    "no": 390,
+    "hanzi": "预防",
+    "kor_hanja": "豫防",
+    "hangul": "예방",
+    "romanization": "yebang",
+    "chinese": "预防",
+    "japanese": "予防"
+  },
+  {
+    "no": 391,
+    "hanzi": "未来",
+    "kor_hanja": "未來",
+    "hangul": "미리",
+    "romanization": "miri",
+    "chinese": "未来",
+    "japanese": "未来"
+  },
+  {
+    "no": 392,
+    "hanzi": "轨道",
+    "kor_hanja": "軌道",
+    "hangul": "궤도",
+    "romanization": "gwedo",
+    "chinese": "轨道",
+    "japanese": "軌道"
+  },
+  {
+    "no": 393,
+    "hanzi": "出现",
+    "kor_hanja": "出现",
+    "hangul": "출현",
+    "romanization": "chulhyeon",
+    "chinese": "出现",
+    "japanese": "出现"
+  },
+  {
+    "no": 394,
+    "hanzi": "制作",
+    "kor_hanja": "製作",
+    "hangul": "제작",
+    "romanization": "jejak",
+    "chinese": "制作",
+    "japanese": "制作"
+  },
+  {
+    "no": 395,
+    "hanzi": "变动",
+    "kor_hanja": "变动",
+    "hangul": "뽀삐변동",
+    "romanization": "ppoppibyeondong",
+    "chinese": "变动",
+    "japanese": "变动"
+  },
+  {
+    "no": 396,
+    "hanzi": "民主",
+    "kor_hanja": "民主",
+    "hangul": "모조민주",
+    "romanization": "mojominju",
+    "chinese": "民主",
+    "japanese": "县主"
+  },
+  {
+    "no": 397,
+    "hanzi": "集团",
+    "kor_hanja": "集園",
+    "hangul": "집단",
+    "romanization": "jipdan",
+    "chinese": "集团",
+    "japanese": "集团"
+  },
+  {
+    "no": 398,
+    "hanzi": "文章",
+    "kor_hanja": "文章",
+    "hangul": "문장",
+    "romanization": "munjang",
+    "chinese": "文章",
+    "japanese": "文章"
+  },
+  {
+    "no": 399,
+    "hanzi": "方针",
+    "kor_hanja": "方针",
+    "hangul": "방침",
+    "romanization": "bangchim",
+    "chinese": "方针",
+    "japanese": "方针"
+  },
+  {
+    "no": 400,
+    "hanzi": "行政",
+    "kor_hanja": "行政",
+    "hangul": "행정",
+    "romanization": "haengjeong",
+    "chinese": "行政",
+    "japanese": "行政"
+  },
+  {
+    "no": 401,
+    "hanzi": "普及",
+    "kor_hanja": "普及",
+    "hangul": "보급",
+    "romanization": "bogeup",
+    "chinese": "普及",
+    "japanese": "普及"
+  },
+  {
+    "no": 402,
+    "hanzi": "以后",
+    "kor_hanja": "以後",
+    "hangul": "이후",
+    "romanization": "ihu",
+    "chinese": "以后",
+    "japanese": "以後"
+  },
+  {
+    "no": 403,
+    "hanzi": "课题",
+    "kor_hanja": "課題",
+    "hangul": "과제",
+    "romanization": "gwaje",
+    "chinese": "课题",
+    "japanese": "课题"
+  },
+  {
+    "no": 404,
+    "hanzi": "兴奋",
+    "kor_hanja": "興奮",
+    "hangul": "흥분",
+    "romanization": "heungbun",
+    "chinese": "兴奋",
+    "japanese": "興奮"
+  },
+  {
+    "no": 405,
+    "hanzi": "信号",
+    "kor_hanja": "信号",
+    "hangul": "신호",
+    "romanization": "sinho",
+    "chinese": "信号",
+    "japanese": "信号"
+  },
+  {
+    "no": 406,
+    "hanzi": "兴奋",
+    "kor_hanja": "興奮",
+    "hangul": "흥분",
+    "chinese": "兴奋",
+    "japanese": "興奮",
+    "romanization": "heungbun"
+  },
+  {
+    "no": 407,
+    "hanzi": "信号",
+    "kor_hanja": "信號",
+    "hangul": "신호",
+    "chinese": "信号",
+    "japanese": "信号",
+    "romanization": "sinho"
+  },
+  {
+    "no": 408,
+    "hanzi": "化学",
+    "kor_hanja": "化学",
+    "hangul": "화학",
+    "romanization": "hwahak",
+    "chinese": "化学",
+    "japanese": "化学"
+  },
+  {
+    "no": 409,
+    "hanzi": "外交",
+    "kor_hanja": "外交",
+    "hangul": "외교",
+    "romanization": "oegyo",
+    "chinese": "外交",
+    "japanese": "外交"
+  },
+  {
+    "no": 410,
+    "hanzi": "巨大",
+    "kor_hanja": "巨大",
+    "hangul": "거다",
+    "romanization": "geoda",
+    "chinese": "巨大",
+    "japanese": "巨大"
+  },
+  {
+    "no": 411,
+    "hanzi": "困难",
+    "kor_hanja": "困難",
+    "hangul": "곤란",
+    "romanization": "gonran",
+    "chinese": "困难",
+    "japanese": "困難"
+  },
+  {
+    "no": 412,
+    "hanzi": "消化",
+    "kor_hanja": "消化",
+    "hangul": "소화",
+    "romanization": "sohwa",
+    "chinese": "消化",
+    "japanese": "消化"
+  },
+  {
+    "no": 413,
+    "hanzi": "进步",
+    "kor_hanja": "进步",
+    "hangul": "진보",
+    "romanization": "jinbo",
+    "chinese": "进步",
+    "japanese": "进步"
+  },
+  {
+    "no": 414,
+    "hanzi": "整理",
+    "kor_hanja": "整理",
+    "hangul": "뽀깨정리",
+    "romanization": "ppokkaejeongri",
+    "chinese": "整理",
+    "japanese": "整理"
+  },
+  {
+    "no": 415,
+    "hanzi": "创造",
+    "kor_hanja": "创造",
+    "hangul": "창조",
+    "romanization": "changjo",
+    "chinese": "创造",
+    "japanese": "创造"
+  },
+  {
+    "no": 416,
+    "hanzi": "体力",
+    "kor_hanja": "体力",
+    "hangul": "체력",
+    "romanization": "cheryeok",
+    "chinese": "体力",
+    "japanese": "体力"
+  },
+  {
+    "no": 417,
+    "hanzi": "地位",
+    "kor_hanja": "地位",
+    "hangul": "지위",
+    "romanization": "jiwi",
+    "chinese": "地位",
+    "japanese": "地位"
+  },
+  {
+    "no": 418,
+    "hanzi": "调节",
+    "kor_hanja": "调节",
+    "hangul": "조절",
+    "romanization": "jojeol",
+    "chinese": "调节",
+    "japanese": "调节"
+  },
+  {
+    "no": 419,
+    "hanzi": "统一",
+    "kor_hanja": "统一",
+    "hangul": "통일",
+    "romanization": "tongil",
+    "chinese": "统一",
+    "japanese": "統一"
+  },
+  {
+    "no": 420,
+    "hanzi": "描写",
+    "kor_hanja": "描写",
+    "hangul": "묘시",
+    "romanization": "myosi",
+    "chinese": "描写",
+    "japanese": "描写"
+  },
+  {
+    "no": 421,
+    "hanzi": "应用",
+    "kor_hanja": "应用",
+    "hangul": "응용",
+    "romanization": "eungyong",
+    "chinese": "应用",
+    "japanese": "応用"
+  },
+  {
+    "no": 422,
+    "hanzi": "革命",
+    "kor_hanja": "革命",
+    "hangul": "혁명",
+    "romanization": "hyeokmyeong",
+    "chinese": "革命",
+    "japanese": "革命"
+  },
+  {
+    "no": 423,
+    "hanzi": "竞争",
+    "kor_hanja": "競委",
+    "hangul": "경쟁",
+    "romanization": "gyeongjaeng",
+    "chinese": "竞争",
+    "japanese": "競争"
+  },
+  {
+    "no": 424,
+    "hanzi": "强调",
+    "kor_hanja": "强调",
+    "hangul": "강조",
+    "romanization": "gangjo",
+    "chinese": "强调",
+    "japanese": "强调"
+  },
+  {
+    "no": 425,
+    "hanzi": "交流",
+    "kor_hanja": "交流",
+    "hangul": "교류",
+    "romanization": "gyoryu",
+    "chinese": "交流",
+    "japanese": "交流"
+  },
+  {
+    "no": 426,
+    "hanzi": "混合",
+    "kor_hanja": "混合",
+    "hangul": "혼합",
+    "romanization": "honhap",
+    "chinese": "混合",
+    "japanese": "混合"
+  },
+  {
+    "no": 427,
+    "hanzi": "实践",
+    "kor_hanja": "实践名",
+    "hangul": "올실천",
+    "romanization": "olsilcheon",
+    "chinese": "实践",
+    "japanese": "実践"
+  },
+  {
+    "no": 428,
+    "hanzi": "集合",
+    "kor_hanja": "集合",
+    "hangul": "집합",
+    "romanization": "jiphap",
+    "chinese": "集合",
+    "japanese": "集合"
+  },
+  {
+    "no": 429,
+    "hanzi": "图书",
+    "kor_hanja": "图书",
+    "hangul": "도서",
+    "romanization": "doseo",
+    "chinese": "图书",
+    "japanese": "図書"
+  },
+  {
+    "no": 430,
+    "hanzi": "改良",
+    "kor_hanja": "改良",
+    "hangul": "개량",
+    "romanization": "gaeryang",
+    "chinese": "改良",
+    "japanese": "改良"
+  },
+  {
+    "no": 431,
+    "hanzi": "供给",
+    "kor_hanja": "供给",
+    "hangul": "공급",
+    "romanization": "gonggeup",
+    "chinese": "供给",
+    "japanese": "供给"
+  },
+  {
+    "no": 432,
+    "hanzi": "减少",
+    "kor_hanja": "減少",
+    "hangul": "감소",
+    "romanization": "gamso",
+    "chinese": "减少",
+    "japanese": "減少"
+  },
+  {
+    "no": 433,
+    "hanzi": "支援",
+    "kor_hanja": "支援",
+    "hangul": "지원",
+    "romanization": "jiwon",
+    "chinese": "支援",
+    "japanese": "支援"
+  },
+  {
+    "no": 434,
+    "hanzi": "指示",
+    "kor_hanja": "指示",
+    "hangul": "지시",
+    "romanization": "jisi",
+    "chinese": "指示",
+    "japanese": "指示"
+  },
+  {
+    "no": 435,
+    "hanzi": "手段",
+    "kor_hanja": "手段",
+    "hangul": "수단",
+    "romanization": "sudan",
+    "chinese": "手段",
+    "japanese": "手段"
+  },
+  {
+    "no": 436,
+    "hanzi": "促进",
+    "kor_hanja": "促進",
+    "hangul": "촉진촉진",
+    "romanization": "chokjinchokjin",
+    "chinese": "促进",
+    "japanese": "促进"
+  },
+  {
+    "no": 437,
+    "hanzi": "大気",
+    "kor_hanja": "大気",
+    "hangul": "대기",
+    "romanization": "daegi",
+    "chinese": "大気",
+    "japanese": "大气"
+  },
+  {
+    "no": 438,
+    "hanzi": "适当",
+    "kor_hanja": "适当",
+    "hangul": "적당",
+    "romanization": "jeokdang",
+    "chinese": "适当",
+    "japanese": "适当"
+  },
+  {
+    "no": 439,
+    "hanzi": "疲劳",
+    "kor_hanja": "疲劳",
+    "hangul": "피로",
+    "romanization": "piro",
+    "chinese": "疲劳",
+    "japanese": "疲労"
+  },
+  {
+    "no": 440,
+    "hanzi": "法律",
+    "kor_hanja": "法律",
+    "hangul": "법률",
+    "romanization": "beopryul",
+    "chinese": "法律",
+    "japanese": "法律"
+  },
+  {
+    "no": 441,
+    "hanzi": "解放",
+    "kor_hanja": "解放",
+    "hangul": "해방",
+    "romanization": "haebang",
+    "chinese": "解放",
+    "japanese": "解放"
+  },
+  {
+    "no": 442,
+    "hanzi": "强烈",
+    "kor_hanja": "强烈",
+    "hangul": "강렬",
+    "romanization": "gangryeol",
+    "chinese": "强烈",
+    "japanese": "强烈"
+  },
+  {
+    "no": 443,
+    "hanzi": "幻想",
+    "kor_hanja": "幻想",
+    "hangul": "환상",
+    "romanization": "hwansang",
+    "chinese": "幻想",
+    "japanese": "幻想"
+  },
+  {
+    "no": 444,
+    "hanzi": "强烈",
+    "kor_hanja": "強烈",
+    "hangul": "강렬",
+    "chinese": "强烈",
+    "japanese": "強烈",
+    "romanization": "gangryeol"
+  },
+  {
+    "no": 445,
+    "hanzi": "幻想",
+    "kor_hanja": "幻想",
+    "hangul": "환상",
+    "chinese": "幻想",
+    "japanese": "幻想",
+    "romanization": "hwansang"
+  },
+  {
+    "no": 446,
+    "hanzi": "柔软",
+    "kor_hanja": "柔軟",
+    "hangul": "유연",
+    "romanization": "yuyeon",
+    "chinese": "柔软",
+    "japanese": "柔软"
+  },
+  {
+    "no": 447,
+    "hanzi": "证据",
+    "kor_hanja": "证所",
+    "hangul": "증거",
+    "romanization": "jeunggeo",
+    "chinese": "证据",
+    "japanese": "证所"
+  },
+  {
+    "no": 448,
+    "hanzi": "农业",
+    "kor_hanja": "農業",
+    "hangul": "농업",
+    "romanization": "nongeop",
+    "chinese": "农业",
+    "japanese": "农业"
+  },
+  {
+    "no": 449,
+    "hanzi": "发达",
+    "kor_hanja": "融達時",
+    "hangul": "했즌발달",
+    "romanization": "haetjeunbaldal",
+    "chinese": "发达",
+    "japanese": "発達"
+  },
+  {
+    "no": 450,
+    "hanzi": "半岛",
+    "kor_hanja": "半岛",
+    "hangul": "수름반도",
+    "romanization": "sureumbando",
+    "chinese": "半岛",
+    "japanese": "半島"
+  },
+  {
+    "no": 451,
+    "hanzi": "老人",
+    "kor_hanja": "老人",
+    "hangul": "노인",
+    "romanization": "noin",
+    "chinese": "老人",
+    "japanese": "老人"
+  },
+  {
+    "no": 452,
+    "hanzi": "记载",
+    "kor_hanja": "記載",
+    "hangul": "기재",
+    "romanization": "gijae",
+    "chinese": "记载",
+    "japanese": "记载"
+  },
+  {
+    "no": 453,
+    "hanzi": "禁止",
+    "kor_hanja": "禁止",
+    "hangul": "금지",
+    "romanization": "geumji",
+    "chinese": "禁止",
+    "japanese": "禁止"
+  },
+  {
+    "no": 454,
+    "hanzi": "形成",
+    "kor_hanja": "形成",
+    "hangul": "형성",
+    "romanization": "hyeongseong",
+    "chinese": "形成",
+    "japanese": "形成"
+  },
+  {
+    "no": 455,
+    "hanzi": "人口",
+    "kor_hanja": "人口",
+    "hangul": "인구",
+    "romanization": "ingu",
+    "chinese": "人口",
+    "japanese": "人口"
+  },
+  {
+    "no": 456,
+    "hanzi": "人",
+    "kor_hanja": "人工",
+    "hangul": "인공",
+    "romanization": "ingong",
+    "chinese": "人",
+    "japanese": "人"
+  },
+  {
+    "no": 457,
+    "hanzi": "生物",
+    "kor_hanja": "生物",
+    "hangul": "생물",
+    "romanization": "saengmul",
+    "chinese": "生物",
+    "japanese": "生物"
+  },
+  {
+    "no": 458,
+    "hanzi": "地点",
+    "kor_hanja": "地点",
+    "hangul": "지점",
+    "romanization": "jijeom",
+    "chinese": "地点",
+    "japanese": "地点"
+  },
+  {
+    "no": 459,
+    "hanzi": "中间",
+    "kor_hanja": "中間",
+    "hangul": "중간",
+    "romanization": "junggan",
+    "chinese": "中间",
+    "japanese": "中間"
+  },
+  {
+    "no": 460,
+    "hanzi": "破坏",
+    "kor_hanja": "破壊",
+    "hangul": "파괴",
+    "romanization": "pagoe",
+    "chinese": "破坏",
+    "japanese": "破壊"
+  },
+  {
+    "no": 461,
+    "hanzi": "博士",
+    "kor_hanja": "博士",
+    "hangul": "박사",
+    "romanization": "baksa",
+    "chinese": "博士",
+    "japanese": "博士"
+  },
+  {
+    "no": 462,
+    "hanzi": "感激",
+    "kor_hanja": "感激",
+    "hangul": "감격",
+    "romanization": "gamgyeok",
+    "chinese": "感激",
+    "japanese": "感激"
+  },
+  {
+    "no": 463,
+    "hanzi": "考虑",
+    "kor_hanja": "考慮",
+    "hangul": "고려",
+    "romanization": "goryeo",
+    "chinese": "考虑",
+    "japanese": "考慮"
+  },
+  {
+    "no": 464,
+    "hanzi": "混乱",
+    "kor_hanja": "混乱",
+    "hangul": "혼란",
+    "romanization": "honran",
+    "chinese": "混乱",
+    "japanese": "混乱"
+  },
+  {
+    "no": 465,
+    "hanzi": "水平",
+    "kor_hanja": "水",
+    "hangul": "수평",
+    "romanization": "supyeong",
+    "chinese": "水平",
+    "japanese": "水平"
+  },
+  {
+    "no": 466,
+    "hanzi": "创立",
+    "kor_hanja": "创立",
+    "hangul": "창립",
+    "romanization": "changrip",
+    "chinese": "创立",
+    "japanese": "创立"
+  },
+  {
+    "no": 467,
+    "hanzi": "帝国",
+    "kor_hanja": "帝国",
+    "hangul": "제국",
+    "romanization": "jeguk",
+    "chinese": "帝国",
+    "japanese": "帝国"
+  },
+  {
+    "no": 468,
+    "hanzi": "投入",
+    "kor_hanja": "投入",
+    "hangul": "투입",
+    "romanization": "tuip",
+    "chinese": "投入",
+    "japanese": "投入"
+  },
+  {
+    "no": 469,
+    "hanzi": "日记",
+    "kor_hanja": "日記",
+    "hangul": "일기",
+    "romanization": "ilgi",
+    "chinese": "日记",
+    "japanese": "日記"
+  },
+  {
+    "no": 470,
+    "hanzi": "有利",
+    "kor_hanja": "有利",
+    "hangul": "유리",
+    "romanization": "yuri",
+    "chinese": "有利",
+    "japanese": "有利"
+  },
+  {
+    "no": 471,
+    "hanzi": "一旦",
+    "kor_hanja": "一旦",
+    "hangul": "브일단",
+    "romanization": "beuildan",
+    "chinese": "一旦",
+    "japanese": "一旦"
+  },
+  {
+    "no": 472,
+    "hanzi": "三禾",
+    "kor_hanja": "一致到",
+    "hangul": "일치",
+    "romanization": "ilchi",
+    "chinese": "三禾",
+    "japanese": "一致到"
+  },
+  {
+    "no": 473,
+    "hanzi": "学者",
+    "kor_hanja": "学者",
+    "hangul": "학자",
+    "romanization": "hakja",
+    "chinese": "学者",
+    "japanese": "学者"
+  },
+  {
+    "no": 474,
+    "hanzi": "师",
+    "kor_hanja": "教师",
+    "hangul": "교사",
+    "romanization": "gyosa",
+    "chinese": "师",
+    "japanese": "教师"
+  },
+  {
+    "no": 475,
+    "hanzi": "经过",
+    "kor_hanja": "经过",
+    "hangul": "경과",
+    "romanization": "gyeonggwa",
+    "chinese": "经过",
+    "japanese": "経過"
+  },
+  {
+    "no": 476,
+    "hanzi": "原理",
+    "kor_hanja": "原理",
+    "hangul": "원리",
+    "romanization": "wonri",
+    "chinese": "原理",
+    "japanese": "原理"
+  },
+  {
+    "no": 477,
+    "hanzi": "公共",
+    "kor_hanja": "公共",
+    "hangul": "공공공공",
+    "romanization": "gonggonggonggong",
+    "chinese": "公共",
+    "japanese": "公"
+  },
+  {
+    "no": 478,
+    "hanzi": "幸福",
+    "kor_hanja": "幸福",
+    "hangul": "행복",
+    "romanization": "haengbok",
+    "chinese": "幸福",
+    "japanese": "幸福"
+  },
+  {
+    "no": 479,
+    "hanzi": "思考",
+    "kor_hanja": "思考",
+    "hangul": "사고",
+    "romanization": "sago",
+    "chinese": "思考",
+    "japanese": "思"
+  },
+  {
+    "no": 480,
+    "hanzi": "将军",
+    "kor_hanja": "将军",
+    "hangul": "장군",
+    "romanization": "janggun",
+    "chinese": "将军",
+    "japanese": "将軍"
+  },
+  {
+    "no": 481,
+    "hanzi": "宣传",
+    "kor_hanja": "宣传",
+    "hangul": "선전",
+    "romanization": "seonjeon",
+    "chinese": "宣传",
+    "japanese": "伝"
+  },
+  {
+    "no": 482,
+    "hanzi": "将军",
+    "kor_hanja": "將軍",
+    "hangul": "장군",
+    "chinese": "将军",
+    "japanese": "将軍",
+    "romanization": "janggun"
+  },
+  {
+    "no": 483,
+    "hanzi": "宣传",
+    "kor_hanja": "宣傳",
+    "hangul": "선전",
+    "chinese": "宣传",
+    "japanese": "宣伝",
+    "romanization": "seonjeon"
+  },
+  {
+    "no": 484,
+    "hanzi": "结论",
+    "kor_hanja": "结论",
+    "hangul": "결론",
+    "romanization": "gyeolron",
+    "chinese": "结论",
+    "japanese": "结论"
+  },
+  {
+    "no": 485,
+    "hanzi": "商人",
+    "kor_hanja": "商人",
+    "hangul": "상인",
+    "romanization": "sangin",
+    "chinese": "商人",
+    "japanese": "商人"
+  },
+  {
+    "no": 486,
+    "hanzi": "商店",
+    "kor_hanja": "商店",
+    "hangul": "상점",
+    "romanization": "sangjeom",
+    "chinese": "商店",
+    "japanese": "商店"
+  },
+  {
+    "no": 487,
+    "hanzi": "消耗",
+    "kor_hanja": "消耗",
+    "hangul": "소모",
+    "romanization": "somo",
+    "chinese": "消耗",
+    "japanese": "消耗"
+  },
+  {
+    "no": 488,
+    "hanzi": "招待",
+    "kor_hanja": "招待到",
+    "hangul": "초대",
+    "romanization": "chodae",
+    "chinese": "招待",
+    "japanese": "招待"
+  },
+  {
+    "no": 489,
+    "hanzi": "深刻",
+    "kor_hanja": "深刻",
+    "hangul": "심각",
+    "romanization": "simgak",
+    "chinese": "深刻",
+    "japanese": "深刻"
+  },
+  {
+    "no": 490,
+    "hanzi": "振动",
+    "kor_hanja": "振动",
+    "hangul": "진동",
+    "romanization": "jindong",
+    "chinese": "振动",
+    "japanese": "振动"
+  },
+  {
+    "no": 491,
+    "hanzi": "电力",
+    "kor_hanja": "電力",
+    "hangul": "전력",
+    "romanization": "jeonryeok",
+    "chinese": "电力",
+    "japanese": "電力"
+  },
+  {
+    "no": 492,
+    "hanzi": "热心",
+    "kor_hanja": "熱心",
+    "hangul": "열심",
+    "romanization": "yeolsim",
+    "chinese": "热心",
+    "japanese": "熱心"
+  },
+  {
+    "no": 493,
+    "hanzi": "年代",
+    "kor_hanja": "年代",
+    "hangul": "주연대",
+    "romanization": "juyeondae",
+    "chinese": "年代",
+    "japanese": "年代"
+  },
+  {
+    "no": 494,
+    "hanzi": "官僚",
+    "kor_hanja": "官僚",
+    "hangul": "관료",
+    "romanization": "gwanryo",
+    "chinese": "官僚",
+    "japanese": "官僚"
+  },
+  {
+    "no": 495,
+    "hanzi": "光景",
+    "kor_hanja": "光景",
+    "hangul": "불광경",
+    "romanization": "bulgwanggyeong",
+    "chinese": "光景",
+    "japanese": "光景"
+  },
+  {
+    "no": 496,
+    "hanzi": "合",
+    "kor_hanja": "合成",
+    "hangul": "합성",
+    "romanization": "hapseong",
+    "chinese": "合",
+    "japanese": "合成"
+  },
+  {
+    "no": 497,
+    "hanzi": "色彩",
+    "kor_hanja": "色彩",
+    "hangul": "색치",
+    "romanization": "saekchi",
+    "chinese": "色彩",
+    "japanese": "色彩"
+  },
+  {
+    "no": 498,
+    "hanzi": "死亡",
+    "kor_hanja": "死亡",
+    "hangul": "사망",
+    "romanization": "samang",
+    "chinese": "死亡",
+    "japanese": "死亡"
+  },
+  {
+    "no": 499,
+    "hanzi": "车下",
+    "kor_hanja": "若干",
+    "hangul": "약간",
+    "romanization": "yakgan",
+    "chinese": "车下",
+    "japanese": "若干"
+  },
+  {
+    "no": 500,
+    "hanzi": "亲切",
+    "kor_hanja": "親切",
+    "hangul": "친절",
+    "romanization": "chinjeol",
+    "chinese": "亲切",
+    "japanese": "親切"
+  },
+  {
+    "no": 501,
+    "hanzi": "人类",
+    "kor_hanja": "人類",
+    "hangul": "인류",
+    "romanization": "inryu",
+    "chinese": "人类",
+    "japanese": "人类"
+  },
+  {
+    "no": 502,
+    "hanzi": "石油",
+    "kor_hanja": "石油",
+    "hangul": "석유",
+    "romanization": "seokyu",
+    "chinese": "石油",
+    "japanese": "石油"
+  },
+  {
+    "no": 503,
+    "hanzi": "鲜明",
+    "kor_hanja": "鮮明",
+    "hangul": "선명",
+    "romanization": "seonmyeong",
+    "chinese": "鲜明",
+    "japanese": "鲜明"
+  },
+  {
+    "no": 504,
+    "hanzi": "体系",
+    "kor_hanja": "体系",
+    "hangul": "체계",
+    "romanization": "chegye",
+    "chinese": "体系",
+    "japanese": "体系"
+  },
+  {
+    "no": 505,
+    "hanzi": "停止",
+    "kor_hanja": "停止",
+    "hangul": "정지",
+    "romanization": "jeongji",
+    "chinese": "停止",
+    "japanese": "停止"
+  },
+  {
+    "no": 506,
+    "hanzi": "平行",
+    "kor_hanja": "平行",
+    "hangul": "평행",
+    "romanization": "pyeonghaeng",
+    "chinese": "平行",
+    "japanese": "平行"
+  },
+  {
+    "no": 507,
+    "hanzi": "贸易",
+    "kor_hanja": "貿易",
+    "hangul": "무역",
+    "romanization": "muyeok",
+    "chinese": "贸易",
+    "japanese": "貿易"
+  },
+  {
+    "no": 508,
+    "hanzi": "明确",
+    "kor_hanja": "明确",
+    "hangul": "명확",
+    "romanization": "myeonghwak",
+    "chinese": "明确",
+    "japanese": "明确"
+  },
+  {
+    "no": 509,
+    "hanzi": "违反",
+    "kor_hanja": "違反",
+    "hangul": "위반",
+    "romanization": "wiban",
+    "chinese": "违反",
+    "japanese": "違反"
+  },
+  {
+    "no": 510,
+    "hanzi": "区别",
+    "kor_hanja": "区别",
+    "hangul": "구별",
+    "romanization": "gubyeol",
+    "chinese": "区别",
+    "japanese": "区别"
+  },
+  {
+    "no": 511,
+    "hanzi": "继续",
+    "kor_hanja": "畿績",
+    "hangul": "계속",
+    "romanization": "gyesok",
+    "chinese": "继续",
+    "japanese": "継続"
+  },
+  {
+    "no": 512,
+    "hanzi": "原料",
+    "kor_hanja": "原料",
+    "hangul": "원료",
+    "romanization": "wonryo",
+    "chinese": "原料",
+    "japanese": "原料"
+  },
+  {
+    "no": 513,
+    "hanzi": "古代",
+    "kor_hanja": "古代",
+    "hangul": "고대",
+    "romanization": "godae",
+    "chinese": "古代",
+    "japanese": "古代"
+  },
+  {
+    "no": 514,
+    "hanzi": "顾客",
+    "kor_hanja": "顾客",
+    "hangul": "고객",
+    "romanization": "gogaek",
+    "chinese": "顾客",
+    "japanese": "顧客"
+  },
+  {
+    "no": 515,
+    "hanzi": "根本",
+    "kor_hanja": "根本",
+    "hangul": "근본",
+    "romanization": "geunbon",
+    "chinese": "根本",
+    "japanese": "根本"
+  },
+  {
+    "no": 516,
+    "hanzi": "治",
+    "kor_hanja": "自治",
+    "hangul": "자치",
+    "romanization": "jachi",
+    "chinese": "治",
+    "japanese": "自治"
+  },
+  {
+    "no": 517,
+    "hanzi": "首都",
+    "kor_hanja": "首都",
+    "hangul": "수도",
+    "romanization": "sudo",
+    "chinese": "首都",
+    "japanese": "首都"
+  },
+  {
+    "no": 518,
+    "hanzi": "推进",
+    "kor_hanja": "推进地型",
+    "hangul": "추진",
+    "romanization": "chujin",
+    "chinese": "推进",
+    "japanese": "推进"
+  },
+  {
+    "no": 519,
+    "hanzi": "势力",
+    "kor_hanja": "勢力",
+    "hangul": "세력",
+    "romanization": "seryeok",
+    "chinese": "势力",
+    "japanese": "势力"
+  },
+  {
+    "no": 520,
+    "hanzi": "推进",
+    "kor_hanja": "推進",
+    "hangul": "추진",
+    "chinese": "推进",
+    "japanese": "推進",
+    "romanization": "chujin"
+  },
+  {
+    "no": 521,
+    "hanzi": "势力",
+    "kor_hanja": "勢力",
+    "hangul": "세력",
+    "chinese": "势力",
+    "japanese": "勢力",
+    "romanization": "seryeok"
+  },
+  {
+    "no": 522,
+    "hanzi": "同",
+    "kor_hanja": "同一",
+    "hangul": "동일",
+    "romanization": "dongil",
+    "chinese": "同",
+    "japanese": "周三"
+  },
+  {
+    "no": 523,
+    "hanzi": "爆发",
+    "kor_hanja": "爆发",
+    "hangul": "폭발",
+    "romanization": "pokbal",
+    "chinese": "爆发",
+    "japanese": "爆発"
+  },
+  {
+    "no": 524,
+    "hanzi": "分解",
+    "kor_hanja": "分解",
+    "hangul": "분해",
+    "romanization": "bunhae",
+    "chinese": "分解",
+    "japanese": "分解"
+  },
+  {
+    "no": 525,
+    "hanzi": "修正",
+    "kor_hanja": "修正",
+    "hangul": "수정",
+    "romanization": "sujeong",
+    "chinese": "修正",
+    "japanese": "修正"
+  },
+  {
+    "no": 526,
+    "hanzi": "接触",
+    "kor_hanja": "接镜",
+    "hangul": "접촉",
+    "romanization": "jeopchok",
+    "chinese": "接触",
+    "japanese": "接触"
+  },
+  {
+    "no": 527,
+    "hanzi": "宣言宣言",
+    "kor_hanja": "宣言",
+    "hangul": "선언",
+    "romanization": "seoneon",
+    "chinese": "宣言宣言",
+    "japanese": "宣言"
+  },
+  {
+    "no": 528,
+    "hanzi": "大战",
+    "kor_hanja": "大戦",
+    "hangul": "대전",
+    "romanization": "daejeon",
+    "chinese": "大战",
+    "japanese": "大戦"
+  },
+  {
+    "no": 529,
+    "hanzi": "有力",
+    "kor_hanja": "有力",
+    "hangul": "유력",
+    "romanization": "yuryeok",
+    "chinese": "有力",
+    "japanese": "有力"
+  },
+  {
+    "no": 530,
+    "hanzi": "开幕",
+    "kor_hanja": "開幕",
+    "hangul": "개막",
+    "romanization": "gaemak",
+    "chinese": "开幕",
+    "japanese": "开幕"
+  },
+  {
+    "no": 531,
+    "hanzi": "觉悟",
+    "kor_hanja": "覚悟",
+    "hangul": "촬돔각오",
+    "romanization": "chwaldomgako",
+    "chinese": "觉悟",
+    "japanese": "覚悟"
+  },
+  {
+    "no": 532,
+    "hanzi": "过程",
+    "kor_hanja": "過程寺",
+    "hangul": "쯤과정",
+    "romanization": "jjeumgwajeong",
+    "chinese": "过程",
+    "japanese": "過程"
+  },
+  {
+    "no": 533,
+    "hanzi": "居住",
+    "kor_hanja": "居住",
+    "hangul": "똥수거주",
+    "romanization": "ttongsugeoju",
+    "chinese": "居住",
+    "japanese": "居住"
+  },
+  {
+    "no": 534,
+    "hanzi": "偶然",
+    "kor_hanja": "偶然",
+    "hangul": "우연",
+    "romanization": "uyeon",
+    "chinese": "偶然",
+    "japanese": "偶然"
+  },
+  {
+    "no": 535,
+    "hanzi": "地震",
+    "kor_hanja": "地震",
+    "hangul": "지진",
+    "romanization": "jijin",
+    "chinese": "地震",
+    "japanese": "地震"
+  },
+  {
+    "no": 536,
+    "hanzi": "資本",
+    "kor_hanja": "資本",
+    "hangul": "자본",
+    "romanization": "jabon",
+    "chinese": "資本",
+    "japanese": "資本"
+  },
+  {
+    "no": 537,
+    "hanzi": "政党多",
+    "kor_hanja": "政党",
+    "hangul": "정당",
+    "romanization": "jeongdang",
+    "chinese": "政党多",
+    "japanese": "政党"
+  },
+  {
+    "no": 538,
+    "hanzi": "对立",
+    "kor_hanja": "对立",
+    "hangul": "대립",
+    "romanization": "daerip",
+    "chinese": "对立",
+    "japanese": "对立"
+  },
+  {
+    "no": 539,
+    "hanzi": "大众",
+    "kor_hanja": "大衆呈",
+    "hangul": "대중",
+    "romanization": "daejung",
+    "chinese": "大众",
+    "japanese": "大衆"
+  },
+  {
+    "no": 540,
+    "hanzi": "大地",
+    "kor_hanja": "大地",
+    "hangul": "대지",
+    "romanization": "daeji",
+    "chinese": "大地",
+    "japanese": "大地"
+  },
+  {
+    "no": 541,
+    "hanzi": "通过",
+    "kor_hanja": "通過",
+    "hangul": "통과",
+    "romanization": "tonggwa",
+    "chinese": "通过",
+    "japanese": "通過"
+  },
+  {
+    "no": 542,
+    "hanzi": "动力",
+    "kor_hanja": "动力",
+    "hangul": "동력",
+    "romanization": "dongryeok",
+    "chinese": "动力",
+    "japanese": "动力"
+  },
+  {
+    "no": 543,
+    "hanzi": "农药",
+    "kor_hanja": "農薬",
+    "hangul": "농약",
+    "romanization": "nongyak",
+    "chinese": "农药",
+    "japanese": "农菜"
+  },
+  {
+    "no": 544,
+    "hanzi": "犯罪",
+    "kor_hanja": "犯罪",
+    "hangul": "범죄",
+    "romanization": "beomjoe",
+    "chinese": "犯罪",
+    "japanese": "犯罪"
+  },
+  {
+    "no": 545,
+    "hanzi": "武器",
+    "kor_hanja": "武器",
+    "hangul": "무기",
+    "romanization": "mugi",
+    "chinese": "武器",
+    "japanese": "武器"
+  },
+  {
+    "no": 546,
+    "hanzi": "部长",
+    "kor_hanja": "部长",
+    "hangul": "부장",
+    "romanization": "bujang",
+    "chinese": "部长",
+    "japanese": "部長"
+  },
+  {
+    "no": 547,
+    "hanzi": "压力",
+    "kor_hanja": "压力",
+    "hangul": "압력",
+    "romanization": "apryeok",
+    "chinese": "压力",
+    "japanese": "压力"
+  },
+  {
+    "no": 548,
+    "hanzi": "气压",
+    "kor_hanja": "气压",
+    "hangul": "로기압",
+    "romanization": "rogiap",
+    "chinese": "气压",
+    "japanese": "気圧"
+  },
+  {
+    "no": 549,
+    "hanzi": "会合",
+    "kor_hanja": "結合",
+    "hangul": "결합",
+    "romanization": "gyeolhap",
+    "chinese": "会合",
+    "japanese": "結合"
+  },
+  {
+    "no": 550,
+    "hanzi": "公式",
+    "kor_hanja": "公式",
+    "hangul": "공식",
+    "romanization": "gongsik",
+    "chinese": "公式",
+    "japanese": "公式"
+  },
+  {
+    "no": 551,
+    "hanzi": "财产",
+    "kor_hanja": "財産",
+    "hangul": "재산",
+    "romanization": "jaesan",
+    "chinese": "财产",
+    "japanese": "财产"
+  },
+  {
+    "no": 552,
+    "hanzi": "重大",
+    "kor_hanja": "重大中",
+    "hangul": "토즈중대",
+    "romanization": "tojeujungdae",
+    "chinese": "重大",
+    "japanese": "重大"
+  },
+  {
+    "no": 553,
+    "hanzi": "接近",
+    "kor_hanja": "接近",
+    "hangul": "접근",
+    "romanization": "jeopgeun",
+    "chinese": "接近",
+    "japanese": "接近"
+  },
+  {
+    "no": 554,
+    "hanzi": "大陆",
+    "kor_hanja": "大陸",
+    "hangul": "대륙",
+    "romanization": "daeryuk",
+    "chinese": "大陆",
+    "japanese": "大陸"
+  },
+  {
+    "no": 555,
+    "hanzi": "适合",
+    "kor_hanja": "適合",
+    "hangul": "적적합",
+    "romanization": "jeokjeokhap",
+    "chinese": "适合",
+    "japanese": "適合"
+  },
+  {
+    "no": 556,
+    "hanzi": "反映",
+    "kor_hanja": "反映",
+    "hangul": "반영",
+    "romanization": "banyeong",
+    "chinese": "反映",
+    "japanese": "反映"
+  },
+  {
+    "no": 557,
+    "hanzi": "分布",
+    "kor_hanja": "分布",
+    "hangul": "분포",
+    "romanization": "bunpo",
+    "chinese": "分布",
+    "japanese": "分布"
+  },
+  {
+    "no": 558,
+    "hanzi": "反映",
+    "kor_hanja": "反映",
+    "hangul": "반영",
+    "chinese": "反映",
+    "japanese": "反映",
+    "romanization": "banyeong"
+  },
+  {
+    "no": 559,
+    "hanzi": "分布",
+    "kor_hanja": "分布",
+    "hangul": "분포",
+    "chinese": "分布",
+    "japanese": "分布",
+    "romanization": "bunpo"
+  },
+  {
+    "no": 560,
+    "hanzi": "可怜",
+    "kor_hanja": "可憐型",
+    "hangul": "미가련",
+    "romanization": "migaryeon",
+    "chinese": "可怜",
+    "japanese": "可憐"
+  },
+  {
+    "no": 561,
+    "hanzi": "气象",
+    "kor_hanja": "气象",
+    "hangul": "기상",
+    "romanization": "gisang",
+    "chinese": "气象",
+    "japanese": "気象"
+  },
+  {
+    "no": 562,
+    "hanzi": "义务",
+    "kor_hanja": "義務",
+    "hangul": "의무",
+    "romanization": "uimu",
+    "chinese": "义务",
+    "japanese": "義務"
+  },
+  {
+    "no": 563,
+    "hanzi": "形态",
+    "kor_hanja": "形態",
+    "hangul": "형태",
+    "romanization": "hyeongtae",
+    "chinese": "形态",
+    "japanese": "形態"
+  },
+  {
+    "no": 564,
+    "hanzi": "差别",
+    "kor_hanja": "差别",
+    "hangul": "차별",
+    "romanization": "chabyeol",
+    "chinese": "差别",
+    "japanese": "差别"
+  },
+  {
+    "no": 565,
+    "hanzi": "性质",
+    "kor_hanja": "性质",
+    "hangul": "성질",
+    "romanization": "seongjil",
+    "chinese": "性质",
+    "japanese": "性質"
+  },
+  {
+    "no": 566,
+    "hanzi": "地形",
+    "kor_hanja": "地形",
+    "hangul": "지형",
+    "romanization": "jihyeong",
+    "chinese": "地形",
+    "japanese": "地形"
+  },
+  {
+    "no": 567,
+    "hanzi": "动机",
+    "kor_hanja": "动机",
+    "hangul": "동기",
+    "romanization": "donggi",
+    "chinese": "动机",
+    "japanese": "动机"
+  },
+  {
+    "no": 568,
+    "hanzi": "东南",
+    "kor_hanja": "东南",
+    "hangul": "동남",
+    "romanization": "dongnam",
+    "chinese": "东南",
+    "japanese": "东南"
+  },
+  {
+    "no": 569,
+    "hanzi": "平等",
+    "kor_hanja": "平等",
+    "hangul": "평동등도",
+    "romanization": "pyeongdongdeungdo",
+    "chinese": "平等",
+    "japanese": "平等"
+  },
+  {
+    "no": 570,
+    "hanzi": "勇气",
+    "kor_hanja": "勇气",
+    "hangul": "용기",
+    "romanization": "yonggi",
+    "chinese": "勇气",
+    "japanese": "勇气"
+  },
+  {
+    "no": 571,
+    "hanzi": "英雄",
+    "kor_hanja": "英雄",
+    "hangul": "영웅",
+    "romanization": "yeongung",
+    "chinese": "英雄",
+    "japanese": "英雄"
+  },
+  {
+    "no": 572,
+    "hanzi": "改正",
+    "kor_hanja": "改正",
+    "hangul": "개정",
+    "romanization": "gaejeong",
+    "chinese": "改正",
+    "japanese": "改正"
+  },
+  {
+    "no": 573,
+    "hanzi": "学问",
+    "kor_hanja": "學間",
+    "hangul": "학문",
+    "romanization": "hakmun",
+    "chinese": "学问",
+    "japanese": "学問"
+  },
+  {
+    "no": 574,
+    "hanzi": "基地",
+    "kor_hanja": "基地",
+    "hangul": "기지",
+    "romanization": "giji",
+    "chinese": "基地",
+    "japanese": "基地"
+  },
+  {
+    "no": 575,
+    "hanzi": "军事",
+    "kor_hanja": "軍事",
+    "hangul": "군시",
+    "romanization": "gunsi",
+    "chinese": "军事",
+    "japanese": "軍事"
+  },
+  {
+    "no": 576,
+    "hanzi": "权利",
+    "kor_hanja": "权利",
+    "hangul": "권리",
+    "romanization": "gwonri",
+    "chinese": "权利",
+    "japanese": "権利"
+  },
+  {
+    "no": 577,
+    "hanzi": "紧急",
+    "kor_hanja": "緊急",
+    "hangul": "긴급",
+    "romanization": "gingeup",
+    "chinese": "紧急",
+    "japanese": "紧急"
+  },
+  {
+    "no": 578,
+    "hanzi": "个别",
+    "kor_hanja": "個別",
+    "hangul": "개별",
+    "romanization": "gaebyeol",
+    "chinese": "个别",
+    "japanese": "个别"
+  },
+  {
+    "no": 579,
+    "hanzi": "行为",
+    "kor_hanja": "行为",
+    "hangul": "행위",
+    "romanization": "haengwi",
+    "chinese": "行为",
+    "japanese": "行为"
+  },
+  {
+    "no": 580,
+    "hanzi": "后悔",
+    "kor_hanja": "後悔",
+    "hangul": "후회",
+    "romanization": "huhoe",
+    "chinese": "后悔",
+    "japanese": "后悔"
+  },
+  {
+    "no": 581,
+    "hanzi": "皇帝",
+    "kor_hanja": "皇帝",
+    "hangul": "황제",
+    "romanization": "hwangje",
+    "chinese": "皇帝",
+    "japanese": "皇帝"
+  },
+  {
+    "no": 582,
+    "hanzi": "根据",
+    "kor_hanja": "根据",
+    "hangul": "근거",
+    "romanization": "geungeo",
+    "chinese": "根据",
+    "japanese": "根拠"
+  },
+  {
+    "no": 583,
+    "hanzi": "食堂党",
+    "kor_hanja": "食堂",
+    "hangul": "식당",
+    "romanization": "sikdang",
+    "chinese": "食堂党",
+    "japanese": "食堂"
+  },
+  {
+    "no": 584,
+    "hanzi": "垂直",
+    "kor_hanja": "垂直",
+    "hangul": "수직",
+    "romanization": "sujik",
+    "chinese": "垂直",
+    "japanese": "垂直"
+  },
+  {
+    "no": 585,
+    "hanzi": "睡眠",
+    "kor_hanja": "睡眠",
+    "hangul": "수면",
+    "romanization": "sumyeon",
+    "chinese": "睡眠",
+    "japanese": "睡眠"
+  },
+  {
+    "no": 586,
+    "hanzi": "占领",
+    "kor_hanja": "占領",
+    "hangul": "점령",
+    "romanization": "jeomryeong",
+    "chinese": "占领",
+    "japanese": "占领"
+  },
+  {
+    "no": 587,
+    "hanzi": "尊敬",
+    "kor_hanja": "登敬",
+    "hangul": "존경",
+    "romanization": "jongyeong",
+    "chinese": "尊敬",
+    "japanese": "尊敬"
+  },
+  {
+    "no": 588,
+    "hanzi": "损害",
+    "kor_hanja": "損害",
+    "hangul": "손해",
+    "romanization": "sonhae",
+    "chinese": "损害",
+    "japanese": "损害"
+  },
+  {
+    "no": 589,
+    "hanzi": "热带",
+    "kor_hanja": "热带",
+    "hangul": "열대",
+    "romanization": "yeoldae",
+    "chinese": "热带",
+    "japanese": "热带"
+  },
+  {
+    "no": 590,
+    "hanzi": "无限",
+    "kor_hanja": "無限",
+    "hangul": "무한",
+    "romanization": "muhan",
+    "chinese": "无限",
+    "japanese": "無限"
+  },
+  {
+    "no": 591,
+    "hanzi": "愉快",
+    "kor_hanja": "愉快",
+    "hangul": "유쾌",
+    "romanization": "yukwae",
+    "chinese": "愉快",
+    "japanese": "愉快"
+  },
+  {
+    "no": 592,
+    "hanzi": "伟大",
+    "kor_hanja": "偉大",
+    "hangul": "위대",
+    "romanization": "widae",
+    "chinese": "伟大",
+    "japanese": "偉大"
+  },
+  {
+    "no": 593,
+    "hanzi": "用二和",
+    "kor_hanja": "一带",
+    "hangul": "일대",
+    "romanization": "ildae",
+    "chinese": "用二和",
+    "japanese": "一帯"
+  },
+  {
+    "no": 594,
+    "hanzi": "解释",
+    "kor_hanja": "解释",
+    "hangul": "해석",
+    "romanization": "haeseok",
+    "chinese": "解释",
+    "japanese": "解釈"
+  },
+  {
+    "no": 595,
+    "hanzi": "干部",
+    "kor_hanja": "干部",
+    "hangul": "간부",
+    "romanization": "ganbu",
+    "chinese": "干部",
+    "japanese": "干部"
+  },
+  {
+    "no": 596,
+    "hanzi": "解释",
+    "kor_hanja": "解釋",
+    "hangul": "해석",
+    "chinese": "解释",
+    "japanese": "解釈",
+    "romanization": "haeseok"
+  },
+  {
+    "no": 597,
+    "hanzi": "干部",
+    "kor_hanja": "幹部",
+    "hangul": "간부",
+    "chinese": "干部",
+    "japanese": "幹部",
+    "romanization": "ganbu"
+  },
+  {
+    "no": 598,
+    "hanzi": "抗议",
+    "kor_hanja": "抗議引",
+    "hangul": "항의",
+    "romanization": "hangui",
+    "chinese": "抗议",
+    "japanese": "抗議"
+  },
+  {
+    "no": 599,
+    "hanzi": "工作",
+    "kor_hanja": "工作",
+    "hangul": "공작",
+    "romanization": "gongjak",
+    "chinese": "工作",
+    "japanese": "工作"
+  },
+  {
+    "no": 600,
+    "hanzi": "昆虫",
+    "kor_hanja": "去",
+    "hangul": "보로곤충",
+    "romanization": "borogonchung",
+    "chinese": "昆虫",
+    "japanese": "昆虫"
+  },
+  {
+    "no": 601,
+    "hanzi": "缩小",
+    "kor_hanja": "篇小",
+    "hangul": "축소",
+    "romanization": "chukso",
+    "chinese": "缩小",
+    "japanese": "縮小"
+  },
+  {
+    "no": 602,
+    "hanzi": "出生",
+    "kor_hanja": "出生",
+    "hangul": "출생",
+    "romanization": "chulsaeng",
+    "chinese": "出生",
+    "japanese": "出生"
+  },
+  {
+    "no": 603,
+    "hanzi": "伤害",
+    "kor_hanja": "伤害旨",
+    "hangul": "송좋상해",
+    "romanization": "songjohsanghae",
+    "chinese": "伤害",
+    "japanese": "伤害"
+  },
+  {
+    "no": 604,
+    "hanzi": "出生",
+    "kor_hanja": "出生",
+    "hangul": "출생",
+    "chinese": "出生",
+    "japanese": "出生",
+    "romanization": "chulsaeng"
+  },
+  {
+    "no": 605,
+    "hanzi": "西部",
+    "kor_hanja": "西部",
+    "hangul": "서부",
+    "romanization": "seobu",
+    "chinese": "西部",
+    "japanese": "西部"
+  },
+  {
+    "no": 606,
+    "hanzi": "节约",
+    "kor_hanja": "節約",
+    "hangul": "절약",
+    "romanization": "jeolyak",
+    "chinese": "节约",
+    "japanese": "節約"
+  },
+  {
+    "no": 607,
+    "hanzi": "地面",
+    "kor_hanja": "地面",
+    "hangul": "지면",
+    "romanization": "jimyeon",
+    "chinese": "地面",
+    "japanese": "地面"
+  },
+  {
+    "no": 608,
+    "hanzi": "统计",
+    "kor_hanja": "统计",
+    "hangul": "통계",
+    "romanization": "tonggye",
+    "chinese": "统计",
+    "japanese": "统计"
+  },
+  {
+    "no": 609,
+    "hanzi": "到达",
+    "kor_hanja": "到達",
+    "hangul": "도달",
+    "romanization": "dodal",
+    "chinese": "到达",
+    "japanese": "到達"
+  },
+  {
+    "no": 610,
+    "hanzi": "读书",
+    "kor_hanja": "读书",
+    "hangul": "독서",
+    "romanization": "dokseo",
+    "chinese": "读书",
+    "japanese": "読書"
+  },
+  {
+    "no": 611,
+    "hanzi": "农村",
+    "kor_hanja": "農村",
+    "hangul": "농촌",
+    "romanization": "nongchon",
+    "chinese": "农村",
+    "japanese": "农村"
+  },
+  {
+    "no": 612,
+    "hanzi": "不幸",
+    "kor_hanja": "不幸",
+    "hangul": "불행",
+    "romanization": "bulhaeng",
+    "chinese": "不幸",
+    "japanese": "不幸"
+  },
+  {
+    "no": 613,
+    "hanzi": "武装",
+    "kor_hanja": "武装",
+    "hangul": "무장",
+    "romanization": "mujang",
+    "chinese": "武装",
+    "japanese": "武装"
+  },
+  {
+    "no": 614,
+    "hanzi": "民众",
+    "kor_hanja": "民衆中",
+    "hangul": "모풋민중",
+    "romanization": "moputminjung",
+    "chinese": "民众",
+    "japanese": "民衆"
+  },
+  {
+    "no": 615,
+    "hanzi": "意义",
+    "kor_hanja": "意義",
+    "hangul": "의의",
+    "romanization": "uiui",
+    "chinese": "意义",
+    "japanese": "意義"
+  },
+  {
+    "no": 616,
+    "hanzi": "各自",
+    "kor_hanja": "各自",
+    "hangul": "각지",
+    "romanization": "gakji",
+    "chinese": "各自",
+    "japanese": "各自"
+  },
+  {
+    "no": 617,
+    "hanzi": "讲义",
+    "kor_hanja": "講義",
+    "hangul": "강의",
+    "romanization": "gangui",
+    "chinese": "讲义",
+    "japanese": "講義"
+  },
+  {
+    "no": 618,
+    "hanzi": "数学",
+    "kor_hanja": "数学",
+    "hangul": "수학",
+    "romanization": "suhak",
+    "chinese": "数学",
+    "japanese": "数学"
+  },
+  {
+    "no": 619,
+    "hanzi": "生存",
+    "kor_hanja": "生存",
+    "hangul": "생존",
+    "romanization": "saengjon",
+    "chinese": "生存",
+    "japanese": "生存"
+  },
+  {
+    "no": 620,
+    "hanzi": "地带",
+    "kor_hanja": "地带",
+    "hangul": "지디",
+    "romanization": "jidi",
+    "chinese": "地带",
+    "japanese": "地帯"
+  },
+  {
+    "no": 621,
+    "hanzi": "秩序",
+    "kor_hanja": "秩序",
+    "hangul": "질서",
+    "romanization": "jilseo",
+    "chinese": "秩序",
+    "japanese": "秩序"
+  },
+  {
+    "no": 622,
+    "hanzi": "部队",
+    "kor_hanja": "部際",
+    "hangul": "부디",
+    "romanization": "budi",
+    "chinese": "部队",
+    "japanese": "部队"
+  },
+  {
+    "no": 623,
+    "hanzi": "分裂",
+    "kor_hanja": "分裂",
+    "hangul": "사분열",
+    "romanization": "sabunyeol",
+    "chinese": "分裂",
+    "japanese": "分裂"
+  },
+  {
+    "no": 624,
+    "hanzi": "容器",
+    "kor_hanja": "容器",
+    "hangul": "용기",
+    "romanization": "yonggi",
+    "chinese": "容器",
+    "japanese": "容器"
+  },
+  {
+    "no": 625,
+    "hanzi": "观念",
+    "kor_hanja": "観念",
+    "hangul": "관념",
+    "romanization": "gwannyeom",
+    "chinese": "观念",
+    "japanese": "観念"
+  },
+  {
+    "no": 626,
+    "hanzi": "气候",
+    "kor_hanja": "气候",
+    "hangul": "기후",
+    "romanization": "gihu",
+    "chinese": "气候",
+    "japanese": "気候"
+  },
+  {
+    "no": 627,
+    "hanzi": "刑事",
+    "kor_hanja": "刑事",
+    "hangul": "형시",
+    "romanization": "hyeongsi",
+    "chinese": "刑事",
+    "japanese": "刑事"
+  },
+  {
+    "no": 628,
+    "hanzi": "继承",
+    "kor_hanja": "继承",
+    "hangul": "계승",
+    "romanization": "gyeseung",
+    "chinese": "继承",
+    "japanese": "継承"
+  },
+  {
+    "no": 629,
+    "hanzi": "财政",
+    "kor_hanja": "財政",
+    "hangul": "재정",
+    "romanization": "jaejeong",
+    "chinese": "财政",
+    "japanese": "财政"
+  },
+  {
+    "no": 630,
+    "hanzi": "继承",
+    "kor_hanja": "繼承",
+    "hangul": "계승",
+    "chinese": "继承",
+    "japanese": "継承",
+    "romanization": "gyeseung"
+  },
+  {
+    "no": 631,
+    "hanzi": "财政",
+    "kor_hanja": "財政",
+    "hangul": "재정",
+    "chinese": "财政",
+    "japanese": "財政",
+    "romanization": "jaejeong"
+  },
+  {
+    "no": 632,
+    "hanzi": "少数",
+    "kor_hanja": "少數",
+    "hangul": "소수",
+    "chinese": "少数",
+    "japanese": "少数",
+    "romanization": "sosu"
+  },
+  {
+    "no": 633,
+    "hanzi": "条约",
+    "kor_hanja": "條約",
+    "hangul": "조약",
+    "chinese": "条约",
+    "japanese": "条約",
+    "romanization": "joyak"
+  },
+  {
+    "no": 634,
+    "hanzi": "人体",
+    "kor_hanja": "人體",
+    "hangul": "인체",
+    "chinese": "人体",
+    "japanese": "人体",
+    "romanization": "inche"
+  },
+  {
+    "no": 635,
+    "hanzi": "进入",
+    "kor_hanja": "進入",
+    "hangul": "진입",
+    "chinese": "进入",
+    "japanese": "進入",
+    "romanization": "jinip"
+  },
+  {
+    "no": 636,
+    "hanzi": "正式",
+    "kor_hanja": "正式",
+    "hangul": "정식",
+    "chinese": "正式",
+    "japanese": "正式",
+    "romanization": "jeongsik"
+  },
+  {
+    "no": 637,
+    "hanzi": "电压",
+    "kor_hanja": "電壓",
+    "hangul": "전압",
+    "chinese": "电压",
+    "japanese": "電圧",
+    "romanization": "jeonap"
+  },
+  {
+    "no": 638,
+    "hanzi": "必须",
+    "kor_hanja": "必須",
+    "hangul": "필수",
+    "chinese": "必须",
+    "japanese": "必須",
+    "romanization": "pilsu"
+  },
+  {
+    "no": 639,
+    "hanzi": "分量",
+    "kor_hanja": "分量",
+    "hangul": "분량",
+    "chinese": "分量",
+    "japanese": "分量",
+    "romanization": "bunryang"
+  },
+  {
+    "no": 640,
+    "hanzi": "兵士",
+    "kor_hanja": "兵士",
+    "hangul": "병사",
+    "chinese": "兵士",
+    "japanese": "兵士",
+    "romanization": "byeongsa"
+  },
+  {
+    "no": 641,
+    "hanzi": "平凡",
+    "kor_hanja": "平凡",
+    "hangul": "평범",
+    "chinese": "平凡",
+    "japanese": "平凡",
+    "romanization": "pyeongbeom"
+  },
+  {
+    "no": 642,
+    "hanzi": "万一",
+    "kor_hanja": "萬一",
+    "hangul": "만일",
+    "chinese": "万一",
+    "japanese": "万一",
+    "romanization": "manil"
+  },
+  {
+    "no": 643,
+    "hanzi": "命令",
+    "kor_hanja": "命令",
+    "hangul": "명령",
+    "chinese": "命令",
+    "japanese": "命令",
+    "romanization": "myeongryeong"
+  },
+  {
+    "no": 644,
+    "hanzi": "猛烈",
+    "kor_hanja": "猛烈",
+    "hangul": "맹렬",
+    "chinese": "猛烈",
+    "japanese": "猛烈",
+    "romanization": "maengryeol"
+  },
+  {
+    "no": 645,
+    "hanzi": "预报",
+    "kor_hanja": "豫報",
+    "hangul": "예보",
+    "chinese": "预报",
+    "japanese": "予報",
+    "romanization": "yebo"
+  },
+  {
+    "no": 646,
+    "hanzi": "观点",
+    "kor_hanja": "觀點",
+    "hangul": "관점",
+    "chinese": "观点",
+    "japanese": "観点",
+    "romanization": "gwanjeom"
+  },
+  {
+    "no": 647,
+    "hanzi": "军人",
+    "kor_hanja": "軍人",
+    "hangul": "군인",
+    "chinese": "军人",
+    "japanese": "軍人",
+    "romanization": "gunin"
+  },
+  {
+    "no": 648,
+    "hanzi": "宪法",
+    "kor_hanja": "憲法",
+    "hangul": "헌법",
+    "chinese": "宪法",
+    "japanese": "憲法",
+    "romanization": "heonbeop"
+  },
+  {
+    "no": 649,
+    "hanzi": "山地",
+    "kor_hanja": "山地",
+    "hangul": "산지",
+    "chinese": "山地",
+    "japanese": "山地",
+    "romanization": "sanji"
+  },
+  {
+    "no": 650,
+    "hanzi": "所在",
+    "kor_hanja": "所在",
+    "hangul": "소재",
+    "chinese": "所在",
+    "japanese": "所在",
+    "romanization": "sojae"
+  },
+  {
+    "no": 651,
+    "hanzi": "相互",
+    "kor_hanja": "相互",
+    "hangul": "상호",
+    "chinese": "相互",
+    "japanese": "相互",
+    "romanization": "sangho"
+  },
+  {
+    "no": 652,
+    "hanzi": "总理",
+    "kor_hanja": "總理",
+    "hangul": "총리",
+    "chinese": "总理",
+    "japanese": "総理",
+    "romanization": "chongri"
+  },
+  {
+    "no": 653,
+    "hanzi": "尊重",
+    "kor_hanja": "尊重",
+    "hangul": "존중",
+    "chinese": "尊重",
+    "japanese": "尊重",
+    "romanization": "jonjung"
+  },
+  {
+    "no": 654,
+    "hanzi": "电流",
+    "kor_hanja": "電流",
+    "hangul": "전류",
+    "chinese": "电流",
+    "japanese": "電流",
+    "romanization": "jeonryu"
+  },
+  {
+    "no": 655,
+    "hanzi": "同意",
+    "kor_hanja": "同意",
+    "hangul": "동의",
+    "chinese": "同意",
+    "japanese": "同意",
+    "romanization": "dongui"
+  },
+  {
+    "no": 656,
+    "hanzi": "比例",
+    "kor_hanja": "比例",
+    "hangul": "비례",
+    "chinese": "比例",
+    "japanese": "比例",
+    "romanization": "birye"
+  },
+  {
+    "no": 657,
+    "hanzi": "分配",
+    "kor_hanja": "分配",
+    "hangul": "분배",
+    "chinese": "分配",
+    "japanese": "分配",
+    "romanization": "bunbae"
+  },
+  {
+    "no": 658,
+    "hanzi": "材料",
+    "kor_hanja": "材料",
+    "hangul": "재료",
+    "chinese": "材料",
+    "japanese": "材料",
+    "romanization": "jaeryo"
+  }
+]
