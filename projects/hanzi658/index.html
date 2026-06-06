@@ -116,12 +116,20 @@
       margin-bottom: 22px;
     }
 
-    .hangul {
+    .reading-main {
       margin: 0;
-      font-family: "Noto Serif KR", serif;
-      font-size: clamp(1.5rem, 7vw, 2.5rem);
+      font-family: "Noto Serif SC", "Songti SC", "STKaiti", "Kaiti SC", serif;
+      font-size: clamp(1.2rem, 5vw, 1.8rem);
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
+    }
+
+    .reading-sub {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
     }
 
     .romanization {
@@ -160,6 +168,21 @@
       font-size: 1.18rem;
       font-weight: 700;
       word-break: break-word;
+    }
+
+    .value-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .value-side {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
     .subvalue {
@@ -294,25 +317,29 @@
         </div>
         <h2 class="hanzi">${word.hanzi}</h2>
         <div class="reading">
-          <p class="hangul">${word.hangul}</p>
-          <p class="romanization">${word.romanization}</p>
+          <p class="reading-main">${word.chinese_pinyin}</p>
+          <p class="reading-sub">${word.romanization}</p>
         </div>
         <div class="grid">
           <article class="info">
             <p class="label">中文</p>
-            <p class="value">${word.chinese}</p>
+            <div class="value-row">
+              <p class="value">${word.chinese}</p>
+              <p class="value-side">${word.kor_hanja}</p>
+            </div>
+            <p class="subvalue">${word.chinese_pinyin}</p>
           </article>
           <article class="info">
             <p class="label">越南语</p>
-            <p class="value">${word.vietnamese_romanization || "暂缺"}</p>
+            <p class="value">${word.vietnamese || "暂缺"}</p>
+            <p class="subvalue">${word.vietnamese_romanization || ""}</p>
+            <p class="subvalue">${word.kor_hanja}</p>
           </article>
           <article class="info">
-            <p class="label">韩语汉字</p>
-            <p class="value">${word.kor_hanja}</p>
-          </article>
-          <article class="info">
-            <p class="label">韩语写法</p>
+            <p class="label">韩语</p>
             <p class="value">${word.hangul}</p>
+            <p class="subvalue">${word.romanization}</p>
+            <p class="subvalue">${word.kor_hanja}</p>
           </article>
           <article class="info">
             <p class="label">日文</p>

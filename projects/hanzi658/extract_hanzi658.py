@@ -1,10 +1,12 @@
 import csv
 import json
 import re
+import unicodedata
 import zipfile
 from pathlib import Path
 
 import fitz  # pylint: disable=import-error
+from pypinyin import Style, lazy_pinyin  # pylint: disable=import-error
 from pykakasi import kakasi  # pylint: disable=import-error
 
 
@@ -44,6 +46,10 @@ def romanize_japanese(text: str) -> str:
     return " ".join(part["hepburn"].lower() for part in parts if part["hepburn"])
 
 
+def romanize_chinese_pinyin(text: str) -> str:
+    return " ".join(lazy_pinyin(text, style=Style.TONE))
+
+
 def load_vietnamese_map():
     mapping = {}
     with zipfile.ZipFile(UNIHAN_ZIP_PATH) as archive:
@@ -68,6 +74,12 @@ def romanize_vietnamese(text: str, mapping):
     return " ".join(parts)
 
 
+def ascii_vietnamese(text: str) -> str:
+    normalized = unicodedata.normalize("NFD", text)
+    stripped = "".join(char for char in normalized if unicodedata.category(char) != "Mn")
+    return stripped.replace("đ", "d").replace("Đ", "D")
+
+
 def parse_entry(number: int, kor_raw: str, chinese: str, japanese: str, vietnamese_map):
     match = KOR_PATTERN.match(kor_raw)
     if not match:
@@ -81,9 +93,11 @@ def parse_entry(number: int, kor_raw: str, chinese: str, japanese: str, vietname
         "hangul": hangul,
         "romanization": romanize_hangul(hangul),
         "chinese": chinese,
+        "chinese_pinyin": romanize_chinese_pinyin(chinese),
         "japanese": japanese,
         "japanese_romanization": romanize_japanese(japanese),
-        "vietnamese_romanization": romanize_vietnamese(kor_hanja, vietnamese_map),
+        "vietnamese": romanize_vietnamese(kor_hanja, vietnamese_map),
+        "vietnamese_romanization": ascii_vietnamese(romanize_vietnamese(kor_hanja, vietnamese_map)),
     }
 
 
@@ -149,8 +163,10 @@ def write_outputs(words):
         "hangul",
         "romanization",
         "chinese",
+        "chinese_pinyin",
         "japanese",
         "japanese_romanization",
+        "vietnamese",
         "vietnamese_romanization",
     ]
 
