@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proteus: Shapeshifting Desktop Visualizations for Mobile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1 class="paper-title">Proteus: Shapeshifting Desktop Visualizations for Mobile via Multi-level Intelligent Adaptation</h1>
+        <div class="authors">
+            Can Liu, Sizhe Cheng, Feng Liang, Zhibang Jiang, Lingru Huang, Kavinda Athapaththu, and Yong Wang
+        </div>
+        <div class="venue">
+            <strong>In Proceedings of ACM Designing Interactive Systems (DIS) 2026</strong>
+        </div>
+        <div class="links">
+            <a href="https://arxiv.org/pdf/2604.23299" class="btn btn-primary" target="_blank">
+                <svg style="width:20px;height:20px;margin-right:8px" fill="currentColor" viewBox="0 0 24 24"><path d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M11,15V18H13V15H16L12,11L8,15H11Z" /></svg>
+                PDF (arXiv)
+            </a>
+            <a href="https://vis2mobile.vercel.app/" class="btn btn-secondary" target="_blank">
+                <svg style="width:20px;height:20px;margin-right:8px" fill="currentColor" viewBox="0 0 24 24"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" /></svg>
+                Online Demo
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="section">
+        <h2 class="section-title">Abstract</h2>
+        <p class="abstract-text">
+            With the rise of mobile-first consumption, users increasingly engage with data visualizations on mobile devices. However, the vast majority of existing visualizations are originally authored for desktop environments. Due to significant differences in viewport size and interaction paradigms, directly scaling desktop charts often results in illegible text, information loss, and interaction failures. To bridge this gap, we propose an automated framework to adapt desktop-based visualizations for mobile screens. By systematically categorizing the operations involved in the adaptation process, we establish a multi-level design space. This space defines evolution rules spanning from the global topology level, through the reference frame level, down to the visual elements level. Guided by this theoretical framework, we developed Proteus, a large language model–driven multi-agent system that automatically parses online visualizations, predicts optimal transformation strategies within the design space, and generates equivalent, highly readable visualizations for mobile devices. Case studies and an in-depth user study with 12 participants demonstrate the effectiveness and usability of Proteus.
+        </p>
+    </section>
+
+    <section class="teaser-container">
+        <img src="cases.png" alt="Proteus Cases" class="teaser-image">
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">System Pipeline</h2>
+        <div class="pipeline-container">
+            <img src="pipeline.png" alt="Proteus Pipeline" class="pipeline-image">
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">BibTeX</h2>
+        <div class="bibtex-container">
+            <button class="copy-btn" onclick="copyBibTeX()" id="copy-btn">
+                <svg style="width:20px;height:20px" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                </svg>
+                Copy
+            </button>
+            <pre id="bibtex-code">@inproceedings{liu2026proteus,
+  title={Proteus: Shapeshifting Desktop Visualizations for Mobile via Multi-level Intelligent Adaptation},
+  author={Liu, Can and Cheng, Sizhe and Liang, Feng and Jiang, Zhibang and Huang, Lingru and Athapaththu, Kavinda and Wang, Yong},
+  booktitle={Proceedings of the 2026 ACM Designing Interactive Systems Conference (DIS '26)},
+  year={2026}
+}</pre>
+        </div>
+    </section>
+
+    <script>
+        function copyBibTeX() {
+            const bibtex = document.getElementById('bibtex-code').innerText;
+            const btn = document.getElementById('copy-btn');
+            
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = `
+                    <svg style="width:20px;height:20px" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Copied!
+                `;
+                btn.classList.add('copied');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</main>
+
+<footer>
+    <div class="container">
+        &copy; 2026 Proteus Project Team. All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>
