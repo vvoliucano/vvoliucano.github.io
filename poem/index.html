@@ -18,11 +18,11 @@ class: poem-page-wrapper
     padding: 2rem 1rem 4rem;
     --poem-font-main: "OuyangxunKaishu", "STKaiti", "KaiTi", "Kaiti SC", serif;
     --poem-font-note: "STFangsong", "FangSong", "华文仿宋", "FangSong_GB2312", serif;
-    --poem-paper: #fbf8f1;
-    --poem-paper-deep: #f0e8da;
-    --poem-ink: #25384a;
-    --poem-muted: #786851;
-    --poem-rule: rgba(130, 99, 58, 0.26);
+    --poem-paper: #ffffff;
+    --poem-paper-deep: #f8f8f8;
+    --poem-ink: #1a2a3a;
+    --poem-muted: #888888;
+    --poem-rule: rgba(0, 0, 0, 0.08);
 }
 
 .poem-detail-toolbar {
@@ -101,17 +101,17 @@ class: poem-page-wrapper
     border-radius: 6px;
     border: 1px solid rgba(145, 121, 86, 0.16);
     background:
-        linear-gradient(180deg, rgba(255, 251, 244, 0.72), rgba(249, 241, 225, 0.92)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(252, 252, 252, 0.95)),
         repeating-linear-gradient(
             0deg,
-            rgba(110, 87, 53, 0.018) 0px,
-            rgba(110, 87, 53, 0.018) 1px,
+            rgba(0, 0, 0, 0.01) 0px,
+            rgba(0, 0, 0, 0.01) 1px,
             rgba(255, 255, 255, 0) 2px,
             rgba(255, 255, 255, 0) 6px
         ),
-        radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.48), transparent 28%),
-        radial-gradient(circle at 78% 72%, rgba(190, 160, 112, 0.12), transparent 36%),
-        linear-gradient(180deg, var(--poem-paper) 0%, #f7f2e8 100%);
+        radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.6), transparent 28%),
+        radial-gradient(circle at 78% 72%, rgba(0, 0, 0, 0.02), transparent 36%),
+        linear-gradient(180deg, var(--poem-paper) 0%, #fafafa 100%);
     box-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.38),
         0 10px 26px rgba(84, 57, 27, 0.08);
@@ -667,7 +667,7 @@ class: poem-page-wrapper
   <defs>
     <filter id="roughpaper" x="-10%" y="-10%" width="120%" height="120%">
       <feTurbulence type="fractalNoise" baseFrequency="0.050" result="noise" numOctaves="25"></feTurbulence>
-      <feDiffuseLighting in="noise" lighting-color="#FBF8F1" surfaceScale="0.88">
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="0.88">
         <feDistantLight azimuth="24" elevation="46"></feDistantLight>
       </feDiffuseLighting>
     </filter>
