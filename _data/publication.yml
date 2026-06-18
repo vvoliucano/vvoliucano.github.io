@@ -10,7 +10,7 @@
   venue: IEEE Pacific Visualization Conference
   awards:
     - Best Paper Award
-  year: "2026", to appear
+  year: "2026, to appear"
   highlight: 2
   doi: https://doi.org/10.48550/arXiv.2601.17736
   pdf: "https://arxiv.org/pdf/2601.17736.pdf"
@@ -27,7 +27,7 @@
     - Kotaro Hara
     - Yong Wang
   venue: IEEE Computer Graphics and Applications
-  year: "2026", to appear
+  year: "2026, to appear"
   highlight: 2
   doi: https://doi.org/10.48550/arXiv.2604.08979
   pdf: "https://arxiv.org/pdf/2604.08979.pdf"
@@ -47,7 +47,7 @@
     - Yong Wang
   venue: ACM Conference on Designing Interactive Systems
   pdf: https://arxiv.org/pdf/2604.23299
-  year: "2026", to appear
+  year: "2026, to appear"
   highlight: 2
   type:
     - Conference
@@ -90,7 +90,7 @@
     - Can Liu
     - Jian Zhao
   venue: ACM Conference on Designing Interactive Systems (DIS)
-  year: "2026", to appear
+  year: "2026, to appear"
   type:
     - Conference
 

@@ -1,0 +1,135 @@
+<html>
+<meta charset="UTF-8">
+
+<head>
+	<title>Interaction Authoring</title>
+	<link rel="stylesheet" href="css/vivisfy.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/dglyph.css">
+</head>
+
+<body>
+	<div id="canvas"></div>
+
+	<div id="head"
+		style="position: absolute; top: 0%; left: 0%; width: 100%; height: 50px; margin: 0px; padding: 0px; background: #D8D8D8; user-select:none; justify-content: start;">
+		<div id="header-text" style="display:flex; align-items:center; justify-content:start; margin-left: 1rem;">
+			Interaction Authoring
+		</div>
+	</div>
+	
+	<script src="js/lib/d3v6.min.js"></script>
+	<script src="js/lib/jquery-3.3.1.min.js"></script>
+	<script src="js/lib/moment.min.js"></script>
+	<script src="js/somehints.js"></script>
+	<script src="js/force.js"></script>
+	<script src="js/resize.js"></script>
+	<script src="js/axis.js"></script>
+	<script src="js/related_calculation.js"></script>
+	<script src="js/constraints.js"></script>
+	<script src="js/transform.js"></script>
+	<script src="js/customize_force.js"></script>
+	<script src="js/run_action.js"></script>
+	<script src="js/ChatService.js"></script>
+	<script src="js/try_reencode.js"></script>
+	<script src="auto_manipulate.js"></script>
+	<script src="manipulate.js"></script>
+	<script>
+		async function init() {
+			server_position = ""
+
+			let file_name = window.location.href.toString().split("?")[1]
+			let file_url = "./shared/chart/" + file_name + ".json"
+
+			console.log(file_url)
+
+			let queryString = window.location.search;
+			let urlParams = new URLSearchParams(queryString);
+			let json_string = urlParams.get('json')
+			let action = urlParams.get('action')
+
+			console.log('json', json_string)
+			console.log('action', action)
+
+			let chartData;
+			let target_url = json_string !== null ? "./shared/chart/" + json_string + ".json" : file_url;
+
+			try {
+				chartData = await d3.json(target_url);
+			} catch (error) {
+				console.log("Failed to load primary chart, falling back to current.json", error);
+				try {
+					chartData = await d3.json("./shared/chart/current.json");
+				} catch (fallbackError) {
+					console.error("Failed to load fallback chart", fallbackError);
+				}
+			}
+
+			if (chartData) {
+				// Ensure layout is ready
+				await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+				
+				let canvas = new canvas_main(chartData);
+				
+				if (action != null) {
+					let action_file = "action/" + action + ".json"
+					console.log("action file", action_file)
+					try {
+						let actionData = await d3.json(action_file);
+						console.log("action data", actionData)
+						run_action(canvas.begin_point, actionData)
+					} catch (actionError) {
+						console.error("Failed to load action file", actionError);
+					}
+				}
+
+				// Load interactions after canvas is ready
+				let interaction_url = "./shared/interaction/" + file_name + ".json"
+				console.log("interaction url", interaction_url);
+				try {
+					let interactionData = await d3.json(interaction_url);
+					let interactionArray;
+					try {
+						interactionArray = typeof interactionData.interaction === 'string' 
+							? JSON.parse(interactionData.interaction) 
+							: interactionData.interaction;
+					} catch (e) {
+						console.error("Parsing error:", e);
+						interactionArray = interactionData.interaction;
+					}
+
+					if (interactionArray) {
+						for (let item of interactionArray) {
+							activateInteraction(item);
+						}
+					}
+				} catch (interactionError) {
+					console.log("interaction data not found or failed to load", interactionError);
+				}
+			}
+
+			// Initialize ChatService
+			try {
+				const chatService = new ChatService(document, "en");
+				chatService.set_default_input("Hello! How can I assist you?");
+			} catch (chatError) {
+				console.error("Failed to initialize ChatService", chatError);
+			}
+
+			updateHeight();
+		}
+
+		function updateHeight() {
+			let chatContainer = document.getElementById("chat-container");
+			if (chatContainer) {
+				chatContainer.style.height = (window.innerHeight - 50) + "px";
+			}
+		}
+
+		document.addEventListener("DOMContentLoaded", init);
+		window.addEventListener("resize", updateHeight);
+	</script>
+	<!-- <script src="mic.js" defer></script> -->
+</body>
+
+</html>

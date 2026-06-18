@@ -11,14 +11,14 @@
 <meta name="description" content="Website of Can Liu (刘灿), a PhD student. 北京大学可视化博士研究生刘灿">
 <title>Can Liu</title>
 <meta property="og:title" content="Can Liu">
-<meta property="og:site_name" content="http://0.0.0.0:1111 Can Liu">
+<meta property="og:site_name" content="https://vvoliucano.github.io Can Liu">
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://0.0.0.0:1111">
+<meta property="og:url" content="https://vvoliucano.github.io">
 <meta property="og:image" content="">
 <meta property="og:description" content="Website of Can Liu (刘灿), a student of data visualization.">
 <meta name="author" content="Can Liu (刘灿)">
 <link rel="icon" type="image/png" href="/favicon.png" />
-<link rel="alternate" type="application/rss+xml" title="Can Liu" href="http://0.0.0.0:1111/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Can Liu" href="https://vvoliucano.github.io/feed.xml">
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
 <link href="/styles.css" rel="stylesheet">
@@ -51,6 +51,23 @@ var _hmt = _hmt || [];
 <img src="./MeasureFlow/teaser.png" width="100%" />
 </div>
 
+<div class="project-inline">
+  <h4>Links</h4>
+<div class="spacer"></div>
+<div class="links-wrapper">
+  
+  <div>  <a href="https://doi.org/10.1145/3399715.3399922" target="_blank"><i class="far fa-file-pdf"></i> Paper</a></div>
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+</div>
+
 <h4 id="abstract">Abstract</h4>
 <p>We present <em>MeasureFlow</em>, an interface to visually and interactively explore dynamic networks through time-series of network measures such as link number, graph density, or node activation. When networks contain many time steps, become large and more dense, or contain high frequencies of change, traditional visualizations that focus on network topology, such as animations or small multiples, fail to provide adequate overviews and thus fail to guide the analyst towards interesting time points and periods. MeasureFlow presents a complementary approach that relies on visualizing time-series of common network measures to provide a detailed yet comprehensive overview of when changes are happening and which network measures they involve. As dynamic networks undergo changes of varying rates and characteristics, network measures provide important hints on the pace and nature of their evolution and can guide an analysts in their exploration; based on a set of interactive and signal-processing methods, MeasureFlow allows an analyst to select and navigate periods of interest in the network. We demonstrate MeasureFlow through case studies with real-world data.</p>
 
@@ -69,7 +86,7 @@ var _hmt = _hmt || [];
     pages = {9},
     series = {AVI'20},
     doi = {10.1145/3399715.3399922},
-    url = {https://doi.org/10.1145/3399715.3399922}
+    url = {https://doi.org/10.1145/3399715.3399922},
     publisher = {Association for Computing Society},
     address = {New York, NY, USA}
 }
@@ -89,8 +106,18 @@ var _hmt = _hmt || [];
   for (var i=0; i<headers.length; i++) {
     var h = headers[i];
     var name = h.getAttribute("id");
+    if (!name) continue;
     var title = h.innerHTML;
     h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
+  }
+
+  function toggleBibtex(id) {
+    var element = document.getElementById('bib-' + id);
+    if (element.style.display === 'none') {
+      element.style.display = 'block';
+    } else {
+      element.style.display = 'none';
+    }
   }
 </script>
 

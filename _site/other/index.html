@@ -11,14 +11,14 @@
 <meta name="description" content="Website of Can Liu (刘灿), a PhD student. 北京大学可视化博士研究生刘灿">
 <title>Can Liu</title>
 <meta property="og:title" content="Can Liu">
-<meta property="og:site_name" content="http://0.0.0.0:1111 Can Liu">
+<meta property="og:site_name" content="https://vvoliucano.github.io Can Liu">
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://0.0.0.0:1111">
+<meta property="og:url" content="https://vvoliucano.github.io">
 <meta property="og:image" content="">
 <meta property="og:description" content="Website of Can Liu (刘灿), a student of data visualization.">
 <meta name="author" content="Can Liu (刘灿)">
 <link rel="icon" type="image/png" href="/favicon.png" />
-<link rel="alternate" type="application/rss+xml" title="Can Liu" href="http://0.0.0.0:1111/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Can Liu" href="https://vvoliucano.github.io/feed.xml">
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
 <link href="/styles.css" rel="stylesheet">
@@ -57,7 +57,6 @@ var _hmt = _hmt || [];
   <div><a href="/contact/" >Contact</a></div> -->
     <!-- <a href="/talks/" >Talks</a>
     <a href="/blog/" >Blog</a> -->
-    <div><a href="/cv-zh/">简历</a></div>
     <div><a href="/other/" class="active">其他</a></div>
     <div><a href="/mushan/" >诗集</a></div>
     <span class="external">
@@ -88,48 +87,41 @@ var _hmt = _hmt || [];
 }
 
 .poetry-year-divider {
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #bdc3c7, transparent);
-    margin: 0 auto 3rem auto;
+    display: none;
 }
 
 /* 单首诗的样式 */
 .poetry-item {
     max-width: 800px;
-    margin: 3rem auto;
-    padding: 2.5rem;
-    background: #fefefe;
-    border: 1px solid #e8e8e8;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin: 4rem auto;
+    padding: 3rem;
+    background: #fff;
+    border: 0;
+    border-radius: 4px;
     position: relative;
     transition: all 0.3s ease;
+    /* 中国风淡雅背景：模拟宣纸质感 */
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), transparent),
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.005) 0px, rgba(0,0,0,0.005) 1px, transparent 1px, transparent 2px),
+        linear-gradient(to bottom, #ffffff, #fcfcfc);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
 }
 
 .poetry-item:hover {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
     transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.05);
 }
 
 .poetry-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 3px;
-    background: linear-gradient(90deg, #e74c3c, #f39c12, #e74c3c);
-    border-radius: 0 0 2px 2px;
+    display: none;
 }
 
 /* 诗歌标题区域 */
 .poetry-header {
     text-align: center;
     margin-bottom: 2rem;
-    border-bottom: 1px solid #ecf0f1;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .poetry-title {
@@ -180,11 +172,7 @@ var _hmt = _hmt || [];
 }
 
 .poetry-divider {
-    width: 20px;
-    height: 1px;
-    background: #bdc3c7;
-    margin: 1rem auto;
-    opacity: 0.5;
+    display: none;
 }
 
 .poetry-spacer {
@@ -194,10 +182,9 @@ var _hmt = _hmt || [];
 /* 注释样式 */
 .poetry-notes {
     margin-top: 2rem;
-    padding: 1.5rem;
-    background: #f8f9fa;
-    border-left: 4px solid #e74c3c;
-    border-radius: 0 4px 4px 0;
+    padding: 1.2rem 1.5rem;
+    background: rgba(248, 249, 250, 0.6);
+    border-radius: 4px;
 }
 
 .notes-title {
@@ -225,7 +212,6 @@ var _hmt = _hmt || [];
     justify-content: center;
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid #ecf0f1;
 }
 
 .poetry-image-item {
@@ -346,6 +332,45 @@ var _hmt = _hmt || [];
   <h2 class="poetry-year-title" id="year-title-2026">2026</h2>
   <div class="poetry-year-divider"></div>
   
+  
+  <div class="poetry-item" id="rinan">
+    
+    
+    <div class="poetry-header">
+      <h3 class="poetry-title"><a href="/poem/?id=rinan">日南</a></h3>
+      
+      <span class="poetry-type">诗</span>
+      
+    </div>
+    
+    <div class="poetry-content">
+      
+      
+      
+      <div class="poetry-line">日南春秋反</div>
+      
+      
+      
+      
+      <div class="poetry-line">清风悉入湾</div>
+      
+      
+      
+      
+      <div class="poetry-line">千钧尼此岸</div>
+      
+      
+      
+      
+      <div class="poetry-line">轻舟过万山</div>
+      
+      
+    </div>
+    
+    
+    
+    
+  </div>
   
   <div class="poetry-item" id="nanyang">
     
@@ -1902,7 +1927,7 @@ document.addEventListener('DOMContentLoaded', function() {
       星汉光年远<br />
       倏如一江风<br />
       <br />
-      <!-- <abbr title="Last build on 2026-04-19">上次更新于2026年04月</abbr> -->
+      <!-- <abbr title="Last build on 2026-06-18">上次更新于2026年06月</abbr> -->
     </div>
     <div class="footer-col" width = "100px">
       <!-- <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU"></script> -->
@@ -1921,8 +1946,18 @@ document.addEventListener('DOMContentLoaded', function() {
   for (var i=0; i<headers.length; i++) {
     var h = headers[i];
     var name = h.getAttribute("id");
+    if (!name) continue;
     var title = h.innerHTML;
     h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
+  }
+
+  function toggleBibtex(id) {
+    var element = document.getElementById('bib-' + id);
+    if (element.style.display === 'none') {
+      element.style.display = 'block';
+    } else {
+      element.style.display = 'none';
+    }
   }
 </script>
 

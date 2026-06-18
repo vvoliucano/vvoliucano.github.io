@@ -1,0 +1,81 @@
+.project-header {
+    max-width: 1000px;
+    margin: 120px auto 60px;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.project-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.project-authors {
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    margin-bottom: 40px;
+}
+
+.project-abstract {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    line-height: 1.8;
+    color: #333;
+}
+
+.project-abstract h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.abstract-text {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.section-title {
+    max-width: 1200px;
+    margin: 60px auto 20px;
+    padding: 0 40px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.gallery-container {
+    margin-top: 20px !important;
+}
+
+/* Adjustments for the navbar */
+.navbar {
+    padding: 1rem 2rem !important;
+}
+
+.navbar h1 {
+    font-size: 1.2rem !important;
+}
+
+@media (max-width: 768px) {
+    .project-title {
+        font-size: 2rem;
+    }
+    
+    .project-header {
+        margin-top: 100px;
+        padding: 0 20px;
+    }
+    
+    .project-abstract {
+        padding: 24px;
+    }
+}
