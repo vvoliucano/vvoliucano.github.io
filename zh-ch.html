@@ -158,13 +158,13 @@ class: home
     {% endif %}
 
     <div id="bib-{{ pub.id }}" class="bibtex-container" style="display: none;">
-      <pre>{% if pub.bibtex %}{{ pub.bibtex }}{% else %}@{% if pub.type[0] == "Journal" %}article{% else %}inproceedings{% endif %}{ {{ pub.id }},
+      <pre>{% if pub.bibtex %}{{ pub.bibtex }}{% else %}@{% if pub.type.first == "Journal" %}article{% else %}inproceedings{% endif %}{ {{ pub.id }},
   title = { {{ pub.title }} },
   author = { {% for author in pub.authors %}{{ author }}{% unless forloop.last %} and {% endunless %}{% endfor %} },
-  {% if pub.type[0] == "Journal" %}journal = { {{ pub.venue }} },{% else %}booktitle = { Proceedings of {{ pub.venue }} },{% endif %}
-  year = { {{ pub.year | split: "," | first }} }{% if pub.doi %},
+  {% if pub.type.first == "Journal" %}journal = { {{ pub.venue }} },{% else %}booktitle = { Proceedings of {{ pub.venue }} },{% endif %}
+  year = { {{ pub.year | default: "" | split: "," | first }} }{% if pub.doi %},
   doi = { {{ pub.doi }} }{% endif %}{% if pub.pages %},
-  pages = { {{ pub.pages }} }{% endif %}{% if pub.volume %},
+  pages = { {{ pub.pages | join: "-" }} }{% endif %}{% if pub.volume %},
   volume = { {{ pub.volume }} }{% endif %}{% if pub.number %},
   number = { {{ pub.number }} }{% endif %}
 }{% endif %}</pre>
