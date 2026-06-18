@@ -1,3 +1,15 @@
+- id: rinan
+  title: "日南"
+  year: 2026
+  type:
+    - 诗
+  content:
+    - 日南春秋反
+    - 清风悉入湾
+    - 千钧尼此岸
+    - 轻舟过万山
+  highlight: 3
+
 - id: nanyang
   title: 天净沙·旧坊
   year: 2026

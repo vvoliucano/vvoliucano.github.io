@@ -539,7 +539,7 @@ class: poem-page-wrapper
     }
 
     .poem-detail-link {
-        font-size: 1.45rem;
+        font-size: 1.1rem;
         line-height: 1.5;
     }
 
@@ -558,77 +558,107 @@ class: poem-page-wrapper
 
     .poem-sheet {
         min-width: 100%;
-        padding: 0.7rem 0.75rem;
+        padding: 2.5rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .poem-sheet-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .poem-sheet-titleblock {
-        top: 0.62rem;
-        right: 0.72rem;
-    }
-
-    .poem-qr-frame {
-        padding: 0.25rem;
-    }
-
-    .poem-qr-canvas {
-        width: 46px;
-        height: 46px;
-    }
-
-    .poem-sheet-footer {
-        gap: 0.28rem;
-        padding-left: 0.05rem;
-        min-width: 3.8rem;
-    }
-
-    .poem-sheet-signature {
-        font-size: 0.88rem;
+        position: static;
+        margin-bottom: 1rem;
+        text-align: center;
+        align-items: center;
     }
 
     .poem-sheet-title {
-        font-size: 2.45rem;
+        writing-mode: horizontal-tb;
+        font-size: 1.8rem;
+        letter-spacing: 0.15em;
+        margin-bottom: 0.5rem;
     }
 
     .poem-sheet-body {
-        padding: 0.1rem 4.9rem 0.1rem 0.05rem;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+        min-width: 0;
+        gap: 1.2rem;
         height: auto !important;
     }
 
     .poem-lines {
-        font-size: 2.8rem;
-        line-height: 1.52;
-        letter-spacing: 0.08em;
+        writing-mode: horizontal-tb;
+        text-align: center;
+        font-family: var(--poem-font-note);
+        font-size: 1.35rem;
+        line-height: 2;
+        letter-spacing: 0.05em;
     }
 
     .poem-line {
-        min-width: 4.15rem;
-        padding: 0 0.38rem;
+        min-width: 0;
+        padding: 0.3rem 0;
+    }
+
+    .poem-line::before,
+    .poem-line::after {
+        display: none;
+    }
+
+    .poem-sheet-footer {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        min-width: 0;
+        margin-bottom: 0.5rem;
+        align-self: center;
+    }
+
+    .poem-sheet-signature {
+        writing-mode: horizontal-tb;
+        font-size: 0.95rem;
+        color: var(--poem-muted);
+    }
+
+    .poem-sheet-qr {
+        display: none;
     }
 
     .poem-sheet-hint {
-        right: 0.35rem;
-        font-size: 1rem;
+        display: none;
     }
 
-    .poem-panel {
-        padding: 1rem 0.95rem;
+    .poem-sheet::before,
+    .poem-sheet::after {
+        display: none;
     }
 
     .poem-panel-title {
-        font-size: 1.9rem;
+        font-size: 1.2rem;
     }
 
     .poem-notes-list {
-        font-size: 2.65rem;
-        line-height: 1.95;
+        font-size: 1.05rem;
+        line-height: 1.7;
     }
 
     .poem-note-line + .poem-note-line {
-        margin-top: 1.4rem;
+        margin-top: 0.8rem;
     }
 
     .poem-download-button {
-        font-size: 1.45rem;
+        font-size: 1.1rem;
     }
 }
 </style>
