@@ -242,9 +242,6 @@
   pdf: "https://arxiv.org/pdf/2308.16053.pdf"
   doi: 10.1109/TVCG.2023.3326908
 
-
-
-
 - id: advisor
   title: "ADVISor: Automatic Visualization Answer for Natural-Language Question on Tabular Data"
   authors:
@@ -544,6 +541,8 @@
     - CCF 中文顶级期刊
   zh_venue_label:
     - 中文核心 
+  awards:
+    - Best Paper Award
   pages: 1537-1548
   highlight: 0
   pdf: "http://vis.pku.edu.cn/research/publication/chinavis20_dl4vis.pdf"

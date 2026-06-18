@@ -149,8 +149,24 @@ class: home
           <i class="fas fa-desktop" aria-hidden="true"></i> Demo
         </a>
       {% endif %}
+      <a href="javascript:void(0)" class="bibtex-toggle" onclick="toggleBibtex('{{ pub.id }}')">
+        <i class="fas fa-quote-right" aria-hidden="true"></i> BibTeX
+      </a>
       </div>
     {% endif %}
+
+    <div id="bib-{{ pub.id }}" class="bibtex-container" style="display: none;">
+      <pre>{% if pub.bibtex %}{{ pub.bibtex }}{% else %}@{% if pub.type[0] == "Journal" %}article{% else %}inproceedings{% endif %}{ {{ pub.id }},
+  title = { {{ pub.title }} },
+  author = { {% for author in pub.authors %}{{ author }}{% unless forloop.last %} and {% endunless %}{% endfor %} },
+  {% if pub.type[0] == "Journal" %}journal = { {{ pub.venue }} },{% else %}booktitle = { Proceedings of {{ pub.venue }} },{% endif %}
+  year = { {{ pub.year | split: "," | first }} }{% if pub.doi %},
+  doi = { {{ pub.doi }} }{% endif %}{% if pub.pages %},
+  pages = { {{ pub.pages }} }{% endif %}{% if pub.volume %},
+  volume = { {{ pub.volume }} }{% endif %}{% if pub.number %},
+  number = { {{ pub.number }} }{% endif %}
+}{% endif %}</pre>
+    </div>
   </div>
   {% endif %}
   {% endfor %}

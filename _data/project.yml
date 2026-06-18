@@ -3,7 +3,7 @@
   description: "Proteus is a multi-agent framework designed to automatically adapt desktop visualizations for mobile devices."
   description_zh: "一种基于多智能体的可视化自适应框架，用于自动将桌面可视化适配至移动设备。"
   paper: "https://arxiv.org/pdf/2604.23299.pdf"
-  demo: "projects/proteus/"
+  demo: "/projects/proteus/"
   highlight: 1
 
 

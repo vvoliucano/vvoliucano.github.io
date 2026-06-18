@@ -6,7 +6,17 @@
   for (var i=0; i<headers.length; i++) {
     var h = headers[i];
     var name = h.getAttribute("id");
+    if (!name) continue;
     var title = h.innerHTML;
     h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
+  }
+
+  function toggleBibtex(id) {
+    var element = document.getElementById('bib-' + id);
+    if (element.style.display === 'none') {
+      element.style.display = 'block';
+    } else {
+      element.style.display = 'none';
+    }
   }
 </script>
