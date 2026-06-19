@@ -23,48 +23,41 @@ title: Others
 }
 
 .poetry-year-divider {
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #bdc3c7, transparent);
-    margin: 0 auto 3rem auto;
+    display: none;
 }
 
 /* 单首诗的样式 */
 .poetry-item {
     max-width: 800px;
-    margin: 3rem auto;
-    padding: 2.5rem;
-    background: #fefefe;
-    border: 1px solid #e8e8e8;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin: 4rem auto;
+    padding: 3rem;
+    background: #fff;
+    border: 0;
+    border-radius: 4px;
     position: relative;
     transition: all 0.3s ease;
+    /* 中国风淡雅背景：模拟宣纸质感 */
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), transparent),
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.005) 0px, rgba(0,0,0,0.005) 1px, transparent 1px, transparent 2px),
+        linear-gradient(to bottom, #ffffff, #fcfcfc);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
 }
 
 .poetry-item:hover {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
     transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.05);
 }
 
 .poetry-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 3px;
-    background: linear-gradient(90deg, #e74c3c, #f39c12, #e74c3c);
-    border-radius: 0 0 2px 2px;
+    display: none;
 }
 
 /* 诗歌标题区域 */
 .poetry-header {
     text-align: center;
     margin-bottom: 2rem;
-    border-bottom: 1px solid #ecf0f1;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .poetry-title {
@@ -115,11 +108,7 @@ title: Others
 }
 
 .poetry-divider {
-    width: 20px;
-    height: 1px;
-    background: #bdc3c7;
-    margin: 1rem auto;
-    opacity: 0.5;
+    display: none;
 }
 
 .poetry-spacer {
@@ -129,10 +118,9 @@ title: Others
 /* 注释样式 */
 .poetry-notes {
     margin-top: 2rem;
-    padding: 1.5rem;
-    background: #f8f9fa;
-    border-left: 4px solid #e74c3c;
-    border-radius: 0 4px 4px 0;
+    padding: 1.2rem 1.5rem;
+    background: rgba(248, 249, 250, 0.6);
+    border-radius: 4px;
 }
 
 .notes-title {
@@ -160,7 +148,6 @@ title: Others
     justify-content: center;
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid #ecf0f1;
 }
 
 .poetry-image-item {

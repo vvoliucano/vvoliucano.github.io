@@ -10,7 +10,7 @@
   venue: IEEE Pacific Visualization Conference
   awards:
     - Best Paper Award
-  year: 2026, to appear
+  year: "2026, to appear"
   highlight: 2
   doi: https://doi.org/10.48550/arXiv.2601.17736
   pdf: "https://arxiv.org/pdf/2601.17736.pdf"
@@ -27,7 +27,7 @@
     - Kotaro Hara
     - Yong Wang
   venue: IEEE Computer Graphics and Applications
-  year: 2026, to appear
+  year: "2026, to appear"
   highlight: 2
   doi: https://doi.org/10.48550/arXiv.2604.08979
   pdf: "https://arxiv.org/pdf/2604.08979.pdf"
@@ -47,7 +47,7 @@
     - Yong Wang
   venue: ACM Conference on Designing Interactive Systems
   pdf: https://arxiv.org/pdf/2604.23299
-  year: 2026, to appear
+  year: "2026, to appear"
   highlight: 2
   type:
     - Conference
@@ -69,7 +69,7 @@
     - Transactions
   type:
     - Journal
-  year: 2024
+  year: "2024"
   highlight: 2
   volume: 14
   number: 2
@@ -90,7 +90,7 @@
     - Can Liu
     - Jian Zhao
   venue: ACM Conference on Designing Interactive Systems (DIS)
-  year: 2026, to appear
+  year: "2026, to appear"
   type:
     - Conference
 
@@ -104,7 +104,7 @@
     - Yuxiao Yang
     - Yu Zhang
     - Yong Wang
-  year: 2025
+  year: "2025"
   venue: IEEE Visualization and Visual Analytics
   venue_tags:
     - PVIS
@@ -137,7 +137,7 @@
   highlight: 0
   type:
     - Journal
-  year: 2026
+  year: "2026"
   pdf: "https://arXiv.org/abs/2507.17734"
   website: "/projects/DataWink"
   video: "https://youtu.be/hSWl-XKrv88"
@@ -162,7 +162,7 @@
     - Transactions
   type:
     - Journal
-  year: 2025
+  year: "2025"
   highlight: 0
   doi: 10.1109/TVCG.2024.3408255
 
@@ -173,6 +173,7 @@
     - Xiyao Mei
     - Zhibang Jiang
     - Xiaoru Yuan
+  year: "2024"
   type:
     - preprint
   highlight: 0
@@ -186,6 +187,7 @@
     - Jiayi Zhuang
     - Yuchu Luo
     - Xiaoru Yuan
+  year: "2024"
   type:
     - preprint
   highlight: 0
@@ -211,7 +213,7 @@
   highlight: 5
   type:
     - Journal
-  year: 2024
+  year: "2024"
   pdf: "/assets/paper/23-autotitle.pdf"
 
 
@@ -238,12 +240,9 @@
   pages: 551-561
   type:
     - Journal
-  year: 2024
+  year: "2024"
   pdf: "https://arxiv.org/pdf/2308.16053.pdf"
   doi: 10.1109/TVCG.2023.3326908
-
-
-
 
 - id: advisor
   title: "ADVISor: Automatic Visualization Answer for Natural-Language Question on Tabular Data"
@@ -252,7 +251,7 @@
     - Yun Han
     - Ruike Jiang
     - Xiaoru Yuan
-  year: 2021
+  year: "2021"
   venue: IEEE Pacific Visualization Symposium
   highlight: 4
   doi: 10.1109/PacificVis52677.2021.00010
@@ -278,7 +277,7 @@
     - Cong Wu
     - Hanning Shao
     - Xiaoru Yuan
-  year: 2020
+  year: "2020"
   venue: IEEE Transactions on Visualization and Computer Graphics
   venue_tags:
     - TVCG
@@ -302,7 +301,7 @@
     - Yanda Li
     - Changhe Yang
     - Xiaoru Yuan
-  year: 2020
+  year: "2020"
   doi: 10.1007/s12650-019-00608-y
   venue: Journal of Visualization (ChinaVis’19)
   awards:
@@ -329,7 +328,7 @@
     - Yun Han
     - Datong Wei
     - Xiaoru Yuan
-  year: 2020
+  year: "2020"
   venue: IEEE Pacific Visualization Symposium
   venue_tags:
     - PVIS
@@ -360,7 +359,7 @@
     - Yanda Li
     - Fang Wang
     - Xiaoru Yuan
-  year: 2022
+  year: "2022"
   venue: Advances in Aerodynamics
   venue_tags:
     - AIAE
@@ -385,7 +384,7 @@
     - Yun Han
     - Can Liu
     - Xiaoru Yuan
-  year: 2020
+  year: "2020"
   venue: ACM Conference on Human Factors in Computing Systems (CHI 2020) 
   venue_tags:
     - CHI
@@ -423,7 +422,7 @@
     - Journal
   # venue_label:
     # - 中国图象图形学学会顶刊
-  year: 2023
+  year: "2023"
   doi: 10.1007/s44267-023-00015-w
 
 
@@ -433,7 +432,7 @@
     - Fan Hong
     - Can Liu
     - Xiaoru Yuan
-  year: 2019
+  year: "2019"
   venue: IEEE Pacific Visualization Symposium
   venue_tages:
     - VASTChallenge
@@ -462,7 +461,7 @@
     - Yiming Wang
     - Can Liu
     - Xiaoru Yuan
-  year: 2023
+  year: "2023"
   venue: IEEE Pacific Visualization Symposium
   venue_label:
     - EI检索
@@ -488,7 +487,7 @@
     - Yanda Li
     - Can Liu
     - Xiaoru Yuan
-  year: 2019
+  year: "2019"
   venue: Journal of Visualization
   doi: 10.1007/s12650-019-00583-4
   venue_tags:
@@ -528,7 +527,7 @@
     - 林志贤
     - 魏大同
     - 袁晓如
-  year: 2020
+  year: "2020"
   venue: Journal of Computer-Aided Design & Computer Graphics (ChinaVis '20) (In Chinese)
   zh_venue: 计算机辅助设计与图形学学报
   venue_tags:
@@ -544,6 +543,8 @@
     - CCF 中文顶级期刊
   zh_venue_label:
     - 中文核心 
+  awards:
+    - Best Paper Award
   pages: 1537-1548
   highlight: 0
   pdf: "http://vis.pku.edu.cn/research/publication/chinavis20_dl4vis.pdf"
@@ -570,7 +571,7 @@
     - 刘灿
     - 陈思明
     - 袁晓如
-  year: 2023
+  year: "2023"
   venue: Journal of Image and Graphics (In Chinese)
   zh_venue: 中国图象图形学报
   venue_tags:
@@ -604,7 +605,7 @@
     - 谭绍聪
     - 刘灿
     - 袁晓如
-  year: 2022
+  year: "2022"
   venue: Big Data Research (In Chinese)
   zh_venue: 大数据
   venue_tags:
@@ -629,7 +630,7 @@
     - Yu Zhang
     - Cong Wu
     - Xiaoru Yuan
-  year: 2022
+  year: "2022"
   venue: IEEE Pacific Visualization Symposium
   venue_tages:
     - PVIS
@@ -647,7 +648,7 @@
     - Liwenhan Xie
     - Yun Han
     - Xiaoru Yuan
-  year: 2019
+  year: "2019"
   venue: IEEE Pacific Visualization Symposium
   awards:
     - Honorable Mention for Best Poster Award
@@ -668,7 +669,7 @@
     - Yanda Li
     - Changhe Yang
     - Xiaoru Yuan
-  year: 2018
+  year: "2018"
   venue: IEEE SciVis (Best Visualization of Water in Atmosphere, SciVis Contest)
   venue_tages:
     - VIS
@@ -689,7 +690,7 @@
     - Yun Han
     - Ruike Jiang
     - Xiaoru Yuan
-  year: 2019
+  year: "2019"
   venue: IEEE VIS
   awards:
     - Honorable Mention for Best Poster Award
@@ -709,7 +710,7 @@
     - Sihang Li
     - Can Liu
     - Xiaoru Yuan
-  year: 2019
+  year: "2019"
   venue: IEEE Pacific Visualization Symposium
   awards:
     - Best Poster Award
@@ -728,7 +729,7 @@
     - Fan Hong
     - Can Liu
     - Xiaoru Yuan
-  year: 2018
+  year: "2018"
   venue: China Visualization and Visual Analytics Conference 
   venue_tages:
     - ChinaVis

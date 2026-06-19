@@ -1,5 +1,6 @@
 ---
 BUNDLE_PATH: "vendor/bundle"
-BUNDLE_BUILD__EVENTMACHINE: "--with-cxx=clang++ --with-cxxflags=-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1"
+BUNDLE_BUILD__EVENTMACHINE: "--with-cflags=-Wno-error=incompatible-function-pointer-types -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/universal-darwin23"
 BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/: "http://gems.ruby-china.com/"
 BUNDLE_WITHOUT: "development:test"
+BUNDLE_BUILD__HTTP_PARSER__RB: "--with-cflags=-Wno-error=incompatible-function-pointer-types -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/universal-darwin23"

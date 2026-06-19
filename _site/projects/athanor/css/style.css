@@ -1,0 +1,220 @@
+@font-face {
+    font-family: 'Cafe24Behappy';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Behappy.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Cafe24Behappy', sans-serif;
+}
+
+#micSpace {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 10%;
+    top: 50%;
+    z-index: 5px;
+    height: 250px;
+    align-items: end;
+}
+
+#myButton {
+    background-color: white;
+    width: 70px;
+    height: 70px;
+    border-width: 0.1px;
+}
+
+#speechBubble {
+    display: none;
+    width: 80%;
+    height: 100%;
+    position: relative;
+}
+
+#sbImg {
+    width: 450px;
+    opacity: 0.8;
+    z-index: 10px;
+}
+
+#recognizedText {
+    position: absolute;
+    top: 45%;
+    left: 63%;
+    transform: translate(-50%, -50%);
+    font-size: 30px !important;
+    color: black;
+    width: 300px;
+    height: 170px;
+}
+
+/* 팝업 배경 */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+}
+
+/* 팝업 컨테이너 */
+.popup-container {
+    background: white;
+    width: 40vw;
+    height: 50vh;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: row;
+    padding: 10 5 20 25;
+    border-radius: 10px;
+    align-items: center; /* 세로 중앙 정렬 */
+    z-index: 30;
+}
+
+/* 왼쪽 이미지 */
+.popup-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.popup-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 원본 비율 유지 */
+    border-radius: 10px;
+}
+
+/* 오른쪽 컨텐츠 */
+.popup-content {
+    flex: 2;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0.4rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0rem;
+    overflow-y: scroll;
+}
+
+/* popup 그룹 */
+.popup-group-title {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+.popup-group {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 텍스트 */
+.popup-text, .result-text {
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+}
+
+/* 제목 */
+.popup-title {
+    font-size: 0.8rem;
+    width: 100%;
+    height: 45%;
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+/* 설명 영역 */
+.popup-description,
+.popup-interaction {
+    font-size: 0.8rem;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+/* 버튼 영역 */
+.popup-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.2rem;
+}
+
+.popup-buttons button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background: #eee;
+}
+
+.cancel-button:hover {
+    background-color: #ddd;
+}
+
+.share-button, .share-confirm-button, .close-share-result {
+    background: #18A0FB;
+    color: white;
+}
+
+.share-button:hover, .share-confirm-button:hover, .close-share-result:hover {
+    background-color: #0987db;
+}
+
+.share-result {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 1rem;
+    margin: 0.4rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0rem;
+}
+
+.sr-success {
+    margin-top: 2rem;
+}
+
+.sr-group {
+    display: flex;
+    flex-direction: column;
+    height: 3rem;
+    margin-bottom: 1rem;
+}
+
+.sr-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+#result-title, #result-description, #result-link, #gallery-button {
+    font-size: 0.8rem;
+    font-weight: 300;
+}

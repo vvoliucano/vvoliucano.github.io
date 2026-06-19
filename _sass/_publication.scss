@@ -106,144 +106,171 @@
 }
 
 .pubs {
+  padding-top: 2rem;
+
   .pub-year {
-    font-size: 1.3em;
-    margin: 0.7em 0 0.5em 0;
-    border-bottom: none;
-    color: $grey-color;
-  }
-
-  h1, h2, h4, h5, h6 {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .author_me {
-    font-weight: 500;
-  }
-  .publication,
-  .year {
-    opacity: 1;
-    max-height: 600px;
-    overflow: hidden;
-    transition: all 0.6s ease;
-
-    &.hidden {
-      max-height: 0;
-      margin: 0;
-      opacity: 0;
+    font-size: 2.2rem;
+    margin: 3rem 0 1.5rem 0;
+    font-weight: 700;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, #eee, transparent);
     }
+  }
+
+  .year-group {
+    margin-bottom: 4rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .author_me {
+    font-weight: 700;
+    color: #000;
   }
 
   .publication {
-    margin-bottom: 0.5em;
+    position: relative;
+    margin-bottom: 0;
+    padding: 1.8rem;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
 
-    h3 {
-      font-size: 1em;
-      margin: 0.5em 0 0 0;
-      font-weight: $bold-font-weight;
-
-      max-height: 600px;
-      overflow: hidden;
-
-      &.hidden {
-        max-height: 0;
-      }
+    &:hover {
+      transform: translateY(-4px) scale(1.005);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+      border-color: rgba($link-color, 0.1);
     }
 
-    .award-icon {
-      margin-right: 0.2em;
-      font-size: 1.2em;
-
-      &.fa-trophy {
-        color: #ffc000;
-      }
-
-      &.fa-award {
-        color: firebrick;
-      }
+    h3 {
+      font-size: 1.3rem;
+      margin: 0 0 0.6rem 0;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
     }
 
     .authors {
-      // margin-bottom: 0.3em;
-      font-weight: 300;
-      a {
-        color: $text-color;
-      }
-    }
-    .poster_note {
-      font-weight: 300;
-    }
-    .venue,
-    .venue a {
-      color: $grey-color;
-      font-size: 0.9em;
+      font-weight: 400;
+      color: #4b5563;
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
-    .awards {
-      margin-top: 0.1em;
-      font-weight: $bold-font-weight;
-      color: firebrick;
+    .venue {
+      color: #6b7280;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      font-style: normal;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      
+      i {
+        font-style: italic;
+        color: #374151;
+      }
     }
 
     .award-badge {
       display: inline-flex;
       align-items: center;
-      padding: 1px 6px;
-      border-radius: 4px;
-      font-size: 0.85em;
-      font-weight: 600;
-      margin-left: 6px;
-      vertical-align: text-top;
-
-      i {
-        margin-right: 4px;
-      }
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-left: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
 
       &.award-best {
-        background-color: rgba(255, 192, 0, 0.15);
-        color: #d4a017;
-        border: 1px solid rgba(255, 192, 0, 0.3);
+        background-color: #fffbeb;
+        color: #b45309;
+        border: 1px solid #fde68a;
+        box-shadow: 0 2px 4px rgba(251, 191, 36, 0.1);
       }
 
       &.award-honor {
-        background-color: rgba(178, 34, 34, 0.1);
-        color: firebrick;
-        border: 1px solid rgba(178, 34, 34, 0.2);
+        background-color: #fef2f2;
+        color: #b91c1c;
+        border: 1px solid #fecaca;
       }
-    }
-
-    .tweet {
-      &:hover {
-        text-decoration: none;
-
-        .message {
-          text-decoration: underline;
-        }
-      }
-      .message {
-        font-size: 0.9em;
-        font-style: italic;
-        color: $grey-color;
-      }
-    }
-
-    p {
-      margin-bottom: 0;
     }
 
     .extra-links {
-      // margin-top: 0.5em;
-      font-weight: 300;
-      font-size: 0.8em;
+      margin-top: auto;
+      padding-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
 
       a {
-        margin-right: 1em;
-        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #4b5563;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 6px 14px;
+        background: #f9fafb;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border: 1px solid #e5e7eb;
 
         &:hover {
-          text-decoration: none;
-          border-bottom: 1px solid $link-color;
+          background: #fff;
+          color: $link-color;
+          border-color: $link-color;
+          box-shadow: 0 4px 6px -1px rgba($link-color, 0.1);
         }
+
+        i {
+          font-size: 1rem;
+        }
+      }
+
+      .bibtex-toggle {
+        background: rgba($link-color, 0.05);
+        color: $link-color;
+        border-color: rgba($link-color, 0.1);
+        
+        &:hover {
+          background: $link-color;
+          color: #fff;
+        }
+      }
+    }
+
+    .bibtex-container {
+      margin-top: 1.5rem;
+      background: #1e293b;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: none;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+      
+      pre {
+        margin: 0;
+        font-family: 'Fira Code', 'Cascadia Code', monospace;
+        font-size: 0.85rem;
+        color: #e2e8f0;
+        line-height: 1.6;
       }
     }
   }

@@ -45,33 +45,40 @@ class: pubs
 
 ## 会议及期刊论文
 
-{% assign pubyears = site.data.publication | group_by:"year" %}
-{% for year in pubyears %}
-{%-assign yeartitle = year.name | floor-%}
+{% assign sorted_pubs = site.data.publication | sort: 'year' | reverse %}
+{% assign grouped_pubs = sorted_pubs | group_by: 'year' %}
 
-
-{:#y{{ year.name }} .year}
-{% for pub in year.items %}
-  {% if pub.type[0]=="Journal" or pub.type[0]=="Conference" %} 
-  {% include publication.html pub=pub %}
-  {% endif %}
+{% for group in grouped_pubs %}
+  <h3 class="pub-year">{{ group.name }}</h3>
+  <div class="year-group">
+    {% for pub in group.items %}
+      {% if pub.type[0] == "Journal" or pub.type[0] == "Conference" %}
+        {% include publication.html pub=pub %}
+      {% endif %}
+    {% endfor %}
+  </div>
 {% endfor %}
-{% endfor %}
-
 
 ## 海报及其它发表物
 
-{% assign pubyears = site.data.publication | group_by:"year" %}
-{% for year in pubyears %}
-{%-assign yeartitle = year.name | floor-%}
+{% for group in grouped_pubs %}
+  {% assign has_posters = false %}
+  {% for pub in group.items %}
+    {% if pub.type[0] == "Poster" or pub.type[0] == "Notes" or pub.type[0] == "preprint" %}
+      {% assign has_posters = true %}
+    {% endif %}
+  {% endfor %}
 
-
-{:#y{{ year.name }} .year}
-{% for pub in year.items %}
-  {% if pub.type[0]=="Poster" %} 
-  {% include publication.html pub=pub %}
+  {% if has_posters %}
+    <h3 class="pub-year">{{ group.name }}</h3>
+    <div class="year-group">
+      {% for pub in group.items %}
+        {% if pub.type[0] == "Poster" or pub.type[0] == "Notes" or pub.type[0] == "preprint" %}
+          {% include publication.html pub=pub %}
+        {% endif %}
+      {% endfor %}
+    </div>
   {% endif %}
-{% endfor %}
 {% endfor %}
 
 

@@ -3,7 +3,7 @@
 <div class="spacer"></div>
 <div class="links-wrapper">
   {% if project.doi %}
-  <div> <a target="_blank" href="https://doi.org/{{ pub.doi }}"><i class="fas fa-book" aria-hidden="true"></i> DOI</a></div>
+  <div> <a target="_blank" href="https://doi.org/{{ project.doi }}"><i class="fas fa-book" aria-hidden="true"></i> DOI</a></div>
   {% elsif project.paper %}
   <div>  <a href="{{ project.paper }}" target="_blank"><i class="far fa-file-pdf"></i> Paper</a></div>
   {% endif %}

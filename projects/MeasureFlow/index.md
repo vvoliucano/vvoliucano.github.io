@@ -32,7 +32,7 @@ Liwenhan Xie, James O’Donnell, Benjamin Bach, and Jean-Daniel Fekete. 2020. In
     pages = {9},
     series = {AVI'20},
     doi = {10.1145/3399715.3399922},
-    url = {https://doi.org/10.1145/3399715.3399922}
+    url = {https://doi.org/10.1145/3399715.3399922},
     publisher = {Association for Computing Society},
     address = {New York, NY, USA}
 }

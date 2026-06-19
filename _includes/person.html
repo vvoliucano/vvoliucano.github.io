@@ -1,2 +1,1 @@
-{%- assign data = site.data.people[include.person] -%}{%- if data.url -%}<a href="{{ data.url }}" target="_blank">{%- if data.me -%}<b>{{ include.person}}</b>{%- else -%}{{
-include.person}}{%- endif -%}</a>{%- else -%}{{ include.person}}{%- endif -%}
+{%- assign data = site.data.people[include.person] -%}{%- if data.url -%}<a href="{{ data.url }}" target="_blank">{%- if data.me -%}<strong class="author_me">{{ include.person}}</strong>{%- else -%}{{ include.person}}{%- endif -%}</a>{%- else -%}{%- if data.me -%}<strong class="author_me">{{ include.person}}</strong>{%- else -%}{{ include.person}}{%- endif -%}{%- endif -%}
