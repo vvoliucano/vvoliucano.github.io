@@ -1,3 +1,4 @@
 /vendor/*
 assets/.DS_Store
-/.ruby_include/
+projects/.DS_Store
+.DS_Store
