@@ -43,44 +43,18 @@ class: pubs
 
 <!-- <input id="ft-search" type="search" placeholder="Search papers..." /> -->
 
-## 会议及期刊论文
+{% assign grouped_pubs = site.data.publication | group_by: 'year' | sort: 'name' | reverse %}
 
-{% assign sorted_pubs = site.data.publication | sort: 'year' | reverse %}
-{% assign grouped_pubs = sorted_pubs | group_by: 'year' %}
-
+<div markdown="0">
 {% for group in grouped_pubs %}
-  <h3 class="pub-year">{{ group.name }}</h3>
+  <h3 class="pub-year year" id="y{{ group.name }}">{{ group.name }}</h3>
   <div class="year-group">
     {% for pub in group.items %}
-      {% if pub.type[0] == "Journal" or pub.type[0] == "Conference" %}
-        {% include publication.html pub=pub %}
-      {% endif %}
+      {% include publication.html pub=pub %}
     {% endfor %}
   </div>
 {% endfor %}
-
-## 海报及其它发表物
-
-{% for group in grouped_pubs %}
-  {% assign has_posters = false %}
-  {% for pub in group.items %}
-    {% if pub.type[0] == "Poster" or pub.type[0] == "Notes" or pub.type[0] == "preprint" %}
-      {% assign has_posters = true %}
-    {% endif %}
-  {% endfor %}
-
-  {% if has_posters %}
-    <h3 class="pub-year">{{ group.name }}</h3>
-    <div class="year-group">
-      {% for pub in group.items %}
-        {% if pub.type[0] == "Poster" or pub.type[0] == "Notes" or pub.type[0] == "preprint" %}
-          {% include publication.html pub=pub %}
-        {% endif %}
-      {% endfor %}
-    </div>
-  {% endif %}
-{% endfor %}
-
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/itemsjs@1.0.40/dist/itemsjs.min.js"></script>
 

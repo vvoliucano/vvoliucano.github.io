@@ -109,10 +109,10 @@
   padding-top: 2rem;
 
   .pub-year {
-    font-size: 2.2rem;
-    margin: 3rem 0 1.5rem 0;
-    font-weight: 700;
-    color: #1a1a1a;
+    font-size: 1.8rem;
+    margin: 2.5rem 0 1.2rem 0;
+    font-weight: 600;
+    color: #2c3e50;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -121,88 +121,94 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, #eee, transparent);
+      background: linear-gradient(90deg, #eaeaea, transparent);
     }
   }
 
   .year-group {
-    margin-bottom: 4rem;
+    margin-bottom: 3.5rem;
     display: grid;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .author_me {
-    font-weight: 700;
-    color: #000;
+    font-weight: 600;
+    color: #111827;
   }
 
   .publication {
     position: relative;
     margin-bottom: 0;
-    padding: 1.8rem;
-    border-radius: 12px;
+    padding: 1.4rem;
+    border-radius: 10px;
     background: #fff;
-    border: 1px solid #f2f2f2;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+    border: 1px solid #eaeaea;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.02);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
 
     &:hover {
-      transform: translateY(-4px) scale(1.005);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-      border-color: rgba($link-color, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+      border-color: rgba($link-color, 0.15);
     }
 
     h3 {
-      font-size: 1.3rem;
-      margin: 0 0 0.6rem 0;
-      font-weight: 700;
-      color: #1a1a1a;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
+      font-size: 1.15rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+      color: #1f2937;
+      line-height: 1.4;
+      letter-spacing: 0;
     }
 
     .authors {
       font-weight: 400;
       color: #4b5563;
-      margin-bottom: 0.6rem;
-      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
       line-height: 1.5;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     .venue {
       color: #6b7280;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       margin-bottom: 1rem;
-      font-weight: 500;
+      font-weight: 400;
       font-style: normal;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      line-height: 1.5;
       
       i {
         font-style: italic;
-        color: #374151;
+        color: #4b5563;
       }
     }
 
     .award-badge {
       display: inline-flex;
       align-items: center;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-left: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-left: 0.6rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.02em;
 
       &.award-best {
         background-color: #fffbeb;
         color: #b45309;
         border: 1px solid #fde68a;
-        box-shadow: 0 2px 4px rgba(251, 191, 36, 0.1);
       }
 
       &.award-honor {
@@ -214,21 +220,21 @@
 
     .extra-links {
       margin-top: auto;
-      padding-top: 1.2rem;
+      padding-top: 1rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.6rem;
 
       a {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.4rem;
         color: #4b5563;
-        font-size: 0.85rem;
-        font-weight: 600;
-        padding: 6px 14px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 4px 12px;
         background: #f9fafb;
-        border-radius: 8px;
+        border-radius: 6px;
         text-decoration: none;
         transition: all 0.2s ease;
         border: 1px solid #e5e7eb;
