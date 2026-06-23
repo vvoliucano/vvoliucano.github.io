@@ -1,7 +1,7 @@
 {% capture anchor %}{% if pub.id %}{{ pub.id }}{% else %}{{ (pub.title | slugify) }}{% endif %}{% endcapture %}
 
 <div class="publication" data-pub='{{ pub | jsonify | escape }}'>
-  <h3 id="{{ anchor }}"><strong>{{ pub.title }}</strong>
+  <h3 id="{{ anchor }}">{{ pub.title }}
     {% for award in pub.awards %}
       <span class="award-badge award-{% if award == "Best Paper Award" %}best{% else %}honor{% endif %}">
         <i class="fas fa-{% if award == "Best Paper Award" %}trophy{% else %}award{% endif %}"></i> {{ award }}
@@ -25,8 +25,6 @@
         {% if pub.location %}{{pub.location}}, {% endif %}
         {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
         {% if pub.accept %}Accepted, {% endif %}
-        {% if pub.type[0]=="Poster" %}Poster, {% endif %}
-        {% if pub.notes %}Notes, {% endif %}
         {{pub.year}}.
       {% elsif pub.type[0] == "Poster" %}
         In <i>Poster Proceedings of {{pub.venue}}.</i>
@@ -35,9 +33,9 @@
         {% if pub.location %}{{pub.location}}, {% endif %}
         {% if pub.venue_dates %}{{pub.venue_dates}}, {% endif %}
         {% if pub.accept %}Accepted, {% endif %}
-        {% if pub.type[0]=="Poster" %}Poster, {% endif %}
-        {% if pub.type[0]=="Notes" %}Notes, {% endif %}
-        {{pub.year}}.
+        Poster, {{pub.year}}.
+      {% elsif pub.type[0] == "preprint" %}
+        Preprint, {{pub.year}}.
       {%- endif -%}
     </div>
   {% endif %}

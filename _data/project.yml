@@ -112,12 +112,7 @@
   description_zh: "基于深度学习的三维模拟数据体渲染最佳视角选取方法。"
   paper: "http://vis.pku.edu.cn/research/publication/JOV_dlbv_Changhe.pdf"
 
-- id: MeasureFlow
-  title: "Interative Time-Series of Measures for Exploring Dynamic Networks"
-  image: teaser.png
-  description: "MeasureFlow is an interface to visually and interactively explore dynamic networks through time-series of network measures."
-  paper: "https://doi.org/10.1145/3399715.3399922"
-  highlight: 0
+
 
 # - title: Auto-Caption
 #   image: 19-AutoCap.gif

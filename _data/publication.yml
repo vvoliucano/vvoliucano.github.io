@@ -1,3 +1,22 @@
+- id: proteus
+  title: "Proteus: Shapeshifting Desktop Visualizations for Mobile via Multi-level Intelligent Adaptation"
+  authors:
+    - Can Liu
+    - Sizhe Cheng
+    - Feng Liang
+    - Zhibang Jiang
+    - Lingru Huang
+    - Kavinda Athapaththu
+    - Yong Wang
+  venue: ACM Conference on Designing Interactive Systems
+  pdf: https://arxiv.org/pdf/2604.23299
+  link: /projects/proteus/
+  year: "2026"
+  highlight: 2
+  type:
+    - Conference
+
+
 - id: author_inter
   title: "From Static to Interactive: Authoring Interactive Visualizations via Natural Language"
   authors:
@@ -10,7 +29,7 @@
   venue: IEEE Pacific Visualization Conference
   awards:
     - Best Paper Award
-  year: "2026, to appear"
+  year: "2026"
   highlight: 2
   doi: https://doi.org/10.48550/arXiv.2601.17736
   pdf: "https://arxiv.org/pdf/2601.17736.pdf"
@@ -27,7 +46,7 @@
     - Kotaro Hara
     - Yong Wang
   venue: IEEE Computer Graphics and Applications
-  year: "2026, to appear"
+  year: "2026"
   highlight: 2
   doi: https://doi.org/10.48550/arXiv.2604.08979
   pdf: "https://arxiv.org/pdf/2604.08979.pdf"
@@ -35,22 +54,6 @@
     - Journal
 
 
-- id: proteus
-  title: "Proteus: Shapeshifting Desktop Visualizations for Mobile via Multi-level Intelligent Adaptation"
-  authors:
-    - Can Liu
-    - Sizhe Cheng
-    - Feng Liang
-    - Zhibang Jiang
-    - Lingru Huang
-    - Kavinda Athapaththu
-    - Yong Wang
-  venue: ACM Conference on Designing Interactive Systems
-  pdf: https://arxiv.org/pdf/2604.23299
-  year: "2026, to appear"
-  highlight: 2
-  type:
-    - Conference
 
 
 - id: spatial_layout
@@ -80,7 +83,6 @@
   demo: /projects/spatialconstraint/
 
 
-
 - id: mindtrellis
   title: "MindTrellis: Co-Creating Knowledge Structures with AI through Interactive Visual Exploration"
   authors:
@@ -90,7 +92,7 @@
     - Can Liu
     - Jian Zhao
   venue: ACM Conference on Designing Interactive Systems (DIS)
-  year: "2026, to appear"
+  year: "2026"
   type:
     - Conference
 
