@@ -1,5 +1,6 @@
 - id: proteus
   title: "Proteus: Shapeshifting Desktop Visualizations for Mobile via Multi-level Intelligent Adaptation"
+  image: proteus.png
   authors:
     - Can Liu
     - Sizhe Cheng
@@ -58,6 +59,7 @@
 
 - id: spatial_layout
   title: "A Spatial-Constraint Model for Activating Static Visualizations"
+  image: 24_spatial_constraint.gif
   authors:
     - Can Liu
     - Yu Zhang
@@ -120,6 +122,7 @@
 
 - id: datawink
   title: "DataWink: Reusing and Adapting SVG-based Visualization Examples with Large Multimodal Models"
+  image: datawink.gif
   authors:
     - Liwenhan Xie
     - Yanna Lin
@@ -146,6 +149,7 @@
 
 - id: prompt
   title: "PrompTHis: Visualizing the Process and Influence of Prompt Editing during Text-to-Image Creation"
+  image: prompthis.webp
   authors:
     - Yuhan Guo
     - Hanning Shao
@@ -198,6 +202,7 @@
 
 - id: autotitle
   title: "AutoTitle: An Interactive Title Generator for Visualizations"
+  image: 23_title.jpg
   authors:
     - Can Liu
     - Yuhan Guo
@@ -221,6 +226,7 @@
 
 - id: oldvisonline
   title: "OldVisOnline: Curating a Dataset of Historical Visualizations"
+  image: 24-oldvis.png
   authors:
     - Yu Zhang
     - Ruike Jiang
@@ -274,6 +280,7 @@
 
 - id: smartcube
   title: "SmartCube: An Adaptive Data Management Architecture for the Real-Time Visualization of Spatiotemporal Datasets"
+  image: 20-smartcube.png
   authors:
     - Can Liu
     - Cong Wu
@@ -298,6 +305,7 @@
 
 - id: eventbased
   title: "Event-Based Exploration and Comparison on Time-Varying Ensembles"
+  image: 18-asteroid.gif
   authors:
     - Can Liu
     - Yanda Li
@@ -324,6 +332,7 @@
 
 - id: autocaption
   title: "AutoCaption: An Approach to Generate Natural Language Description from Visualization Automatically"
+  image: 19-AutoCap.gif
   authors:
     - Can Liu
     - Liwenhan Xie
@@ -430,6 +439,7 @@
 
 - id: dnnvolvis
   title: "DNN-VolVis: Interactive Volume Visualization Supported by Deep Neural Network"
+  image: 19_dnnvolvis.gif
   authors:
     - Fan Hong
     - Can Liu
@@ -456,6 +466,7 @@
 
 - id: wikiedit
   title: "Edit-History Vis: An Interactive Visual Exploration and Analysis on Wikipedia Edit History"
+  image: edit-history-vis.webp
   authors:
     - Yuhan Guo
     - Qin Han
@@ -484,6 +495,7 @@
 
 - id: viewpoint
   title: "Deep Learning-Based Viewpoint Recommendation in Volume Visualization"
+  image: 19_bestview.png
   authors:
     - Changhe Yang
     - Yanda Li
@@ -627,6 +639,7 @@
 
 - id: DMvis
   title: "Direct Manipulation of Static Visualizations"
+  image: 24_spatial_constraint.gif
   authors:
     - Can Liu
     - Yu Zhang
@@ -645,6 +658,7 @@
 
 - id: AutoCap
   title: "Automatic Caption Genertion for SVG Charts"
+  image: 19-AutoCap.gif
   authors:
     - Can Liu
     - Liwenhan Xie
@@ -666,6 +680,7 @@
 
 - id: Asteroid
   title: "Interactive Visual Exploration and Comparison on the Effect of Asteroid Impacts"
+  image: 18-asteroid.gif
   authors:
     - Can Liu
     - Yanda Li
@@ -727,6 +742,7 @@
 
 - id: Goal-Oriented
   title: "Goal-Oriented Volume Visualization through Deep Neural Networks"
+  image: 19_dnnvolvis.gif
   authors:
     - Fan Hong
     - Can Liu
@@ -740,4 +756,3 @@
     - Poster
   highlight: 0
   venue_dates: June. 25-28
-
