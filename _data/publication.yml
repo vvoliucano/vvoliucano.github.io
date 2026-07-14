@@ -31,6 +31,7 @@
   awards:
     - Best Paper Award
   year: "2026"
+  image: author_inter.png
   highlight: 2
   doi: https://doi.org/10.48550/arXiv.2601.17736
   pdf: "https://arxiv.org/pdf/2601.17736.pdf"
