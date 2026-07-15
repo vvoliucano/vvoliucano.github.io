@@ -12,6 +12,7 @@
   venue: ACM Conference on Designing Interactive Systems
   pdf: https://arxiv.org/pdf/2604.23299
   link: /projects/proteus/
+  pages: 4874-4891
   year: "2026"
   highlight: 2
   type:
@@ -32,6 +33,7 @@
     - Best Paper Award
   year: "2026"
   image: author_inter.png
+  pages: 113-123
   highlight: 2
   doi: https://doi.org/10.48550/arXiv.2601.17736
   pdf: "https://arxiv.org/pdf/2601.17736.pdf"
@@ -100,6 +102,7 @@
   pdf: "https://dl.acm.org/doi/epdf/10.1145/3800645.3813045"
   doi: 10.1145/3800645.3813045
   image: 26_MindTrellis.png
+  pages: 4892-4912
   type:
     - Conference
 
@@ -122,6 +125,8 @@
   venue_label:
     - CCF A
   highlight: 2
+  pages: 26-30
+  doi: 10.1109/VIS60296.2025.00010
   pdf: "https://arxiv.org/pdf/2506.21319"
   code: "https://github.com/VIDA-Lab/SimVecVis"
   image: 25_simvec.png
