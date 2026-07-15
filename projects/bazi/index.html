@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="基于 lunar-javascript 的静态八字、大运与流年排盘工具。">
+  <meta name="theme-color" content="#f6f7fb">
+  <title>八字排盘｜四柱·大运·流年</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../" aria-label="返回项目列表">
+      <span class="brand-mark">命</span>
+      <span>八字排盘</span>
+    </a>
+    <p>四柱 · 大运 · 流年</p>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">生辰入局，节气为界</p>
+        <h1 id="page-title">从一个时辰，<br><em>展开一生岁序</em></h1>
+      </div>
+      <p class="hero-copy">输入公历出生时间，即刻生成四柱八字、藏干十神、起运时间，以及逐步大运与对应流年。所有计算都在你的浏览器中完成。</p>
+    </section>
+
+    <div class="workspace">
+      <aside class="input-panel" aria-labelledby="input-title">
+        <div class="section-heading compact">
+          <span>壹</span>
+          <div>
+            <p>出生信息</p>
+            <h2 id="input-title">起盘</h2>
+          </div>
+        </div>
+
+        <form id="bazi-form">
+          <label class="field">
+            <span>公历日期</span>
+            <input id="birth-date" name="birth-date" type="date" value="1994-12-18" required>
+          </label>
+          <label class="field">
+            <span>出生时间</span>
+            <input id="birth-time" name="birth-time" type="time" value="17:20" required>
+          </label>
+
+          <fieldset class="choice-field">
+            <legend>性别 <small>影响大运顺逆</small></legend>
+            <div class="segmented">
+              <label><input type="radio" name="gender" value="1" checked><span>男</span></label>
+              <label><input type="radio" name="gender" value="0"><span>女</span></label>
+            </div>
+          </fieldset>
+
+          <label class="field">
+            <span>晚子时换日</span>
+            <select id="sect" name="sect">
+              <option value="2" selected>23:00 仍算当日</option>
+              <option value="1">23:00 算次日</option>
+            </select>
+          </label>
+
+          <button class="primary-button" type="submit">
+            <span>排盘</span><span aria-hidden="true">→</span>
+          </button>
+          <button class="text-button" type="button" id="example-button">恢复示例时间</button>
+        </form>
+
+        <div class="method-note">
+          <p class="seal">注</p>
+          <p>按出生地民用时间计算，未校正真太阳时。八字年柱以立春交接时刻为界，月柱以节气交接时刻为界。</p>
+        </div>
+      </aside>
+
+      <section class="results" aria-live="polite" aria-busy="false">
+        <div id="error-message" class="error-message" role="alert" hidden></div>
+
+        <div id="result-content">
+          <section class="overview-card" aria-labelledby="overview-title">
+            <div>
+              <p class="overline">本命排盘</p>
+              <h2 id="overview-title">四柱八字</h2>
+              <p id="lunar-label" class="lunar-label"></p>
+            </div>
+            <dl class="overview-meta">
+              <div><dt>公历</dt><dd id="solar-label"></dd></div>
+              <div><dt>生肖</dt><dd id="zodiac-label"></dd></div>
+              <div><dt>起运</dt><dd id="yun-label"></dd></div>
+            </dl>
+          </section>
+
+          <section class="network-section" aria-labelledby="network-title">
+            <div class="network-heading-row">
+              <div class="section-heading">
+                <span>贰</span>
+                <div><p>本命为核 · 岁运为势</p><h2 id="network-title">命盘关系网络</h2></div>
+              </div>
+              <div class="age-control">
+                <div class="age-control-head">
+                  <span id="age-caption">33 岁 · 2026 丙午</span>
+                  <div class="age-actions">
+                    <button id="age-play-button" type="button" aria-pressed="false" aria-label="播放年龄变化">
+                      <span class="play-icon" aria-hidden="true">▶</span><span class="play-label">播放</span>
+                    </button>
+                    <button id="current-year-button" type="button">回到今年</button>
+                  </div>
+                </div>
+                <input id="age-slider" type="range" min="5" max="100" step="1" value="33" aria-label="拖动年龄，观察大运与流年变化">
+                <span class="age-scale"><i>5岁</i><i>年龄</i><i>100岁</i></span>
+              </div>
+            </div>
+            <div class="network-layout">
+              <div class="network-visual">
+                <svg id="bazi-network" viewBox="0 0 800 650" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                  <title id="network-svg-title">八字、大运与流年的十神关系网络</title>
+                  <desc id="network-svg-desc">日主位于中心，本命七字位于内圈，大运和流年位于外圈；连线标注相对日主的十神关系。</desc>
+                </svg>
+                <div class="network-legend" aria-label="网络图例">
+                  <span class="legend-group" aria-label="圈层与连线">
+                    <span><i class="legend-line birth-line"></i>本命</span>
+                    <span><i class="legend-line dayun-line"></i>大运</span>
+                    <span><i class="legend-line annual-line"></i>流年</span>
+                  </span>
+                  <span class="legend-group element-legend" aria-label="五行颜色">
+                    <span><i class="legend-dot wood-dot"></i>木</span>
+                    <span><i class="legend-dot fire-dot"></i>火</span>
+                    <span><i class="legend-dot earth-dot"></i>土</span>
+                    <span><i class="legend-dot metal-dot"></i>金</span>
+                    <span><i class="legend-dot water-dot"></i>水</span>
+                  </span>
+                </div>
+              </div>
+              <aside class="network-analysis" aria-labelledby="analysis-title">
+                <p class="overline">关系强度</p>
+                <h3 id="analysis-title">此刻的力量结构</h3>
+                <dl class="network-summary">
+                  <div><dt>日主象征</dt><dd id="daymaster-tone"></dd></div>
+                  <div><dt>命格主星</dt><dd id="primary-star-tone"></dd></div>
+                  <div><dt>月令副星</dt><dd id="secondary-star-tone"></dd></div>
+                  <div><dt>本命主调</dt><dd id="natal-tone"></dd></div>
+                  <div><dt>大运增势</dt><dd id="dayun-trend"></dd></div>
+                  <div><dt>流年增势</dt><dd id="current-trend"></dd></div>
+                  <div><dt>五行态势</dt><dd id="element-trend"></dd></div>
+                </dl>
+                <div class="polarity-axis" aria-hidden="true"><span>阴</span><i>关系</i><span>阳</span></div>
+                <div id="strength-bars" class="strength-bars" aria-label="五行生克关系的阴阳相对力量"></div>
+                <div class="strength-legend"><span><i></i>本命基线</span><span><b></b>所选年份</span></div>
+                <div class="cloud-heading"><span>十神词云</span><i>词语越大，力量越显</i></div>
+                <div id="ten-god-cloud" class="ten-god-cloud" aria-label="随年龄变化的十神特质词云"></div>
+              </aside>
+            </div>
+            <p class="network-method">主星按月干判断，副星按月令主气判断。节点越大，表示相对权重越高；强弱指数用于比较趋势，不等同于完整的旺衰或格局定论。</p>
+          </section>
+
+          <section class="chart-section" aria-labelledby="chart-title">
+            <div class="section-heading">
+              <span>叁</span>
+              <div><p>命式</p><h2 id="chart-title">四柱详盘</h2></div>
+            </div>
+            <div id="pillar-grid" class="pillar-grid"></div>
+            <div id="auxiliary-grid" class="auxiliary-grid"></div>
+          </section>
+
+          <section class="fortune-section" aria-labelledby="dayun-title">
+            <div class="section-heading">
+              <span>肆</span>
+              <div><p>十年一步</p><h2 id="dayun-title">大运</h2></div>
+            </div>
+            <div class="yun-summary">
+              <p id="direction-label"></p>
+              <button id="print-button" class="print-button" type="button">打印排盘</button>
+            </div>
+            <div id="dayun-list" class="dayun-list" role="list" aria-label="大运列表"></div>
+          </section>
+
+          <section class="annual-section" aria-labelledby="liunian-title">
+            <div class="section-heading">
+              <span>伍</span>
+              <div><p id="liunian-kicker">逐年行看</p><h2 id="liunian-title">流年</h2></div>
+            </div>
+            <div id="liunian-list" class="liunian-list"></div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>历法计算：<a href="https://github.com/6tail/lunar-javascript" target="_blank" rel="noreferrer">lunar-javascript v1.7.7</a> · 神煞规则：<a href="https://github.com/chxb/shensha" target="_blank" rel="noreferrer">chxb/shensha</a></p>
+    <p>传统文化资料仅供研究与参考，请勿将排盘结果作为现实决策依据。</p>
+  </footer>
+
+  <div id="shensha-tooltip" class="shensha-tooltip" role="tooltip" hidden></div>
+
+  <script src="lunar.js"></script>
+  <script src="shensha.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
