@@ -189,6 +189,7 @@
   type:
     - preprint
   highlight: 0
+  pdf: https://arxiv.org/abs/2407.16331
 
 - id: nlmanipulate
   title: "In-Situ Visualization Manipulation with Natural Language Queries"
@@ -203,6 +204,7 @@
   type:
     - preprint
   highlight: 0
+  pdf: https://arxiv.org/abs/2404.06039
 
 
 
@@ -390,6 +392,7 @@
     - EI检索
   doi: 10.1186/s42774-022-00113-1
   pdf: "https://aia.springeropen.com/counter/pdf/10.1186/s42774-022-00113-1.pdf"
+  image: 23_dlflowvis.png
 
 
 - id: autoannotation
@@ -418,9 +421,6 @@
 
 
 
-
-
-
 - id: transition_bars
   title: "Understanding Transitions in Animated Bar Charts"
   authors:
@@ -441,6 +441,8 @@
     # - 中国图象图形学学会顶刊
   year: "2023"
   doi: 10.1007/s44267-023-00015-w
+  pdf: https://link.springer.com/article/10.1007/s44267-023-00015-w
+  image: 23_transition_bar.png
 
 
 - id: dnnvolvis
