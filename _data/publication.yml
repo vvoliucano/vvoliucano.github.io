@@ -195,6 +195,7 @@
     - preprint
   highlight: 0
   pdf: https://arxiv.org/abs/2407.16331
+  image: 23_autolegend.png
 
 - id: nlmanipulate
   title: "In-Situ Visualization Manipulation with Natural Language Queries"
