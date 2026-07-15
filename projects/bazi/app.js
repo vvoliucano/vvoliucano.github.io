@@ -888,8 +888,18 @@
     if (!document.addEventListener) return;
     var tooltip = $("#shensha-tooltip");
     var activeTarget = null;
+    var pinned = false;
+    var coarsePointer = window.matchMedia && window.matchMedia("(hover: none), (pointer: coarse)");
+    function isTapMode() { return coarsePointer && coarsePointer.matches; }
+    function closeTooltip() {
+      if (activeTarget) activeTarget.setAttribute("aria-expanded", "false");
+      activeTarget = null;
+      pinned = false;
+      tooltip.hidden = true;
+      tooltip.classList.remove("is-pinned");
+    }
     function positionTooltip(event) {
-      if (!activeTarget || tooltip.hidden) return;
+      if (!activeTarget || tooltip.hidden || pinned) return;
       var padding = 12;
       var x = event.clientX + 16;
       var y = event.clientY + 18;
@@ -899,10 +909,11 @@
       tooltip.style.left = Math.max(padding, x) + "px";
       tooltip.style.top = Math.max(padding, y) + "px";
     }
-    document.addEventListener("pointerover", function (event) {
-      var target = event.target.closest && event.target.closest("[data-shensha], [data-ten-god]");
-      if (!target) return;
+    function showTooltip(target, event, shouldPin) {
+      if (activeTarget && activeTarget !== target) activeTarget.setAttribute("aria-expanded", "false");
       activeTarget = target;
+      pinned = Boolean(shouldPin);
+      target.setAttribute("aria-expanded", "true");
       if (target.dataset.tenGod) {
         var god = target.dataset.tenGod;
         tooltip.innerHTML = '<strong>' + escapeHtml(god + " · " + GOD_GROUPS[god]) + '</strong>' +
@@ -921,14 +932,33 @@
           '<small>神煞仅作传统文化辅助参考，不能脱离五行、十神、旺衰和现实情况单独判断。</small>';
       }
       tooltip.hidden = false;
+      tooltip.classList.toggle("is-pinned", pinned);
       positionTooltip(event);
+    }
+    document.addEventListener("pointerover", function (event) {
+      if (isTapMode() || pinned) return;
+      var target = event.target.closest && event.target.closest("[data-shensha], [data-ten-god]");
+      if (!target) return;
+      showTooltip(target, event, false);
     });
     document.addEventListener("pointermove", positionTooltip);
     document.addEventListener("pointerout", function (event) {
-      if (!activeTarget || (event.relatedTarget && event.relatedTarget.closest && event.relatedTarget.closest("[data-shensha], [data-ten-god]") === activeTarget)) return;
-      activeTarget = null;
-      tooltip.hidden = true;
+      if (pinned || !activeTarget || (event.relatedTarget && event.relatedTarget.closest && event.relatedTarget.closest("[data-shensha], [data-ten-god]") === activeTarget)) return;
+      closeTooltip();
     });
+    document.addEventListener("click", function (event) {
+      if (!isTapMode()) return;
+      var target = event.target.closest && event.target.closest("[data-shensha], [data-ten-god]");
+      if (target) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (pinned && activeTarget === target) closeTooltip();
+        else showTooltip(target, event, true);
+        return;
+      }
+      if (pinned && !event.target.closest("#shensha-tooltip")) closeTooltip();
+    }, true);
+    window.addEventListener("resize", function () { if (pinned && !isTapMode()) closeTooltip(); });
   })();
 
   applyUrlParameters();

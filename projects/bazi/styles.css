@@ -550,6 +550,17 @@ input:focus, select:focus { border-color: var(--red); box-shadow: 0 0 0 2px rgba
 
 [data-ten-god] { cursor: help; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 28%, transparent); text-decoration-style: dotted; text-underline-offset: 3px; }
 
+@media (hover: none), (pointer: coarse) {
+  [data-shensha], [data-ten-god] {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
+
 .shensha-tooltip {
   position: fixed;
   z-index: 1000;
@@ -564,6 +575,16 @@ input:focus, select:focus { border-color: var(--red); box-shadow: 0 0 0 2px rgba
   backdrop-filter: blur(14px);
 }
 .shensha-tooltip[hidden] { display: none; }
+.shensha-tooltip.is-pinned {
+  left: 12px !important;
+  right: 12px;
+  top: auto !important;
+  bottom: 12px;
+  width: auto;
+  max-height: min(68vh, 560px);
+  overflow: auto;
+  pointer-events: auto;
+}
 .shensha-tooltip strong { display: block; margin-bottom: 6px; color: #fff; font-size: 14px; font-weight: 500; }
 .shensha-tooltip p { margin: 0; font-size: 12px; line-height: 1.6; }
 .shensha-tooltip p + p { margin-top: 2px; }
