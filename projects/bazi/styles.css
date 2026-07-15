@@ -275,6 +275,11 @@ input:focus, select:focus { border-color: var(--red); box-shadow: 0 0 0 2px rgba
 .overview-card h2 { margin: 0 0 13px; font-size: 33px; font-weight: 500; }
 .overview-card .overline { color: #d58a7e; }
 .lunar-label { margin: 0; color: rgba(248,240,223,.65); font-size: 14px; }
+.share-action { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; margin-top: 18px; }
+.share-action button { padding: 7px 11px; color: rgba(248,240,223,.88); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.2); border-radius: 999px; font: inherit; font-size: 10px; cursor: pointer; transition: background .18s ease, border-color .18s ease; }
+.share-action button:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.38); }
+.share-action button span { margin-right: 5px; }
+.share-action > span { min-height: 1em; color: rgba(248,240,223,.5); font-size: 9px; }
 .overview-meta { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; z-index: 1; }
 .overview-meta div { padding: 5px 16px; border-left: 1px solid rgba(255,255,255,.14); }
 .overview-meta dt { margin-bottom: 10px; color: rgba(248,240,223,.5); font-size: 11px; letter-spacing: .16em; }
@@ -835,6 +840,6 @@ footer { max-width: 1280px; padding-inline: clamp(20px, 4vw, 48px); border-top-c
 
 @media print {
   body { background: #fff; }
-  .input-panel { display: none !important; }
+  .input-panel, .share-action { display: none !important; }
   .chart-section, .network-section, .fortune-section, .annual-section { box-shadow: none; border: 1px solid #ddd; }
 }

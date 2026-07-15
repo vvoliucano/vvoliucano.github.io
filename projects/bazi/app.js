@@ -444,6 +444,68 @@
     }
   }
 
+  function padNumber(value, length) {
+    return String(value).padStart(length || 2, "0");
+  }
+
+  function setInputParameters(year, month, day, hour, minute, gender, sect) {
+    if (!year || month < 1 || month > 12 || day < 1 || day > 31 || hour < 0 || hour > 23 || minute < 0 || minute > 59) return false;
+    $("#birth-date").value = padNumber(year, 4) + "-" + padNumber(month) + "-" + padNumber(day);
+    $("#birth-time").value = padNumber(hour) + ":" + padNumber(minute);
+    if (gender === "0" || gender === "1") document.querySelector('input[name="gender"][value="' + gender + '"]').checked = true;
+    if (sect === "1" || sect === "2") $("#sect").value = sect;
+    return true;
+  }
+
+  function applyUrlParameters() {
+    if (typeof URLSearchParams === "undefined") return false;
+    var compact = window.location.search.replace(/^\?/, "");
+    if (/^\d{14}$/.test(compact)) {
+      return setInputParameters(
+        Number(compact.slice(0, 4)), Number(compact.slice(4, 6)), Number(compact.slice(6, 8)),
+        Number(compact.slice(8, 10)), Number(compact.slice(10, 12)), compact.charAt(12), compact.charAt(13)
+      );
+    }
+
+    var params = new URLSearchParams(window.location.search);
+    var year = Number(params.get("year"));
+    var month = Number(params.get("month"));
+    var day = Number(params.get("day"));
+    var hour = params.has("hour") ? Number(params.get("hour")) : 0;
+    var minute = params.has("minute") ? Number(params.get("minute")) : 0;
+    return setInputParameters(year, month, day, hour, minute, params.get("gender"), params.get("sect"));
+  }
+
+  function buildShareUrl() {
+    if (!currentChart || typeof URL === "undefined") return window.location.href;
+    var input = currentChart.input;
+    var url = new URL(window.location.href);
+    url.hash = "";
+    url.search = padNumber(input.year, 4) + padNumber(input.month) + padNumber(input.day) + padNumber(input.hour) + padNumber(input.minute) + input.gender + input.sect;
+    return url.toString();
+  }
+
+  function copyShareUrl(url) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(url);
+    return new Promise(function (resolve, reject) {
+      var field = document.createElement("textarea");
+      field.value = url;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.appendChild(field);
+      field.select();
+      try {
+        if (!document.execCommand("copy")) throw new Error("copy failed");
+        resolve();
+      } catch (error) {
+        reject(error);
+      } finally {
+        document.body.removeChild(field);
+      }
+    });
+  }
+
   function setAgePlaybackState(isPlaying) {
     var button = $("#age-play-button");
     if (!button) return;
@@ -674,6 +736,24 @@
 
   $("#print-button").addEventListener("click", function () { window.print(); });
 
+  $("#share-button").addEventListener("click", function () {
+    var button = this;
+    var status = $("#share-status");
+    var url = buildShareUrl();
+    try { window.history.replaceState(null, "", url); } catch (ignored) {}
+    copyShareUrl(url).then(function () {
+      button.innerHTML = '<span aria-hidden="true">✓</span>链接已复制';
+      status.textContent = "打开后会自动起盘";
+    }).catch(function () {
+      button.innerHTML = '<span aria-hidden="true">✓</span>链接已生成';
+      status.textContent = "请复制浏览器地址栏中的链接";
+    });
+    window.setTimeout(function () {
+      button.innerHTML = '<span aria-hidden="true">↗</span>复制分享链接';
+      status.textContent = "";
+    }, 2400);
+  });
+
   $("#age-slider").addEventListener("input", function () {
     stopAgePlayback();
     showFoundAnnual(findAnnualByAge(Number(this.value)));
@@ -735,5 +815,6 @@
     });
   })();
 
+  applyUrlParameters();
   calculate(false);
 })();

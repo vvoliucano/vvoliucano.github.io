@@ -80,10 +80,14 @@
 
         <div id="result-content">
           <section class="overview-card" aria-labelledby="overview-title">
-            <div>
+            <div class="overview-intro">
               <p class="overline">本命排盘</p>
               <h2 id="overview-title">四柱八字</h2>
               <p id="lunar-label" class="lunar-label"></p>
+              <div class="share-action">
+                <button id="share-button" type="button"><span aria-hidden="true">↗</span>复制分享链接</button>
+                <span id="share-status" role="status" aria-live="polite"></span>
+              </div>
             </div>
             <dl class="overview-meta">
               <div><dt>公历</dt><dd id="solar-label"></dd></div>
