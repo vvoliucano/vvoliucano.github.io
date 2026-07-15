@@ -11,12 +11,61 @@
     h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
   }
 
-  function toggleBibtex(id) {
+  function toggleBibtex(id, button) {
     var element = document.getElementById('bib-' + id);
-    if (element.style.display === 'none') {
-      element.style.display = 'block';
+    if (!element) return;
+
+    var isHidden = element.hasAttribute('hidden');
+    if (isHidden) {
+      element.removeAttribute('hidden');
     } else {
-      element.style.display = 'none';
+      element.setAttribute('hidden', '');
+    }
+
+    if (button) {
+      button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+    }
+  }
+
+  function copyBibtex(id, button) {
+    var codeElement = document.getElementById('bib-code-' + id);
+    if (!codeElement) return;
+
+    var text = codeElement.textContent;
+    var resetLabel = function() {
+      if (!button) return;
+      button.innerHTML = '<i class="far fa-copy" aria-hidden="true"></i> Copy';
+    };
+    var setCopied = function() {
+      if (!button) return;
+      button.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Copied';
+      window.setTimeout(resetLabel, 1600);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(setCopied).catch(function() {
+        fallbackCopy(text, setCopied);
+      });
+      return;
+    }
+
+    fallbackCopy(text, setCopied);
+  }
+
+  function fallbackCopy(text, onSuccess) {
+    var textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    try {
+      document.execCommand('copy');
+      if (onSuccess) onSuccess();
+    } finally {
+      document.body.removeChild(textarea);
     }
   }
 </script>

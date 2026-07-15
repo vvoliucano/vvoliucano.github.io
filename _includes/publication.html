@@ -61,7 +61,7 @@
       </a>
     {% endif %}
 
-    {% if pub.link or pub.website or pub.pdf or pub.code or pub.video or pub.blog or pub.slides or pub.doi or pub.recording or pub.arxiv or pub.short_doi or pub.osf or pub.demo %}
+    {% if pub.link or pub.website or pub.pdf or pub.code or pub.video or pub.blog or pub.slides or pub.doi or pub.recording or pub.arxiv or pub.short_doi or pub.osf or pub.demo or pub.bibtex %}
       <div class="extra-links">
       {% if pub.doi %}
         <a target="_blank" href="{% if pub.doi contains '://' %}{{ pub.doi }}{% else %}https://doi.org/{{ pub.doi }}{% endif %}">
@@ -133,14 +133,26 @@
           <i class="fas fa-desktop" aria-hidden="true"></i> Demo
         </a>
       {% endif %}
-      <a href="javascript:void(0)" class="bibtex-toggle" onclick="toggleBibtex('{{ anchor }}')">
+      <button
+        type="button"
+        class="bibtex-toggle"
+        aria-expanded="false"
+        aria-controls="bib-{{ anchor }}"
+        onclick="toggleBibtex('{{ anchor }}', this)"
+      >
         <i class="fas fa-quote-right" aria-hidden="true"></i> BibTeX
-      </a>
+      </button>
       </div>
     {% endif %}
 
-    <div id="bib-{{ anchor }}" class="bibtex-container" style="display: none;">
-      <pre>{% if pub.bibtex %}{{ pub.bibtex }}{% else %}@{% if pub.type.first == "Journal" %}article{% else %}inproceedings{% endif %}{ {{ pub.id | default: anchor }},
+    <div id="bib-{{ anchor }}" class="bibtex-container" hidden>
+      <div class="bibtex-toolbar">
+        <span class="bibtex-label">BibTeX</span>
+        <button type="button" class="bibtex-copy" onclick="copyBibtex('{{ anchor }}', this)">
+          <i class="far fa-copy" aria-hidden="true"></i> Copy
+        </button>
+      </div>
+      <pre><code id="bib-code-{{ anchor }}">{% if pub.bibtex %}{{ pub.bibtex }}{% else %}@{% if pub.type.first == "Journal" %}article{% else %}inproceedings{% endif %}{ {{ pub.id | default: anchor }},
   title = { {{ pub.title }} },
   author = { {% for author in pub.authors %}{{ author }}{% unless forloop.last %} and {% endunless %}{% endfor %} },
   {% if pub.type.first == "Journal" %}journal = { {{ pub.venue }} },{% else %}booktitle = { Proceedings of {{ pub.venue }} },{% endif %}
@@ -149,7 +161,7 @@
   pages = { {{ pub.pages | join: "-" }} }{% endif %}{% if pub.volume %},
   volume = { {{ pub.volume }} }{% endif %}{% if pub.number %},
   number = { {{ pub.number }} }{% endif %}
-}{% endif %}</pre>
+}{% endif %}</code></pre>
     </div>
   </div>
 </div>
