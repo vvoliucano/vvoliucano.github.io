@@ -24,6 +24,37 @@ footer {
   .footer-col {
     padding: calc($spacing-unit/2) 0;
   }
+
+  .footer-col-map {
+    flex: 0 0 214px;
+    max-width: 214px;
+    text-align: right;
+
+    @include media-query($on-laptop) {
+      flex: 1 100%;
+      max-width: 100%;
+      text-align: left;
+    }
+  }
+
+  .visitor-map {
+    width: 214px;
+    max-width: 100%;
+    overflow: hidden;
+    margin-left: auto;
+
+    @include media-query($on-laptop) {
+      margin-left: 0;
+    }
+  }
+
+  .visitor-map iframe,
+  .visitor-map img,
+  .visitor-map canvas,
+  .visitor-map div {
+    max-width: 100%;
+  }
+
   .site-desc {
     width: 500px;
 
