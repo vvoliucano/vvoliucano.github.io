@@ -697,6 +697,103 @@
     }).join("");
   }
 
+  function mainTenGods(chart) {
+    var scores = {};
+    pillarData(chart.eightChar).forEach(function (pillar, pillarIndex) {
+      var stemWeight = pillarIndex === 1 ? 1.45 : 1;
+      if (TEN_GOD_TRAITS[pillar.stemGod]) scores[pillar.stemGod] = (scores[pillar.stemGod] || 0) + stemWeight;
+      pillar.hiddenGods.forEach(function (god, hiddenIndex) {
+        if (!TEN_GOD_TRAITS[god]) return;
+        var hiddenWeight = [0.8, 0.45, 0.25][hiddenIndex] || 0.2;
+        if (pillarIndex === 1) hiddenWeight *= 1.5;
+        scores[god] = (scores[god] || 0) + hiddenWeight;
+      });
+    });
+    return Object.keys(scores).sort(function (left, right) { return scores[right] - scores[left]; }).slice(0, 3);
+  }
+
+  function buildBaziPrompt(chart) {
+    var ec = chart.eightChar;
+    var dayStem = ec.getDayGan();
+    var dayElement = STEM_ELEMENT[dayStem];
+    var dayPolarity = STEM_POLARITY[dayStem] ? "阳" : "阴";
+    var primaryGod = tenGod(dayStem, ec.getMonthGan());
+    var secondaryGod = tenGod(dayStem, BRANCH_MAIN_STEM[ec.getMonthZhi()]);
+    var prominentGods = mainTenGods(chart);
+    var gender = chart.input.gender === 1 ? "男" : "女";
+    var lines = [
+      "请你作为熟悉子平八字的分析者，根据以下排盘资料做系统分析。请以五行旺衰、月令、十神组合和岁运互动为主，神煞只作辅助；区分确定的排盘数据与推断，不作宿命化断言，也不要替代医疗、法律或投资等专业意见。",
+      "",
+      "【基本资料】",
+      "性别：" + gender,
+      "公历：" + chart.solar.toYmdHms().slice(0, 16),
+      "农历：" + chart.lunar.toString() + " · " + chart.lunar.getTimeZhi() + "时",
+      "生肖：" + chart.lunar.getYearShengXiaoExact(),
+      "日主：" + dayStem + "（" + dayPolarity + dayElement + "）",
+      "四柱八字：" + ec.getYear() + " " + ec.getMonth() + " " + ec.getDay() + " " + ec.getTime(),
+      "",
+      "【主要十神】",
+      "命格主星（月干）：" + primaryGod,
+      "月令主气十神：" + secondaryGod,
+      "命局较显十神：" + (prominentGods.length ? prominentGods.join("、") : "—"),
+      ""
+    ];
+
+    lines.push("【四柱详表（含神煞）】");
+    pillarData(ec).forEach(function (pillar, pillarIndex) {
+      var ganzhi = pillar.gan + pillar.zhi;
+      var hidden = pillar.hidden.map(function (stem, hiddenIndex) {
+        return stem + "（" + (pillar.hiddenGods[hiddenIndex] || "—") + "）";
+      }).join("、");
+      var stemGod = TEN_GOD_TRAITS[pillar.stemGod] ? pillar.stemGod : (pillarIndex === 2 ? "日主" : pillar.stemGod || "—");
+      var shensha = getShensha(ganzhi, chart, pillarIndex + 1);
+      lines.push(
+        pillar.name + "：" + ganzhi +
+        "｜天干十神：" + stemGod +
+        "｜藏干：" + (hidden || "—") +
+        "｜纳音：" + pillar.naYin +
+        "｜长生：" + pillar.diShi +
+        "｜旬空：" + pillar.xunKong
+      );
+      lines.push("  神煞：" + (shensha.length ? shensha.join("、") : "无"));
+    });
+
+    lines.push(
+      "",
+      "【起运与大运】",
+      "起运时间：" + chart.yun.getStartSolar().toYmdHms().slice(0, 16),
+      "起运年龄：出生后 " + chart.yun.getStartYear() + "年" + chart.yun.getStartMonth() + "月" + chart.yun.getStartDay() + "天" + (chart.yun.getStartHour() ? chart.yun.getStartHour() + "小时" : ""),
+      "排运方向：" + (chart.yun.isForward() ? "顺排" : "逆排")
+    );
+    chart.dayun.forEach(function (item, index) {
+      var ganzhi = item.getGanZhi();
+      var god = ganzhi ? tenGod(dayStem, ganzhi.charAt(0)) : "起运前";
+      var shensha = ganzhi ? getShensha(ganzhi, chart, 5) : [];
+      lines.push(
+        (index === 0 ? "幼运" : "第" + index + "步") + "：" + (ganzhi || "童限") +
+        "｜" + item.getStartYear() + "—" + item.getEndYear() +
+        "｜" + item.getStartAge() + "—" + item.getEndAge() + "岁" +
+        "｜运干十神：" + god +
+        "｜神煞：" + (shensha.length ? shensha.join("、") : "无")
+      );
+    });
+
+    lines.push(
+      "",
+      "【请按以下结构分析】",
+      "1. 先判断日主旺衰、格局倾向与五行流通，并说明依据。",
+      "2. 分析主要十神的配置、优势、压力与彼此制化关系。",
+      "3. 分析事业、财务、关系、学习与身心状态的倾向；避免绝对化结论。",
+      "4. 按时间顺序概括各步大运的主题、机会与需要留意之处。",
+      "5. 最后给出可执行、现实且审慎的建议，并注明哪些结论仍需结合流年或现实信息。"
+    );
+    return lines.join("\n");
+  }
+
+  function renderBaziPrompt(chart) {
+    $("#bazi-prompt").value = buildBaziPrompt(chart);
+  }
+
   function renderDayun(chart) {
     var nowYear = new Date().getFullYear();
     var activeIndex = chart.dayun.findIndex(function (item) {
@@ -817,6 +914,7 @@
         '<div><span>命宫</span><strong>' + eightChar.getMingGong() + " · " + eightChar.getMingGongNaYin() + "</strong></div>" +
         '<div><span>身宫</span><strong>' + eightChar.getShenGong() + " · " + eightChar.getShenGongNaYin() + "</strong></div>";
       renderDayun(currentChart);
+      renderBaziPrompt(currentChart);
       $("#result-content").hidden = false;
       if (shouldScroll) {
         var goToNetwork = function () { $(".network-section").scrollIntoView({ behavior: "smooth", block: "start" }); };
@@ -846,6 +944,27 @@
   });
 
   $("#print-button").addEventListener("click", function () { window.print(); });
+
+  $("#copy-prompt-button").addEventListener("click", function () {
+    var button = this;
+    var label = button.querySelector(".copy-prompt-label");
+    var status = $("#copy-prompt-status");
+    var prompt = $("#bazi-prompt").value;
+    copyShareUrl(prompt).then(function () {
+      button.classList.add("is-copied");
+      label.textContent = "已复制";
+      status.textContent = "可直接粘贴到 AI 对话中";
+    }).catch(function () {
+      $("#bazi-prompt").focus();
+      $("#bazi-prompt").select();
+      status.textContent = "复制失败，已为你选中全部内容";
+    });
+    window.setTimeout(function () {
+      button.classList.remove("is-copied");
+      label.textContent = "一键复制";
+      status.textContent = "";
+    }, 2400);
+  });
 
   $("#share-button").addEventListener("click", function () {
     var button = this;
