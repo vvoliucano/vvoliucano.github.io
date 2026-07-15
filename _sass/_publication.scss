@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "OuyangxunKaishu";
+  src: url("/assets/font/正欧阳询楷书%2B简繁.TTF") format("truetype");
+  font-display: swap;
+}
+
 #facets {
   display: flex;
   flex-direction: row;
@@ -463,6 +469,92 @@
     }
   }
 
+  .publication-map--zh {
+    .publication-map-sidebar h2 {
+      color: #31443a;
+      font-family: "OuyangxunKaishu", "STKaiti", "KaiTi", "Kaiti SC", serif;
+      font-size: 0.94rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+    }
+
+    .publication-topic-list {
+      gap: 0.42rem;
+      padding: 0.2rem 0;
+    }
+
+    .publication-topic {
+      position: relative;
+      width: 100%;
+      min-height: 1.58rem;
+      margin-right: 0;
+      padding: 0.14rem 0.78rem 0.12rem 0.28rem;
+      border: 1px solid rgba(71, 96, 80, 0.18);
+      border-radius: 3px;
+      background: transparent;
+      box-shadow: none;
+      color: #30483a;
+      font-family: "OuyangxunKaishu", "STKaiti", "KaiTi", "Kaiti SC", serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.035em;
+      transform-origin: right center;
+      transition: color 0.18s ease, opacity 0.18s ease, padding 0.18s ease;
+
+      span,
+      small {
+        position: relative;
+        z-index: 1;
+      }
+
+      small {
+        color: rgba(48, 72, 58, 0.62);
+        font-family: "Fira Sans", sans-serif;
+        letter-spacing: 0;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        top: -3px;
+        right: 0.08rem;
+        bottom: -3px;
+        width: 0.18rem;
+        border-right: 1px solid rgba(53, 83, 63, 0.5);
+        border-left: 1px solid rgba(242, 249, 243, 0.5);
+        border-radius: 3px;
+        background: rgba(87, 119, 95, 0.26);
+        opacity: 0;
+        transition: opacity 0.18s ease;
+      }
+
+      &::after {
+        content: none;
+      }
+
+      &.is-focus-topic {
+        color: #263b30;
+      }
+
+      &:hover,
+      &:focus-visible,
+      &.is-active,
+      &.is-publication-connected {
+        border-color: rgba($link-color, 0.3);
+        background: transparent;
+        color: #6f170f;
+        box-shadow: none;
+        padding-right: 0.4rem;
+        transform: none;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   .publication-map-hint {
     max-width: 145px;
     margin: 1rem 0 0;
@@ -918,9 +1010,18 @@
 
       &:hover,
       &:focus-visible,
-      &.is-active {
+      &.is-active,
+      &.is-publication-connected {
         transform: none;
       }
+    }
+
+    .publication-map--zh .publication-topic {
+      width: auto;
+      min-height: 1.65rem;
+      margin-right: 0;
+      padding-right: 1rem;
+      border-radius: 2px 7px 7px 2px;
     }
 
     .publication-map-hint,

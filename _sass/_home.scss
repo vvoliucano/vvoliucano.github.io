@@ -232,7 +232,9 @@
         line-height: 1.55;
 
         strong {
-          font-weight: 300;
+          font-size: inherit;
+          font-weight: 600;
+          line-height: inherit;
         }
       }
 

@@ -7,7 +7,7 @@
 {% assign author_title = include.author_title | default: "Collaborators" %}
 {% assign author_hint = include.author_hint | default: "Collaborators on publications currently in view." %}
 
-<div class="publication-map" data-publication-map>
+<div class="publication-map{% if include.lang == 'zh' %} publication-map--zh{% endif %}" data-publication-map>
   <aside class="publication-map-sidebar" aria-label="{{ topic_title | escape }}">
     <h2>{{ topic_title }}</h2>
     <div class="publication-topic-list" data-topic-list{% if include.lang == "zh" %} data-topic-labels='{{ site.data.topic | jsonify | escape }}'{% endif %}></div>
