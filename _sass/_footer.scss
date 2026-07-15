@@ -17,23 +17,36 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
+    gap: calc($spacing-unit / 1.5);
   }
 
   .footer-col {
     padding: calc($spacing-unit/2) 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-copy {
+    line-height: 1.75;
+  }
+
+  .footer-poem {
+    line-height: 1.8;
   }
 
   .footer-col-map {
     flex: 0 0 214px;
     max-width: 214px;
     text-align: right;
+    justify-content: flex-end;
 
     @include media-query($on-laptop) {
       flex: 1 100%;
       max-width: 100%;
       text-align: left;
+      justify-content: flex-start;
     }
   }
 

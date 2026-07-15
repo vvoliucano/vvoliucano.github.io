@@ -134,7 +134,7 @@
   }
 
   .featured-publications {
-    font-size: 0.95em;
+    font-size: 0.88em;
     margin-bottom: 1.5em;
     display: grid;
     gap: 1rem;
@@ -183,6 +183,11 @@
 
       .publication-body {
         min-width: 0;
+
+        strong {
+          font-size: 0.96rem;
+          line-height: 1.38;
+        }
       }
 
       .fa-trophy {
@@ -198,7 +203,7 @@
         align-items: center;
         padding: 2px 8px;
         border-radius: 4px;
-        font-size: 0.85em;
+        font-size: 0.74em;
         font-weight: 600;
         margin-left: 4px;
         vertical-align: middle;
@@ -223,6 +228,8 @@
       .authors {
         font-weight: 300;
         margin-top: 0.25rem;
+        font-size: 0.94em;
+        line-height: 1.55;
 
         strong {
           font-weight: 300;
@@ -239,7 +246,7 @@
           display: inline-flex;
           align-items: center;
           gap: 0.25rem;
-          font-size: 0.78rem;
+          font-size: 0.72rem;
           padding: 2px 7px;
           border-radius: 6px;
           background: #f9fafb;
