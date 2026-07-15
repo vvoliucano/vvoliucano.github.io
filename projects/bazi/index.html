@@ -20,11 +20,23 @@
 
   <main class="page-shell">
     <section class="hero" aria-labelledby="page-title">
-      <div>
-        <p class="eyebrow">生辰入局，节气为界</p>
-        <h1 id="page-title">从一个时辰，<br><em>展开一生岁序</em></h1>
+      <div class="hero-title-block">
+        <p class="eyebrow"><span>命理演算引擎</span> 生辰入局 · 节气为界</p>
+        <h1 id="page-title">
+          <span class="hero-line">从一个时辰</span>
+          <em class="hero-em">展开一生岁序</em>
+        </h1>
       </div>
-      <p class="hero-copy">输入公历出生时间，即刻生成四柱八字、藏干十神、起运时间，以及逐步大运与对应流年。所有计算都在你的浏览器中完成。</p>
+      <div class="hero-copy-shell">
+        <p class="hero-system-label"><i aria-hidden="true"></i>LOCAL CALCULATION / ZERO UPLOAD</p>
+        <p class="hero-copy">输入公历出生时间，即刻生成四柱八字、藏干十神、起运时间，以及逐步大运与对应流年。所有计算都在你的浏览器中完成。</p>
+        <ul class="hero-tags" aria-label="排盘能力">
+          <li><b>01</b> 四柱八字</li>
+          <li><b>02</b> 藏干十神</li>
+          <li><b>03</b> 大运流年</li>
+          <li><b>04</b> 关系网络</li>
+        </ul>
+      </div>
     </section>
 
     <div class="workspace">
@@ -117,6 +129,18 @@
               </div>
             </div>
             <div class="network-layout">
+              <div class="network-insights">
+                <section class="strength-panel" aria-label="五行生克力量">
+                  <div class="insight-heading"><span>阴阳力量</span><i>本命与所选年份</i></div>
+                  <div class="polarity-axis" aria-hidden="true"><span>阴</span><i>关系</i><span>阳</span></div>
+                  <div id="strength-bars" class="strength-bars" aria-label="五行生克关系的阴阳相对力量"></div>
+                  <div class="strength-legend"><span><i></i>本命基线</span><span><b></b>所选年份</span></div>
+                </section>
+                <section class="cloud-panel" aria-label="十神词云">
+                  <div class="cloud-heading"><span>十神词云</span><i>词语越大，力量越显</i></div>
+                  <div id="ten-god-cloud" class="ten-god-cloud" aria-label="随年龄变化的十神特质词云"></div>
+                </section>
+              </div>
               <div class="network-visual">
                 <svg id="bazi-network" viewBox="0 0 800 650" role="img" aria-labelledby="network-svg-title network-svg-desc">
                   <title id="network-svg-title">八字、大运与流年的十神关系网络</title>
@@ -149,11 +173,6 @@
                   <div><dt>流年增势</dt><dd id="current-trend"></dd></div>
                   <div><dt>五行态势</dt><dd id="element-trend"></dd></div>
                 </dl>
-                <div class="polarity-axis" aria-hidden="true"><span>阴</span><i>关系</i><span>阳</span></div>
-                <div id="strength-bars" class="strength-bars" aria-label="五行生克关系的阴阳相对力量"></div>
-                <div class="strength-legend"><span><i></i>本命基线</span><span><b></b>所选年份</span></div>
-                <div class="cloud-heading"><span>十神词云</span><i>词语越大，力量越显</i></div>
-                <div id="ten-god-cloud" class="ten-god-cloud" aria-label="随年龄变化的十神特质词云"></div>
               </aside>
             </div>
             <p class="network-method">主星按月干判断，副星按月令主气判断。节点越大，表示相对权重越高；强弱指数用于比较趋势，不等同于完整的旺衰或格局定论。</p>
