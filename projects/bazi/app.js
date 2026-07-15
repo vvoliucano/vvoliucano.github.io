@@ -22,6 +22,18 @@
     正官: ["纪律", "规则"], 七杀: ["挑战", "魄力"],
     正印: ["学习", "保护"], 偏印: ["思考", "灵感"]
   };
+  var TEN_GOD_CLOUD_WORDS = {
+    比肩: ["自我", "独立", "主见", "自立", "边界"],
+    劫财: ["合作", "竞争", "敢拼", "人缘", "行动"],
+    食神: ["输出", "享受", "乐观", "才艺", "创造"],
+    伤官: ["表达", "创新", "聪明", "突破", "批判"],
+    正财: ["稳定", "责任", "务实", "理财", "信用"],
+    偏财: ["机会", "人脉", "社交", "商业", "开拓"],
+    正官: ["纪律", "规则", "自律", "可靠", "名誉"],
+    七杀: ["挑战", "魄力", "果断", "执行", "领导"],
+    正印: ["学习", "保护", "善良", "耐心", "支持"],
+    偏印: ["思考", "灵感", "悟性", "研究", "洞察"]
+  };
   var TEN_GOD_STRENGTHS = {
     比肩: ["有主见", "讲义气", "自立"], 劫财: ["敢拼", "人缘广", "行动力强"],
     食神: ["乐观", "有才艺", "创造力"], 伤官: ["聪明", "敢创新", "挑战权威"],
@@ -180,6 +192,8 @@
   var lastNetworkPositions = null;
   var networkAnimationFrame = null;
   var agePlaybackTimer = null;
+  var lastCloudState = {};
+  var lastStrengthState = null;
 
   var $ = function (selector) { return document.querySelector(selector); };
   var escapeHtml = function (value) {
@@ -348,17 +362,38 @@
   }
 
   function renderTenGodCloud(force) {
-    var values = Object.keys(TEN_GOD_TRAITS).map(function (god) {
-      return { god: god, value: force.exactCurrent[god] || 0, traits: TEN_GOD_TRAITS[god] };
+    var values = [];
+    Object.keys(TEN_GOD_CLOUD_WORDS).forEach(function (god) {
+      var godValue = force.exactCurrent[god] || 0;
+      TEN_GOD_CLOUD_WORDS[god].forEach(function (word, wordIndex) {
+        values.push({ god: god, word: word, key: god + ":" + word, value: godValue * (1 - wordIndex * .065), wordIndex: wordIndex });
+      });
     });
     var maxValue = Math.max.apply(null, values.map(function (item) { return item.value; }).concat([1]));
-    values.sort(function (a, b) { return b.value - a.value; });
-    $("#ten-god-cloud").innerHTML = values.map(function (item, index) {
+    values.sort(function (a, b) { return b.value - a.value || a.wordIndex - b.wordIndex; });
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var nextState = {};
+    var cloud = $("#ten-god-cloud");
+    cloud.innerHTML = values.map(function (item, index) {
       var ratio = item.value / maxValue;
-      var size = Math.round(11 + ratio * 12);
-      var opacity = (.34 + ratio * .66).toFixed(2);
-      return '<span class="cloud-term' + (index < 3 ? " is-prominent" : "") + '" data-ten-god="' + item.god + '" style="font-size:' + size + "px;opacity:" + opacity + '" aria-label="' + item.god + "：" + item.traits.join("、") + '"><small>' + item.god + "</small>" + item.traits[0] + " · " + item.traits[1] + "</span>";
+      var size = Math.round(10 + ratio * 11);
+      var opacity = (.26 + ratio * .74).toFixed(2);
+      var previous = lastCloudState[item.key] || { size: size, opacity: opacity };
+      nextState[item.key] = { size: size, opacity: opacity };
+      return '<span class="cloud-term' + (index < 8 && item.value > 0 ? " is-prominent" : "") + (reduceMotion ? " is-settled" : "") + '" data-ten-god="' + item.god + '" data-target-size="' + size + '" data-target-opacity="' + opacity + '" style="font-size:' + (reduceMotion ? size : previous.size) + "px;opacity:" + (reduceMotion ? opacity : previous.opacity) + ";--cloud-delay:" + Math.min(index, 18) * 14 + 'ms" aria-label="' + item.god + "：" + item.word + '">' + item.word + "</span>";
     }).join("");
+    lastCloudState = nextState;
+    if (!reduceMotion && typeof requestAnimationFrame === "function") {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          cloud.querySelectorAll(".cloud-term").forEach(function (term) {
+            term.style.fontSize = term.dataset.targetSize + "px";
+            term.style.opacity = term.dataset.targetOpacity;
+            term.classList.add("is-settled");
+          });
+        });
+      });
+    }
   }
 
   function setGodTone(selector, god, headline) {
@@ -456,16 +491,38 @@
     var splitValues = [];
     GROUP_ORDER.forEach(function (group) { splitValues.push(force.currentSplit[group].yin, force.currentSplit[group].yang); });
     var maxForce = Math.max.apply(null, splitValues.concat([1]));
-    $("#strength-bars").innerHTML = GROUP_ORDER.map(function (group) {
+    var reduceStrengthMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var nextStrengthState = {};
+    var strengthBars = $("#strength-bars");
+    strengthBars.innerHTML = GROUP_ORDER.map(function (group, index) {
       var yinBase = Math.round(force.baseSplit[group].yin / maxForce * 100);
       var yinCurrent = Math.round(force.currentSplit[group].yin / maxForce * 100);
       var yangBase = Math.round(force.baseSplit[group].yang / maxForce * 100);
       var yangCurrent = Math.round(force.currentSplit[group].yang / maxForce * 100);
       var yinGod = exactGodForGroup(dayStem, group, "yin");
       var yangGod = exactGodForGroup(dayStem, group, "yang");
-      return '<div class="strength-row" aria-label="' + group + "：阴侧" + yinGod + " " + yinCurrent + "，阳侧" + yangGod + " " + yangCurrent + '">' +
-        '<strong class="force-value yin-value">' + tenGodMarkup(yinGod, "force-god") + '<span>' + yinCurrent + '</span></strong><div class="strength-half yin"><i style="width:' + yinCurrent + '%"></i><b style="right:' + yinBase + '%"></b></div><span>' + group + '</span><div class="strength-half yang"><i style="width:' + yangCurrent + '%"></i><b style="left:' + yangBase + '%"></b></div><strong class="force-value yang-value"><span>' + yangCurrent + '</span>' + tenGodMarkup(yangGod, "force-god") + '</strong></div>';
+      var previous = lastStrengthState && lastStrengthState[group] ? lastStrengthState[group] : { yin: yinCurrent, yang: yangCurrent, yinBase: yinBase, yangBase: yangBase };
+      nextStrengthState[group] = { yin: yinCurrent, yang: yangCurrent, yinBase: yinBase, yangBase: yangBase };
+      return '<div class="strength-row" style="--bar-delay:' + index * 34 + 'ms" aria-label="' + group + "：阴侧" + yinGod + " " + yinCurrent + "，阳侧" + yangGod + " " + yangCurrent + '">' +
+        '<strong class="force-value yin-value">' + tenGodMarkup(yinGod, "force-god") + '<span>' + yinCurrent + '</span></strong><div class="strength-half yin"><i data-target="' + yinCurrent + '" style="width:' + (reduceStrengthMotion ? yinCurrent : previous.yin) + '%"></i><b data-target="' + yinBase + '" style="right:' + (reduceStrengthMotion ? yinBase : previous.yinBase) + '%"></b></div><span>' + group + '</span><div class="strength-half yang"><i data-target="' + yangCurrent + '" style="width:' + (reduceStrengthMotion ? yangCurrent : previous.yang) + '%"></i><b data-target="' + yangBase + '" style="left:' + (reduceStrengthMotion ? yangBase : previous.yangBase) + '%"></b></div><strong class="force-value yang-value"><span>' + yangCurrent + '</span>' + tenGodMarkup(yangGod, "force-god") + '</strong></div>';
     }).join("");
+    lastStrengthState = nextStrengthState;
+    if (!reduceStrengthMotion && typeof requestAnimationFrame === "function") {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          strengthBars.querySelectorAll(".strength-row").forEach(function (row) {
+            var halves = row.querySelectorAll(".strength-half");
+            halves.forEach(function (half) {
+              var fill = half.querySelector("i");
+              var baseline = half.querySelector("b");
+              fill.style.width = fill.dataset.target + "%";
+              baseline.style[half.classList.contains("yin") ? "right" : "left"] = baseline.dataset.target + "%";
+            });
+            row.classList.add("is-settled");
+          });
+        });
+      });
+    }
   }
 
   function findAnnualByAge(age) {
