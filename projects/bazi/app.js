@@ -317,8 +317,9 @@
 
   function trendToneMarkup(periodLabel, names) {
     if (!names.length) return '<strong>' + escapeHtml(periodLabel) + '</strong><small>暂无可计算的干支增势</small>';
-    return '<strong>' + escapeHtml(periodLabel + " · ") + names.map(function (god) { return tenGodMarkup(god); }).join("、") + '增势</strong><small>过强时：' +
-      names.map(function (god) { return escapeHtml(god + "（" + (TEN_GOD_EXCESS[god] || []).join("、") + "）"); }).join("；") + '</small>';
+    return '<strong>' + escapeHtml(periodLabel + " · ") + names.map(function (god) { return tenGodMarkup(god); }).join("、") + '增势</strong>' +
+      '<small class="trend-positive">发挥时：' + names.map(function (god) { return escapeHtml(god + "（" + (TEN_GOD_STRENGTHS[god] || []).join("、") + "）"); }).join("；") + '</small>' +
+      '<small class="trend-excess">过强时：' + names.map(function (god) { return escapeHtml(god + "（" + (TEN_GOD_EXCESS[god] || []).join("、") + "）"); }).join("；") + '</small>';
   }
 
   function animateNetwork(previous, next) {
