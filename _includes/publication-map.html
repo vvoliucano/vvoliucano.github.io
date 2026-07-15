@@ -1,0 +1,26 @@
+{% assign grouped_pubs = site.data.publication | group_by: 'year' | sort: 'name' | reverse %}
+{% assign topic_title = include.topic_title | default: "Research Topics" %}
+{% assign topic_hint = include.topic_hint | default: "Hover or select a topic to trace its publications." %}
+
+<div class="publication-map" data-publication-map>
+  <aside class="publication-map-sidebar" aria-label="{{ topic_title | escape }}">
+    <h2>{{ topic_title }}</h2>
+    <div class="publication-topic-list" data-topic-list></div>
+    <p class="publication-map-hint">{{ topic_hint }}</p>
+  </aside>
+
+  <svg class="publication-map-lines" data-topic-lines aria-hidden="true"></svg>
+
+  <div class="publication-timeline">
+    {% for group in grouped_pubs %}
+      <section class="publication-year-section">
+        <h3 class="pub-year year" id="y{{ group.name }}">{{ group.name }}</h3>
+        <div class="year-group">
+          {% for pub in group.items %}
+            {% include publication.html pub=pub %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+  </div>
+</div>

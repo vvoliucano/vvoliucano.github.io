@@ -49,6 +49,14 @@
       </div>
     {% endif %}
 
+    {% if pub.topics %}
+      <div class="publication-topics" aria-label="Research topics">
+        {% for topic in pub.topics %}
+          <button type="button" class="publication-topic-chip" data-publication-topic="{{ topic | escape }}">{{ topic }}</button>
+        {% endfor %}
+      </div>
+    {% endif %}
+
     {% if pub.description %}
       <p class="description">
         {{ pub.description | markdownify | remove: '<p>' | remove: '</p>' }}

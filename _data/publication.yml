@@ -1,5 +1,8 @@
 - id: proteus
   title: "Proteus: Shapeshifting Desktop Visualizations for Mobile via Multi-level Intelligent Adaptation"
+  topics:
+    - Expressivity
+    - AI4Vis
   image: proteus.png
   authors:
     - Can Liu
@@ -22,6 +25,10 @@
 
 - id: author_inter
   title: "From Static to Interactive: Authoring Interactive Visualizations via Natural Language"
+  topics:
+    - Expressivity
+    - AI4Vis
+    - Human-AI
   authors:
     - Can Liu
     - Jaeuk Lee
@@ -44,6 +51,9 @@
 
 - id: spatial_audio
   title: "Accessible Fine-grained Data Representation via Spatial Audio"
+  topics:
+    - Accessibility
+    - Expressivity
   authors:
     - Can Liu
     - Wenjie Jiang
@@ -64,6 +74,9 @@
 
 - id: spatial_layout
   title: "A Spatial-Constraint Model for Activating Static Visualizations"
+  topics:
+    - Expressivity
+    - AI4Vis
   image: 24_spatial_constraint.gif
   authors:
     - Can Liu
@@ -92,6 +105,10 @@
 
 - id: mindtrellis
   title: "MindTrellis: Co-Creating Knowledge Structures with AI through Interactive Visual Exploration"
+  topics:
+    - Human-AI
+    - Visual Analytics
+    - AI4Vis
   authors:
     - Xiang Li
     - Cara Li
@@ -109,6 +126,10 @@
 
 - id: maniscope
   title: "ManiScope: LLM-Assisted Visual Analytics of Cryptocurrency Manipulation Risk"
+  topics:
+    - AI4Economy
+    - Visual Analytics
+    - AI4Vis
   authors:
     - Xiaolin Wen
     - Feng Liang
@@ -130,6 +151,10 @@
 
 - id: vibe_coding
   title: "Vibe Coding for Visualization Implementation: An Empirical Study of Practices and Challenges"
+  topics:
+    - Human-AI
+    - Expressivity
+    - AI4Vis
   authors:
     - Zhengyu Sun
     - Xiaolin Wen
@@ -150,6 +175,9 @@
 
 - id: simvecvis
   title: "SimVecVis: A Dataset for Enhancing MLLMs in Visualization Understanding"
+  topics:
+    - AI4Vis
+    - Visual Analytics
   authors:
     - Can Liu
     - Chunlin Da
@@ -174,6 +202,10 @@
 
 - id: datawink
   title: "DataWink: Reusing and Adapting SVG-based Visualization Examples with Large Multimodal Models"
+  topics:
+    - Expressivity
+    - AI4Vis
+    - Human-AI
   image: datawink.gif
   authors:
     - Liwenhan Xie
@@ -201,6 +233,10 @@
 
 - id: prompt
   title: "PrompTHis: Visualizing the Process and Influence of Prompt Editing during Text-to-Image Creation"
+  topics:
+    - Human-AI
+    - Expressivity
+    - Visual Analytics
   image: prompthis.webp
   authors:
     - Yuhan Guo
@@ -226,6 +262,9 @@
 
 - id: autolegend
   title: "AutoLegend: An Automatic Legend Generator for Visualization"
+  topics:
+    - AI4Vis
+    - Expressivity
   authors:
     - Can Liu
     - Xiyao Mei
@@ -240,6 +279,10 @@
 
 - id: nlmanipulate
   title: "In-Situ Visualization Manipulation with Natural Language Queries"
+  topics:
+    - Expressivity
+    - Human-AI
+    - AI4Vis
   authors:
     - Can Liu
     - Jiacheng Yu
@@ -258,6 +301,10 @@
 
 - id: autotitle
   title: "AutoTitle: An Interactive Title Generator for Visualizations"
+  topics:
+    - AI4Vis
+    - Expressivity
+    - Human-AI
   image: 23_title.jpg
   authors:
     - Can Liu
@@ -282,6 +329,9 @@
 
 - id: oldvisonline
   title: "OldVisOnline: Curating a Dataset of Historical Visualizations"
+  topics:
+    - Digital Humanities
+    - Visual Analytics
   image: 24-oldvis.png
   authors:
     - Yu Zhang
@@ -310,6 +360,10 @@
 
 - id: advisor
   title: "ADVISor: Automatic Visualization Answer for Natural-Language Question on Tabular Data"
+  topics:
+    - AI4Vis
+    - Human-AI
+    - Visual Analytics
   authors:
     - Can Liu
     - Yun Han
@@ -336,6 +390,9 @@
 
 - id: smartcube
   title: "SmartCube: An Adaptive Data Management Architecture for the Real-Time Visualization of Spatiotemporal Datasets"
+  topics:
+    - SciVis
+    - Visual Analytics
   image: 20-smartcube.png
   authors:
     - Can Liu
@@ -361,6 +418,9 @@
 
 - id: eventbased
   title: "Event-Based Exploration and Comparison on Time-Varying Ensembles"
+  topics:
+    - SciVis
+    - Visual Analytics
   image: 18-asteroid.gif
   authors:
     - Can Liu
@@ -388,6 +448,10 @@
 
 - id: autocaption
   title: "AutoCaption: An Approach to Generate Natural Language Description from Visualization Automatically"
+  topics:
+    - AI4Vis
+    - Accessibility
+    - Expressivity
   image: 19-AutoCap.gif
   authors:
     - Can Liu
@@ -418,6 +482,9 @@
 
 - id: flow_survey
   title: "Deep Learning Approaches in Flow Visualization​"
+  topics:
+    - SciVis
+    - AI4Vis
   authors:
     - Can Liu
     - Ruike Jiang
@@ -445,6 +512,9 @@
 
 - id: autoannotation
   title: "Automatic Annotation Synchronizing with Textual Description for Visualization"
+  topics:
+    - AI4Vis
+    - Expressivity
   authors:
     - Chufan Lai
     - Zhixian Lin
@@ -471,6 +541,9 @@
 
 - id: transition_bars
   title: "Understanding Transitions in Animated Bar Charts"
+  topics:
+    - Expressivity
+    - Visual Analytics
   authors:
     - Datong Wei
     - Can Liu
@@ -495,6 +568,10 @@
 
 - id: dnnvolvis
   title: "DNN-VolVis: Interactive Volume Visualization Supported by Deep Neural Network"
+  topics:
+    - SciVis
+    - AI4Vis
+    - Visual Analytics
   image: 19_dnnvolvis.gif
   authors:
     - Fan Hong
@@ -522,6 +599,9 @@
 
 - id: wikiedit
   title: "Edit-History Vis: An Interactive Visual Exploration and Analysis on Wikipedia Edit History"
+  topics:
+    - Digital Humanities
+    - Visual Analytics
   image: edit-history-vis.webp
   authors:
     - Yuhan Guo
@@ -551,6 +631,9 @@
 
 - id: viewpoint
   title: "Deep Learning-Based Viewpoint Recommendation in Volume Visualization"
+  topics:
+    - SciVis
+    - AI4Vis
   image: 19_bestview.png
   authors:
     - Changhe Yang
@@ -578,6 +661,9 @@
 
 - id: dl4vis
   title: "Visualization Driven by Deep Learning"
+  topics:
+    - AI4Vis
+    - Visual Analytics
   zh_title: 深度学习驱动的可视化
   authors:
     - Can Liu
@@ -626,6 +712,9 @@
 
 - id: intelli_vis
   title: "Intelligent Visualization and Visual Analytics"
+  topics:
+    - AI4Vis
+    - Visual Analytics
   zh_title: 智能可视化与可视分析
   authors:
     - Jun Tao
@@ -660,6 +749,9 @@
 
 - id: vis_dh
   title: "Visualization in Digital Humanities​"
+  topics:
+    - Digital Humanities
+    - Visual Analytics
   zh_title: 数字人文中的可视化
   authors:
     - Yuchu Luo
@@ -695,6 +787,9 @@
 
 - id: DMvis
   title: "Direct Manipulation of Static Visualizations"
+  topics:
+    - Expressivity
+    - Human-AI
   image: 24_spatial_constraint.gif
   authors:
     - Can Liu
@@ -714,6 +809,10 @@
 
 - id: AutoCap
   title: "Automatic Caption Genertion for SVG Charts"
+  topics:
+    - AI4Vis
+    - Accessibility
+    - Expressivity
   image: 19-AutoCap.gif
   authors:
     - Can Liu
@@ -736,6 +835,9 @@
 
 - id: Asteroid
   title: "Interactive Visual Exploration and Comparison on the Effect of Asteroid Impacts"
+  topics:
+    - SciVis
+    - Visual Analytics
   image: 18-asteroid.gif
   authors:
     - Can Liu
@@ -756,6 +858,9 @@
 
 - id: AutoAno
   title: "Automatic Annotation of Visualizations"
+  topics:
+    - AI4Vis
+    - Expressivity
   authors:
     - Chufan Lai
     - Zhixian Lin
@@ -777,6 +882,10 @@
 
 - id: AutoAns
   title: "Automatic Answer and Visualization Generation for Tabular Data"
+  topics:
+    - AI4Vis
+    - Human-AI
+    - Visual Analytics
   authors:
     - Yun Han
     - Wentao Zhang
@@ -798,6 +907,9 @@
 
 - id: Goal-Oriented
   title: "Goal-Oriented Volume Visualization through Deep Neural Networks"
+  topics:
+    - SciVis
+    - AI4Vis
   image: 19_dnnvolvis.gif
   authors:
     - Fan Hong
