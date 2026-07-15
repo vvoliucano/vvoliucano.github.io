@@ -548,7 +548,7 @@ input:focus, select:focus { border-color: var(--red); box-shadow: 0 0 0 2px rgba
 .shensha-tooltip {
   position: fixed;
   z-index: 1000;
-  width: min(350px, calc(100vw - 24px));
+  width: min(410px, calc(100vw - 24px));
   padding: 14px 16px;
   color: #f7f7fb;
   background: rgba(23, 25, 35, .96);
@@ -562,6 +562,7 @@ input:focus, select:focus { border-color: var(--red); box-shadow: 0 0 0 2px rgba
 .shensha-tooltip strong { display: block; margin-bottom: 6px; color: #fff; font-size: 14px; font-weight: 500; }
 .shensha-tooltip p { margin: 0; font-size: 12px; line-height: 1.6; }
 .shensha-tooltip p + p { margin-top: 2px; }
+.shensha-tooltip p b { color: rgba(247,247,251,.68); font-weight: 500; }
 .shensha-tooltip small { display: block; margin-top: 8px; color: rgba(247,247,251,.58); font-size: 9px; line-height: 1.45; }
 .shensha-tooltip .tooltip-sources { padding-top: 7px; border-top: 1px solid rgba(255,255,255,.1); color: rgba(247,247,251,.42); }
 
