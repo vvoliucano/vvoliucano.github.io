@@ -124,6 +124,7 @@
   highlight: 2
   pdf: "https://arxiv.org/pdf/2506.21319"
   code: "https://github.com/VIDA-Lab/SimVecVis"
+  image: 25_simvec.png
 
 - id: datawink
   title: "DataWink: Reusing and Adapting SVG-based Visualization Examples with Large Multimodal Models"
