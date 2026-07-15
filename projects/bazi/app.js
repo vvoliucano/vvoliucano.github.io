@@ -721,25 +721,16 @@
     var secondaryGod = tenGod(dayStem, BRANCH_MAIN_STEM[ec.getMonthZhi()]);
     var prominentGods = mainTenGods(chart);
     var gender = chart.input.gender === 1 ? "男" : "女";
-    var lines = [
-      "请你作为熟悉子平八字的分析者，根据以下排盘资料做系统分析。请以五行旺衰、月令、十神组合和岁运互动为主，神煞只作辅助；区分确定的排盘数据与推断，不作宿命化断言，也不要替代医疗、法律或投资等专业意见。",
-      "",
-      "【基本资料】",
-      "性别：" + gender,
-      "公历：" + chart.solar.toYmdHms().slice(0, 16),
-      "农历：" + chart.lunar.toString() + " · " + chart.lunar.getTimeZhi() + "时",
-      "生肖：" + chart.lunar.getYearShengXiaoExact(),
-      "日主：" + dayStem + "（" + dayPolarity + dayElement + "）",
-      "四柱八字：" + ec.getYear() + " " + ec.getMonth() + " " + ec.getDay() + " " + ec.getTime(),
-      "",
-      "【主要十神】",
-      "命格主星（月干）：" + primaryGod,
-      "月令主气十神：" + secondaryGod,
-      "命局较显十神：" + (prominentGods.length ? prominentGods.join("、") : "—"),
-      ""
-    ];
-
-    lines.push("【四柱详表（含神煞）】");
+    var basicInfo = "【基本资料】性别：" + gender +
+      "；公历：" + chart.solar.toYmdHms().slice(0, 16) +
+      "；农历：" + chart.lunar.toString() + " · " + chart.lunar.getTimeZhi() + "时" +
+      "；生肖：" + chart.lunar.getYearShengXiaoExact() +
+      "；日主：" + dayStem + "（" + dayPolarity + dayElement + "）" +
+      "；四柱八字：" + ec.getYear() + " " + ec.getMonth() + " " + ec.getDay() + " " + ec.getTime() + "。";
+    var tenGodInfo = "【主要十神】命格主星（月干）：" + primaryGod +
+      "；月令主气十神：" + secondaryGod +
+      "；命局较显十神：" + (prominentGods.length ? prominentGods.join("、") : "—") + "。";
+    var pillarParts = [];
     pillarData(ec).forEach(function (pillar, pillarIndex) {
       var ganzhi = pillar.gan + pillar.zhi;
       var hidden = pillar.hidden.map(function (stem, hiddenIndex) {
@@ -747,47 +738,45 @@
       }).join("、");
       var stemGod = TEN_GOD_TRAITS[pillar.stemGod] ? pillar.stemGod : (pillarIndex === 2 ? "日主" : pillar.stemGod || "—");
       var shensha = getShensha(ganzhi, chart, pillarIndex + 1);
-      lines.push(
+      pillarParts.push(
         pillar.name + "：" + ganzhi +
-        "｜天干十神：" + stemGod +
-        "｜藏干：" + (hidden || "—") +
-        "｜纳音：" + pillar.naYin +
-        "｜长生：" + pillar.diShi +
-        "｜旬空：" + pillar.xunKong
+        "（天干十神：" + stemGod +
+        "，藏干：" + (hidden || "—") +
+        "，纳音：" + pillar.naYin +
+        "，长生：" + pillar.diShi +
+        "，旬空：" + pillar.xunKong +
+        "，神煞：" + (shensha.length ? shensha.join("、") : "无") + "）"
       );
-      lines.push("  神煞：" + (shensha.length ? shensha.join("、") : "无"));
     });
 
-    lines.push(
-      "",
-      "【起运与大运】",
-      "起运时间：" + chart.yun.getStartSolar().toYmdHms().slice(0, 16),
-      "起运年龄：出生后 " + chart.yun.getStartYear() + "年" + chart.yun.getStartMonth() + "月" + chart.yun.getStartDay() + "天" + (chart.yun.getStartHour() ? chart.yun.getStartHour() + "小时" : ""),
-      "排运方向：" + (chart.yun.isForward() ? "顺排" : "逆排")
-    );
+    var dayunParts = [];
     chart.dayun.forEach(function (item, index) {
       var ganzhi = item.getGanZhi();
       var god = ganzhi ? tenGod(dayStem, ganzhi.charAt(0)) : "起运前";
       var shensha = ganzhi ? getShensha(ganzhi, chart, 5) : [];
-      lines.push(
+      dayunParts.push(
         (index === 0 ? "幼运" : "第" + index + "步") + "：" + (ganzhi || "童限") +
-        "｜" + item.getStartYear() + "—" + item.getEndYear() +
-        "｜" + item.getStartAge() + "—" + item.getEndAge() + "岁" +
-        "｜运干十神：" + god +
-        "｜神煞：" + (shensha.length ? shensha.join("、") : "无")
+        "（" + item.getStartYear() + "—" + item.getEndYear() +
+        "，" + item.getStartAge() + "—" + item.getEndAge() + "岁" +
+        "，运干十神：" + god +
+        "，神煞：" + (shensha.length ? shensha.join("、") : "无") + "）"
       );
     });
 
-    lines.push(
-      "",
-      "【请按以下结构分析】",
-      "1. 先判断日主旺衰、格局倾向与五行流通，并说明依据。",
-      "2. 分析主要十神的配置、优势、压力与彼此制化关系。",
-      "3. 分析事业、财务、关系、学习与身心状态的倾向；避免绝对化结论。",
-      "4. 按时间顺序概括各步大运的主题、机会与需要留意之处。",
-      "5. 最后给出可执行、现实且审慎的建议，并注明哪些结论仍需结合流年或现实信息。"
-    );
-    return lines.join("\n");
+    var yunInfo = "【起运与大运】起运时间：" + chart.yun.getStartSolar().toYmdHms().slice(0, 16) +
+      "；起运年龄：出生后 " + chart.yun.getStartYear() + "年" + chart.yun.getStartMonth() + "月" + chart.yun.getStartDay() + "天" + (chart.yun.getStartHour() ? chart.yun.getStartHour() + "小时" : "") +
+      "；排运方向：" + (chart.yun.isForward() ? "顺排" : "逆排") + "；" + dayunParts.join("；") + "。";
+    var analysisRequest = "【分析要求】先判断日主旺衰、格局倾向和五行流通并说明依据；再分析主要十神的配置、优势、压力及制化关系；分析事业、财务、关系、学习与身心状态的倾向；按时间顺序概括各步大运的主题、机会和注意事项；神煞只作辅助，区分排盘数据与推断，避免宿命化和绝对化结论。";
+    var adviceRequest = "【建议与总结】请给出具体、现实、可执行的改善建议，分别覆盖事业与学习、财务、关系沟通、身心与生活习惯；最后用一段简洁文字总结命局核心特点、当前重点和未来行动方向，并注明哪些判断仍需结合流年或现实信息。相关内容不得替代医疗、法律或投资等专业意见。";
+    return [
+      "请你作为熟悉子平八字的分析者，根据以下完整排盘资料做系统分析。",
+      basicInfo,
+      tenGodInfo,
+      "【四柱详表（含神煞）】" + pillarParts.join("；") + "。",
+      yunInfo,
+      analysisRequest,
+      adviceRequest
+    ].join("\n");
   }
 
   function renderBaziPrompt(chart) {

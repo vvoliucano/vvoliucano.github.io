@@ -295,7 +295,7 @@ input:focus, select:focus { border-color: var(--red); box-shadow: 0 0 0 2px rgba
 .copy-prompt-button:hover { background: var(--red-dark); }
 .copy-prompt-button.is-copied { background: var(--positive); }
 #copy-prompt-status { color: var(--muted); font-size: 10px; }
-.prompt-window { display: block; width: 100%; min-height: 470px; padding: 20px; resize: vertical; color: var(--ink); background: #f8f9fc; border: 1px solid var(--line); border-radius: 14px; outline: none; font: 12px/1.8 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; tab-size: 2; }
+.prompt-window { display: block; width: 100%; min-height: 360px; padding: 20px; resize: vertical; color: var(--ink); background: #f8f9fc; border: 1px solid var(--line); border-radius: 14px; outline: none; font: 12px/1.8 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; tab-size: 2; }
 .prompt-window:focus { border-color: var(--red); box-shadow: 0 0 0 4px rgba(109,93,252,.1); }
 
 .pillar-grid {
@@ -883,7 +883,7 @@ footer { max-width: 1280px; padding-inline: clamp(20px, 4vw, 48px); border-top-c
   .pillar-grid { grid-template-columns: repeat(2, 1fr); }
   .prompt-heading-row { display: block; }
   .prompt-actions { justify-content: flex-start; margin: -8px 0 18px; }
-  .prompt-window { min-height: 560px; padding: 15px; font-size: 11px; }
+  .prompt-window { min-height: 440px; padding: 15px; font-size: 11px; }
   .pillar:nth-child(3) { border-top: 1px solid var(--line); }
   .pillar:nth-child(4) { border-top: 1px solid var(--line); }
   .pillar-characters { flex-direction: row; font-size: 46px; }
