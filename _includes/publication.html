@@ -152,7 +152,19 @@
           <i class="far fa-copy" aria-hidden="true"></i> Copy
         </button>
       </div>
-      <pre><code id="bib-code-{{ anchor }}">{% if pub.bibtex %}{{ pub.bibtex }}{% else %}@{% if pub.type.first == "Journal" %}article{% else %}inproceedings{% endif %}{ {{ pub.id | default: anchor }},
+      <pre><code id="bib-code-{{ anchor }}">{% if pub.bibtex %}{{ pub.bibtex }}{% elsif pub.type.first == "preprint" %}@misc{ {{ pub.id | default: anchor }},
+  title = { {{ pub.title }} },
+  author = { {% for author in pub.authors %}{{ author }}{% unless forloop.last %} and {% endunless %}{% endfor %} },
+  year = { {{ pub.year | default: "" | split: "," | first }} }{% if pub.arxiv %},
+  eprint = { {{ pub.arxiv }} },
+  archivePrefix = { arXiv }{% endif %}{% if pub.primaryClass %},
+  primaryClass = { {{ pub.primaryClass }} }{% endif %}{% if pub.arxiv %},
+  url = { https://arxiv.org/abs/{{ pub.arxiv }} }{% elsif pub.link %},
+  url = { {{ pub.link }} }{% elsif pub.website %},
+  url = { {{ pub.website }} }{% elsif pub.pdf %},
+  url = { {{ pub.pdf }} }{% endif %}{% if pub.doi %},
+  doi = { {{ pub.doi }} }{% endif %}
+}{% else %}@{% if pub.type.first == "Journal" %}article{% else %}inproceedings{% endif %}{ {{ pub.id | default: anchor }},
   title = { {{ pub.title }} },
   author = { {% for author in pub.authors %}{{ author }}{% unless forloop.last %} and {% endunless %}{% endfor %} },
   {% if pub.type.first == "Journal" %}journal = { {{ pub.venue }} },{% else %}booktitle = { Proceedings of {{ pub.venue }} },{% endif %}

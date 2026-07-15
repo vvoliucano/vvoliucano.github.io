@@ -19,6 +19,7 @@
     - Conference
 
 
+
 - id: author_inter
   title: "From Static to Interactive: Authoring Interactive Visualizations via Natural Language"
   authors:
@@ -105,6 +106,46 @@
   pages: 4892-4912
   type:
     - Conference
+
+- id: maniscope
+  title: "ManiScope: LLM-Assisted Visual Analytics of Cryptocurrency Manipulation Risk"
+  authors:
+    - Xiaolin Wen
+    - Feng Liang
+    - Yuanye Ma
+    - Qishuang Fu
+    - Zhengyu Sun
+    - Feng Zhu
+    - Can Liu
+    - Yong Wang
+  year: "2026"
+  type:
+    - preprint
+  highlight: 0
+  pdf: "https://arxiv.org/pdf/2607.11451.pdf"
+  arxiv: "2607.11451"
+  primaryClass: cs.HC
+  image: 26_maniscope.png
+
+
+- id: vibe_coding
+  title: "Vibe Coding for Visualization Implementation: An Empirical Study of Practices and Challenges"
+  authors:
+    - Zhengyu Sun
+    - Xiaolin Wen
+    - Fengjie Wang
+    - Can Liu
+    - Yi Lai
+    - Christophe Hurter
+    - Yong Wang
+  year: "2026"
+  type:
+    - preprint
+  highlight: 0
+  pdf: "https://arxiv.org/pdf/2606.19703.pdf"
+  arxiv: "2606.19703"
+  primaryClass: cs.HC
+  image: 26_vibecoding.png
 
 
 - id: simvecvis
