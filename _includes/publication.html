@@ -12,8 +12,12 @@
   <div class="publication-body">
     <h3 id="{{ anchor }}">{{ pub.title }}
       {% for award in pub.awards %}
+        {% assign award_label = award %}
+        {% if include.lang == "zh" and site.data.award[award] %}
+          {% assign award_label = site.data.award[award] %}
+        {% endif %}
         <span class="award-badge award-{% if award == "Best Paper Award" %}best{% else %}honor{% endif %}">
-          <i class="fas fa-{% if award == "Best Paper Award" %}trophy{% else %}award{% endif %}"></i> {{ award }}
+          <i class="fas fa-{% if award == "Best Paper Award" %}trophy{% else %}award{% endif %}"></i> {{ award_label }}
         </span>
       {% endfor %}
     </h3>
@@ -50,9 +54,13 @@
     {% endif %}
 
     {% if pub.topics %}
-      <div class="publication-topics" aria-label="Research topics">
+      <div class="publication-topics" aria-label="{% if include.lang == 'zh' %}研究主题{% else %}Research topics{% endif %}">
         {% for topic in pub.topics %}
-          <button type="button" class="publication-topic-chip" data-publication-topic="{{ topic | escape }}">{{ topic }}</button>
+          {% assign topic_label = topic %}
+          {% if include.lang == "zh" and site.data.topic[topic] %}
+            {% assign topic_label = site.data.topic[topic] %}
+          {% endif %}
+          <button type="button" class="publication-topic-chip" data-publication-topic="{{ topic | escape }}">{{ topic_label }}</button>
         {% endfor %}
       </div>
     {% endif %}

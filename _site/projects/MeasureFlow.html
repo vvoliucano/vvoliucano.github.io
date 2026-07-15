@@ -51,23 +51,6 @@ var _hmt = _hmt || [];
 <img src="./MeasureFlow/teaser.png" width="100%" />
 </div>
 
-<div class="project-inline">
-  <h4>Links</h4>
-<div class="spacer"></div>
-<div class="links-wrapper">
-  
-  <div>  <a href="https://doi.org/10.1145/3399715.3399922" target="_blank"><i class="far fa-file-pdf"></i> Paper</a></div>
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-</div>
-
 <h4 id="abstract">Abstract</h4>
 <p>We present <em>MeasureFlow</em>, an interface to visually and interactively explore dynamic networks through time-series of network measures such as link number, graph density, or node activation. When networks contain many time steps, become large and more dense, or contain high frequencies of change, traditional visualizations that focus on network topology, such as animations or small multiples, fail to provide adequate overviews and thus fail to guide the analyst towards interesting time points and periods. MeasureFlow presents a complementary approach that relies on visualizing time-series of common network measures to provide a detailed yet comprehensive overview of when changes are happening and which network measures they involve. As dynamic networks undergo changes of varying rates and characteristics, network measures provide important hints on the pace and nature of their evolution and can guide an analysts in their exploration; based on a set of interactive and signal-processing methods, MeasureFlow allows an analyst to select and navigate periods of interest in the network. We demonstrate MeasureFlow through case studies with real-world data.</p>
 
@@ -111,12 +94,61 @@ var _hmt = _hmt || [];
     h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
   }
 
-  function toggleBibtex(id) {
+  function toggleBibtex(id, button) {
     var element = document.getElementById('bib-' + id);
-    if (element.style.display === 'none') {
-      element.style.display = 'block';
+    if (!element) return;
+
+    var isHidden = element.hasAttribute('hidden');
+    if (isHidden) {
+      element.removeAttribute('hidden');
     } else {
-      element.style.display = 'none';
+      element.setAttribute('hidden', '');
+    }
+
+    if (button) {
+      button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+    }
+  }
+
+  function copyBibtex(id, button) {
+    var codeElement = document.getElementById('bib-code-' + id);
+    if (!codeElement) return;
+
+    var text = codeElement.textContent;
+    var resetLabel = function() {
+      if (!button) return;
+      button.innerHTML = '<i class="far fa-copy" aria-hidden="true"></i> Copy';
+    };
+    var setCopied = function() {
+      if (!button) return;
+      button.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Copied';
+      window.setTimeout(resetLabel, 1600);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(setCopied).catch(function() {
+        fallbackCopy(text, setCopied);
+      });
+      return;
+    }
+
+    fallbackCopy(text, setCopied);
+  }
+
+  function fallbackCopy(text, onSuccess) {
+    var textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    try {
+      document.execCommand('copy');
+      if (onSuccess) onSuccess();
+    } finally {
+      document.body.removeChild(textarea);
     }
   }
 </script>

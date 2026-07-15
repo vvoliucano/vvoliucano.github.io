@@ -1086,18 +1086,18 @@ if (poemIndex < 0 || !poems[poemIndex]) {
   <footer>
   <div class="container">
     <div class="footer-col">
-      <br />
-      志合山海越<br />
-      千里复相逢<br />
-      星汉光年远<br />
-      倏如一江风<br />
-      <br />
-      <!-- <abbr title="Last build on 2026-06-20">上次更新于2026年06月</abbr> -->
+      <div class="footer-copy footer-poem">
+        <div>志合山海越</div>
+        <div>千里复相逢</div>
+        <div>星汉光年远</div>
+        <div>倏如一江风</div>
+        <!-- <abbr title="Last build on 2026-07-15">上次更新于2026年07月</abbr> -->
+      </div>
     </div>
-    <div class="footer-col" width = "100px">
-      <!-- <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU"></script> -->
-      <!-- <a href="https://clustrmaps.com/site/1c3hc"  title="ClustrMaps"><img src="//www.clustrmaps.com/map_v2.png?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU&cl=ffffff" /></a> -->
-      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=iTs9tWxp77mPUc-nmvOaa7WT_MnM3vT7ZN5-qScLKQU&cl=ffffff&w=214&co=8b0801"></script>
+    <div class="footer-col footer-col-map">
+      <div class="visitor-map">
+        <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=fefefe&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=8b0801&cmo=7088ff"></script>
+      </div>
     </div>
   </div>
 </footer>
@@ -1116,12 +1116,61 @@ if (poemIndex < 0 || !poems[poemIndex]) {
     h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
   }
 
-  function toggleBibtex(id) {
+  function toggleBibtex(id, button) {
     var element = document.getElementById('bib-' + id);
-    if (element.style.display === 'none') {
-      element.style.display = 'block';
+    if (!element) return;
+
+    var isHidden = element.hasAttribute('hidden');
+    if (isHidden) {
+      element.removeAttribute('hidden');
     } else {
-      element.style.display = 'none';
+      element.setAttribute('hidden', '');
+    }
+
+    if (button) {
+      button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+    }
+  }
+
+  function copyBibtex(id, button) {
+    var codeElement = document.getElementById('bib-code-' + id);
+    if (!codeElement) return;
+
+    var text = codeElement.textContent;
+    var resetLabel = function() {
+      if (!button) return;
+      button.innerHTML = '<i class="far fa-copy" aria-hidden="true"></i> Copy';
+    };
+    var setCopied = function() {
+      if (!button) return;
+      button.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Copied';
+      window.setTimeout(resetLabel, 1600);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(setCopied).catch(function() {
+        fallbackCopy(text, setCopied);
+      });
+      return;
+    }
+
+    fallbackCopy(text, setCopied);
+  }
+
+  function fallbackCopy(text, onSuccess) {
+    var textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    try {
+      document.execCommand('copy');
+      if (onSuccess) onSuccess();
+    } finally {
+      document.body.removeChild(textarea);
     }
   }
 </script>

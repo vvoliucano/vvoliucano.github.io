@@ -1,28 +1,3 @@
-- id: proteus
-  title: "Proteus: Shapeshifting Desktop Visualizations for Mobile via Multi-level Intelligent Adaptation"
-  topics:
-    - Expressivity
-    - AI4Vis
-  image: proteus.png
-  authors:
-    - Can Liu
-    - Sizhe Cheng
-    - Feng Liang
-    - Zhibang Jiang
-    - Lingru Huang
-    - Kavinda Athapaththu
-    - Yong Wang
-  venue: ACM Conference on Designing Interactive Systems
-  pdf: https://arxiv.org/pdf/2604.23299
-  link: /projects/proteus/
-  pages: 4874-4891
-  year: "2026"
-  highlight: 2
-  type:
-    - Conference
-
-
-
 - id: author_inter
   title: "From Static to Interactive: Authoring Interactive Visualizations via Natural Language"
   topics:
@@ -48,12 +23,63 @@
   type:
     - Conference
 
+- id: proteus
+  title: "Proteus: Shapeshifting Desktop Visualizations for Mobile via Multi-level Intelligent Adaptation"
+  topics:
+    - Expressivity
+    - AI4Vis
+  image: proteus.png
+  authors:
+    - Can Liu
+    - Sizhe Cheng
+    - Feng Liang
+    - Zhibang Jiang
+    - Lingru Huang
+    - Kavinda Athapaththu
+    - Yong Wang
+  venue: ACM Conference on Designing Interactive Systems
+  pdf: https://arxiv.org/pdf/2604.23299
+  link: /projects/proteus/
+  pages: 4874-4891
+  year: "2026"
+  highlight: 2
+  type:
+    - Conference
+
+
+- id: revis
+  title: "ReVis: Towards Reusable Image-Based Visualizations with MLLMs"
+  image: 26_revis.png
+  topics:
+    - Expressivity
+    - AI4Vis
+    - Human-AI
+  authors:
+    - Xiaolin Wen
+    - Changlin Li
+    - Manusha Karunathilaka
+    - Can Liu
+    - Fangzhuo Jin
+    - Yong Wang
+  year: "2026"
+  type:
+    - preprint
+  highlight: 0
+  pdf: "https://arxiv.org/pdf/2604.15781.pdf"
+  doi: "https://doi.org/10.48550/arXiv.2604.15781"
+  arxiv: "2604.15781"
+  primaryClass: cs.HC
+  abstract: "Many expressive visualizations are shared online only as bitmap images, making them difficult to redesign or adapt to new data. Reusing such image-based visualizations requires substantial expertise and is often time-consuming, even for experienced visualization practitioners. Existing work on reproducing visualizations often relies on structured SVG or specifications, supports limited visualization types, and offers limited flexibility for customization. To address these challenges, we present ReVis, a human-AI collaboration approach that enables flexible reuse of image-based visualizations. First, a generic Domain-Specific language (DSL) is proposed to model complex visualizations and support both visualization decomposition and reproduction. Then, ReVis employs an MLLM-based pipeline to parse an image-based visualization into the DSL, delineating its core visual structures and data-to-encoding mappings, and further reproduces the visualization from the DSL. Finally, ReVis includes an interactive interface to allow users to upload visualization images, inspect reproduced results, update the underlying data, and customize visual encodings. A gallery of 40 visualizations demonstrates the expressiveness of the DSL, and a quantitative study evaluates the reproduction quality of ReVis on these examples. Two usage scenarios and user interviews with 16 visualization practitioners demonstrate the effectiveness of ReVis."
+
+
+
+
+
 
 - id: spatial_audio
   title: "Accessible Fine-grained Data Representation via Spatial Audio"
   topics:
     - Accessibility
-    - Expressivity
   authors:
     - Can Liu
     - Wenjie Jiang
@@ -236,7 +262,7 @@
   topics:
     - Human-AI
     - Expressivity
-    - Visual Analytics
+    - Digital Humanities
   image: prompthis.webp
   authors:
     - Yuhan Guo
