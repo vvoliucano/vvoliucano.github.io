@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="“书同文”计划（Hanzi 658）：从658个華夏文化圈通用汉字词及其英文释义，观察中、日、韩、越共享的文字基础。">
+  <meta name="theme-color" content="#111716">
+  <title>“书同文”计划 · Hanzi 658</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: "OuyangxunKaishu";
+      src: url("../../assets/font/正欧阳询楷书%2B简繁.TTF") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: dark;
+      --ink: #111716;
+      --ink-soft: #18201e;
+      --paper: #ede9df;
+      --paper-soft: #cbc8bf;
+      --line: rgba(237, 233, 223, 0.16);
+      --red: #bd4a3c;
+      --jade: #7ea18d;
+      --serif: "Noto Serif SC", "Noto Serif KR", "Songti SC", serif;
+      --kai: "OuyangxunKaishu", "STKaiti", "KaiTi", serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--paper);
+      background: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px clamp(20px, 5vw, 68px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-family: var(--serif);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid var(--red);
+      color: #e27768;
+      font-family: var(--kai);
+      font-size: 19px;
+      transform: rotate(-3deg);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px 22px;
+    }
+
+    .nav-links a {
+      color: rgba(237, 233, 223, 0.64);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: #fff; outline: none; }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+      gap: clamp(48px, 8vw, 110px);
+      align-items: center;
+      max-width: 1280px;
+      min-height: calc(100vh - 84px);
+      margin: 0 auto;
+      padding: clamp(70px, 10vw, 138px) clamp(20px, 5vw, 68px);
+    }
+
+    .eyebrow {
+      margin: 0 0 22px;
+      color: var(--jade);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: var(--kai);
+      font-size: clamp(58px, 9vw, 116px);
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: 0.04em;
+    }
+
+    .hero h1 small {
+      display: block;
+      margin-top: 22px;
+      color: rgba(237, 233, 223, 0.52);
+      font-family: var(--serif);
+      font-size: clamp(18px, 2.1vw, 27px);
+      font-weight: 400;
+      letter-spacing: 0.2em;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 34px 0 0;
+      color: rgba(237, 233, 223, 0.68);
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.6vw, 19px);
+      line-height: 2;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid rgba(237, 233, 223, 0.2);
+      color: var(--paper);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .button.primary { border-color: var(--red); background: var(--red); color: #fff; }
+    .button:hover, .button:focus-visible { border-color: var(--paper); transform: translateY(-2px); outline: none; }
+
+    .glyph-stage {
+      position: relative;
+      min-height: 520px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255,255,255,0.025), transparent 56%);
+    }
+
+    .glyph-stage::before,
+    .glyph-stage::after {
+      content: "";
+      position: absolute;
+      background: var(--line);
+    }
+
+    .glyph-stage::before { top: 0; bottom: 0; left: 50%; width: 1px; }
+    .glyph-stage::after { top: 50%; right: 0; left: 0; height: 1px; }
+
+    .glyph-main {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      color: var(--paper);
+      font-family: var(--kai);
+      font-size: clamp(150px, 24vw, 260px);
+      line-height: 1;
+      transform: translate(-50%, -52%);
+    }
+
+    .glyph-orbit span {
+      position: absolute;
+      z-index: 2;
+      color: rgba(237, 233, 223, 0.48);
+      font-family: var(--serif);
+      font-size: 18px;
+    }
+
+    .glyph-orbit span:nth-child(1) { top: 11%; left: 10%; }
+    .glyph-orbit span:nth-child(2) { top: 13%; right: 11%; }
+    .glyph-orbit span:nth-child(3) { right: 12%; bottom: 12%; }
+    .glyph-orbit span:nth-child(4) { bottom: 10%; left: 10%; }
+
+    .glyph-count {
+      position: absolute;
+      z-index: 2;
+      right: 18px;
+      bottom: 17px;
+      color: var(--jade);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1280px;
+      margin: 0 auto;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .metric { padding: 30px clamp(20px, 5vw, 68px); border-right: 1px solid var(--line); }
+    .metric:last-child { border-right: 0; }
+    .metric strong { display: block; color: var(--paper); font-family: var(--serif); font-size: 28px; }
+    .metric span { display: block; margin-top: 7px; color: rgba(237,233,223,.46); font-size: 12px; letter-spacing: .12em; }
+
+    .section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: clamp(76px, 10vw, 130px) clamp(20px, 5vw, 68px);
+    }
+
+    .section-head { display: grid; grid-template-columns: .75fr 1.25fr; gap: 44px; margin-bottom: 54px; }
+    .section-kicker { color: var(--red); font-size: 11px; font-weight: 700; letter-spacing: .24em; }
+    .section h2 { margin: 0; font-family: var(--serif); font-size: clamp(34px, 5vw, 62px); font-weight: 600; line-height: 1.25; }
+    .section-intro { margin: 8px 0 0; color: rgba(237,233,223,.58); font-family: var(--serif); line-height: 1.9; }
+
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); }
+    .principle { min-height: 250px; padding: 28px; border-right: 1px solid var(--line); }
+    .principle:last-child { border-right: 0; }
+    .principle b { color: var(--jade); font-family: var(--kai); font-size: 44px; font-weight: 400; }
+    .principle h3 { margin: 42px 0 12px; font-family: var(--serif); font-size: 20px; }
+    .principle p { margin: 0; color: rgba(237,233,223,.55); font-family: var(--serif); font-size: 14px; line-height: 1.8; }
+
+    .source-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .source-card { min-height: 260px; padding: 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .source-card-meta { margin: 0 0 38px; color: var(--jade); font-size: 11px; font-weight: 700; letter-spacing: .18em; }
+    .source-card h3 { margin: 0 0 14px; font-family: var(--serif); font-size: 22px; line-height: 1.5; }
+    .source-card p { margin: 0; color: rgba(237,233,223,.52); font-family: var(--serif); font-size: 14px; line-height: 1.85; }
+    .source-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .source-link { padding-bottom: 4px; border-bottom: 1px solid rgba(237,233,223,.24); color: rgba(237,233,223,.78); font-size: 12px; text-decoration: none; }
+    .source-link:hover, .source-link:focus-visible { border-color: var(--red); color: #fff; outline: none; }
+
+    .examples { display: grid; border-top: 1px solid var(--line); }
+    .example { display: grid; grid-template-columns: 100px repeat(5, 1fr); align-items: center; min-height: 96px; border-bottom: 1px solid var(--line); }
+    .example > * { padding: 18px; }
+    .example-number { color: rgba(237,233,223,.32); font-size: 11px; letter-spacing: .1em; }
+    .example strong { font-family: var(--serif); font-size: 20px; }
+    .example span { color: rgba(237,233,223,.58); font-size: 13px; }
+    .example em { display: block; margin-top: 5px; color: rgba(237,233,223,.3); font-size: 11px; font-style: normal; }
+
+    .final-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 64px clamp(20px, 5vw, 68px);
+      border-top: 1px solid var(--line);
+    }
+
+    .final-cta h2 { margin: 0; font-family: var(--kai); font-size: clamp(34px, 5vw, 60px); font-weight: 400; }
+    .final-cta p { margin: 10px 0 0; color: rgba(237,233,223,.48); font-family: var(--serif); }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+      .glyph-stage { min-height: 430px; }
+      .section-head { grid-template-columns: 1fr; gap: 18px; }
+      .principles { grid-template-columns: 1fr; }
+      .principle { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .principle:last-child { border-bottom: 0; }
+      .source-grid { grid-template-columns: 1fr; }
+      .source-card { min-height: auto; }
+      .example { grid-template-columns: 70px repeat(2, 1fr); }
+      .example > *:nth-child(n+4) { border-top: 1px solid rgba(237,233,223,.08); }
+    }
+
+    @media (max-width: 580px) {
+      .masthead, .final-cta { align-items: flex-start; flex-direction: column; }
+      .nav-links { justify-content: flex-start; }
+      .metrics { grid-template-columns: 1fr; }
+      .metric { border-right: 0; border-bottom: 1px solid var(--line); }
+      .metric:last-child { border-bottom: 0; }
+      .glyph-stage { min-height: 340px; }
+      .example { grid-template-columns: 62px 1fr; }
+      .example > * { padding: 14px 10px; }
+      .example > *:nth-child(n+3) { border-top: 1px solid rgba(237,233,223,.08); }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="../../other/"><span class="brand-mark">书</span><span>“书同文”计划</span></a>
+    <nav class="nav-links" aria-label="页面导航">
+      <a href="../../other/">返回華夏文化</a>
+      <a href="./">交互浏览</a>
+      <a href="../../zh/">作者主页</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Hanzi 658 · Shared Script Atlas</p>
+        <h1>书同文<small>计划 · Hanzi 658</small></h1>
+        <p class="hero-copy">从六百五十八个華夏文化圈通用汉字词出发，对照中、日、韩、越的字形、词义与读音，并以英文释义作为理解入口，观察一套共同文字如何在不同语言中延续与变化。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="./">开始探索 <span aria-hidden="true">→</span></a>
+          <a class="button" href="https://www.tcs-asia.org/data/etcData/PUB_1655945242.pdf" target="_blank" rel="noopener">中文版资料</a>
+          <a class="button" href="source.pdf">韩文版资料</a>
+        </div>
+      </div>
+      <div class="glyph-stage" aria-label="同文异读示意">
+        <div class="glyph-main">同</div>
+        <div class="glyph-orbit" aria-hidden="true"><span>中文</span><span>한국어</span><span>日本語</span><span>Tiếng Việt</span></div>
+        <div class="glyph-count">658 COMMON TERMS</div>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="项目概览">
+      <div class="metric"><strong>658</strong><span>组通用汉字词</span></div>
+      <div class="metric"><strong>4</strong><span>条现代语言路径</span></div>
+      <div class="metric"><strong>12</strong><span>项字形、词义、英文释义与读音字段</span></div>
+    </section>
+
+    <section class="section" aria-labelledby="source-heading">
+      <div class="section-head">
+        <p class="section-kicker">资料来源</p>
+        <div><h2 id="source-heading">资料来源与编纂</h2><p class="section-intro">Hanzi 658 的词条取自《中日韩共用汉字词典》。该词典由中日韩合作秘书处组织三国专家编纂。中文选词参考《现代汉语频率词典》，释义参考《现代汉语大词典》。</p></div>
+      </div>
+      <div class="source-grid">
+        <article class="source-card">
+          <p class="source-card-meta">中国 · 选词原始材料</p>
+          <h3>《现代汉语频率词典》</h3>
+          <p>用于中国侧词频筛选。三方词表取交集后，再按《中日韩共同常用八百汉字表》筛选，得到 658 个词条。</p>
+        </article>
+        <article class="source-card">
+          <p class="source-card-meta">中国 · 释义参考</p>
+          <h3>《现代汉语大词典》</h3>
+          <p>上海辞书出版社出版。用于核对中文词义、用法与例句。</p>
+        </article>
+        <article class="source-card">
+          <p class="source-card-meta">中日韩 · 联合编纂</p>
+          <h3>《中日韩共用汉字词典》</h3>
+          <p>中日韩合作秘书处组织三国专家编纂。Hanzi 658 的词条与中日韩对照均据此录入。</p>
+          <div class="source-links">
+            <a class="source-link" href="https://www.tcs-asia.org/data/etcData/PUB_1655945242.pdf" target="_blank" rel="noopener">中文版词典</a>
+            <a class="source-link" href="source.pdf">韩文版词典</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p class="section-kicker">为何做这件事</p>
+        <div><h2>文字不是遗迹，<br>而是仍在运行的文化基础。</h2><p class="section-intro">“书同文”计划不是一部完整词典，而是一扇入口：把跨语言仍可辨认的汉字词放到同一视野中，让共同与差异都变得可见。</p></div>
+      </div>
+      <div class="principles">
+        <article class="principle"><b>同</b><h3>共同的书写线索</h3><p>简体、繁体与汉字词保留了相互辨识的形态基础，让历史文本、知识概念与现代生活词汇彼此连接。</p></article>
+        <article class="principle"><b>异</b><h3>各自演化的读音</h3><p>相近的字形进入不同语言后形成独立读音与用法。差异不是偏离，而是文化传播留下的时间层次。</p></article>
+        <article class="principle"><b>通</b><h3>面向公众的探索</h3><p>通过随机浏览与多语对照，让语言学习者、文化研究者和普通读者以轻量方式发现華夏文化圈内部的共同与差异。</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p class="section-kicker">同词异声</p>
+        <div><h2>看得见的相似，<br>听得见的远近。</h2><p class="section-intro">每个条目同时呈现汉字形式、拉丁转写与英文释义。以下示例均来自项目当前数据。</p></div>
+      </div>
+      <div class="examples" aria-label="多语言词语示例">
+        <div class="example"><span class="example-number">001</span><strong>时间</strong><span>시간<em>si gan</em></span><span>時間<em>jikan</em></span><span>thì gian<em>thi gian</em></span><span>time<em>English</em></span></div>
+        <div class="example"><span class="example-number">002</span><strong>价格</strong><span>가격<em>ga gyeok</em></span><span>価格<em>kakaku</em></span><span>giá cách<em>gia cach</em></span><span>price<em>English</em></span></div>
+        <div class="example"><span class="example-number">003</span><strong>电话</strong><span>전화<em>jeon hwa</em></span><span>電話<em>denwa</em></span><span>thoại<em>thoai</em></span><span>telephone<em>English</em></span></div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div><h2>从一个词，进入一张文化网络。</h2><p>随机抽取条目，对照四种语言中的文字与声音，并查看英文释义。</p></div>
+      <a class="button primary" href="./">进入“书同文”计划 <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+</body>
+</html>

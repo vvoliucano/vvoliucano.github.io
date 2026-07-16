@@ -14,6 +14,7 @@ ROOT = Path("/Volumes/Can Disk/writing/vvoliucano.github.io/projects/hanzi658")
 PDF_PATH = ROOT / "source.pdf"
 CSV_PATH = ROOT / "hanzi658.csv"
 JSON_PATH = ROOT / "words.json"
+ENGLISH_TRANSLATIONS_PATH = ROOT / "english_translations.json"
 UNIHAN_ZIP_PATH = ROOT / "Unihan.zip"
 PAGE_RANGE = range(11, 17)
 SKIP_LINES = {"No.", "KOR", "CHN", "JPN", "한중일 공통 658 단어 표"}
@@ -156,6 +157,16 @@ def extract_from_pdf():
 
 
 def write_outputs(words):
+    with ENGLISH_TRANSLATIONS_PATH.open(encoding="utf-8") as file:
+        english_translations = json.load(file)
+
+    for word in words:
+        word["english"] = english_translations.get(str(word["no"]), "")
+
+    missing_english = [word["no"] for word in words if not word["english"]]
+    if missing_english:
+        raise RuntimeError(f"Missing English translations for entries: {missing_english[:10]}")
+
     fieldnames = [
         "no",
         "hanzi",
@@ -164,6 +175,7 @@ def write_outputs(words):
         "romanization",
         "chinese",
         "chinese_pinyin",
+        "english",
         "japanese",
         "japanese_romanization",
         "vietnamese",
@@ -171,7 +183,7 @@ def write_outputs(words):
     ]
 
     with CSV_PATH.open("w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        writer = csv.DictWriter(file, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(words)
 

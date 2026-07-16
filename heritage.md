@@ -1,0 +1,405 @@
+---
+layout: page
+permalink: /heritage/
+title: Huaxia
+class: heritage-page
+---
+
+<style>
+@font-face {
+  font-family: "OuyangxunKaishu";
+  src: url("{{ '/assets/font/正欧阳询楷书+简繁.TTF' | relative_url | replace: '+', '%2B' }}") format("truetype");
+  font-display: swap;
+}
+
+.heritage-page {
+  max-width: 1040px;
+  --heritage-serif: Georgia, "Times New Roman", serif;
+  --heritage-kai: "OuyangxunKaishu", "STKaiti", "KaiTi", serif;
+  --heritage-ink: #202d35;
+  --heritage-muted: #687780;
+  --heritage-line: rgba(37, 55, 64, 0.14);
+  --heritage-red: #8b2018;
+  --heritage-jade: #446b5a;
+}
+
+.heritage-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.48fr) minmax(15rem, 0.52fr);
+  gap: clamp(2rem, 7vw, 5.5rem);
+  align-items: end;
+  min-height: 28rem;
+  margin: 1.6rem 0 2.8rem;
+  padding: 3.2rem 0 2.2rem;
+  border-top: 1px solid var(--heritage-line);
+  border-bottom: 1px solid var(--heritage-line);
+}
+
+.heritage-hero::before {
+  content: "華夏";
+  position: absolute;
+  top: 0.2rem;
+  right: 0;
+  color: rgba(32, 45, 53, 0.026);
+  font-family: var(--heritage-kai);
+  font-size: clamp(7rem, 18vw, 13rem);
+  line-height: 1;
+  letter-spacing: -0.08em;
+  pointer-events: none;
+}
+
+.heritage-hero-copy,
+.heritage-emblem {
+  position: relative;
+  z-index: 1;
+}
+
+.heritage-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 0 1.35rem;
+  color: var(--heritage-red);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.heritage-kicker::after {
+  content: "";
+  width: clamp(3rem, 9vw, 7rem);
+  height: 1px;
+  background: currentColor;
+  opacity: 0.34;
+}
+
+.heritage-title {
+  margin: 0;
+  color: var(--heritage-ink);
+  font-family: var(--heritage-serif);
+  font-size: clamp(3rem, 6.9vw, 5.6rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.heritage-title span {
+  display: block;
+}
+
+.heritage-title span:last-child {
+  max-width: 12ch;
+  margin: 0.18em 0 0 clamp(1.3rem, 6vw, 4.8rem);
+  color: transparent;
+  font-size: 0.7em;
+  line-height: 1.05;
+  -webkit-text-stroke: 1px rgba(32, 45, 53, 0.52);
+}
+
+.heritage-lead {
+  max-width: 710px;
+  margin: 1.7rem 0 0;
+  color: var(--heritage-muted);
+  font-family: var(--heritage-serif);
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+.heritage-term-link {
+  border-bottom: 1px solid rgba(139, 32, 24, 0.3);
+  color: inherit;
+  text-decoration: none;
+}
+
+.heritage-term-link:hover,
+.heritage-term-link:focus-visible {
+  border-color: var(--heritage-red);
+  color: var(--heritage-red);
+  outline: none;
+}
+
+.heritage-cite {
+  margin-left: 0.15em;
+  color: var(--heritage-red);
+  font-size: 0.7em;
+  font-weight: 700;
+  text-decoration: none;
+  vertical-align: super;
+}
+
+.heritage-sources {
+  margin: -0.2rem 0 1.35rem;
+  padding: 0.9rem 0 0 1.2rem;
+  border-top: 1px solid rgba(37, 55, 64, 0.1);
+  color: #879198;
+  font-family: var(--heritage-serif);
+  font-size: 0.66rem;
+  line-height: 1.55;
+}
+
+.heritage-sources li + li { margin-top: 0.35rem; }
+
+.heritage-sources a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(139, 32, 24, 0.28);
+  text-underline-offset: 0.18em;
+}
+
+.heritage-emblem {
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(37, 55, 64, 0.24);
+}
+
+.heritage-emblem-main {
+  display: block;
+  color: var(--heritage-ink);
+  font-family: var(--heritage-kai);
+  font-size: clamp(4.6rem, 10vw, 7.5rem);
+  line-height: 0.95;
+}
+
+.heritage-axis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 1rem;
+  border-top: 1px solid var(--heritage-line);
+  border-bottom: 1px solid var(--heritage-line);
+}
+
+.heritage-axis span {
+  padding: 0.55rem 0.15rem;
+  border-right: 1px solid var(--heritage-line);
+  color: #6c787f;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.heritage-axis span:last-child { border-right: 0; }
+
+.heritage-emblem-note {
+  margin: 0.7rem 0 0;
+  color: #8d979d;
+  font-size: 0.64rem;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.heritage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.heritage-card {
+  display: flex;
+  min-height: 23rem;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid var(--heritage-line);
+  border-radius: 10px;
+  background: #fff;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.heritage-card:hover,
+.heritage-card:focus-within {
+  border-color: rgba(68, 107, 90, 0.44);
+  transform: translateY(-2px);
+}
+
+.heritage-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.heritage-number {
+  color: #9aa5ab;
+  font-family: var(--heritage-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+}
+
+.heritage-seal {
+  display: grid;
+  width: 2.65rem;
+  height: 2.65rem;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  color: var(--heritage-red);
+  font-family: var(--heritage-kai);
+  font-size: 1.45rem;
+  transform: rotate(-2deg);
+}
+
+.heritage-card:nth-child(2) .heritage-seal { color: #3e6073; }
+.heritage-card:nth-child(3) .heritage-seal { color: var(--heritage-jade); }
+.heritage-card:nth-child(4) .heritage-seal { color: #71533f; }
+
+.heritage-card h2 {
+  margin: 1.2rem 0 0.25rem;
+  border: 0;
+  color: var(--heritage-ink);
+  font-family: var(--heritage-serif);
+  font-size: 1.85rem;
+  font-weight: 400;
+}
+
+.heritage-card-subtitle {
+  margin: 0;
+  color: var(--heritage-muted);
+  font-family: var(--heritage-serif);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+.heritage-card-copy {
+  margin: 1.15rem 0 1.35rem;
+  color: #586770;
+  font-family: var(--heritage-serif);
+  font-size: 0.9rem;
+  line-height: 1.82;
+}
+
+.heritage-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: auto;
+}
+
+.heritage-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(37, 55, 64, 0.16);
+  border-radius: 5px;
+  color: #394e59;
+  background: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.heritage-link:hover,
+.heritage-link:focus-visible {
+  border-color: rgba(139, 32, 24, 0.38);
+  color: var(--heritage-red);
+  text-decoration: none;
+  outline: none;
+}
+
+.heritage-note {
+  margin: 1rem 0 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(37, 55, 64, 0.1);
+  color: #8d979d;
+  font-family: var(--heritage-serif);
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+.heritage-closing {
+  margin: 0 0 3.2rem;
+  padding: clamp(2.8rem, 7vw, 5rem) 0;
+  border-top: 1px solid var(--heritage-line);
+  border-bottom: 1px solid var(--heritage-line);
+  color: var(--heritage-ink);
+  font-family: var(--heritage-serif);
+  font-size: clamp(2.2rem, 5.2vw, 4rem);
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.heritage-closing span { display: block; }
+.heritage-closing span:last-child { color: var(--heritage-jade); }
+
+@media (max-width: 760px) {
+  .heritage-hero { grid-template-columns: 1fr; gap: 2.4rem; min-height: 0; margin-top: 0.6rem; padding-top: 2.2rem; }
+  .heritage-title { font-size: clamp(2.8rem, 14vw, 4.8rem); }
+  .heritage-title span:last-child { margin-left: 1rem; }
+  .heritage-emblem { max-width: 20rem; }
+  .heritage-grid { grid-template-columns: 1fr; }
+  .heritage-card { min-height: auto; }
+}
+</style>
+
+<main class="heritage-hub">
+  <header class="heritage-hero">
+    <div class="heritage-hero-copy">
+      <p class="heritage-kicker">The Huaxia Cultural Archive</p>
+      <h1 class="heritage-title"><span>Huaxia in Splendor</span><span>Light Across the Four Quarters</span></h1>
+      <p class="heritage-lead"><a class="heritage-term-link" href="https://en.wikipedia.org/wiki/Huaxia" target="_blank" rel="noopener">Huaxia (華夏)</a> is an ancient name for Chinese civilization and the cultural world shaped by Chinese writing, classical learning, ritual, and inherited institutions. It does not refer to one dynasty alone. This archive follows that long continuity through poetry and characters, number and measure, craft and construction, image and time.</p>
+    </div>
+    <aside class="heritage-emblem" aria-label="Four paths through the archive">
+      <span class="heritage-emblem-main">文</span>
+      <div class="heritage-axis"><span>Verse</span><span>Hanzi</span><span>Craft</span><span>Pattern</span></div>
+      <p class="heritage-emblem-note">Living forms of inherited knowledge</p>
+    </aside>
+  </header>
+
+  <section class="heritage-grid" aria-label="Huaxia cultural collections">
+    <article class="heritage-card">
+      <div class="heritage-card-head"><span class="heritage-number">I</span><span class="heritage-seal" aria-hidden="true">詩</span></div>
+      <h2>Poetry</h2>
+      <p class="heritage-card-subtitle">To speak intention and give voice to feeling</p>
+      <p class="heritage-card-copy">In the Huaxia tradition, poetry is not ornament or private sentiment alone. It places the self in relation to season, landscape, memory, and public life. The <em>Mushan Collection</em> continues this practice through original verse and a vertical, paper-like reading experience.</p>
+      <div class="heritage-actions">
+        <a class="heritage-link" href="{{ '/mushan/' | relative_url }}">Open Mushan Collection <span aria-hidden="true">→</span></a>
+        {% assign latest_poems = site.data.other | sort: 'year' | reverse %}
+        {% assign latest_poem = latest_poems.first %}
+        {% if latest_poem %}
+          {% assign latest_poem_id = latest_poem.id | url_encode %}
+          {% assign latest_poem_url = '/poem/?id=' | append: latest_poem_id %}
+          <a class="heritage-link" href="{{ latest_poem_url | relative_url }}">Read a poem <span aria-hidden="true">→</span></a>
+        {% endif %}
+      </div>
+    </article>
+
+    <article class="heritage-card">
+      <div class="heritage-card-head"><span class="heritage-number">II</span><span class="heritage-seal" aria-hidden="true">文</span></div>
+      <h2>Chinese Characters</h2>
+      <p class="heritage-card-subtitle">Hanzi (汉字) as form, language, and memory</p>
+      <p class="heritage-card-copy"><a class="heritage-term-link" href="https://en.wikipedia.org/wiki/Chinese_characters" target="_blank" rel="noopener">Chinese characters (汉字, Hanzi)</a> originated in China and were adapted to write Japanese, Korean, and Vietnamese.<a class="heritage-cite" href="#heritage-source-1" aria-label="See source 1">[1]</a> They remain integral to modern Japanese as <em>kanji</em>, are used more selectively in Korean as <em>hanja</em>, and underlie Vietnam’s historical <em>chữ Hán</em> and <em>chữ Nôm</em> traditions. Their legacy is also lexical: a 2025 review estimates Sino-derived words at roughly 43–54% of Japanese vocabulary, 47–56% of Korean, and 70% of Vietnamese, with results varying by medium and classification.<a class="heritage-cite" href="#heritage-source-2" aria-label="See source 2">[2]</a> <em>Written as One</em> begins with 658 shared character-words, placing their forms, readings, and English meanings side by side.</p>
+      <ol class="heritage-sources" aria-label="Sources for Chinese character history and vocabulary">
+        <li id="heritage-source-1"><a href="https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-18/" target="_blank" rel="noopener">The Unicode Standard, Version 17.0, Chapter 18: East Asia</a>.</li>
+        <li id="heritage-source-2">Kinoshita Hitomi, “<a href="https://cir.nii.ac.jp/crid/1390023549705999872?lang=en" target="_blank" rel="noopener">Quantitative Research Overview on Chinese Loanwords in Japanese, Korean, and Vietnamese</a>,” <em>NINJAL Research Papers</em> 29 (2025), pp. 221–243. <a href="https://www.ninjal.ac.jp/info/publication/papers/29/" target="_blank" rel="noopener">NINJAL issue page</a>.</li>
+      </ol>
+      <div class="heritage-actions">
+        <a class="heritage-link" href="{{ '/projects/hanzi658/overview.html' | relative_url }}">About Written as One <span aria-hidden="true">→</span></a>
+        <a class="heritage-link" href="{{ '/projects/hanzi658/' | relative_url }}">Explore the words <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+
+    <article class="heritage-card">
+      <div class="heritage-card-head"><span class="heritage-number">III</span><span class="heritage-seal" aria-hidden="true">技</span></div>
+      <h2>Science and Technology in Ancient China</h2>
+      <p class="heritage-card-subtitle">Mathematics, architecture, measure, and making</p>
+      <p class="heritage-card-copy">Science and technology in ancient China joined calculation to administration and making. Mathematical procedures addressed fields, exchange, taxation, construction, and astronomy; architectural systems turned measure into timber frames, modular proportion, and spatial order.</p>
+      <p class="heritage-note">This section begins with classical Chinese mathematics and architecture. The collections are in preparation.</p>
+    </article>
+
+    <article class="heritage-card">
+      <div class="heritage-card-head"><span class="heritage-number">IV</span><span class="heritage-seal" aria-hidden="true">象</span></div>
+      <h2>Xiangshu</h2>
+      <p class="heritage-card-subtitle">Pattern and number as a language of change</p>
+      <p class="heritage-card-copy"><em>Xiang</em>—image or pattern—and <em>shu</em>—number—relate time, position, and transformation. The tools here make stems and branches, calendrical cycles, lines, and hexagrams available for study as historical systems of reasoning and reflection.</p>
+      <div class="heritage-actions">
+        <a class="heritage-link" href="{{ '/projects/bazi/' | relative_url }}">Four Pillars <span aria-hidden="true">→</span></a>
+        <a class="heritage-link" href="{{ '/projects/liuyao/' | relative_url }}">Six Lines <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="heritage-note">For cultural study and self-reflection only. It is not advice for real-world decisions.</p>
+    </article>
+  </section>
+
+  <p class="heritage-closing"><span>Enter Poetry Through Script</span><span>Discern the Way Through Things</span></p>
+</main>

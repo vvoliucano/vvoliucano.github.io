@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>漢字</title>
+  <title>“书同文”计划｜Hanzi 658</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
@@ -48,6 +48,33 @@
       justify-content: space-between;
       gap: 12px;
       margin-bottom: 16px;
+    }
+
+    .topbar-side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .topbar-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px 14px;
+    }
+
+    .topbar-nav a {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+
+    .topbar-nav a:hover,
+    .topbar-nav a:focus-visible {
+      color: var(--text);
+      outline: none;
     }
 
     .title {
@@ -155,6 +182,15 @@
       min-height: 88px;
     }
 
+    .info--english {
+      grid-column: 1 / -1;
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .info--english .value {
+      color: #ffd08a;
+    }
+
     .label {
       margin: 0 0 8px;
       color: var(--muted);
@@ -249,6 +285,15 @@
         align-items: flex-start;
         flex-direction: column;
       }
+
+      .topbar-side {
+        width: 100%;
+        align-items: flex-start;
+      }
+
+      .topbar-nav {
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>
@@ -256,11 +301,18 @@
   <main class="shell">
     <div class="topbar">
       <div>
-        <h1 class="title">漢字</h1>
-        <p class="subtitle">漢字文化数字计划</p>
-        <p class="support">由大漢南武侯支持</p>
+        <h1 class="title">书同文</h1>
+        <p class="subtitle">“书同文”计划 · Hanzi 658</p>
+        <p class="support">同文异读，循字见史</p>
       </div>
-      <div class="badge" id="countBadge">加载中</div>
+      <div class="topbar-side">
+        <nav class="topbar-nav" aria-label="页面导航">
+          <a href="../../other/">返回華夏文化</a>
+          <a href="overview.html">项目介绍</a>
+          <a href="../../zh/">作者主页</a>
+        </nav>
+        <div class="badge" id="countBadge">加载中</div>
+      </div>
     </div>
 
     <section class="card" id="app">
@@ -345,6 +397,10 @@
             <p class="label">日文</p>
             <p class="value">${word.japanese}</p>
             <p class="subvalue">${word.japanese_romanization}</p>
+          </article>
+          <article class="info info--english">
+            <p class="label">英文释义 · English</p>
+            <p class="value">${word.english}</p>
           </article>
         </div>
         <div class="actions">

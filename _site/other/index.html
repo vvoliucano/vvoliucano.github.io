@@ -58,1862 +58,533 @@ var _hmt = _hmt || [];
   <div><a href="/contact/" >Contact</a></div> -->
     <!-- <a href="/talks/" >Talks</a>
     <a href="/blog/" >Blog</a> -->
-    <div><a href="/other/" class="active">其他</a></div>
+    <div><a href="/other/" class="active">奇门</a></div>
     <div><a href="/mushan/" >诗集</a></div>
     <span class="external">
       <!-- <div><a target="_blank" href="https://twitter.com/LiwenhanXie"><i class="fab fa-twitter"></i>Twitter</a></div> -->
-      <div><a href="/" data-language-choice="en"></i>English</a></div>
+      <div><a href="/heritage/" data-language-choice="en"></i>English</a></div>
     </span>
   </nav>
 </header>
 
 
   <div class="page-content">
-    <section class="container ">
+    <section class="container culture-page">
   <style>
-/* 诗集整体样式 */
-.poetry-year-section {
-    margin: 3rem 0;
-    padding: 0 1rem;
+@font-face {
+  font-family: "OuyangxunKaishu";
+  src: url("/assets/font/%E6%AD%A3%E6%AC%A7%E9%98%B3%E8%AF%A2%E6%A5%B7%E4%B9%A6%2B%E7%AE%80%E7%B9%81.TTF") format("truetype");
+  font-display: swap;
 }
 
-.poetry-year-title {
-    font-size: 2.5rem;
-    font-weight: 300;
-    text-align: center;
-    color: #2c3e50;
-    margin: 2rem 0 1rem 0;
-    font-family: "STKaiti", "KaiTi", "楷体", serif;
-    letter-spacing: 0.2em;
+.culture-page {
+  max-width: 1040px;
+  --culture-serif: "OuyangxunKaishu", "STKaiti", "KaiTi", "Kaiti SC", serif;
+  --culture-song: "Songti SC", "STSong", "SimSun", serif;
+  --culture-ink: #202d35;
+  --culture-muted: #738089;
+  --culture-line: rgba(37, 55, 64, 0.14);
+  --culture-paper: #ffffff;
+  --culture-red: #8b2018;
+  --culture-jade: #446b5a;
+  --culture-blue: #3e6073;
 }
 
-.poetry-year-divider {
-    display: none;
+.culture-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(15rem, 0.55fr);
+  gap: clamp(2rem, 7vw, 5.5rem);
+  align-items: end;
+  min-height: 25rem;
+  margin: 1.6rem 0 2.8rem;
+  padding: 3.2rem 0 2.2rem;
+  border-top: 1px solid var(--culture-line);
+  border-bottom: 1px solid var(--culture-line);
 }
 
-/* 单首诗的样式 */
-.poetry-item {
-    max-width: 800px;
-    margin: 4rem auto;
-    padding: 3rem;
-    background: #fff;
-    border: 0;
-    border-radius: 4px;
-    position: relative;
-    transition: all 0.3s ease;
-    /* 中国风淡雅背景：模拟宣纸质感 */
-    background-image: 
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), transparent),
-        repeating-linear-gradient(0deg, rgba(0,0,0,0.005) 0px, rgba(0,0,0,0.005) 1px, transparent 1px, transparent 2px),
-        linear-gradient(to bottom, #ffffff, #fcfcfc);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+.culture-hero::before {
+  content: "華夏";
+  position: absolute;
+  right: 0;
+  top: 0.22rem;
+  color: rgba(32, 45, 53, 0.026);
+  font-family: var(--culture-serif);
+  font-size: clamp(7rem, 18vw, 13rem);
+  line-height: 1;
+  letter-spacing: -0.08em;
+  pointer-events: none;
 }
 
-.poetry-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(0,0,0,0.05);
+.culture-hero-copy {
+  position: relative;
+  z-index: 1;
 }
 
-.poetry-item::before {
-    display: none;
+.culture-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 0 1.2rem;
+  color: var(--culture-red);
+  font-family: var(--culture-serif);
+  font-size: 0.88rem;
+  letter-spacing: 0.24em;
 }
 
-/* 诗歌标题区域 */
-.poetry-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
+.culture-kicker::after {
+  content: "";
+  width: clamp(3rem, 9vw, 7rem);
+  height: 1px;
+  background: currentColor;
+  opacity: 0.34;
 }
 
-.poetry-title {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: #2c3e50;
-    margin: 0 0 0.5rem 0;
-    font-family: "STKaiti", "KaiTi", "楷体", serif;
-    letter-spacing: 0.1em;
+.culture-title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--culture-ink);
+  font-family: var(--culture-serif);
+  font-size: clamp(3.35rem, 8vw, 6.25rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: 0.04em;
 }
 
-.poetry-title a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease, color 0.2s ease;
+.culture-title span {
+  display: block;
+  width: max-content;
+  white-space: nowrap;
 }
 
-.poetry-title a:hover {
-    color: #1f4e79;
-    border-bottom-color: rgba(31, 78, 121, 0.35);
+.culture-title span:last-child {
+  margin-left: clamp(1.5rem, 8vw, 6rem);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(32, 45, 53, 0.48);
+  text-stroke: 1px rgba(32, 45, 53, 0.48);
 }
 
-.poetry-type {
-    display: inline-block;
-    font-size: 0.9rem;
-    color: #7f8c8d;
-    background: #ecf0f1;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-family: "STKaiti", "KaiTi", "楷体", serif;
-    letter-spacing: 0.05em;
+.culture-lead {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 1.6rem 0 0;
+  color: #66747d;
+  font-family: var(--culture-song);
+  font-size: 0.95rem;
+  line-height: 2;
 }
 
-/* 诗歌内容 */
-.poetry-content {
-    text-align: center;
-    line-height: 2.2;
-    margin: 2rem 0;
+.culture-emblem {
+  position: relative;
+  z-index: 1;
+  padding: 1.2rem 0 0.15rem;
+  border-top: 1px solid rgba(37, 55, 64, 0.24);
 }
 
-.poetry-line {
-    font-size: 1.2rem;
-    color: #34495e;
-    margin: 0.8rem 0;
-    font-family: "STKaiti", "KaiTi", "楷体", serif;
-    letter-spacing: 0.05em;
+.culture-emblem-main {
+  display: block;
+  color: var(--culture-ink);
+  font-family: var(--culture-serif);
+  font-size: clamp(4.6rem, 10vw, 7.5rem);
+  font-weight: 400;
+  line-height: 0.95;
 }
 
-.poetry-divider {
-    display: none;
+.culture-emblem-axis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 1rem;
+  border-top: 1px solid var(--culture-line);
+  border-bottom: 1px solid var(--culture-line);
 }
 
-.poetry-spacer {
-    height: 1.2rem;
+.culture-emblem-axis span {
+  padding: 0.48rem 0;
+  border-right: 1px solid var(--culture-line);
+  color: #69767e;
+  font-family: var(--culture-serif);
+  font-size: 0.86rem;
+  text-align: center;
 }
 
-/* 注释样式 */
-.poetry-notes {
-    margin-top: 2rem;
-    padding: 1.2rem 1.5rem;
-    background: rgba(248, 249, 250, 0.6);
-    border-radius: 4px;
+.culture-emblem-axis span:last-child {
+  border-right: 0;
 }
 
-.notes-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #e74c3c;
-    margin-bottom: 0.8rem;
-    font-family: "STKaiti", "KaiTi", "楷体", serif;
+.culture-emblem-note {
+  margin: 0.65rem 0 0;
+  color: #8d979d;
+  font-family: var(--culture-song);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
-.notes-line {
-    font-size: 0.9rem;
-    color: #5a6c7d;
-    line-height: 1.6;
-    margin: 0.4rem 0;
-    font-style: normal;
-    font-family: "STFangsong", "FangSong", "华文仿宋", "FangSong_GB2312", serif;
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
 }
 
-/* 图片展示 */
-.poetry-images {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
+.culture-card {
+  position: relative;
+  display: flex;
+  min-height: 20rem;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1.4rem;
+  border: 1px solid var(--culture-line);
+  border-radius: 10px;
+  background: var(--culture-paper);
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.poetry-image-item {
-    position: relative;
-    cursor: zoom-in;
-    max-width: 200px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.culture-card:hover,
+.culture-card:focus-within {
+  border-color: rgba(68, 107, 90, 0.42);
+  transform: translateY(-2px);
 }
 
-.poetry-image-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: none;
+.culture-card::after {
+  content: "";
+  position: absolute;
+  right: 1.35rem;
+  bottom: 1.25rem;
+  left: 1.35rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37, 55, 64, 0.12), transparent);
+  pointer-events: none;
 }
 
-/* 全屏图片覆盖层 */
-.image-fullscreen-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: zoom-out;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+.culture-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.image-fullscreen-overlay.active {
-    opacity: 1;
-    visibility: visible;
+.culture-number {
+  color: #a3acb2;
+  font-family: var(--culture-serif);
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
 }
 
-.image-fullscreen-overlay img {
-    max-width: 90vw;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+.culture-seal {
+  display: grid;
+  width: 2.65rem;
+  height: 2.65rem;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  color: var(--culture-red);
+  font-family: var(--culture-serif);
+  font-size: 1.45rem;
+  line-height: 1;
+  transform: rotate(-2deg);
 }
 
-/* 关闭按钮 */
-.image-fullscreen-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: white;
-    transition: background 0.2s ease;
+.culture-card h2 {
+  margin: 1rem 0 0.25rem;
+  border: 0;
+  color: var(--culture-ink);
+  font-family: var(--culture-serif);
+  font-size: 1.9rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
 }
 
-.image-fullscreen-close:hover {
-    background: rgba(255, 255, 255, 0.3);
+.culture-card-subtitle {
+  margin: 0;
+  color: var(--culture-muted);
+  font-family: var(--culture-serif);
+  font-size: 0.93rem;
+  letter-spacing: 0.08em;
 }
 
-.image-fullscreen-close::before {
-    content: '×';
-    font-weight: bold;
+.culture-card-copy {
+  margin: 1rem 0 1.2rem;
+  color: #596871;
+  font-family: var(--culture-song);
+  font-size: 0.88rem;
+  line-height: 1.82;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .poetry-item {
-        margin: 2rem 0.5rem;
-        padding: 1.5rem;
-    }
-    
-    .poetry-year-title {
-        font-size: 2rem;
-    }
-    
-    .poetry-title {
-        font-size: 1.5rem;
-    }
-    
-    .poetry-line {
-        font-size: 1.1rem;
-    }
-    
-    .poetry-images {
-        gap: 10px;
-    }
-    
-    .poetry-image-item {
-        max-width: 150px;
-    }
+.culture-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: auto;
+  padding-bottom: 1.1rem;
+}
+
+.culture-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.68rem;
+  border: 1px solid rgba(37, 55, 64, 0.16);
+  border-radius: 5px;
+  color: #394e59;
+  background: #fff;
+  font-size: 0.76rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.18s ease, border-color 0.18s ease, padding 0.18s ease;
+}
+
+.culture-link:hover,
+.culture-link:focus-visible {
+  padding-right: 0.85rem;
+  border-color: rgba(139, 32, 24, 0.38);
+  color: var(--culture-red);
+  text-decoration: none;
+  outline: none;
+}
+
+.culture-link span[aria-hidden="true"] {
+  font-size: 0.9em;
+}
+
+.culture-cite {
+  margin-left: 0.12em;
+  color: var(--culture-red);
+  font-size: 0.72em;
+  font-weight: 700;
+  text-decoration: none;
+  vertical-align: super;
+}
+
+.culture-sources {
+  margin: -0.35rem 0 1.2rem;
+  padding: 0.75rem 0 0 1.1rem;
+  border-top: 1px solid rgba(37, 55, 64, 0.1);
+  color: #8b959b;
+  font-family: var(--culture-song);
+  font-size: 0.66rem;
+  line-height: 1.55;
+}
+
+.culture-sources li + li { margin-top: 0.3rem; }
+
+.culture-sources a {
+  color: inherit;
+  text-decoration-color: rgba(139, 32, 24, 0.28);
+  text-underline-offset: 0.16em;
+}
+
+.culture-card--writing .culture-seal {
+  color: var(--culture-blue);
+}
+
+.culture-card--science .culture-seal {
+  color: var(--culture-jade);
+}
+
+.culture-card--divination .culture-seal {
+  color: #71533f;
+}
+
+.culture-topics {
+  display: grid;
+  gap: 0.62rem;
+  margin: 0.2rem 0 1.1rem;
+}
+
+.culture-topic {
+  padding: 0.75rem 0.8rem;
+  border-left: 2px solid rgba(68, 107, 90, 0.32);
+  background: rgba(68, 107, 90, 0.035);
+}
+
+.culture-topic strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #344b41;
+  font-family: var(--culture-serif);
+  font-size: 1.02rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.culture-topic span {
+  display: block;
+  color: #748078;
+  font-family: var(--culture-song);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.culture-status {
+  display: inline-block;
+  margin-top: auto;
+  padding-bottom: 1.1rem;
+  color: #929b99;
+  font-family: var(--culture-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+}
+
+.culture-note {
+  margin: 0;
+  padding: 0.85rem 0 1.1rem;
+  border-top: 1px solid rgba(37, 55, 64, 0.1);
+  color: #939da3;
+  font-family: var(--culture-song);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.culture-closing {
+  margin: 0 0 2.6rem;
+  padding: clamp(2.8rem, 7vw, 5rem) 0;
+  border-top: 1px solid var(--culture-line);
+  border-bottom: 1px solid var(--culture-line);
+  color: var(--culture-ink);
+  font-family: var(--culture-serif);
+  font-size: clamp(2.5rem, 6vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+
+.culture-closing span {
+  display: block;
+  white-space: nowrap;
+}
+
+.culture-closing span:last-child {
+  color: var(--culture-jade);
+}
+
+@media (max-width: 760px) {
+  .culture-hero {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    min-height: 0;
+    margin-top: 0.6rem;
+    padding-top: 2.2rem;
+  }
+
+  .culture-title {
+    font-size: clamp(3rem, 16vw, 5rem);
+  }
+
+  .culture-title span:last-child {
+    margin-left: 1.2rem;
+  }
+
+  .culture-emblem {
+    max-width: 19rem;
+  }
+
+  .culture-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-card {
+    min-height: auto;
+  }
 }
 </style>
 
-<!-- <div class="grid">
-    
-</div> -->
+<main class="culture-hub">
+  <header class="culture-hero">
+    <div class="culture-hero-copy">
+      <p class="culture-kicker">華夏文化专区</p>
+      <h1 class="culture-title"><span>赫赫華夏</span><span>光照四方</span></h1>
+      <p class="culture-lead">从共同的文字基础出发，沿诗词、科技与象数的不同路径，整理可阅读、可探索、可交互的華夏古典文化。这里关注文字如何传承、知识如何成形，以及观念如何在时间与地域之间流动。</p>
+    </div>
+    <aside class="culture-emblem" aria-label="专区的四条内容路径">
+      <span class="culture-emblem-main">文</span>
+      <div class="culture-emblem-axis"><span>诗</span><span>书</span><span>器</span><span>象</span></div>
+      <p class="culture-emblem-note">shared script&nbsp;&nbsp;living knowledge</p>
+    </aside>
+  </header>
 
-<div class="poetry-year-section" id="year-2026">
-  <h2 class="poetry-year-title" id="year-title-2026">2026</h2>
-  <div class="poetry-year-divider"></div>
-  
-  
-  <div class="poetry-item" id="rinan">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=rinan">日南</a></h3>
-      
-      <span class="poetry-type">诗</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">日南春秋反</div>
-      
-      
-      
-      
-      <div class="poetry-line">清风悉入湾</div>
-      
-      
-      
-      
-      <div class="poetry-line">千钧尼此岸</div>
-      
-      
-      
-      
-      <div class="poetry-line">轻舟过万山</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="nanyang">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=nanyang">天净沙·旧坊</a></h3>
-      
-      <span class="poetry-type">词</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">孤坊野树骄阳</div>
-      
-      
-      
-      
-      <div class="poetry-line">河湟隔断他乡</div>
-      
-      
-      
-      
-      <div class="poetry-line">舞袖车薪尽囊</div>
-      
-      
-      
-      
-      <div class="poetry-line">春风化烬</div>
-      
-      
-      
-      
-      <div class="poetry-line">旧庠无识炎黄</div>
-      
-      
-    </div>
-    
-    
-    <div class="poetry-notes">
-      <div class="notes-title">注释</div>
-      
-      <div class="notes-line">1. 《天净沙·旧坊》，以物伤逝，将南洋大学旧牌坊与南洋华人百年来维系文化血脉的历史交织在一起。
-</div>
-      
-      <div class="notes-line">2. 孤坊野树骄阳。昔日连接裕廊大路与南洋大学校园入口的南大牌坊，如今被高速公路和住宅区割裂，孤零零地矗立在荒野之中。隐喻了这段历史被刻意遗忘（如今南洋理工大学云南园内的仅为其仿品）。
-</div>
-      
-      <div class="notes-line">3. 舞袖车薪尽囊。“舞袖”代指当时义舞筹款捐款的舞女，“车薪”不仅指杯水车薪的微薄收入，也直指当时的拉车夫。为了建立一所漢语为媒介的大学，南洋各界华人，不论是富商，还是车夫与舞女，皆踊跃捐款。展现了南洋华人在逆境求存时表现出的凝聚力。
-</div>
-      
-    </div>
-    
-    
-    
-    <div class="poetry-images">
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202604_nanyang_0.jpg" alt="天净沙·旧坊" />
+  <section class="culture-grid" aria-label="華夏文化专题">
+    <article class="culture-card culture-card--poetry">
+      <div class="culture-card-head">
+        <span class="culture-number">壹</span>
+        <span class="culture-seal" aria-hidden="true">詩</span>
       </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202604_nanyang_1.jpg" alt="天净沙·旧坊" />
+      <h2>诗词</h2>
+      <p class="culture-card-subtitle">诗以言志，歌以咏怀</p>
+      <p class="culture-card-copy">《牧山集》收录个人古体诗词，并将目录与原有诗词阅读界面相连。可按年份浏览，也可进入单篇的竖排宣纸阅读体验。</p>
+      <div class="culture-actions">
+        <a class="culture-link" href="/mushan/">进入牧山集 <span aria-hidden="true">→</span></a>
+        
+        
+        
+          
+          
+          <a class="culture-link" href="/poem/?id=nanyang">打开诗词界面 <span aria-hidden="true">→</span></a>
+        
       </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202604_nanyang_2.png" alt="天净沙·旧坊" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202604_nanyang_3.jpg" alt="天净沙·旧坊" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202604_nanyang_4.png" alt="天净沙·旧坊" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202604_nanyang_5.jpg" alt="天净沙·旧坊" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202604_nanyang_6.jpg" alt="天净沙·旧坊" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202604_nanyang_7.jpg" alt="天净沙·旧坊" />
-      </div>
-      
-    </div>
-    
-  </div>
-  
-</div>
-<div class="poetry-year-section" id="year-2025">
-  <h2 class="poetry-year-title" id="year-title-2025">2025</h2>
-  <div class="poetry-year-divider"></div>
-  
-  
-  <div class="poetry-item" id="临江仙">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E4%B8%B4%E6%B1%9F%E4%BB%99">临江仙·东风西逝</a></h3>
-      
-      <span class="poetry-type">词</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">漢骑封大漠，单于西遁</div>
-      
-      
-      
-      
-      <div class="poetry-line">​帝鞭锋自长安出</div>
-      
-      
-      
-      
-      <div class="poetry-line">​君不达今何佩斯？风卷旧袍</div>
-      
-      
-      
-      
-      <div class="poetry-divider" aria-hidden="true"></div>
-      
-      
-      
-      
-      <div class="poetry-line">​金殿议连宵，棋局各营</div>
-      
-      
-      
-      
-      <div class="poetry-line">​东墙薪尽西邻豪</div>
-      
-      
-      
-      
-      <div class="poetry-line">​危桥独倚看断缆，多瑙河凉</div>
-      
-      
-    </div>
-    
-    
-    <div class="poetry-notes">
-      <div class="notes-title">注释</div>
-      
-      <div class="notes-line">1. 临江仙·东风西逝，以古喻今，将中国汉朝的历史与现代欧洲多瑙河畔的布达佩斯巧妙地串联起来。“东风西逝”既指古代匈奴在汉朝打击下西迁的历史长风，也暗指当今世界格局的变迁与地缘政治的激荡。
-</div>
-      
-      <div class="notes-line">2. 汉骑封大漠，单于西遁。帝鞭锋自长安出。起笔气势恢宏，回溯历史：汉朝铁骑大破匈奴，迫使单于西遁。这股来自长安的锋芒，犹如一条历史的长鞭，引发了亚欧大陆的民族大迁徙。同时，“帝鞭”暗指历史上令欧洲震颤的“上帝之鞭”（常指匈人首领阿提拉，其与匈牙利有深厚历史渊源），在此化作一件曾震撼时代的绝世武器。<a href="https://www.pnas.org/doi/epub/10.1073/pnas.2418485122">古基因组揭示欧洲匈人与汉匈奴帝国之间的跨欧亚联系，美国科学院院刊（PNAS），2025。</a>
-</div>
-      
-      <div class="notes-line">3. 君不达今何佩斯？风卷旧袍。此句为全词“诗眼”，将地名与长句完美融合，极尽双关之妙。字面上，“不达”与“佩斯”合成了词人身处的匈牙利首都“布达佩斯”（Budapest）。深层意理上，则是对前句“帝鞭”的沉重叩问：“你若不解这千年变局，试问今日还有谁配执掌、佩戴这把历史的利刃？”（何佩斯：谁来佩戴此物）。“风卷旧袍”写尽千年流转，昔日战袍在异国冷风中翻涌的沧桑感。
-</div>
-      
-      <div class="notes-line">4. 金殿议连宵，棋局各营。下阕切入现代欧陆局势。“金殿”指代多瑙河畔金碧辉煌的国会大厦或各类峰会。政客连夜争辩，而整个欧陆早已化作多方博弈的庞大棋局。此句隐写了当下错综复杂的大国拉扯：既有欧陆内部东西利益的错位与倾轧（如劳动力的西倾），也有横亘在欧洲的巨大地缘冲突；更有域外执棋者在背后推波助澜，借力打力，既消耗对手，也削弱盟友。各方同处一局，却阵营壁垒分明，算计重重。
-</div>
-      
-      <div class="notes-line">5. 东墙薪尽西邻豪。此句反向化用“薪不尽，火不灭”之理，暗示维持某种对抗或繁荣的资源（如能源、资本乃至国力）正在被急剧消耗甚至枯竭（东墙薪尽），而隔壁的阵营或大国却依然高歌猛进、大发其财（西邻豪）。在宏大博弈中，一方的透支往往成为另一方敛财与控制的筹码，道尽了被当作耗材者的悲哀。
-</div>
-      
-      <div class="notes-line">6. 危桥独倚看断缆，多瑙河凉。收尾将视线拉回眼前的具象。“危桥”与“断缆”既是布达佩斯跨河大桥的实景，更是深沉的时代隐喻。“危桥”指代东西方之间摇摇欲坠的沟通纽带；“断缆”不仅象征着世界格局的撕裂、脱钩，更隐喻了那条沉入深海、被强行切断的能源大动脉（暗指“北溪”管道被炸毁等断链事件）。词人独倚桥头，望着冰冷的多瑙河水，体会着大时代下世界割裂的阵痛与刺骨的寒意。
-</div>
-      
-    </div>
-    
-    
-    
-    <div class="poetry-images">
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202511_budapest_0.jpg" alt="临江仙·东风西逝" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202511_budapest_1.jpg" alt="临江仙·东风西逝" />
-      </div>
-      
-    </div>
-    
-  </div>
-  
-  <div class="poetry-item" id="云径">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E4%BA%91%E5%BE%84">云径</a></h3>
-      
-      <span class="poetry-type">诗</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">远上云中径，烟树绕九溪</div>
-      
-      
-      
-      
-      <div class="poetry-line">枫香星影碎，浅潭一叶栖</div>
-      
-      
-    </div>
-    
-    
-    
-    
-    <div class="poetry-images">
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/2025_yunxi_1.jpg" alt="云径" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/2025_yunxi_2.jpg" alt="云径" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/2025_yunxi_3.jpg" alt="云径" />
-      </div>
-      
-    </div>
-    
-  </div>
-  
-  <div class="poetry-item" id="河池">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E6%B2%B3%E6%B1%A0">河池</a></h3>
-      
-      <span class="poetry-type">诗</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">山影随舟远，河池纳天光</div>
-      
-      
-      
-      
-      <div class="poetry-line">​云峰高斯立，风抚一江芳</div>
-      
-      
-      
-      
-      <div class="poetry-line">​千仞虽无欲，清流自皴霞</div>
-      
-      
-      
-      
-      <div class="poetry-line">汀漳本同襟，何故穿龙岩</div>
-      
-      
-    </div>
-    
-    
-    
-    
-    <div class="poetry-images">
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/2025_hechi_1.jpg" alt="河池" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/2025_hechi_2.jpg" alt="河池" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/2025_hechi_3.jpg" alt="河池" />
-      </div>
-      
-    </div>
-    
-  </div>
-  
-  <div class="poetry-item" id="天下">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E5%A4%A9%E4%B8%8B">江城子·天下首见</a></h3>
-      
-      <span class="poetry-type">词</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">三百万里唱旧伤，舰犁浪，箭穿杨</div>
-      
-      
-      
-      
-      <div class="poetry-line">鹰帜猎猎，邀吾征东方?!</div>
-      
-      
-      
-      
-      <div class="poetry-line">六十四屯沉渊处， 涛犹泣，血未凉</div>
-      
-      
-      
-      
-      <div class="poetry-divider" aria-hidden="true"></div>
-      
-      
-      
-      
-      <div class="poetry-line">桦林犹诉昔年殇，齿唇依？耻先忘</div>
-      
-      
-      
-      
-      <div class="poetry-line">把酒言欢，何安岭平疆?</div>
-      
-      
-      
-      
-      <div class="poetry-line">愿得飞将重靖宇，巡北斗，护龙江!</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="赠载煜">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E8%B5%A0%E8%BD%BD%E7%85%9C">赠载煜</a></h3>
-      
-      <span class="poetry-type">诗</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">朝日煜海东</div>
-      
-      
-      
-      
-      <div class="poetry-line">南洋载星舟</div>
-      
-      
-      
-      
-      <div class="poetry-line">异域自同俦</div>
-      
-      
-      
-      
-      <div class="poetry-line">古道共悠悠</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="作客">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E4%BD%9C%E5%AE%A2">苏幕遮·万里作客</a></h3>
-      
-      <span class="poetry-type">词</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">越鲸涛，开筚路。七剑星舟，直破沧溟雾。</div>
-      
-      
-      
-      
-      <div class="poetry-line">山海沧茫寻生处，织就蓬莱，竹网连天幕。</div>
-      
-      
-      
-      
-      <div class="poetry-divider" aria-hidden="true"></div>
-      
-      
-      
-      
-      <div class="poetry-line">赤旗张，烽火怒。剑指崖山，万里衣冠渡。</div>
-      
-      
-      
-      
-      <div class="poetry-line">谁道河殇湮夏土？天海扬帆，银汉为归路。</div>
-      
-      
-    </div>
-    
-    
-    <div class="poetry-notes">
-      <div class="notes-title">注释</div>
-      
-      <div class="notes-line">1. 七剑星舟：指七下西洋
-</div>
-      
-      <div class="notes-line">2. 竹网：竹网参见维基百科
-</div>
-      
-    </div>
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="阴晴">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E9%98%B4%E6%99%B4">阴晴</a></h3>
-      
-      <span class="poetry-type">诗</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">阴晴原无定，海气幻千形</div>
-      
-      
-      
-      
-      <div class="poetry-line">晴峦分翠霭，雨壑坠珠泠</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-</div>
-<div class="poetry-year-section" id="year-2024">
-  <h2 class="poetry-year-title" id="year-title-2024">2024</h2>
-  <div class="poetry-year-divider"></div>
-  
-  
-  <div class="poetry-item" id="越山海">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E8%B6%8A%E5%B1%B1%E6%B5%B7">越山海</a></h3>
-      
-      <span class="poetry-type">诗</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">志合山海越，千里复相逢</div>
-      
-      
-      
-      
-      <div class="poetry-line">​星汉光年远？倏如一江风</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="首尾两端">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E9%A6%96%E5%B0%BE%E4%B8%A4%E7%AB%AF">江城子·首尾两端</a></h3>
-      
-      <span class="poetry-type">词</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">岷江千里雪融寒，玉磊盘，青城拦</div>
-      
-      
-      
-      
-      <div class="poetry-line">太守作堰，鱼嘴妙分澜</div>
-      
-      
-      
-      
-      <div class="poetry-line">秦卷天下终始汉，丞相挽，万古昙;</div>
-      
-      
-      
-      
-      <div class="poetry-divider" aria-hidden="true"></div>
-      
-      
-      
-      
-      <div class="poetry-line">天堑横亘龙虎桓，三代传，守江南</div>
-      
-      
-      
-      
-      <div class="poetry-line">大魏吴王，十万雄师磐</div>
-      
-      
-      
-      
-      <div class="poetry-line">白衣渡江千古传，明祖赞，护陵南。</div>
-      
-      
-    </div>
-    
-    
-    <div class="poetry-notes">
-      <div class="notes-title">注释</div>
-      
-      <div class="notes-line">1. 江城子·首尾两端，江城子是著名的词牌，首尾两端正好是长江的西边和东边的两座江城的对比。在古代岷江一般被认为是长江的主脉。
-</div>
-      
-      <div class="notes-line">2. 岷江千里雪融寒，玉磊盘，青城拦。岷江发源于高山雪域，雪水融化而下，奔流千里。玉磊山与青城山夹峙其间，形成天然的水势格局。此三句先写自然地理，以铺垫都江堰工程产生的条件。岷江之水既是灾患之源，也是蜀地农业的命脉。
-</div>
-      
-      <div class="notes-line">3. “太守”指秦蜀郡太守李冰。李冰父子主持修建都江堰水利工程，以“鱼嘴”分水，使江水分流灌溉平原、又能泄洪导流。此举不仅解决水患，更使成都平原成为沃野千里，从而奠定蜀地富庶的基础。
-</div>
-      
-      <div class="notes-line">4. 蜀地富庶成为秦国统一六国的重要物质基础之一。秦灭六国之后，中国进入大一统时代；而汉朝的兴起亦与蜀地有关, 刘邦曾受封汉中王，以巴蜀为根基发展势力。至三国之时，汉室最后的政权亦立于巴蜀。故言“终始汉”，既指汉室从蜀地兴起，也暗示其最终在蜀地延续。
-</div>
-      
-      <div class="notes-line">5. 丞相挽，万古昙。“丞相”指诸葛亮。诸葛亮辅佐蜀汉、整顿内政、北伐中原，以一人之力维系国运。“挽”有挽狂澜之意。蜀汉虽国祚不长，但诸葛亮的政治理想与声名却流传千古，成为中国乃至东亚的精神支柱。
-</div>
-      
-      <div class="notes-line">6. 天堑横亘龙虎桓，三代传，守江南。下阕转写江东。长江天险横亘南北，使江东形势险固，自古有“龙盘虎踞”之称。东吴传至孙权是第三代，政权稳固。然而其势力始终局限于江南地区，未能改变天下格局，故言“守江南”。不思进取却又左右横跳，背刺盟友，属实可恨。
-</div>
-      
-      <div class="notes-line">7. 大魏吴王，十万雄师磐。孙权曾向曹丕称臣受封吴王，后又自立为帝。“十万雄师”写其兵力强盛，后世尊称孙权为“孙十万”。
-</div>
-      
-      <div class="notes-line">8. 白衣渡江千古传。指东吴将领吕蒙伪装商旅偷袭荆州的事件，即白衣渡江。此举在军事上极为成功，但破坏了政治底线。
-</div>
-      
-      <div class="notes-line">9. 明祖赞，护陵南。“明祖”指朱元璋。相传明太祖修建明孝陵时，见孙权陵说：“孙权也是好汉子，就留他守门吧。”表面为称赞，实则将一位开国之君降格为守陵武将。
-</div>
-      
-    </div>
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="西山">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E8%A5%BF%E5%B1%B1">西山</a></h3>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">五岭赴平川，西乡享景山</div>
-      
-      
-      
-      
-      <div class="poetry-line">太行横燕脉，淑贤如是观</div>
-      
-      
-    </div>
-    
-    
-    
-    
-    <div class="poetry-images">
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202410_hutoushan.jpg" alt="西山" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202410_hutoushan2.jpg" alt="西山" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202410_hutoushan3.jpg" alt="西山" />
-      </div>
-      
-    </div>
-    
-  </div>
-  
-  <div class="poetry-item" id="二王千秋">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E4%BA%8C%E7%8E%8B%E5%8D%83%E7%A7%8B">二王千秋</a></h3>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">岷江千里雪，携势冲巴蜀</div>
-      
-      
-      
-      
-      <div class="poetry-line">无坝沙水分，穷塞开天府</div>
-      
-      
-      
-      
-      <div class="poetry-line">宝瓶百丈深，灌溉千万亩</div>
-      
-      
-      
-      
-      <div class="poetry-line">二王千秋利，丞相守汉土</div>
-      
-      
-    </div>
-    
-    
-    
-    
-    <div class="poetry-images">
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/2024_erwang1.jpg" alt="二王千秋" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/2024_erwang2.jpg" alt="二王千秋" />
-      </div>
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/2024_erwang3.jpg" alt="二王千秋" />
-      </div>
-      
-    </div>
-    
-  </div>
-  
-  <div class="poetry-item" id="东吴大帝">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E4%B8%9C%E5%90%B4%E5%A4%A7%E5%B8%9D">东吴大帝</a></h3>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">东吴大帝垂宇宙</div>
-      
-      
-      
-      
-      <div class="poetry-line">虎踞龙盘守江东</div>
-      
-      
-      
-      
-      <div class="poetry-line">皇明太祖赞好汉</div>
-      
-      
-      
-      
-      <div class="poetry-line">留得钟山护皇陵</div>
-      
-      
-      
-      
-      <div class="poetry-line">魏武扬鞭止荆扬</div>
-      
-      
-      
-      
-      <div class="poetry-line">生子当如魏吴王</div>
-      
-      
-      
-      
-      <div class="poetry-line">厉兵秣马提十万</div>
-      
-      
-      
-      
-      <div class="poetry-line">北望合肥又一年</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-</div>
-<div class="poetry-year-section" id="year-2023">
-  <h2 class="poetry-year-title" id="year-title-2023">2023</h2>
-  <div class="poetry-year-divider"></div>
-  
-  
-  <div class="poetry-item" id="纳猫契">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E7%BA%B3%E7%8C%AB%E5%A5%91">纳猫契</a></h3>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">一只猫儿是狸花，本在西方诸佛前。</div>
-      
-      
-      
-      
-      <div class="poetry-line">三藏带归家长养，护持经卷在民间。</div>
-      
-      
-      
-      
-      <div class="poetry-line">外表俊俏身世妙，身具虎斑神似豹。</div>
-      
-      
-      
-      
-      <div class="poetry-line">藏于豹溪孤慎行，碰瓷南武第一侯。</div>
-      
-      
-      
-      
-      <div class="poetry-line">豹溪小豹是某甲，自卖南武终不悔。</div>
-      
-      
-      
-      
-      <div class="poetry-line">三面断价小鱼干，聘金随契已交还。</div>
-      
-      
-      
-      
-      <div class="poetry-line">买主愿如石崇富，寿如彭祖福高迁。</div>
-      
-      
-      
-      
-      <div class="poetry-line">仓禾自此巡无怠，鼠贼从兹补不闲。</div>
-      
-      
-      
-      
-      <div class="poetry-line">不吵主人睡懒觉，不得盗食把家翻。</div>
-      
-      
-      
-      
-      <div class="poetry-line">日夜在家看守物，莫走东畔与西边。</div>
-      
-      
-      
-      
-      <div class="poetry-line">如有故违走外去，堂前引过受笞鞭。</div>
-      
-      
-      
-      
-      <div class="poetry-line">十月初七，行契人灿。行契喵豹</div>
-      
-      
-    </div>
-    
-    
-    <div class="poetry-notes">
-      <div class="notes-title">注释</div>
-      
-      <div class="notes-line">1. Na Mao Qi was a ritualized cat adoption contract in ancient China, especially during the Song dynasty. It recorded the cat’s information, the adopter’s expectations and responsibilities, and was accompanied by symbolic gifts and formal rituals. The contract symbolically treated the cat as a family member, with a promise of kind treatment, in the hope that the cat would protect the household and bring good fortune.
-</div>
-      
-      <div class="notes-line">2. The spiral layout of the Na Mao Qi owes thanks to the assistance of Dr. Crab (shellywhen.github.io).
-</div>
-      
-    </div>
-    
-    
-    
-    <div class="poetry-images">
-      
-      <div class="poetry-image-item" onclick="toggleImageZoom(this)">
-        <img src="/assets/poetry/202412_xiaobao_qiyue.jpg" alt="纳猫契" />
-      </div>
-      
-    </div>
-    
-  </div>
-  
-  <div class="poetry-item" id="四海一同">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E5%9B%9B%E6%B5%B7%E4%B8%80%E5%90%8C">三星四海</a></h3>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">三星伴月堆，西山俯岷江</div>
-      
-      
-      
-      
-      <div class="poetry-line">古蜀三千年，隔绝殷与商</div>
-      
-      
-      
-      
-      <div class="poetry-line">开明毕于旦，始皇卷八方</div>
-      
-      
-      
-      
-      <div class="poetry-line">悠悠华夏同，四海同一邦</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-</div>
-<div class="poetry-year-section" id="year-2022">
-  <h2 class="poetry-year-title" id="year-title-2022">2022</h2>
-  <div class="poetry-year-divider"></div>
-  
-  
-  <div class="poetry-item" id="未名">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E6%9C%AA%E5%90%8D">未名</a></h3>
-      
-      <span class="poetry-type">绝句</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">日暮长天亮，闲云镜里悠</div>
-      
-      
-      
-      
-      <div class="poetry-line">九衢含朗润，幽径未名由</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="蛙声慢">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E8%9B%99%E5%A3%B0%E6%85%A2">蛙声慢</a></h3>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">云蒸炎铄石</div>
-      
-      
-      
-      
-      <div class="poetry-line">骤雨安步归</div>
-      
-      
-      
-      
-      <div class="poetry-line">听取蛙声慢?</div>
-      
-      
-      
-      
-      <div class="poetry-line">东风万树飞</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="八荒同">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E5%85%AB%E8%8D%92%E5%90%8C">卜算子·八荒同</a></h3>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">歇山盖穹窿</div>
-      
-      
-      
-      
-      <div class="poetry-line">庭镇红星升</div>
-      
-      
-      
-      
-      <div class="poetry-line">敢效昔年三武事，从此和平道</div>
-      
-      
-      
-      
-      <div class="poetry-line">鱼雷荡水波</div>
-      
-      
-      
-      
-      <div class="poetry-line">天海无需祭</div>
-      
-      
-      
-      
-      <div class="poetry-line">十亿神州尽文殊，玛米金珠降</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-</div>
-<div class="poetry-year-section" id="year-2021">
-  <h2 class="poetry-year-title" id="year-title-2021">2021</h2>
-  <div class="poetry-year-divider"></div>
-  
-  
-  <div class="poetry-item" id="妙峰">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E5%A6%99%E5%B3%B0">如梦令·妙峰观日</a></h3>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">气盛轻年意至</div>
-      
-      
-      
-      
-      <div class="poetry-line">不惧风寒夜路</div>
-      
-      
-      
-      
-      <div class="poetry-line">残月伴微灯</div>
-      
-      
-      
-      
-      <div class="poetry-line">直上京西首峭</div>
-      
-      
-      
-      
-      <div class="poetry-line">凝眺</div>
-      
-      
-      
-      
-      <div class="poetry-line">凝眺</div>
-      
-      
-      
-      
-      <div class="poetry-line">红霞穿楼万丈</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-</div>
-<div class="poetry-year-section" id="year-2020">
-  <h2 class="poetry-year-title" id="year-title-2020">2020</h2>
-  <div class="poetry-year-divider"></div>
-  
-  
-  <div class="poetry-item" id="万生">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E4%B8%87%E7%94%9F">万生</a></h3>
-      
-      <span class="poetry-type">绝句</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">凉风嘻群木，暖月映同伦</div>
-      
-      
-      
-      
-      <div class="poetry-line">绝顶万生瞰，千檐若素尘</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="返校">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E8%BF%94%E6%A0%A1">卜算子·返校</a></h3>
-      
-      <span class="poetry-type">词</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">庚子岁月停，疫始江山锁。</div>
-      
-      
-      
-      
-      <div class="poetry-line">谁话平川不是水？云雾生梁野。</div>
-      
-      
-      
-      
-      <div class="poetry-divider" aria-hidden="true"></div>
-      
-      
-      
-      
-      <div class="poetry-line">南武留连时，飞信催人返。</div>
-      
-      
-      
-      
-      <div class="poetry-line">应是别离了无憾，我驾白驹启。</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="卷">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E5%8D%B7">卷</a></h3>
-      
-      <span class="poetry-type">新绝句</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">四九千层卷</div>
-      
-      
-      
-      
-      <div class="poetry-line">八千拓扑一 (TOP 1)</div>
-      
-      
-      
-      
-      <div class="poetry-line">难为人上人</div>
-      
-      
-      
-      
-      <div class="poetry-line">就做恩批西 (NPC)</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="秋">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E7%A7%8B">秋</a></h3>
-      
-      <span class="poetry-type">绝句</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">极目遥天净</div>
-      
-      
-      
-      
-      <div class="poetry-line">山深秋水凉</div>
-      
-      
-      
-      
-      <div class="poetry-line">苍苍翠微辟</div>
-      
-      
-      
-      
-      <div class="poetry-line">朱门石径旁</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="冲浪">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E5%86%B2%E6%B5%AA">浪淘沙·真的在浪淘沙</a></h3>
-      
-      <span class="poetry-type">诗</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">波涌青蓝浪起白</div>
-      
-      
-      
-      
-      <div class="poetry-line">驭梭踏浪牧仆潮</div>
-      
-      
-      
-      
-      <div class="poetry-line">人生浮表难平意</div>
-      
-      
-      
-      
-      <div class="poetry-line">应上清玄揽月来</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="三琼">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E4%B8%89%E7%90%BC">三琼</a></h3>
-      
-      <span class="poetry-type">新绝句</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">两日踏三琼</div>
-      
-      
-      
-      
-      <div class="poetry-line">半天寻万水</div>
-      
-      
-      
-      
-      <div class="poetry-line">酒头起飞对</div>
-      
-      
-      
-      
-      <div class="poetry-line">车上来蹦迪</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="如梦令·明天开始洗心革面好好干活">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E5%A6%82%E6%A2%A6%E4%BB%A4%C2%B7%E6%98%8E%E5%A4%A9%E5%BC%80%E5%A7%8B%E6%B4%97%E5%BF%83%E9%9D%A9%E9%9D%A2%E5%A5%BD%E5%A5%BD%E5%B9%B2%E6%B4%BB">如梦令·明天开始洗心革面好好干活</a></h3>
-      
-      <span class="poetry-type">词</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">愧忆京师经笥，夜夜焚膏继晷</div>
-      
-      
-      
-      
-      <div class="poetry-line">从鹭岛归来，又上酒桌催吐</div>
-      
-      
-      
-      
-      <div class="poetry-line">闲浪，闲浪</div>
-      
-      
-      
-      
-      <div class="poetry-line">何日才能毕业?</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-  <div class="poetry-item" id="对联">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E5%AF%B9%E8%81%94">永平万安</a></h3>
-      
-      <span class="poetry-type">联</span>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">上：平川梁野皆春色</div>
-      
-      
-      
-      
-      <div class="poetry-line">下：高湖汉家尽东风</div>
-      
-      
-      
-      
-      <div class="poetry-line">横：永平万安</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-</div>
-<div class="poetry-year-section" id="year-2017">
-  <h2 class="poetry-year-title" id="year-title-2017">2017</h2>
-  <div class="poetry-year-divider"></div>
-  
-  
-  <div class="poetry-item" id="武平">
-    
-    
-    <div class="poetry-header">
-      <h3 class="poetry-title"><a href="/poem/?id=%E6%AD%A6%E5%B9%B3">南武赋</a></h3>
-      
-    </div>
-    
-    <div class="poetry-content">
-      
-      
-      
-      <div class="poetry-line">川平驷马阔，山野梁上悬。</div>
-      
-      
-      
-      
-      <div class="poetry-line">湖湘漫汉水，溪桃引楚山。</div>
-      
-      
-      
-      
-      <div class="poetry-line">千岭赴南海，万泾始东流。</div>
-      
-      
-      
-      
-      <div class="poetry-line">望象洞，庭内十方远。</div>
-      
-      
-      
-      
-      <div class="poetry-line">观狮山，岩前龙虎酣。</div>
-      
-      
-      
-      
-      <div class="poetry-line">山中衫方青，坝下柭更切。</div>
-      
-      
-      
-      
-      <div class="poetry-line">小兰贵趣雅，大禾乐仓箱。</div>
-      
-      
-      
-      
-      <div class="poetry-line">梧高栖凤，堡中潜龙。</div>
-      
-      
-      
-      
-      <div class="poetry-line">望良政，保永平。</div>
-      
-      
-      
-      
-      <div class="poetry-line">盼善民，主万安。</div>
-      
-      
-    </div>
-    
-    
-    
-    
-  </div>
-  
-</div>
+    </article>
 
-<div id="language" position="float" style="position: fixed; bottom:0; right: 0;">
-  <iframe src="/cat/cat.html" id="catIframe" frameborder="0" data-ruffle-polyfilled=""></iframe>
-</div>
+    <article class="culture-card culture-card--writing">
+      <div class="culture-card-head">
+        <span class="culture-number">贰</span>
+        <span class="culture-seal" aria-hidden="true">文</span>
+      </div>
+      <h2>文字</h2>
+      <p class="culture-card-subtitle">书同文，文以载道</p>
+      <p class="culture-card-copy">“书同文”计划（Hanzi 658）以六百五十八个華夏文化圈通用汉字词为入口，对照中、日、韩、越的字形与读音，并为每个词提供英文释义。汉字源于中国，后来被日、韩、越吸收和改造：日语至今使用 kanji，韩语保留 hanja，越南历史上使用 chữ Hán 与 chữ Nôm。<a class="culture-cite" href="#culture-source-1" aria-label="参见来源一">[1]</a> 汉源词在三种现代语言中仍占显著比例；一项 2025 年综述估计，汉源词约占日语词汇的 43–54%、韩语的 47–56%、越南语约 70%，具体比例随语料与分类方法而异。<a class="culture-cite" href="#culture-source-2" aria-label="参见来源二">[2]</a> 文字不仅是书写工具，也是華夏文化圈共享知识与历史记忆的基础设施。</p>
+      <ol class="culture-sources" aria-label="汉字传播与汉源词研究来源">
+        <li id="culture-source-1"><a href="https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-18/" target="_blank" rel="noopener">《Unicode 标准》第 17 版，第 18 章“东亚文字”</a>。</li>
+        <li id="culture-source-2">木下瞳：<a href="https://cir.nii.ac.jp/crid/1390023549705999872?lang=ja" target="_blank" rel="noopener">《日语、韩语、越南语中汉源词的量化研究综述》</a>，《国立国语研究所论集》29，2025。<a href="https://www.ninjal.ac.jp/info/publication/papers/29/" target="_blank" rel="noopener">国立国语研究所期刊目录</a>。</li>
+      </ol>
+      <div class="culture-actions">
+        <a class="culture-link" href="/projects/hanzi658/overview.html">认识“书同文”计划 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="/projects/hanzi658/">直接探索 <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    let fullscreenOverlay = null;
-    
-    // 创建全屏覆盖层
-    function createFullscreenOverlay() {
-        if (fullscreenOverlay) return fullscreenOverlay;
-        
-        const overlay = document.createElement('div');
-        overlay.className = 'image-fullscreen-overlay';
-        
-        const closeBtn = document.createElement('div');
-        closeBtn.className = 'image-fullscreen-close';
-        
-        overlay.appendChild(closeBtn);
-        document.body.appendChild(overlay);
-        
-        fullscreenOverlay = overlay;
-        return overlay;
-    }
-    
-    // 显示全屏图片
-    function showFullscreenImage(imgSrc, imgAlt) {
-        const overlay = createFullscreenOverlay();
-        
-        // 移除之前的图片
-        const existingImg = overlay.querySelector('img');
-        if (existingImg) {
-            existingImg.remove();
-        }
-        
-        // 创建新图片
-        const img = document.createElement('img');
-        img.src = imgSrc;
-        img.alt = imgAlt || '';
-        
-        // 将图片插入到关闭按钮之前
-        const closeBtn = overlay.querySelector('.image-fullscreen-close');
-        overlay.insertBefore(img, closeBtn);
-        
-        // 显示覆盖层
-        overlay.classList.add('active');
-        
-        // 防止页面滚动
-        document.body.style.overflow = 'hidden';
-    }
-    
-    // 关闭全屏图片
-    function closeFullscreenImage() {
-        if (fullscreenOverlay) {
-            fullscreenOverlay.classList.remove('active');
-            // 恢复页面滚动
-            document.body.style.overflow = '';
-        }
-    }
-    
-    // 为所有图片添加点击事件
-    const imageItems = document.querySelectorAll('.poetry-image-item');
-    imageItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const img = this.querySelector('img');
-            if (img) {
-                showFullscreenImage(img.src, img.alt);
-            }
-        });
-    });
-    
-    // 点击覆盖层关闭全屏图片
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('image-fullscreen-overlay') || 
-            e.target.classList.contains('image-fullscreen-close')) {
-            closeFullscreenImage();
-        }
-    });
-    
-    // ESC键关闭全屏图片
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeFullscreenImage();
-        }
-    });
-    
-    // 窗口大小改变时关闭全屏图片
-    window.addEventListener('resize', function() {
-        closeFullscreenImage();
-    });
-});
-</script>
+    <article class="culture-card culture-card--science">
+      <div class="culture-card-head">
+        <span class="culture-number">叁</span>
+        <span class="culture-seal" aria-hidden="true">技</span>
+      </div>
+      <h2>科技</h2>
+      <p class="culture-card-subtitle">格物致知，巧思成器</p>
+      <p class="culture-card-copy">从数与形、尺度与结构出发，理解古人如何以抽象方法认识世界，又如何把知识落实为器物、建筑与城市。</p>
+      <div class="culture-topics">
+        <div class="culture-topic">
+          <strong>中国古典数学</strong>
+          <span>《九章算术》、筹算、勾股、天元术与传统算法思想。</span>
+        </div>
+        <div class="culture-topic">
+          <strong>中国古典建筑</strong>
+          <span>木构模数、斗拱、营造法式，以及礼制与空间秩序。</span>
+        </div>
+      </div>
+      <span class="culture-status">专题内容筹备中</span>
+    </article>
 
-<!-- 
-<script src="https://cdn.jsdelivr.net/npm/itemsjs@1.0.40/dist/itemsjs.min.js"></script>
+    <article class="culture-card culture-card--divination">
+      <div class="culture-card-head">
+        <span class="culture-number">肆</span>
+        <span class="culture-seal" aria-hidden="true">象</span>
+      </div>
+      <h2>术数</h2>
+      <p class="culture-card-subtitle">观象取数，推时察变</p>
+      <p class="culture-card-copy">以现代交互方式呈现传统历法、干支、象数与推演方法。排盘均在浏览器本地完成，作为文化研究、方法学习与自我反思的辅助工具。</p>
+      <div class="culture-actions">
+        <a class="culture-link" href="/projects/bazi/">八字排盘 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="/projects/liuyao/">六爻问卦 <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="culture-note">术数内容仅供传统文化研究与自我反思，不构成现实决策建议。</p>
+    </article>
+  </section>
 
-<script src="/assets/js/itemsjs.min.js"></script>
-<script src="/assets/js/pubfilter.js"></script>
- -->
+  <p class="culture-closing" aria-label="由字入诗 由器见道"><span>由字入诗</span><span>由器见道</span></p>
+</main>
 
 </section>
 

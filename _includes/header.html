@@ -11,12 +11,12 @@
   <div><a href="{{ '/contact/' | relative_url }}" {% if current[1] == 'contact' %}class="active"{% endif %}>Contact</a></div> -->
     <!-- <a href="{{ '/talks/' | relative_url }}" {% if current[1] == 'talks' %}class="active"{% endif %}>Talks</a>
     <a href="{{ '/blog/' | relative_url }}" {% if current[1] == 'blog' %}class="active"{% endif %}>Blog</a> -->
-    <div><a href="{{ '/other/' | relative_url }}" {% if current[1] == 'other' %}class="active"{% endif %}>Misc</a></div>
+    <div><a href="{{ '/heritage/' | relative_url }}" {% if current[1] == 'heritage' %}class="active"{% endif %}>Huaxia</a></div>
     <div><a href="{{ '/mushan/' | relative_url }}" {% if current[1] == 'mushan' %}class="active"{% endif %}>Poem</a></div>
     <span class="external">
       <!-- <div><a target="_blank" href="https://twitter.com/LiwenhanXie"><i class="fab fa-twitter"></i>Twitter</a></div> -->
       <!-- <div><a target="_blank" href="https://scholar.google.com/citations?user=c_qeUtUAAAAJ&hl=zh-CN"></i>Google Scholar</a></div> -->
-      <div><a href="{{ '/zh/' | relative_url }}" data-language-choice="zh"></i>中文</a></div>
+      <div><a href="{% if current[1] == 'heritage' %}{{ '/other/' | relative_url }}{% else %}{{ '/zh/' | relative_url }}{% endif %}" data-language-choice="zh"></i>中文</a></div>
     </span>
   </nav>
 </header>
