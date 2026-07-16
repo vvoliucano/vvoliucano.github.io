@@ -901,6 +901,47 @@ footer { max-width: 1280px; padding-inline: clamp(20px, 4vw, 48px); border-top-c
   .cloud-term, .strength-half i, .strength-half b { transition: none; }
 }
 
+/* 顶栏作者入口：作为轻量导航，不与页面标题争夺视觉层级。 */
+.masthead .masthead-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: 14px;
+  white-space: nowrap;
+}
+
+.masthead .masthead-actions p {
+  margin: 0;
+  color: #77798a;
+  font: 500 11px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .13em;
+}
+
+.masthead .masthead-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  color: #5546d7;
+  background: rgba(109,93,252,.075);
+  border: 1px solid rgba(109,93,252,.2);
+  border-radius: 999px;
+  box-shadow: 0 3px 10px rgba(73,61,180,.06);
+  font: 600 12px/1 Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+  letter-spacing: .02em;
+  text-decoration: none;
+  transition: color .18s ease, background .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.masthead .masthead-actions a span { font-size: 11px; opacity: .72; }
+.masthead .masthead-actions a:hover { color: #4434c8; background: rgba(109,93,252,.13); border-color: rgba(109,93,252,.36); transform: translateY(-1px); }
+
+@media (max-width: 640px) {
+  .masthead .masthead-actions p { display: none; }
+  .masthead .masthead-actions a { padding: 7px 10px; font-size: 11px; }
+}
+
 @media print {
   body { background: #fff; }
   .input-panel, .share-action { display: none !important; }
