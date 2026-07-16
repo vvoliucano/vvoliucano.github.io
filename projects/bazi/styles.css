@@ -621,7 +621,7 @@ footer {
 
 footer p { margin: 0; }
 footer a { color: inherit; text-underline-offset: 3px; }
-.visitor-map { width: 214px; max-width: 100%; overflow: hidden; margin-left: auto; }
+.visitor-map { width: 214px; max-width: 100%; overflow: hidden; margin-left: auto; padding: 5px; background: #f5f4fb; border: 1px solid rgba(109,93,252,.14); border-radius: 14px; box-shadow: 0 8px 22px rgba(68,60,130,.06); }
 .visitor-map iframe, .visitor-map img, .visitor-map canvas, .visitor-map div { max-width: 100%; }
 
 @media (max-width: 980px) {
