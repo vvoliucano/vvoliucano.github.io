@@ -183,6 +183,11 @@ class: culture-page
   transform: translateY(-2px);
 }
 
+.culture-card:has(.culture-details[open]) {
+  border-color: rgba(139, 32, 24, 0.42);
+  transform: translateY(-2px);
+}
+
 .culture-card::after {
   content: "";
   position: absolute;
@@ -246,6 +251,71 @@ class: culture-page
   font-family: var(--culture-song);
   font-size: 0.88rem;
   line-height: 1.82;
+}
+
+.culture-card-teaser {
+  margin: 1rem 0 0.9rem;
+  color: #596871;
+  font-family: var(--culture-song);
+  font-size: 0.88rem;
+  line-height: 1.82;
+}
+
+.culture-details {
+  margin: 0 0 1.2rem;
+}
+
+.culture-details summary {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.1rem 0.48rem;
+  border-top: 1px solid rgba(37, 55, 64, 0.13);
+  color: #7c898f;
+  cursor: pointer;
+  font-family: var(--culture-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  list-style: none;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.culture-details summary::-webkit-details-marker { display: none; }
+
+.culture-details summary:hover,
+.culture-details summary:focus-visible,
+.culture-details[open] summary {
+  border-color: rgba(139, 32, 24, 0.28);
+  color: var(--culture-red);
+  outline: none;
+}
+
+.culture-details summary::after {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  margin-right: 0.18rem;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg) translateY(-0.12rem);
+  transition: transform 0.2s ease;
+}
+
+.culture-details[open] summary::after { transform: rotate(225deg) translate(-0.1rem, -0.05rem); }
+.culture-details-less { display: none; }
+.culture-details[open] .culture-details-more { display: none; }
+.culture-details[open] .culture-details-less { display: inline; }
+
+.culture-details-body {
+  padding-top: 0.2rem;
+  animation: culture-detail-in 0.2s ease both;
+}
+
+@keyframes culture-detail-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .culture-actions {
@@ -450,7 +520,11 @@ class: culture-page
       </div>
       <h2>诗词</h2>
       <p class="culture-card-subtitle">诗以言志，歌以咏怀</p>
-      <p class="culture-card-copy">《牧山集》收录个人古体诗词，并将目录与原有诗词阅读界面相连。可按年份浏览，也可进入单篇的竖排宣纸阅读体验。</p>
+      <p class="culture-card-teaser">收录个人古体诗词，并连接竖排诗词阅读界面。</p>
+      <details class="culture-details">
+        <summary><span class="culture-details-more">查看详情</span><span class="culture-details-less">收起</span></summary>
+        <div class="culture-details-body"><p class="culture-card-copy">《牧山集》收录个人古体诗词，并将目录与原有诗词阅读界面相连。可按年份浏览，也可进入单篇的竖排宣纸阅读体验。</p></div>
+      </details>
       <div class="culture-actions">
         <a class="culture-link" href="{{ '/mushan/' | relative_url }}">进入牧山集 <span aria-hidden="true">→</span></a>
         {% assign latest_poems = site.data.other | sort: 'year' | reverse %}
@@ -470,11 +544,17 @@ class: culture-page
       </div>
       <h2>文字</h2>
       <p class="culture-card-subtitle">书同文，文以载道</p>
-      <p class="culture-card-copy">“书同文”计划（Hanzi 658）以六百五十八个華夏文化圈通用汉字词为入口，对照中、日、韩、越的字形与读音，并为每个词提供英文释义。汉字源于中国，后来被日、韩、越吸收和改造：日语至今使用 kanji，韩语保留 hanja，越南历史上使用 chữ Hán 与 chữ Nôm。<a class="culture-cite" href="#culture-source-1" aria-label="参见来源一">[1]</a> 汉源词在三种现代语言中仍占显著比例；一项 2025 年综述估计，汉源词约占日语词汇的 43–54%、韩语的 47–56%、越南语约 70%，具体比例随语料与分类方法而异。<a class="culture-cite" href="#culture-source-2" aria-label="参见来源二">[2]</a> 文字不仅是书写工具，也是華夏文化圈共享知识与历史记忆的基础设施。</p>
-      <ol class="culture-sources" aria-label="汉字传播与汉源词研究来源">
-        <li id="culture-source-1"><a href="https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-18/" target="_blank" rel="noopener">《Unicode 标准》第 17 版，第 18 章“东亚文字”</a>。</li>
-        <li id="culture-source-2">木下瞳：<a href="https://cir.nii.ac.jp/crid/1390023549705999872?lang=ja" target="_blank" rel="noopener">《日语、韩语、越南语中汉源词的量化研究综述》</a>，《国立国语研究所论集》29，2025。<a href="https://www.ninjal.ac.jp/info/publication/papers/29/" target="_blank" rel="noopener">国立国语研究所期刊目录</a>。</li>
-      </ol>
+      <p class="culture-card-teaser">从 658 个通用汉字词出发，对照字形、读音与英文释义。</p>
+      <details class="culture-details">
+        <summary><span class="culture-details-more">查看详情与出处</span><span class="culture-details-less">收起</span></summary>
+        <div class="culture-details-body">
+          <p class="culture-card-copy">“书同文”计划（Hanzi 658）以六百五十八个華夏文化圈通用汉字词为入口，对照中、日、韩、越的字形与读音，并为每个词提供英文释义。汉字源于中国，后来被日、韩、越吸收和改造：日语至今使用 kanji，韩语保留 hanja，越南历史上使用 chữ Hán 与 chữ Nôm。<a class="culture-cite" href="#culture-source-1" aria-label="参见来源一">[1]</a> 汉源词在三种现代语言中仍占显著比例；一项 2025 年综述估计，汉源词约占日语词汇的 43–54%、韩语的 47–56%、越南语约 70%，具体比例随语料与分类方法而异。<a class="culture-cite" href="#culture-source-2" aria-label="参见来源二">[2]</a> 文字不仅是书写工具，也是華夏文化圈共享知识与历史记忆的基础设施。</p>
+          <ol class="culture-sources" aria-label="汉字传播与汉源词研究来源">
+            <li id="culture-source-1"><a href="https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-18/" target="_blank" rel="noopener">《Unicode 标准》第 17 版，第 18 章“东亚文字”</a>。</li>
+            <li id="culture-source-2">木下瞳：<a href="https://cir.nii.ac.jp/crid/1390023549705999872?lang=ja" target="_blank" rel="noopener">《日语、韩语、越南语中汉源词的量化研究综述》</a>，《国立国语研究所论集》29，2025。<a href="https://www.ninjal.ac.jp/info/publication/papers/29/" target="_blank" rel="noopener">国立国语研究所期刊目录</a>。</li>
+          </ol>
+        </div>
+      </details>
       <div class="culture-actions">
         <a class="culture-link" href="{{ '/projects/hanzi658/overview.html' | relative_url }}">认识“书同文”计划 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/hanzi658/' | relative_url }}">直接探索 <span aria-hidden="true">→</span></a>
@@ -488,18 +568,24 @@ class: culture-page
       </div>
       <h2>科技</h2>
       <p class="culture-card-subtitle">格物致知，巧思成器</p>
-      <p class="culture-card-copy">从数与形、尺度与结构出发，理解古人如何以抽象方法认识世界，又如何把知识落实为器物、建筑与城市。</p>
-      <div class="culture-topics">
-        <div class="culture-topic">
-          <strong>中国古典数学</strong>
-          <span>《九章算术》、筹算、勾股、天元术与传统算法思想。</span>
+      <p class="culture-card-teaser">从中国古典数学与建筑理解数、尺度、结构与营造。</p>
+      <details class="culture-details">
+        <summary><span class="culture-details-more">查看详情</span><span class="culture-details-less">收起</span></summary>
+        <div class="culture-details-body">
+          <p class="culture-card-copy">从数与形、尺度与结构出发，理解古人如何以抽象方法认识世界，又如何把知识落实为器物、建筑与城市。</p>
+          <div class="culture-topics">
+            <div class="culture-topic">
+              <strong>中国古典数学</strong>
+              <span>《九章算术》、筹算、勾股、天元术与传统算法思想。</span>
+            </div>
+            <div class="culture-topic">
+              <strong>中国古典建筑</strong>
+              <span>木构模数、斗拱、营造法式，以及礼制与空间秩序。</span>
+            </div>
+          </div>
+          <span class="culture-status">专题内容筹备中</span>
         </div>
-        <div class="culture-topic">
-          <strong>中国古典建筑</strong>
-          <span>木构模数、斗拱、营造法式，以及礼制与空间秩序。</span>
-        </div>
-      </div>
-      <span class="culture-status">专题内容筹备中</span>
+      </details>
     </article>
 
     <article class="culture-card culture-card--divination">
@@ -509,7 +595,11 @@ class: culture-page
       </div>
       <h2>术数</h2>
       <p class="culture-card-subtitle">观象取数，推时察变</p>
-      <p class="culture-card-copy">以现代交互方式呈现传统历法、干支、象数与推演方法。排盘均在浏览器本地完成，作为文化研究、方法学习与自我反思的辅助工具。</p>
+      <p class="culture-card-teaser">以交互方式呈现干支、历法、象数与传统推演方法。</p>
+      <details class="culture-details">
+        <summary><span class="culture-details-more">查看详情</span><span class="culture-details-less">收起</span></summary>
+        <div class="culture-details-body"><p class="culture-card-copy">以现代交互方式呈现传统历法、干支、象数与推演方法。排盘均在浏览器本地完成，作为文化研究、方法学习与自我反思的辅助工具。</p></div>
+      </details>
       <div class="culture-actions">
         <a class="culture-link" href="{{ '/projects/bazi/' | relative_url }}">八字排盘 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/liuyao/' | relative_url }}">六爻问卦 <span aria-hidden="true">→</span></a>
