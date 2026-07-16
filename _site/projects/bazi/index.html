@@ -187,9 +187,26 @@
             <div id="dayun-list" class="dayun-list" role="list" aria-label="大运列表"></div>
           </section>
 
+          <section class="prompt-section" aria-labelledby="prompt-title">
+            <div class="prompt-heading-row">
+              <div class="section-heading">
+                <span>伍</span>
+                <div><p>完整命盘资料</p><h2 id="prompt-title">AI 分析 Prompt</h2></div>
+              </div>
+              <div class="prompt-actions">
+                <button id="copy-prompt-button" class="copy-prompt-button" type="button">
+                  <span aria-hidden="true">⧉</span><span class="copy-prompt-label">一键复制</span>
+                </button>
+                <span id="copy-prompt-status" role="status" aria-live="polite"></span>
+              </div>
+            </div>
+            <p class="prompt-description">已自动写入日主、主要十神、四柱神煞、完整大运，以及建议、总结和紧凑输出要求；可直接复制给 AI。</p>
+            <textarea id="bazi-prompt" class="prompt-window" readonly spellcheck="false" aria-label="八字分析提示词"></textarea>
+          </section>
+
           <section class="annual-section" aria-labelledby="liunian-title">
             <div class="section-heading">
-              <span>伍</span>
+              <span>陆</span>
               <div><p id="liunian-kicker">逐年行看</p><h2 id="liunian-title">流年</h2></div>
             </div>
             <div id="liunian-list" class="liunian-list"></div>
