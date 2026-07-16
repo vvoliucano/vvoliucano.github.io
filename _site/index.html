@@ -10,6 +10,27 @@
 <meta name="keywords" content="liucan, Can Liu, LIU Can, Liu Can, 刘灿, 北京大学刘灿, 可视化刘灿, 可视化, 深度学习, 数据分析, 北京大学, Peking University, Peking, Visualization, Data Analytics, PKU, PKUVIS, Beida, 博士, 博士生, 可视分析, 京师大学堂">
 <meta name="description" content="Website of Can Liu (刘灿), a PhD student. 北京大学可视化博士研究生刘灿">
 <title>Can Liu</title>
+
+<script>
+  (function() {
+    var storedLanguage = null;
+    try {
+      storedLanguage = window.localStorage.getItem("site-language");
+    } catch (error) {
+      storedLanguage = null;
+    }
+
+    var hasStoredChoice = storedLanguage === "zh" || storedLanguage === "en";
+    var preferredLanguage = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    var shouldUseChinese = storedLanguage === "zh" ||
+      (!hasStoredChoice && /^zh(?:-|_|$)/i.test(preferredLanguage));
+
+    if (shouldUseChinese) {
+      window.location.replace("/zh/");
+    }
+  })();
+</script>
+
 <meta property="og:title" content="Can Liu">
 <meta property="og:site_name" content="http://localhost:1111 Can Liu">
 <meta property="og:type" content="article">
@@ -62,7 +83,7 @@ var _hmt = _hmt || [];
     <span class="external">
       <!-- <div><a target="_blank" href="https://twitter.com/LiwenhanXie"><i class="fab fa-twitter"></i>Twitter</a></div> -->
       <!-- <div><a target="_blank" href="https://scholar.google.com/citations?user=c_qeUtUAAAAJ&hl=zh-CN"></i>Google Scholar</a></div> -->
-      <div><a href="/zh/"></i>中文</a></div>
+      <div><a href="/zh/" data-language-choice="zh"></i>中文</a></div>
     </span>
   </nav>
 </header>
@@ -955,7 +976,7 @@ var _hmt = _hmt || [];
     <div class="footer-col">
       <div class="footer-copy">
         <div>All Rights Reserved.</div>
-        <abbr title="Last build on 2026-07-15">Last build on July 2026</abbr>
+        <abbr title="Last build on 2026-07-16">Last build on July 2026</abbr>
       </div>
     </div>
     <div class="footer-col footer-col-map">
@@ -1036,6 +1057,17 @@ var _hmt = _hmt || [];
     } finally {
       document.body.removeChild(textarea);
     }
+  }
+
+  var languageChoices = document.querySelectorAll('[data-language-choice]');
+  for (var languageIndex = 0; languageIndex < languageChoices.length; languageIndex++) {
+    languageChoices[languageIndex].addEventListener('click', function() {
+      try {
+        window.localStorage.setItem('site-language', this.getAttribute('data-language-choice'));
+      } catch (error) {
+        // The link still works when storage is unavailable.
+      }
+    });
   }
 </script>
 

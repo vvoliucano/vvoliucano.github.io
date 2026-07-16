@@ -68,4 +68,15 @@
       document.body.removeChild(textarea);
     }
   }
+
+  var languageChoices = document.querySelectorAll('[data-language-choice]');
+  for (var languageIndex = 0; languageIndex < languageChoices.length; languageIndex++) {
+    languageChoices[languageIndex].addEventListener('click', function() {
+      try {
+        window.localStorage.setItem('site-language', this.getAttribute('data-language-choice'));
+      } catch (error) {
+        // The link still works when storage is unavailable.
+      }
+    });
+  }
 </script>

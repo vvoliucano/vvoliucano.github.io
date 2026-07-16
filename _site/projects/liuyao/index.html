@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="以三枚直百五铢铜钱起卦，完成六爻纳甲、用神与旺衰分析，并生成可复制的 AI 问卦提示词。">
+  <meta name="theme-color" content="#171914">
+  <title>六爻问卦｜三钱成象</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="../" aria-label="返回项目列表"><span class="seal">爻</span><span>六爻问卦</span></a>
+    <p>三钱 · 六掷 · 纳甲</p>
+  </header>
+
+  <main>
+    <section id="question-stage" class="question-stage" aria-labelledby="question-title">
+      <div class="ritual-number">壹</div>
+      <p class="eyebrow">一事一占 · 心诚则灵</p>
+      <h1 id="question-title">先把心中的事，<br><em>问得清楚。</em></h1>
+      <p class="lead">问题越明确，取用与解读越有据可循。写下你真正想知道的事，确认之后再动铜钱。</p>
+      <form id="question-form" class="question-form">
+        <label for="question-input">所问何事</label>
+        <textarea id="question-input" rows="2" maxlength="120" required>今年我可以结婚吗？</textarea>
+        <div class="identity-row">
+          <span>感情取用参考</span>
+          <label><input type="radio" name="identity" value="male"><span>男问</span></label>
+          <label><input type="radio" name="identity" value="female"><span>女问</span></label>
+          <label><input type="radio" name="identity" value="unspecified" checked><span>不指定</span></label>
+        </div>
+        <button class="begin-button" type="submit"><span>净心 · 开始起卦</span><i aria-hidden="true">→</i></button>
+      </form>
+      <p class="ritual-note">起卦时间将用于月建、日辰与六神。所有计算仅在你的浏览器中完成。</p>
+    </section>
+
+    <section id="casting-stage" class="casting-stage" hidden aria-labelledby="casting-title">
+      <div class="casting-head">
+        <div>
+          <p class="eyebrow">贰 · 三枚汉钱</p>
+          <h2 id="casting-title">默念所问，<em>由下而上</em></h2>
+          <p id="question-display" class="asked-question"></p>
+        </div>
+        <div class="progress-orbit" aria-label="起卦进度">
+          <strong id="cast-count">零</strong><span>／ 六</span>
+          <i id="progress-ring"></i>
+        </div>
+      </div>
+
+      <div class="casting-workspace">
+        <div class="coin-altar">
+          <div class="halo" aria-hidden="true"></div>
+          <div id="coins" class="coins" aria-label="三枚直百五铢铜钱">
+            <div class="coin" data-coin="0"><div class="coin-inner"><div class="coin-face coin-front"><span class="coin-char top">直</span><span class="coin-char right">百</span><span class="coin-char bottom">五</span><span class="coin-char left">铢</span><i></i></div><div class="coin-face coin-back"><b class="pattern p1"></b><b class="pattern p2"></b><b class="pattern p3"></b><b class="pattern p4"></b><b class="pattern p5"></b><i></i></div></div></div>
+            <div class="coin" data-coin="1"><div class="coin-inner"><div class="coin-face coin-front"><span class="coin-char top">直</span><span class="coin-char right">百</span><span class="coin-char bottom">五</span><span class="coin-char left">铢</span><i></i></div><div class="coin-face coin-back"><b class="pattern p1"></b><b class="pattern p2"></b><b class="pattern p3"></b><b class="pattern p4"></b><b class="pattern p5"></b><i></i></div></div></div>
+            <div class="coin" data-coin="2"><div class="coin-inner"><div class="coin-face coin-front"><span class="coin-char top">直</span><span class="coin-char right">百</span><span class="coin-char bottom">五</span><span class="coin-char left">铢</span><i></i></div><div class="coin-face coin-back"><b class="pattern p1"></b><b class="pattern p2"></b><b class="pattern p3"></b><b class="pattern p4"></b><b class="pattern p5"></b><i></i></div></div></div>
+          </div>
+          <p id="cast-instruction" class="cast-instruction" aria-live="polite">先静候片刻</p>
+          <button id="cast-button" class="cast-button" type="button" disabled><span>静候</span><i aria-hidden="true"></i></button>
+          <button id="quick-test" class="quick-test" type="button" hidden>测试：直接完成六爻</button>
+        </div>
+
+        <div class="growing-hexagram">
+          <div class="hexagram-labels"><span>上爻</span><span>本卦渐成</span></div>
+          <div id="growing-lines" class="growing-lines" aria-label="从下往上生成的六爻"></div>
+          <div class="hexagram-labels bottom"><span>初爻</span><span id="last-cast-label">尚未落爻</span></div>
+          <ol id="cast-history" class="cast-history" aria-label="投掷记录"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="result-stage" class="result-stage" hidden aria-labelledby="result-title">
+      <div class="result-hero">
+        <div>
+          <p class="eyebrow">叁 · 卦成</p>
+          <h2 id="result-title"><span id="primary-name"></span><i>之</i><span id="changed-name"></span></h2>
+          <p id="result-meta"></p>
+        </div>
+        <button id="restart-button" class="outline-button" type="button">再问一卦</button>
+      </div>
+
+      <section class="classic-section section-block" aria-labelledby="classic-title">
+        <div class="section-index">肆</div>
+        <div class="section-title"><p>周易经文</p><h3 id="classic-title">卦辞与爻辞</h3></div>
+        <div class="classic-grid">
+          <article class="judgement-card"><span>本卦卦辞</span><h4 id="judgement-name"></h4><p id="judgement-text">正在请经……</p></article>
+          <article class="judgement-card changed"><span>变卦卦辞</span><h4 id="changed-judgement-name"></h4><p id="changed-judgement-text">正在请经……</p></article>
+        </div>
+        <div id="line-texts" class="line-texts"></div>
+        <p class="source-note">经文取自《周易》公开文本；若网络不可用，将显示爻位提示。动爻以朱色标出。</p>
+      </section>
+
+      <section class="najia-section section-block" aria-labelledby="najia-title">
+        <div class="section-index">伍</div>
+        <div class="section-title"><p>六十四卦固定装配</p><h3 id="najia-title">装卦 · 纳甲</h3></div>
+        <div class="calendar-strip" id="calendar-strip"></div>
+        <div class="najia-wrap">
+          <div id="najia-table" class="najia-table" role="table" aria-label="六爻纳甲排盘"></div>
+          <aside class="palace-card"><span>卦宫</span><strong id="palace-name"></strong><p id="palace-detail"></p></aside>
+        </div>
+      </section>
+
+      <section class="analysis-section section-block" aria-labelledby="analysis-title">
+        <div class="section-index">陆—玖</div>
+        <div class="section-title"><p>取用 · 旺衰 · 动变 · 综断</p><h3 id="analysis-title">六爻分析</h3></div>
+        <div class="analysis-grid">
+          <article><span>用神</span><h4 id="use-god"></h4><p id="use-god-reason"></p></article>
+          <article><span>旺衰</span><h4 id="strength-title"></h4><div id="strength-list"></div></article>
+          <article><span>动爻</span><h4 id="moving-title"></h4><div id="moving-list"></div></article>
+          <article class="synthesis"><span>综合判断线索</span><h4 id="synthesis-title"></h4><p id="synthesis-text"></p></article>
+        </div>
+      </section>
+
+      <section class="prompt-section section-block" aria-labelledby="prompt-title">
+        <div class="section-index">拾</div>
+        <div class="section-title"><p>带着完整排盘继续追问</p><h3 id="prompt-title">复制问 AI</h3></div>
+        <div class="prompt-box">
+          <textarea id="prompt-output" readonly aria-label="六爻 AI 提示词"></textarea>
+          <div class="prompt-actions"><p>提示词包含问题、本卦变卦、纳甲、世应、用神、月日与动爻分析。</p><button id="copy-button" type="button">复制完整 Prompt</button></div>
+        </div>
+        <p class="disclaimer">传统术数仅供文化研究与自我反思，不应替代医疗、法律、财务或其他专业意见，也不应作为重大现实决策的唯一依据。</p>
+      </section>
+    </section>
+  </main>
+
+  <div id="ritual-modal" class="ritual-modal" role="dialog" aria-modal="true" aria-labelledby="ritual-modal-title" hidden>
+    <div class="ritual-dialog">
+      <p class="eyebrow">起卦之前 · 静坐十息</p>
+      <div id="ritual-countdown" class="ritual-countdown" aria-live="polite"><strong>10</strong><span>秒</span></div>
+      <h2 id="ritual-modal-title">一事一占，<br>不可反复追问。</h2>
+      <p class="ritual-warning">同一个问题不要占问两次。若只是因为不满意第一次的结果而重新起卦，所得之象便不再作为可靠参考。</p>
+      <p id="repeat-warning" class="repeat-warning" hidden><strong>此问已经问过</strong><span>建议返回修改问题；若仍继续，本次结果应视为不准。</span></p>
+      <blockquote id="ritual-question"></blockquote>
+      <div class="ritual-actions">
+        <button id="edit-question-button" class="edit-question-button" type="button">返回修改</button>
+        <button id="confirm-ritual-button" class="confirm-ritual-button" type="button" disabled>还需静候 10 秒</button>
+      </div>
+    </div>
+  </div>
+
+  <footer><span>三钱成象，六位成章</span><p>六爻问卦 · 浏览器本地排盘</p></footer>
+
+  <script src="../bazi/lunar.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
