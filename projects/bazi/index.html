@@ -7,6 +7,14 @@
   <meta name="theme-color" content="#f6f7fb">
   <title>八字排盘｜四柱·大运·流年</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-146429859-1');
+  </script>
 </head>
 <body>
   <div class="paper-noise" aria-hidden="true"></div>
@@ -15,7 +23,10 @@
       <span class="brand-mark">命</span>
       <span>八字排盘</span>
     </a>
-    <p>四柱 · 大运 · 流年</p>
+    <div class="masthead-actions">
+      <p>四柱 · 大运 · 流年</p>
+      <a href="https://vvoliucano.github.io/zh/">关于作者 <span aria-hidden="true">↗</span></a>
+    </div>
   </header>
 
   <main class="page-shell">
@@ -219,6 +230,9 @@
   <footer>
     <p>历法计算：<a href="https://github.com/6tail/lunar-javascript" target="_blank" rel="noreferrer">lunar-javascript v1.7.7</a> · 神煞规则：<a href="https://github.com/chxb/shensha" target="_blank" rel="noreferrer">chxb/shensha</a></p>
     <p>传统文化资料仅供研究与参考，请勿将排盘结果作为现实决策依据。</p>
+    <div class="visitor-map" aria-label="访问者地图">
+      <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=fefefe&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=8b0801&cmo=7088ff"></script>
+    </div>
   </footer>
 
   <div id="shensha-tooltip" class="shensha-tooltip" role="tooltip" hidden></div>

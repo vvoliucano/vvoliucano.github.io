@@ -7,13 +7,24 @@
   <meta name="theme-color" content="#171914">
   <title>六爻问卦｜三钱成象</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-146429859-1');
+  </script>
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
 
   <header class="masthead">
     <a class="brand" href="../" aria-label="返回项目列表"><span class="seal">爻</span><span>六爻问卦</span></a>
-    <p>三钱 · 六掷 · 纳甲</p>
+    <div class="masthead-actions">
+      <p>三钱 · 六掷 · 纳甲</p>
+      <a href="https://vvoliucano.github.io/zh/">关于作者 <span aria-hidden="true">↗</span></a>
+    </div>
   </header>
 
   <main>
@@ -140,7 +151,13 @@
     </div>
   </div>
 
-  <footer><span>三钱成象，六位成章</span><p>六爻问卦 · 浏览器本地排盘</p></footer>
+  <footer>
+    <span>三钱成象，六位成章</span>
+    <p>六爻问卦 · 浏览器本地排盘</p>
+    <div class="visitor-map" aria-label="访问者地图">
+      <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=fefefe&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=8b0801&cmo=7088ff"></script>
+    </div>
+  </footer>
 
   <script src="../bazi/lunar.js"></script>
   <script src="app.js"></script>
