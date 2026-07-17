@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive essay on equation methods in classical China: fangcheng elimination, the Heavenly Unknown, and the Four Unknowns.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="Before x Was Written | Equation Thought in Classical China">
+  <meta property="og:description" content="Operate a counting board and follow elimination from the Nine Chapters to the Jade Mirror of the Four Unknowns.">
+  <meta property="og:image" content="https://vvoliucano.github.io/assets/project/chinese-math.png">
+  <title>Before x Was Written | Equation Thought in Classical China</title>
+  <link rel="stylesheet" href="styles.css?v=20260717-5">
+</head>
+<body>
+  <div class="paper-grain" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../projects/" aria-label="Back to projects"><span class="brand-seal">方</span><span>Equation Thought in Classical China</span></a>
+    <nav aria-label="Page navigation">
+      <a href="#fangcheng">Elimination</a><a href="#tianyuan">Heavenly Unknown</a><a href="#siyuan">Four Unknowns</a><a href="#sources">Sources</a><a href="index.html" lang="zh-CN">中文</a>
+    </nav>
+    <a class="home-link" href="../../">Home <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">From counting rods to unknowns · three conceptual leaps</p>
+        <h1 id="page-title">Before writing <i>x</i>,<br><em>they already made<br>unknowns computable.</em></h1>
+        <p class="lead">Classical Chinese mathematics organized calculation through counting rods, position, and procedure: quantities were placed on a counting board, then transformed by repeatable operations until the unknowns were found.</p>
+        <a class="start-link" href="#fangcheng"><span>Begin with a counting board</span><i aria-hidden="true">↓</i></a>
+      </div>
+      <div class="hero-board" aria-label="From fangcheng to four unknowns">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-center"><small>unknown</small><strong>元</strong><span>yuan</span></div>
+        <div class="hero-node node-one"><b>方程</b><span>number positions</span></div>
+        <div class="hero-node node-two"><b>天元</b><span>one unknown</span></div>
+        <div class="hero-node node-three"><b>四元</b><span>elimination</span></div>
+        <div class="rod-field" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="hero-aside"><span>c. 1st century CE</span><b>The Nine Chapters</b><span>13th century</span><b>Heavenly Unknown</b><span>1303</span><b>Jade Mirror</b></div>
+    </section>
+
+    <section class="thesis-strip" aria-label="Central question"><span>Begin with a concrete problem</span><strong>How did unknown quantities become computable?</strong><span>place · scale · subtract · eliminate</span></section>
+
+    <section id="fangcheng" class="chapter chapter-dark" aria-labelledby="fangcheng-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">I · Fangcheng procedure</p>
+        <h2 id="fangcheng-title">Two kinds of grain:<br><em>how much does each yield?</em></h2>
+        <p>Chapter Eight of the <i>Nine Chapters</i>, “Fangcheng,” solves simultaneous linear problems. Each condition occupied a column on the counting board; repeated scaling and subtraction eliminated unknowns one by one.</p>
+        <div class="claim-meter"><span>Relation to modern Gaussian elimination</span><div><i style="--score:92%"></i></div><b>The same computational structure</b></div>
+      </div>
+
+      <div class="elimination-lab" data-step="0">
+        <div class="lab-head"><div><span>Try it</span><h3>How do two rows reveal the answer?</h3></div><div class="step-count"><b id="step-current">01</b><span> / 04</span></div></div>
+        <div class="problem-setup">
+          <div class="problem-story"><span>Simplified example</span><p>Two bundles of upper-grade grain plus one bundle of lower-grade grain yield five <i>dou</i>; one upper plus three lower yield seven. Find the yield of each bundle.</p></div>
+          <div class="unknown-key"><span>Set the unknowns</span><p><i>x</i> = yield per upper bundle</p><p><i>y</i> = yield per lower bundle</p></div>
+          <div class="equation-system"><span>Modern equations</span><div><i>2x + y = 5</i><i>x + 3y = 7</i></div></div>
+          <div class="modern-matrix"><span>Modern augmented matrix</span><div class="matrix-preview"><i class="bracket left"></i><p><b>2</b><b>1</b><em></em><b>5</b><b>1</b><b>3</b><em></em><b>7</b></p><i class="bracket right"></i></div></div>
+          <p class="matrix-reading"><b>How to read it:</b> each row is one condition; the first two columns are coefficients of <i>x</i> and <i>y</i>; the right side contains the totals. Row operations change the representation without changing the solution.</p>
+        </div>
+        <div class="board-layout">
+          <div class="equation-labels" aria-hidden="true"><span>x</span><span>y</span><span>total</span></div>
+          <div id="matrix" class="matrix" role="img"><div class="matrix-row row-a"><span>2</span><span>1</span><i></i><span>5</span></div><div class="matrix-row row-b"><span>1</span><span>3</span><i></i><span>7</span></div></div>
+          <div id="operation" class="operation"><small>Encode</small><strong>Place both equations in one table</strong><p>The modern row layout is the transpose of the traditional counting-board orientation.</p></div>
+        </div>
+        <div class="lab-controls"><button id="prev-step" type="button" disabled aria-label="Previous step">←</button><div class="step-dots" aria-hidden="true"><i class="active"></i><i></i><i></i><i></i></div><button id="next-step" type="button"><span>Next operation</span> →</button></div>
+      </div>
+    </section>
+
+    <section class="translation-band" aria-labelledby="translation-title">
+      <p>One action, two vocabularies</p><h2 id="translation-title">Counting-board operations <span>⇄</span> linear algebra</h2>
+      <div class="translation-grid">
+        <div><b>各置</b><span>Place coefficients by position</span><small>Modern: form the augmented matrix</small><code><mark>2  1 │ 5</mark><mark>1  3 │ 7</mark></code><i>encode</i></div>
+        <div><b>遍乘</b><span>Scale a whole column</span><small>Modern: scale one row</small><code><mark>R₂ ← 2R₂</mark><mark>1 3 │ 7 → 2 6 │ 14</mark></code><i>scale</i></div>
+        <div><b>直除</b><span>Subtract and eliminate one term</span><small>Modern: row replacement</small><code><mark>R₂ ← R₂ − R₁</mark><mark>2 6 │ 14 − 2 1 │ 5</mark><mark>= 0 5 │ 9</mark></code><i>eliminate</i></div>
+        <div><b>以法除之</b><span>Normalize and back-substitute</span><small>Modern: pivot and solve</small><code><mark>R₂ ← R₂ ÷ 5</mark><mark>y = 9/5, x = 8/5</mark></code><i>solve</i></div>
+      </div>
+      <p class="translation-note">The four cards continue the same problem. Modern notation uses rows R₁ and R₂; the classical counting board used the transposed orientation.</p>
+    </section>
+
+    <section id="tianyuan" class="chapter chapter-light" aria-labelledby="tianyuan-title">
+      <div class="chapter-intro"><p class="chapter-no">II · The Heavenly Unknown</p><h2 id="tianyuan-title">One <i>yuan</i><br><em>gave the unknown a place.</em></h2><blockquote>“Establish one Heavenly Unknown as…”<cite>— a standard setting phrase in thirteenth-century texts</cite></blockquote><p>The method represented the coefficients of successive powers through position. It did not write the letter <i>x</i>, but it could organize and operate on a polynomial in one unknown.</p></div>
+      <div class="tianyuan-demo">
+        <div class="story-problem"><span>A small problem</span><h3>One side of a rectangular field is one unit longer than the other; its area is twelve.</h3><p>Let the shorter side be the Heavenly Unknown. Move the slider.</p><label for="yuan-slider"><span>Unknown</span><output id="yuan-value">3</output><i>units</i></label><input id="yuan-slider" type="range" min="1" max="6" step="1" value="3" aria-label="Change the unknown"></div>
+        <div class="area-stage" aria-live="polite"><div id="field-shape" class="field-shape"><span id="field-area">12</span><small>square units</small></div><span class="dimension dim-x"><i></i><b id="dim-x">unknown = 3</b></span><span class="dimension dim-y"><i></i><b id="dim-y">unknown + 1 = 4</b></span></div>
+        <div class="polynomial-board"><p>Reduce the story to a polynomial</p><div class="modern-equation"><span>x(x + 1) = 12</span><b>→</b><strong>x² + x − 12 = 0</strong></div><div class="coefficient-stack"><div><span>quadratic place</span><b>1</b><i>x²</i></div><div><span>unknown place</span><b>1</b><i>x</i></div><div><span>constant place</span><b>−12</b><i>1</i></div></div><p class="board-note">The letter and exponent are modern translations; the classical method encoded them through position.</p></div>
+      </div>
+    </section>
+
+    <section id="siyuan" class="chapter chapter-red" aria-labelledby="siyuan-title">
+      <div class="chapter-intro"><p class="chapter-no">III · The Four Unknowns</p><h2 id="siyuan-title">Heaven, Earth, Human, Matter:<br><em>four directions for four unknowns.</em></h2><p>In the 1303 <i>Jade Mirror of the Four Unknowns</i>, Zhu Shijie used Heaven, Earth, Human, and Matter for as many as four unknown quantities, then eliminated them successively.</p></div>
+      <div class="four-lab">
+        <div class="four-map" aria-label="Classical and modern unknowns"><button class="yuan-card active" data-yuan="Heaven" data-symbol="x" data-desc="In this problem, the Heavenly Unknown is the shorter leg."><span>天</span><b>x</b><i>Heaven</i></button><button class="yuan-card" data-yuan="Earth" data-symbol="y" data-desc="The Earthly Unknown is the longer leg."><span>地</span><b>y</b><i>Earth</i></button><button class="yuan-card" data-yuan="Human" data-symbol="z" data-desc="The Human Unknown is the hypotenuse."><span>人</span><b>z</b><i>Human</i></button><button class="yuan-card" data-yuan="Matter" data-symbol="u" data-desc="The Matter Unknown records the requested total."><span>物</span><b>u</b><i>Matter</i></button></div>
+        <div class="four-expression">
+          <div class="expression-head"><span>Fourth introductory example · “Four Forms Meet at the Origin”</span><b id="yuan-focus">Heaven · x</b></div><p id="yuan-description">In this problem, the Heavenly Unknown is the shorter leg.</p>
+          <div class="classic-problem">
+            <div class="classic-problem-source"><span>Original Classical Chinese</span><blockquote lang="zh-Hans">今有股乘五较与弦幂加句乘弦等。只云句除五和与股幂减句弦较同。问黄方带句股弦共几何？</blockquote><p lang="zh-Hans">答曰：一十四步。草曰：立天元一为句，地元一为股，人元一为弦，物元一为开数，四象和会求之。</p><p class="classic-english-translation"><b>English:</b> The answer is fourteen. Set the Heavenly Unknown as the shorter leg, Earth as the longer leg, Human as the hypotenuse, and Matter as the sought total; combine the four forms to solve it.</p><a href="https://zh.wikisource.org/zh-hans/四元玉鑒#四象會元" target="_blank" rel="noreferrer">Read the original text <i>↗</i></a></div>
+            <div class="classic-problem-key"><span>Modern notation</span><dl><div><dt>Heaven</dt><dd><b>x</b> · shorter leg</dd></div><div><dt>Earth</dt><dd><b>y</b> · longer leg</dd></div><div><dt>Human</dt><dd><b>z</b> · hypotenuse</dd></div><div><dt>Matter</dt><dd><b>u</b> · requested total</dd></div></dl><p>The “yellow square” is the incircle’s diameter: <b>d = x + y − z</b>. Thus <b>u = x + y + z + d = 2x + 2y</b>.</p></div>
+          </div>
+          <div class="four-animation" id="four-animation" aria-labelledby="four-animation-title">
+            <div class="four-animation-head"><div><span id="four-step-kicker">Step 1 · Set four unknowns</span><h3 id="four-animation-title">Translate the problem into four relations</h3></div><div class="four-variable-state"><i data-var="x">Heaven <b>x</b></i><i data-var="y">Earth <b>y</b></i><i data-var="z">Human <b>z</b></i><i data-var="u">Matter <b>u</b></i></div></div>
+            <div class="four-stage" id="four-stage" aria-live="polite"><div class="four-stage-formulas" id="four-stage-formulas"><p>x² + y² = z²</p><p>y · five differences = z² + xz</p><p>five sums / x = y² − (z − x)</p><p>u = x + y + z + (x + y − z)</p></div><p class="four-stage-explanation" id="four-stage-explanation">The first three relations determine the triangle; the fourth records the requested total.</p></div>
+            <div class="four-animation-controls"><button id="four-prev" type="button" disabled aria-label="Previous step">←</button><button id="four-play" type="button" aria-pressed="false"><span>Auto play</span><i aria-hidden="true">▶</i></button><div class="four-progress" aria-hidden="true"><i class="active"></i><i></i><i></i><i></i><i></i><i></i></div><button id="four-next" type="button"><span>Eliminate next</span> →</button></div>
+          </div>
+          <p class="four-example-note">The animation reconstructs the original elimination with modern symbols. The transmitted book represents its operations through multidirectional counting-rod diagrams.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison"><div class="comparison-title"><p>From counting board to algebra</p><h2>One method,<br>step-for-step correspondence.</h2></div><div class="comparison-cards"><article class="say"><span>Fangcheng</span><h3>Arrange coefficients, then eliminate unknowns.</h3><p>In modern notation: elementary operations on an augmented matrix.</p></article><article class="say"><span>Heavenly Unknown</span><h3>Represent the coefficients of successive powers by position.</h3><p>In modern notation: a polynomial in x.</p></article><article class="say"><span>Four Unknowns</span><h3>Organize Heaven, Earth, Human, and Matter.</h3><p>Here they are transcribed as x, y, z, and u.</p></article><article class="say"><span>Successive elimination</span><h3>Reduce four unknowns to one.</h3><p>Modern algebra performs the same reduction by substitution and elimination.</p></article></div></section>
+
+    <section class="timeline"><div><p>Placed on a world timeline</p><h2>Different notations,<br>connected mathematical acts.</h2></div><ol><li><time>c. 1st century CE</time><b>The Nine Chapters</b><span>Fangcheng problems use tabulation and elimination.</span></li><li><time>13th century</time><b>Heavenly Unknown</b><span>Extant texts systematically represent one-variable polynomials by position.</span></li><li><time>1303</time><b>Jade Mirror</b><span>Zhu Shijie extends polynomial elimination to four unknowns.</span></li><li><time>1591 / 1637</time><b>European symbolic algebra</b><span>Viète generalizes literal notation; Descartes popularizes x, y, z and modern exponents.</span></li></ol></section>
+
+    <section id="sources" class="sources"><div><p>Sources</p><h2>Follow the text<br>back to the page.</h2><p>Dates and terminology follow conservative historical descriptions. Modern letters and row notation are translations used to expose the algorithms.</p></div><ol><li><span>Primary</span><a href="https://ctext.org/nine-chapters/fang-cheng" target="_blank" rel="noreferrer">The Nine Chapters: Fangcheng <i>↗</i></a></li><li><span>Primary</span><a href="https://zh.wikisource.org/zh-hans/四元玉鑒#四象會元" target="_blank" rel="noreferrer">Jade Mirror: Four Forms Meet at the Origin <i>↗</i></a></li><li><span>Study</span><a href="https://mathshistory.st-andrews.ac.uk/HistTopics/Nine_chapters/" target="_blank" rel="noreferrer">MacTutor: The Nine Chapters <i>↗</i></a></li><li><span>Study</span><a href="https://mathshistory.st-andrews.ac.uk/Strick/zhu_shijie.pdf" target="_blank" rel="noreferrer">Zhu Shijie and the 3–4–5–14 example <i>↗</i></a></li><li><span>Study</span><a href="https://old.maa.org/press/periodicals/convergence/mathematical-treasure-the-precious-mirror-of-zhu-shijie" target="_blank" rel="noreferrer">MAA: The Precious Mirror <i>↗</i></a></li></ol></section>
+  </main>
+  <footer><p>Numbers recognize one another across centuries; notation retains its own history.</p><a href="../../projects/">Back to Projects</a></footer>
+  <script src="app.js?v=20260717-5"></script>
+</body>
+</html>

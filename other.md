@@ -581,16 +581,18 @@ class: culture-page
           <div class="culture-topics">
             <div class="culture-topic">
               <strong>中国古典数学</strong>
-              <span>《九章算术》、筹算、勾股、天元术与传统算法思想。</span>
+              <span>《九章算术》的方程术、天元术、四元术与传统算法思想。</span>
             </div>
             <div class="culture-topic">
               <strong>中国古典建筑</strong>
               <span>木构模数、斗拱、营造法式，以及礼制与空间秩序。</span>
             </div>
           </div>
-          <span class="culture-status">专题内容筹备中</span>
         </div>
       </details>
+      <div class="culture-actions">
+        <a class="culture-link" href="{{ '/projects/chinese-mathematics/' | relative_url }}">古代方程思想 <span aria-hidden="true">→</span></a>
+      </div>
     </article>
 
     <article class="culture-card culture-card--divination">

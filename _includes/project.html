@@ -16,8 +16,9 @@
   {% if project.article %}
     <a href="{{ project.article }}" target="_blank"><i class="fas fa-newspaper"></i> Post</a>
   {% endif %}
-  {% if project.demo %}
-    <a href="{{ project.demo }}" target="_blank"><i class="fas fa-desktop"></i> Demo</a>
+  {% assign project_demo = project.demo_en | default: project.demo %}
+  {% if project_demo %}
+    <a href="{{ project_demo }}" target="_blank"><i class="fas fa-desktop"></i> Demo</a>
   {% endif %}
   {% if project.url %}
     <a href="{{ project.url }}" target="_blank"><i class="fas fa-link" aria-hidden="true"></i> Website</a>

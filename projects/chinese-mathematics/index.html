@@ -3,24 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="一场可操作的中国古代数学思想展：从《九章算术》的方程术，到天元术与朱世杰《四元玉鉴》。">
+  <meta name="description" content="一场可操作的中国古代方程思想展：从《九章算术》的方程术，到天元术与朱世杰《四元玉鉴》。">
   <meta name="theme-color" content="#171914">
-  <meta property="og:title" content="未曾写下 x｜中国古代数学思想">
+  <meta property="og:title" content="未曾写下 x｜中国古代的方程思想">
   <meta property="og:description" content="拨动算筹，看方程术如何消元；沿着天元与四元，重新认识中国古代的算法思想。">
   <meta property="og:image" content="https://vvoliucano.github.io/assets/project/chinese-math.png">
-  <title>未曾写下 x｜中国古代数学思想</title>
-  <link rel="stylesheet" href="styles.css?v=20260717-3">
+  <title>未曾写下 x｜中国古代的方程思想</title>
+  <link rel="stylesheet" href="styles.css?v=20260717-5">
 </head>
 <body>
   <div class="paper-grain" aria-hidden="true"></div>
 
   <header class="masthead">
-    <a class="brand" href="../../projects-zh/" aria-label="返回项目页"><span class="brand-seal">算</span><span>中国古代数学思想</span></a>
+    <a class="brand" href="../../projects-zh/" aria-label="返回项目页"><span class="brand-seal">方</span><span>中国古代的方程思想</span></a>
     <nav aria-label="页面导航">
       <a href="#fangcheng">方程术</a>
       <a href="#tianyuan">天元术</a>
       <a href="#siyuan">四元术</a>
       <a href="#sources">据与界</a>
+      <a href="en.html" lang="en">EN</a>
     </nav>
     <a class="home-link" href="../../zh/">作者主页 <span aria-hidden="true">↗</span></a>
   </header>
@@ -203,33 +204,68 @@
           <button class="yuan-card active" data-yuan="天" data-symbol="x" data-desc="天元居中，是首先立起的未知量。"><span>天</span><b>x</b><i>上 · 下</i></button>
           <button class="yuan-card" data-yuan="地" data-symbol="y" data-desc="地元展开第二个方向，使二元项有了位置。"><span>地</span><b>y</b><i>左 · 右</i></button>
           <button class="yuan-card" data-yuan="人" data-symbol="z" data-desc="人元再添一重方向，容纳三元关系。"><span>人</span><b>z</b><i>斜向</i></button>
-          <button class="yuan-card" data-yuan="物" data-symbol="w" data-desc="物元补足第四个未知量，形成四元系统。"><span>物</span><b>w</b><i>另位</i></button>
+          <button class="yuan-card" data-yuan="物" data-symbol="u" data-desc="本题以物元表示最终所求的总和。"><span>物</span><b>u</b><i>另位</i></button>
         </div>
 
         <div class="four-expression">
-          <div class="expression-head"><span>用现代符号转写</span><b id="yuan-focus">天元 · x</b></div>
-          <p class="equation-large"><mark data-symbol="x">3x²y</mark> + <mark data-symbol="z">2yz</mark> + <mark data-symbol="w">w</mark> = 0</p>
+          <div class="expression-head"><span>《四元玉鉴》卷首第四例 · 四象会元</span><b id="yuan-focus">天元 · x</b></div>
           <p id="yuan-description">天元居中，是首先立起的未知量。</p>
-          <div class="eliminate-flow" aria-label="从四元到一元的逐次消去">
-            <div><b>天 地 人 物</b><span>四元方程组</span></div><i>消去</i>
-            <div><b>天 地 人</b><span>三元</span></div><i>消去</i>
-            <div><b>天 地</b><span>二元</span></div><i>消去</i>
-            <div><b>天</b><span>一元高次方程</span></div>
+
+          <div class="classic-problem">
+            <div class="classic-problem-source">
+              <span>原书题文</span>
+              <blockquote>今有股乘五较与弦幂加句乘弦等。只云句除五和与股幂减句弦较同。问黄方带句股弦共几何？</blockquote>
+              <p>答曰：一十四步。草曰：立天元一为句，地元一为股，人元一为弦，物元一为开数，四象和会求之。</p>
+              <a href="https://zh.wikisource.org/zh-hans/四元玉鑒#四象會元" target="_blank" rel="noreferrer">查看《四元玉鉴》原文 <i>↗</i></a>
+            </div>
+            <div class="classic-problem-key">
+              <span>现代记号</span>
+              <dl>
+                <div><dt>天元</dt><dd><b>x</b> · 句</dd></div>
+                <div><dt>地元</dt><dd><b>y</b> · 股</dd></div>
+                <div><dt>人元</dt><dd><b>z</b> · 弦</dd></div>
+                <div><dt>物元</dt><dd><b>u</b> · 所求总和</dd></div>
+              </dl>
+              <p>黄方是直角三角形内切圆的直径：<b>d = x + y − z</b>，所以所求 <b>u = x + y + z + d = 2x + 2y</b>。</p>
+            </div>
           </div>
+
+          <div class="four-animation" id="four-animation" aria-labelledby="four-animation-title">
+            <div class="four-animation-head">
+              <div><span id="four-step-kicker">第一步 · 四元立式</span><h3 id="four-animation-title">把原题写成四元关系</h3></div>
+              <div class="four-variable-state" aria-label="当前仍在方程中的未知量">
+                <i data-var="x">天 <b>x</b></i><i data-var="y">地 <b>y</b></i><i data-var="z">人 <b>z</b></i><i data-var="u">物 <b>u</b></i>
+              </div>
+            </div>
+            <div class="four-stage" id="four-stage" aria-live="polite">
+              <div class="four-stage-formulas" id="four-stage-formulas">
+                <p>x² + y² = z²</p><p>y · 五较 = z² + xz</p><p>五和 / x = y² − (z − x)</p><p>u = x + y + z + (x + y − z)</p>
+              </div>
+              <p class="four-stage-explanation" id="four-stage-explanation">四条关系同时放在算板上。前三条确定句、股、弦，第四条记录物元——题目最终要问的总和。</p>
+            </div>
+            <div class="four-animation-controls">
+              <button id="four-prev" type="button" disabled aria-label="上一步">←</button>
+              <button id="four-play" type="button" aria-pressed="false"><span>自动演算</span><i aria-hidden="true">▶</i></button>
+              <div class="four-progress" aria-hidden="true"><i class="active"></i><i></i><i></i><i></i><i></i><i></i></div>
+              <button id="four-next" type="button"><span>消去下一元</span> →</button>
+            </div>
+          </div>
+
+          <p class="four-example-note">动画采用现代符号复算原题的消元逻辑；原书以四元算筹式“消而剔之”，其式图在传世文本中以图版呈现。现代推导参考原题定义，将“五较”化为 2z、“五和”化为 2x + 4y + 4z。</p>
         </div>
       </div>
     </section>
 
     <section class="comparison" aria-labelledby="comparison-title">
       <div class="comparison-title">
-        <p>真正值得自豪的，不必靠夸张</p>
-        <h2 id="comparison-title">相似，<br>但不抹平差异。</h2>
+        <p>从算板到矩阵</p>
+        <h2 id="comparison-title">方法相通，<br>步骤一一对应。</h2>
       </div>
       <div class="comparison-cards">
-        <article class="say"><span>可以说</span><h3>方程术与高斯消元在程序结构上高度相似。</h3><p>两者都把系数组织成表，并以倍乘、相减、消元来求解线性方程组。</p></article>
-        <article class="avoid"><span>不宜说</span><h3>《九章算术》已经建立了现代矩阵理论。</h3><p>“矩阵”作为独立数学对象、相关符号与理论体系，属于更晚近的数学发展。</p></article>
-        <article class="say"><span>可以说</span><h3>天元术能系统表示并运算一个未知量的多项式。</h3><p>这是一种以算筹和位置为基础、功能强大的代数方法。</p></article>
-        <article class="avoid"><span>不宜说</span><h3>天元就是现代字母 x，四元就是 x、y、z、w。</h3><p>这些字母只是方便今天读者理解的转写，原方法有自己的物质工具与表示逻辑。</p></article>
+        <article class="say"><span>方程术</span><h3>把系数列成数表，再逐项消去未知量。</h3><p>现代写法就是增广矩阵的行变换：倍乘一行、两行相减，最后回代求解。</p></article>
+        <article class="say"><span>天元术</span><h3>设一个未知量，并按位置排列它的各次幂系数。</h3><p>用现代符号写出，就是以 x 为未知量的一元多项式及其系数表。</p></article>
+        <article class="say"><span>四元术</span><h3>用天、地、人、物组织四个未知量。</h3><p>本页原题用现代符号转写为 x、y、z、u；字母只是转写，四个元都能进入多项式运算。</p></article>
+        <article class="say"><span>逐次消元</span><h3>四元化三元，三元化二元，最终归于一元。</h3><p>现代代数同样通过消去变量，把多元方程组化为可求解的一元方程。</p></article>
       </div>
     </section>
 
