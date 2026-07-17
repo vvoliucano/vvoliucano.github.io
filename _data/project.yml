@@ -1,3 +1,11 @@
+- id: chinese-mathematics
+  title: 未曾写下 x
+  image: chinese-math.png
+  description: "An interactive visual essay on equation solving, the Heavenly Unknown, and the Four Unknowns in ancient Chinese mathematics."
+  description_zh: "一场可操作的中国古代数学思想展：从《九章算术》的方程术，到天元术与《四元玉鉴》。"
+  demo: "/projects/chinese-mathematics/"
+  highlight: 1
+
 - id: proteus
   title: Proteus Mobile
   image: proteus.png

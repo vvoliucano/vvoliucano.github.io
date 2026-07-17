@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一场可操作的中国古代数学思想展：从《九章算术》的方程术，到天元术与朱世杰《四元玉鉴》。">
+  <meta name="theme-color" content="#171914">
+  <meta property="og:title" content="未曾写下 x｜中国古代数学思想">
+  <meta property="og:description" content="拨动算筹，看方程术如何消元；沿着天元与四元，重新认识中国古代的算法思想。">
+  <meta property="og:image" content="https://vvoliucano.github.io/assets/project/chinese-math.png">
+  <title>未曾写下 x｜中国古代数学思想</title>
+  <link rel="stylesheet" href="styles.css?v=20260717-3">
+</head>
+<body>
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="../../projects-zh/" aria-label="返回项目页"><span class="brand-seal">算</span><span>中国古代数学思想</span></a>
+    <nav aria-label="页面导航">
+      <a href="#fangcheng">方程术</a>
+      <a href="#tianyuan">天元术</a>
+      <a href="#siyuan">四元术</a>
+      <a href="#sources">据与界</a>
+    </nav>
+    <a class="home-link" href="../../zh/">作者主页 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">从算筹到未知数 · 三次思想跃迁</p>
+        <h1 id="page-title">未曾写下 <i>x</i>，<br><em>却已让未知数<br>进入运算。</em></h1>
+        <p class="lead">中国古代数学以算筹、位置和程序组织计算：把题目中的数量排到算板上，再通过一连串可以重复执行的步骤求出未知量。</p>
+        <a class="start-link" href="#fangcheng"><span>从一张算板开始</span><i aria-hidden="true">↓</i></a>
+      </div>
+
+      <div class="hero-board" aria-label="从方程术到四元术的概念演变">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-center"><small>未知</small><strong>元</strong><span>unknown</span></div>
+        <div class="hero-node node-one"><b>方程</b><span>数的位置</span></div>
+        <div class="hero-node node-two"><b>天元</b><span>一个未知</span></div>
+        <div class="hero-node node-three"><b>四元</b><span>多元消去</span></div>
+        <div class="rod-field" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+
+      <div class="hero-aside">
+        <span>约公元 1 世纪</span><b>《九章算术》</b>
+        <span>13 世纪</span><b>天元术成熟</b>
+        <span>1303 年</span><b>《四元玉鉴》</b>
+      </div>
+    </section>
+
+    <section class="thesis-strip" aria-label="全页核心观点">
+      <span>从一个具体问题开始</span>
+      <strong>古人怎样把未知量变成可计算的对象？</strong>
+      <span>列置 · 倍乘 · 相减 · 消去</span>
+    </section>
+
+    <section id="fangcheng" class="chapter chapter-dark" aria-labelledby="fangcheng-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">壹 · 方程术</p>
+        <h2 id="fangcheng-title">两种粮食，<br><em>各自一份有多少？</em></h2>
+        <p>《九章算术》第八章“方程”处理多元一次问题：每一道条件占据算板的一列，每一种未知量占据固定位置，总量也列在其中。随后对整列数字进行倍乘与相减，逐步消去未知量。</p>
+        <div class="claim-meter">
+          <span>与今日高斯消元的关系</span>
+          <div><i style="--score: 92%"></i></div>
+          <b>算法结构高度相似</b>
+        </div>
+      </div>
+
+      <div class="elimination-lab" data-step="0">
+        <div class="lab-head">
+          <div><span>动手一算</span><h3>两行数字，怎样吐出答案？</h3></div>
+          <div class="step-count"><b id="step-current">01</b><span>／ 04</span></div>
+        </div>
+
+        <div class="problem-setup">
+          <div class="problem-story">
+            <span>简化例题</span>
+            <p><b>二</b>秉上禾与<b>一</b>秉下禾共收五斗；<b>一</b>秉上禾与<b>三</b>秉下禾共收七斗。问：上禾、下禾每秉各收多少斗？</p>
+          </div>
+          <div class="unknown-key">
+            <span>先设未知量</span>
+            <p><i>x</i> = 每秉上禾的产量</p>
+            <p><i>y</i> = 每秉下禾的产量</p>
+          </div>
+          <div class="equation-system" aria-label="方程组：二 x 加 y 等于五，x 加三 y 等于七">
+            <span>写成今天的方程</span>
+            <div><i>2x + y = 5</i><i>x + 3y = 7</i></div>
+          </div>
+          <div class="modern-matrix" aria-label="现代增广矩阵：第一行二、一、五；第二行一、三、七">
+            <span>写成今天的增广矩阵</span>
+            <div class="matrix-preview">
+              <i class="bracket left"></i>
+              <p><b>2</b><b>1</b><em></em><b>5</b><b>1</b><b>3</b><em></em><b>7</b></p>
+              <i class="bracket right"></i>
+            </div>
+          </div>
+          <p class="matrix-reading"><b>怎样读这张表？</b> 每一行是一条条件；第一列是 <i>x</i> 的系数，第二列是 <i>y</i> 的系数；竖线右边是等号右侧的总产量。下面每一步都在改变数字的写法，但不改变方程组的答案。</p>
+        </div>
+
+        <div class="board-layout">
+          <div class="equation-labels" aria-hidden="true"><span>上禾</span><span>下禾</span><span>实</span></div>
+          <div id="matrix" class="matrix" role="img" aria-label="增广数字表：第一行二、一、五；第二行一、三、七">
+            <div class="matrix-row row-a"><span>2</span><span>1</span><i></i><span>5</span></div>
+            <div class="matrix-row row-b"><span>1</span><span>3</span><i></i><span>7</span></div>
+          </div>
+          <div id="operation" class="operation"><small>置列</small><strong>把两条方程放进同一张表</strong><p>下方使用现代“方程占一行”的方向展示；《九章算术》的算板方向与此转置。</p></div>
+        </div>
+
+        <div class="lab-controls">
+          <button id="prev-step" type="button" disabled aria-label="上一步">←</button>
+          <div class="step-dots" aria-hidden="true"><i class="active"></i><i></i><i></i><i></i></div>
+          <button id="next-step" type="button"><span>下一算</span> →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="translation-band" aria-labelledby="translation-title">
+      <p>同一种动作，两种语言</p>
+      <h2 id="translation-title">算筹操作 <span>⇄</span> 线性代数</h2>
+      <div class="translation-grid">
+        <div>
+          <b>各置</b>
+          <span>把各项系数按位摆放</span>
+          <small>现代对应：建立增广矩阵</small>
+          <code><mark>2　1 │ 5</mark><mark>1　3 │ 7</mark></code>
+          <i>encode</i>
+        </div>
+        <div>
+          <b>遍乘</b>
+          <span>整列倍乘以齐同系数</span>
+          <small>现代对应：倍乘一行</small>
+          <code><mark>R₂ ← 2R₂</mark><mark>1　3 │ 7 → 2　6 │ 14</mark></code>
+          <i>scale</i>
+        </div>
+        <div>
+          <b>直除</b>
+          <span>相减并消去一项</span>
+          <small>现代对应：行替换消元</small>
+          <code><mark>R₂ ← R₂ − R₁</mark><mark>2　6 │ 14 − 2　1 │ 5</mark><mark>= 0　5 │ 9</mark></code>
+          <i>eliminate</i>
+        </div>
+        <div>
+          <b>以法除之</b>
+          <span>除以主元，再回代求解</span>
+          <small>现代对应：主元归一与回代</small>
+          <code><mark>R₂ ← R₂ ÷ 5</mark><mark>y = 9/5，x = 8/5</mark></code>
+          <i>solve</i>
+        </div>
+      </div>
+      <p class="translation-note">四张卡沿用上方同一个方程组。现代行变换写作 R₁、R₂；《九章算术》按列布筹，因此实际操作方向与这里的现代矩阵转写互为转置。术语对照用于说明计算结构，并非逐字翻译。</p>
+    </section>
+
+    <section id="tianyuan" class="chapter chapter-light" aria-labelledby="tianyuan-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">贰 · 天元术</p>
+        <h2 id="tianyuan-title">一个“元”，<br><em>把未知量立了起来。</em></h2>
+        <blockquote>“立天元一为……”<cite>— 13 世纪数学文本中的典型设元句式</cite></blockquote>
+        <p>天元术把一个未知量设为“天元”，并用算筹的位置表示它的各次幂系数。它不等同于写下字母 <i>x</i>，却能像多项式一样组织和运算未知量。</p>
+      </div>
+
+      <div class="tianyuan-demo">
+        <div class="story-problem">
+          <span>一个小问题</span>
+          <h3>方田一边比另一边长一尺，<br>面积为十二平方尺。</h3>
+          <p>设较短边为“天元一”。拖动木筹，观察面积如何变化。</p>
+          <label for="yuan-slider"><span>天元</span><output id="yuan-value">3</output><i>尺</i></label>
+          <input id="yuan-slider" type="range" min="1" max="6" step="1" value="3" aria-label="调整天元的值">
+        </div>
+
+        <div class="area-stage" aria-live="polite">
+          <div id="field-shape" class="field-shape"><span id="field-area">12</span><small>平方尺</small></div>
+          <span class="dimension dim-x"><i></i><b id="dim-x">天元 = 3</b></span>
+          <span class="dimension dim-y"><i></i><b id="dim-y">天元 + 1 = 4</b></span>
+        </div>
+
+        <div class="polynomial-board">
+          <p>把故事收束成一个多项式</p>
+          <div class="modern-equation"><span>x(x + 1) = 12</span><b>→</b><strong>x² + x − 12 = 0</strong></div>
+          <div class="coefficient-stack" aria-label="多项式的纵向系数位置">
+            <div><span>二次位</span><b>1</b><i>x²</i></div>
+            <div><span>天元位</span><b>1</b><i>x</i></div>
+            <div><span>常数位</span><b>−12</b><i>1</i></div>
+          </div>
+          <p class="board-note">右侧的 <i>x</i> 与幂符号是现代对照；古法的关键是“位置”，不是字母。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="siyuan" class="chapter chapter-red" aria-labelledby="siyuan-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">叁 · 四元术</p>
+        <h2 id="siyuan-title">天、地、人、物，<br><em>四个方向容纳四个未知。</em></h2>
+        <p>朱世杰于 1303 年刊成《四元玉鉴》，以天、地、人、物指称至多四个未知量，并通过逐次消去，把多元高次问题化为一元方程。</p>
+        <p class="caution ink"><b>它的厉害之处：</b>不是“碰巧写出四个字母”，而是发展出一套能安放多元多项式、并继续计算的结构。</p>
+      </div>
+
+      <div class="four-lab">
+        <div class="four-map" aria-label="四元与现代变量的对应">
+          <button class="yuan-card active" data-yuan="天" data-symbol="x" data-desc="天元居中，是首先立起的未知量。"><span>天</span><b>x</b><i>上 · 下</i></button>
+          <button class="yuan-card" data-yuan="地" data-symbol="y" data-desc="地元展开第二个方向，使二元项有了位置。"><span>地</span><b>y</b><i>左 · 右</i></button>
+          <button class="yuan-card" data-yuan="人" data-symbol="z" data-desc="人元再添一重方向，容纳三元关系。"><span>人</span><b>z</b><i>斜向</i></button>
+          <button class="yuan-card" data-yuan="物" data-symbol="w" data-desc="物元补足第四个未知量，形成四元系统。"><span>物</span><b>w</b><i>另位</i></button>
+        </div>
+
+        <div class="four-expression">
+          <div class="expression-head"><span>用现代符号转写</span><b id="yuan-focus">天元 · x</b></div>
+          <p class="equation-large"><mark data-symbol="x">3x²y</mark> + <mark data-symbol="z">2yz</mark> + <mark data-symbol="w">w</mark> = 0</p>
+          <p id="yuan-description">天元居中，是首先立起的未知量。</p>
+          <div class="eliminate-flow" aria-label="从四元到一元的逐次消去">
+            <div><b>天 地 人 物</b><span>四元方程组</span></div><i>消去</i>
+            <div><b>天 地 人</b><span>三元</span></div><i>消去</i>
+            <div><b>天 地</b><span>二元</span></div><i>消去</i>
+            <div><b>天</b><span>一元高次方程</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison" aria-labelledby="comparison-title">
+      <div class="comparison-title">
+        <p>真正值得自豪的，不必靠夸张</p>
+        <h2 id="comparison-title">相似，<br>但不抹平差异。</h2>
+      </div>
+      <div class="comparison-cards">
+        <article class="say"><span>可以说</span><h3>方程术与高斯消元在程序结构上高度相似。</h3><p>两者都把系数组织成表，并以倍乘、相减、消元来求解线性方程组。</p></article>
+        <article class="avoid"><span>不宜说</span><h3>《九章算术》已经建立了现代矩阵理论。</h3><p>“矩阵”作为独立数学对象、相关符号与理论体系，属于更晚近的数学发展。</p></article>
+        <article class="say"><span>可以说</span><h3>天元术能系统表示并运算一个未知量的多项式。</h3><p>这是一种以算筹和位置为基础、功能强大的代数方法。</p></article>
+        <article class="avoid"><span>不宜说</span><h3>天元就是现代字母 x，四元就是 x、y、z、w。</h3><p>这些字母只是方便今天读者理解的转写，原方法有自己的物质工具与表示逻辑。</p></article>
+      </div>
+    </section>
+
+    <section class="timeline" aria-labelledby="timeline-title">
+      <div><p>放回世界史的时间轴</p><h2 id="timeline-title">不是孤立的“提前”，<br>而是各文明不同的路。</h2></div>
+      <ol>
+        <li><time>约公元 1 世纪</time><b>《九章算术》定型</b><span>“方程”章以列阵与消元处理联立一次问题。</span></li>
+        <li><time>13 世纪</time><b>天元术见于传世文本</b><span>李冶、朱世杰等人以位置制表达一元多项式。</span></li>
+        <li><time>1303</time><b>《四元玉鉴》</b><span>朱世杰将多未知量方法推进到“天、地、人、物”四元。</span></li>
+        <li><time>1591 / 1637</time><b>欧洲符号代数走向定型</b><span>韦达以字母表达一般量；笛卡尔使 x、y、z 与现代幂记号广为人知。</span></li>
+      </ol>
+    </section>
+
+    <section id="sources" class="sources" aria-labelledby="sources-title">
+      <div>
+        <p>据与界</p>
+        <h2 id="sources-title">每一份自豪，<br>都经得起追问。</h2>
+        <p>年代与术语存在学术讨论。本页采用较保守的表述：“现存文本”“结构相似”“现代转写”，不主张简单的单线发明史，也不暗示高斯直接继承了《九章算术》。</p>
+      </div>
+      <ol>
+        <li><span>原典</span><a href="https://ctext.org/nine-chapters/fang-cheng/zh" target="_blank" rel="noreferrer">《九章算术·方程》原文 <i>↗</i></a></li>
+        <li><span>研究</span><a href="https://mathshistory.st-andrews.ac.uk/HistTopics/Nine_chapters/" target="_blank" rel="noreferrer">MacTutor：Nine Chapters <i>↗</i></a></li>
+        <li><span>研究</span><a href="https://www.cambridge.org/core/journals/science-in-context/article/interplay-between-textual-procedures-and-material-operations-from-the-viewpoint-of-chinese-mathematical-texts/7E654BC8863452F26F2E0C43892699F4" target="_blank" rel="noreferrer">算筹、文本与操作的关系 <i>↗</i></a></li>
+        <li><span>图本</span><a href="https://old.maa.org/press/periodicals/convergence/mathematical-treasure-the-precious-mirror-of-zhu-shijie" target="_blank" rel="noreferrer">MAA：《四元玉鉴》简介 <i>↗</i></a></li>
+        <li><span>研究</span><a href="https://www.research.ed.ac.uk/en/publications/algebraic-work-with-the-heavenly-originsource-in-china-1st-centur/" target="_blank" rel="noreferrer">“立天元一为”的历史语境 <i>↗</i></a></li>
+        <li><span>对照</span><a href="https://encyclopediaofmath.org/wiki/Mathematical_symbols" target="_blank" rel="noreferrer">欧洲代数符号史 <i>↗</i></a></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>数字可以跨越时代相认，语言却各有来处。</p>
+    <a href="../../projects-zh/">返回 Projects</a>
+  </footer>
+
+  <script src="app.js?v=20260717-1"></script>
+</body>
+</html>
