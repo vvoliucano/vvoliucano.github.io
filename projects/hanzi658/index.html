@@ -189,15 +189,6 @@
       min-height: 88px;
     }
 
-    .info--english {
-      grid-column: 1 / -1;
-      border-color: rgba(245, 158, 11, 0.3);
-    }
-
-    .info--english .value {
-      color: #ffd08a;
-    }
-
     .label {
       margin: 0 0 8px;
       color: var(--muted);
@@ -388,6 +379,14 @@
               <p class="value-side">${word.kor_hanja || word.japanese || word.hanzi || ""}</p>
             </div>
             <p class="subvalue">${word.chinese_pinyin}</p>
+          </article>
+          <article class="info">
+            <p class="label">中文-客家方言</p>
+            <div class="value-row">
+              <p class="value">${word.hakka_sixian_hanzi || (word.kor_hanja || word.japanese || word.hanzi || word.chinese || "")}</p>
+              <p class="value-side">四县腔</p>
+            </div>
+            <p class="subvalue">${word.hakka_sixian_display || word.hakka_sixian || "暂缺"}</p>
           </article>
           <article class="info">
             <p class="label">朝韩</p>
