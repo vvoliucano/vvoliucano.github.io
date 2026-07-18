@@ -276,12 +276,12 @@ class: culture-page
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.7rem 0.1rem 0.48rem;
+  padding: 0.5rem 0.1rem 0.32rem;
   border-top: 1px solid rgba(37, 55, 64, 0.13);
   color: #7c898f;
   cursor: pointer;
   font-family: var(--culture-serif);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   letter-spacing: 0.12em;
   list-style: none;
   transition: color 0.18s ease, border-color 0.18s ease;
@@ -512,7 +512,7 @@ class: culture-page
     </div>
     <aside class="culture-emblem" aria-label="专区的四条内容路径">
       <span class="culture-emblem-main">文</span>
-      <div class="culture-emblem-axis"><span>诗</span><span>书</span><span>器</span><span>象</span></div>
+      <div class="culture-emblem-axis"><span>诗</span><span>文</span><span>物</span><span>象</span></div>
       <p class="culture-emblem-note">shared script&nbsp;&nbsp;living knowledge</p>
     </aside>
   </header>
@@ -532,13 +532,6 @@ class: culture-page
       </details>
       <div class="culture-actions">
         <a class="culture-link" href="{{ '/mushan/' | relative_url }}">进入牧山集 <span aria-hidden="true">→</span></a>
-        {% assign latest_poems = site.data.other | sort: 'year' | reverse %}
-        {% assign latest_poem = latest_poems.first %}
-        {% if latest_poem %}
-          {% assign latest_poem_id = latest_poem.id | url_encode %}
-          {% assign latest_poem_url = '/poem/?id=' | append: latest_poem_id %}
-          <a class="culture-link" href="{{ latest_poem_url | relative_url }}">打开诗词界面 <span aria-hidden="true">→</span></a>
-        {% endif %}
       </div>
     </article>
 
@@ -562,7 +555,6 @@ class: culture-page
       </details>
       <div class="culture-actions">
         <a class="culture-link" href="{{ '/projects/hanzi658/overview.html' | relative_url }}">认识“书同文”计划 <span aria-hidden="true">→</span></a>
-        <a class="culture-link" href="{{ '/projects/hanzi658/' | relative_url }}">直接探索 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 

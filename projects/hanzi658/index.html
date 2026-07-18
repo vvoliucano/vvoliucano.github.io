@@ -167,6 +167,13 @@
       text-transform: lowercase;
     }
 
+    .reading-english {
+      margin: 8px 0 0;
+      color: #ffd08a;
+      font-size: 0.98rem;
+      letter-spacing: 0.03em;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -370,6 +377,7 @@
         <h2 class="hanzi">${word.hanzi}</h2>
         <div class="reading">
           <p class="reading-main">${word.chinese_pinyin}</p>
+          <p class="reading-english">${word.english}</p>
           <p class="reading-sub">${word.romanization}</p>
         </div>
         <div class="grid">
@@ -377,36 +385,36 @@
             <p class="label">中文</p>
             <div class="value-row">
               <p class="value">${word.chinese}</p>
-              <p class="value-side">${word.kor_hanja}</p>
+              <p class="value-side">${word.kor_hanja || word.japanese || word.hanzi || ""}</p>
             </div>
             <p class="subvalue">${word.chinese_pinyin}</p>
           </article>
           <article class="info">
-            <p class="label">越南语</p>
-            <p class="value">${word.vietnamese || "暂缺"}</p>
-            <p class="subvalue">${word.vietnamese_romanization || ""}</p>
-            <p class="subvalue">${word.kor_hanja}</p>
-          </article>
-          <article class="info">
-            <p class="label">韩语</p>
-            <p class="value">${word.hangul}</p>
+            <p class="label">朝韩</p>
+            <div class="value-row">
+              <p class="value">${word.hangul}</p>
+              <p class="value-side">${word.kor_hanja || ""}</p>
+            </div>
             <p class="subvalue">${word.romanization}</p>
-            <p class="subvalue">${word.kor_hanja}</p>
           </article>
           <article class="info">
             <p class="label">日文</p>
             <p class="value">${word.japanese}</p>
             <p class="subvalue">${word.japanese_romanization}</p>
           </article>
-          <article class="info info--english">
-            <p class="label">英文释义 · English</p>
-            <p class="value">${word.english}</p>
+          <article class="info">
+            <p class="label">越南语</p>
+            <div class="value-row">
+              <p class="value">${word.vietnamese || "暂缺"}</p>
+              <p class="value-side">${word.kor_hanja || word.japanese || word.hanzi || ""}</p>
+            </div>
+            <p class="subvalue">${word.vietnamese_romanization || ""}</p>
           </article>
         </div>
         <div class="actions">
           <button id="nextButton" type="button">下一个随机词</button>
         </div>
-        <p class="hint">点按钮随机切换，适合手机上反复刷词。</p>
+        <p class="hint">点击按钮随机到下一个词语. Click the button to jump to the next random term.</p>
       `;
       document.getElementById("nextButton").addEventListener("click", () => {
         renderWord(randomIndex());
