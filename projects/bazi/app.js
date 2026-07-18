@@ -933,8 +933,8 @@
   });
 
   $("#example-button").addEventListener("click", function () {
-    $("#birth-date").value = "1994-12-18";
-    $("#birth-time").value = "17:20";
+    $("#birth-date").value = "2000-01-01";
+    $("#birth-time").value = "12:00";
     document.querySelector('input[name="gender"][value="1"]').checked = true;
     $("#sect").value = "2";
     calculate(true);
