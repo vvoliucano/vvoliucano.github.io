@@ -172,7 +172,7 @@ class: culture-page
 .culture-card {
   position: relative;
   display: flex;
-  min-height: 20rem;
+  min-height: 16.5rem;
   flex-direction: column;
   overflow: hidden;
   padding: 1.4rem;
@@ -267,7 +267,7 @@ class: culture-page
 }
 
 .culture-details {
-  margin: 0 0 1.2rem;
+  margin: 0 0 0.75rem;
 }
 
 .culture-details summary {
@@ -328,7 +328,7 @@ class: culture-page
   flex-wrap: wrap;
   gap: 0.55rem;
   margin-top: auto;
-  padding-bottom: 1.1rem;
+  padding-bottom: 0.6rem;
 }
 
 .culture-link {
@@ -600,6 +600,7 @@ class: culture-page
         <div class="culture-details-body"><p class="culture-card-copy">以现代交互方式呈现传统历法、干支、象数与推演方法。排盘均在浏览器本地完成，作为文化研究、方法学习与自我反思的辅助工具。</p></div>
       </details>
       <div class="culture-actions">
+        <a class="culture-link" href="{{ '/projects/chinese-calendar/' | relative_url }}">中国历法时间机器 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/bazi/' | relative_url }}">八字排盘 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/liuyao/' | relative_url }}">六爻问卦 <span aria-hidden="true">→</span></a>
       </div>

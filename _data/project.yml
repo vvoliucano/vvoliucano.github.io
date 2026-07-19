@@ -1,3 +1,11 @@
+- id: chinese-calendar
+  title: 观天授时
+  image: chinese-calendar.png
+  description: "An interactive time machine for discovering how the traditional Chinese lunisolar calendar coordinates lunar months, solar seasons, leap months, and the 24 solar terms."
+  description_zh: "一部可以拖动的中国历法时间机器：从日、月、年出发，亲手发现置闰与二十四节气如何协调月相和季节。"
+  demo: "/projects/chinese-calendar/"
+  highlight: 1
+
 - id: chinese-mathematics
   title: 未曾写下 x
   image: chinese-math.png

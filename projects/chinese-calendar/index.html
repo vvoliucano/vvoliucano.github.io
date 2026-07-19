@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="拖动时间，观察日、月、年如何共同塑造中国传统历法。">
+  <meta name="theme-color" content="#101a24">
+  <meta property="og:title" content="观天授时｜中国历法的时间机器">
+  <meta property="og:description" content="拖动太阳、月亮与季节，亲手发现中国历法为何是一部阴阳合历。">
+  <meta property="og:image" content="https://vvoliucano.github.io/assets/project/chinese-calendar.png">
+  <title>观天授时｜中国历法的时间机器</title>
+  <link rel="stylesheet" href="styles.css?v=20260719-12">
+</head>
+<body>
+  <div class="sky-grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="../../projects-zh/" aria-label="返回项目页"><span class="brand-seal">历</span><span>中国历法的时间机器</span></a>
+    <nav aria-label="章节导航">
+      <a href="#day">日</a><a href="#month">月</a><a href="#year">年</a><a href="#drift">错位</a><a href="#leap">置闰</a><a href="#terms">节气</a><a href="#together">合历</a>
+    </nav>
+    <a class="home-link" href="../../zh/">作者主页 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">观天授时 · 一部可以拖动的历法</p>
+        <h1 id="page-title" class="hero-title"><span>天上有两只钟</span><strong>合写人间</strong><em>一部历法。</em></h1>
+        <div class="hero-clock-marks" aria-label="月亮确定月份与节日，太阳确定节气与农时"><p><b>月</b><span>月份 · 节日</span></p><i>合</i><p><b>日</b><span>节气 · 农时</span></p></div>
+        <p class="lead">一只跟着月相，一只跟着季节。它们走得并不一样快，中国历法要做的，是让两种时间长期协调。</p>
+        <a class="start-link" href="#day"><span>从一天开始</span><i aria-hidden="true">↓</i></a>
+      </div>
+      <div class="hero-cosmos" aria-label="太阳、地球和月亮组成的两套时间尺度">
+        <div class="hero-sun"><span>日</span></div>
+        <div class="hero-year-orbit"><div class="hero-earth"><span>地</span><i class="hero-moon"><b>月</b></i></div></div>
+        <div class="hero-caption"><b>两只天上的钟</b><span>一只看月相，一只看季节</span></div>
+      </div>
+      <div class="hero-aside"><span>一日</span><b>地球自转</b><span>一月</span><b>月相循环</b><span>一年</span><b>太阳周年运动</b></div>
+    </section>
+
+    <section class="thesis-strip" aria-label="核心问题">
+      <span>月亮定月</span><strong>怎样让月份不离开季节？</strong><span>太阳定岁</span>
+    </section>
+
+    <section id="day" class="chapter chapter-night" aria-labelledby="day-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">壹 · 发现第一只钟</p>
+        <h2 id="day-title">一天，<br><em>从哪里来？</em></h2>
+        <p class="chapter-hint">拖动一天。无需记忆，只看太阳如何再次回到天空。</p>
+      </div>
+      <div class="stage day-stage">
+        <div class="stage-head"><span>太阳日</span><strong id="day-count">Day 1</strong></div>
+        <div class="day-sky" id="day-sky" role="img" aria-label="太阳升落与地球自转示意">
+          <div class="sun" id="day-sun">日</div>
+          <div class="sun-path"></div>
+          <div class="earth-wrap"><div class="earth" id="day-earth"><i></i><b>地</b></div><div class="earth-axis"></div></div>
+          <div class="horizon"></div>
+        </div>
+        <label class="timeline-label" for="day-slider"><span>日出</span><b id="day-time">正午</b><span>下一次日出</span></label>
+        <input id="day-slider" class="timeline" type="range" min="0" max="48" value="12" step="0.25" aria-label="拖动两天的时间">
+        <p class="discovery" id="day-discovery">地球自转一圈，就是一天。</p>
+      </div>
+    </section>
+
+    <section id="month" class="chapter chapter-paper" aria-labelledby="month-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">贰 · 发现第二只钟</p>
+        <h2 id="month-title">一个月，<br><em>从哪里来？</em></h2>
+        <p class="chapter-hint">先拖动月亮。等它重新回到“朔”，答案才会出现。</p>
+      </div>
+      <div class="stage moon-stage">
+        <div class="moon-system" role="img" aria-label="月球绕地球运行与月相变化">
+          <div class="moon-orbit"></div>
+          <div class="earth earth-center"><i></i><b>地</b></div>
+          <div class="orbiting-moon" id="orbiting-moon"><span id="orbit-moon-face">🌑</span></div>
+          <span class="light-arrow">太阳光　→</span>
+        </div>
+        <div class="moon-reading">
+          <span id="lunar-date">🌑　初一</span>
+          <strong id="moon-day">Day 0</strong>
+          <p id="moon-state">朔 · 月亮几乎不可见</p>
+          <div class="phase-key" aria-label="四个主要月相"><span>🌑 初一</span><span>🌓 初七</span><span>🌕 十五</span><span>🌗 二十三</span></div>
+        </div>
+        <label class="timeline-label" for="moon-slider"><span>Day 0</span><b>拖动月亮</b><span>Day 30</span></label>
+        <input id="moon-slider" class="timeline timeline-dark" type="range" min="0" max="30" value="0" step="0.05" aria-label="拖动一个朔望月">
+        <p class="discovery discovery-hidden" id="moon-discovery">月相重新开始：<b>≈ 29.53 天</b></p>
+      </div>
+    </section>
+
+    <section id="year" class="chapter chapter-earth" aria-labelledby="year-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">叁 · 把镜头拉远</p>
+        <h2 id="year-title">一年，<br><em>从哪里来？</em></h2>
+        <p class="chapter-hint">拖动太阳走过黄道：对中国所在的北半球是夏天时，南半球正是冬天。</p>
+      </div>
+      <div class="stage year-stage" id="year-stage">
+        <div class="year-system celestial-system" role="img" aria-label="太阳赤纬投影：春分秋分位于天赤道，夏至太阳赤纬最北，冬至太阳赤纬最南">
+          <p class="sky-view">从地球仰望 · 太阳在天赤道南北往返</p>
+          <div class="celestial-sphere">
+            <div class="equator-ring"><span>天赤道 · 0°</span></div>
+            <div class="ecliptic-ring">
+              <span class="ecliptic-label">黄道 · 太阳赤纬 ±23.4°</span>
+              <i id="year-sun-marker">日</i>
+              <span class="season-point spring"><i></i><b>春分</b><small>穿过赤道</small></span>
+              <span class="season-point summer"><i></i><b>夏至</b><small>最北</small></span>
+              <span class="season-point autumn"><i></i><b>秋分</b><small>再次穿过</small></span>
+              <span class="season-point winter"><i></i><b>冬至</b><small>最南</small></span>
+            </div>
+            <span class="declination-label north">北 · +23.4°</span>
+            <span class="declination-label south">南 · −23.4°</span>
+            <div class="earth celestial-earth"><i></i><b>地</b></div>
+          </div>
+          <p class="celestial-caption" id="celestial-caption">春分：太阳由南向北穿过天赤道，昼夜近乎等长。</p>
+        </div>
+        <div class="season-scene">
+          <div class="tree" id="season-tree">🌸</div>
+          <p class="china-note">中国 · 北半球</p>
+          <div class="hemisphere-pair" aria-live="polite">
+            <div class="north-season"><small>北半球</small><span id="season-name">春</span><b id="solar-month">三月</b></div>
+            <i aria-hidden="true">↕</i>
+            <div class="south-season"><small>南半球</small><span id="south-season">秋</span><b>季节相反</b></div>
+          </div>
+          <p id="season-caption">北半球风暖，南半球转凉</p>
+        </div>
+        <label class="timeline-label" for="year-slider"><span>0</span><b id="year-day">一年中的第 0 天</b><span>365</span></label>
+        <input id="year-slider" class="timeline" type="range" min="0" max="365.2422" value="0" step="0.25" aria-label="拖动一个回归年">
+        <p class="discovery discovery-hidden" id="year-discovery">季节重新开始：<b>≈ 365.24 天</b></p>
+      </div>
+    </section>
+
+    <section id="drift" class="chapter chapter-crisis" aria-labelledby="drift-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">肆 · 问题出现了</p>
+        <h2 id="drift-title">两只钟，<br><em>走得一样快吗？</em></h2>
+        <p class="chapter-hint">把十二个月推到一年终点。注意两个数字怎样分开。</p>
+      </div>
+      <div class="stage drift-stage">
+        <div class="two-clocks">
+          <div class="clock lunar-clock"><span>🌙 月份</span><strong id="drift-lunar">0</strong><small>天</small><i id="month-counter">第 1 月</i></div>
+          <div class="gap-space"><span id="gap-line"></span><b id="gap-number">相差 0 天</b></div>
+          <div class="clock solar-clock"><span>☀️ 季节</span><strong id="drift-solar">0</strong><small>天</small><i id="season-counter">冬</i></div>
+        </div>
+        <label class="timeline-label" for="drift-slider"><span>年初</span><b>把一年拖到底</b><span>年末</span></label>
+        <input id="drift-slider" class="timeline timeline-red" type="range" min="0" max="1" value="0" step="0.002" aria-label="比较十二个朔望月与一个回归年">
+        <p class="discovery discovery-hidden" id="drift-discovery"><b>坏了：</b>十二个朔望月只有约 354 天，比季节的一年短约 11 天。</p>
+      </div>
+    </section>
+
+    <section id="years" class="chapter chapter-paper" aria-labelledby="years-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">伍 · 让误差继续累积</p>
+        <h2 id="years-title">如果只跟着月亮，<br><em>春节会去哪里？</em></h2>
+        <p class="chapter-hint">这里暂时不置闰。拖过十年，观察一个月相节日相对季节的位置。</p>
+      </div>
+      <div class="stage festival-stage">
+        <div class="festival-landscape" id="festival-landscape"><div class="land-sky"><span id="festival-weather">❄️</span></div><div class="land-ground"><span id="festival-tree">🌲</span><div class="festival-gate"><b>春</b><i>春节</i></div></div></div>
+        <div class="festival-reading"><span>没有闰月的假想历法</span><strong id="festival-year">第 1 年</strong><p id="festival-shift">相对季节提前 0 天</p><b id="festival-season">仍在冬季</b></div>
+        <label class="timeline-label" for="years-slider"><span>Year 1</span><b>让年份前进</b><span>Year 10</span></label>
+        <input id="years-slider" class="timeline timeline-dark" type="range" min="1" max="10" value="1" step="1" aria-label="查看十年内月份相对季节的漂移">
+        <p class="discovery">如果一直只按月亮走，节日终究会走遍四季。</p>
+      </div>
+    </section>
+
+    <section id="leap" class="chapter chapter-leap" aria-labelledby="leap-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">陆 · 把两只钟拉回来</p>
+        <h2 id="leap-title">怎么办？<br><em>多放一个月。</em></h2>
+        <p class="chapter-hint">误差接近一个朔望月时，试着把一个月放回年中。</p>
+      </div>
+      <div class="stage leap-stage" id="leap-stage">
+        <div class="alignment">
+          <div class="alignment-row"><span>🌙 三个平年</span><div class="measure lunar-measure" id="lunar-measure"><i></i></div><strong id="leap-lunar-total">1063</strong></div>
+          <div class="alignment-row"><span>☀️ 三个回归年</span><div class="measure solar-measure"><i></i></div><strong>1096</strong></div>
+        </div>
+        <div class="month-train" id="month-train" aria-label="月份序列"><span>一月</span><span>二月</span><span>三月</span><span>四月</span><span>五月</span><span>六月</span><span class="leap-month">闰六月</span><span>七月</span><span>八月</span><span>九月</span><span>十月</span><span>冬月</span><span>腊月</span></div>
+        <button id="add-leap" class="leap-button" type="button">＋ 放入一个闰月</button>
+        <p class="leap-result" id="leap-result" aria-live="polite">现在还差约 33 天。</p>
+        <p class="discovery"><b>直觉：</b>误差积累到接近一个月，加入一个月，就又靠近季节。</p>
+      </div>
+    </section>
+
+    <section id="rule" class="chapter chapter-paper" aria-labelledby="rule-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">柒 · 但究竟闰哪一个月？</p>
+        <h2 id="rule-title">不是固定三年一闰，<br><em>要回头看太阳。</em></h2>
+        <p>二十四节气交替分成十二个“节”和十二个“中气”。月份由相邻两次朔划定；需要置闰时，则检查哪一个朔望月没有中气。</p>
+      </div>
+      <div class="stage rule-stage">
+        <div class="rule-clocks"><div><span>🌙 朔望月</span><b>约 29.53 天</b><p>两次朔之间，就是一个月</p></div><i>比</i><div><span>☀️ 相邻中气</span><b>平均约 30.44 天</b><p>雨水、春分、谷雨……每月一个刻度</p></div></div>
+        <section class="rule-manual" aria-labelledby="rule-manual-title">
+          <header><span>完整置闰规则</span><strong id="rule-manual-title">先判断要不要闰，再判断闰哪一月</strong></header>
+          <ol>
+            <li><span>一</span><div><b>先定十一月</b><p>包含冬至的农历月，固定为十一月。</p></div></li>
+            <li><span>二</span><div><b>再数有几个月</b><p>从这个十一月开始，到下一个十一月之前：若只有十二个月，不置闰；若有十三个月，才需要置闰。</p></div></li>
+            <li><span>三</span><div><b>寻找第一个无中气月</b><p>在这十三个月中，从前往后找到第一个不包含中气的朔望月。</p></div></li>
+            <li><span>四</span><div><b>沿用前一个月的月名</b><p>它就是闰月。例如前一个月是六月，这个月便称“闰六月”；后面的月名依次顺延。</p></div></li>
+          </ol>
+          <p><b>关键：</b>“没有中气”负责决定<strong>闰哪一月</strong>；“两个冬至月之间出现十三个月”才负责决定<strong>要不要置闰</strong>。</p>
+        </section>
+        <p class="rule-demo-label"><span>下面只演示第三步</span>中气怎样越过月界，留下一个无中气月？</p>
+        <div class="calendar-race" id="calendar-race">
+          <div class="race-lane solar-lane"><b>太阳刻度</b><div class="race-track" id="principal-track"><span data-term="大暑">大暑</span><span data-term="处暑">处暑</span><span data-term="秋分">秋分</span></div></div>
+          <div class="race-lane lunar-lane"><b>月亮划月</b><div class="lunar-months"><div><span>朔</span><strong>六月</strong><small>有中气</small></div><div id="candidate-month"><span>朔</span><strong id="candidate-name">七月</strong><small id="candidate-status">有中气</small></div><div><span>朔</span><strong id="following-name">八月</strong><small>有中气</small></div></div></div>
+        </div>
+        <label class="timeline-label" for="rule-slider"><span>中气在月中</span><b>让两只钟继续走</b><span>中气越过下次朔</span></label>
+        <input id="rule-slider" class="timeline timeline-red" type="range" min="0" max="1" value="0" step="0.001" data-guide-target="1" data-guide-duration="6500" data-guide-return="false" aria-label="观察中气逐渐越过朔望月边界">
+        <p class="rule-answer" id="rule-answer" aria-live="polite">现在三个朔望月各自都有一个中气。</p>
+        <button id="name-leap" class="rule-button" type="button" disabled>把无中气月设为闰月</button>
+      </div>
+    </section>
+
+    <section id="terms" class="chapter chapter-terms" aria-labelledby="terms-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">捌 · 太阳留下的刻度</p>
+        <h2 id="terms-title">节气，<br><em>为什么存在？</em></h2>
+        <p class="chapter-hint">同一个时刻，两种视角：左边看地球公转到哪里，右边看太阳在天赤道以北还是以南。每经过黄经 15°，一个节气点亮。</p>
+      </div>
+      <div class="stage terms-stage">
+        <div class="term-dual">
+          <figure class="term-view orbit-view">
+            <figcaption><b>从太阳系外看</b><span>地球绕太阳的位置</span></figcaption>
+            <div class="solar-orbit-diagram" role="img" aria-label="地球绕太阳公转的位置">
+              <div class="term-orbit"><div class="term-earth-runner" id="term-earth-runner"><div class="term-earth-ball" id="term-earth-ball"><i></i><b>地</b></div></div></div>
+              <div class="term-center-sun">日</div>
+              <span class="orbit-season orbit-spring">春分</span><span class="orbit-season orbit-summer">夏至</span><span class="orbit-season orbit-autumn">秋分</span><span class="orbit-season orbit-winter">冬至</span>
+            </div>
+          </figure>
+          <figure class="term-view equator-view">
+            <figcaption><b>从地球仰望</b><span>太阳相对天赤道的位置</span></figcaption>
+            <div class="equator-diagram" role="img" aria-label="太阳在天赤道南北移动的位置">
+              <div class="term-equator-line"><span>天赤道 · 0°</span></div>
+              <div class="term-ecliptic-projection"><span>黄道</span></div>
+              <div class="term-sun" id="term-sun">日</div>
+              <span class="sky-north">北</span><span class="sky-south">南</span>
+            </div>
+          </figure>
+        </div>
+        <div class="term-reading"><span id="term-degree">太阳视黄经 315°</span><strong id="term-name">立春</strong><p><i id="term-plant">🌱</i><span id="term-meaning">春季开始，万物渐苏</span><b id="term-declination">太阳位于天赤道以南约 16.6°</b></p></div>
+        <div class="term-wheel" id="term-wheel" aria-label="二十四节气"></div>
+        <label class="timeline-label" for="terms-slider"><span>立春</span><b>太阳沿黄道移动</b><span>大寒</span></label>
+        <input id="terms-slider" class="timeline" type="range" min="0" max="23" value="0" step="1" data-guide-target="0.35" data-guide-duration="6500" aria-label="浏览二十四节气">
+        <p class="discovery">节气记录的是太阳位置，不是月相。</p>
+      </div>
+    </section>
+
+    <section id="together" class="chapter chapter-final" aria-labelledby="together-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">玖 · 两只钟，一部历法</p>
+        <h2 id="together-title">把 2026 年，<br><em>完整画出来。</em></h2>
+        <p class="chapter-hint">两条时间轴共享同一天：太阳轴记录公历月份与节气，月亮轴记录朔、农历月份与传统节日。拖动日期，天体关系与两套历法同时变化。</p>
+      </div>
+      <div class="stage synthesis-stage">
+        <div class="calendar-cosmos" role="img" aria-label="2026年选定日期的太阳、地球与月亮位置关系">
+          <div class="calendar-sun">日</div>
+          <div class="calendar-earth-orbit"><div class="calendar-earth-runner" id="calendar-earth-runner"><div class="calendar-earth"><i></i><b>地</b><div class="calendar-moon-orbit"><div class="calendar-moon-runner" id="calendar-moon-runner"><span id="calendar-moon-ball">🌑</span></div></div></div></div></div>
+          <span class="calendar-cosmos-label solar-label">太阳 · 季节</span><span class="calendar-cosmos-label lunar-label">月亮 · 月份</span>
+        </div>
+        <div class="calendar-stream year-status">
+          <div><span>公历</span><strong id="syn-day">2026 年 1 月 1 日</strong></div><div><span>农历</span><strong id="syn-month">冬月十三</strong></div><div><span>月相</span><strong id="syn-phase">盈凸月</strong></div><div><span>节气</span><strong id="syn-term">冬至后</strong></div>
+        </div>
+        <div class="real-year-timelines">
+          <div class="year-lane solar-year-lane"><header><b>☀️ 太阳轴</b><span>公历月份 · 二十四节气</span></header><div class="year-track" id="solar-year-track"><i class="year-cursor" id="solar-cursor"></i></div></div>
+          <div class="year-lane lunar-year-lane"><header><b>🌙 月亮轴</b><span>朔 · 农历月份 · 传统节日（2026 无闰月）</span></header><div class="year-track" id="lunar-year-track"><i class="year-cursor" id="lunar-cursor"></i></div></div>
+        </div>
+        <label class="timeline-label master-label" for="master-slider"><span>1 月 1 日</span><b id="master-year">2026 年</b><span>12 月 31 日</span></label>
+        <input id="master-slider" class="timeline timeline-gold" type="range" min="0" max="364" value="0" step="1" aria-label="拖动浏览2026年的公历、农历、节气与月相">
+        <button id="master-play" class="play-button" type="button" aria-pressed="false">▶ 自动运行</button>
+      </div>
+      <div class="final-thesis">
+        <span>🌙 月相确定月份</span><strong>中国历法</strong><span>☀️ 太阳位置确定节气</span>
+        <p>它不是单纯的“阴历”，而是一套同时跟踪月亮与太阳的阴阳合历。月份依据朔望月确定，节气依据太阳位置确定；通过置闰，月份与季节长期保持协调。</p>
+      </div>
+    </section>
+
+    <section id="sources" class="sources" aria-labelledby="sources-title">
+      <p class="chapter-no">据与界</p><h2 id="sources-title">数字从哪里来？</h2>
+      <div class="source-grid">
+        <a href="https://www.hko.gov.hk/sc/gts/time/calendarinfo.htm" target="_blank" rel="noreferrer"><b>29.5306 日 / 365.2422 日</b><span>香港天文台：历法</span></a>
+        <a href="https://www.pmo.cas.cn/xwdt2019/kpdt2019/202203/t20220314_6389637.html" target="_blank" rel="noreferrer"><b>朔、节气与闰月规则</b><span>中国科学院紫金山天文台：历书基本术语</span></a>
+        <a href="https://www.cma.gov.cn/2011xzt/20150130/2015020302/202111/t20211104_4190582.html" target="_blank" rel="noreferrer"><b>二十四节气与农时</b><span>中国气象局：二十四节气的来历和名称</span></a>
+        <a href="https://www.hko.gov.hk/tc/gts/time/calendar/pdf/files/2026.pdf" target="_blank" rel="noreferrer"><b>2026 公历与农历日期</b><span>香港天文台：2026 年公历与农历日期对照表</span></a>
+      </div>
+      <p class="method-note">本页用匀速圆周与平均周期建立直觉，不用于推算真实日期。实际农历依据日月的真实天文位置编算；置闰还涉及冬至月与中气等完整规则。</p>
+    </section>
+  </main>
+
+  <footer><span>观象授时</span><b>让天体运动成为人间秩序</b><a href="#day">重新开始 ↑</a></footer>
+  <script src="app.js?v=20260719-12"></script>
+</body>
+</html>
