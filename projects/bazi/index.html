@@ -6,7 +6,7 @@
   <meta name="description" content="基于 lunar-javascript 的静态八字、大运与流年排盘工具。">
   <meta name="theme-color" content="#ffffff">
   <title>八字排盘｜四柱·大运·流年</title>
-  <link rel="stylesheet" href="styles.css?v=20260718-2">
+  <link rel="stylesheet" href="styles.css?v=20260719-1">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
   <script>
@@ -50,16 +50,62 @@
         </div>
 
         <form id="bazi-form">
-          <label class="field">
+          <label class="field date-field">
             <span>公历日期</span>
             <input id="birth-date" name="birth-date" type="date" value="2000-01-01" required>
           </label>
-          <label class="field">
-            <span>出生时间</span>
+          <label class="field time-field">
+            <span id="birth-time-label">出生时间 · 北京时间</span>
             <input id="birth-time" name="birth-time" type="time" value="12:00" required>
           </label>
 
-          <fieldset class="choice-field">
+          <div class="time-location-panel">
+            <label class="field city-field">
+              <span>出生城市 <small>采用城市中心近似经度</small></span>
+              <select id="birth-city" name="birth-city">
+                <option value="beijing" data-longitude="116.41" selected>北京 · 116.41°E</option>
+                <option value="shanghai" data-longitude="121.47">上海 · 121.47°E</option>
+                <option value="guangzhou" data-longitude="113.26">广州 · 113.26°E</option>
+                <option value="shenzhen" data-longitude="114.06">深圳 · 114.06°E</option>
+                <option value="chengdu" data-longitude="104.07">成都 · 104.07°E</option>
+                <option value="chongqing" data-longitude="106.55">重庆 · 106.55°E</option>
+                <option value="xian" data-longitude="108.94">西安 · 108.94°E</option>
+                <option value="wuhan" data-longitude="114.31">武汉 · 114.31°E</option>
+                <option value="nanjing" data-longitude="118.80">南京 · 118.80°E</option>
+                <option value="hangzhou" data-longitude="120.16">杭州 · 120.16°E</option>
+                <option value="harbin" data-longitude="126.63">哈尔滨 · 126.63°E</option>
+                <option value="shenyang" data-longitude="123.43">沈阳 · 123.43°E</option>
+                <option value="kunming" data-longitude="102.83">昆明 · 102.83°E</option>
+                <option value="lhasa" data-longitude="91.14">拉萨 · 91.14°E</option>
+                <option value="urumqi" data-longitude="87.62">乌鲁木齐 · 87.62°E</option>
+                <option value="hongkong" data-longitude="114.17">香港 · 114.17°E</option>
+                <option value="taipei" data-longitude="121.57">台北 · 121.57°E</option>
+                <option value="custom">其他城市 · 自定义经度</option>
+              </select>
+            </label>
+
+            <label class="field longitude-field">
+              <span>出生地经度 <small>东经为正</small></span>
+              <span class="longitude-input"><input id="birth-longitude" name="birth-longitude" type="number" min="73" max="135" step="0.01" value="116.41" inputmode="decimal" required><i>°E</i></span>
+            </label>
+
+            <fieldset class="choice-field time-mode-field">
+              <legend>你输入的是 <small>二选一</small></legend>
+              <div class="segmented time-mode">
+                <label><input type="radio" name="time-mode" value="beijing" checked><span>北京时间</span></label>
+                <label><input type="radio" name="time-mode" value="local"><span>当地平太阳时</span></label>
+              </div>
+            </fieldset>
+
+            <div class="time-comparison" role="status" aria-live="polite">
+              <p><span>北京时间</span><strong id="beijing-time-preview">2000-01-01 12:00</strong></p>
+              <i aria-hidden="true">⇄</i>
+              <p><span>当地平太阳时</span><strong id="local-time-preview">2000-01-01 11:46</strong></p>
+              <small id="time-offset-preview">北京比东经 120°标准经线偏西 3.59°，校正 −14 分钟</small>
+            </div>
+          </div>
+
+          <fieldset class="choice-field gender-field">
             <legend>性别 <small>影响大运顺逆</small></legend>
             <div class="segmented">
               <label><input type="radio" name="gender" value="1" checked><span>男</span></label>
@@ -67,7 +113,7 @@
             </div>
           </fieldset>
 
-          <label class="field">
+          <label class="field sect-field">
             <span>晚子时换日</span>
             <select id="sect" name="sect">
               <option value="2" selected>23:00 仍算当日</option>
@@ -83,7 +129,7 @@
 
         <div class="method-note">
           <p class="seal">注</p>
-          <p>按出生地民用时间计算，未校正真太阳时。八字年柱以立春交接时刻为界，月柱以节气交接时刻为界。</p>
+          <p>排盘使用当地平太阳时：以东经 120°为北京时间标准经线，每相差 1°校正约 4 分钟。此处只做经度校正，未加入“均时差”，因此不是完整的真太阳时。年柱以立春、月柱以节气交接时刻为界。</p>
         </div>
       </aside>
 
@@ -102,7 +148,8 @@
               </div>
             </div>
             <dl class="overview-meta">
-              <div><dt>公历</dt><dd id="solar-label"></dd></div>
+              <div><dt>当地平太阳时 · 排盘</dt><dd id="solar-label"></dd></div>
+              <div><dt>北京时间</dt><dd id="civil-label"></dd></div>
               <div><dt>生肖</dt><dd id="zodiac-label"></dd></div>
               <div><dt>起运</dt><dd id="yun-label"></dd></div>
             </dl>
@@ -240,6 +287,6 @@
 
   <script src="lunar.js"></script>
   <script src="shensha.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js?v=20260719-1"></script>
 </body>
 </html>

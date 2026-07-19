@@ -559,12 +559,86 @@
     return String(value).padStart(length || 2, "0");
   }
 
-  function setInputParameters(year, month, day, hour, minute, gender, sect) {
+  function isValidDateTime(parts) {
+    var date = new Date(Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute));
+    return date.getUTCFullYear() === parts.year && date.getUTCMonth() + 1 === parts.month && date.getUTCDate() === parts.day && date.getUTCHours() === parts.hour && date.getUTCMinutes() === parts.minute;
+  }
+
+  function shiftDateTime(parts, minuteDelta) {
+    var shifted = new Date(Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute) + minuteDelta * 60000);
+    return {
+      year: shifted.getUTCFullYear(), month: shifted.getUTCMonth() + 1, day: shifted.getUTCDate(),
+      hour: shifted.getUTCHours(), minute: shifted.getUTCMinutes()
+    };
+  }
+
+  function formatDateTime(parts) {
+    return padNumber(parts.year, 4) + "-" + padNumber(parts.month) + "-" + padNumber(parts.day) + " " + padNumber(parts.hour) + ":" + padNumber(parts.minute);
+  }
+
+  function selectedCityLabel() {
+    var select = $("#birth-city");
+    var option = select.options[select.selectedIndex];
+    return option ? option.textContent.split(" · ")[0] : "出生地";
+  }
+
+  function buildTimeContext(parts, longitude, timeMode) {
+    var offsetMinutes = Math.round((longitude - 120) * 4);
+    var local = timeMode === "local" ? parts : shiftDateTime(parts, offsetMinutes);
+    var beijing = timeMode === "local" ? shiftDateTime(parts, -offsetMinutes) : parts;
+    return { local: local, beijing: beijing, offsetMinutes: offsetMinutes };
+  }
+
+  function renderTimePreview() {
+    var date = $("#birth-date").value.split("-").map(Number);
+    var time = $("#birth-time").value.split(":").map(Number);
+    var longitude = Number($("#birth-longitude").value);
+    var modeField = document.querySelector('input[name="time-mode"]:checked');
+    var mode = modeField ? modeField.value : "beijing";
+    $("#birth-time-label").textContent = mode === "local" ? "出生时间 · 当地平太阳时" : "出生时间 · 北京时间";
+    if (date.length !== 3 || time.length < 2 || date.some(isNaN) || time.some(isNaN) || !Number.isFinite(longitude)) {
+      $("#beijing-time-preview").textContent = "—";
+      $("#local-time-preview").textContent = "—";
+      $("#time-offset-preview").textContent = "填写完整日期、时间与经度后显示校正结果";
+      return;
+    }
+    var parts = { year: date[0], month: date[1], day: date[2], hour: time[0], minute: time[1] };
+    if (!isValidDateTime(parts)) return;
+    var context = buildTimeContext(parts, longitude, mode);
+    var difference = longitude - 120;
+    var sign = context.offsetMinutes > 0 ? "+" : context.offsetMinutes < 0 ? "−" : "±";
+    $("#beijing-time-preview").textContent = formatDateTime(context.beijing);
+    $("#local-time-preview").textContent = formatDateTime(context.local);
+    var longitudeRelation = difference < 0 ? "比东经 120°标准经线偏西 " + Math.abs(difference).toFixed(2) + "°" : difference > 0 ? "比东经 120°标准经线偏东 " + Math.abs(difference).toFixed(2) + "°" : "正好位于东经 120°标准经线";
+    $("#time-offset-preview").textContent = selectedCityLabel() + longitudeRelation + "，经度校正 " + sign + Math.abs(context.offsetMinutes) + " 分钟";
+  }
+
+  function setupTimeLocationInputs() {
+    $("#birth-city").addEventListener("change", function () {
+      var option = this.options[this.selectedIndex];
+      if (option && option.dataset.longitude) $("#birth-longitude").value = option.dataset.longitude;
+      renderTimePreview();
+    });
+    $("#birth-longitude").addEventListener("input", function () {
+      var select = $("#birth-city");
+      var option = select.options[select.selectedIndex];
+      if (option && option.dataset.longitude && Math.abs(Number(option.dataset.longitude) - Number(this.value)) > .005) select.value = "custom";
+      renderTimePreview();
+    });
+    [$("#birth-date"), $("#birth-time")].forEach(function (field) { field.addEventListener("input", renderTimePreview); });
+    document.querySelectorAll('input[name="time-mode"]').forEach(function (field) { field.addEventListener("change", renderTimePreview); });
+  }
+
+  function setInputParameters(year, month, day, hour, minute, gender, sect, city, longitude, timeMode) {
     if (!year || month < 1 || month > 12 || day < 1 || day > 31 || hour < 0 || hour > 23 || minute < 0 || minute > 59) return false;
     $("#birth-date").value = padNumber(year, 4) + "-" + padNumber(month) + "-" + padNumber(day);
     $("#birth-time").value = padNumber(hour) + ":" + padNumber(minute);
     if (gender === "0" || gender === "1") document.querySelector('input[name="gender"][value="' + gender + '"]').checked = true;
     if (sect === "1" || sect === "2") $("#sect").value = sect;
+    if (city && $("#birth-city").querySelector('option[value="' + city + '"]')) $("#birth-city").value = city;
+    if (Number.isFinite(longitude) && longitude >= 73 && longitude <= 135) $("#birth-longitude").value = String(longitude);
+    if (timeMode === "beijing" || timeMode === "local") document.querySelector('input[name="time-mode"][value="' + timeMode + '"]').checked = true;
+    renderTimePreview();
     return true;
   }
 
@@ -574,7 +648,7 @@
     if (/^\d{14}$/.test(compact)) {
       return setInputParameters(
         Number(compact.slice(0, 4)), Number(compact.slice(4, 6)), Number(compact.slice(6, 8)),
-        Number(compact.slice(8, 10)), Number(compact.slice(10, 12)), compact.charAt(12), compact.charAt(13)
+        Number(compact.slice(8, 10)), Number(compact.slice(10, 12)), compact.charAt(12), compact.charAt(13), "custom", 120, "local"
       );
     }
 
@@ -584,7 +658,8 @@
     var day = Number(params.get("day"));
     var hour = params.has("hour") ? Number(params.get("hour")) : 0;
     var minute = params.has("minute") ? Number(params.get("minute")) : 0;
-    return setInputParameters(year, month, day, hour, minute, params.get("gender"), params.get("sect"));
+    var hasLocation = params.has("city") || params.has("longitude") || params.has("timeMode");
+    return setInputParameters(year, month, day, hour, minute, params.get("gender"), params.get("sect"), hasLocation ? params.get("city") : "custom", params.has("longitude") ? Number(params.get("longitude")) : 120, hasLocation ? params.get("timeMode") : "local");
   }
 
   function buildShareUrl() {
@@ -592,7 +667,12 @@
     var input = currentChart.input;
     var url = new URL(window.location.href);
     url.hash = "";
-    url.search = padNumber(input.year, 4) + padNumber(input.month) + padNumber(input.day) + padNumber(input.hour) + padNumber(input.minute) + input.gender + input.sect;
+    var params = new URLSearchParams();
+    params.set("year", input.year); params.set("month", input.month); params.set("day", input.day);
+    params.set("hour", input.hour); params.set("minute", input.minute);
+    params.set("gender", input.gender); params.set("sect", input.sect);
+    params.set("city", input.city); params.set("longitude", input.longitude.toFixed(2)); params.set("timeMode", input.timeMode);
+    url.search = params.toString();
     return url.toString();
   }
 
@@ -654,10 +734,23 @@
     if (date.length !== 3 || time.length < 2 || date.some(isNaN) || time.some(isNaN)) {
       throw new Error("请填写完整、有效的出生日期与时间。");
     }
+    var parts = { year: date[0], month: date[1], day: date[2], hour: time[0], minute: time[1] };
+    if (!isValidDateTime(parts)) throw new Error("这个公历日期或时间不存在，请重新选择。");
+    var longitude = Number($("#birth-longitude").value);
+    if (!Number.isFinite(longitude) || longitude < 73 || longitude > 135) throw new Error("请输入中国范围内有效的东经度数（73°E—135°E）。");
+    var timeMode = document.querySelector('input[name="time-mode"]:checked').value;
+    var timeContext = buildTimeContext(parts, longitude, timeMode);
     return {
       year: date[0], month: date[1], day: date[2], hour: time[0], minute: time[1],
       gender: Number(document.querySelector('input[name="gender"]:checked').value),
-      sect: Number($("#sect").value)
+      sect: Number($("#sect").value),
+      city: $("#birth-city").value,
+      cityLabel: selectedCityLabel(),
+      longitude: longitude,
+      timeMode: timeMode,
+      beijing: timeContext.beijing,
+      local: timeContext.local,
+      offsetMinutes: timeContext.offsetMinutes
     };
   }
 
@@ -725,7 +818,7 @@
       "请你作为熟悉子平八字的分析者，根据以下完整排盘资料做系统分析。",
       "",
       "【基本资料】",
-      "性别：" + gender + "；公历：" + chart.solar.toYmdHms().slice(0, 16) + "；农历：" + chart.lunar.toString() + " · " + chart.lunar.getTimeZhi() + "时；生肖：" + chart.lunar.getYearShengXiaoExact(),
+      "性别：" + gender + "；出生地：" + chart.input.cityLabel + "（东经 " + chart.input.longitude.toFixed(2) + "°）；北京时间：" + formatDateTime(chart.input.beijing) + "；当地平太阳时：" + formatDateTime(chart.input.local) + "（用于排盘，经度校正 " + (chart.input.offsetMinutes >= 0 ? "+" : "") + chart.input.offsetMinutes + " 分钟）；农历：" + chart.lunar.toString() + " · " + chart.lunar.getTimeZhi() + "时；生肖：" + chart.lunar.getYearShengXiaoExact(),
       "日主：" + dayStem + "（" + dayPolarity + dayElement + "）；四柱八字：" + ec.getYear() + " " + ec.getMonth() + " " + ec.getDay() + " " + ec.getTime(),
       "",
       "【主要十神】",
@@ -887,8 +980,9 @@
     try {
       if (typeof Solar === "undefined") throw new Error("历法库未能载入，请刷新页面后重试。");
       var input = parseInput();
-      var solar = Solar.fromYmdHms(input.year, input.month, input.day, input.hour, input.minute, 0);
-      if (solar.getYear() !== input.year || solar.getMonth() !== input.month || solar.getDay() !== input.day) {
+      var local = input.local;
+      var solar = Solar.fromYmdHms(local.year, local.month, local.day, local.hour, local.minute, 0);
+      if (solar.getYear() !== local.year || solar.getMonth() !== local.month || solar.getDay() !== local.day) {
         throw new Error("这个公历日期不存在，请重新选择。");
       }
       var lunar = solar.getLunar();
@@ -899,7 +993,8 @@
 
       var bazi = [eightChar.getYear(), eightChar.getMonth(), eightChar.getDay(), eightChar.getTime()].join("").split("");
       currentChart = { input: input, solar: solar, lunar: lunar, eightChar: eightChar, yun: yun, dayun: dayun, bazi: bazi };
-      $("#solar-label").textContent = solar.toYmdHms().slice(0, 16);
+      $("#solar-label").textContent = formatDateTime(input.local) + " · " + input.cityLabel;
+      $("#civil-label").textContent = formatDateTime(input.beijing);
       $("#lunar-label").textContent = "农历 " + lunar.toString() + " · " + lunar.getTimeZhi() + "时";
       $("#zodiac-label").textContent = lunar.getYearShengXiaoExact() + " · " + eightChar.getYear();
       $("#yun-label").textContent = yun.getStartSolar().toYmdHms().slice(0, 16);
@@ -937,6 +1032,10 @@
     $("#birth-time").value = "12:00";
     document.querySelector('input[name="gender"][value="1"]').checked = true;
     $("#sect").value = "2";
+    $("#birth-city").value = "beijing";
+    $("#birth-longitude").value = "116.41";
+    document.querySelector('input[name="time-mode"][value="beijing"]').checked = true;
+    renderTimePreview();
     calculate(true);
   });
 
@@ -1077,6 +1176,8 @@
     window.addEventListener("resize", function () { if (pinned && !isTapMode()) closeTooltip(); });
   })();
 
+  setupTimeLocationInputs();
   applyUrlParameters();
+  renderTimePreview();
   calculate(false);
 })();
