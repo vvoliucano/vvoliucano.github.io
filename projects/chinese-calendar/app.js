@@ -91,31 +91,33 @@
 
   function seasonAt(day) {
     const normalized = ((day % TROPICAL_YEAR) + TROPICAL_YEAR) % TROPICAL_YEAR;
-    if (normalized < 91.31) return { name: "春", tree: "🌸", caption: "风暖，草木萌发", color: "#dfe4d7" };
-    if (normalized < 182.62) return { name: "夏", tree: "🌳", caption: "日长，万物繁茂", color: "#d8e1c9" };
-    if (normalized < 273.93) return { name: "秋", tree: "🍂", caption: "风凉，谷物成熟", color: "#e5d4b4" };
-    return { name: "冬", tree: "🌲", caption: "日短，天地收藏", color: "#d4dde0" };
+    if (normalized < 91.31) return { name: "春", opposite: "秋", tree: "🌸", caption: "北半球渐暖，南半球渐凉", color: "#dfe4d7" };
+    if (normalized < 182.62) return { name: "夏", opposite: "冬", tree: "🌳", caption: "北半球日长，南半球日短", color: "#d8e1c9" };
+    if (normalized < 273.93) return { name: "秋", opposite: "春", tree: "🍂", caption: "北半球渐凉，南半球渐暖", color: "#e5d4b4" };
+    return { name: "冬", opposite: "夏", tree: "🌲", caption: "北半球日短，南半球日长", color: "#d4dde0" };
   }
 
   function initYear() {
     const slider = $("#year-slider");
     const seasonalDescriptions = {
-      "春": "春分：太阳由南向北穿过天赤道，昼夜近乎等长。",
-      "夏": "夏至附近：太阳在天赤道以北最远，北半球白昼最长。",
-      "秋": "秋分：太阳由北向南再次穿过天赤道，昼夜近乎等长。",
-      "冬": "冬至附近：太阳在天赤道以南最远，北半球白昼最短。"
+      "春": "春分：太阳由南向北穿过天赤道；南北半球昼夜都近乎等长。",
+      "夏": "夏至：太阳赤纬约 +23.4°；北半球白昼最长，南半球白昼最短。",
+      "秋": "秋分：太阳由北向南再次穿过天赤道；南北半球昼夜都近乎等长。",
+      "冬": "冬至：太阳赤纬约 −23.4°；北半球白昼最短，南半球白昼最长。"
     };
     const update = () => {
       const day = Number(slider.value);
       const angle = (day / TROPICAL_YEAR) * 360;
+      const radians = angle * Math.PI / 180;
       const season = seasonAt(day);
-      $("#ecliptic-runner").style.transform = `rotate(${-angle}deg)`;
-      $("#year-sun-marker").style.transform = `translateY(-50%) rotate(${23.4 + angle}deg)`;
+      $("#year-sun-marker").style.left = `${50 + Math.cos(radians) * 50}%`;
+      $("#year-sun-marker").style.top = `${50 - Math.sin(radians) * 50}%`;
       $("#season-tree").textContent = season.tree;
       $("#season-name").textContent = season.name;
+      $("#south-season").textContent = season.opposite;
       $("#season-caption").textContent = season.caption;
       $("#celestial-caption").textContent = seasonalDescriptions[season.name];
-      $("#solar-month").textContent = `${((Math.floor(day / (TROPICAL_YEAR / 12)) + 2) % 12) + 1}月`;
+      $("#solar-month").textContent = `${((Math.round(day / (TROPICAL_YEAR / 12)) + 2) % 12) + 1}月`;
       const activePoint = { "春": "spring", "夏": "summer", "秋": "autumn", "冬": "winter" }[season.name];
       $$(".season-point").forEach((point) => point.classList.toggle("is-active", point.classList.contains(activePoint)));
       $("#year-day").textContent = `一年中的第 ${Math.round(day)} 天`;
