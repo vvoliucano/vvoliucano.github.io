@@ -584,6 +584,7 @@ class: culture-page
       </details>
       <div class="culture-actions">
         <a class="culture-link" href="{{ '/projects/chinese-mathematics/' | relative_url }}">古代方程思想 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/chinese-calculus/' | relative_url }}">古代的微积分思想 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 

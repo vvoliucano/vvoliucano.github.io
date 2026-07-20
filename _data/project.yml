@@ -1,20 +1,3 @@
-- id: chinese-calendar
-  title: 观天授时
-  image: chinese-calendar.png
-  description: "An interactive time machine for discovering how the traditional Chinese lunisolar calendar coordinates lunar months, solar seasons, leap months, and the 24 solar terms."
-  description_zh: "一部可以拖动的中国历法时间机器：从日、月、年出发，亲手发现置闰与二十四节气如何协调月相和季节。"
-  demo: "/projects/chinese-calendar/"
-  highlight: 1
-
-- id: chinese-mathematics
-  title: 未曾写下 x
-  image: chinese-math.png
-  description: "An interactive visual essay on equation thought in classical China: fangcheng elimination, the Heavenly Unknown, and the Four Unknowns."
-  description_zh: "一场可操作的中国古代方程思想展：从《九章算术》的方程术，到天元术与《四元玉鉴》。"
-  demo: "/projects/chinese-mathematics/"
-  demo_en: "/projects/chinese-mathematics/en.html"
-  highlight: 1
-
 - id: proteus
   title: Proteus Mobile
   image: proteus.png
@@ -128,6 +111,28 @@
   description: "We designed a deep learning-based method for volume rendering best view selection."
   description_zh: "基于深度学习的三维模拟数据体渲染最佳视角选取方法。"
   paper: "http://vis.pku.edu.cn/research/publication/JOV_dlbv_Changhe.pdf"
+
+- id: chinese-calculus
+  title: 割之又割
+  image: chinese-calculus.png
+  description: "An interactive visual essay on ideas of exhaustion, approximation, accumulation, and volume in classical Chinese mathematics."
+  description_zh: "从割、逼、积、合四个动作，体验刘徽与祖暅数学中的分割、逼近与等截面求积思想。"
+  demo: "/projects/chinese-calculus/"
+
+- id: chinese-calendar
+  title: 观天授时
+  image: chinese-calendar.png
+  description: "An interactive time machine for discovering how the traditional Chinese lunisolar calendar coordinates lunar months, solar seasons, leap months, and the 24 solar terms."
+  description_zh: "一部可以拖动的中国历法时间机器：从日、月、年出发，亲手发现置闰与二十四节气如何协调月相和季节。"
+  demo: "/projects/chinese-calendar/"
+
+- id: chinese-mathematics
+  title: 未曾写下 x
+  image: chinese-math.png
+  description: "An interactive visual essay on equation thought in classical China: fangcheng elimination, the Heavenly Unknown, and the Four Unknowns."
+  description_zh: "一场可操作的中国古代方程思想展：从《九章算术》的方程术，到天元术与《四元玉鉴》。"
+  demo: "/projects/chinese-mathematics/"
+  demo_en: "/projects/chinese-mathematics/en.html"
 
 
 
