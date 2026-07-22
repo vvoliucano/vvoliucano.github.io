@@ -112,6 +112,13 @@
   description_zh: "基于深度学习的三维模拟数据体渲染最佳视角选取方法。"
   paper: "http://vis.pku.edu.cn/research/publication/JOV_dlbv_Changhe.pdf"
 
+- id: fengshui-environment
+  title: 藏风聚气
+  image: fengshui-environment.png
+  description: "A draggable village for exploring wind, sunlight, drainage, vegetation, and prospect-refuge as a modern environmental reading of feng shui."
+  description_zh: "一座可以拖动的村庄：先观察风、雨、日照与庇护感如何改变居住环境，最后再理解传统风水术语产生的背景。"
+  demo: "/projects/fengshui/"
+
 - id: chinese-calculus
   title: 割之又割
   image: chinese-calculus.png

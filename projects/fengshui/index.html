@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一座可以拖动的村庄：从风、雨、日照与空间感受出发，重新理解传统风水产生的环境背景。">
+  <meta name="theme-color" content="#14242a">
+  <title>藏风聚气｜风水的现代环境解释</title>
+  <link rel="stylesheet" href="styles.css?v=20260722-10">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-146429859-1');
+  </script>
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../projects-zh/"><span>堪</span><b>藏风聚气</b></a>
+    <nav aria-label="页面导航"><a href="#village">造村</a><a href="#name-it">命名</a><a href="#conclusion">结论</a><a href="#sources">依据</a></nav>
+    <a class="home" href="../../zh/">作者主页 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">先体验，再命名</p>
+        <h1>把一座房子，<em>放进风与水里。</em></h1>
+        <p>山会挡风，树会投影，雨会往低处走。先别问“风水准不准”——动手挪一挪，看环境怎样回答。</p>
+        <a href="#village" class="start">开始造村 <span>↓</span></a>
+      </div>
+      <div class="hero-map" aria-hidden="true">
+        <i class="hero-wind">风　→　→　→</i>
+        <span class="hero-mountain c">靠</span><span class="hero-mountain a">龙</span><span class="hero-mountain b">虎</span>
+        <span class="hero-house">舍</span><span class="hero-tree">木</span>
+        <b class="hero-river">水</b>
+      </div>
+      <p class="hero-aside">一块地<br>三面山<br>一所房<br>一片明堂<br>一弯水</p>
+    </section>
+
+    <section class="premise" aria-label="设计说明">
+      <span>先看见后果</span><b>风 · 雨 · 日 · 人</b><span>最后再说古人怎样命名</span>
+    </section>
+
+    <section id="village" class="lab" aria-labelledby="lab-title">
+      <div class="lab-intro">
+        <p class="chapter-no">壹 · 造一座村</p>
+        <h2 id="lab-title">这里，<em>住得舒服吗？</em></h2>
+        <p>默认是一幅“后有靠山、宅左青龙、宅右白虎、前有明堂与环抱水”的典型格局。平面图北上南下，所以东方青龙画在右侧。拖动其中任何一项，看环境怎样改变。</p>
+        <div class="lesson-tabs" role="group" aria-label="选择观察图层">
+          <button data-layer="wind" aria-pressed="true"><i>风</i><span>看绕流</span></button>
+          <button data-layer="rain" aria-pressed="false"><i>雨</i><span>看积水</span></button>
+          <button data-layer="sun" aria-pressed="false"><i>日</i><span>看光影</span></button>
+          <button data-layer="refuge" aria-pressed="false"><i>人</i><span>看庇护</span></button>
+          <button data-layer="all" aria-pressed="false"><i>合</i><span>看整体</span></button>
+        </div>
+      </div>
+
+      <div class="lab-shell">
+        <div class="canvas-panel">
+          <div class="canvas-head">
+            <div><span class="live-dot"></span><b id="layer-title">风从西北来</b></div>
+            <p id="layer-caption">箭头指向是风向，长度与颜色表示风速；山与树会让气流绕行。</p>
+            <span class="terrain-status">房屋位于 <b id="terrain-state">缓坡</b></span>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="village-canvas" tabindex="0" role="application" aria-label="北上南下的可拖动村落地形模型。房屋面南，宅左的东方为青龙，画在场景右侧；宅右的西方为白虎，画在场景左侧。后方为靠山，前方为明堂与环抱河流。"></canvas>
+            <div class="drag-coach" id="drag-coach" aria-hidden="true"><i></i><span>拖动房子试试</span></div>
+            <div class="legend" id="legend" aria-hidden="true"><span>低速</span><i></i><span>高速</span></div>
+            <div class="terrain-key" aria-hidden="true"><span><i></i>等高线</span><span>疏缓 · 密陡</span></div>
+          </div>
+          <div class="tool-row" role="group" aria-label="选择要移动的对象">
+            <button data-object="house" aria-pressed="true"><span>舍</span>房子</button>
+            <button data-object="mountainBack" aria-pressed="false"><span>靠</span>靠山</button>
+            <button data-object="mountainA" aria-pressed="false"><span>虎</span>白虎</button>
+            <button data-object="mountainB" aria-pressed="false"><span>龙</span>青龙</button>
+            <button data-object="tree" aria-pressed="false"><span>木</span>树</button>
+            <button data-object="pond" aria-pressed="false"><span>水</span>池塘</button>
+          </div>
+        </div>
+
+        <aside class="control-panel" aria-label="环境控制与实时结果">
+          <div class="selection">
+            <p>正在移动</p><strong id="selected-name">房子</strong><span id="selected-hint">拖到山后，观察风速变化</span>
+          </div>
+          <div class="dynamic-controls">
+            <label id="orientation-control">房屋朝向 <output id="orientation-value">南</output><input id="orientation" type="range" min="0" max="315" step="45" value="180"></label>
+            <label id="height-control" hidden>山体高度 <output id="height-value">70%</output><input id="height" type="range" min="30" max="100" value="70"></label>
+            <label id="size-control" hidden>树冠大小 <output id="size-value">60%</output><input id="size" type="range" min="30" max="100" value="60"></label>
+          </div>
+          <div class="world-controls">
+            <label>西北风 <output id="wind-value">中</output><input id="wind" type="range" min="1" max="5" value="3"></label>
+            <label>降雨量 <output id="rain-value">小雨</output><input id="rain" type="range" min="0" max="5" value="1"></label>
+            <label>太阳时刻 <output id="time-value">12:00</output><input id="time" type="range" min="6" max="18" value="12" step="0.25"></label>
+          </div>
+          <div class="scores" aria-live="polite">
+            <p><span>风环境</span><i><b id="wind-bar"></b></i><strong id="wind-score">—</strong></p>
+            <p><span>排水</span><i><b id="drain-bar"></b></i><strong id="drain-score">—</strong></p>
+            <p><span>日照</span><i><b id="sun-bar"></b></i><strong id="sun-score">—</strong></p>
+            <p><span>庇护感</span><i><b id="refuge-bar"></b></i><strong id="refuge-score">—</strong></p>
+          </div>
+          <div class="qi-card">
+            <span>环境舒适度 · 教学模型</span><strong><b id="qi-score">72</b><small>/100</small></strong>
+            <p id="discovery">房子正迎着来风。试着把它移到山的背风侧。</p>
+          </div>
+          <button id="reset" class="reset">恢复初始村落</button>
+        </aside>
+      </div>
+      <p class="model-note">地形等高线由靠山、青龙、白虎、整体坡势与低地实时计算：闭合线内侧更高，线越密表示坡越陡；山体之间的等高线收窄处是鞍部，向高处凹入处可读作山谷。风场仍是建立直觉的二维近似，并非 CFD、地勘或水文报告。</p>
+    </section>
+
+    <section class="discoveries" aria-labelledby="discoveries-title">
+      <div class="discoveries-head"><p class="chapter-no">贰 · 四次发现</p><h2 id="discoveries-title">环境会自己说话。</h2></div>
+      <div class="discovery-grid">
+        <article><span>风</span><h3>挡住，不等于堵死。</h3><p>屏障会让气流绕行，并在背风侧形成较缓区域；过密、过近也可能留下静风死角。</p><button data-jump="wind">回到风图层 →</button></article>
+        <article><span>雨</span><h3>水总往低处去。</h3><p>房子落在汇水低地，风险便上升；抬高地势、留出排水路径，比“见水”本身更重要。</p><button data-jump="rain">下一场雨 →</button></article>
+        <article><span>日</span><h3>朝向，是和太阳谈判。</h3><p>拖动一天：朝向决定何时得光，树与屋檐决定夏季遮阴和冬季受光之间的取舍。</p><button data-jump="sun">移动太阳 →</button></article>
+        <article><span>人</span><h3>背后有所依，眼前看得开。</h3><p>“眺望—庇护”是一种环境偏好理论；这里把后方遮护与前方视野画成两个可见的量。</p><button data-jump="refuge">看看视野 →</button></article>
+      </div>
+    </section>
+
+    <section id="name-it" class="naming" aria-labelledby="naming-title">
+      <div class="naming-copy">
+        <p class="chapter-no">叁 · 现在，才来命名</p>
+        <h2 id="naming-title">古人称它，<em>风水。</em></h2>
+        <p>这个页面把可观察的风、光、热、水与空间感受放在同一张图上。</p>
+      </div>
+      <div class="name-map">
+        <div><b>藏风</b><span>屏障、绕流、背风区</span><i>风环境</i></div>
+        <div><b>得水</b><span>汇流、排水、蓄水</span><i>水文环境</i></div>
+        <div><b>向阳</b><span>朝向、日照、遮阴</span><i>建筑微气候</i></div>
+        <div><b>有靠有望</b><span>背后遮护、前方视野</span><i>环境心理</i></div>
+        <div class="qi-definition"><b>气</b><span>本页的 Qi Index 只是现代教学框架</span><i>不等同于古代“气”</i></div>
+      </div>
+    </section>
+
+    <section id="conclusion" class="conclusion" aria-labelledby="conclusion-title">
+      <div class="conclusion-head">
+        <p class="chapter-no">肆 · 一张典型格局</p>
+        <h2 id="conclusion-title">有靠，有抱，<em>前方有余地。</em></h2>
+        <p>这张图把常见的形势术语放回可观察的环境关系中。它是一种现代阅读框架，不是把传统概念直接等同于工程学结论。</p>
+      </div>
+      <div class="concept-table-wrap">
+        <table class="concept-table">
+          <thead><tr><th scope="col">风水概念</th><th scope="col">在典型格局中的位置</th><th scope="col">现代环境解释</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">靠山</th><td>房屋后方的主山</td><td>遮挡部分来风并提供后方庇护感。山脊延伸的缓坡往往比汇水低地更利于排水，也常被优先考虑；地基是否牢固仍取决于岩土、坡度与地质条件，必须通过工程地勘判断。</td></tr>
+            <tr><th scope="row">面水</th><td>房屋前方的河流</td><td>历史上可能关联水资源、交通、景观与开阔视野，同时必须评估洪水、冲刷和潮湿风险。</td></tr>
+            <tr><th scope="row">左青龙（东）<br>右白虎（西）</th><td>房屋面南向外看：左手是东，右手是西</td><td>两侧屏障可能降低横风、形成较温和的风环境；间距不当也可能产生峡谷风或静风区。</td></tr>
+            <tr><th scope="row">明堂</th><td>房屋与河流之间的开敞地</td><td>可理解为建筑前的公共空间、采光面、活动场地与开阔视野。</td></tr>
+            <tr><th scope="row">藏风聚气</th><td>靠山与两侧屏障围合的区域</td><td>降低极端风速，形成相对舒适的微气候；目标不是完全无风，而是避免强风与滞风。</td></tr>
+            <tr><th scope="row">龙脉</th><td>连续延伸的山脊与谷地</td><td>可作为观察山脉、分水岭、流域和地形连续性的现代入口，不代表神秘能量通道。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sources" class="sources" aria-labelledby="sources-title">
+      <p class="chapter-no">伍 · 依据与边界</p><h2 id="sources-title">能模拟的，和不能偷换的。</h2>
+      <div class="source-grid">
+        <a href="https://www.nrcs.usda.gov/conservation-basics/land/forests/agroforestry-systems/farmstead-windbreak" target="_blank" rel="noreferrer"><b>风障与背风区</b><span>USDA NRCS：农庄防风林的作用与布置</span></a>
+        <a href="https://www.energy.gov/sites/prod/files/guide_to_passive_solar_home_design.pdf" target="_blank" rel="noreferrer"><b>朝向、冬日与夏日遮阳</b><span>美国能源部：被动式太阳能住宅设计</span></a>
+        <a href="https://www.epa.gov/soakuptherain/soak-rain-trees-help-reduce-runoff" target="_blank" rel="noreferrer"><b>树荫、降温与雨洪</b><span>美国环保署：树木对降温、入渗和径流的作用</span></a>
+        <a href="https://doi.org/10.2466/pms.106.1.147-162" target="_blank" rel="noreferrer"><b>眺望—庇护理论</b><span>Stamps（2008）：对舒适与偏好因素的实验检验</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <b>藏风聚气</b>
+    <span>把房子放回风、水、阳光与人的感受里。</span>
+    <a href="#village">再造一次 ↑</a>
+    <div class="visitor-map" aria-label="访问者地图">
+      <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=fefefe&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=8b0801&cmo=7088ff"></script>
+    </div>
+  </footer>
+  <script src="app.js?v=20260722-9"></script>
+</body>
+</html>

@@ -565,7 +565,7 @@ class: culture-page
       </div>
       <h2>格物</h2>
       <p class="culture-card-subtitle">格物致知，巧思成器</p>
-      <p class="culture-card-teaser">从中国古典数学与建筑理解数、尺度、结构与营造。</p>
+      <p class="culture-card-teaser">从中国古典数学、建筑与环境经验理解数、尺度、结构与营造。</p>
       <details class="culture-details">
         <summary><span class="culture-details-more">查看详情</span><span class="culture-details-less">收起</span></summary>
         <div class="culture-details-body">
@@ -579,12 +579,17 @@ class: culture-page
               <strong>中国古典建筑</strong>
               <span>木构模数、斗拱、营造法式，以及礼制与空间秩序。</span>
             </div>
+            <div class="culture-topic">
+              <strong>风水与环境</strong>
+              <span>从风、雨、日照与空间感受出发，辨析传统选址经验中可观察、可模拟的部分。</span>
+            </div>
           </div>
         </div>
       </details>
       <div class="culture-actions">
         <a class="culture-link" href="{{ '/projects/chinese-mathematics/' | relative_url }}">古代方程思想 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/chinese-calculus/' | relative_url }}">古代的微积分思想 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/fengshui/' | relative_url }}">藏风聚气 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 
