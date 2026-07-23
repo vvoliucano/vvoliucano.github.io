@@ -331,6 +331,19 @@ class: culture-page
   padding-bottom: 0.6rem;
 }
 
+@media (min-width: 761px) {
+  .culture-card--science .culture-card-teaser,
+  .culture-card--divination .culture-card-teaser {
+    min-height: 3.2rem;
+  }
+
+  .culture-card--science .culture-actions,
+  .culture-card--divination .culture-actions {
+    align-content: flex-start;
+    margin-top: 0;
+  }
+}
+
 .culture-link {
   display: inline-flex;
   align-items: center;
