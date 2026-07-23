@@ -531,7 +531,7 @@ class: culture-page
         <div class="culture-details-body"><p class="culture-card-copy">《牧山集》收录个人古体诗词，并将目录与原有诗词阅读界面相连。可按年份浏览，也可进入单篇的竖排宣纸阅读体验。</p></div>
       </details>
       <div class="culture-actions">
-        <a class="culture-link" href="{{ '/mushan/' | relative_url }}">进入牧山集 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/mushan/' | relative_url }}">牧山集：个人古体诗词 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 
@@ -554,7 +554,7 @@ class: culture-page
         </div>
       </details>
       <div class="culture-actions">
-        <a class="culture-link" href="{{ '/projects/hanzi658/overview.html' | relative_url }}">认识“书同文”计划 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/hanzi658/overview.html' | relative_url }}">书同文：658 字之间 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 
@@ -587,9 +587,9 @@ class: culture-page
         </div>
       </details>
       <div class="culture-actions">
-        <a class="culture-link" href="{{ '/projects/chinese-mathematics/' | relative_url }}">古代方程思想 <span aria-hidden="true">→</span></a>
-        <a class="culture-link" href="{{ '/projects/chinese-calculus/' | relative_url }}">古代的微积分思想 <span aria-hidden="true">→</span></a>
-        <a class="culture-link" href="{{ '/projects/fengshui/' | relative_url }}">藏风聚气 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/chinese-mathematics/' | relative_url }}">未曾写下 x：中国古代的方程思想 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/chinese-calculus/' | relative_url }}">割之又割：中国古代的微积分思想 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/fengshui/' | relative_url }}">藏风聚气：风水的现代环境解释 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 
@@ -606,10 +606,10 @@ class: culture-page
         <div class="culture-details-body"><p class="culture-card-copy">以现代交互方式呈现传统历法、干支、象数与推演方法。排盘均在浏览器本地完成，作为文化研究、方法学习与自我反思的辅助工具。</p></div>
       </details>
       <div class="culture-actions">
-        <a class="culture-link" href="{{ '/projects/chinese-calendar/' | relative_url }}">中国历法时间机器 <span aria-hidden="true">→</span></a>
-        <a class="culture-link" href="{{ '/projects/bazi/' | relative_url }}">八字排盘 <span aria-hidden="true">→</span></a>
-        <a class="culture-link" href="{{ '/projects/liuyao/' | relative_url }}">六爻问卦 <span aria-hidden="true">→</span></a>
-        <a class="culture-link" href="{{ '/projects/yijing/' | relative_url }}">时与位：易的第一性原理 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/chinese-calendar/' | relative_url }}">观天授时：月亮与太阳的两只钟 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/bazi/' | relative_url }}">八字排盘：出生时刻怎样排成四柱 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/liuyao/' | relative_url }}">六爻问卦：三枚铜钱怎样成卦 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/yijing/' | relative_url }}">时与位：《易》的第一性原理 <span aria-hidden="true">→</span></a>
       </div>
       <p class="culture-note">术数内容仅供传统文化研究与自我反思，不构成现实决策建议。</p>
     </article>
