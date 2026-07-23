@@ -141,6 +141,13 @@
   demo: "/projects/chinese-mathematics/"
   demo_en: "/projects/chinese-mathematics/en.html"
 
+- id: yijing-first-principles
+  title: 时与位
+  image: yijing-first-principles.png
+  description: "An interactive exploration of change, polarity, timing, position, the six stages of Qian, and the 64 hexagrams as first principles of the I Ching."
+  description_zh: "一场关于变化的交互实验：拨动阴阳与生命周期，亲手理解时、位、乾卦六爻与六十四卦怎样描述变化中的判断。"
+  demo: "/projects/yijing/"
+
 
 
 # - title: Auto-Caption

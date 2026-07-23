@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="一场关于变化的交互实验：从阴阳、生命周期、时位与乾卦六爻，理解《易》的第一性原理。">
+  <meta name="theme-color" content="#14242a">
+  <title>时与位｜《易》的第一性原理</title>
+  <link rel="stylesheet" href="styles.css?v=20260723-1">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','UA-146429859-1');</script>
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../projects-zh/"><span>易</span><b>时与位</b></a>
+    <nav aria-label="页面导航"><a href="#change">变化</a><a href="#timing">时</a><a href="#position">位</a><a href="#qian">乾</a><a href="#hexagrams">卦</a></nav>
+    <a class="home" href="../../zh/">作者主页 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">《易》先问的，不是吉凶</p>
+        <h1>穷则变，<br><em>变则通。</em></h1>
+        <blockquote>“穷则变，变则通，通则久。”<cite>《周易·系辞下》</cite></blockquote>
+        <p>一件事不能离开变化的过程来判断。此刻是什么时候？身在什么位置？先辨时位，再谈进退。</p>
+        <a class="start" href="#change">拨动变化 <span>↓</span></a>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        <div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div>
+        <div class="hero-yang">阳</div><div class="hero-yin">阴</div>
+        <div class="hero-center"><b>易</b><span>时 × 位</span></div>
+        <i class="orbit-mark m1"></i><i class="orbit-mark m2"></i><i class="orbit-mark m3"></i><i class="orbit-mark m4"></i>
+      </div>
+      <p class="hero-aside">日往则月来<br>月往则日来<br>寒往则暑来<br>暑往则寒来</p>
+    </section>
+
+    <section class="thesis" aria-label="核心命题"><span>世界并非静止之物</span><b>万物皆在变化之中</b><span>判断必须带上时间与位置</span></section>
+
+    <section id="change" class="chapter cycle-section" aria-labelledby="change-title">
+      <div class="chapter-head">
+        <p class="chapter-no">壹 · 阴阳</p>
+        <h2 id="change-title">不是好坏，<em>是往复。</em></h2>
+        <p>阴阳不是两张价值标签，而是昼夜、寒暑、张弛、进退。拖动一天：每一刻都有它的位置，没有哪一端永远更好。</p>
+      </div>
+      <div class="cycle-lab">
+        <div class="sky" id="sky" role="img" aria-label="随时间变化的昼夜场景">
+          <div class="celestial sun" id="sun">日</div><div class="celestial moon" id="moon">月</div>
+          <div class="horizon"></div><div class="mountain mountain-left"></div><div class="mountain mountain-right"></div>
+          <div class="cycle-readout"><span id="time-name">破晓</span><strong id="time-clock">卯时 · 06:00</strong></div>
+        </div>
+        <div class="range-wrap"><span>夜半</span><label for="day-slider">拨动一日</label><span>夜半</span><input id="day-slider" type="range" min="0" max="100" value="25" aria-describedby="yin-yang-reading"></div>
+        <div class="opposite-strip" id="yin-yang-reading"><span>阴 <b id="yin-value">50</b></span><i><b id="balance-bar"></b></i><span>阳 <b id="yang-value">50</b></span></div>
+        <div class="pairs" aria-label="阴阳互补的例子"><span>夜晚 ↔ 白昼</span><span>收缩 ↔ 扩张</span><span>休养 ↔ 生长</span><span>减速 ↔ 加速</span></div>
+      </div>
+    </section>
+
+    <section id="life" class="chapter life-section" aria-labelledby="life-title">
+      <div class="chapter-head">
+        <p class="chapter-no">贰 · 趋势</p>
+        <h2 id="life-title">变化有势，<em>盛衰有时。</em></h2>
+        <p>种子不会一步成为大树。成长、繁盛、回落、再生，是一个连续过程。把时间往前推，观察“盛极”怎样转向。</p>
+      </div>
+      <div class="curve-lab">
+        <div class="curve-status"><span id="life-glyph" aria-hidden="true">芽</span><div><small>此刻</small><strong id="life-stage">萌发</strong><p id="life-note">积蓄开始转为生长。</p></div></div>
+        <canvas id="life-canvas" role="img" aria-label="从种子、成长、繁盛、衰退到再生的生命周期曲线"></canvas>
+        <div class="range-wrap"><span>种子</span><label for="life-slider">推移时间</label><span>新生</span><input id="life-slider" type="range" min="0" max="100" value="16"></div>
+        <div class="life-labels" aria-hidden="true"><span>潜藏</span><span>萌发</span><span>成长</span><span>盛极</span><span>衰退</span><span>复始</span></div>
+      </div>
+    </section>
+
+    <section id="timing" class="chapter timing-section" aria-labelledby="timing-title">
+      <div class="chapter-head compact">
+        <p class="chapter-no">叁 · 得时</p>
+        <h2 id="timing-title">同一件事，<em>时不同，义不同。</em></h2>
+        <p>顺时，不是等待运气；是承认条件有先后。选一个季节，再决定此刻该做什么。</p>
+      </div>
+      <div class="season-game">
+        <div class="season-visual" id="season-visual" data-season="winter"><span id="season-mark">冬</span><div class="season-tree" aria-hidden="true"><i></i><b></b><em></em></div><p id="season-line">水藏于地，万物收敛。</p></div>
+        <div class="season-control">
+          <p>现在是什么时候？</p>
+          <div class="season-tabs" role="group" aria-label="选择季节"><button data-season="spring">春</button><button data-season="summer">夏</button><button data-season="autumn">秋</button><button data-season="winter" aria-pressed="true">冬</button></div>
+          <p>此时做什么？</p>
+          <div class="action-list" role="group" aria-label="选择行动"><button data-action="sow">播种</button><button data-action="weed">耘田</button><button data-action="harvest">收获</button><button data-action="prune">修剪蓄养</button></div>
+          <div class="game-answer" id="season-answer" aria-live="polite"><b>请选择一件事</b><span>能力没有改变，条件正在改变。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="position" class="chapter position-section" aria-labelledby="position-title">
+      <div class="chapter-head">
+        <p class="chapter-no">肆 · 得位</p>
+        <h2 id="position-title">人未必不对，<em>也许位置不对。</em></h2>
+        <p>同一种能力，放在不同阶段会产生不同结果。拖动人物到组织所处的阶段；也可以先点人物，再点位置。</p>
+      </div>
+      <div class="position-lab">
+        <div class="roles" aria-label="可放置的人物">
+          <button class="role" draggable="true" data-role="pioneer"><i>拓</i><b>开路者</b><span>不确定中寻找方向</span></button>
+          <button class="role" draggable="true" data-role="builder"><i>营</i><b>经营者</b><span>把机会变成规模</span></button>
+          <button class="role" draggable="true" data-role="steward"><i>治</i><b>治理者</b><span>让复杂系统稳定</span></button>
+          <button class="role" draggable="true" data-role="mentor"><i>传</i><b>传承者</b><span>让经验离开个人</span></button>
+        </div>
+        <div class="stage-track" aria-label="发展阶段">
+          <button class="stage-slot" data-stage="start"><span>初创</span><small>方向未定</small></button>
+          <button class="stage-slot" data-stage="grow"><span>扩张</span><small>增长迅速</small></button>
+          <button class="stage-slot" data-stage="mature"><span>成熟</span><small>系统复杂</small></button>
+          <button class="stage-slot" data-stage="renew"><span>传承</span><small>新旧交替</small></button>
+        </div>
+        <div class="position-answer" id="position-answer" aria-live="polite"><span>时 × 位</span><strong>请把一个人放进一个阶段</strong><p>所谓“得位”，不是给人排高低，而是看能力与情势是否相称。</p></div>
+      </div>
+    </section>
+
+    <section id="qian" class="chapter qian-section" aria-labelledby="qian-title">
+      <div class="chapter-head">
+        <p class="chapter-no">伍 · 乾卦六爻</p>
+        <h2 id="qian-title">龙不是图腾，<em>是一条成长曲线。</em></h2>
+        <p>从潜伏、显现、精进、试跃，到飞腾与知退。拖动六爻，看同一个“龙”为什么在不同阶段采取不同动作。</p>
+      </div>
+      <div class="dragon-lab">
+        <div class="dragon-path" id="dragon-path" aria-hidden="true"><div class="dragon">龍</div><i></i></div>
+        <ol class="yao-list" id="yao-list">
+          <li data-line="1" class="active"><span>初九</span><b>潜龙勿用</b><small>潜伏 · 蓄力</small></li>
+          <li data-line="2"><span>九二</span><b>见龙在田</b><small>显现 · 初见</small></li>
+          <li data-line="3"><span>九三</span><b>终日乾乾</b><small>反复 · 精进</small></li>
+          <li data-line="4"><span>九四</span><b>或跃在渊</b><small>试探 · 跃迁</small></li>
+          <li data-line="5"><span>九五</span><b>飞龙在天</b><small>得时 · 得位</small></li>
+          <li data-line="6"><span>上九</span><b>亢龙有悔</b><small>盛极 · 知退</small></li>
+        </ol>
+        <div class="range-wrap"><span>潜</span><label for="dragon-slider">行至第 <output id="dragon-line">一</output> 爻</label><span>亢</span><input id="dragon-slider" type="range" min="1" max="6" value="1"></div>
+        <p class="dragon-reading" id="dragon-reading">未到行动之时，先保存力量。不是无能，而是时位未至。</p>
+      </div>
+    </section>
+
+    <section id="hexagrams" class="chapter hexagram-section" aria-labelledby="hexagram-title">
+      <div class="chapter-head">
+        <p class="chapter-no">陆 · 八卦相重</p>
+        <h2 id="hexagram-title">六十四卦，<em>从六条线生长。</em></h2>
+        <p>三爻成一卦，上下相重便有六十四种状态。选择上下卦，或直接点任意一爻让它改变。</p>
+      </div>
+      <div class="hex-lab">
+        <div class="trigram-pickers"><div><span>上卦</span><div class="trigram-buttons" id="upper-pickers"></div></div><div><span>下卦</span><div class="trigram-buttons" id="lower-pickers"></div></div></div>
+        <div class="hex-stage">
+          <div class="hex-lines" id="hex-lines" aria-label="点击任意一爻改变阴阳"></div>
+          <div class="hex-reading"><small id="hex-structure">上乾 · 下乾</small><strong id="hex-name">乾</strong><p id="hex-image">天行健。六爻皆阳，显示一种持续发动的状态。</p></div>
+        </div>
+        <p class="hex-hint">阳爻为实线，阴爻为断线。改变一爻，整个卦所描述的关系也随之改变。</p>
+      </div>
+    </section>
+
+    <section id="essence" class="essence" aria-labelledby="essence-title">
+      <div class="essence-head"><p class="chapter-no">柒 · 第一性原理</p><h2 id="essence-title">《易》研究的，<em>是变化中的判断。</em></h2><p>它不先把人和事钉死，而是追问：正在怎样变化？此刻到了哪一步？身处何位？应当进、守，还是退？</p></div>
+      <div class="formula"><span>一切判断</span><strong>时间 <i>×</i> 位置</strong><span>才有意义</span></div>
+      <div class="principle-grid">
+        <article><span>壹</span><small>CHANGE</small><h3>世界在变</h3><p>事物不是固定标签，而是过程中的暂时状态。</p></article>
+        <article><span>贰</span><small>RELATION</small><h3>阴阳互根</h3><p>对立力量互为条件，重点不在褒贬，而在关系。</p></article>
+        <article><span>叁</span><small>TIMING</small><h3>行动有时</h3><p>同一行动放在不同阶段，可能得出相反结果。</p></article>
+        <article><span>肆</span><small>FIT</small><h3>位置要合</h3><p>能力、责任与情势相称，才能真正发挥作用。</p></article>
+      </div>
+      <blockquote>时止则止，时行则行。<cite>《周易·艮·彖》</cite></blockquote>
+    </section>
+
+    <section class="sources" aria-labelledby="source-title"><p class="chapter-no">捌 · 原文</p><h2 id="source-title">回到《易》本身。</h2><div class="source-grid"><article><b>生生之谓易</b><span>《系辞上》</span></article><article><b>一阴一阳之谓道</b><span>《系辞上》</span></article><article><b>穷则变，变则通，通则久</b><span>《系辞下》</span></article><article><b>时止则止，时行则行</b><span>《艮·彖》</span></article></div></section>
+  </main>
+
+  <footer><b>时与位</b><span>在变化中辨认分寸。</span><a href="#change">再走一遍 ↑</a><div class="visitor-map" aria-label="访问者地图"><script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=fefefe&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=8b0801&cmo=7088ff"></script></div></footer>
+  <script src="app.js?v=20260723-1"></script>
+</body>
+</html>

@@ -609,6 +609,7 @@ class: culture-page
         <a class="culture-link" href="{{ '/projects/chinese-calendar/' | relative_url }}">中国历法时间机器 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/bazi/' | relative_url }}">八字排盘 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/liuyao/' | relative_url }}">六爻问卦 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/yijing/' | relative_url }}">时与位：易的第一性原理 <span aria-hidden="true">→</span></a>
       </div>
       <p class="culture-note">术数内容仅供传统文化研究与自我反思，不构成现实决策建议。</p>
     </article>
