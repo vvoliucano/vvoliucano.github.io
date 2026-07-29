@@ -45,4 +45,27 @@
     slider.addEventListener("input", update);
     update();
   }
+
+  const inward = document.querySelector("#inward-slider");
+  if (inward) {
+    const value = document.querySelector("#inward-value");
+    const answer = document.querySelector("#inward-answer");
+    const outer = document.querySelector(".inward-scale .outer");
+    const inner = document.querySelector(".inward-scale .inner");
+    const update = () => {
+      const level = Number(inward.value);
+      value.textContent = level < 45 ? "向外" : level > 55 ? "向内" : "居中";
+      outer.style.opacity = String(1.15 - level / 100);
+      inner.style.opacity = String(.25 + level / 100);
+      outer.style.transform = `scale(${1.06 - level / 900})`;
+      inner.style.transform = `scale(${.94 + level / 900})`;
+      answer.textContent = level < 40
+        ? "你正在用收入、职位、名次与关注来确认自己。尺子在别人手里。"
+        : level < 62
+          ? "比较仍然存在，但你开始问：我真正想要什么？"
+          : "你把注意力放回认知、习惯、价值与作品。尺子回到了自己手里。";
+    };
+    inward.addEventListener("input", update);
+    update();
+  }
 })();
