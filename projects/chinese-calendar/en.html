@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Move through days, lunar months, seasons, leap months, and solar terms to discover how the traditional Chinese calendar keeps two celestial clocks together.">
+  <meta name="theme-color" content="#101a24">
+  <meta property="og:title" content="Observing Heaven, Keeping Time">
+  <meta property="og:description" content="An interactive guide to the Chinese lunisolar calendar.">
+  <meta property="og:image" content="https://vvoliucano.github.io/assets/project/chinese-calendar.png">
+  <title>Observing Heaven, Keeping Time</title>
+  <link rel="stylesheet" href="styles.css?v=20260729-en">
+</head>
+<body>
+  <div class="sky-grain" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../heritage/" aria-label="Back to Huaxia"><span class="brand-seal">曆</span><span>The Chinese Calendar</span></a>
+    <nav aria-label="Chapters"><a href="#day">Day</a><a href="#month">Month</a><a href="#year">Year</a><a href="#drift">Drift</a><a href="#leap">Leap</a><a href="#terms">Terms</a><a href="#together">Together</a></nav>
+    <a class="home-link" href="index.html" lang="zh-CN">中文 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Observing Heaven, Keeping Time · A calendar you can move</p>
+        <h1 id="page-title" class="hero-title"><span>Two clocks in heaven</span><strong>write one calendar</strong><em>for human life.</em></h1>
+        <div class="hero-clock-marks" aria-label="The Moon sets months and festivals; the Sun sets seasons and farming time"><p><b>月</b><span>months · festivals</span></p><i>合</i><p><b>日</b><span>seasons · farming</span></p></div>
+        <p class="lead">One follows the Moon’s phases; the other follows the seasons. They do not run at the same speed. The Chinese calendar keeps them in long-term accord.</p>
+        <a class="start-link" href="#day"><span>Begin with one day</span><i aria-hidden="true">↓</i></a>
+      </div>
+      <div class="hero-cosmos" aria-label="The Sun, Earth, and Moon as two celestial clocks">
+        <div class="hero-sun"><span>日</span></div>
+        <div class="hero-year-orbit"><div class="hero-earth"><span>地</span><i class="hero-moon"><b>月</b></i></div></div>
+        <div class="hero-caption"><b>Two clocks in heaven</b><span>one reads phases, one reads seasons</span></div>
+      </div>
+      <div class="hero-aside"><span>one day</span><b>Earth rotates</b><span>one month</span><b>lunar phases</b><span>one year</span><b>solar cycle</b></div>
+    </section>
+
+    <section class="thesis-strip" aria-label="The central problem"><span>The Moon sets months</span><strong>How can months stay with the seasons?</strong><span>The Sun sets the year</span></section>
+
+    <section id="day" class="chapter chapter-night" aria-labelledby="day-title">
+      <div class="chapter-intro"><p class="chapter-no">I · Find the first clock</p><h2 id="day-title">Where does<br><em>a day come from?</em></h2><p class="chapter-hint">Move through a day. Watch the Sun return to the sky.</p></div>
+      <div class="stage day-stage">
+        <div class="stage-head"><span>Solar day</span><strong id="day-count">Day 1</strong></div>
+        <div class="day-sky" id="day-sky" role="img" aria-label="Sunrise, sunset, and Earth’s rotation"><div class="sun" id="day-sun">日</div><div class="sun-path"></div><div class="earth-wrap"><div class="earth" id="day-earth"><i></i><b>地</b></div><div class="earth-axis"></div></div><div class="horizon"></div></div>
+        <label class="timeline-label" for="day-slider"><span>Sunrise</span><b id="day-time">Noon</b><span>Next sunrise</span></label>
+        <input id="day-slider" class="timeline" type="range" min="0" max="48" value="12" step="0.25" aria-label="Move through two days">
+        <p class="discovery" id="day-discovery">One rotation of Earth makes one day.</p>
+      </div>
+    </section>
+
+    <section id="month" class="chapter chapter-paper" aria-labelledby="month-title">
+      <div class="chapter-intro"><p class="chapter-no">II · Find the second clock</p><h2 id="month-title">Where does<br><em>a month come from?</em></h2><p class="chapter-hint">Move the Moon until it returns to new moon.</p></div>
+      <div class="stage moon-stage">
+        <div class="moon-system" role="img" aria-label="The Moon orbiting Earth and changing phase"><div class="moon-orbit"></div><div class="earth earth-center"><i></i><b>地</b></div><div class="orbiting-moon" id="orbiting-moon"><span id="orbit-moon-face">🌑</span></div><span class="light-arrow">sunlight　→</span></div>
+        <div class="moon-reading"><span id="lunar-date">🌑　Day 1</span><strong id="moon-day">Day 0</strong><p id="moon-state">New Moon · almost invisible</p><div class="phase-key" aria-label="Four principal phases"><span>🌑 Day 1</span><span>🌓 Day 7</span><span>🌕 Day 15</span><span>🌗 Day 23</span></div></div>
+        <label class="timeline-label" for="moon-slider"><span>Day 0</span><b>Move the Moon</b><span>Day 30</span></label>
+        <input id="moon-slider" class="timeline timeline-dark" type="range" min="0" max="30" value="0" step="0.05" aria-label="Move through one synodic month">
+        <p class="discovery discovery-hidden" id="moon-discovery">The phases begin again: <b>≈ 29.53 days</b></p>
+      </div>
+    </section>
+
+    <section id="year" class="chapter chapter-earth" aria-labelledby="year-title">
+      <div class="chapter-intro"><p class="chapter-no">III · Pull the view outward</p><h2 id="year-title">Where does<br><em>a year come from?</em></h2><p class="chapter-hint">Move the Sun along the ecliptic. When China and the Northern Hemisphere have summer, the Southern Hemisphere has winter.</p></div>
+      <div class="stage year-stage" id="year-stage">
+        <div class="year-system celestial-system" role="img" aria-label="The Sun’s declination north and south of the celestial equator">
+          <p class="sky-view">Looking up from Earth · the Sun moves north and south of the celestial equator</p>
+          <div class="celestial-sphere"><div class="equator-ring"><span>celestial equator · 0°</span></div><div class="ecliptic-ring"><span class="ecliptic-label">ecliptic · declination ±23.4°</span><i id="year-sun-marker">日</i><span class="season-point spring"><i></i><b>Spring Equinox</b><small>crosses north</small></span><span class="season-point summer"><i></i><b>Summer Solstice</b><small>farthest north</small></span><span class="season-point autumn"><i></i><b>Autumn Equinox</b><small>crosses south</small></span><span class="season-point winter"><i></i><b>Winter Solstice</b><small>farthest south</small></span></div><span class="declination-label north">north · +23.4°</span><span class="declination-label south">south · −23.4°</span><div class="earth celestial-earth"><i></i><b>地</b></div></div>
+          <p class="celestial-caption" id="celestial-caption">Spring Equinox: the Sun crosses northward; day and night are nearly equal.</p>
+        </div>
+        <div class="season-scene"><div class="tree" id="season-tree">🌸</div><p class="china-note">China · Northern Hemisphere</p><div class="hemisphere-pair" aria-live="polite"><div class="north-season"><small>Northern Hemisphere</small><span id="season-name">Spring</span><b id="solar-month">March</b></div><i aria-hidden="true">↕</i><div class="south-season"><small>Southern Hemisphere</small><span id="south-season">Autumn</span><b>opposite season</b></div></div><p id="season-caption">The north warms while the south cools</p></div>
+        <label class="timeline-label" for="year-slider"><span>0</span><b id="year-day">Day 0 of the year</b><span>365</span></label>
+        <input id="year-slider" class="timeline" type="range" min="0" max="365.2422" value="0" step="0.01" data-guide-target="0.25" aria-label="Move through one tropical year">
+        <p class="discovery discovery-hidden" id="year-discovery">The seasons begin again: <b>≈ 365.24 days</b></p>
+      </div>
+    </section>
+
+    <section id="drift" class="chapter chapter-crisis" aria-labelledby="drift-title">
+      <div class="chapter-intro"><p class="chapter-no">IV · The problem appears</p><h2 id="drift-title">Do the two clocks<br><em>run at the same speed?</em></h2><p class="chapter-hint">Push twelve lunar months to the end of a solar year. Watch the numbers separate.</p></div>
+      <div class="stage drift-stage"><div class="two-clocks"><div class="clock lunar-clock"><span>🌙 Months</span><strong id="drift-lunar">0</strong><small>days</small><i id="month-counter">Month 1</i></div><div class="gap-space"><span id="gap-line"></span><b id="gap-number">0 days apart</b></div><div class="clock solar-clock"><span>☀️ Seasons</span><strong id="drift-solar">0</strong><small>days</small><i id="season-counter">Winter</i></div></div><label class="timeline-label" for="drift-slider"><span>Year begins</span><b>Move to year’s end</b><span>Year ends</span></label><input id="drift-slider" class="timeline timeline-red" type="range" min="0" max="1" value="0" step="0.002" aria-label="Compare twelve synodic months with one tropical year"><p class="discovery discovery-hidden" id="drift-discovery"><b>Twelve lunar months are about 354 days:</b> roughly 11 days short of the seasonal year.</p></div>
+    </section>
+
+    <section id="years" class="chapter chapter-paper" aria-labelledby="years-title">
+      <div class="chapter-intro"><p class="chapter-no">V · Let the error accumulate</p><h2 id="years-title">If we follow only the Moon,<br><em>where will Spring Festival go?</em></h2><p class="chapter-hint">For the moment, add no leap month. Move through ten years and watch a lunar festival drift against the seasons.</p></div>
+      <div class="stage festival-stage"><div class="festival-landscape" id="festival-landscape"><div class="land-sky"><span id="festival-weather">❄️</span></div><div class="land-ground"><span id="festival-tree">🌲</span><div class="festival-gate"><b>春</b><i>Spring Festival</i></div></div></div><div class="festival-reading"><span>A hypothetical calendar without leap months</span><strong id="festival-year">Year 1</strong><p id="festival-shift">0 days earlier against the seasons</p><b id="festival-season">Still in winter</b></div><label class="timeline-label" for="years-slider"><span>Year 1</span><b>Advance the years</b><span>Year 10</span></label><input id="years-slider" class="timeline timeline-dark" type="range" min="1" max="10" value="1" step="1" aria-label="Observe ten years of seasonal drift"><p class="discovery">Follow the Moon alone, and a festival will eventually travel through every season.</p></div>
+    </section>
+
+    <section id="leap" class="chapter chapter-leap" aria-labelledby="leap-title">
+      <div class="chapter-intro"><p class="chapter-no">VI · Bring the clocks together</p><h2 id="leap-title">What can we do?<br><em>Add one month.</em></h2><p class="chapter-hint">When the accumulated difference nears one synodic month, put a month back into the year.</p></div>
+      <div class="stage leap-stage" id="leap-stage"><div class="alignment"><div class="alignment-row"><span>🌙 Three common years</span><div class="measure lunar-measure" id="lunar-measure"><i></i></div><strong id="leap-lunar-total">1063</strong></div><div class="alignment-row"><span>☀️ Three tropical years</span><div class="measure solar-measure"><i></i></div><strong>1096</strong></div></div><div class="month-train" id="month-train" aria-label="Sequence of months"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span class="leap-month">Leap 6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div><button id="add-leap" class="leap-button" type="button">＋ Insert a leap month</button><p class="leap-result" id="leap-result" aria-live="polite">The clocks are still about 33 days apart.</p><p class="discovery"><b>The intuition:</b> when the error grows close to a month, add a month and return toward the seasons.</p></div>
+    </section>
+
+    <section id="rule" class="chapter chapter-paper" aria-labelledby="rule-title">
+      <div class="chapter-intro"><p class="chapter-no">VII · But which month is repeated?</p><h2 id="rule-title">There is no fixed “every third year.”<br><em>Look back to the Sun.</em></h2><p>The 24 solar terms alternate between twelve sectional terms (<i>jie</i>, 节) and twelve principal terms (<i>zhongqi</i>, 中气). Lunar months run from one new moon to the next. When intercalation is needed, the calendar finds a month without a principal term.</p></div>
+      <div class="stage rule-stage">
+        <div class="rule-clocks"><div><span>🌙 Lunar month</span><b>about 29.53 days</b><p>one new moon to the next</p></div><i>vs.</i><div><span>☀️ Principal terms</span><b>about 30.44 days apart on average</b><p>Rain Water, Spring Equinox, Grain Rain …</p></div></div>
+        <section class="rule-manual" aria-labelledby="rule-manual-title"><header><span>The complete rule</span><strong id="rule-manual-title">First decide whether a leap month is needed; then decide which month repeats</strong></header><ol><li><span>1</span><div><b>Fix Month 11</b><p>The lunar month containing the Winter Solstice is always Month 11.</p></div></li><li><span>2</span><div><b>Count the months</b><p>From this Month 11 to the next: twelve months means no intercalation; thirteen means a leap month is required.</p></div></li><li><span>3</span><div><b>Find the first month without a principal term</b><p>Among those thirteen months, move forward and find the first complete lunar month containing no <i>zhongqi</i>.</p></div></li><li><span>4</span><div><b>Repeat the preceding month’s name</b><p>If the preceding month is Month 6, the extra month is called Leap Month 6; later month names shift accordingly.</p></div></li></ol><p><b>The distinction:</b> “no principal term” decides <strong>which month repeats</strong>; “thirteen months between two Winter-Solstice months” decides <strong>whether intercalation is needed</strong>.</p></section>
+        <p class="rule-demo-label"><span>The animation below shows Step 3</span>How can a principal term cross a lunar boundary and leave one month empty?</p>
+        <div class="calendar-race" id="calendar-race"><div class="race-lane solar-lane"><b>Solar markers</b><div class="race-track" id="principal-track"><span data-term="Major Heat">Major Heat</span><span data-term="End of Heat">End of Heat</span><span data-term="Autumn Equinox">Autumn Equinox</span></div></div><div class="race-lane lunar-lane"><b>Lunar boundaries</b><div class="lunar-months"><div><span>new moon</span><strong>Month 6</strong><small>has a principal term</small></div><div id="candidate-month"><span>new moon</span><strong id="candidate-name">Month 7</strong><small id="candidate-status">Contains a principal term</small></div><div><span>new moon</span><strong id="following-name">Month 8</strong><small>has a principal term</small></div></div></div></div>
+        <label class="timeline-label" for="rule-slider"><span>Term inside month</span><b>Let both clocks run</b><span>Term crosses next new moon</span></label>
+        <input id="rule-slider" class="timeline timeline-red" type="range" min="0" max="1" value="0" step="0.001" data-guide-target="1" data-guide-duration="6500" data-guide-return="false" aria-label="Watch a principal term cross a lunar-month boundary">
+        <p class="rule-answer" id="rule-answer" aria-live="polite">Each lunar month currently contains a principal term.</p><button id="name-leap" class="rule-button" type="button" disabled>Name the empty month as a leap month</button>
+      </div>
+    </section>
+
+    <section id="terms" class="chapter chapter-terms" aria-labelledby="terms-title">
+      <div class="chapter-intro"><p class="chapter-no">VIII · Marks left by the Sun</p><h2 id="terms-title">Why do the<br><em>solar terms exist?</em></h2><p class="chapter-hint">Two views of the same instant: Earth’s place in orbit, and the Sun north or south of the celestial equator. Every 15° of solar longitude lights another term.</p></div>
+      <div class="stage terms-stage">
+        <div class="term-dual"><figure class="term-view orbit-view"><figcaption><b>From outside the solar system</b><span>Earth’s place around the Sun</span></figcaption><div class="solar-orbit-diagram" role="img" aria-label="Earth’s orbit around the Sun"><div class="term-orbit"><div class="term-earth-runner" id="term-earth-runner"><div class="term-earth-ball" id="term-earth-ball"><i></i><b>地</b></div></div></div><div class="term-center-sun">日</div><span class="orbit-season orbit-spring">Spring Equinox</span><span class="orbit-season orbit-summer">Summer Solstice</span><span class="orbit-season orbit-autumn">Autumn Equinox</span><span class="orbit-season orbit-winter">Winter Solstice</span></div></figure><figure class="term-view equator-view"><figcaption><b>Looking up from Earth</b><span>The Sun relative to the celestial equator</span></figcaption><div class="equator-diagram" role="img" aria-label="The Sun north and south of the celestial equator"><div class="term-equator-line"><span>celestial equator · 0°</span></div><div class="term-ecliptic-projection"><span>ecliptic</span></div><div class="term-sun" id="term-sun">日</div><span class="sky-north">north</span><span class="sky-south">south</span></div></figure></div>
+        <div class="term-reading"><span id="term-degree">Apparent solar longitude 315°</span><strong id="term-name">Start of Spring · 立春</strong><p><i id="term-plant">🌱</i><span id="term-meaning">Spring begins; living things stir</span><b id="term-declination">The Sun is about 16.6° south of the celestial equator</b></p></div><div class="term-wheel" id="term-wheel" aria-label="The 24 solar terms"></div><label class="timeline-label" for="terms-slider"><span>Start of Spring</span><b>Move the Sun along the ecliptic</b><span>Major Cold</span></label><input id="terms-slider" class="timeline" type="range" min="0" max="23" value="0" step="1" data-guide-target="0.35" data-guide-duration="6500" aria-label="Browse the 24 solar terms"><p class="discovery">Solar terms record the Sun’s position—not the Moon’s phase.</p>
+      </div>
+    </section>
+
+    <section id="together" class="chapter chapter-final" aria-labelledby="together-title">
+      <div class="chapter-intro"><p class="chapter-no">IX · Two clocks, one calendar</p><h2 id="together-title">Draw the whole of<br><em>2026.</em></h2><p class="chapter-hint">Both timelines share the same date. The solar line shows Gregorian months and solar terms; the lunar line shows new moons, lunar months, and traditional festivals.</p></div>
+      <div class="stage synthesis-stage">
+        <div class="calendar-cosmos" role="img" aria-label="Sun, Earth, and Moon on a selected date in 2026"><div class="calendar-sun">日</div><div class="calendar-earth-orbit"><div class="calendar-earth-runner" id="calendar-earth-runner"><div class="calendar-earth"><i></i><b>地</b><div class="calendar-moon-orbit"><div class="calendar-moon-runner" id="calendar-moon-runner"><span id="calendar-moon-ball">🌑</span></div></div></div></div></div><span class="calendar-cosmos-label solar-label">Sun · seasons</span><span class="calendar-cosmos-label lunar-label">Moon · months</span></div>
+        <div class="calendar-stream year-status"><div><span>Gregorian</span><strong id="syn-day">January 1, 2026</strong></div><div><span>Lunar</span><strong id="syn-month">Month 11, Day 13</strong></div><div><span>Phase</span><strong id="syn-phase">Waxing gibbous</strong></div><div><span>Solar term</span><strong id="syn-term">After Winter Solstice</strong></div></div>
+        <div class="real-year-timelines"><div class="year-lane solar-year-lane"><header><b>☀️ Solar timeline</b><span>Gregorian months · 24 solar terms</span></header><div class="year-track" id="solar-year-track"><i class="year-cursor" id="solar-cursor"></i></div></div><div class="year-lane lunar-year-lane"><header><b>🌙 Lunar timeline</b><span>new moons · lunar months · festivals (no leap month in 2026)</span></header><div class="year-track" id="lunar-year-track"><i class="year-cursor" id="lunar-cursor"></i></div></div></div>
+        <label class="timeline-label master-label" for="master-slider"><span>January 1</span><b id="master-year">2026</b><span>December 31</span></label><input id="master-slider" class="timeline timeline-gold" type="range" min="0" max="364" value="0" step="1" aria-label="Move through the Gregorian and Chinese calendars in 2026"><button id="master-play" class="play-button" type="button" aria-pressed="false">▶ Play year</button>
+      </div>
+      <div class="final-thesis"><span>🌙 Phases set the months</span><strong>Chinese calendar</strong><span>☀️ The Sun sets the terms</span><p>It is not a purely “lunar” calendar. It is lunisolar: lunar phases determine months, the Sun’s position determines solar terms, and leap months keep the months in long-term agreement with the seasons.</p></div>
+    </section>
+
+    <section id="sources" class="sources" aria-labelledby="sources-title">
+      <p class="chapter-no">Evidence and limits</p><h2 id="sources-title">Where do the numbers come from?</h2>
+      <div class="source-grid"><a href="https://www.hko.gov.hk/en/gts/time/calendarinfo.htm" target="_blank" rel="noreferrer"><b>29.5306 days / 365.2422 days</b><span>Hong Kong Observatory: The Calendar</span></a><a href="https://www.pmo.cas.cn/xwdt2019/kpdt2019/202203/t20220314_6389637.html" target="_blank" rel="noreferrer"><b>New moons, solar terms, and leap months</b><span>Purple Mountain Observatory: basic calendrical terms (Chinese)</span></a><a href="https://www.cma.gov.cn/2011xzt/20150130/2015020302/202111/t20211104_4190582.html" target="_blank" rel="noreferrer"><b>The 24 solar terms and farming time</b><span>China Meteorological Administration (Chinese)</span></a><a href="https://www.hko.gov.hk/en/gts/time/calendar/pdf/files/2026e.pdf" target="_blank" rel="noreferrer"><b>Gregorian–lunar dates for 2026</b><span>Hong Kong Observatory: conversion table</span></a></div>
+      <p class="method-note">This page uses uniform circular motion and average periods to build intuition; it is not a date-calculation tool. The actual Chinese calendar is computed from real astronomical positions, with complete rules involving new moons, the Winter-Solstice month, and principal terms.</p>
+    </section>
+  </main>
+
+  <footer><span>觀象授時</span><b>Celestial motion, ordered for human life</b><a href="#day">Begin again ↑</a></footer>
+  <script src="app.js?v=20260729-en"></script>
+</body>
+</html>

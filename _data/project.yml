@@ -118,6 +118,7 @@
   description: "A draggable village for exploring wind, sunlight, drainage, vegetation, and prospect-refuge as a modern environmental reading of feng shui."
   description_zh: "一座可以拖动的村庄：先观察风、雨、日照与庇护感如何改变居住环境，最后再理解传统风水术语产生的背景。"
   demo: "/projects/fengshui/"
+  demo_en: "/projects/fengshui/en.html"
 
 - id: chinese-calculus
   title: 割之又割
@@ -125,6 +126,7 @@
   description: "An interactive visual essay on ideas of exhaustion, approximation, accumulation, and volume in classical Chinese mathematics."
   description_zh: "从割、逼、积、合四个动作，体验刘徽与祖暅数学中的分割、逼近与等截面求积思想。"
   demo: "/projects/chinese-calculus/"
+  demo_en: "/projects/chinese-calculus/en.html"
 
 - id: chinese-calendar
   title: 观天授时
@@ -132,6 +134,7 @@
   description: "An interactive time machine for discovering how the traditional Chinese lunisolar calendar coordinates lunar months, solar seasons, leap months, and the 24 solar terms."
   description_zh: "一部可以拖动的中国历法时间机器：从日、月、年出发，亲手发现置闰与二十四节气如何协调月相和季节。"
   demo: "/projects/chinese-calendar/"
+  demo_en: "/projects/chinese-calendar/en.html"
 
 - id: chinese-mathematics
   title: 未曾写下 x
@@ -147,6 +150,7 @@
   description: "An interactive exploration of change, polarity, timing, position, the six stages of Qian, and the 64 hexagrams as first principles of the I Ching."
   description_zh: "一场关于变化的交互实验：拨动阴阳与生命周期，亲手理解时、位、乾卦六爻与六十四卦怎样描述变化中的判断。"
   demo: "/projects/yijing/"
+  demo_en: "/projects/yijing/en.html"
 
 
 

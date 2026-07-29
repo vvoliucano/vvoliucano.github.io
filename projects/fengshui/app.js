@@ -1,15 +1,16 @@
 (() => {
+  const EN = document.documentElement.lang === 'en';
   const canvas = document.querySelector('#village-canvas');
   const ctx = canvas.getContext('2d');
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   const initial = {
-    mountainBack:{x:.50,y:.18,size:.88,label:'靠山',mark:'靠'},
-    mountainA:{x:.23,y:.40,size:.66,label:'白虎',mark:'虎'}, mountainB:{x:.77,y:.40,size:.74,label:'青龙',mark:'龙'},
-    house:{x:.50,y:.56,size:.52,label:'房子'}, tree:{x:.66,y:.53,size:.58,label:'树'}, pond:{x:.68,y:.80,size:.62,label:'池塘'}
+    mountainBack:{x:.50,y:.18,size:.88,label:EN?'Backing':'靠山',mark:'靠'},
+    mountainA:{x:.23,y:.40,size:.66,label:EN?'White Tiger':'白虎',mark:'虎'}, mountainB:{x:.77,y:.40,size:.74,label:EN?'Azure Dragon':'青龙',mark:'龙'},
+    house:{x:.50,y:.56,size:.52,label:EN?'House':'房子'}, tree:{x:.66,y:.53,size:.58,label:EN?'Tree':'树'}, pond:{x:.68,y:.80,size:.62,label:EN?'Pond':'池塘'}
   };
   const objects = structuredClone(initial);
-  const labels = {house:'房子',mountainBack:'靠山',mountainA:'白虎',mountainB:'青龙',tree:'树',pond:'池塘'};
-  const hints = {house:'默认面南，前方是明堂与环抱河流',mountainBack:'房屋后方的主屏障与庇护',mountainA:'宅右·西方屏障，观察侧风变化',mountainB:'宅左·东方屏障，观察侧风变化',tree:'靠近房屋可遮阴、缓风',pond:'低处蓄水，近处增加湿润感'};
+  const labels = EN?{house:'House',mountainBack:'Backing mountain',mountainA:'White Tiger',mountainB:'Azure Dragon',tree:'Tree',pond:'Pond'}:{house:'房子',mountainBack:'靠山',mountainA:'白虎',mountainB:'青龙',tree:'树',pond:'池塘'};
+  const hints = EN?{house:'Faces south by default, with open court and bending river ahead',mountainBack:'Main barrier and refuge behind the house',mountainA:'Western side barrier; watch crosswind',mountainB:'Eastern side barrier; watch crosswind',tree:'Near the house it can shade and slow wind',pond:'Stores water in low ground and adds nearby moisture'}:{house:'默认面南，前方是明堂与环抱河流',mountainBack:'房屋后方的主屏障与庇护',mountainA:'宅右·西方屏障，观察侧风变化',mountainB:'宅左·东方屏障，观察侧风变化',tree:'靠近房屋可遮阴、缓风',pond:'低处蓄水，近处增加湿润感'};
   const state = {layer:'wind',selected:'house',dragging:null,orientation:180,wind:3,rain:1,time:12,started:false,t:0};
   const els = id => document.getElementById(id);
   const palette={ink:'#183039',paper:'#efe8d8',red:'#ae3b2d',blue:'#315f70',green:'#496b55',gold:'#d6a652',water:'#4e8598'};
@@ -60,12 +61,12 @@
   function terrainAt(p){
     const saddle={x:(objects.mountainA.x+objects.mountainB.x)/2,y:(objects.mountainA.y+objects.mountainB.y)/2+.055};
     const valleyDistance=pointSegmentDistance(p,saddle,objects.pond);
-    if(valleyDistance<.035 && p.y>saddle.y-.04)return {key:'valley',label:'山谷汇水线'};
+    if(valleyDistance<.035 && p.y>saddle.y-.04)return {key:'valley',label:EN?'valley drainage line':'山谷汇水线'};
     const r=.036,z=elevation(p.x,p.y);
     const around=[[r,0],[-r,0],[0,r],[0,-r],[r*.7,r*.7],[-r*.7,r*.7],[r*.7,-r*.7],[-r*.7,-r*.7]];
     const mean=around.reduce((sum,[dx,dy])=>sum+elevation(p.x+dx,p.y+dy),0)/around.length;
-    if(z-mean>.022)return {key:'ridge',label:'山脊高地'};
-    return {key:'slope',label:'山前缓坡'};
+    if(z-mean>.022)return {key:'ridge',label:EN?'ridge high ground':'山脊高地'};
+    return {key:'slope',label:EN?'gentle piedmont slope':'山前缓坡'};
   }
   function flowAt(p){
     // 西北来风向东南吹。以下是为交互而设的势流近似，不是 CFD 求解。
@@ -193,32 +194,32 @@
     ctx.strokeStyle='rgba(39,93,109,.72)';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(-w*.05,h*.80);ctx.bezierCurveTo(w*.18,h*.81,w*.31,h*.90,w*.50,h*.91);ctx.bezierCurveTo(w*.69,h*.90,w*.82,h*.81,w*1.05,h*.80);ctx.stroke();
     ctx.strokeStyle='rgba(226,235,221,.62)';ctx.lineWidth=1.2;
     for(const [x,y] of [[.12,.86],[.36,.96],[.64,.96],[.87,.86]]){ctx.beginPath();ctx.moveTo(x*w-18,y*h);ctx.lineTo(x*w+18,y*h-2);ctx.stroke();ctx.fillStyle='rgba(226,235,221,.76)';ctx.beginPath();ctx.moveTo(x*w+18,y*h-2);ctx.lineTo(x*w+10,y*h-6);ctx.lineTo(x*w+11,y*h+2);ctx.closePath();ctx.fill()}
-    ctx.fillStyle='rgba(238,232,216,.94)';ctx.font='17px "Ouyang Xun"';ctx.fillText('金带缠腰 · 水向东去',w*.68,h*.87);ctx.restore();
+    ctx.fillStyle='rgba(238,232,216,.94)';ctx.font='17px "Ouyang Xun"';ctx.fillText(EN?'Bending river · flowing east':'金带缠腰 · 水向东去',w*.68,h*.87);ctx.restore();
   }
   function drawMingTang(w,h){
     const house=objects.house,p=pos(house,w,h),a=state.orientation*Math.PI/180;
     const cx=p.x+Math.sin(a)*h*.12,cy=p.y-Math.cos(a)*h*.12;
-    ctx.save();ctx.fillStyle='rgba(220,183,105,.13)';ctx.strokeStyle='rgba(167,122,55,.38)';ctx.lineWidth=1.2;ctx.setLineDash([5,6]);ctx.beginPath();ctx.ellipse(cx,cy,w*.13,h*.075,a,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='rgba(111,79,43,.78)';ctx.font='17px "Ouyang Xun"';ctx.textAlign='center';ctx.fillText('明堂',cx,cy+5);ctx.restore();
+    ctx.save();ctx.fillStyle='rgba(220,183,105,.13)';ctx.strokeStyle='rgba(167,122,55,.38)';ctx.lineWidth=1.2;ctx.setLineDash([5,6]);ctx.beginPath();ctx.ellipse(cx,cy,w*.13,h*.075,a,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='rgba(111,79,43,.78)';ctx.font='17px "Ouyang Xun"';ctx.textAlign='center';ctx.fillText(EN?'Mingtang':'明堂',cx,cy+5);ctx.restore();
   }
   function drawCompass(w){
     const x=w-58,y=58,r=25;ctx.save();ctx.fillStyle='rgba(239,232,216,.88)';ctx.strokeStyle='rgba(41,65,66,.42)';ctx.lineWidth=1;ctx.beginPath();ctx.arc(x,y,r+13,0,Math.PI*2);ctx.fill();ctx.stroke();
     ctx.beginPath();ctx.moveTo(x,y-r);ctx.lineTo(x,y+r);ctx.moveTo(x-r,y);ctx.lineTo(x+r,y);ctx.stroke();
     ctx.fillStyle='#ad3d30';ctx.beginPath();ctx.moveTo(x,y-r-3);ctx.lineTo(x-5,y-r+8);ctx.lineTo(x+5,y-r+8);ctx.closePath();ctx.fill();
-    ctx.font='13px "Ouyang Xun"';ctx.textAlign='center';ctx.fillStyle='#9f382d';ctx.fillText('北',x,y-r-8);ctx.fillStyle='#314f52';ctx.fillText('南',x,y+r+17);ctx.fillText('西',x-r-11,y+4);ctx.fillText('东',x+r+11,y+4);ctx.restore();
+    ctx.font='13px "Ouyang Xun"';ctx.textAlign='center';ctx.fillStyle='#9f382d';ctx.fillText(EN?'N':'北',x,y-r-8);ctx.fillStyle='#314f52';ctx.fillText(EN?'S':'南',x,y+r+17);ctx.fillText(EN?'W':'西',x-r-11,y+4);ctx.fillText(EN?'E':'东',x+r+11,y+4);ctx.restore();
   }
   function drawLandformLabels(w,h){
     const a=objects.mountainA,b=objects.mountainB;
     const saddle={x:(a.x+b.x)/2*w,y:((a.y+b.y)/2+.045)*h};ctx.save();
     ctx.strokeStyle='rgba(91,79,55,.7)';ctx.lineWidth=1;
-    for(const [key,name] of [['mountainBack','靠山主脊'],['mountainA','白虎山脊'],['mountainB','青龙山脊']]){
+    for(const [key,name] of EN?[['mountainBack','backing ridge'],['mountainA','White Tiger ridge'],['mountainB','Azure Dragon ridge']]:[['mountainBack','靠山主脊'],['mountainA','白虎山脊'],['mountainB','青龙山脊']]){
       const m=objects[key],d=ridgeVectors[key].main,tail={x:(m.x+d.x*.20)*w,y:(m.y+d.y*.20)*h};
       ctx.beginPath();ctx.moveTo(tail.x,tail.y);ctx.lineTo((m.x+d.x*.12)*w,(m.y+d.y*.12)*h);ctx.stroke();
       terrainLabel(name,clamp(tail.x-28,8,w-92),clamp(tail.y-8,24,h-28),'#66563b');
     }
     const southeast=ridgeVectors.mountainA.southeast,seTail={x:(a.x+southeast.x*.22)*w,y:(a.y+southeast.y*.22)*h};
     ctx.beginPath();ctx.moveTo(seTail.x,seTail.y);ctx.lineTo((a.x+southeast.x*.14)*w,(a.y+southeast.y*.14)*h);ctx.stroke();
-    terrainLabel('东南支脉',clamp(seTail.x-8,8,w-102),clamp(seTail.y+24,24,h-28),'#66563b');
-    ctx.beginPath();ctx.moveTo(saddle.x+8,saddle.y+12);ctx.lineTo(saddle.x+30,saddle.y+38);ctx.stroke();terrainLabel('鞍部 · 谷口',clamp(saddle.x+28,8,w-118),clamp(saddle.y+50,24,h-28),'#53624d');ctx.restore();
+    terrainLabel(EN?'southeast spur':'东南支脉',clamp(seTail.x-8,8,w-102),clamp(seTail.y+24,24,h-28),'#66563b');
+    ctx.beginPath();ctx.moveTo(saddle.x+8,saddle.y+12);ctx.lineTo(saddle.x+30,saddle.y+38);ctx.stroke();terrainLabel(EN?'saddle · valley mouth':'鞍部 · 谷口',clamp(saddle.x+28,8,w-118),clamp(saddle.y+50,24,h-28),'#53624d');ctx.restore();
   }
   function windColor(speed,alpha=1){
     const t=clamp(speed/1.05,0,1);
@@ -260,9 +261,9 @@
     ['mountainBack','mountainA','mountainB','tree','house'].forEach(k=>{const o=objects[k],p=pos(o,w,h),dx=p.x-sx,dy=p.y-sy,len=Math.hypot(dx,dy)||1;ctx.fillStyle='rgba(27,43,47,.2)';ctx.beginPath();ctx.moveTo(p.x-12,p.y);ctx.lineTo(p.x+12,p.y);ctx.lineTo(p.x+dx/len*(55+o.size*50),p.y+dy/len*(55+o.size*50));ctx.closePath();ctx.fill()})
   }
   function drawRefuge(w,h){
-    const hse=objects.house,p=pos(hse,w,h),a=state.orientation*Math.PI/180,screen=a-Math.PI/2;ctx.fillStyle='rgba(224,174,88,.16)';ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.arc(p.x,p.y,190,screen-.48,screen+.48);ctx.closePath();ctx.fill();ctx.strokeStyle='rgba(174,59,45,.55)';ctx.setLineDash([7,7]);ctx.beginPath();ctx.arc(p.x,p.y,105,screen+Math.PI-.7,screen+Math.PI+.7);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=palette.red;ctx.font='13px "Ouyang Xun"';ctx.fillText('望',p.x+Math.sin(a)*125,p.y-Math.cos(a)*125);ctx.fillText('靠',p.x-Math.sin(a)*95,p.y+Math.cos(a)*95)
+    const hse=objects.house,p=pos(hse,w,h),a=state.orientation*Math.PI/180,screen=a-Math.PI/2;ctx.fillStyle='rgba(224,174,88,.16)';ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.arc(p.x,p.y,190,screen-.48,screen+.48);ctx.closePath();ctx.fill();ctx.strokeStyle='rgba(174,59,45,.55)';ctx.setLineDash([7,7]);ctx.beginPath();ctx.arc(p.x,p.y,105,screen+Math.PI-.7,screen+Math.PI+.7);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=palette.red;ctx.font='13px "Ouyang Xun"';ctx.fillText(EN?'view':'望',p.x+Math.sin(a)*125,p.y-Math.cos(a)*125);ctx.fillText(EN?'cover':'靠',p.x-Math.sin(a)*95,p.y+Math.cos(a)*95)
   }
-  function drawPond(o,w,h){const p=pos(o,w,h),rx=42+o.size*35,ry=18+o.size*13;ctx.fillStyle='rgba(55,119,143,.62)';ctx.beginPath();ctx.ellipse(p.x,p.y,rx,ry,-.08,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(225,237,231,.5)';for(let i=-1;i<=1;i++){ctx.beginPath();ctx.arc(p.x+i*17,p.y+i*2,13,0,Math.PI);ctx.stroke()}ctx.fillStyle='#e8e0d0';ctx.font='18px "Ouyang Xun"';ctx.fillText('水',p.x-9,p.y+6)}
+  function drawPond(o,w,h){const p=pos(o,w,h),rx=42+o.size*35,ry=18+o.size*13;ctx.fillStyle='rgba(55,119,143,.62)';ctx.beginPath();ctx.ellipse(p.x,p.y,rx,ry,-.08,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(225,237,231,.5)';for(let i=-1;i<=1;i++){ctx.beginPath();ctx.arc(p.x+i*17,p.y+i*2,13,0,Math.PI);ctx.stroke()}ctx.fillStyle='#e8e0d0';ctx.font='18px "Ouyang Xun"';ctx.fillText(EN?'water':'水',p.x-(EN?20:9),p.y+6)}
   function drawMountain(o,w,h,selected){
     const p=pos(o,w,h),s=55+o.size*65;ctx.save();ctx.translate(p.x,p.y);
     const wash=ctx.createLinearGradient(0,-s*.9,0,s*.48);wash.addColorStop(0,selected?'#7f765c':'#71806d');wash.addColorStop(.55,selected?'#686650':'#52695d');wash.addColorStop(1,'rgba(52,76,69,.82)');
@@ -288,7 +289,7 @@
     ctx.beginPath();ctx.moveTo(-s*.72,-s*.58);ctx.lineTo(-s*.42,-s*.3);ctx.lineTo(-s*.42,s*.3);ctx.lineTo(-s*.72,s*.58);ctx.closePath();ctx.fill();
     ctx.beginPath();ctx.moveTo(s*.72,-s*.58);ctx.lineTo(s*.42,-s*.3);ctx.lineTo(s*.42,s*.3);ctx.lineTo(s*.72,s*.58);ctx.closePath();ctx.fill();
     ctx.strokeStyle='rgba(222,211,184,.36)';ctx.lineWidth=.8;for(let i=-4;i<=4;i++){ctx.beginPath();ctx.moveTo(i*s*.13,-s*.56);ctx.lineTo(i*s*.11,-s*.27);ctx.moveTo(i*s*.13,s*.56);ctx.lineTo(i*s*.11,s*.31);ctx.stroke()}
-    ctx.fillStyle='#a83f31';ctx.fillRect(-s*.12,s*.47,s*.24,s*.13);ctx.fillStyle='#efe5cf';ctx.font='17px "Ouyang Xun"';ctx.textAlign='center';ctx.fillText('院',0,s*.08);
+    ctx.fillStyle='#a83f31';ctx.fillRect(-s*.12,s*.47,s*.24,s*.13);ctx.fillStyle='#efe5cf';ctx.font='17px "Ouyang Xun"';ctx.textAlign='center';ctx.fillText(EN?'court':'院',0,s*.08);
     if(selected){ctx.strokeStyle='#d1a050';ctx.lineWidth=2.2;ctx.strokeRect(-s*.78,-s*.64,s*1.56,s*1.28)}
     ctx.strokeStyle='#d5a64f';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(0,s*.66);ctx.lineTo(0,s*.93);ctx.stroke();ctx.beginPath();ctx.moveTo(0,s*.93);ctx.lineTo(-6,s*.82);ctx.moveTo(0,s*.93);ctx.lineTo(6,s*.82);ctx.stroke();ctx.restore();
   }
@@ -302,14 +303,14 @@
     for(const [k,v] of [['wind',m.windScore],['drain',m.drainScore],['sun',m.sunScore],['refuge',m.refugeScore]]){els(`${k}-score`).textContent=Math.round(v);els(`${k}-bar`).style.width=`${v}%`}
     els('qi-score').textContent=m.qi;
     els('terrain-state').textContent=m.terrain.label;
-    let text='这处布局在四个指标之间取得了较平衡的结果。';
-    if(m.terrain.key==='valley'&&m.drainScore<65)text='房子落在山谷汇水线上；雨水会沿蓝色虚线向低处集中。';
-    else if(m.windScore<45)text=m.localWind>.55?'来风过强：把房子移到山或树的背风侧。':'这里太静：过度遮挡也会形成弱风区。';
-    else if(m.drainScore<45)text='房子靠近低洼汇水处；下雨时积水风险上升。';
-    else if(m.sunScore<45)text='树影或朝向挡住了此刻的日照。';else if(m.refugeScore<45)text='背后较空或前方被挡，庇护与眺望都不足。';
+    let text=EN?'This layout reaches a workable balance among the four measures.':'这处布局在四个指标之间取得了较平衡的结果。';
+    if(m.terrain.key==='valley'&&m.drainScore<65)text=EN?'The house lies on a valley drainage line; rain concentrates along the blue dashed path.':'房子落在山谷汇水线上；雨水会沿蓝色虚线向低处集中。';
+    else if(m.windScore<45)text=m.localWind>.55?(EN?'Wind is too strong: move the house into the lee of a ridge or tree.':'来风过强：把房子移到山或树的背风侧。'):(EN?'This point is too still: excessive shelter can also create weak-air zones.':'这里太静：过度遮挡也会形成弱风区。');
+    else if(m.drainScore<45)text=EN?'The house is near a low collecting area; ponding risk rises in rain.':'房子靠近低洼汇水处；下雨时积水风险上升。';
+    else if(m.sunScore<45)text=EN?'Tree shade or orientation blocks the sun at this hour.':'树影或朝向挡住了此刻的日照。';else if(m.refugeScore<45)text=EN?'The rear is exposed or the view ahead is blocked; both refuge and prospect are weak.':'背后较空或前方被挡，庇护与眺望都不足。';
     els('discovery').textContent=text;
   }
-  function setLayer(layer){state.layer=layer;document.querySelectorAll('[data-layer]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.layer===layer));const info={wind:['风从西北来','箭头指向是风向，长度与颜色表示风速；山与树会让气流绕行。'],rain:['雨落在起伏的地面','水沿坡势汇流；低处、近水处更容易出现积水。'],sun:['太阳从东到西','拖动时刻，看树影与房屋朝向如何改变受光。'],refuge:['站在房前看出去','金色是前方视野，朱色虚线是后方需要遮护的位置。'],all:['把四层叠在一起','环境舒适度把四项相对指标合并，仅用于比较布局。']}[layer];els('layer-title').textContent=info[0];els('layer-caption').textContent=info[1];els('legend').style.display=layer==='wind'||layer==='all'?'flex':'none'}
+  function setLayer(layer){state.layer=layer;document.querySelectorAll('[data-layer]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.layer===layer));const info=(EN?{wind:['Wind from the northwest','Arrow direction shows flow; length and color show speed. Ridges and trees deflect the air.'],rain:['Rain on uneven ground','Water follows slope; low ground and water edges collect more runoff.'],sun:['Sun from east to west','Move the hour to see how shade and orientation change exposure.'],refuge:['Looking out from the house','Gold shows prospect; the red dashed arc marks where rear cover is needed.'],all:['All four layers','The comfort score combines four relative measures only for comparing layouts.']}:{wind:['风从西北来','箭头指向是风向，长度与颜色表示风速；山与树会让气流绕行。'],rain:['雨落在起伏的地面','水沿坡势汇流；低处、近水处更容易出现积水。'],sun:['太阳从东到西','拖动时刻，看树影与房屋朝向如何改变受光。'],refuge:['站在房前看出去','金色是前方视野，朱色虚线是后方需要遮护的位置。'],all:['把四层叠在一起','环境舒适度把四项相对指标合并，仅用于比较布局。']})[layer];els('layer-title').textContent=info[0];els('layer-caption').textContent=info[1];els('legend').style.display=layer==='wind'||layer==='all'?'flex':'none'}
   function selectObject(k){state.selected=k;document.querySelectorAll('[data-object]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.object===k));els('selected-name').textContent=labels[k];els('selected-hint').textContent=hints[k];els('orientation-control').hidden=k!=='house';els('height-control').hidden=!k.startsWith('mountain');els('size-control').hidden=k!=='tree';if(k.startsWith('mountain')){els('height').value=Math.round(objects[k].size*100);els('height-value').textContent=`${Math.round(objects[k].size*100)}%`}if(k==='tree'){els('size').value=Math.round(objects.tree.size*100);els('size-value').textContent=`${Math.round(objects.tree.size*100)}%`}}
   function pointerPoint(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)/r.width,y:(e.clientY-r.top)/r.height}}
   function hit(p){let best=null,bd=1;for(const k of ['house','tree','pond','mountainB','mountainA','mountainBack']){const d=dist(p,objects[k]);const r=k.startsWith('mountain')?.12:k==='pond'?.1:.075;if(d<r&&d<bd){best=k;bd=d}}return best}
@@ -320,12 +321,12 @@
   document.querySelectorAll('[data-layer]').forEach(b=>b.addEventListener('click',()=>setLayer(b.dataset.layer)));
   document.querySelectorAll('[data-object]').forEach(b=>b.addEventListener('click',()=>selectObject(b.dataset.object)));
   document.querySelectorAll('[data-jump]').forEach(b=>b.addEventListener('click',()=>{setLayer(b.dataset.jump);document.querySelector('#village').scrollIntoView({behavior:'smooth'})}));
-  els('orientation').addEventListener('input',e=>{state.orientation=+e.target.value;const dirs=['北','东北','东','东南','南','西南','西','西北'];els('orientation-value').textContent=dirs[Math.round(state.orientation/45)%8]});
+  els('orientation').addEventListener('input',e=>{state.orientation=+e.target.value;const dirs=EN?['north','northeast','east','southeast','south','southwest','west','northwest']:['北','东北','东','东南','南','西南','西','西北'];els('orientation-value').textContent=dirs[Math.round(state.orientation/45)%8]});
   els('height').addEventListener('input',e=>{const k=state.selected.startsWith('mountain')?state.selected:'mountainA';objects[k].size=e.target.value/100;els('height-value').textContent=`${e.target.value}%`});
   els('size').addEventListener('input',e=>{objects.tree.size=e.target.value/100;els('size-value').textContent=`${e.target.value}%`});
-  els('wind').addEventListener('input',e=>{state.wind=+e.target.value;els('wind-value').textContent=['','微','轻','中','强','疾'][state.wind]});
-  els('rain').addEventListener('input',e=>{state.rain=+e.target.value;els('rain-value').textContent=['无雨','小雨','阵雨','大雨','暴雨','特大'][state.rain]});
+  els('wind').addEventListener('input',e=>{state.wind=+e.target.value;els('wind-value').textContent=(EN?['','very light','light','medium','strong','gale']:['','微','轻','中','强','疾'])[state.wind]});
+  els('rain').addEventListener('input',e=>{state.rain=+e.target.value;els('rain-value').textContent=(EN?['none','light','shower','heavy','storm','extreme']:['无雨','小雨','阵雨','大雨','暴雨','特大'])[state.rain]});
   els('time').addEventListener('input',e=>{state.time=+e.target.value;const hr=Math.floor(state.time),min=Math.round((state.time-hr)*60);els('time-value').textContent=`${String(hr).padStart(2,'0')}:${String(min).padStart(2,'0')}`});
-  els('reset').addEventListener('click',()=>{for(const k in initial)Object.assign(objects[k],initial[k]);state.orientation=180;state.wind=3;state.rain=1;state.time=12;['orientation','wind','rain','time'].forEach(id=>els(id).value={orientation:180,wind:3,rain:1,time:12}[id]);els('orientation-value').textContent='南';els('wind-value').textContent='中';els('rain-value').textContent='小雨';els('time-value').textContent='12:00';selectObject('house');setLayer('wind')});
+  els('reset').addEventListener('click',()=>{for(const k in initial)Object.assign(objects[k],initial[k]);state.orientation=180;state.wind=3;state.rain=1;state.time=12;['orientation','wind','rain','time'].forEach(id=>els(id).value={orientation:180,wind:3,rain:1,time:12}[id]);els('orientation-value').textContent=EN?'south':'南';els('wind-value').textContent=EN?'medium':'中';els('rain-value').textContent=EN?'light':'小雨';els('time-value').textContent='12:00';selectObject('house');setLayer('wind')});
   window.addEventListener('resize',resize);resize();selectObject('house');setLayer('wind');requestAnimationFrame(draw);
 })();

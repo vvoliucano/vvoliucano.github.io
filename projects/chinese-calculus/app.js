@@ -5,6 +5,7 @@
   const $$ = (selector) => [...document.querySelectorAll(selector)];
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
   const PI = Math.PI;
+  const EN = document.documentElement.lang === "en";
 
   function prepareCanvas(canvas) {
     const rect = canvas.getBoundingClientRect();
@@ -59,12 +60,12 @@
           context.beginPath(); context.moveTo(centerX, centerY); context.lineTo(centerX + Math.cos(angle) * radius, centerY + Math.sin(angle) * radius); context.stroke();
         }
       }
-      context.fillStyle = "#efc77e"; context.font = "20px Ouyang, serif"; context.textAlign = "center"; context.fillText(`${sides} 觚`, centerX, centerY + 7);
+      context.fillStyle = "#efc77e"; context.font = "20px Ouyang, serif"; context.textAlign = "center"; context.fillText(EN ? `${sides} sides` : `${sides} 觚`, centerX, centerY + 7);
 
       const piApproximation = sides * Math.sin(PI / sides);
       const polygonArea = sides / 2 * Math.sin(PI * 2 / sides);
       const uncovered = (PI - polygonArea) / PI * 100;
-      $("#cut-sides").textContent = sides.toLocaleString("zh-CN");
+      $("#cut-sides").textContent = sides.toLocaleString(EN ? "en-US" : "zh-CN");
       $("#cut-pi").textContent = piApproximation.toFixed(6);
       $("#cut-gap").textContent = `${uncovered.toFixed(level > 5 ? 5 : 3)}%`;
     };
@@ -91,7 +92,9 @@
       $("#upper-value").textContent = upper.toFixed(7);
       $("#interval-value").textContent = interval.toExponential(level > 5 ? 2 : 3);
       $("#error-bar").style.transform = `scaleX(${Math.max(interval / initialWidth, .0015)})`;
-      $("#approach-discovery").textContent = level < 3 ? `正 ${sides} 边形：π 仍被一段可见区间夹住。` : level < 7 ? `边数增至 ${sides}：区间缩短到初始的 ${(interval / initialWidth * 100).toFixed(2)}%。` : `区间只剩 ${interval.toExponential(2)}：目标没有移动，误差正在消失。`;
+      $("#approach-discovery").textContent = EN
+        ? (level < 3 ? `Regular ${sides}-gon: π remains inside a visible interval.` : level < 7 ? `${sides} sides: the interval is ${(interval / initialWidth * 100).toFixed(2)}% of its initial width.` : `Only ${interval.toExponential(2)} remains: the target has not moved; the error is disappearing.`)
+        : (level < 3 ? `正 ${sides} 边形：π 仍被一段可见区间夹住。` : level < 7 ? `边数增至 ${sides}：区间缩短到初始的 ${(interval / initialWidth * 100).toFixed(2)}%。` : `区间只剩 ${interval.toExponential(2)}：目标没有移动，误差正在消失。`);
     };
     slider.addEventListener("input", update);
     update();
@@ -122,7 +125,7 @@
       context.restore();
       context.beginPath(); context.arc(centerX, centerY, radius, 0, PI * 2); context.strokeStyle = "#263b44"; context.lineWidth = 1.3; context.stroke();
       context.strokeStyle = "rgba(23,35,43,.24)"; context.setLineDash([4, 5]); context.beginPath(); context.moveTo(centerX - radius - 14, centerY); context.lineTo(centerX + radius + 14, centerY); context.stroke(); context.setLineDash([]);
-      context.fillStyle = "#5f6e72"; context.font = "12px Songti SC, serif"; context.textAlign = "center"; context.fillText("球体横截", centerX, centerY + radius + 28);
+      context.fillStyle = "#5f6e72"; context.font = "12px Songti SC, serif"; context.textAlign = "center"; context.fillText(EN ? "sphere cross-section" : "球体横截", centerX, centerY + radius + 28);
 
       const stackX = mobile ? width / 2 : width * .75;
       const stackBaseY = mobile ? height * .87 : height * .78;
@@ -137,7 +140,7 @@
         context.fillStyle = index % 2 ? "rgba(67,108,120,.3)" : "rgba(169,56,45,.27)"; context.fill();
         context.strokeStyle = index % 2 ? "rgba(67,108,120,.55)" : "rgba(169,56,45,.5)"; context.lineWidth = .7; context.stroke();
       }
-      context.fillStyle = "#5f6e72"; context.fillText(slices > visualSlices ? `薄片累积 · 示意 ${visualSlices}/${slices} 层` : "薄片累积", stackX, stackBaseY + 30);
+      context.fillStyle = "#5f6e72"; context.fillText(EN ? (slices > visualSlices ? `slice stack · showing ${visualSlices}/${slices}` : "slice stack") : (slices > visualSlices ? `薄片累积 · 示意 ${visualSlices}/${slices} 层` : "薄片累积"), stackX, stackBaseY + 30);
 
       const thickness = 2 / slices;
       let approximation = 0;

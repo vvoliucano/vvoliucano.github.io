@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An interactive study of change, polarity, timing, position, the six lines of Qian, and the 64 hexagrams.">
+  <meta name="theme-color" content="#14242a">
+  <title>Time and Position | First Principles of the I Ching</title>
+  <link rel="stylesheet" href="styles.css?v=20260723-2">
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../heritage/"><span>易</span><b>Time and Position</b></a>
+    <nav aria-label="Sections"><a href="#change">Change</a><a href="#timing">Time</a><a href="#position">Position</a><a href="#qian">Qian</a><a href="#hexagrams">Hexagrams</a></nav>
+    <a class="home" href="index.html" lang="zh-CN">中文 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">The I Ching does not begin with fortune</p>
+        <h1>At an impasse, change;<br><em>through change, passage.</em></h1>
+        <blockquote><span lang="zh-Hans">“穷则变，变则通，通则久。”</span><cite><i>Xici II</i>: “At an impasse, things change; through change they find passage; with passage they endure.”</cite></blockquote>
+        <p>A situation cannot be judged outside the process that formed it. What time is it? What position do you occupy? Discern time and place before deciding whether to advance or withdraw.</p>
+        <a class="start" href="#change">Set change in motion <span>↓</span></a>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        <div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div><div class="hero-yang">yang</div><div class="hero-yin">yin</div>
+        <div class="hero-center"><b>易</b><span>time × position</span></div><i class="orbit-mark m1"></i><i class="orbit-mark m2"></i><i class="orbit-mark m3"></i><i class="orbit-mark m4"></i>
+      </div>
+      <p class="hero-aside">Sun departs, moon comes<br>moon departs, sun comes<br>cold departs, heat comes<br>heat departs, cold comes</p>
+    </section>
+
+    <section class="thesis" aria-label="Central proposition"><span>The world is not a fixed object</span><b>Everything exists in change</b><span>Judgment requires time and position</span></section>
+
+    <section id="change" class="chapter cycle-section" aria-labelledby="change-title">
+      <div class="chapter-head"><p class="chapter-no">I · Yin and yang</p><h2 id="change-title">Not good and bad—<em>alternation.</em></h2><p>Yin and yang are not moral labels. They describe night and day, contraction and expansion, rest and exertion. Drag through one day: each phase has its place.</p></div>
+      <div class="cycle-lab">
+        <div class="sky" id="sky" role="img" aria-label="Day and night changing with time"><div class="celestial sun" id="sun">sun</div><div class="celestial moon" id="moon">moon</div><div class="horizon"></div><div class="mountain mountain-left"></div><div class="mountain mountain-right"></div><div class="cycle-readout"><span id="time-name">dawn</span><strong id="time-clock">06:00</strong></div></div>
+        <div class="range-wrap"><span>midnight</span><label for="day-slider">Move through a day</label><span>midnight</span><input id="day-slider" type="range" min="0" max="100" value="25" aria-describedby="yin-yang-reading"></div>
+        <div class="opposite-strip" id="yin-yang-reading"><span>yin <b id="yin-value">50</b></span><i><b id="balance-bar"></b></i><span>yang <b id="yang-value">50</b></span></div>
+        <div class="pairs" aria-label="Complementary pairs"><span>night ↔ day</span><span>contract ↔ expand</span><span>rest ↔ grow</span><span>slow ↔ accelerate</span></div>
+      </div>
+    </section>
+
+    <section id="life" class="chapter life-section" aria-labelledby="life-title">
+      <div class="chapter-head"><p class="chapter-no">II · Tendency</p><h2 id="life-title">Change has direction; <em>rise and decline have their time.</em></h2><p>A seed does not become a tree in one step. Germination, growth, fullness, decline, and renewal form a continuous process. Move time forward and watch the turn at the height of growth.</p></div>
+      <div class="curve-lab">
+        <div class="curve-status"><span id="life-glyph" aria-hidden="true">芽</span><div><small>Now</small><strong id="life-stage">Germination</strong><p id="life-note">Stored energy begins to become growth.</p></div></div>
+        <canvas id="life-canvas" role="img" aria-label="A life-cycle curve from seed and growth through fullness, decline, and renewal"></canvas>
+        <div class="range-wrap"><span>seed</span><label for="life-slider">Move time</label><span>renewal</span><input id="life-slider" type="range" min="0" max="100" value="16"></div>
+        <div class="life-labels" aria-hidden="true"><span>latent</span><span>germinate</span><span>grow</span><span>fullness</span><span>decline</span><span>return</span></div>
+      </div>
+    </section>
+
+    <section id="timing" class="chapter timing-section" aria-labelledby="timing-title">
+      <div class="chapter-head compact"><p class="chapter-no">III · Right time</p><h2 id="timing-title">The same act, <em>a different meaning at a different time.</em></h2><p>Following the time is not passive waiting. Conditions have an order. Choose a season, then decide what should be done.</p></div>
+      <div class="season-game">
+        <div class="season-visual" id="season-visual" data-season="winter"><span id="season-mark">winter</span><div class="season-tree" aria-hidden="true"><i></i><b></b><em></em></div><p id="season-line">Water withdraws; living things conserve.</p></div>
+        <div class="season-control"><p>What time is it?</p><div class="season-tabs" role="group" aria-label="Choose a season"><button data-season="spring">spring</button><button data-season="summer">summer</button><button data-season="autumn">autumn</button><button data-season="winter" aria-pressed="true">winter</button></div><p>What should be done now?</p><div class="action-list" role="group" aria-label="Choose an action"><button data-action="sow">sow</button><button data-action="weed">weed</button><button data-action="harvest">harvest</button><button data-action="prune">prune and conserve</button></div><div class="game-answer" id="season-answer" aria-live="polite"><b>Choose an action</b><span>Ability has not changed; conditions have.</span></div></div>
+      </div>
+    </section>
+
+    <section id="position" class="chapter position-section" aria-labelledby="position-title">
+      <div class="chapter-head"><p class="chapter-no">IV · Right position</p><h2 id="position-title">The person may not be wrong; <em>the position may be.</em></h2><p>The same capacity produces different results at different stages. Drag a role onto a stage, or select a role and then a position.</p></div>
+      <div class="position-lab">
+        <div class="roles" aria-label="Roles to place"><button class="role" draggable="true" data-role="pioneer"><i>拓</i><b>Pioneer</b><span>finds direction amid uncertainty</span></button><button class="role" draggable="true" data-role="builder"><i>营</i><b>Builder</b><span>turns opportunity into scale</span></button><button class="role" draggable="true" data-role="steward"><i>治</i><b>Steward</b><span>stabilizes a complex system</span></button><button class="role" draggable="true" data-role="mentor"><i>传</i><b>Mentor</b><span>makes knowledge outlast a person</span></button></div>
+        <div class="stage-track" aria-label="Stages of development"><button class="stage-slot" data-stage="start"><span>Beginning</span><small>direction unsettled</small></button><button class="stage-slot" data-stage="grow"><span>Expansion</span><small>rapid growth</small></button><button class="stage-slot" data-stage="mature"><span>Maturity</span><small>system complexity</small></button><button class="stage-slot" data-stage="renew"><span>Succession</span><small>old and new exchange</small></button></div>
+        <div class="position-answer" id="position-answer" aria-live="polite"><span>time × position</span><strong>Place one role in one stage</strong><p>“Right position” does not rank people. It asks whether capacity and circumstance fit.</p></div>
+      </div>
+    </section>
+
+    <section id="qian" class="chapter qian-section" aria-labelledby="qian-title">
+      <div class="chapter-head"><p class="chapter-no">V · Six lines of Qian</p><h2 id="qian-title">The dragon is <em>a curve of development.</em></h2><p>From latency, appearance, and disciplined effort to testing, flight, and knowing when to withdraw. Move through six lines and see why the same dragon acts differently at each stage.</p></div>
+      <div class="dragon-lab">
+        <div class="dragon-path" id="dragon-path" aria-hidden="true"><div class="dragon">龍</div><i></i></div>
+        <ol class="yao-list" id="yao-list"><li data-line="1" class="active"><span>First Nine</span><b>Hidden dragon. Do not act.</b><small>latent · conserve</small></li><li data-line="2"><span>Nine in the Second</span><b>Dragon appearing in the field.</b><small>appear · enter relation</small></li><li data-line="3"><span>Nine in the Third</span><b>Active through the day.</b><small>repeat · refine</small></li><li data-line="4"><span>Nine in the Fourth</span><b>Perhaps leaping from the depths.</b><small>test · transition</small></li><li data-line="5"><span>Nine in the Fifth</span><b>Flying dragon in the heavens.</b><small>right time · right place</small></li><li data-line="6"><span>Top Nine</span><b>Overreaching dragon has regret.</b><small>fullness · know retreat</small></li></ol>
+        <div class="range-wrap"><span>hidden</span><label for="dragon-slider">Move to line <output id="dragon-line">one</output></label><span>overreach</span><input id="dragon-slider" type="range" min="1" max="6" value="1"></div>
+        <p class="dragon-reading" id="dragon-reading">The time to act has not arrived. Preserve strength. This is not incapacity; time and position are not yet ready.</p>
+      </div>
+    </section>
+
+    <section id="hexagrams" class="chapter hexagram-section" aria-labelledby="hexagram-title">
+      <div class="chapter-head"><p class="chapter-no">VI · Doubled trigrams</p><h2 id="hexagram-title">Sixty-four hexagrams <em>grow from six lines.</em></h2><p>Three lines form a trigram; two trigrams make sixty-four states. Choose upper and lower trigrams, or click any line to change it.</p></div>
+      <div class="hex-lab"><div class="trigram-pickers"><div><span>Upper trigram</span><div class="trigram-buttons" id="upper-pickers"></div></div><div><span>Lower trigram</span><div class="trigram-buttons" id="lower-pickers"></div></div></div><div class="hex-stage"><div class="hex-lines" id="hex-lines" aria-label="Click any line to change yin and yang"></div><div class="hex-reading"><small id="hex-structure">Qian above · Qian below</small><strong id="hex-name">乾</strong><p id="hex-image">Heaven moves with vigor. Six yang lines describe sustained initiative.</p></div></div><p class="hex-hint">A solid line is yang; a broken line is yin. Change one line and the relation described by the whole figure changes.</p></div>
+    </section>
+
+    <section id="essence" class="essence" aria-labelledby="essence-title">
+      <div class="essence-head"><p class="chapter-no">VII · First principles</p><h2 id="essence-title">The I Ching studies <em>judgment within change.</em></h2><p>It does not fix a person or situation in place. It asks: how is this changing, what stage has arrived, what position do you occupy, and should you advance, hold, or withdraw?</p></div>
+      <div class="formula"><span>judgment</span><strong>time <i>×</i> position</strong><span>becomes meaningful</span></div>
+      <div class="principle-grid"><article><span>I</span><small>CHANGE</small><h3>The world changes</h3><p>A thing is not a fixed label but a temporary state in a process.</p></article><article><span>II</span><small>RELATION</small><h3>Yin and yang co-arise</h3><p>Opposing forces condition one another; their relation matters more than praise or blame.</p></article><article><span>III</span><small>TIMING</small><h3>Action has its time</h3><p>The same act at another stage may produce the opposite result.</p></article><article><span>IV</span><small>FIT</small><h3>Position must fit</h3><p>Capacity works when responsibility and circumstance are proportionate.</p></article></div>
+      <blockquote><span lang="zh-Hans">时止则止，时行则行。</span><cite><i>Tuan</i> commentary to Gen: “Stop when it is time to stop; act when it is time to act.”</cite></blockquote>
+    </section>
+    <section class="sources" aria-labelledby="source-title"><p class="chapter-no">VIII · Text</p><h2 id="source-title">Return to the I Ching.</h2><div class="source-grid"><article><b>生生之谓易</b><span>“Continuous generation is called change.” · <i>Xici I</i></span></article><article><b>一阴一阳之谓道</b><span>“One yin, one yang: this is called the Way.” · <i>Xici I</i></span></article><article><b>穷则变，变则通，通则久</b><span>“At an impasse, change; through change, passage; through passage, endurance.” · <i>Xici II</i></span></article><article><b>时止则止，时行则行</b><span>“Stop when it is time to stop; act when it is time to act.” · Gen</span></article></div></section>
+    <section class="last-word" aria-label="Closing"><p>Know the time. Know the place. Know when to advance or withdraw.</p></section>
+  </main>
+  <footer><b>Time and Position</b><span>Discern measure within change.</span><a href="#change">Begin again ↑</a><div class="visitor-map" aria-label="Visitor map"><script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=fefefe&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=8b0801&cmo=7088ff"></script></div></footer>
+  <script src="app.js?v=20260729-1"></script>
+</body>
+</html>

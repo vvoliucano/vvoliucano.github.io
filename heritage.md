@@ -384,20 +384,23 @@ class: heritage-page
       <div class="heritage-card-head"><span class="heritage-number">III</span><span class="heritage-seal" aria-hidden="true">技</span></div>
       <h2>Science and Technology in Ancient China</h2>
       <p class="heritage-card-subtitle">Mathematics, architecture, measure, and making</p>
-      <p class="heritage-card-copy">Science and technology in ancient China joined calculation to administration and making. Mathematical procedures addressed fields, exchange, taxation, construction, and astronomy; architectural systems turned measure into timber frames, modular proportion, and spatial order.</p>
-      <p class="heritage-note">This section begins with classical Chinese mathematics and architecture. The collections are in preparation.</p>
+      <p class="heritage-card-copy">Science and technology in ancient China joined calculation to administration and making. These interactives let procedures unfold under the hand: eliminate coefficients, divide a circle, accumulate slices, and place a settlement within wind, water, and terrain.</p>
+      <div class="heritage-actions">
+        <a class="heritage-link" href="{{ '/projects/chinese-mathematics/en.html' | relative_url }}">Before <i>x</i> Was Written <span aria-hidden="true">→</span></a>
+        <a class="heritage-link" href="{{ '/projects/chinese-calculus/en.html' | relative_url }}">Cut Again and Again <span aria-hidden="true">→</span></a>
+        <a class="heritage-link" href="{{ '/projects/fengshui/en.html' | relative_url }}">Holding Wind, Gathering Qi <span aria-hidden="true">→</span></a>
+      </div>
     </article>
 
     <article class="heritage-card">
       <div class="heritage-card-head"><span class="heritage-number">IV</span><span class="heritage-seal" aria-hidden="true">象</span></div>
       <h2>Xiangshu</h2>
       <p class="heritage-card-subtitle">Pattern and number as a language of change</p>
-      <p class="heritage-card-copy"><em>Xiang</em>—image or pattern—and <em>shu</em>—number—relate time, position, and transformation. The tools here make stems and branches, calendrical cycles, lines, and hexagrams available for study as historical systems of reasoning and reflection.</p>
+      <p class="heritage-card-copy"><em>Xiang</em>—image or pattern—and <em>shu</em>—number—relate time, position, and transformation. Follow the Sun and Moon through a lunisolar year, then enter the <em>I Ching</em> through change, timing, position, lines, and hexagrams.</p>
       <div class="heritage-actions">
-        <a class="heritage-link" href="{{ '/projects/bazi/' | relative_url }}">Four Pillars <span aria-hidden="true">→</span></a>
-        <a class="heritage-link" href="{{ '/projects/liuyao/' | relative_url }}">Six Lines <span aria-hidden="true">→</span></a>
+        <a class="heritage-link" href="{{ '/projects/chinese-calendar/en.html' | relative_url }}">Observing Heaven, Keeping Time <span aria-hidden="true">→</span></a>
+        <a class="heritage-link" href="{{ '/projects/yijing/en.html' | relative_url }}">Time and Position: The <i>I Ching</i> <span aria-hidden="true">→</span></a>
       </div>
-      <p class="heritage-note">For cultural study and self-reflection only. It is not advice for real-world decisions.</p>
     </article>
   </section>
 
