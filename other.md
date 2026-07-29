@@ -568,6 +568,7 @@ class: culture-page
       </details>
       <div class="culture-actions">
         <a class="culture-link" href="{{ '/projects/hanzi658/overview.html' | relative_url }}">书同文：658 字之间 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/doraemon-laozhuang/' | relative_url }}">多啦A梦谈老庄 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 
