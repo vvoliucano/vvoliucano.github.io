@@ -66,6 +66,10 @@ h1 em{color:var(--blue);font-style:normal}
 .comic{margin:30px 0 0}
 .comic img{display:block;width:100%;height:auto;object-fit:contain;border:1px solid var(--line);box-shadow:0 24px 70px rgba(25,42,52,.12)}
 .comic figcaption{margin-top:12px;color:#7a898f;font-size:12px;text-align:center}
+.comic-series{display:grid;gap:54px;margin-top:34px}
+.comic-series figure{width:min(760px,100%);margin:0 auto}
+.comic-series img{display:block;width:100%;height:auto;object-fit:contain;border:1px solid var(--line);background:#efe5ce;box-shadow:0 24px 70px rgba(25,42,52,.12)}
+.comic-series figcaption{margin-top:13px;color:#74838a;font-size:13px;line-height:1.7;text-align:center}
 .lab{display:grid;margin-top:34px;padding:30px;grid-template-columns:1fr 1fr;gap:32px;border:1px solid var(--line);background:rgba(255,255,255,.44)}
 .lab label{display:flex;justify-content:space-between;margin-bottom:18px;color:#56666d}
 .lab input{width:100%;accent-color:var(--blue)}

@@ -603,6 +603,7 @@ class: culture-page
       <div class="culture-actions">
         <a class="culture-link" href="{{ '/projects/chinese-mathematics/' | relative_url }}">未曾写下 x：中国古代的方程思想 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/chinese-calculus/' | relative_url }}">割之又割：中国古代的微积分思想 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/chinese-coordinates/' | relative_url }}">经天纬地：中国古代怎样定位世界 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/fengshui/' | relative_url }}">藏风聚气：风水的现代环境解释 <span aria-hidden="true">→</span></a>
       </div>
     </article>

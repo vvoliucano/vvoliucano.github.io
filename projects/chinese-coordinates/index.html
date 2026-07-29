@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="从四方、二十四山到制图六体与子午线实测，交互理解中国古代怎样定位世界。">
+  <meta name="theme-color" content="#102932">
+  <title>经天纬地｜中国古代怎样定位世界</title>
+  <link rel="stylesheet" href="styles.css?v=20260729-1">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","UA-146429859-1");</script>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../other/"><span>方</span><b>经天纬地</b></a>
+    <nav><a href="#direction">方</a><a href="#sky">天</a><a href="#grid">格</a><a href="#map">图</a><a href="#earth">地</a></nav>
+    <a class="home" href="../../other/">华夏专区 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">不用 GPS，怎样说清“我在哪里”？</p>
+        <h1>经天，<br><em>纬地。</em></h1>
+        <p>现代坐标用两三个数字定位一点。古人面对方向、天空、山川、建筑与身体，却选择了另一条路：针对不同问题，建立不同的参照系。</p>
+        <a href="#direction">先定一方 <span>↓</span></a>
+      </div>
+      <div class="hero-coordinate" aria-label="多层坐标叠加示意"><div class="hero-rings"></div><i>北</i><b>中</b><span>子</span><span>午</span><span>卯</span><span>酉</span></div>
+    </section>
+
+    <section class="thesis"><span>不是一张万能网格</span><strong>而是一组因事而设的坐标</strong><span>方向 · 天文 · 地理 · 建筑 · 人体</span></section>
+
+    <section id="direction" class="chapter paper">
+      <div class="intro"><p>壹 · 方向坐标</p><h2>先问：<em>朝哪一方？</em></h2><span>拖动角度，看 360° 怎样被离散成二十四山。</span></div>
+      <div class="stage compass-stage">
+        <div class="compass" id="compass" aria-label="二十四山罗盘"><div class="needle" id="needle"></div><b>中</b></div>
+        <div class="reading"><small>现代角度</small><strong id="degree">0°</strong><small>二十四山</small><strong id="mountain">子 · 北</strong><p id="direction-note">北方三山：壬、子、癸</p></div>
+        <label class="slider-label" for="direction-slider"><span>0°</span><b>转动罗盘</b><span>359°</span></label>
+        <input id="direction-slider" type="range" min="0" max="359" value="0" aria-label="转动二十四山罗盘">
+        <p class="discover">四方变八方，每一方再分三份：空间被切成二十四个方向区间。</p>
+      </div>
+    </section>
+
+    <section id="sky" class="chapter night">
+      <div class="intro"><p>贰 · 天文坐标</p><h2>天空在转，<br><em>哪里不动？</em></h2><span>拖动时辰。群星绕北天极旋转，中心几乎停在原处。</span></div>
+      <div class="stage sky-stage">
+        <canvas id="sky-canvas" width="900" height="560" aria-label="群星围绕北天极旋转"></canvas>
+        <label class="slider-label" for="sky-slider"><span>入夜</span><b id="sky-time">子时</b><span>将晓</span></label>
+        <input id="sky-slider" type="range" min="0" max="12" value="0" step=".02" aria-label="推动夜空旋转">
+        <p class="discover">严格说，北极星并不等于几何北天极；但寻找北天极附近的稳定参照，使夜间定向成为可能。</p>
+      </div>
+    </section>
+
+    <section id="grid" class="chapter paper">
+      <div class="intro"><p>叁 · 离散坐标</p><h2>不报数字，<br><em>报第几宫。</em></h2><span>点击九宫。位置不必写成连续坐标，也可以落进一个格。</span></div>
+      <div class="stage grid-stage">
+        <div class="loshu" id="loshu"><button data-n="4">四<small>东南</small></button><button data-n="9">九<small>南</small></button><button data-n="2">二<small>西南</small></button><button data-n="3">三<small>东</small></button><button data-n="5">五<small>中</small></button><button data-n="7">七<small>西</small></button><button data-n="8">八<small>东北</small></button><button data-n="1">一<small>北</small></button><button data-n="6">六<small>西北</small></button></div>
+        <div class="grid-reading"><small>当前格位</small><strong id="palace-name">五宫 · 中</strong><p>九宫更接近离散网格：它说明“在哪一格”，而不是给出无限精细的 x、y。</p></div>
+      </div>
+    </section>
+
+    <section id="layers" class="chapter dark">
+      <div class="intro"><p>肆 · 同一中心，多层信息</p><h2>罗盘，<br><em>不只一根针。</em></h2><span>切换图层，观察不同分类怎样围绕同一中心叠放。</span></div>
+      <div class="stage layer-stage">
+        <div class="layer-controls"><button class="active" data-layer="mountains">二十四山</button><button data-layer="trigrams">八卦</button><button data-layer="branches">地支</button><button data-layer="mansions">二十八宿</button></div>
+        <div class="database-disc"><div id="layer-ring"></div><b>一心</b></div>
+        <p id="layer-copy">把周天分成二十四个方向区间。</p>
+        <p class="discover">把它称作“古代 GIS”只能作为帮助理解的比喻：罗盘确实叠加多套分类，但它与现代数字地理数据库并非同一种技术体系。</p>
+      </div>
+    </section>
+
+    <section id="architecture" class="chapter paper">
+      <div class="intro"><p>伍 · 建筑坐标</p><h2>一座建筑，<br><em>先立柱网。</em></h2><span>改变“间”数。柱先成格，梁、门、窗与斗拱才有共同参照。</span></div>
+      <div class="stage bay-stage">
+        <div class="hall" id="hall"></div>
+        <label class="slider-label" for="bay-slider"><span>三间</span><b id="bay-count">五间</b><span>九间</span></label>
+        <input id="bay-slider" type="range" min="3" max="9" value="5" step="2" aria-label="改变建筑开间数">
+        <p class="discover">“间”首先是相邻柱列之间的空间单元，并不是一把固定长度的尺。</p>
+      </div>
+    </section>
+
+    <section id="body" class="chapter paper">
+      <div class="intro"><p>陆 · 相对坐标</p><h2>身体上的位置，<br><em>以谁为尺？</em></h2><span>不是统一的毫米，而是骨骼标志、上下前后与随身体而定的“寸”。</span></div>
+      <div class="stage body-stage"><div class="body-figure"><i class="head"></i><i class="torso"></i><i class="arm"></i><span>骨骼标志</span><b>一寸</b></div><div class="body-copy"><strong>参照点 + 方向 + 比例</strong><p>传统腧穴定位综合使用体表标志与骨度分寸。这里展示的是“相对坐标”的思想，不用于医疗定位。</p></div></div>
+    </section>
+
+    <section id="map" class="chapter map-chapter">
+      <div class="intro"><p>柒 · 制图六体</p><h2>路是弯的，<br><em>图怎样不骗人？</em></h2><span>裴秀提醒：比例、方向、路程都不够，还要校正高下、方邪与迂直。</span></div>
+      <div class="stage map-stage">
+        <canvas id="map-canvas" width="920" height="560" aria-label="曲折道路、坡地与直线距离的地图校正"></canvas>
+        <div class="six-principles"><button data-principle="scale">分率<small>广轮之度</small></button><button data-principle="bearing">准望<small>彼此之体</small></button><button data-principle="distance">道里<small>所由之数</small></button><button data-principle="relief">高下<small>地势起伏</small></button><button data-principle="diagonal">方邪<small>斜正换算</small></button><button data-principle="curve">迂直<small>曲直校验</small></button></div>
+        <p id="principle-copy">先定比例，才知道图上一寸对应实地多少。</p>
+        <blockquote>“制图之体有六焉：一曰分率……二曰准望……三曰道里……四曰高下，五曰方邪，六曰迂直。”<cite>《晋书·裴秀传》</cite></blockquote>
+      </div>
+    </section>
+
+    <section id="earth" class="chapter earth-chapter">
+      <div class="intro"><p>捌 · 两次大测量</p><h2>把观测站排成一列，<br><em>地球有多大？</em></h2><span>移动南北两站的间距：地面距离与北极高度差，共同给出子午线一度弧长。</span></div>
+      <div class="stage earth-stage">
+        <canvas id="earth-canvas" width="1000" height="600" aria-label="两地距离与北极高度差推算子午线一度弧长"></canvas>
+        <label class="slider-label" for="station-slider"><span>两站接近</span><b id="arc-reading">526 里 · 1.5°</b><span>两站拉远</span></label>
+        <input id="station-slider" type="range" min=".55" max="1" value=".72" step=".01" aria-label="改变南北观测站间距">
+        <div class="survey-pair"><article><small>唐 · 724</small><h3>一行与南宫说</h3><p>在河南近同一经度的四个测点，比较距离、日影与北极高度，得到北极高度每差一度约三百五十一里八十步。这是对子午线一度弧长的实测。</p></article><article><small>元 · 1279</small><h3>郭守敬“四海测验”</h3><p>为编制《授时历》，在广阔地域布置二十余处观测点，统一测量日影、昼夜刻与北极高度。它规模更广，但不应与唐代子午线弧长实测混为一事。</p></article></div>
+      </div>
+    </section>
+
+    <section class="essence">
+      <p>第一性原理</p><h2>坐标不是一串数字。<br><em>坐标是：选定参照，再说明关系。</em></h2>
+      <div class="answer-grid"><div><b>朝哪一方？</b><span>四方、八方、二十四山</span></div><div><b>在地上哪里？</b><span>山川、水系、州郡、道里</span></div><div><b>在建筑哪里？</b><span>柱网、间、模数</span></div><div><b>在天空哪里？</b><span>北天极、二十八宿</span></div><div><b>在身体哪里？</b><span>体表标志、骨度、寸法</span></div><div><b>在格局哪里？</b><span>九宫、八卦</span></div></div>
+    </section>
+
+    <section class="sources"><p>据与界</p><h2>原文与核对</h2><div><a href="https://ctext.org/wiki.pl?res=858364&if=gb" target="_blank" rel="noreferrer">《晋书·裴秀传》与制图六体</a><a href="https://www.xian.cgs.gov.cn/kpzs/dzrw/201708/t20170821_437906.html" target="_blank" rel="noreferrer">中国地质调查局：一行的天文大地测量</a><a href="https://www.sastind.gov.cn/history/n152/n81023/n81097/n109660/c109696/content.html" target="_blank" rel="noreferrer">国家国防科技工业局：郭守敬与四海测验</a></div><p class="note">“角度坐标系”“网格系统”“空间数据库”“古代 GIS”均是帮助现代读者建立直觉的类比，不等同于古代术语本身。</p></section>
+  </main>
+  <footer><b>经天纬地</b><span>先立参照，后辨所在</span><a href="#direction">重新定位 ↑</a><div class="visitor-map" aria-label="访问者地图"><script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=fefefe&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=356d75&cmo=c45a43"></script></div></footer>
+  <script src="app.js?v=20260729-1"></script>
+</body>
+</html>
