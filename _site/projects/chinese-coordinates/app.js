@@ -63,7 +63,7 @@
     x: cx + Math.cos(body.a + rotation) * body.r,
     y: cy + Math.sin(body.a + rotation) * body.r
   });
-  const horizonY = (x, cx) => 470 + Math.pow((x - cx) / 450, 2) * 30;
+  const horizonY = (x, cx) => 438 + Math.pow((x - cx) / 450, 2) * 28;
   const traceArc = (body, rotation, cx, cy, color, width) => {
     if (rotation === 0) return;
     const segments = Math.max(8, Math.ceil(Math.abs(rotation) * 44));
@@ -124,14 +124,14 @@
     // A low, curved horizon keeps the view anchored to an observer on Earth.
     const horizon = new Path2D();
     horizon.moveTo(0,horizonY(0,cx));
-    horizon.quadraticCurveTo(cx,440,sky.width,horizonY(sky.width,cx));
+    horizon.quadraticCurveTo(cx,410,sky.width,horizonY(sky.width,cx));
     horizon.lineTo(sky.width,sky.height);horizon.lineTo(0,sky.height);horizon.closePath();
-    const ground = sctx.createLinearGradient(0,430,0,560);
+    const ground = sctx.createLinearGradient(0,398,0,560);
     ground.addColorStop(0,"rgba(9,25,34,.08)");ground.addColorStop(.45,"rgba(7,19,25,.92)");ground.addColorStop(1,"#06141b");
     sctx.fillStyle=ground;sctx.fill(horizon);
     sctx.strokeStyle="rgba(204,178,111,.45)";sctx.lineWidth=1.5;
-    sctx.beginPath();sctx.moveTo(0,horizonY(0,cx));sctx.quadraticCurveTo(cx,440,sky.width,horizonY(sky.width,cx));sctx.stroke();
-    sctx.fillStyle="rgba(204,178,111,.68)";sctx.font="16px Ouyang,serif";sctx.fillText("北方地平线",42,526);
+    sctx.beginPath();sctx.moveTo(0,horizonY(0,cx));sctx.quadraticCurveTo(cx,410,sky.width,horizonY(sky.width,cx));sctx.stroke();
+    sctx.fillStyle="rgba(204,178,111,.68)";sctx.font="16px Ouyang,serif";sctx.fillText("北方地平线",42,492);
 
     sctx.fillStyle="#d8b356";sctx.beginPath();sctx.arc(cx,cy,6,0,Math.PI*2);sctx.fill();
     sctx.strokeStyle="rgba(216,179,86,.35)";sctx.beginPath();sctx.arc(cx,cy,13,0,Math.PI*2);sctx.stroke();
