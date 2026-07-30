@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A draggable village for examining wind, drainage, sunlight, terrain, and refuge as an environmental reading of feng shui.">
+  <meta name="theme-color" content="#14242a">
+  <title>Holding Wind, Gathering Qi | An Environmental Reading of Feng Shui</title>
+  <link rel="stylesheet" href="styles.css?v=20260723-11">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','UA-146429859-1');</script>
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../heritage/"><span>堪</span><b>Holding Wind, Gathering Qi</b></a>
+    <nav aria-label="Sections"><a href="#village">Village</a><a href="#name-it">Terms</a><a href="#principles">Principles</a><a href="#sources">Sources</a></nav>
+    <a class="home" href="index.html" lang="zh-CN">中文 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Observe wind and water · choose ground for dwelling</p>
+        <h1>Read the wind, trace the water, <em>then place the dwelling.</em></h1>
+        <p>Let air move without becoming violent; admit sunlight without excess; give water a course and the house firm ground. Move the mountains, tree, and dwelling to see what changes.</p>
+        <a href="#village" class="start">Build the village <span>↓</span></a>
+      </div>
+      <div class="hero-map" aria-hidden="true"><i class="hero-wind">wind　→　→　→</i><span class="hero-mountain c">靠</span><span class="hero-mountain a">龍</span><span class="hero-mountain b">虎</span><span class="hero-house">舍</span><span class="hero-tree">木</span><b class="hero-river">水</b></div>
+      <p class="hero-aside">one site<br>three ridges<br>one dwelling<br>an open court<br>a bending river</p>
+    </section>
+    <section class="premise" aria-label="Method"><span>See the consequences first</span><b>wind · rain · sun · refuge</b><span>name the pattern afterward</span></section>
+
+    <section id="village" class="lab" aria-labelledby="lab-title">
+      <div class="lab-intro">
+        <p class="chapter-no">I · Build a village</p><h2 id="lab-title">Would this place <em>feel good to inhabit?</em></h2>
+        <p>The initial plan shows a common idealized form: a backing mountain to the north, Azure Dragon to the east, White Tiger to the west, an open <i>mingtang</i> to the south, and a curving river in front. North is up. Drag any element and watch the conditions change.</p>
+        <div class="lesson-tabs" role="group" aria-label="Choose a layer"><button data-layer="wind" aria-pressed="true"><i>風</i><span>airflow</span></button><button data-layer="rain" aria-pressed="false"><i>雨</i><span>drainage</span></button><button data-layer="sun" aria-pressed="false"><i>日</i><span>light</span></button><button data-layer="refuge" aria-pressed="false"><i>人</i><span>refuge</span></button><button data-layer="all" aria-pressed="false"><i>合</i><span>combined</span></button></div>
+      </div>
+
+      <div class="lab-shell">
+        <div class="canvas-panel">
+          <div class="canvas-head"><div><span class="live-dot"></span><b id="layer-title">Wind from the northwest</b></div><p id="layer-caption">Arrow direction shows flow; length and color show speed. Ridges and trees deflect the air.</p><span class="terrain-status">House on <b id="terrain-state">gentle slope</b></span></div>
+          <div class="canvas-wrap"><canvas id="village-canvas" tabindex="0" role="application" aria-label="A draggable, north-up village model. The house faces south; Azure Dragon is east and White Tiger west; backing mountain lies behind, with open court and bending river in front."></canvas><div class="drag-coach" id="drag-coach" aria-hidden="true"><i></i><span>Drag the house</span></div><div class="legend" id="legend" aria-hidden="true"><span>slow</span><i></i><span>fast</span></div><div class="terrain-key" aria-hidden="true"><span><i></i>contours</span><span>wide gentle · close steep</span></div></div>
+          <div class="tool-row" role="group" aria-label="Choose an object"><button data-object="house" aria-pressed="true"><span>舍</span>house</button><button data-object="mountainBack" aria-pressed="false"><span>靠</span>backing</button><button data-object="mountainA" aria-pressed="false"><span>虎</span>White Tiger</button><button data-object="mountainB" aria-pressed="false"><span>龍</span>Azure Dragon</button><button data-object="tree" aria-pressed="false"><span>木</span>tree</button><button data-object="pond" aria-pressed="false"><span>水</span>pond</button></div>
+        </div>
+        <aside class="control-panel" aria-label="Environment controls and live results">
+          <div class="selection"><p>Moving</p><strong id="selected-name">House</strong><span id="selected-hint">Move it behind a ridge and watch the wind speed.</span></div>
+          <div class="dynamic-controls"><label id="orientation-control">Orientation <output id="orientation-value">south</output><input id="orientation" type="range" min="0" max="315" step="45" value="180"></label><label id="height-control" hidden>Ridge height <output id="height-value">70%</output><input id="height" type="range" min="30" max="100" value="70"></label><label id="size-control" hidden>Canopy size <output id="size-value">60%</output><input id="size" type="range" min="30" max="100" value="60"></label></div>
+          <div class="world-controls"><label>Northwest wind <output id="wind-value">medium</output><input id="wind" type="range" min="1" max="5" value="3"></label><label>Rainfall <output id="rain-value">light</output><input id="rain" type="range" min="0" max="5" value="1"></label><label>Solar time <output id="time-value">12:00</output><input id="time" type="range" min="6" max="18" value="12" step="0.25"></label></div>
+          <div class="scores" aria-live="polite"><p><span>Wind</span><i><b id="wind-bar"></b></i><strong id="wind-score">—</strong></p><p><span>Drainage</span><i><b id="drain-bar"></b></i><strong id="drain-score">—</strong></p><p><span>Sunlight</span><i><b id="sun-bar"></b></i><strong id="sun-score">—</strong></p><p><span>Refuge</span><i><b id="refuge-bar"></b></i><strong id="refuge-score">—</strong></p></div>
+          <div class="qi-card"><span>Environmental comfort · teaching model</span><strong><b id="qi-score">72</b><small>/100</small></strong><p id="discovery">The house faces the incoming wind. Move it into the lee of a ridge.</p></div>
+          <button id="reset" class="reset">Reset village</button>
+        </aside>
+      </div>
+      <p class="model-note">Contours respond to the three ridges, overall slope, and low ground. Closed contours rise inward; closer lines indicate steeper ground. A narrowing between high areas is a saddle, while contours bending toward higher ground can indicate a valley. The airflow remains a two-dimensional teaching approximation—not CFD, geotechnical analysis, or a hydrology report.</p>
+    </section>
+
+    <section class="discoveries" aria-labelledby="discoveries-title">
+      <div class="discoveries-head"><p class="chapter-no">II · Four observations</p><h2 id="discoveries-title">The environment answers directly.</h2></div>
+      <div class="discovery-grid">
+        <article><span>風</span><h3>Blocking is not sealing.</h3><p>A barrier deflects air and may create a gentler leeward zone. Too close or too dense, it can also leave stagnant pockets.</p><button data-jump="wind">Return to wind →</button></article>
+        <article><span>雨</span><h3>Water goes downhill.</h3><p>Risk rises when a house sits on a drainage line. Elevation and a clear outflow path matter more than the mere presence of water.</p><button data-jump="rain">Let it rain →</button></article>
+        <article><span>日</span><h3>Orientation negotiates with the sun.</h3><p>Move through a day. Orientation decides when light enters; trees and eaves trade summer shade against winter sun.</p><button data-jump="sun">Move the sun →</button></article>
+        <article><span>人</span><h3>Covered behind, open ahead.</h3><p>Prospect–refuge theory describes a preference for shelter behind and view ahead. Here both become visible quantities.</p><button data-jump="refuge">Test the view →</button></article>
+      </div>
+    </section>
+
+    <section id="name-it" class="naming" aria-labelledby="naming-title">
+      <div class="naming-copy"><p class="chapter-no">III · Name the pattern</p><h2 id="naming-title">The old term is <em>feng shui.</em></h2><blockquote><span lang="zh-Hans">“气乘风则散，界水则止。古人聚之使不散，行之使有止，故谓之风水。”</span><cite>Common text of the <i>Book of Burial</i>: qi disperses when carried by wind and stops at the boundary of water.</cite></blockquote><p>This page places observable wind, light, heat, water, and spatial experience on one field.</p></div>
+      <div class="name-map"><div><b>藏风</b><span>barriers, deflection, leeward zones</span><i>wind environment</i></div><div><b>得水</b><span>runoff, drainage, storage</span><i>hydrology</i></div><div><b>向阳</b><span>orientation, sunlight, shade</span><i>building microclimate</i></div><div><b>有靠有望</b><span>cover behind, view ahead</span><i>environmental psychology</i></div><div class="qi-definition"><b>氣</b><span>The Qi Index here is a modern teaching device</span><i>not a definition of historical qi</i></div></div>
+    </section>
+
+    <section id="conclusion" class="conclusion" aria-labelledby="conclusion-title">
+      <div class="conclusion-head"><p class="chapter-no">IV · A typical form</p><h2 id="conclusion-title">Backed and embraced, <em>with room ahead.</em></h2><p>The diagram returns common form-school terms to observable environmental relations. It is a modern reading framework, not a claim that historical concepts equal engineering categories.</p></div>
+      <div class="concept-table-wrap"><table class="concept-table"><thead><tr><th>Feng shui term</th><th>Position in the layout</th><th>Environmental reading</th></tr></thead><tbody>
+        <tr><th>Backing mountain<br><small>靠山</small></th><td>Main ridge behind the house</td><td>May block part of the incoming wind and provide a sense of cover. A gentle ridge extension often drains better than a collecting hollow; actual foundation stability still requires geotechnical investigation.</td></tr>
+        <tr><th>Facing water<br><small>面水</small></th><td>River in front</td><td>Historically associated with water supply, transport, view, and open space, but always accompanied by flood, erosion, and dampness risks.</td></tr>
+        <tr><th>Azure Dragon east<br>White Tiger west</th><td>For a south-facing house, east is left and west is right</td><td>Side barriers may reduce crosswinds and create a milder field; poor spacing can also accelerate canyon winds or create stagnant air.</td></tr>
+        <tr><th>Bright hall<br><small>明堂</small></th><td>Open ground between house and river</td><td>Open communal space, a daylight face, an activity ground, and a clear prospect.</td></tr>
+        <tr><th>Holding wind, gathering qi<br><small>藏风聚气</small></th><td>Area enclosed by backing and side ridges</td><td>Reduce extreme wind and form a tolerable microclimate. The aim is not zero air movement but avoidance of both violent and stagnant air.</td></tr>
+        <tr><th>Dragon vein<br><small>龙脉</small></th><td>Continuous ridges and valleys</td><td>A way to observe mountain chains, divides, watersheds, and landform continuity—not a claim about a hidden physical energy channel.</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section id="principles" class="first-principles" aria-labelledby="principles-title">
+      <div class="principles-head"><p class="chapter-no">V · Reduced to essentials</p><h2 id="principles-title">What remains <em>when the terms are stripped away?</em></h2><p>For a place meant to support life over time, four judgments remain: adapt, keep flows healthy, balance competing needs, and fit people to environment.</p></div>
+      <div class="principle-grid"><article><span>I</span><small>ADAPTATION</small><h3>Work with nature</h3><p>Read climate, terrain, water, sun, and wind; place roads, houses, trees, and water systems with them rather than against them.</p></article><article><span>II</span><small>FLOW</small><h3>Maintain movement</h3><p>Air, water, people, and resources must move—neither stagnating nor rushing without control. <i>Cang feng ju qi</i> describes gentle flow with useful pause.</p></article><article><span>III</span><small>BALANCE</small><h3>Seek proportion</h3><p>Sun and shade, ventilation and shelter, openness and enclosure have no single maximum—only a fit for a particular place.</p></article><article><span>IV</span><small>HUMAN–ENVIRONMENT FIT</small><h3>Let place and people fit</h3><p>Environment shapes health, feeling, behavior, and social life; people continually reshape it in return.</p></article></div>
+      <div class="plain-answer" aria-label="Practical conclusion"><span>In plain terms</span><strong>good daylight · moving air · no violent wind · stable ground · less dust · human comfort</strong></div>
+    </section>
+
+    <section id="sources" class="sources" aria-labelledby="sources-title"><p class="chapter-no">VI · Evidence and limits</p><h2 id="sources-title">What can be modeled.</h2><div class="source-grid"><a href="https://www.nrcs.usda.gov/conservation-basics/land/forests/agroforestry-systems/farmstead-windbreak" target="_blank" rel="noreferrer"><b>Windbreaks and leeward zones</b><span>USDA NRCS</span></a><a href="https://www.energy.gov/sites/prod/files/guide_to_passive_solar_home_design.pdf" target="_blank" rel="noreferrer"><b>Orientation and seasonal sun</b><span>U.S. Department of Energy</span></a><a href="https://www.epa.gov/soakuptherain/soak-rain-trees-help-reduce-runoff" target="_blank" rel="noreferrer"><b>Trees, cooling, and runoff</b><span>U.S. EPA</span></a><a href="https://doi.org/10.2466/pms.106.1.147-162" target="_blank" rel="noreferrer"><b>Prospect–refuge theory</b><span>Stamps (2008)</span></a></div></section>
+  </main>
+  <footer><b>Holding Wind, Gathering Qi</b><span>Return the dwelling to wind, water, sunlight, and human experience.</span><a href="#village">Build again ↑</a><div class="visitor-map" aria-label="Visitor map"><script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=fefefe&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=8b0801&cmo=7088ff"></script></div></footer>
+  <script src="app.js?v=20260729-1"></script>
+</body>
+</html>

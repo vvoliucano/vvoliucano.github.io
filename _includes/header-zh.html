@@ -12,7 +12,7 @@
     <!-- <a href="{{ '/talks/' | relative_url }}" {% if current[1] == 'talks' %}class="active"{% endif %}>Talks</a>
     <a href="{{ '/blog/' | relative_url }}" {% if current[1] == 'blog' %}class="active"{% endif %}>Blog</a> -->
     <div><a href="{{ '/other/' | relative_url }}" {% if current[1] == 'other' %}class="active"{% endif %}>華夏</a></div>
-    <div><a href="{{ '/mushan/' | relative_url }}" {% if current[1] == 'mushan' %}class="active"{% endif %}>诗集</a></div>
+    <div><a href="{{ '/mushan/' | relative_url }}" {% if current[1] == 'mushan' or current[1] == 'mushan_gallery' or current[1] == 'poem' %}class="active"{% endif %}>诗集</a></div>
     <span class="external">
       <!-- <div><a target="_blank" href="https://twitter.com/LiwenhanXie"><i class="fab fa-twitter"></i>Twitter</a></div> -->
       <div><a href="{% if current[1] == 'other' %}{{ '/heritage/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" data-language-choice="en"></i>English</a></div>

@@ -237,7 +237,7 @@ var _hmt = _hmt || [];
 .culture-card {
   position: relative;
   display: flex;
-  min-height: 20rem;
+  min-height: 16.5rem;
   flex-direction: column;
   overflow: hidden;
   padding: 1.4rem;
@@ -332,7 +332,7 @@ var _hmt = _hmt || [];
 }
 
 .culture-details {
-  margin: 0 0 1.2rem;
+  margin: 0 0 0.75rem;
 }
 
 .culture-details summary {
@@ -341,12 +341,12 @@ var _hmt = _hmt || [];
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.7rem 0.1rem 0.48rem;
+  padding: 0.5rem 0.1rem 0.32rem;
   border-top: 1px solid rgba(37, 55, 64, 0.13);
   color: #7c898f;
   cursor: pointer;
   font-family: var(--culture-serif);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   letter-spacing: 0.12em;
   list-style: none;
   transition: color 0.18s ease, border-color 0.18s ease;
@@ -393,7 +393,20 @@ var _hmt = _hmt || [];
   flex-wrap: wrap;
   gap: 0.55rem;
   margin-top: auto;
-  padding-bottom: 1.1rem;
+  padding-bottom: 0.6rem;
+}
+
+@media (min-width: 761px) {
+  .culture-card--science .culture-card-teaser,
+  .culture-card--divination .culture-card-teaser {
+    min-height: 3.2rem;
+  }
+
+  .culture-card--science .culture-actions,
+  .culture-card--divination .culture-actions {
+    align-content: flex-start;
+    margin-top: 0;
+  }
 }
 
 .culture-link {
@@ -577,7 +590,7 @@ var _hmt = _hmt || [];
     </div>
     <aside class="culture-emblem" aria-label="专区的四条内容路径">
       <span class="culture-emblem-main">文</span>
-      <div class="culture-emblem-axis"><span>诗</span><span>书</span><span>器</span><span>象</span></div>
+      <div class="culture-emblem-axis"><span>诗</span><span>文</span><span>物</span><span>象</span></div>
       <p class="culture-emblem-note">shared script&nbsp;&nbsp;living knowledge</p>
     </aside>
   </header>
@@ -596,14 +609,7 @@ var _hmt = _hmt || [];
         <div class="culture-details-body"><p class="culture-card-copy">《牧山集》收录个人古体诗词，并将目录与原有诗词阅读界面相连。可按年份浏览，也可进入单篇的竖排宣纸阅读体验。</p></div>
       </details>
       <div class="culture-actions">
-        <a class="culture-link" href="/mushan/">进入牧山集 <span aria-hidden="true">→</span></a>
-        
-        
-        
-          
-          
-          <a class="culture-link" href="/poem/?id=nanyang">打开诗词界面 <span aria-hidden="true">→</span></a>
-        
+        <a class="culture-link" href="/mushan/">牧山集：个人古体诗词 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 
@@ -626,8 +632,8 @@ var _hmt = _hmt || [];
         </div>
       </details>
       <div class="culture-actions">
-        <a class="culture-link" href="/projects/hanzi658/overview.html">认识“书同文”计划 <span aria-hidden="true">→</span></a>
-        <a class="culture-link" href="/projects/hanzi658/">直接探索 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="/projects/hanzi658/overview.html">书同文：658 字之间 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="/projects/doraemon-laozhuang/">多啦A梦谈老庄 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 
@@ -638,7 +644,7 @@ var _hmt = _hmt || [];
       </div>
       <h2>格物</h2>
       <p class="culture-card-subtitle">格物致知，巧思成器</p>
-      <p class="culture-card-teaser">从中国古典数学与建筑理解数、尺度、结构与营造。</p>
+      <p class="culture-card-teaser">从中国古典数学、建筑与环境经验理解数、尺度、结构与营造。</p>
       <details class="culture-details">
         <summary><span class="culture-details-more">查看详情</span><span class="culture-details-less">收起</span></summary>
         <div class="culture-details-body">
@@ -646,16 +652,25 @@ var _hmt = _hmt || [];
           <div class="culture-topics">
             <div class="culture-topic">
               <strong>中国古典数学</strong>
-              <span>《九章算术》、筹算、勾股、天元术与传统算法思想。</span>
+              <span>《九章算术》的方程术、天元术、四元术与传统算法思想。</span>
             </div>
             <div class="culture-topic">
               <strong>中国古典建筑</strong>
               <span>木构模数、斗拱、营造法式，以及礼制与空间秩序。</span>
             </div>
+            <div class="culture-topic">
+              <strong>风水与环境</strong>
+              <span>从风、雨、日照与空间感受出发，辨析传统选址经验中可观察、可模拟的部分。</span>
+            </div>
           </div>
-          <span class="culture-status">专题内容筹备中</span>
         </div>
       </details>
+      <div class="culture-actions">
+        <a class="culture-link" href="/projects/chinese-mathematics/">未曾写下 x：华夏古代的方程思想 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="/projects/chinese-calculus/">割之又割：华夏古代的微积分思想 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="/projects/chinese-coordinates/">经天纬地：华夏古代怎样定位世界 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="/projects/fengshui/">藏风聚气：风水的现代环境解释 <span aria-hidden="true">→</span></a>
+      </div>
     </article>
 
     <article class="culture-card culture-card--divination">
@@ -671,8 +686,10 @@ var _hmt = _hmt || [];
         <div class="culture-details-body"><p class="culture-card-copy">以现代交互方式呈现传统历法、干支、象数与推演方法。排盘均在浏览器本地完成，作为文化研究、方法学习与自我反思的辅助工具。</p></div>
       </details>
       <div class="culture-actions">
-        <a class="culture-link" href="/projects/bazi/">八字排盘 <span aria-hidden="true">→</span></a>
-        <a class="culture-link" href="/projects/liuyao/">六爻问卦 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="/projects/chinese-calendar/">观天授时：月亮与太阳的两只钟 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="/projects/bazi/">八字排盘：出生时刻怎样排成四柱 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="/projects/liuyao/">六爻问卦：三枚铜钱怎样成卦 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="/projects/yijing/">时与位：《易》的第一性原理 <span aria-hidden="true">→</span></a>
       </div>
       <p class="culture-note">术数内容仅供传统文化研究与自我反思，不构成现实决策建议。</p>
     </article>
@@ -693,7 +710,7 @@ var _hmt = _hmt || [];
         <div>千里复相逢</div>
         <div>星汉光年远</div>
         <div>倏如一江风</div>
-        <!-- <abbr title="Last build on 2026-07-16">上次更新于2026年07月</abbr> -->
+        <!-- <abbr title="Last build on 2026-07-30">上次更新于2026年07月</abbr> -->
       </div>
     </div>
     <div class="footer-col footer-col-map">

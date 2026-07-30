@@ -41,6 +41,31 @@ class: mushan-page
     font-family: var(--mushan-font);
 }
 
+.mushan-view-switch {
+    display: inline-flex;
+    gap: 0.35rem;
+    margin-top: 1.1rem;
+    padding: 0.3rem;
+    border: 1px solid rgba(160, 132, 93, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 252, 246, 0.7);
+}
+
+.mushan-view-link {
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    color: #766650;
+    font-family: var(--mushan-font);
+    font-size: 0.92rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+}
+
+.mushan-view-link.is-active {
+    background: #2a3d50;
+    color: #fff;
+}
+
 .mushan-section {
     margin-top: 2.4rem;
 }
@@ -196,6 +221,10 @@ class: mushan-page
   <header class="mushan-header">
     <h1 class="mushan-title">牧山集：东风西逝</h1>
     <p class="mushan-subtitle">目录</p>
+    <div class="mushan-view-switch" role="navigation" aria-label="切换诗集视图">
+      <a class="mushan-view-link is-active" href="{{ '/mushan/' | relative_url }}" aria-current="page">目录</a>
+      <a class="mushan-view-link" href="{{ '/mushan_gallery/' | relative_url }}">图集</a>
+    </div>
   </header>
 
   {% assign poem_years = site.data.other | group_by: "year" | sort: "name" | reverse %}

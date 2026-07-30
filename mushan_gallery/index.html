@@ -1,0 +1,396 @@
+---
+layout: page-zh
+permalink: /mushan_gallery/
+title: 牧山集 · 图集
+class: mushan-gallery-page
+---
+
+<style>
+@font-face {
+    font-family: "OuyangxunKaishu";
+    src: url("{{ '/assets/font/正欧阳询楷书+简繁.TTF' | relative_url | replace: '+', '%2B' }}") format("truetype");
+    font-display: swap;
+}
+
+.mushan-gallery {
+    --gallery-ink: #25332d;
+    --gallery-muted: #786f63;
+    --gallery-red: #a34434;
+    --gallery-paper: #f6f1e8;
+    --gallery-font: "OuyangxunKaishu", "STKaiti", "KaiTi", "Kaiti SC", serif;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2rem 1rem 5rem;
+    color: var(--gallery-ink);
+}
+
+.mushan-gallery-hero {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.6rem;
+    padding: 2.3rem 2.5rem 2.1rem;
+    border: 1px solid rgba(110, 86, 59, 0.14);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 88% 22%, rgba(171, 91, 64, 0.13), transparent 25%),
+        radial-gradient(circle at 12% 82%, rgba(95, 124, 101, 0.12), transparent 29%),
+        linear-gradient(145deg, #fbf8f2, #f1e8da);
+}
+
+.mushan-gallery-eyebrow {
+    margin: 0 0 0.65rem;
+    color: var(--gallery-red);
+    font: 0.92rem/1.4 var(--gallery-font);
+    letter-spacing: 0.22em;
+}
+
+.mushan-gallery-title {
+    margin: 0;
+    color: #26382f;
+    font: 500 clamp(2.2rem, 5vw, 4.1rem)/1.12 var(--gallery-font);
+    letter-spacing: 0.16em;
+}
+
+.mushan-gallery-intro {
+    max-width: 32rem;
+    margin: 0.8rem 0 0;
+    color: var(--gallery-muted);
+    font: 1.05rem/1.8 var(--gallery-font);
+    letter-spacing: 0.06em;
+}
+
+.mushan-gallery-seal {
+    position: absolute;
+    right: 2.4rem;
+    bottom: 2rem;
+    display: grid;
+    width: 3.2rem;
+    height: 3.2rem;
+    place-items: center;
+    border: 2px solid rgba(163, 68, 52, 0.72);
+    color: var(--gallery-red);
+    font: 1rem/1.05 var(--gallery-font);
+    letter-spacing: 0.08em;
+    transform: rotate(-4deg);
+}
+
+.mushan-gallery-toolbar {
+    position: sticky;
+    z-index: 5;
+    top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid rgba(110, 86, 59, 0.12);
+    border-radius: 16px;
+    background: rgba(255, 253, 249, 0.9);
+    box-shadow: 0 8px 28px rgba(61, 45, 28, 0.07);
+    backdrop-filter: blur(12px);
+}
+
+.mushan-gallery-filters,
+.mushan-gallery-views {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.mushan-gallery-filter,
+.mushan-gallery-view {
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #6c6257;
+    cursor: pointer;
+    font: 0.95rem/1 var(--gallery-font);
+    letter-spacing: 0.05em;
+    padding: 0.62rem 0.9rem;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.mushan-gallery-filter:hover,
+.mushan-gallery-view:hover {
+    color: var(--gallery-red);
+    transform: translateY(-1px);
+}
+
+.mushan-gallery-filter.is-active,
+.mushan-gallery-view.is-active {
+    background: #293a31;
+    color: #fffdf8;
+}
+
+.mushan-gallery-grid {
+    column-count: 3;
+    column-gap: 1.2rem;
+}
+
+.mushan-gallery-card {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 1.2rem;
+    overflow: hidden;
+    border: 1px solid rgba(92, 72, 49, 0.1);
+    border-radius: 18px;
+    background: #fffdf9;
+    box-shadow: 0 5px 18px rgba(57, 43, 29, 0.07);
+    break-inside: avoid;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.mushan-gallery-card:hover {
+    box-shadow: 0 14px 36px rgba(57, 43, 29, 0.14);
+    transform: translateY(-4px);
+}
+
+.mushan-gallery-card[hidden] {
+    display: none;
+}
+
+.mushan-gallery-cover {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background: #e8e1d6;
+}
+
+.mushan-gallery-cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+    max-height: 480px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.mushan-gallery-card:hover .mushan-gallery-cover img {
+    transform: scale(1.025);
+}
+
+.mushan-gallery-count {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.75rem;
+    padding: 0.3rem 0.58rem;
+    border-radius: 999px;
+    background: rgba(24, 31, 27, 0.7);
+    color: #fff;
+    font: 0.76rem/1.2 system-ui, sans-serif;
+    backdrop-filter: blur(8px);
+}
+
+.mushan-gallery-body {
+    padding: 1rem 1.05rem 1.15rem;
+}
+
+.mushan-gallery-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 0.55rem;
+    color: #9a4d40;
+    font: 0.82rem/1.3 var(--gallery-font);
+    letter-spacing: 0.1em;
+}
+
+.mushan-gallery-card-title {
+    margin: 0;
+    color: #27382f;
+    font: 500 1.45rem/1.35 var(--gallery-font);
+    letter-spacing: 0.08em;
+}
+
+.mushan-gallery-poem {
+    margin: 0.7rem 0 0;
+    color: #5e625d;
+    font: 1rem/1.85 var(--gallery-font);
+    letter-spacing: 0.04em;
+}
+
+.mushan-gallery-poem-line {
+    display: block;
+}
+
+.mushan-gallery-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.9rem;
+    color: #8d473b;
+    font: 0.9rem/1.4 var(--gallery-font);
+    letter-spacing: 0.06em;
+    text-decoration: none;
+}
+
+.mushan-gallery-open::after {
+    content: "→";
+    transition: transform 0.2s ease;
+}
+
+.mushan-gallery-open:hover::after {
+    transform: translateX(3px);
+}
+
+.mushan-gallery-empty {
+    display: none;
+    padding: 4rem 1rem;
+    text-align: center;
+    color: var(--gallery-muted);
+    font: 1.1rem/1.8 var(--gallery-font);
+}
+
+@media (max-width: 920px) {
+    .mushan-gallery-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 620px) {
+    .mushan-gallery {
+        padding: 1rem 0.35rem 3rem;
+    }
+
+    .mushan-gallery-hero {
+        padding: 1.75rem 1.25rem 1.6rem;
+        border-radius: 18px;
+    }
+
+    .mushan-gallery-title {
+        font-size: 2.25rem;
+    }
+
+    .mushan-gallery-intro {
+        max-width: calc(100% - 3.8rem);
+        font-size: 0.96rem;
+    }
+
+    .mushan-gallery-seal {
+        right: 1.2rem;
+        bottom: 1.35rem;
+    }
+
+    .mushan-gallery-toolbar {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .mushan-gallery-grid {
+        column-count: 1;
+    }
+
+    .mushan-gallery-card {
+        border-radius: 16px;
+    }
+
+    .mushan-gallery-cover img {
+        max-height: 520px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mushan-gallery-card,
+    .mushan-gallery-cover img,
+    .mushan-gallery-filter,
+    .mushan-gallery-view {
+        transition: none;
+    }
+}
+</style>
+
+<div class="mushan-gallery">
+    <header class="mushan-gallery-hero">
+        <p class="mushan-gallery-eyebrow">MUSHAN · VISUAL POETRY</p>
+        <h1 class="mushan-gallery-title">牧山图集</h1>
+        <p class="mushan-gallery-intro">行到山水深处，收一帧风物，记半阕人间。</p>
+        <span class="mushan-gallery-seal" aria-hidden="true">牧<br>山</span>
+    </header>
+
+    {% assign gallery_poems = site.data.other | where_exp: "poem", "poem.image" | sort: "year" | reverse %}
+    {% assign gallery_years = gallery_poems | group_by: "year" %}
+    <div class="mushan-gallery-toolbar" aria-label="图集工具栏">
+        <div class="mushan-gallery-filters" role="group" aria-label="按年份筛选">
+            <button class="mushan-gallery-filter is-active" type="button" data-year="all" aria-pressed="true">全部</button>
+            {% for year in gallery_years %}
+            <button class="mushan-gallery-filter" type="button" data-year="{{ year.name }}" aria-pressed="false">{{ year.name }}</button>
+            {% endfor %}
+        </div>
+        <div class="mushan-gallery-views" aria-label="切换诗集视图">
+            <a class="mushan-gallery-view" href="{{ '/mushan/' | relative_url }}">目录</a>
+            <a class="mushan-gallery-view is-active" href="{{ '/mushan_gallery/' | relative_url }}" aria-current="page">图集</a>
+        </div>
+    </div>
+
+    <main class="mushan-gallery-grid" id="mushan-gallery-grid">
+        {% for poem in gallery_poems %}
+        {% assign poem_id = poem.id | url_encode %}
+        {% assign poem_url = '/poem/?id=' | append: poem_id | relative_url %}
+        <article class="mushan-gallery-card" data-year="{{ poem.year }}">
+            <a class="mushan-gallery-cover" href="{{ poem_url }}" aria-label="阅读《{{ poem.title }}》">
+                <img
+                    src="{{ '/assets/poetry/' | append: poem.image.first | relative_url }}"
+                    alt="《{{ poem.title }}》配图"
+                    loading="lazy"
+                    decoding="async">
+                {% if poem.image.size > 1 %}
+                <span class="mushan-gallery-count" aria-label="共 {{ poem.image.size }} 张图片">▧ {{ poem.image.size }}</span>
+                {% endif %}
+            </a>
+            <div class="mushan-gallery-body">
+                <div class="mushan-gallery-meta">
+                    <span>{{ poem.year }}</span>
+                    <span>{% if poem.type %}{{ poem.type | join: " · " }}{% else %}诗影{% endif %}</span>
+                </div>
+                <h2 class="mushan-gallery-card-title">{{ poem.title }}</h2>
+                <p class="mushan-gallery-poem">
+                    {% assign shown_lines = 0 %}
+                    {% for line in poem.content %}
+                        {% assign stripped_line = line | strip %}
+                        {% if stripped_line != '' and stripped_line != '---' and shown_lines < 4 %}
+                        <span class="mushan-gallery-poem-line">{{ line }}</span>
+                        {% assign shown_lines = shown_lines | plus: 1 %}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <a class="mushan-gallery-open" href="{{ poem_url }}">展开全诗</a>
+            </div>
+        </article>
+        {% endfor %}
+    </main>
+    <p class="mushan-gallery-empty" id="mushan-gallery-empty">这一年尚无配图诗篇。</p>
+</div>
+
+<script>
+(() => {
+    const filters = Array.from(document.querySelectorAll('.mushan-gallery-filter'));
+    const cards = Array.from(document.querySelectorAll('.mushan-gallery-card'));
+    const empty = document.getElementById('mushan-gallery-empty');
+
+    filters.forEach((filter) => {
+        filter.addEventListener('click', () => {
+            const selectedYear = filter.dataset.year;
+            let visibleCount = 0;
+
+            filters.forEach((item) => {
+                const active = item === filter;
+                item.classList.toggle('is-active', active);
+                item.setAttribute('aria-pressed', String(active));
+            });
+
+            cards.forEach((card) => {
+                const visible = selectedYear === 'all' || card.dataset.year === selectedYear;
+                card.hidden = !visible;
+                if (visible) visibleCount += 1;
+            });
+
+            empty.style.display = visibleCount ? 'none' : 'block';
+        });
+    });
+})();
+</script>

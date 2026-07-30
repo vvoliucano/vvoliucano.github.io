@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cut, approach, accumulate, and connect: an interactive essay on limiting and summation ideas in classical Chinese mathematics.">
+  <meta name="theme-color" content="#111b23">
+  <title>Cut Again and Again | Limiting Ideas in Classical Chinese Mathematics</title>
+  <link rel="stylesheet" href="styles.css?v=20260720-1">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../heritage/" aria-label="Back to Huaxia"><span>算</span><b>Cut Again and Again</b></a>
+    <nav aria-label="Sections"><a href="#cut">Cut</a><a href="#approach">Approach</a><a href="#accumulate">Accumulate</a><a href="#merge">Connect</a></nav>
+    <a class="home" href="index.html" lang="zh-CN">中文 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Limiting and accumulation in classical Chinese mathematics</p>
+        <h1 id="page-title"><span>Equal cross-sections,</span><em>equal volumes.</em></h1>
+        <p class="hero-lead">There was no calculus notation and no modern definition of a limit. Begin with the operations themselves: make a cut, reduce what is lost, and let the result emerge.</p>
+        <a class="start" href="#cut">Make the first cut <i>↓</i></a>
+      </div>
+      <div class="hero-figure" aria-hidden="true"><div class="hero-circle"><i></i><i></i><i></i><b>割</b></div><p>6 sides　12 sides　10,000 sides</p></div>
+      <p class="hero-aside">Four operations<br><b>cut · approach · accumulate · connect</b><br>Watch a mathematical intuition<br>take shape through action.</p>
+    </section>
+
+    <section class="manifesto" aria-label="Central idea"><span>Do not replace old terms with modern ones</span><b>Operate first:</b><span>see how an idea grows from a procedure</span></section>
+
+    <section id="cut" class="chapter chapter-cut" aria-labelledby="cut-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">I · Cut</p><h2 id="cut-title">割</h2>
+        <blockquote><span lang="zh-Hans">“割之又割，以至于不可割，则与圆周合体而无所失矣。”</span><cite>Liu Hui, commentary on the <i>Nine Chapters</i>: “Cut again and again… until it coincides with the circle and nothing is lost.”</cite></blockquote>
+        <p>Begin with a regular hexagon inscribed in a circle and double the number of sides. The polygon never becomes a circle, yet it draws ever closer.</p>
+      </div>
+      <div class="stage cut-stage">
+        <div class="canvas-wrap"><canvas id="cut-canvas" role="img" aria-label="A circle and an inscribed regular polygon approaching it as the side count rises"></canvas><span class="canvas-mark">circle</span></div>
+        <div class="live-values"><p><span>Sides</span><strong id="cut-sides">6</strong></p><p><span>Approximation of π</span><strong id="cut-pi">3.000000</strong></p><p><span>Uncovered area</span><strong id="cut-gap">17.301%</strong></p></div>
+        <label class="control-label" for="cut-slider"><span>6 sides</span><b>Drag to keep doubling</b><span>3,072 sides</span></label>
+        <input id="cut-slider" class="timeline" type="range" min="0" max="9" value="0" step="1" aria-label="Choose the number of doublings">
+        <p class="stage-note">The values use modern trigonometry to reconstruct Liu Hui’s geometric procedure for a circle of radius 1.</p>
+      </div>
+    </section>
+
+    <section id="approach" class="chapter chapter-approach" aria-labelledby="approach-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">II · Approach</p><h2 id="approach-title">逼</h2>
+        <blockquote><span lang="zh-Hans">“割之弥细，所失弥少。”</span><cite>Liu Hui: “The finer the cutting, the less is lost.”</cite></blockquote>
+        <p>Bring the error into view. Each doubling rapidly tightens the interval that contains π.</p>
+      </div>
+      <div class="stage approach-stage">
+        <div class="squeeze-view" aria-label="Lower and upper bounds closing around pi">
+          <div class="squeeze-labels"><span>Inscribed lower bound</span><b>π</b><span>Circumscribed upper bound</span></div>
+          <div class="number-axis"><i id="lower-marker"><b></b><span id="lower-value">3.000000</span></i><em id="pi-marker">π</em><i id="upper-marker"><b></b><span id="upper-value">3.464102</span></i></div>
+          <div class="error-lens"><span>Undetermined interval</span><b id="interval-value">0.464102</b><i id="error-bar"></i></div>
+        </div>
+        <label class="control-label" for="approach-slider"><span>Visible gap</span><b>Continue approaching</b><span>Barely visible</span></label>
+        <input id="approach-slider" class="timeline" type="range" min="0" max="9" value="0" step="1" aria-label="See polygon bounds close around pi">
+        <p class="discovery" id="approach-discovery">Both bounds move; the target remains between them.</p>
+      </div>
+    </section>
+
+    <section id="accumulate" class="chapter chapter-accumulate" aria-labelledby="accumulate-title">
+      <div class="chapter-intro">
+        <p class="chapter-no">III · Accumulate</p><h2 id="accumulate-title">积</h2>
+        <blockquote><span lang="zh-Hans">“幂势既同，则积不容异。”</span><cite>Zu Geng, quoted in Tang commentaries: “If cross-sectional areas and heights agree, the volumes cannot differ.”</cite></blockquote>
+        <p>Here <i>mi</i> refers to cross-sectional area and <i>shi</i> to height. Slice a sphere into thin layers: their cross-sections together determine the whole volume.</p>
+      </div>
+      <div class="stage accumulate-stage">
+        <canvas id="accumulate-canvas" role="img" aria-label="A sphere divided into transparent slices; the sum approaches its volume as slices become thinner"></canvas>
+        <div class="slice-readout"><p><span>Slices</span><strong id="slice-count">4</strong></p><p><span>Thickness</span><strong id="slice-thickness">0.5000 r</strong></p><p><span>Volume estimate</span><strong id="volume-value">4.31969</strong></p><p><span>Relative error</span><strong id="volume-error">3.125%</strong></p></div>
+        <label class="control-label" for="slice-slider"><span>Thick</span><b>Drag the slice thickness</b><span>Thin</span></label>
+        <input id="slice-slider" class="timeline" type="range" min="4" max="96" value="4" step="2" aria-label="Choose the number of sphere slices">
+        <p class="stage-note">The transparent stack is a modern visualization. Zu Geng’s principle compared equal-height cross-sections; it did not state a Riemann sum.</p>
+      </div>
+    </section>
+
+    <section id="merge" class="chapter chapter-merge" aria-labelledby="merge-title">
+      <div class="chapter-intro"><p class="chapter-no">IV · Connect</p><h2 id="merge-title">合</h2><p>Place the old operations beside modern notation. Drag the seam to see what structural intuition continues—and what formal language came later.</p></div>
+      <div class="stage merge-stage">
+        <div class="merge-board" id="merge-board" aria-label="Sliding comparison between classical operations and modern notation">
+          <div class="merge-layer ancient-layer"><p class="layer-name">Classical procedural language</p><div><b>割</b><span>6 → 12 → 24 sides</span></div><div><b>逼</b><span>finer cutting, less loss</span></div><div><b>积</b><span>equal sections imply equal volume</span></div></div>
+          <div class="merge-layer modern-layer" id="modern-layer"><p class="layer-name">Modern formal language</p><div><b>partition</b><span>n → ∞</span></div><div><b>limit</b><span>lim A<sub>n</sub> = πr²</span></div><div><b>integral</b><span>Σ A(zᵢ)Δz → ∫ A(z) dz</span></div></div>
+          <i class="merge-seam" id="merge-seam"><span>合</span></i>
+        </div>
+        <label class="control-label" for="merge-slider"><span>Classical operation</span><b>Move the boundary</b><span>Modern form</span></label>
+        <input id="merge-slider" class="timeline" type="range" min="0" max="100" value="50" step="1" aria-label="Compare classical procedures and modern formal language">
+        <p class="final-word"><span>Liu Hui and Zu Geng did not have modern functions, formal limits, or integral signs. They left exceptionally clear procedures for partition, approximation, and reasoning from equal cross-sections.</span></p>
+      </div>
+    </section>
+
+    <section class="sources" aria-labelledby="sources-title">
+      <p class="chapter-no">Texts and notes</p><h2 id="sources-title">Begin with the sources</h2>
+      <div class="source-grid">
+        <a href="https://ctext.org/wiki.pl?if=en&amp;remap=gb&amp;res=838866" target="_blank" rel="noreferrer"><b><i>Nine Chapters</i> with Liu Hui’s commentary</b><span>Chinese Text Project</span></a>
+        <a href="https://zh.wikisource.org/zh-hans/%E5%8A%89%E5%BE%BD%E5%89%B2%E5%9C%93%E8%A1%93" target="_blank" rel="noreferrer"><b>Liu Hui’s circle procedure</b><span>Chinese original at Wikisource</span></a>
+        <a href="https://ctext.org/wiki.pl?chapter=722438&amp;if=en" target="_blank" rel="noreferrer"><b><i>Nine Chapters</i>, Scroll Five</b><span>Solid dissection and “the finest is called minute”</span></a>
+        <a href="https://episte.math.ntu.edu.tw/articles/sm/sm_14_07_1/" target="_blank" rel="noreferrer"><b>Zu Geng’s principle and the sphere</b><span>History of mathematics, NTU</span></a>
+      </div>
+      <p class="method-note">The animations use modern numerical methods to expose historical ideas. They do not imply that the source texts used functions, coordinates, limit notation, or Riemann integration.</p>
+    </section>
+  </main>
+  <footer><span>cut · approach · accumulate · connect</span><b>Watch an idea grow from an operation</b><a href="#cut">Cut again ↑</a></footer>
+  <script src="app.js?v=20260729-1"></script>
+</body>
+</html>

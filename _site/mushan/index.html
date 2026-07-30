@@ -106,6 +106,31 @@ var _hmt = _hmt || [];
     font-family: var(--mushan-font);
 }
 
+.mushan-view-switch {
+    display: inline-flex;
+    gap: 0.35rem;
+    margin-top: 1.1rem;
+    padding: 0.3rem;
+    border: 1px solid rgba(160, 132, 93, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 252, 246, 0.7);
+}
+
+.mushan-view-link {
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    color: #766650;
+    font-family: var(--mushan-font);
+    font-size: 0.92rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+}
+
+.mushan-view-link.is-active {
+    background: #2a3d50;
+    color: #fff;
+}
+
 .mushan-section {
     margin-top: 2.4rem;
 }
@@ -261,6 +286,10 @@ var _hmt = _hmt || [];
   <header class="mushan-header">
     <h1 class="mushan-title">牧山集：东风西逝</h1>
     <p class="mushan-subtitle">目录</p>
+    <div class="mushan-view-switch" role="navigation" aria-label="切换诗集视图">
+      <a class="mushan-view-link is-active" href="/mushan/" aria-current="page">目录</a>
+      <a class="mushan-view-link" href="/mushan_gallery/">图集</a>
+    </div>
   </header>
 
   
@@ -1661,7 +1690,7 @@ document.querySelectorAll('.mushan-item').forEach((item) => {
         <div>千里复相逢</div>
         <div>星汉光年远</div>
         <div>倏如一江风</div>
-        <!-- <abbr title="Last build on 2026-07-16">上次更新于2026年07月</abbr> -->
+        <!-- <abbr title="Last build on 2026-07-30">上次更新于2026年07月</abbr> -->
       </div>
     </div>
     <div class="footer-col footer-col-map">
