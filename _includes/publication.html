@@ -12,12 +12,8 @@
   <div class="publication-body">
     <h3 id="{{ anchor }}">{{ pub.title }}
       {% for award in pub.awards %}
-        {% assign award_label = award %}
-        {% if include.lang == "zh" and site.data.award[award] %}
-          {% assign award_label = site.data.award[award] %}
-        {% endif %}
         <span class="award-badge award-{% if award == "Best Paper Award" %}best{% else %}honor{% endif %}">
-          <i class="fas fa-{% if award == "Best Paper Award" %}trophy{% else %}award{% endif %}"></i> {{ award_label }}
+          <i class="fas fa-{% if award == "Best Paper Award" %}trophy{% else %}award{% endif %}"></i> {{ award }}
         </span>
       {% endfor %}
     </h3>
@@ -53,18 +49,6 @@
       </div>
     {% endif %}
 
-    {% if pub.topics %}
-      <div class="publication-topics" aria-label="{% if include.lang == 'zh' %}研究主题{% else %}Research topics{% endif %}">
-        {% for topic in pub.topics %}
-          {% assign topic_label = topic %}
-          {% if include.lang == "zh" and site.data.topic[topic] %}
-            {% assign topic_label = site.data.topic[topic] %}
-          {% endif %}
-          <button type="button" class="publication-topic-chip" data-publication-topic="{{ topic | escape }}">{{ topic_label }}</button>
-        {% endfor %}
-      </div>
-    {% endif %}
-
     {% if pub.description %}
       <p class="description">
         {{ pub.description | markdownify | remove: '<p>' | remove: '</p>' }}
@@ -77,7 +61,7 @@
       </a>
     {% endif %}
 
-    {% if pub.link or pub.website or pub.pdf or pub.code or pub.video or pub.blog or pub.slides or pub.doi or pub.recording or pub.arxiv or pub.short_doi or pub.osf or pub.demo or pub.bibtex %}
+    {% if pub.link or pub.website or pub.pdf or pub.code or pub.video or pub.blog or pub.slides or pub.doi or pub.recording or pub.arxiv or pub.short_doi or pub.osf or pub.demo %}
       <div class="extra-links">
       {% if pub.doi %}
         <a target="_blank" href="{% if pub.doi contains '://' %}{{ pub.doi }}{% else %}https://doi.org/{{ pub.doi }}{% endif %}">
@@ -149,38 +133,14 @@
           <i class="fas fa-desktop" aria-hidden="true"></i> Demo
         </a>
       {% endif %}
-      <button
-        type="button"
-        class="bibtex-toggle"
-        aria-expanded="false"
-        aria-controls="bib-{{ anchor }}"
-        onclick="toggleBibtex('{{ anchor }}', this)"
-      >
+      <a href="javascript:void(0)" class="bibtex-toggle" onclick="toggleBibtex('{{ anchor }}')">
         <i class="fas fa-quote-right" aria-hidden="true"></i> BibTeX
-      </button>
+      </a>
       </div>
     {% endif %}
 
-    <div id="bib-{{ anchor }}" class="bibtex-container" hidden>
-      <div class="bibtex-toolbar">
-        <span class="bibtex-label">BibTeX</span>
-        <button type="button" class="bibtex-copy" onclick="copyBibtex('{{ anchor }}', this)">
-          <i class="far fa-copy" aria-hidden="true"></i> Copy
-        </button>
-      </div>
-      <pre><code id="bib-code-{{ anchor }}">{% if pub.bibtex %}{{ pub.bibtex }}{% elsif pub.type.first == "preprint" %}@misc{ {{ pub.id | default: anchor }},
-  title = { {{ pub.title }} },
-  author = { {% for author in pub.authors %}{{ author }}{% unless forloop.last %} and {% endunless %}{% endfor %} },
-  year = { {{ pub.year | default: "" | split: "," | first }} }{% if pub.arxiv %},
-  eprint = { {{ pub.arxiv }} },
-  archivePrefix = { arXiv }{% endif %}{% if pub.primaryClass %},
-  primaryClass = { {{ pub.primaryClass }} }{% endif %}{% if pub.arxiv %},
-  url = { https://arxiv.org/abs/{{ pub.arxiv }} }{% elsif pub.link %},
-  url = { {{ pub.link }} }{% elsif pub.website %},
-  url = { {{ pub.website }} }{% elsif pub.pdf %},
-  url = { {{ pub.pdf }} }{% endif %}{% if pub.doi %},
-  doi = { {{ pub.doi }} }{% endif %}
-}{% else %}@{% if pub.type.first == "Journal" %}article{% else %}inproceedings{% endif %}{ {{ pub.id | default: anchor }},
+    <div id="bib-{{ anchor }}" class="bibtex-container" style="display: none;">
+      <pre>{% if pub.bibtex %}{{ pub.bibtex }}{% else %}@{% if pub.type.first == "Journal" %}article{% else %}inproceedings{% endif %}{ {{ pub.id | default: anchor }},
   title = { {{ pub.title }} },
   author = { {% for author in pub.authors %}{{ author }}{% unless forloop.last %} and {% endunless %}{% endfor %} },
   {% if pub.type.first == "Journal" %}journal = { {{ pub.venue }} },{% else %}booktitle = { Proceedings of {{ pub.venue }} },{% endif %}
@@ -189,7 +149,7 @@
   pages = { {{ pub.pages | join: "-" }} }{% endif %}{% if pub.volume %},
   volume = { {{ pub.volume }} }{% endif %}{% if pub.number %},
   number = { {{ pub.number }} }{% endif %}
-}{% endif %}</code></pre>
+}{% endif %}</pre>
     </div>
   </div>
 </div>

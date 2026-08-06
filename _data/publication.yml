@@ -89,7 +89,7 @@
   venue: IEEE Computer Graphics and Applications
   year: "2026"
   highlight: 2
-  doi: https://doi.org/10.48550/arXiv.2604.08979
+  doi: 10.1109/MCG.2026.3690590
   pdf: "https://arxiv.org/pdf/2604.08979.pdf"
   image: 26_spatial_audio.png
   type:
