@@ -605,6 +605,7 @@ class: culture-page
         <a class="culture-link" href="{{ '/projects/chinese-calculus/' | relative_url }}">割之又割：华夏古代的微积分思想 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/chinese-coordinates/' | relative_url }}">经天纬地：华夏古代怎样定位世界 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/fengshui/' | relative_url }}">藏风聚气：风水的现代环境解释 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/xiangyouxinsheng/' | relative_url }}">相由心生：面容怎样留下生活的刻痕 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 
@@ -621,6 +622,7 @@ class: culture-page
         <div class="culture-details-body"><p class="culture-card-copy">以现代交互方式呈现传统历法、干支、象数与推演方法。排盘均在浏览器本地完成，作为文化研究、方法学习与自我反思的辅助工具。</p></div>
       </details>
       <div class="culture-actions">
+        <a class="culture-link" href="{{ '/projects/qiongtian/' | relative_url }}">穹天之下：中国古代的宇宙 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/chinese-calendar/' | relative_url }}">观天授时：月亮与太阳的两只钟 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/bazi/' | relative_url }}">八字排盘：出生时刻怎样排成四柱 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/liuyao/' | relative_url }}">六爻问卦：三枚铜钱怎样成卦 <span aria-hidden="true">→</span></a>

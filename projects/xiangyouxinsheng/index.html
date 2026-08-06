@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一张可以点击的脸：观察表情、时间与生活习惯怎样在面容上留下痕迹。">
+  <meta name="theme-color" content="#15272d">
+  <title>相由心生｜面容怎样留下生活的刻痕</title>
+  <link rel="stylesheet" href="styles.css?v=20260804-1">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','UA-146429859-1');</script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../other/"><span>相</span><b>相由心生</b></a>
+    <nav aria-label="页面导航"><a href="#marks">刻痕</a><a href="#habits">十年</a><a href="#map">地图</a><a href="#sources">依据</a></nav>
+    <a class="home" href="../../projects-zh/">华夏 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero" id="marks">
+      <div class="hero-copy">
+        <p class="eyebrow">相 · 人生刻痕</p>
+        <h1>你的脸，<br><em>不是命运，</em><br>而是你的历史。</h1>
+        <p>点一点眉间、眼角、额头、眼下与嘴角。先让脸动起来，再看一道痕迹怎样留下。</p>
+        <div class="zone-tabs" role="group" aria-label="选择面部区域">
+          <button data-zone="glabella" aria-pressed="true"><b>眉间</b><span>川字纹</span></button>
+          <button data-zone="crow" aria-pressed="false"><b>眼角</b><span>鱼尾纹</span></button>
+          <button data-zone="forehead" aria-pressed="false"><b>额头</b><span>抬头纹</span></button>
+          <button data-zone="underEye" aria-pressed="false"><b>眼下</b><span>暗影</span></button>
+          <button data-zone="mouth" aria-pressed="false"><b>嘴角</b><span>表情纹</span></button>
+        </div>
+      </div>
+
+      <div class="face-stage">
+        <div class="stage-heading"><span>点击面部</span><b id="stage-action">皱眉，松开；再皱眉。</b></div>
+        <svg id="main-face" class="face-svg" viewBox="0 0 600 720" role="img" aria-labelledby="face-title face-desc">
+          <title id="face-title">可点击的面部刻痕模型</title>
+          <desc id="face-desc">点击眉间、眼角、额头、眼下或嘴角，查看反复表情与其他因素怎样影响面部外观。</desc>
+          <defs>
+            <radialGradient id="skin" cx="43%" cy="35%"><stop offset="0" stop-color="#efd6b8"/><stop offset=".72" stop-color="#d8ad87"/><stop offset="1" stop-color="#bb856a"/></radialGradient>
+            <linearGradient id="neck" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d1a07d"/><stop offset="1" stop-color="#a96f59"/></linearGradient>
+            <filter id="soft"><feGaussianBlur stdDeviation="10"/></filter>
+            <g id="face-art">
+              <path class="shoulders" d="M80 720C110 618 193 592 234 580H366C407 592 490 618 520 720Z"/>
+              <path class="neck" d="M235 492C242 555 225 582 210 604C260 640 340 640 390 604C375 582 358 555 365 492Z"/>
+              <ellipse class="ear" cx="123" cy="330" rx="45" ry="70"/><ellipse class="ear" cx="477" cy="330" rx="45" ry="70"/>
+              <path class="face-shape" d="M300 68C188 68 135 151 141 294C147 418 207 523 300 557C393 523 453 418 459 294C465 151 412 68 300 68Z"/>
+              <ellipse class="exposure-wash" cx="300" cy="310" rx="162" ry="224"/>
+              <g class="depth-shadows">
+                <ellipse cx="232" cy="340" rx="51" ry="16"/><ellipse cx="368" cy="340" rx="51" ry="16"/>
+                <ellipse cx="300" cy="267" rx="29" ry="43"/>
+                <path d="M207 381Q191 438 213 485Q229 454 238 414Z"/><path d="M393 381Q409 438 387 485Q371 454 362 414Z"/>
+                <path d="M164 336Q170 471 269 533Q196 494 156 408Z"/><path d="M436 336Q430 471 331 533Q404 494 444 408Z"/>
+              </g>
+              <path class="hair" d="M143 239C130 127 188 42 301 42C410 42 468 126 457 238C427 171 388 132 334 111C276 139 214 135 143 239Z"/>
+              <path class="temple-shadow" d="M155 282C156 410 215 507 295 545C222 519 170 433 155 345Z"/>
+              <g class="brow brow-left"><path d="M190 255Q232 237 272 254"/></g>
+              <g class="brow brow-right"><path d="M328 254Q368 237 410 255"/></g>
+              <path class="eye" d="M190 300Q231 279 271 300Q231 317 190 300Z"/><path class="eye" d="M329 300Q369 279 410 300Q369 317 329 300Z"/>
+              <circle class="iris" cx="232" cy="299" r="8"/><circle class="iris" cx="368" cy="299" r="8"/>
+              <path class="nose" d="M301 302C296 345 284 373 290 389C298 398 316 399 325 391"/>
+              <path class="mouth" d="M230 455Q300 489 370 455"/>
+              <path class="lip-light" d="M258 477Q300 489 342 477"/>
+              <g class="wrinkles forehead-lines"><path d="M211 178Q300 150 389 178"/><path d="M220 202Q300 180 380 202"/><path d="M236 225Q300 211 364 225"/></g>
+              <g class="wrinkles glabella-lines"><path d="M282 230Q272 269 284 292"/><path d="M306 226Q315 267 305 293"/><path d="M294 229L295 286"/></g>
+              <g class="wrinkles crow-lines"><path d="M178 292L145 279"/><path d="M177 305L139 307"/><path d="M180 316L149 330"/><path d="M422 292L455 279"/><path d="M423 305L461 307"/><path d="M420 316L451 330"/></g>
+              <g class="wrinkles under-eye-lines"><path d="M191 329Q231 348 269 329"/><path d="M331 329Q369 348 409 329"/><path d="M197 340Q231 359 263 341"/><path d="M337 341Q369 359 403 340"/></g>
+              <g class="wrinkles mouth-lines"><path d="M224 395Q208 431 216 473"/><path d="M376 395Q392 431 384 473"/><path d="M241 493Q300 516 359 493"/></g>
+            </g>
+          </defs>
+          <use href="#face-art"/>
+          <g class="hotspots" aria-label="面部区域">
+            <ellipse tabindex="0" role="button" aria-label="眉间" data-zone="glabella" cx="298" cy="261" rx="45" ry="59"/>
+            <path tabindex="0" role="button" aria-label="眼角" data-zone="crow" d="M126 258H190V352H126ZM410 258H474V352H410Z"/>
+            <rect tabindex="0" role="button" aria-label="额头" data-zone="forehead" x="195" y="130" width="210" height="105" rx="50"/>
+            <path tabindex="0" role="button" aria-label="眼下" data-zone="underEye" d="M178 315Q230 370 280 322V370H178ZM320 322Q370 370 422 315V370H320Z"/>
+            <ellipse tabindex="0" role="button" aria-label="嘴角" data-zone="mouth" cx="300" cy="455" rx="106" ry="70"/>
+          </g>
+          <g class="touch-ring" aria-hidden="true"><circle cx="298" cy="261" r="53"/><path d="M350 232L390 200"/><text x="398" y="196">点这里</text></g>
+        </svg>
+        <p class="face-note">这是一张解释机制的示意脸，不预测真实外貌。</p>
+      </div>
+
+      <aside class="story-panel" aria-live="polite">
+        <div class="story-head"><span id="zone-mark">眉</span><div><small>正在观察</small><h2 id="zone-title">眉间 · 川字纹</h2></div></div>
+        <p class="story-lead" id="zone-lead">一次皱眉，皮肤只是暂时折叠。许多年里反复收缩，动态纹才可能渐渐停留。</p>
+        <div class="age-line" role="group" aria-label="观察不同阶段">
+          <button data-depth="18"><b>20</b><span>一闪而过</span></button>
+          <i></i><button data-depth="52"><b>30</b><span>表情时可见</span></button>
+          <i></i><button data-depth="88" class="active"><b>40</b><span>慢慢停留</span></button>
+        </div>
+        <label class="depth-control" for="depth"><span id="depth-label">反复皱眉的累积</span><output id="depth-output">88%</output><input id="depth" type="range" min="0" max="100" value="88"></label>
+        <ol class="cause-chain" id="cause-chain">
+          <li><b>表情</b><span>长期反复皱眉</span></li><li><b>肌肉</b><span>皱眉肌反复收缩</span></li><li><b>皮肤</b><span>同一处反复折叠</span></li><li><b>刻痕</b><span>动态纹可能逐渐固定</span></li>
+        </ol>
+        <blockquote id="zone-quote">它更可能记录长期表情习惯，而不是决定一个人的性格或命运。</blockquote>
+      </aside>
+    </section>
+
+    <section class="principle-strip" aria-label="形成过程"><span>一次表情</span><i>→</i><span>一处折叠</span><i>→</i><span>千百次重复</span><i>→</i><strong>一道刻痕</strong></section>
+
+    <section class="habit-lab" id="habits">
+      <div class="section-head">
+        <p class="chapter-no">贰 · 相由日复一日生</p>
+        <h2>把十年，<em>推到脸上。</em></h2>
+        <p>调节的不是命运，是每天反复出现的环境与动作。模型会故意放大差异，让变化看得见。</p>
+      </div>
+      <div class="habit-shell">
+        <div class="habit-controls">
+          <label><span>每晚睡眠</span><output id="sleep-out">7.5 小时</output><input id="sleep" type="range" min="4" max="9" value="7.5" step=".5"></label>
+          <label><span>压力与紧绷</span><output id="stress-out">30%</output><input id="stress" type="range" min="0" max="100" value="30"></label>
+          <label><span>日晒暴露</span><output id="sun-out">35%</output><input id="sun" type="range" min="0" max="100" value="35"></label>
+          <label><span>吸烟暴露</span><output id="smoke-out">0%</output><input id="smoke" type="range" min="0" max="100" value="0"></label>
+          <label><span>笑与眯眼</span><output id="smile-out">65%</output><input id="smile" type="range" min="0" max="100" value="65"></label>
+          <button id="reset-habits">回到日常</button>
+        </div>
+        <div class="future-face">
+          <div class="year-dial"><span>今天</span><i></i><strong>十年以后</strong></div>
+          <svg id="habit-face" class="face-svg" viewBox="0 0 600 720" aria-label="生活因素面部示意模型"><use href="#face-art"/></svg>
+        </div>
+        <aside class="habit-reading">
+          <span>此刻最明显的变化</span><strong id="habit-title">眼角留下笑过的痕迹</strong>
+          <p id="habit-copy">微笑与眯眼会牵动眼轮匝肌。鱼尾纹也可以是表情留下的历史，不只是年龄数字。</p>
+          <div class="factor-bars" aria-label="模型中的影响来源">
+            <p><span>表情重复</span><i><b id="expression-bar"></b></i></p>
+            <p><span>环境暴露</span><i><b id="exposure-bar"></b></i></p>
+            <p><span>恢复不足</span><i><b id="recovery-bar"></b></i></p>
+          </div>
+          <small>这不是“十年后的照片”。真实面容还受年龄、遗传、肤色、疾病、护理和许多未输入因素影响。</small>
+        </aside>
+      </div>
+    </section>
+
+    <section class="face-map" id="map">
+      <div class="section-head compact"><p class="chapter-no">叁 · 一张压力地图</p><h2>一处外观，<em>不止一个答案。</em></h2></div>
+      <div class="map-grid">
+        <article><span>额</span><h3>额头</h3><p>抬眉表情 · 年龄变化 · 日晒暴露 · 皮肤弹性</p></article>
+        <article><span>眼</span><h3>眼下</h3><p>睡眠不足 · 过敏 · 遗传 · 年龄 · 色素与阴影</p></article>
+        <article><span>眉</span><h3>眉间</h3><p>反复皱眉 · 眯眼 · 肌肉牵拉 · 皮肤老化</p></article>
+        <article><span>角</span><h3>眼角</h3><p>笑与眯眼 · 日晒 · 年龄 · 皮肤结构</p></article>
+        <article><span>口</span><h3>口周</h3><p>表情动作 · 年龄 · 日晒 · 吸烟 · 组织变化</p></article>
+        <article class="map-answer"><span>相</span><h3>脸能告诉你的</h3><p>它可以留下时间、动作与环境的痕迹；却不能单凭一处纹路，证明性格、能力、健康或命运。</p></article>
+      </div>
+    </section>
+
+    <section class="ending">
+      <p>相由心生？</p>
+      <h2>或许更准确地说：</h2>
+      <strong>相由日复一日生。</strong>
+      <span>脸会留下生活的痕迹，<br>却不能替你下结论。</span>
+    </section>
+
+    <section class="sources" id="sources">
+      <p class="chapter-no">肆 · 依据</p><h2>这张脸，依据什么变化？</h2>
+      <div class="source-grid">
+        <a href="https://www.aad.org/public/everyday-care/skin-care-secrets/anti-aging/reduce-premature-aging-skin" target="_blank" rel="noreferrer"><b>重复表情与皮肤老化</b><span>美国皮肤科学会：反复肌肉收缩、日晒与吸烟对可见老化的影响。</span></a>
+        <a href="https://www.aad.org/public/everyday-care/skin-care-secrets/anti-aging/wrinkle-remedies" target="_blank" rel="noreferrer"><b>日晒与皱纹</b><span>美国皮肤科学会：紫外线会加速皱纹等光老化表现。</span></a>
+        <a href="https://my.clevelandclinic.org/health/symptoms/23128-dark-circles-under-eyes" target="_blank" rel="noreferrer"><b>黑眼圈的多重成因</b><span>Cleveland Clinic：年龄、遗传、过敏、睡眠与色素等都可能参与。</span></a>
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9543134/" target="_blank" rel="noreferrer"><b>面部老化的多层结构</b><span>综述：皮肤、脂肪、肌肉、软骨与骨骼共同改变面部外观。</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <b>相由心生</b><span>看见痕迹，也保留判断。</span><a href="#marks">再看一张脸 ↑</a>
+    <div class="visitor-map" aria-label="访问者地图"><script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=163d49&cmo=67b7d1"></script></div>
+  </footer>
+  <script src="app.js?v=20260804-1"></script>
+</body>
+</html>
