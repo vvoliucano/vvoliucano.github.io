@@ -554,13 +554,13 @@ class: culture-page
         <span class="culture-seal" aria-hidden="true">文</span>
       </div>
       <h2>文字</h2>
-      <p class="culture-card-subtitle">书同文，文以载道</p>
-      <p class="culture-card-teaser">从 658 个通用汉字词出发，对照字形、读音与英文释义。</p>
+      <p class="culture-card-subtitle">由字入文，由文见思</p>
+      <p class="culture-card-teaser">从汉字、词汇、典籍到现代文化解读，连接语言、思想与跨文化传播。</p>
       <details class="culture-details">
         <summary><span class="culture-details-more">查看详情与出处</span><span class="culture-details-less">收起</span></summary>
         <div class="culture-details-body">
-          <p class="culture-card-copy">“书同文”计划（Hanzi 658）以六百五十八个華夏文化圈通用汉字词为入口，对照中、日、韩、越的字形与读音，并为每个词提供英文释义。汉字源于中国，后来被日、韩、越吸收和改造：日语至今使用 kanji，韩语保留 hanja，越南历史上使用 chữ Hán 与 chữ Nôm。<a class="culture-cite" href="#culture-source-1" aria-label="参见来源一">[1]</a> 汉源词在三种现代语言中仍占显著比例；一项 2025 年综述估计，汉源词约占日语词汇的 43–54%、韩语的 47–56%、越南语约 70%，具体比例随语料与分类方法而异。<a class="culture-cite" href="#culture-source-2" aria-label="参见来源二">[2]</a> 文字不仅是书写工具，也是華夏文化圈共享知识与历史记忆的基础设施。</p>
-          <ol class="culture-sources" aria-label="汉字传播与汉源词研究来源">
+          <p class="culture-card-copy">这一栏关注的不只是字形本身，也包括文字如何组织知识、承载思想，并在现代媒介中获得新的表达。一条线索是“书同文”计划（Hanzi 658）：以六百五十八个華夏文化圈通用汉字词为入口，对照中、日、韩、越的字形与读音，并为每个词提供英文释义。汉字源于中国，后来被日、韩、越吸收和改造：日语至今使用 kanji，韩语保留 hanja，越南历史上使用 chữ Hán 与 chữ Nôm。<a class="culture-cite" href="#culture-source-1" aria-label="参见来源一">[1]</a> 汉源词在三种现代语言中仍占显著比例；一项 2025 年综述估计，汉源词约占日语词汇的 43–54%、韩语的 47–56%、越南语约 70%，具体比例随语料与分类方法而异。<a class="culture-cite" href="#culture-source-2" aria-label="参见来源二">[2]</a> 另一条线索是借当代叙事与流行媒介重新进入中国思想传统，例如以《多啦A梦》重读老庄。文字既是书写系统，也是理解经典、思想与文化传播的入口。</p>
+          <ol class="culture-sources" aria-label="文字与汉字传播相关来源">
             <li id="culture-source-1"><a href="https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-18/" target="_blank" rel="noopener">《Unicode 标准》第 17 版，第 18 章“东亚文字”</a>。</li>
             <li id="culture-source-2">木下瞳：<a href="https://cir.nii.ac.jp/crid/1390023549705999872?lang=ja" target="_blank" rel="noopener">《日语、韩语、越南语中汉源词的量化研究综述》</a>，《国立国语研究所论集》29，2025。<a href="https://www.ninjal.ac.jp/info/publication/papers/29/" target="_blank" rel="noopener">国立国语研究所期刊目录</a>。</li>
           </ol>
@@ -605,7 +605,6 @@ class: culture-page
         <a class="culture-link" href="{{ '/projects/chinese-calculus/' | relative_url }}">割之又割：华夏古代的微积分思想 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/chinese-coordinates/' | relative_url }}">经天纬地：华夏古代怎样定位世界 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/fengshui/' | relative_url }}">藏风聚气：风水的现代环境解释 <span aria-hidden="true">→</span></a>
-        <a class="culture-link" href="{{ '/projects/xiangyouxinsheng/' | relative_url }}">相由心生：面容怎样留下生活的刻痕 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 
@@ -623,7 +622,10 @@ class: culture-page
       </details>
       <div class="culture-actions">
         <a class="culture-link" href="{{ '/projects/qiongtian/' | relative_url }}">穹天之下：中国古代的宇宙 <span aria-hidden="true">→</span></a>
-        <a class="culture-link" href="{{ '/projects/chinese-calendar/' | relative_url }}">观天授时：月亮与太阳的两只钟 <span aria-hidden="true">→</span></a>
+          <a class="culture-link" href="{{ '/projects/qiongtian/' | relative_url }}">穹天之下：中国古代的宇宙 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/qiongtian/' | relative_url }}">穹天之下：中国古代的宇宙 <span aria-hidden="true">→</span></a>
+          <a class="culture-link" href="{{ '/projects/qiongtian/' | relative_url }}">穹天之下：中国古代的宇宙 <span aria-hidden="true">→</span></a>
+          <a class="culture-link" href="{{ '/projects/chinese-calendar/' | relative_url }}">观天授时：月亮与太阳的两只钟 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/bazi/' | relative_url }}">八字排盘：出生时刻怎样排成四柱 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/liuyao/' | relative_url }}">六爻问卦：三枚铜钱怎样成卦 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/yijing/' | relative_url }}">时与位：《易》的第一性原理 <span aria-hidden="true">→</span></a>
