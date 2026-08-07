@@ -622,10 +622,7 @@ class: culture-page
       </details>
       <div class="culture-actions">
         <a class="culture-link" href="{{ '/projects/qiongtian/' | relative_url }}">穹天之下：中国古代的宇宙 <span aria-hidden="true">→</span></a>
-          <a class="culture-link" href="{{ '/projects/qiongtian/' | relative_url }}">穹天之下：中国古代的宇宙 <span aria-hidden="true">→</span></a>
-        <a class="culture-link" href="{{ '/projects/qiongtian/' | relative_url }}">穹天之下：中国古代的宇宙 <span aria-hidden="true">→</span></a>
-          <a class="culture-link" href="{{ '/projects/qiongtian/' | relative_url }}">穹天之下：中国古代的宇宙 <span aria-hidden="true">→</span></a>
-          <a class="culture-link" href="{{ '/projects/chinese-calendar/' | relative_url }}">观天授时：月亮与太阳的两只钟 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/chinese-calendar/' | relative_url }}">观天授时：月亮与太阳的两只钟 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/bazi/' | relative_url }}">八字排盘：出生时刻怎样排成四柱 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/liuyao/' | relative_url }}">六爻问卦：三枚铜钱怎样成卦 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/yijing/' | relative_url }}">时与位：《易》的第一性原理 <span aria-hidden="true">→</span></a>
