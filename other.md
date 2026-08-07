@@ -605,6 +605,7 @@ class: culture-page
         <a class="culture-link" href="{{ '/projects/chinese-calculus/' | relative_url }}">割之又割：华夏古代的微积分思想 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/chinese-coordinates/' | relative_url }}">经天纬地：华夏古代怎样定位世界 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/fengshui/' | relative_url }}">藏风聚气：风水的现代环境解释 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/xiangyouxinsheng/' | relative_url }}">相由心生：面容怎样留下生活的刻痕 <span aria-hidden="true">→</span></a>
       </div>
     </article>
 
