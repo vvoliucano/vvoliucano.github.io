@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="展示新加坡公开 PCN 线路的总览地图，包含不同颜色对应的各条路线。">
+  <meta name="theme-color" content="#081421">
+  <meta property="og:title" content="Singapore PCN Map｜线路总览">
+  <meta property="og:description" content="将 NParks 公布的 PCN 线路 GeoJSON 全部叠加到新加坡底图上查看。">
+  <meta property="og:image" content="https://vvoliucano.github.io/favicon.png">
+  <title>Singapore PCN Map｜线路总览</title>
+  <link rel="stylesheet" href="styles.css?v=20260809-4">
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="../../projects-zh/" aria-label="返回项目页">
+      <span class="brand-seal">线</span>
+      <span>Singapore PCN Map</span>
+    </a>
+    <p class="masthead-note">All Public PCN Routes · NParks · ArcGIS</p>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">PCN Routes · Singapore</p>
+        <h1 id="page-title">新加坡 PCN 线路总览</h1>
+        <p class="lead">这一页把从 ArcGIS Experience 背后抓下来的公开 PCN 路线全部叠到新加坡底图上。每条线都保留了原始图层颜色，底图仅作空间参考。你可以悬停线路查看名称，也可以在右侧图例里开关单条线路，观察不同路线之间的关系。</p>
+        <div class="hero-metrics">
+          <div>
+            <span>线路数</span>
+            <strong id="route-count">0</strong>
+            <small>public routes</small>
+          </div>
+          <div>
+            <span>线段数</span>
+            <strong id="segment-count">0</strong>
+            <small>route segments</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <span>数据来源</span>
+        <strong>NParks ArcGIS</strong>
+        <p>数据来自 `Park Connector Trails` Web Map 中公开的 10 条线路图层，已经抓成独立 GeoJSON 保存在本地。</p>
+        <div class="hero-actions">
+          <a class="action-link" href="./">浏览底图</a>
+          <a class="action-link" href="liucan.html">查看踏足图</a>
+          <a class="action-link" href="planner.html">PCN 路径规划</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="PCN 地图与图例面板">
+      <div class="map-panel">
+        <div class="panel-head">
+          <div>
+            <p>地图</p>
+            <h2>All PCN Routes</h2>
+          </div>
+          <button id="show-all-routes" class="ghost-button" type="button">显示全部线路</button>
+        </div>
+
+        <div class="map-stage">
+          <div id="map-container" class="map-container" role="img" aria-label="新加坡 PCN 线路总览地图"></div>
+          <div id="map-tooltip" class="map-tooltip" aria-hidden="true"></div>
+        </div>
+
+        <div class="legend-wrap">
+          <div>
+            <p>说明</p>
+            <div class="pcn-meta">
+              <span><i class="legend-swatch legend-swatch-outline"></i> 规划区底图</span>
+              <span><i class="legend-swatch legend-swatch-line"></i> PCN 路线</span>
+            </div>
+          </div>
+          <div class="map-footnote">
+            <p>清单文件：<code>pcn/manifest.json</code></p>
+            <p>路线数据：<code>pcn/*.geojson</code></p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="info-panel" aria-live="polite">
+        <div class="info-card current-card">
+          <p class="card-label">当前线路</p>
+          <strong id="current-route">移动鼠标查看</strong>
+          <span id="current-color" class="district-pill">显示颜色与线段数</span>
+          <p id="current-note" class="card-note">右侧每条线路都可以单独开关。颜色来自原始 ArcGIS 图层配置。</p>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">线路图例</p>
+          <div id="route-legend" class="route-legend"></div>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">线路统计</p>
+          <div id="route-summary" class="district-summary"></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="pcn.js?v=20260809-1"></script>
+</body>
+</html>

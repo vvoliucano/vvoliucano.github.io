@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="基于 liucan explore counts 绘制的新加坡踏足区域 choropleth 地图。">
+  <meta name="theme-color" content="#081421">
+  <meta property="og:title" content="Liucan Explore Map｜新加坡踏足区域">
+  <meta property="og:description" content="用踏足次数对新加坡 planning area 连续着色，查看 liucan 已 explore 的区域分布。">
+  <meta property="og:image" content="https://vvoliucano.github.io/favicon.png">
+  <title>Liucan Explore Map｜新加坡踏足区域</title>
+  <link rel="stylesheet" href="styles.css?v=20260809-3">
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="../../projects-zh/" aria-label="返回项目页">
+      <span class="brand-seal">游</span>
+      <span>Liucan Explore Map</span>
+    </a>
+    <p class="masthead-note">Choropleth · visit_count · Singapore</p>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Explore Density · Singapore</p>
+        <h1 id="page-title">Liucan 的新加坡踏足区域</h1>
+        <p class="lead">这张图直接读取 `liucan-singapore-explore-counts.json`，把每个 planning area 的踏足次数映射成连续色阶。颜色越亮，表示累计到访次数越高；未探索区域保持低亮度，以便一眼看出活动范围的集中位置。</p>
+        <div class="hero-metrics">
+          <div>
+            <span>总踏足次数</span>
+            <strong id="total-visits">0</strong>
+            <small>total visits</small>
+          </div>
+          <div>
+            <span>已探索区域</span>
+            <strong id="explored-areas">0</strong>
+            <small>areas with count &gt; 0</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <span>数据来源</span>
+        <strong>liucan explore counts</strong>
+        <p>当前版本使用本地统计文件，不依赖手工输入。后续如果你换一份新的 counts JSON，我也可以用同一套页面结构继续出图。</p>
+        <div class="hero-actions">
+          <a class="action-link" href="./">浏览底图</a>
+          <a class="action-link" href="editor.html">进入编辑页</a>
+          <a class="action-link" href="pcn.html">查看 PCN 路线图</a>
+          <a class="action-link" href="planner.html">PCN 路径规划</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="choropleth 地图与统计信息">
+      <div class="map-panel">
+        <div class="panel-head">
+          <div>
+            <p>地图</p>
+            <h2>Visited Planning Areas</h2>
+          </div>
+        </div>
+
+        <div class="map-stage">
+          <div id="map-container" class="map-container" role="img" aria-label="Liucan 新加坡踏足区域 choropleth"></div>
+          <div id="map-tooltip" class="map-tooltip" aria-hidden="true"></div>
+        </div>
+
+        <div class="legend-wrap">
+          <div>
+            <p>色阶</p>
+            <div class="choropleth-legend">
+              <div id="legend-ramp" class="legend-ramp"></div>
+              <div class="legend-scale">
+                <span id="legend-min">0</span>
+                <span id="legend-mid">0</span>
+                <span id="legend-max">0</span>
+              </div>
+            </div>
+          </div>
+          <div class="map-footnote">
+            <p>统计文件：<code>counts/liucan-singapore-explore-counts.json</code></p>
+            <p>底图文件：<code>district_and_planning_area.geojson</code></p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="info-panel" aria-live="polite">
+        <div class="info-card current-card">
+          <p class="card-label">当前区域</p>
+          <strong id="current-area">移动鼠标查看</strong>
+          <span id="current-district" class="district-pill">显示 district 与累计次数</span>
+          <p id="current-note" class="card-note">颜色只表示 visit_count，不表示地理面积。未探索区域的计数为 0。</p>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">最高区域</p>
+          <ul id="top-areas" class="area-list"></ul>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">大区统计</p>
+          <div id="district-summary" class="district-summary"></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="liucan.js?v=20260809-1"></script>
+</body>
+</html>

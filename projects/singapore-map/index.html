@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用 D3 绘制新加坡规划区地图，展示各 planning area 在 East、West、North、North-East 与 Central 大区中的分布。">
+  <meta name="theme-color" content="#081421">
+  <meta property="og:title" content="Singapore Map｜新加坡规划区地图">
+  <meta property="og:description" content="基于本地 GeoJSON 的 D3 地图：查看新加坡 55 个规划区与所属大区的空间分布。">
+  <meta property="og:image" content="https://vvoliucano.github.io/favicon.png">
+  <title>Singapore Map｜新加坡规划区地图</title>
+  <link rel="stylesheet" href="styles.css?v=20260809-1">
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="../../projects-zh/" aria-label="返回项目页">
+      <span class="brand-seal">坡</span>
+      <span>Singapore Map</span>
+    </a>
+    <p class="masthead-note">D3 · GeoJSON · 新加坡规划区分布</p>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Spatial Distribution · Singapore</p>
+        <h1 id="page-title">新加坡规划区地图</h1>
+        <p class="lead">这一页使用 D3 直接读取本地 GeoJSON，将新加坡的 planning area 绘制成可交互地图。当前版本展示区域边界、所属大区与基础浏览交互，便于后续继续叠加人口、学校、机构或研究分布数据。</p>
+        <div class="hero-metrics">
+          <div>
+            <span>地图数据</span>
+            <strong id="feature-count">55</strong>
+            <small>planning areas</small>
+          </div>
+          <div>
+            <span>大区层级</span>
+            <strong id="district-count">5</strong>
+            <small>districts</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <span>当前版本</span>
+        <strong>边界分布底图</strong>
+        <p>支持悬停高亮、点击锁定与分区图例。地图底图来自仓库中的本地 GeoJSON 文件。</p>
+        <div class="hero-actions">
+          <a class="action-link" href="editor.html">进入足迹统计编辑页</a>
+          <a class="action-link" href="liucan.html">查看 Liucan 踏足图</a>
+          <a class="action-link" href="pcn.html">查看 PCN 路线图</a>
+          <a class="action-link" href="planner.html">PCN 路径规划</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="地图与信息面板">
+      <div class="map-panel">
+        <div class="panel-head">
+          <div>
+            <p>地图</p>
+            <h2>Singapore Planning Areas</h2>
+          </div>
+          <button id="reset-selection" class="ghost-button" type="button">清除选中</button>
+        </div>
+
+        <div class="map-stage">
+          <div id="map-container" class="map-container" role="img" aria-label="新加坡规划区交互地图"></div>
+          <div id="map-tooltip" class="map-tooltip" aria-hidden="true"></div>
+        </div>
+
+        <div class="legend-wrap">
+          <div>
+            <p>图例</p>
+            <div id="legend" class="legend" aria-label="大区图例"></div>
+          </div>
+          <div class="map-footnote">
+            <p>数据字段：<code>district</code> 与 <code>planning_area</code></p>
+            <p>底图文件：<code>district_and_planning_area.geojson</code></p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="info-panel" aria-live="polite">
+        <div class="info-card current-card">
+          <p class="card-label">当前区域</p>
+          <strong id="current-area">未选中</strong>
+          <span id="current-district" class="district-pill">移动鼠标或点击区域</span>
+          <p id="current-note" class="card-note">悬停时预览，点击后锁定信息。再次点击同一区域可取消选中。</p>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">区域统计</p>
+          <div id="district-summary" class="district-summary"></div>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">同区规划区</p>
+          <ul id="district-areas" class="area-list"></ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="app.js?v=20260809-1"></script>
+</body>
+</html>

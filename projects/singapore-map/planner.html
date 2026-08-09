@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在新加坡 PCN 路网上选择途经点，自动吸附到最近路线、计算最短路径并导出 GPX。">
+  <meta name="theme-color" content="#081421">
+  <meta property="og:title" content="Singapore PCN Planner｜路径规划">
+  <meta property="og:description" content="点击地图选择多个途经点，在 PCN 路网上自动规划路径并导出 GPX。">
+  <meta property="og:image" content="https://vvoliucano.github.io/favicon.png">
+  <title>Singapore PCN Planner｜路径规划</title>
+  <link rel="stylesheet" href="styles.css?v=20260809-7">
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="../../projects-zh/" aria-label="返回项目页">
+      <span class="brand-seal">路</span>
+      <span>Singapore PCN Planner</span>
+    </a>
+    <p class="masthead-note">Waypoints · Nearest PCN · GPX Export</p>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Route Planning · Singapore PCN</p>
+        <h1 id="page-title">PCN 途经点路径规划</h1>
+        <p class="lead">在地图上按顺序点击途经点。页面会自动吸附到最近的 PCN 节点、计算连通路径，并支持导出 GPX。</p>
+        <div class="hero-metrics">
+          <div>
+            <span>途经点</span>
+            <strong id="waypoint-count">0</strong>
+            <small>clicked waypoints</small>
+          </div>
+          <div>
+            <span>规划距离</span>
+            <strong id="route-distance">0.0 km</strong>
+            <small>PCN path length</small>
+          </div>
+          <div>
+            <span>目标距离</span>
+            <strong id="target-distance-display">10.0 km</strong>
+            <small>target length</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <span>操作方式</span>
+        <strong>点击地图依次选点</strong>
+        <p>选点、看距离、导出。当前选择和路线会自动保存在本地，下次打开会继续保留。</p>
+        <div class="hero-actions">
+          <a class="action-link" href="pcn.html">查看 PCN 路线图</a>
+          <a class="action-link" href="liucan.html">查看踏足图</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="路径规划地图与控制面板">
+      <div class="map-panel">
+        <div class="panel-head">
+          <div>
+            <p>地图</p>
+            <h2>Waypoint Routing On PCN</h2>
+          </div>
+          <div class="button-group">
+            <button id="undo-waypoint" class="ghost-button" type="button">撤销最后一点</button>
+            <button id="clear-waypoints" class="ghost-button" type="button">清空全部</button>
+            <button id="export-gpx" class="ghost-button" type="button">导出当前 GPX</button>
+            <button id="export-target-gpx" class="ghost-button" type="button">导出目标 GPX</button>
+          </div>
+        </div>
+
+        <div class="map-stage">
+          <div id="map-container" class="map-container" role="img" aria-label="新加坡 PCN 途经点规划地图"></div>
+          <div id="map-tooltip" class="map-tooltip" aria-hidden="true"></div>
+        </div>
+
+        <div class="legend-wrap">
+          <div>
+            <p>说明</p>
+            <div class="pcn-meta planner-meta">
+              <span><i class="legend-swatch legend-swatch-outline"></i> 规划区底图</span>
+              <span><i class="legend-swatch legend-swatch-line"></i> PCN 路网</span>
+              <span><i class="planner-dot planner-dot-waypoint"></i> 原始途经点</span>
+              <span><i class="planner-dot planner-dot-snapped"></i> 吸附节点</span>
+              <span><i class="planner-line planner-line-route"></i> 规划结果</span>
+            </div>
+          </div>
+          <div class="map-footnote">
+            <p>路径基于：<code>pcn/*.geojson</code></p>
+            <p>导出格式：<code>.gpx</code></p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="info-panel" aria-live="polite">
+        <div class="info-card current-card">
+          <p class="card-label">规划状态</p>
+          <strong id="planner-status-title">等待选点</strong>
+          <span id="planner-status-chip" class="district-pill">至少需要两个途经点</span>
+          <p id="planner-status-note" class="card-note">点击地图任意位置即可添加途经点。系统会自动吸附到最近的 PCN 节点并尝试连线。</p>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">目标公里数</p>
+          <label class="planner-target-input" for="target-distance-input">
+            <span>目标距离（km）</span>
+            <input id="target-distance-input" type="number" min="0.1" step="0.1" value="10">
+          </label>
+          <div class="stats-grid planner-stats-grid">
+            <div class="stat-box">
+              <span>当前路线</span>
+              <strong id="target-current-distance">0.0</strong>
+            </div>
+            <div class="stat-box">
+              <span>目标差值</span>
+              <strong id="target-distance-gap">+10.0</strong>
+            </div>
+          </div>
+          <p id="target-distance-note" class="card-note">如果当前已连通路线达到目标距离，系统会自动截出前 N 公里，并允许导出对应 GPX。</p>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">途经点列表</p>
+          <ul id="waypoint-list" class="area-list"></ul>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">分段信息</p>
+          <ul id="segment-list" class="area-list"></ul>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">GPX 预览</p>
+          <textarea id="gpx-preview" class="json-preview" readonly spellcheck="false"></textarea>
+          <p id="export-status" class="card-note">生成路线后，这里会出现可导出的 GPX 内容预览。</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="connectivity-modal" class="planner-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="connectivity-modal-title">
+    <div class="planner-modal-card">
+      <p class="card-label">路线提示</p>
+      <strong id="connectivity-modal-title">当前点位未连通</strong>
+      <p id="connectivity-modal-message" class="card-note">你新选的点和前一个点之间没有可用的公开 PCN 连通路径。</p>
+      <div class="hero-actions">
+        <button id="connectivity-modal-close" class="ghost-button" type="button">我知道了</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="planner.js?v=20260809-2"></script>
+</body>
+</html>

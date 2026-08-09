@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="点击新加坡规划区地图，为你踏足过的区域累计次数，并导出统计 JSON。">
+  <meta name="theme-color" content="#081421">
+  <meta property="og:title" content="Singapore Map Editor｜足迹统计编辑页">
+  <meta property="og:description" content="点击区域即可累计踏足次数，并导出可用于后续 choropleth 绘制的 JSON。">
+  <meta property="og:image" content="https://vvoliucano.github.io/favicon.png">
+  <title>Singapore Map Editor｜足迹统计编辑页</title>
+  <link rel="stylesheet" href="styles.css?v=20260809-2">
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="../../projects-zh/" aria-label="返回项目页">
+      <span class="brand-seal">迹</span>
+      <span>Singapore Map Editor</span>
+    </a>
+    <p class="masthead-note">点击区域 +1 · 本地保存 · 导出 JSON</p>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Explore Log · Singapore</p>
+        <h1 id="page-title">足迹统计编辑页</h1>
+        <p class="lead">这页专门用来记录你已经踏足过的新加坡 planning areas。直接点击地图上的区块即可把该区域计数加一；统计结果会自动保存在浏览器本地，并且可以一键导出成 JSON，供后续制作你已 explore 区域的 choropleth 地图。</p>
+        <div class="hero-metrics">
+          <div>
+            <span>地图区域</span>
+            <strong id="feature-count">55</strong>
+            <small>planning areas</small>
+          </div>
+          <div>
+            <span>已探索</span>
+            <strong id="explored-count">0</strong>
+            <small>areas with count &gt; 0</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <span>导出格式</span>
+        <strong>explore counts JSON</strong>
+        <p>导出的 JSON 会以 <code>planning_area -&gt; count</code> 作为核心结构，后面你把 JSON 发给我，我就可以直接按这些数字画出新的 choropleth 页面。</p>
+        <div class="hero-actions">
+          <a class="action-link" href="./">返回浏览地图页</a>
+          <a class="action-link" href="liucan.html">查看 Liucan 踏足图</a>
+          <a class="action-link" href="pcn.html">查看 PCN 路线图</a>
+          <a class="action-link" href="planner.html">PCN 路径规划</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="足迹编辑地图与统计面板">
+      <div class="map-panel">
+        <div class="panel-head">
+          <div>
+            <p>编辑地图</p>
+            <h2>Click To Add Visits</h2>
+          </div>
+          <div class="button-group">
+            <button id="current-minus" class="ghost-button" type="button">当前区域 -1</button>
+            <button id="clear-current" class="ghost-button" type="button">当前区域清零</button>
+          </div>
+        </div>
+
+        <div class="map-stage">
+          <div id="map-container" class="map-container" role="img" aria-label="新加坡足迹统计编辑地图"></div>
+          <div id="map-tooltip" class="map-tooltip" aria-hidden="true"></div>
+        </div>
+
+        <div class="legend-wrap">
+          <div>
+            <p>图例</p>
+            <div id="legend" class="legend" aria-label="大区图例"></div>
+          </div>
+          <div class="map-footnote">
+            <p>交互规则：点击区域 <code>+1</code></p>
+            <p>颜色越亮，表示当前累计次数越高</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="info-panel" aria-live="polite">
+        <div class="info-card current-card">
+          <p class="card-label">当前区域</p>
+          <strong id="current-area">未选择</strong>
+          <span id="current-district" class="district-pill">点击地图中的任一区域</span>
+          <p id="current-note" class="card-note">每点击一次，该区域累计值加一。当前区域可单独减一或清零。</p>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">统计概览</p>
+          <div class="stats-grid">
+            <div class="stat-box">
+              <span>总点击</span>
+              <strong id="total-visits">0</strong>
+            </div>
+            <div class="stat-box">
+              <span>已探索区域</span>
+              <strong id="visited-areas">0</strong>
+            </div>
+            <div class="stat-box">
+              <span>最高次数</span>
+              <strong id="top-count">0</strong>
+            </div>
+          </div>
+          <div id="district-summary" class="district-summary"></div>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">已记录区域</p>
+          <ul id="visited-list" class="area-list"></ul>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">导出 JSON</p>
+          <textarea id="json-output" class="json-preview" readonly spellcheck="false"></textarea>
+          <div class="button-group export-buttons">
+            <button id="copy-json" class="ghost-button" type="button">复制 JSON</button>
+            <button id="download-json" class="ghost-button" type="button">下载 JSON</button>
+            <button id="clear-all" class="ghost-button danger-button" type="button">清空全部统计</button>
+          </div>
+          <p id="export-status" class="card-note">统计会自动保存在当前浏览器的本地存储中。</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="editor.js?v=20260809-1"></script>
+</body>
+</html>

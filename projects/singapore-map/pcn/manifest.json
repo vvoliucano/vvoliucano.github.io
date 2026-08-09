@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Western Adventure Loop",
+    "color": "#9595d3",
+    "service_url": "https://services6.arcgis.com/s5gdswleLl0QthYa/arcgis/rest/services/Park_Connector_Trails_WFL1/FeatureServer/5",
+    "geojson_file": "western-adventure-loop.geojson",
+    "feature_count": 66
+  },
+  {
+    "title": "Southern Ridges Loop",
+    "color": "#215733",
+    "service_url": "https://services6.arcgis.com/s5gdswleLl0QthYa/arcgis/rest/services/Park_Connector_Trails_WFL1/FeatureServer/4",
+    "geojson_file": "southern-ridges-loop.geojson",
+    "feature_count": 42
+  },
+  {
+    "title": "Round Island Route",
+    "color": "#ef343f",
+    "service_url": "https://services6.arcgis.com/s5gdswleLl0QthYa/arcgis/rest/services/Park_Connector_Trails_WFL1/FeatureServer/6",
+    "geojson_file": "round-island-route.geojson",
+    "feature_count": 32
+  },
+  {
+    "title": "Rail Corridor",
+    "color": "#000000",
+    "service_url": "https://services6.arcgis.com/s5gdswleLl0QthYa/arcgis/rest/services/Park_Connector_Trails_WFL1/FeatureServer/7",
+    "geojson_file": "rail-corridor.geojson",
+    "feature_count": 4
+  },
+  {
+    "title": "Northern Explorer Loop",
+    "color": "#04b799",
+    "service_url": "https://services6.arcgis.com/s5gdswleLl0QthYa/arcgis/rest/services/Park_Connector_Trails_WFL1/FeatureServer/8",
+    "geojson_file": "northern-explorer-loop.geojson",
+    "feature_count": 50
+  },
+  {
+    "title": "North Eastern Riverine Loop",
+    "color": "#50097a",
+    "service_url": "https://services6.arcgis.com/s5gdswleLl0QthYa/arcgis/rest/services/Park_Connector_Trails_WFL1/FeatureServer/9",
+    "geojson_file": "north-eastern-riverine-loop.geojson",
+    "feature_count": 38
+  },
+  {
+    "title": "Eastern Corridor",
+    "color": "#840b58",
+    "service_url": "https://services6.arcgis.com/s5gdswleLl0QthYa/arcgis/rest/services/Park_Connector_Trails_WFL1/FeatureServer/10",
+    "geojson_file": "eastern-corridor.geojson",
+    "feature_count": 1
+  },
+  {
+    "title": "Eastern Coastal Loop",
+    "color": "#018b95",
+    "service_url": "https://services6.arcgis.com/s5gdswleLl0QthYa/arcgis/rest/services/Park_Connector_Trails_WFL1/FeatureServer/11",
+    "geojson_file": "eastern-coastal-loop.geojson",
+    "feature_count": 49
+  },
+  {
+    "title": "Coast To Coast Trail",
+    "color": "#754d29",
+    "service_url": "https://services6.arcgis.com/s5gdswleLl0QthYa/arcgis/rest/services/Park_Connector_Trails_WFL1/FeatureServer/12",
+    "geojson_file": "coast-to-coast-trail.geojson",
+    "feature_count": 11
+  },
+  {
+    "title": "Central Urban Loop",
+    "color": "#d0006e",
+    "service_url": "https://services6.arcgis.com/s5gdswleLl0QthYa/arcgis/rest/services/Park_Connector_Trails_WFL1/FeatureServer/13",
+    "geojson_file": "central-urban-loop.geojson",
+    "feature_count": 39
+  }
+]
