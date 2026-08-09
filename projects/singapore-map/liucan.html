@@ -45,12 +45,13 @@
       <div class="hero-card">
         <span>数据来源</span>
         <strong>liucan explore counts</strong>
-        <p>当前版本使用本地统计文件，不依赖手工输入。后续如果你换一份新的 counts JSON，我也可以用同一套页面结构继续出图。</p>
+        <p>当前版本使用本地统计文件，不依赖手工输入。现在支持隐藏地图数字，以及切换为单色强度模式，只看去过与频率的轻重。</p>
         <div class="hero-actions">
           <a class="action-link" href="./">浏览底图</a>
           <a class="action-link" href="editor.html">进入编辑页</a>
           <a class="action-link" href="pcn.html">查看 PCN 路线图</a>
           <a class="action-link" href="planner.html">PCN 路径规划</a>
+          <a class="action-link" href="china.html">中国探索地图</a>
         </div>
       </div>
     </section>
@@ -61,6 +62,10 @@
           <div>
             <p>地图</p>
             <h2>Visited Planning Areas</h2>
+          </div>
+          <div class="button-group">
+            <button id="toggle-labels" class="ghost-button" type="button">隐藏次数</button>
+            <button id="toggle-color-mode" class="ghost-button" type="button">单色强度</button>
           </div>
         </div>
 

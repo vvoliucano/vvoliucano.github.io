@@ -3,6 +3,7 @@
 
   const GEO_URL = "./district_and_planning_area.geojson";
   const COUNTS_URL = "./counts/liucan-singapore-explore-counts.json";
+  const VIEW_STORAGE_KEY = "singapore-liucan-view-v1";
   const districtOrder = ["Central", "East", "North", "North-East", "West"];
   const districtColors = {
     Central: "#d7bc77",
@@ -20,6 +21,8 @@
     maxCount: 0,
     totalVisits: 0,
     exploredAreas: 0,
+    showLabels: true,
+    useMonochrome: false,
   };
 
   const container = document.querySelector("#map-container");
@@ -35,6 +38,8 @@
   const legendMin = document.querySelector("#legend-min");
   const legendMid = document.querySelector("#legend-mid");
   const legendMax = document.querySelector("#legend-max");
+  const toggleLabelsButton = document.querySelector("#toggle-labels");
+  const toggleColorModeButton = document.querySelector("#toggle-color-mode");
 
   let svg;
   let pathsGroup;
@@ -63,23 +68,53 @@
     return { visits, explored };
   }
 
+  function persistViewState() {
+    try {
+      localStorage.setItem(VIEW_STORAGE_KEY, JSON.stringify({
+        showLabels: state.showLabels,
+        useMonochrome: state.useMonochrome,
+      }));
+    } catch (error) {
+      console.warn("保存新加坡探索页视图设置失败", error);
+    }
+  }
+
+  function restoreViewState() {
+    try {
+      const raw = localStorage.getItem(VIEW_STORAGE_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw);
+      if (typeof parsed.showLabels === "boolean") state.showLabels = parsed.showLabels;
+      if (typeof parsed.useMonochrome === "boolean") state.useMonochrome = parsed.useMonochrome;
+    } catch (error) {
+      console.warn("读取新加坡探索页视图设置失败", error);
+    }
+  }
+
   function fillForFeature(feature) {
     const count = getCount(areaKey(feature));
     if (count <= 0) {
       return "#112132";
     }
     const ratio = Math.max(0, Math.min(1, count / Math.max(1, state.maxCount)));
+    if (state.useMonochrome) {
+      return d3.interpolateRgb("#213344", "#a7f0df")(0.2 + ratio * 0.8);
+    }
     const start = "#203447";
     const end = districtColors[districtKey(feature)] || "#8aa3ad";
     return d3.interpolateRgb(start, end)(0.32 + ratio * 0.68);
   }
 
   function renderLegend() {
-    const base = "linear-gradient(90deg, #112132 0%, #39546b 18%, #5f9fd5 40%, #57c4b0 62%, #d7bc77 82%, #ffead0 100%)";
+    const base = state.useMonochrome
+      ? "linear-gradient(90deg, #112132 0%, #213344 18%, #335367 42%, #4f7b86 64%, #77baa9 82%, #a7f0df 100%)"
+      : "linear-gradient(90deg, #112132 0%, #39546b 18%, #5f9fd5 40%, #57c4b0 62%, #d7bc77 82%, #ffead0 100%)";
     legendRamp.style.background = base;
     legendMin.textContent = "0";
     legendMid.textContent = String(Math.round(state.maxCount / 2));
     legendMax.textContent = String(state.maxCount);
+    toggleLabelsButton.textContent = state.showLabels ? "隐藏次数" : "显示次数";
+    toggleColorModeButton.textContent = state.useMonochrome ? "恢复分区色" : "单色强度";
   }
 
   function renderInfo() {
@@ -93,7 +128,9 @@
     if (!feature) {
       currentArea.textContent = "移动鼠标查看";
       currentDistrict.textContent = "显示 district 与累计次数";
-      currentNote.textContent = "颜色只表示 visit_count，不表示地理面积。未探索区域的计数为 0。";
+      currentNote.textContent = state.useMonochrome
+        ? "当前使用单色强度模式，只看去过与频率，不再按 district 分色。"
+        : "颜色只表示 visit_count，不表示地理面积。未探索区域的计数为 0。";
     } else {
       const count = getCount(areaKey(feature));
       currentArea.textContent = areaKey(feature);
@@ -120,6 +157,7 @@
 
   function renderLabels() {
     labelGroup.selectAll("*").remove();
+    if (!state.showLabels) return;
 
     const width = Math.max(container.clientWidth, 320);
     const height = Math.max(container.clientHeight, 420);
@@ -170,6 +208,18 @@
 
     renderLabels();
     renderInfo();
+  }
+
+  function toggleLabels() {
+    state.showLabels = !state.showLabels;
+    persistViewState();
+    syncMapState();
+  }
+
+  function toggleColorMode() {
+    state.useMonochrome = !state.useMonochrome;
+    persistViewState();
+    syncMapState();
   }
 
   function renderMap() {
@@ -255,12 +305,15 @@
     state.totalVisits = countsJson.total_visits || 0;
     state.exploredAreas = countsJson.explored_areas || 0;
 
+    restoreViewState();
     renderLegend();
     renderInfo();
     renderMap();
   }
 
   window.addEventListener("resize", scheduleRender);
+  toggleLabelsButton.addEventListener("click", toggleLabels);
+  toggleColorModeButton.addEventListener("click", toggleColorMode);
 
   loadData().catch((error) => {
     console.error(error);

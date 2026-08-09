@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="中国探索地图：导入 GeoJSON 后，在全国省级底图上高亮已经去过的区域。">
+  <meta name="theme-color" content="#081421">
+  <meta property="og:title" content="China Explore Map｜中国探索地图">
+  <meta property="og:description" content="导入你的 GeoJSON，在中国省级底图上查看已经探索过的区域与频率。">
+  <meta property="og:image" content="https://vvoliucano.github.io/favicon.png">
+  <title>China Explore Map｜中国探索地图</title>
+  <link rel="stylesheet" href="styles.css?v=20260809-4">
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="../../projects-zh/" aria-label="返回项目页">
+      <span class="brand-seal">华</span>
+      <span>China Explore Map</span>
+    </a>
+    <p class="masthead-note">GeoJSON · China Provinces · Explore Map</p>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Explore Density · China</p>
+        <h1 id="page-title">中国探索地图</h1>
+        <p class="lead">这一页先读取本地中国省级底图，再把你导入的 GeoJSON 识别成“已探索省份”。如果你的 GeoJSON 里有 `count`、`value`、`visit_count` 之类的字段，就按频率着色；如果没有，就默认视作到过 1 次。</p>
+        <div class="hero-metrics">
+          <div>
+            <span>累计次数</span>
+            <strong id="china-total-visits">0</strong>
+            <small>total visits</small>
+          </div>
+          <div>
+            <span>已探索省级区</span>
+            <strong id="china-explored-areas">0</strong>
+            <small>visited provinces</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <span>导入方式</span>
+        <strong>上传或粘贴 GeoJSON</strong>
+        <p>支持选择本地文件，也支持直接把 GeoJSON 文本粘进页面。导入内容与显示设置都会保存在本地，下次打开还能继续看。</p>
+        <div class="hero-actions">
+          <a class="action-link" href="liucan.html">新加坡探索地图</a>
+          <a class="action-link" href="planner.html">新加坡 PCN 规划</a>
+          <a class="action-link" href="./">新加坡底图</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="中国探索地图与导入面板">
+      <div class="map-panel">
+        <div class="panel-head">
+          <div>
+            <p>地图</p>
+            <h2>China Provinces</h2>
+          </div>
+          <div class="button-group">
+            <button id="china-toggle-labels" class="ghost-button" type="button">显示次数</button>
+            <button id="china-clear-data" class="ghost-button danger-button" type="button">清空导入</button>
+          </div>
+        </div>
+
+        <div class="map-stage">
+          <div id="china-map-container" class="map-container" role="img" aria-label="中国探索地图"></div>
+          <div id="china-map-tooltip" class="map-tooltip" aria-hidden="true"></div>
+        </div>
+
+        <div class="legend-wrap">
+          <div>
+            <p>色阶</p>
+            <div class="choropleth-legend">
+              <div id="china-legend-ramp" class="legend-ramp"></div>
+              <div class="legend-scale">
+                <span id="china-legend-min">0</span>
+                <span id="china-legend-mid">0</span>
+                <span id="china-legend-max">0</span>
+              </div>
+            </div>
+          </div>
+          <div class="map-footnote">
+            <p>底图文件：<code>china-province-full.geojson</code></p>
+            <p>导入字段：优先读取 <code>name</code> + <code>count</code></p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="info-panel" aria-live="polite">
+        <div class="info-card current-card">
+          <p class="card-label">导入数据</p>
+          <label class="upload-label" for="china-geojson-file">选择 GeoJSON 文件</label>
+          <input id="china-geojson-file" class="file-input" type="file" accept=".geojson,.json,application/geo+json,application/json">
+          <textarea id="china-geojson-text" class="json-preview compact-preview" spellcheck="false" placeholder='也可以直接粘贴 GeoJSON。支持 FeatureCollection、Feature 或 Feature 数组。'></textarea>
+          <div class="button-group import-actions">
+            <button id="china-import-text" class="ghost-button" type="button">读取文本</button>
+          </div>
+          <p id="china-import-status" class="card-note">等待导入 GeoJSON。你贴进来的数据只要能识别出省名，就能映射到全国底图上。</p>
+        </div>
+
+        <div class="info-card current-card">
+          <p class="card-label">当前省级区</p>
+          <strong id="china-current-area">移动鼠标查看</strong>
+          <span id="china-current-state" class="district-pill">显示是否已探索与累计次数</span>
+          <p id="china-current-note" class="card-note">未导入时，地图只显示全国省级边界底图。</p>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">已探索省级区</p>
+          <ul id="china-top-areas" class="area-list"></ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="china.js?v=20260809-1"></script>
+</body>
+</html>

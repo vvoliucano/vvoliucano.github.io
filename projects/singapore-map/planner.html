@@ -27,7 +27,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Route Planning · Singapore PCN</p>
         <h1 id="page-title">PCN 途经点路径规划</h1>
-        <p class="lead">在地图上按顺序点击途经点。页面会自动吸附到最近的 PCN 节点、计算连通路径，并支持导出 GPX。</p>
+        <p class="lead">在地图上按顺序点击途经点。页面会自动吸附到最近的 PCN 节点，且把不同路线中 100 米内的近接点视作可连通，再计算路径并导出 GPX。</p>
         <div class="hero-metrics">
           <div>
             <span>途经点</span>
@@ -50,7 +50,7 @@
       <div class="hero-card">
         <span>操作方式</span>
         <strong>点击地图依次选点</strong>
-        <p>选点、看距离、导出。当前选择和路线会自动保存在本地，下次打开会继续保留。</p>
+        <p>选点、看距离、导出。不同路线只要在 100 米内接近，也会按可连通处理。当前选择和路线会自动保存在本地，下次打开会继续保留。</p>
         <div class="hero-actions">
           <a class="action-link" href="pcn.html">查看 PCN 路线图</a>
           <a class="action-link" href="liucan.html">查看踏足图</a>
@@ -74,6 +74,11 @@
         </div>
 
         <div class="map-stage">
+          <div class="planner-zoom-controls" aria-label="地图缩放控制">
+            <button id="zoom-in" class="ghost-button planner-zoom-button" type="button" aria-label="放大地图">+</button>
+            <button id="zoom-out" class="ghost-button planner-zoom-button" type="button" aria-label="缩小地图">-</button>
+            <button id="zoom-reset" class="ghost-button planner-zoom-button planner-zoom-reset" type="button" aria-label="重置地图缩放">重置</button>
+          </div>
           <div id="map-container" class="map-container" role="img" aria-label="新加坡 PCN 途经点规划地图"></div>
           <div id="map-tooltip" class="map-tooltip" aria-hidden="true"></div>
         </div>
@@ -92,6 +97,7 @@
           <div class="map-footnote">
             <p>路径基于：<code>pcn/*.geojson</code></p>
             <p>导出格式：<code>.gpx</code></p>
+            <p>支持滚轮缩放、拖动平移与 100 米近接连通</p>
           </div>
         </div>
       </div>
@@ -101,7 +107,7 @@
           <p class="card-label">规划状态</p>
           <strong id="planner-status-title">等待选点</strong>
           <span id="planner-status-chip" class="district-pill">至少需要两个途经点</span>
-          <p id="planner-status-note" class="card-note">点击地图任意位置即可添加途经点。系统会自动吸附到最近的 PCN 节点并尝试连线。</p>
+          <p id="planner-status-note" class="card-note">点击地图任意位置即可添加途经点。系统会自动吸附到最近的 PCN 节点，并把 100 米内的近接点视作可连通。</p>
         </div>
 
         <div class="info-card">

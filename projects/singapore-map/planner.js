@@ -6,6 +6,9 @@
   const STORAGE_KEY = "singapore-pcn-planner-v2";
   const NODE_PRECISION = 6;
   const METERS_PER_DEG_LAT = 111320;
+  const SINGAPORE_REF_LAT = 1.3521 * Math.PI / 180;
+  const METERS_PER_DEG_LON = Math.cos(SINGAPORE_REF_LAT) * METERS_PER_DEG_LAT;
+  const NEAR_CONNECTION_METERS = 100;
 
   const state = {
     baseFeatures: [],
@@ -22,6 +25,7 @@
     totalDistance: 0,
     targetDistanceMeters: 10000,
     hoveredRoute: null,
+    zoomTransform: { k: 1, x: 0, y: 0 },
   };
 
   const container = document.querySelector("#map-container");
@@ -44,14 +48,19 @@
   const clearButton = document.querySelector("#clear-waypoints");
   const exportButton = document.querySelector("#export-gpx");
   const exportTargetButton = document.querySelector("#export-target-gpx");
+  const zoomInButton = document.querySelector("#zoom-in");
+  const zoomOutButton = document.querySelector("#zoom-out");
+  const zoomResetButton = document.querySelector("#zoom-reset");
   const connectivityModal = document.querySelector("#connectivity-modal");
   const connectivityModalMessage = document.querySelector("#connectivity-modal-message");
   const connectivityModalClose = document.querySelector("#connectivity-modal-close");
 
   let svg;
+  let viewportGroup;
   let baseGroup;
   let networkGroup;
   let overlayGroup;
+  let zoomBehavior;
   let resizeFrame = null;
 
   function nodeKey(lon, lat) {
@@ -94,7 +103,12 @@
       if (!nodeIndexByKey.has(key)) {
         const index = nodes.length;
         nodeIndexByKey.set(key, index);
-        nodes.push({ coord, key });
+        nodes.push({
+          coord,
+          key,
+          meterPoint: lonLatToMeterPoint(coord),
+          routeKeys: new Set(),
+        });
         adjacency.push([]);
       }
       return nodeIndexByKey.get(key);
@@ -117,6 +131,8 @@
             const b = line[i + 1];
             const aIndex = getNodeIndex(a);
             const bIndex = getNodeIndex(b);
+            nodes[aIndex].routeKeys.add(route.title);
+            nodes[bIndex].routeKeys.add(route.title);
             addEdge(aIndex, bIndex, distanceMeters(a, b));
           }
         });
@@ -125,7 +141,69 @@
 
     state.graphNodes = nodes;
     state.adjacency = adjacency;
+    addNearbyConnections();
     labelComponents();
+  }
+
+  function lonLatToMeterPoint(coord) {
+    return {
+      x: coord[0] * METERS_PER_DEG_LON,
+      y: coord[1] * METERS_PER_DEG_LAT,
+    };
+  }
+
+  function sharesRouteKey(a, b) {
+    for (const key of a.routeKeys) {
+      if (b.routeKeys.has(key)) return true;
+    }
+    return false;
+  }
+
+  function addNearbyConnections() {
+    const buckets = new Map();
+    const cellSize = NEAR_CONNECTION_METERS;
+
+    function bucketKey(point) {
+      return `${Math.floor(point.x / cellSize)},${Math.floor(point.y / cellSize)}`;
+    }
+
+    state.graphNodes.forEach((node, index) => {
+      const key = bucketKey(node.meterPoint);
+      if (!buckets.has(key)) buckets.set(key, []);
+      buckets.get(key).push(index);
+    });
+
+    const seenPairs = new Set();
+
+    state.graphNodes.forEach((node, index) => {
+      const cellX = Math.floor(node.meterPoint.x / cellSize);
+      const cellY = Math.floor(node.meterPoint.y / cellSize);
+
+      for (let dx = -1; dx <= 1; dx += 1) {
+        for (let dy = -1; dy <= 1; dy += 1) {
+          const neighborKey = `${cellX + dx},${cellY + dy}`;
+          const neighborIndices = buckets.get(neighborKey);
+          if (!neighborIndices) continue;
+
+          neighborIndices.forEach((otherIndex) => {
+            if (otherIndex <= index) return;
+
+            const pairKey = `${index}:${otherIndex}`;
+            if (seenPairs.has(pairKey)) return;
+            seenPairs.add(pairKey);
+
+            const otherNode = state.graphNodes[otherIndex];
+            if (sharesRouteKey(node, otherNode)) return;
+
+            const distance = distanceMeters(node.coord, otherNode.coord);
+            if (distance > NEAR_CONNECTION_METERS) return;
+
+            state.adjacency[index].push({ to: otherIndex, weight: distance });
+            state.adjacency[otherIndex].push({ to: index, weight: distance });
+          });
+        }
+      }
+    });
   }
 
   function labelComponents() {
@@ -273,6 +351,12 @@ ${trkpts}
 </gpx>`;
   }
 
+  function getZoomTransform() {
+    return d3.zoomIdentity
+      .translate(state.zoomTransform.x, state.zoomTransform.y)
+      .scale(state.zoomTransform.k);
+  }
+
   function openConnectivityModal(message) {
     connectivityModalMessage.textContent = message;
     connectivityModal.classList.add("is-visible");
@@ -292,6 +376,7 @@ ${trkpts}
         pathCoordinates: state.pathCoordinates,
         targetPathCoordinates: state.targetPathCoordinates,
         totalDistance: state.totalDistance,
+        zoomTransform: state.zoomTransform,
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
     } catch (error) {
@@ -316,6 +401,10 @@ ${trkpts}
       if (Number.isFinite(nextTarget) && nextTarget > 0) {
         state.targetDistanceMeters = nextTarget;
         targetDistanceInput.value = (nextTarget / 1000).toFixed(1);
+      }
+      const nextZoom = parsed.zoomTransform;
+      if (nextZoom && Number.isFinite(nextZoom.k) && Number.isFinite(nextZoom.x) && Number.isFinite(nextZoom.y)) {
+        state.zoomTransform = nextZoom;
       }
       if (!Array.isArray(parsed.waypoints) || !parsed.waypoints.length) {
         recalculateTargetPath();
@@ -390,7 +479,7 @@ ${trkpts}
     if (!state.waypoints.length) {
       plannerStatusTitle.textContent = "等待选点";
       plannerStatusChip.textContent = "至少需要两个途经点";
-      plannerStatusNote.textContent = "点击地图任意位置即可添加途经点。系统会自动吸附到最近的 PCN 节点，再按顺序连接。";
+      plannerStatusNote.textContent = `点击地图任意位置即可添加途经点。系统会自动吸附到最近的 PCN 节点，并把 ${NEAR_CONNECTION_METERS} 米内的近接点视作可连通。`;
     } else if (state.waypoints.length === 1) {
       plannerStatusTitle.textContent = "已选 1 个点";
       plannerStatusChip.textContent = "再选一个点开始规划";
@@ -400,7 +489,7 @@ ${trkpts}
       plannerStatusChip.textContent = "当前途经点之间未找到完整路径";
       const brokenSegment = state.segmentSummaries.find((segment) => !segment.connected);
       plannerStatusNote.textContent = brokenSegment
-        ? `${brokenSegment.from} 和 ${brokenSegment.to} 落在不同连通块，当前公开 PCN 数据里不能直接连通。`
+        ? `${brokenSegment.from} 和 ${brokenSegment.to} 即使按 ${NEAR_CONNECTION_METERS} 米近接规则补连后，当前公开 PCN 数据里仍不能连通。`
         : "这通常表示两点分别落在当前公开 PCN 数据的不同连通分量中。";
     } else {
       plannerStatusTitle.textContent = "路线已生成";
@@ -565,6 +654,23 @@ ${trkpts}
     tooltip.style.top = `${event.clientY - bounds.top}px`;
   }
 
+  function pointerToLonLat(event) {
+    const [x, y] = d3.pointer(event, svg.node());
+    const zoomTransform = d3.zoomTransform(svg.node());
+    const localPoint = zoomTransform.invert([x, y]);
+    return state.projection.invert(localPoint);
+  }
+
+  function zoomBy(factor) {
+    if (!svg || !zoomBehavior) return;
+    svg.transition().duration(180).call(zoomBehavior.scaleBy, factor);
+  }
+
+  function resetZoom() {
+    if (!svg || !zoomBehavior) return;
+    svg.transition().duration(180).call(zoomBehavior.transform, d3.zoomIdentity);
+  }
+
   function hideTooltip() {
     tooltip.classList.remove("is-visible");
     tooltip.setAttribute("aria-hidden", "true");
@@ -584,9 +690,10 @@ ${trkpts}
       .attr("viewBox", `0 0 ${width} ${height}`)
       .attr("preserveAspectRatio", "xMidYMid meet");
 
-    baseGroup = svg.append("g");
-    networkGroup = svg.append("g");
-    overlayGroup = svg.append("g");
+    viewportGroup = svg.append("g");
+    baseGroup = viewportGroup.append("g");
+    networkGroup = viewportGroup.append("g");
+    overlayGroup = viewportGroup.append("g");
 
     baseGroup.selectAll("path")
       .data(state.baseFeatures)
@@ -685,16 +792,30 @@ ${trkpts}
         .text(String(index + 1));
     });
 
+    zoomBehavior = d3.zoom()
+      .scaleExtent([1, 12])
+      .translateExtent([[-width, -height], [width * 2, height * 2]])
+      .extent([[0, 0], [width, height]])
+      .on("zoom", (event) => {
+        viewportGroup.attr("transform", event.transform);
+        state.zoomTransform = { k: event.transform.k, x: event.transform.x, y: event.transform.y };
+        persistState();
+      });
+
+    svg.call(zoomBehavior)
+      .call(zoomBehavior.transform, getZoomTransform());
+
+    svg.on("dblclick.zoom", null);
+
     svg.on("click", (event) => {
-      const [x, y] = d3.pointer(event);
-      const lonLat = state.projection.invert([x, y]);
+      if (event.defaultPrevented) return;
+      const lonLat = pointerToLonLat(event);
       if (!lonLat) return;
       addWaypoint(lonLat);
     });
 
     svg.on("mousemove", (event) => {
-      const [x, y] = d3.pointer(event);
-      const lonLat = state.projection.invert([x, y]);
+      const lonLat = pointerToLonLat(event);
       if (!lonLat) return;
       showTooltip(event, `点击新增途经点<br>${lonLat[1].toFixed(5)}, ${lonLat[0].toFixed(5)}`);
     });
@@ -793,6 +914,9 @@ ${trkpts}
 
   exportButton.addEventListener("click", exportGpx);
   exportTargetButton.addEventListener("click", exportTargetGpx);
+  zoomInButton.addEventListener("click", () => zoomBy(1.35));
+  zoomOutButton.addEventListener("click", () => zoomBy(1 / 1.35));
+  zoomResetButton.addEventListener("click", resetZoom);
   targetDistanceInput.addEventListener("input", handleTargetDistanceChange);
   connectivityModalClose.addEventListener("click", closeConnectivityModal);
   connectivityModal.addEventListener("click", (event) => {

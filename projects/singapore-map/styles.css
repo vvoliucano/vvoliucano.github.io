@@ -787,6 +787,59 @@ button { font: inherit; }
   margin-bottom: 0.9rem;
 }
 
+.planner-zoom-controls {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 4;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.planner-zoom-button {
+  min-width: 2.8rem;
+  min-height: 2.8rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.planner-zoom-reset {
+  min-width: 3.6rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.upload-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  margin-bottom: 0.75rem;
+  padding: 0.65rem 0.95rem;
+  border: 1px solid rgba(127, 224, 210, 0.28);
+  border-radius: 999px;
+  background: rgba(127, 224, 210, 0.08);
+  color: #eef8f6;
+  cursor: pointer;
+}
+
+.file-input {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.95rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.compact-preview {
+  min-height: 11rem;
+}
+
+.import-actions {
+  margin-top: 0.95rem;
+}
+
 .planner-modal {
   position: fixed;
   inset: 0;
