@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const TOPO_URL = "./china.topo.json";
+  const GEO_URL = "./china-province-full.geojson";
   const COUNTS_URL = "./counts/liucan-china-explore-counts.json";
   const LABEL_STORAGE_KEY = "china-liucan-labels-v1";
   const DECORATION_NAMES = new Set(["中国南海十段线", "南海诸岛及缩略图"]);
@@ -230,19 +230,17 @@
   }
 
   async function loadData() {
-    const [topoResponse, countsResponse] = await Promise.all([
-      fetch(TOPO_URL),
+    const [geoResponse, countsResponse] = await Promise.all([
+      fetch(GEO_URL),
       fetch(COUNTS_URL),
     ]);
 
-    if (!topoResponse.ok) throw new Error(`加载中国 topojson 失败：${topoResponse.status}`);
+    if (!geoResponse.ok) throw new Error(`加载中国 GeoJSON 失败：${geoResponse.status}`);
     if (!countsResponse.ok) throw new Error(`加载 counts JSON 失败：${countsResponse.status}`);
 
-    const topology = await topoResponse.json();
+    const geojson = await geoResponse.json();
     const countsJson = await countsResponse.json();
-    const featureCollection = topojson.feature(topology, topology.objects.default);
-
-    state.features = featureCollection.features.filter((feature) => !isDecorativeFeature(feature));
+    state.features = geojson.features.filter((feature) => !isDecorativeFeature(feature));
     state.counts = countsJson.counts || {};
     state.excludedAreas = countsJson.excluded_areas || [];
 
@@ -257,6 +255,6 @@
 
   loadData().catch((error) => {
     console.error(error);
-    showError("中国探索地图未能成功加载。请通过本地服务器访问页面，并确认 topojson 与 counts 文件存在。");
+    showError("中国探索地图未能成功加载。请通过本地服务器访问页面，并确认 GeoJSON 与 counts 文件存在。");
   });
 })();

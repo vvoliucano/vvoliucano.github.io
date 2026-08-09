@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap");
 
+@font-face {
+  font-family: "OuyangxunKaishu";
+  src: url("../../assets/font/%E6%AD%A3%E6%AC%A7%E9%98%B3%E8%AF%A2%E6%A5%B7%E4%B9%A6%2B%E7%AE%80%E7%B9%81.TTF") format("truetype");
+  font-display: swap;
+}
+
 :root {
   --bg: #081421;
   --bg-soft: #102131;
@@ -13,6 +19,7 @@
   --shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
   --serif: "Cormorant Garamond", "Times New Roman", serif;
   --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --ouyang: "OuyangxunKaishu", "STKaiti", "KaiTi", "Kaiti SC", serif;
 }
 
 * { box-sizing: border-box; }
@@ -756,6 +763,186 @@ button { font: inherit; }
   width: 0.9rem;
   height: 0.9rem;
   border-radius: 999px;
+}
+
+body.planner-page,
+body.planner-page button,
+body.planner-page input,
+body.planner-page textarea {
+  font-family: var(--ouyang);
+}
+
+body.planner-page .masthead {
+  padding: 0.95rem 4vw 0.75rem;
+}
+
+body.planner-page .brand span:last-child,
+body.planner-page .masthead-note,
+body.planner-page .card-label {
+  text-transform: none;
+  letter-spacing: 0.08em;
+}
+
+body.planner-page .brand span:last-child {
+  font-size: 0.94rem;
+}
+
+body.planner-page .masthead-note {
+  font-size: 0.82rem;
+}
+
+body.planner-page .planner-main {
+  position: relative;
+  z-index: 20;
+  padding: 1.1rem 4vw 3rem;
+}
+
+body.planner-page .planner-titlebar {
+  margin-bottom: 0.95rem;
+}
+
+body.planner-page .planner-titlebar h1 {
+  margin: 0;
+  font-family: var(--ouyang);
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+}
+
+body.planner-page .planner-layout {
+  grid-template-columns: minmax(0, 1.75fr) minmax(17.5rem, 0.56fr);
+  gap: 1rem;
+  padding: 0;
+  align-items: start;
+}
+
+body.planner-page .planner-map-panel {
+  padding: 0.95rem;
+}
+
+body.planner-page .planner-map-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+
+body.planner-page .planner-inline-note {
+  color: #d5e1e6;
+  font-size: 0.92rem;
+  line-height: 1.68;
+}
+
+body.planner-page .planner-utility-actions {
+  flex-shrink: 0;
+}
+
+body.planner-page .planner-map-stage,
+body.planner-page .map-container {
+  min-height: clamp(34rem, 74vh, 56rem);
+}
+
+body.planner-page .planner-export-panel {
+  position: sticky;
+  top: 1rem;
+}
+
+body.planner-page .planner-export-card {
+  padding: 1rem;
+}
+
+body.planner-page .planner-route-card {
+  padding: 1rem;
+}
+
+body.planner-page .planner-action-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+body.planner-page .planner-action-grid .ghost-button {
+  width: 100%;
+  min-height: 3rem;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+body.planner-page .ghost-button,
+body.planner-page .masthead-link {
+  font-family: var(--ouyang);
+}
+
+body.planner-page .planner-summary,
+body.planner-page #planner-summary {
+  margin-top: 0.25rem;
+  color: #f0f6f7;
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+body.planner-page #planner-export-note {
+  margin-top: 0;
+  color: #9fb5b6;
+  font-size: 0.88rem;
+  line-height: 1.72;
+}
+
+body.planner-page .planner-route-breakdown {
+  margin-top: 0.25rem;
+}
+
+body.planner-page .planner-route-breakdown li {
+  padding: 0.68rem 0.78rem;
+  border-left: 2px solid rgba(127, 224, 210, 0.22);
+  background: rgba(255,255,255,0.035);
+}
+
+body.planner-page .planner-route-breakdown li span {
+  line-height: 1.55;
+}
+
+body.planner-page .planner-route-breakdown li strong {
+  white-space: nowrap;
+}
+
+body.planner-page .planner-disclaimer {
+  margin-top: 0.75rem;
+  color: #a7b9bc;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+body.planner-page .map-tooltip,
+body.planner-page .planner-index {
+  font-family: var(--ouyang);
+}
+
+@media (max-width: 1080px) {
+  body.planner-page .planner-layout {
+    grid-template-columns: 1fr;
+  }
+
+  body.planner-page .planner-export-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  body.planner-page .planner-map-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body.planner-page .planner-utility-actions {
+    justify-content: flex-start;
+  }
+
+  body.planner-page .planner-map-stage,
+  body.planner-page .map-container {
+    min-height: 32rem;
+  }
 }
 
 .planner-dot-waypoint {

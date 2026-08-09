@@ -5,80 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="在新加坡 PCN 路网上选择途经点，自动吸附到最近路线、计算最短路径并导出 GPX。">
   <meta name="theme-color" content="#081421">
-  <meta property="og:title" content="Singapore PCN Planner｜路径规划">
+  <meta property="og:title" content="新加坡公园连接网络路径规划">
   <meta property="og:description" content="点击地图选择多个途经点，在 PCN 路网上自动规划路径并导出 GPX。">
   <meta property="og:image" content="https://vvoliucano.github.io/favicon.png">
-  <title>Singapore PCN Planner｜路径规划</title>
-  <link rel="stylesheet" href="styles.css?v=20260809-7">
+  <title>新加坡公园连接网络路径规划</title>
+  <link rel="stylesheet" href="styles.css?v=20260809-9">
 </head>
-<body>
+<body class="planner-page">
   <div class="page-grain" aria-hidden="true"></div>
 
   <header class="masthead">
     <a class="brand" href="../../projects-zh/" aria-label="返回项目页">
       <span class="brand-seal">路</span>
-      <span>Singapore PCN Planner</span>
+      <span>新加坡公园连接网络路径规划</span>
     </a>
     <div class="masthead-tools">
       <p class="masthead-note">Waypoints · Nearest PCN · GPX Export</p>
-      <a class="masthead-link" href="https://liucan.me" target="_blank" rel="noreferrer">作者专区</a>
+      <a class="masthead-link" href="https://liucan.me" target="_blank" rel="noreferrer">关于作者</a>
     </div>
   </header>
 
-  <main>
-    <section class="hero" aria-labelledby="page-title">
-      <div class="hero-copy">
-        <p class="eyebrow">Route Planning · Singapore PCN</p>
-        <h1 id="page-title">PCN 途经点路径规划</h1>
-        <p class="lead">在地图上按顺序点击途经点。页面会自动吸附到最近的 PCN 节点，且把不同路线中 100 米内的近接点视作可连通，再计算路径并导出 GPX。</p>
-        <div class="hero-metrics">
-          <div>
-            <span>途经点</span>
-            <strong id="waypoint-count">0</strong>
-            <small>clicked waypoints</small>
-          </div>
-          <div>
-            <span>规划距离</span>
-            <strong id="route-distance">0.0 km</strong>
-            <small>PCN path length</small>
-          </div>
-          <div>
-            <span>目标距离</span>
-            <strong id="target-distance-display">10.0 km</strong>
-            <small>target length</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <span>操作方式</span>
-        <strong>点击地图依次选点</strong>
-        <p>选点、看距离、导出。不同路线只要在 100 米内接近，也会按可连通处理。当前选择和路线会自动保存在本地，下次打开会继续保留。</p>
-        <div class="hero-actions">
-          <a class="action-link" href="pcn.html">查看 PCN 路线图</a>
-          <a class="action-link" href="liucan.html">查看踏足图</a>
-        </div>
-      </div>
+  <main class="planner-main">
+    <section class="planner-titlebar" aria-labelledby="page-title">
+      <h1 id="page-title">新加坡公园连接网络路径规划</h1>
     </section>
 
-    <section class="workspace" aria-label="路径规划地图与控制面板">
-      <div class="map-panel">
-        <div class="panel-head">
-          <div>
-            <p>地图</p>
-            <h2>Waypoint Routing On PCN</h2>
-          </div>
-          <div class="button-group">
-            <button id="undo-waypoint" class="ghost-button" type="button">撤销最后一点</button>
-            <button id="clear-waypoints" class="ghost-button" type="button">清空全部</button>
-            <button id="export-gpx" class="ghost-button" type="button">导出当前 GPX</button>
-            <button id="export-target-gpx" class="ghost-button" type="button">导出目标 GPX</button>
-            <button id="open-google-maps" class="ghost-button" type="button">打开 Google 地图</button>
-            <button id="copy-google-maps-link" class="ghost-button" type="button">复制 Google 链接</button>
+    <section class="workspace planner-layout" aria-label="路径规划地图与导出区">
+      <div class="map-panel planner-map-panel">
+        <div class="planner-map-toolbar">
+          <div id="planner-inline-note" class="planner-inline-note">点击地图依次选点，路线会自动保存在本地。</div>
+          <div class="button-group planner-utility-actions">
+            <button id="undo-waypoint" class="ghost-button" type="button">撤销</button>
+            <button id="clear-waypoints" class="ghost-button" type="button">清空</button>
           </div>
         </div>
 
-        <div class="map-stage">
+        <div class="map-stage planner-map-stage">
           <div class="planner-zoom-controls" aria-label="地图缩放控制">
             <button id="zoom-in" class="ghost-button planner-zoom-button" type="button" aria-label="放大地图">+</button>
             <button id="zoom-out" class="ghost-button planner-zoom-button" type="button" aria-label="缩小地图">-</button>
@@ -87,73 +49,28 @@
           <div id="map-container" class="map-container" role="img" aria-label="新加坡 PCN 途经点规划地图"></div>
           <div id="map-tooltip" class="map-tooltip" aria-hidden="true"></div>
         </div>
-
-        <div class="legend-wrap">
-          <div>
-            <p>说明</p>
-            <div class="pcn-meta planner-meta">
-              <span><i class="legend-swatch legend-swatch-outline"></i> 规划区底图</span>
-              <span><i class="legend-swatch legend-swatch-line"></i> PCN 路网</span>
-              <span><i class="planner-dot planner-dot-waypoint"></i> 原始途经点</span>
-              <span><i class="planner-dot planner-dot-snapped"></i> 吸附节点</span>
-              <span><i class="planner-line planner-line-route"></i> 规划结果</span>
-            </div>
-          </div>
-          <div class="map-footnote">
-            <p>路径基于：<code>pcn/*.geojson</code></p>
-            <p>导出格式：<code>.gpx</code></p>
-            <p>支持滚轮缩放、拖动平移与 100 米近接连通</p>
-          </div>
-        </div>
       </div>
 
-      <aside class="info-panel" aria-live="polite">
-        <div class="info-card current-card">
-          <p class="card-label">规划状态</p>
-          <strong id="planner-status-title">等待选点</strong>
-          <span id="planner-status-chip" class="district-pill">至少需要两个途经点</span>
-          <p id="planner-status-note" class="card-note">点击地图任意位置即可添加途经点。系统会自动吸附到最近的 PCN 节点，并把 100 米内的近接点视作可连通。</p>
-        </div>
-
-        <div class="info-card">
-          <p class="card-label">目标公里数</p>
-          <label class="planner-target-input" for="target-distance-input">
-            <span>目标距离（km）</span>
-            <input id="target-distance-input" type="number" min="0.1" step="0.1" value="10">
-          </label>
-          <div class="stats-grid planner-stats-grid">
-            <div class="stat-box">
-              <span>当前路线</span>
-              <strong id="target-current-distance">0.0</strong>
-            </div>
-            <div class="stat-box">
-              <span>目标差值</span>
-              <strong id="target-distance-gap">+10.0</strong>
-            </div>
+      <aside class="info-panel planner-export-panel" aria-live="polite">
+        <div class="info-card planner-export-card">
+          <p class="card-label">导出</p>
+          <div class="planner-action-grid">
+            <button id="export-gpx" class="ghost-button" type="button">导出 GPX</button>
+            <button id="copy-gpx" class="ghost-button" type="button">复制 GPX</button>
+            <button id="open-google-maps" class="ghost-button" type="button">一键直达 Google</button>
+            <button id="copy-google-maps-link" class="ghost-button" type="button">复制 Google 链接</button>
           </div>
-          <p id="target-distance-note" class="card-note">如果当前已连通路线达到目标距离，系统会自动截出前 N 公里，并允许导出对应 GPX。</p>
+          <p id="planner-summary" class="card-note">还没有路线。点击地图开始选点。</p>
+          <p id="planner-export-note" class="card-note">支持滚轮缩放、拖动平移，以及 100 米近接连通。</p>
         </div>
 
-        <div class="info-card">
-          <p class="card-label">途经点列表</p>
-          <ul id="waypoint-list" class="area-list"></ul>
-        </div>
-
-        <div class="info-card">
-          <p class="card-label">分段信息</p>
-          <ul id="segment-list" class="area-list"></ul>
-        </div>
-
-        <div class="info-card">
-          <p class="card-label">GPX 预览</p>
-          <textarea id="gpx-preview" class="json-preview" readonly spellcheck="false"></textarea>
-          <p id="export-status" class="card-note">生成路线后，这里会出现可导出的 GPX 内容预览。</p>
-        </div>
-
-        <div class="info-card">
-          <p class="card-label">Google Maps 链接</p>
-          <textarea id="google-maps-link-preview" class="json-preview compact-preview" readonly spellcheck="false"></textarea>
-          <p id="google-link-note" class="card-note">会自动保留起点、终点和少量大转弯点，避免链接里出现过多节点。</p>
+        <div class="info-card planner-route-card">
+          <p class="card-label">当前经过线路</p>
+          <ul id="planner-route-breakdown" class="area-list planner-route-breakdown">
+            <li class="is-empty">还没有路线。生成路线后，这里会显示当前经过哪些 PCN 线路以及各自里程。</li>
+          </ul>
+          <p class="card-note planner-disclaimer">我们目前只针对 PCN，没有更多别的数据源。</p>
+          <p class="card-note planner-disclaimer">没有任何后台服务器收集你的信息。</p>
         </div>
       </aside>
     </section>
@@ -171,6 +88,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-  <script src="planner.js?v=20260809-2"></script>
+  <script src="planner.js?v=20260809-8"></script>
 </body>
 </html>

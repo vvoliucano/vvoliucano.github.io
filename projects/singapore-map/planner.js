@@ -9,26 +9,40 @@
   const SINGAPORE_REF_LAT = 1.3521 * Math.PI / 180;
   const METERS_PER_DEG_LON = Math.cos(SINGAPORE_REF_LAT) * METERS_PER_DEG_LAT;
   const NEAR_CONNECTION_METERS = 100;
-  const GOOGLE_SIMPLIFY_TOLERANCE_METERS = 18;
-  const GOOGLE_MIN_WAYPOINT_SPACING_METERS = 350;
-  const GOOGLE_TURN_THRESHOLD_DEGREES = 32;
-  const GOOGLE_ANCHOR_SEGMENT_METERS = 3500;
+  const COORD_MERGE_EPSILON_METERS = 1;
   const GOOGLE_MAX_WAYPOINTS = 9;
+  const DEBUG_SESSION_ID = "pcn-false-disconnect";
+  const DEBUG_SERVER_URL = "http://127.0.0.1:7777/event";
+  const ROUTE_LABELS = {
+    "Western Adventure Loop": "西部探游环线",
+    "Southern Ridges Loop": "南部山脊环线",
+    "Round Island Route": "环岛路线",
+    "Rail Corridor": "铁道走廊线",
+    "Northern Explorer Loop": "北部探索环线",
+    "North Eastern Riverine Loop": "东北河岸环线",
+    "Eastern Corridor": "东部走廊线",
+    "Eastern Coastal Loop": "东部海岸环线",
+    "Coast To Coast Trail": "跨岛步道",
+    "Central Urban Loop": "中部城市环线",
+  };
 
   const state = {
     baseFeatures: [],
     routes: [],
     graphNodes: [],
+    graphSegments: [],
+    topologyNodeIndices: [],
     adjacency: [],
+    edgeMetaByPair: new Map(),
     componentIds: [],
     componentSizes: [],
     projection: null,
     waypoints: [],
+    pathSegments: [],
     pathCoordinates: [],
-    targetPathCoordinates: [],
     segmentSummaries: [],
+    routeUsage: [],
     totalDistance: 0,
-    targetDistanceMeters: 10000,
     hoveredRoute: null,
     zoomTransform: { k: 1, x: 0, y: 0 },
     googleMapsUrl: "",
@@ -36,24 +50,14 @@
 
   const container = document.querySelector("#map-container");
   const tooltip = document.querySelector("#map-tooltip");
-  const waypointCountEl = document.querySelector("#waypoint-count");
-  const routeDistanceEl = document.querySelector("#route-distance");
-  const targetDistanceDisplay = document.querySelector("#target-distance-display");
-  const plannerStatusTitle = document.querySelector("#planner-status-title");
-  const plannerStatusChip = document.querySelector("#planner-status-chip");
-  const plannerStatusNote = document.querySelector("#planner-status-note");
-  const targetDistanceInput = document.querySelector("#target-distance-input");
-  const targetCurrentDistance = document.querySelector("#target-current-distance");
-  const targetDistanceGap = document.querySelector("#target-distance-gap");
-  const targetDistanceNote = document.querySelector("#target-distance-note");
-  const waypointList = document.querySelector("#waypoint-list");
-  const segmentList = document.querySelector("#segment-list");
-  const gpxPreview = document.querySelector("#gpx-preview");
-  const exportStatus = document.querySelector("#export-status");
+  const plannerInlineNote = document.querySelector("#planner-inline-note");
+  const plannerSummary = document.querySelector("#planner-summary");
+  const plannerExportNote = document.querySelector("#planner-export-note");
+  const plannerRouteBreakdown = document.querySelector("#planner-route-breakdown");
   const undoButton = document.querySelector("#undo-waypoint");
   const clearButton = document.querySelector("#clear-waypoints");
   const exportButton = document.querySelector("#export-gpx");
-  const exportTargetButton = document.querySelector("#export-target-gpx");
+  const copyGpxButton = document.querySelector("#copy-gpx");
   const openGoogleMapsButton = document.querySelector("#open-google-maps");
   const copyGoogleMapsLinkButton = document.querySelector("#copy-google-maps-link");
   const zoomInButton = document.querySelector("#zoom-in");
@@ -62,8 +66,6 @@
   const connectivityModal = document.querySelector("#connectivity-modal");
   const connectivityModalMessage = document.querySelector("#connectivity-modal-message");
   const connectivityModalClose = document.querySelector("#connectivity-modal-close");
-  const googleMapsLinkPreview = document.querySelector("#google-maps-link-preview");
-  const googleLinkNote = document.querySelector("#google-link-note");
 
   let svg;
   let viewportGroup;
@@ -72,6 +74,25 @@
   let overlayGroup;
   let zoomBehavior;
   let resizeFrame = null;
+  let debugRunId = "post-fix";
+
+  // #region debug-point A-E:reporting
+  function reportDebug(hypothesisId, location, msg, data = {}) {
+    fetch(DEBUG_SERVER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sessionId: DEBUG_SESSION_ID,
+        runId: debugRunId,
+        hypothesisId,
+        location,
+        msg: `[DEBUG] ${msg}`,
+        data,
+        ts: Date.now(),
+      }),
+    }).catch(() => {});
+  }
+  // #endregion
 
   function nodeKey(lon, lat) {
     return `${lon.toFixed(NODE_PRECISION)},${lat.toFixed(NODE_PRECISION)}`;
@@ -89,160 +110,74 @@
     return `${(meters / 1000).toFixed(1)} km`;
   }
 
-  function formatKmValue(meters) {
-    return (meters / 1000).toFixed(1);
-  }
-
   function coordToGoogleLatLon(coord) {
     return `${coord[1].toFixed(6)},${coord[0].toFixed(6)}`;
   }
 
-  function normalizeDegrees(angle) {
-    let normalized = angle;
-    while (normalized > 180) normalized -= 360;
-    while (normalized < -180) normalized += 360;
-    return normalized;
+  function formatRouteLabel(title) {
+    return ROUTE_LABELS[title] || title;
   }
 
-  function bearingDegrees(a, b) {
-    const dx = (b[0] - a[0]) * METERS_PER_DEG_LON;
-    const dy = (b[1] - a[1]) * METERS_PER_DEG_LAT;
-    return Math.atan2(dy, dx) * 180 / Math.PI;
+  function pairKey(aIndex, bIndex) {
+    return aIndex < bIndex ? `${aIndex}:${bIndex}` : `${bIndex}:${aIndex}`;
   }
 
-  function turnAngleDegrees(prev, current, next) {
-    const inBearing = bearingDegrees(prev, current);
-    const outBearing = bearingDegrees(current, next);
-    return Math.abs(normalizeDegrees(outBearing - inBearing));
+  function uniqueNeighborIndices(adjacency, nodeIndex) {
+    return [...new Set(adjacency[nodeIndex].map((edge) => edge.to))];
   }
 
-  function pointLineDistanceMeters(point, start, end) {
-    const p = lonLatToMeterPoint(point);
-    const a = lonLatToMeterPoint(start);
-    const b = lonLatToMeterPoint(end);
+  function lerpCoord(a, b, t) {
+    return [
+      a[0] + (b[0] - a[0]) * t,
+      a[1] + (b[1] - a[1]) * t,
+    ];
+  }
+
+  function meterDistanceBetweenPoints(a, b) {
+    return Math.hypot(b.x - a.x, b.y - a.y);
+  }
+
+  function projectPointOntoSegment(pointCoord, startCoord, endCoord) {
+    const p = lonLatToMeterPoint(pointCoord);
+    const a = lonLatToMeterPoint(startCoord);
+    const b = lonLatToMeterPoint(endCoord);
     const dx = b.x - a.x;
     const dy = b.y - a.y;
+    const lengthSq = dx * dx + dy * dy;
 
-    if (dx === 0 && dy === 0) {
-      return Math.hypot(p.x - a.x, p.y - a.y);
+    if (lengthSq === 0) {
+      return {
+        t: 0,
+        coord: startCoord.slice(),
+        distance: meterDistanceBetweenPoints(p, a),
+      };
     }
 
-    const t = Math.max(0, Math.min(1, ((p.x - a.x) * dx + (p.y - a.y) * dy) / (dx * dx + dy * dy)));
-    const projectionX = a.x + t * dx;
-    const projectionY = a.y + t * dy;
-    return Math.hypot(p.x - projectionX, p.y - projectionY);
+    const rawT = ((p.x - a.x) * dx + (p.y - a.y) * dy) / lengthSq;
+    const t = Math.max(0, Math.min(1, rawT));
+    const projectionMeter = {
+      x: a.x + t * dx,
+      y: a.y + t * dy,
+    };
+
+    return {
+      t,
+      coord: lerpCoord(startCoord, endCoord, t),
+      distance: meterDistanceBetweenPoints(p, projectionMeter),
+    };
   }
 
-  function simplifyCoordinatesForGoogle(routeCoordinates, toleranceMeters) {
-    if (routeCoordinates.length <= 2) return routeCoordinates.slice();
-
-    const keep = new Array(routeCoordinates.length).fill(false);
-    keep[0] = true;
-    keep[routeCoordinates.length - 1] = true;
-    const stack = [[0, routeCoordinates.length - 1]];
-
-    while (stack.length) {
-      const [startIndex, endIndex] = stack.pop();
-      let maxDistance = -1;
-      let splitIndex = -1;
-
-      for (let i = startIndex + 1; i < endIndex; i += 1) {
-        const distance = pointLineDistanceMeters(
-          routeCoordinates[i],
-          routeCoordinates[startIndex],
-          routeCoordinates[endIndex]
-        );
-        if (distance > maxDistance) {
-          maxDistance = distance;
-          splitIndex = i;
-        }
-      }
-
-      if (maxDistance > toleranceMeters && splitIndex !== -1) {
-        keep[splitIndex] = true;
-        stack.push([startIndex, splitIndex], [splitIndex, endIndex]);
-      }
-    }
-
-    return routeCoordinates.filter((_, index) => keep[index]);
-  }
-
-  function cumulativeDistances(routeCoordinates) {
-    const distances = [0];
-    for (let i = 1; i < routeCoordinates.length; i += 1) {
-      distances.push(distances[i - 1] + distanceMeters(routeCoordinates[i - 1], routeCoordinates[i]));
-    }
-    return distances;
-  }
-
-  function buildGoogleWaypointCoordinates(routeCoordinates) {
-    const simplified = simplifyCoordinatesForGoogle(routeCoordinates, GOOGLE_SIMPLIFY_TOLERANCE_METERS);
-    if (simplified.length <= 2) {
-      return [];
-    }
-
-    const cumDist = cumulativeDistances(simplified);
-    const candidates = [];
-    let lastAcceptedDistance = 0;
-
-    for (let i = 1; i < simplified.length - 1; i += 1) {
-      const angle = turnAngleDegrees(simplified[i - 1], simplified[i], simplified[i + 1]);
-      const currentDistance = cumDist[i];
-      const remainingDistance = cumDist[cumDist.length - 1] - currentDistance;
-
-      if (
-        angle >= GOOGLE_TURN_THRESHOLD_DEGREES &&
-        currentDistance - lastAcceptedDistance >= GOOGLE_MIN_WAYPOINT_SPACING_METERS &&
-        remainingDistance >= GOOGLE_MIN_WAYPOINT_SPACING_METERS
-      ) {
-        candidates.push({
-          index: i,
-          coord: simplified[i],
-          score: angle,
-          distance: currentDistance,
-        });
-        lastAcceptedDistance = currentDistance;
-      }
-    }
-
-    let lastAnchorDistance = 0;
-    for (let i = 1; i < simplified.length - 1; i += 1) {
-      const currentDistance = cumDist[i];
-      const remainingDistance = cumDist[cumDist.length - 1] - currentDistance;
-      if (
-        currentDistance - lastAnchorDistance >= GOOGLE_ANCHOR_SEGMENT_METERS &&
-        remainingDistance >= GOOGLE_MIN_WAYPOINT_SPACING_METERS
-      ) {
-        candidates.push({
-          index: i,
-          coord: simplified[i],
-          score: 18,
-          distance: currentDistance,
-        });
-        lastAnchorDistance = currentDistance;
-      }
-    }
-
-    const uniqueByIndex = new Map();
-    candidates.forEach((candidate) => {
-      const existing = uniqueByIndex.get(candidate.index);
-      if (!existing || candidate.score > existing.score) {
-        uniqueByIndex.set(candidate.index, candidate);
-      }
-    });
-
-    return [...uniqueByIndex.values()]
-      .sort((a, b) => b.score - a.score || a.distance - b.distance)
-      .slice(0, GOOGLE_MAX_WAYPOINTS)
-      .sort((a, b) => a.distance - b.distance)
-      .map((candidate) => candidate.coord);
-  }
-
-  function buildGoogleMapsUrl(routeCoordinates) {
-    if (!routeCoordinates || routeCoordinates.length < 2) return "";
-    const origin = routeCoordinates[0];
-    const destination = routeCoordinates[routeCoordinates.length - 1];
-    const waypointCoords = buildGoogleWaypointCoordinates(routeCoordinates);
+  function buildGoogleMapsUrlFromWaypoints(waypointCoordinates) {
+    if (!waypointCoordinates || waypointCoordinates.length < 2) return "";
+    const origin = waypointCoordinates[0];
+    const destination = waypointCoordinates[waypointCoordinates.length - 1];
+    const intermediate = waypointCoordinates.slice(1, -1);
+    const stride = intermediate.length > GOOGLE_MAX_WAYPOINTS
+      ? intermediate.length / GOOGLE_MAX_WAYPOINTS
+      : 1;
+    const waypointCoords = intermediate.length > GOOGLE_MAX_WAYPOINTS
+      ? Array.from({ length: GOOGLE_MAX_WAYPOINTS }, (_, index) => intermediate[Math.floor(index * stride)])
+      : intermediate;
     const params = new URLSearchParams({
       api: "1",
       origin: coordToGoogleLatLon(origin),
@@ -268,30 +203,134 @@
     };
   }
 
-  function buildGraph() {
-    const nodeIndexByKey = new Map();
-    const nodes = [];
-    const adjacency = [];
+  function computeComponents(adjacency) {
+    const componentIds = new Array(adjacency.length).fill(-1);
+    const componentSizes = [];
+    let componentId = 0;
 
-    function getNodeIndex(coord) {
-      const key = nodeKey(coord[0], coord[1]);
-      if (!nodeIndexByKey.has(key)) {
-        const index = nodes.length;
-        nodeIndexByKey.set(key, index);
-        nodes.push({
-          coord,
-          key,
-          meterPoint: lonLatToMeterPoint(coord),
-          routeKeys: new Set(),
+    for (let i = 0; i < adjacency.length; i += 1) {
+      if (componentIds[i] !== -1) continue;
+
+      const queue = [i];
+      componentIds[i] = componentId;
+      let size = 0;
+
+      for (let head = 0; head < queue.length; head += 1) {
+        const node = queue[head];
+        size += 1;
+        adjacency[node].forEach((edge) => {
+          if (componentIds[edge.to] !== -1) return;
+          componentIds[edge.to] = componentId;
+          queue.push(edge.to);
         });
-        adjacency.push([]);
       }
-      return nodeIndexByKey.get(key);
+
+      componentSizes[componentId] = size;
+      componentId += 1;
     }
 
-    function addEdge(aIndex, bIndex, weight) {
+    return { componentIds, componentSizes };
+  }
+
+  function collectTopologyNodeIndices(nodes, adjacency, baseComponentIds) {
+    const topologySet = new Set();
+    const firstNodeByComponent = new Map();
+    let endpointCount = 0;
+    let junctionCount = 0;
+    let cycleRepresentativeCount = 0;
+
+    nodes.forEach((_, index) => {
+      const componentId = baseComponentIds[index];
+      if (!firstNodeByComponent.has(componentId)) {
+        firstNodeByComponent.set(componentId, index);
+      }
+
+      const degree = uniqueNeighborIndices(adjacency, index).length;
+      if (degree === 1) endpointCount += 1;
+      if (degree > 2 || degree === 0) junctionCount += 1;
+      if (degree !== 2) {
+        topologySet.add(index);
+      }
+    });
+
+    firstNodeByComponent.forEach((index, componentId) => {
+      const hasTopologyNode = [...topologySet].some((nodeIndex) => baseComponentIds[nodeIndex] === componentId);
+      if (!hasTopologyNode) {
+        topologySet.add(index);
+        cycleRepresentativeCount += 1;
+      }
+    });
+
+    return {
+      indices: [...topologySet],
+      endpointCount,
+      junctionCount,
+      cycleRepresentativeCount,
+    };
+  }
+
+  function buildGraph() {
+    const nodes = [];
+    const segments = [];
+    const adjacency = [];
+    const edgeMetaByPair = new Map();
+    const nodeBuckets = new Map();
+    const bucketSize = COORD_MERGE_EPSILON_METERS;
+
+    function getNodeIndex(coord) {
+      const meterPoint = lonLatToMeterPoint(coord);
+      const cellX = Math.floor(meterPoint.x / bucketSize);
+      const cellY = Math.floor(meterPoint.y / bucketSize);
+
+      for (let dx = -1; dx <= 1; dx += 1) {
+        for (let dy = -1; dy <= 1; dy += 1) {
+          const bucketKey = `${cellX + dx},${cellY + dy}`;
+          const candidateIndices = nodeBuckets.get(bucketKey);
+          if (!candidateIndices) continue;
+
+          for (const candidateIndex of candidateIndices) {
+            if (meterDistanceBetweenPoints(meterPoint, nodes[candidateIndex].meterPoint) <= COORD_MERGE_EPSILON_METERS) {
+              return candidateIndex;
+            }
+          }
+        }
+      }
+
+      const index = nodes.length;
+      const bucketKey = `${cellX},${cellY}`;
+      nodes.push({
+        coord: coord.slice(),
+        key: nodeKey(coord[0], coord[1]),
+        meterPoint,
+        routeKeys: new Set(),
+      });
+      adjacency.push([]);
+      if (!nodeBuckets.has(bucketKey)) nodeBuckets.set(bucketKey, []);
+      nodeBuckets.get(bucketKey).push(index);
+      return index;
+    }
+
+    function registerEdgeMeta(aIndex, bIndex, weight, routeTitle = null, connectionType = "route") {
+      const key = pairKey(aIndex, bIndex);
+      if (!edgeMetaByPair.has(key)) {
+        edgeMetaByPair.set(key, {
+          weight,
+          routeTitles: new Set(),
+          connectionType,
+        });
+      }
+      const meta = edgeMetaByPair.get(key);
+      if (weight < meta.weight) meta.weight = weight;
+      if (routeTitle) {
+        meta.routeTitles.add(routeTitle);
+        meta.connectionType = "route";
+      }
+    }
+
+    function addEdge(aIndex, bIndex, weight, routeTitle = null, connectionType = "route") {
       adjacency[aIndex].push({ to: bIndex, weight });
       adjacency[bIndex].push({ to: aIndex, weight });
+      registerEdgeMeta(aIndex, bIndex, weight, routeTitle, connectionType);
     }
 
     state.routes.forEach((route) => {
@@ -308,16 +347,46 @@
             const bIndex = getNodeIndex(b);
             nodes[aIndex].routeKeys.add(route.title);
             nodes[bIndex].routeKeys.add(route.title);
-            addEdge(aIndex, bIndex, distanceMeters(a, b));
+            addEdge(aIndex, bIndex, distanceMeters(a, b), route.title, "route");
+            segments.push({
+              key: `${route.title}:${feature.id || "feature"}:${i}`,
+              routeTitle: route.title,
+              aIndex,
+              bIndex,
+              aCoord: a,
+              bCoord: b,
+            });
           }
         });
       });
     });
 
     state.graphNodes = nodes;
+    state.graphSegments = segments;
     state.adjacency = adjacency;
-    addNearbyConnections();
+    state.edgeMetaByPair = edgeMetaByPair;
+    const baseComponents = computeComponents(state.adjacency);
+    const topology = collectTopologyNodeIndices(
+      state.graphNodes,
+      state.adjacency,
+      baseComponents.componentIds
+    );
+    state.topologyNodeIndices = topology.indices;
+    addNearbyConnections(baseComponents.componentIds, topology.indices);
     labelComponents();
+    // #region debug-point D:graph-summary
+    reportDebug("D", "planner.js:buildGraph", "Built planner graph", {
+      nodeCount: state.graphNodes.length,
+      segmentCount: state.graphSegments.length,
+      topologyNodeCount: topology.indices.length,
+      topologyEndpointCount: topology.endpointCount,
+      topologyJunctionCount: topology.junctionCount,
+      topologyCycleRepresentativeCount: topology.cycleRepresentativeCount,
+      baseComponentCount: baseComponents.componentSizes.length,
+      componentCount: state.componentSizes.length,
+      largestComponentSize: state.componentSizes.length ? Math.max(...state.componentSizes) : 0,
+    });
+    // #endregion
   }
 
   function lonLatToMeterPoint(coord) {
@@ -327,22 +396,21 @@
     };
   }
 
-  function sharesRouteKey(a, b) {
-    for (const key of a.routeKeys) {
-      if (b.routeKeys.has(key)) return true;
-    }
-    return false;
-  }
-
-  function addNearbyConnections() {
+  function addNearbyConnections(baseComponentIds = [], candidateNodeIndices = []) {
     const buckets = new Map();
     const cellSize = NEAR_CONNECTION_METERS;
+    let nearConnectionCount = 0;
+    let skippedSameBaseComponentCount = 0;
+    const indices = candidateNodeIndices.length
+      ? candidateNodeIndices
+      : state.graphNodes.map((_, index) => index);
 
     function bucketKey(point) {
       return `${Math.floor(point.x / cellSize)},${Math.floor(point.y / cellSize)}`;
     }
 
-    state.graphNodes.forEach((node, index) => {
+    indices.forEach((index) => {
+      const node = state.graphNodes[index];
       const key = bucketKey(node.meterPoint);
       if (!buckets.has(key)) buckets.set(key, []);
       buckets.get(key).push(index);
@@ -350,7 +418,8 @@
 
     const seenPairs = new Set();
 
-    state.graphNodes.forEach((node, index) => {
+    indices.forEach((index) => {
+      const node = state.graphNodes[index];
       const cellX = Math.floor(node.meterPoint.x / cellSize);
       const cellY = Math.floor(node.meterPoint.y / cellSize);
 
@@ -363,72 +432,72 @@
           neighborIndices.forEach((otherIndex) => {
             if (otherIndex <= index) return;
 
-            const pairKey = `${index}:${otherIndex}`;
-            if (seenPairs.has(pairKey)) return;
-            seenPairs.add(pairKey);
+            const seenKey = `${index}:${otherIndex}`;
+            if (seenPairs.has(seenKey)) return;
+            seenPairs.add(seenKey);
+
+            if (baseComponentIds[index] === baseComponentIds[otherIndex]) {
+              skippedSameBaseComponentCount += 1;
+              return;
+            }
 
             const otherNode = state.graphNodes[otherIndex];
-            if (sharesRouteKey(node, otherNode)) return;
-
             const distance = distanceMeters(node.coord, otherNode.coord);
             if (distance > NEAR_CONNECTION_METERS) return;
 
             state.adjacency[index].push({ to: otherIndex, weight: distance });
             state.adjacency[otherIndex].push({ to: index, weight: distance });
+            nearConnectionCount += 1;
+            const metaKey = pairKey(index, otherIndex);
+            if (!state.edgeMetaByPair.has(metaKey)) {
+              state.edgeMetaByPair.set(metaKey, {
+                weight: distance,
+                routeTitles: new Set(),
+                connectionType: "near",
+              });
+            }
           });
         }
       }
     });
+
+    // #region debug-point C:near-connection-summary
+    reportDebug("C", "planner.js:addNearbyConnections", "Applied nearby node connections", {
+      candidateNodeCount: indices.length,
+      nearConnectionCount,
+      skippedSameBaseComponentCount,
+      thresholdMeters: NEAR_CONNECTION_METERS,
+    });
+    // #endregion
   }
 
   function labelComponents() {
-    const componentIds = new Array(state.graphNodes.length).fill(-1);
-    const componentSizes = [];
-    let componentId = 0;
-
-    for (let i = 0; i < state.graphNodes.length; i += 1) {
-      if (componentIds[i] !== -1) continue;
-
-      const queue = [i];
-      componentIds[i] = componentId;
-      let size = 0;
-
-      for (let head = 0; head < queue.length; head += 1) {
-        const node = queue[head];
-        size += 1;
-        state.adjacency[node].forEach((edge) => {
-          if (componentIds[edge.to] !== -1) return;
-          componentIds[edge.to] = componentId;
-          queue.push(edge.to);
-        });
-      }
-
-      componentSizes[componentId] = size;
-      componentId += 1;
-    }
-
+    const { componentIds, componentSizes } = computeComponents(state.adjacency);
     state.componentIds = componentIds;
     state.componentSizes = componentSizes;
   }
 
-  function nearestGraphNode(lonLat) {
-    let bestIndex = -1;
+  function nearestGraphSegment(lonLat) {
+    let bestSegment = null;
     let bestDistance = Infinity;
 
-    for (let i = 0; i < state.graphNodes.length; i += 1) {
-      const candidate = state.graphNodes[i].coord;
-      const dist = distanceMeters(lonLat, candidate);
-      if (dist < bestDistance) {
-        bestDistance = dist;
-        bestIndex = i;
+    for (let i = 0; i < state.graphSegments.length; i += 1) {
+      const candidate = state.graphSegments[i];
+      const projection = projectPointOntoSegment(lonLat, candidate.aCoord, candidate.bCoord);
+      if (projection.distance < bestDistance) {
+        bestDistance = projection.distance;
+        bestSegment = {
+          ...candidate,
+          snappedCoord: projection.coord,
+          snappedDistance: projection.distance,
+          distanceToA: distanceMeters(projection.coord, candidate.aCoord),
+          distanceToB: distanceMeters(projection.coord, candidate.bCoord),
+          t: projection.t,
+        };
       }
     }
 
-    return {
-      nodeIndex: bestIndex,
-      coord: state.graphNodes[bestIndex].coord,
-      distance: bestDistance,
-    };
+    return bestSegment;
   }
 
   function dijkstra(startIndex, endIndex) {
@@ -505,12 +574,53 @@
 
     return {
       distance: dist[endIndex],
+      indices,
       coordinates: indices.map((index) => state.graphNodes[index].coord),
     };
   }
 
-  function buildGpx(routeCoordinates) {
-    const trkpts = routeCoordinates.map(([lon, lat]) => `    <trkpt lat="${lat.toFixed(6)}" lon="${lon.toFixed(6)}"></trkpt>`).join("\n");
+  function summarizeRouteUsage(pathNodeSegments, partialUsage = []) {
+    const usage = new Map();
+
+    pathNodeSegments.forEach((pathNodeIndices) => {
+      for (let i = 0; i < pathNodeIndices.length - 1; i += 1) {
+        const fromIndex = pathNodeIndices[i];
+        const toIndex = pathNodeIndices[i + 1];
+        const meta = state.edgeMetaByPair.get(pairKey(fromIndex, toIndex));
+        if (!meta) continue;
+
+        const routeTitle = meta.routeTitles.size
+          ? [...meta.routeTitles][0]
+          : "PCN 近接连接";
+        usage.set(routeTitle, (usage.get(routeTitle) || 0) + meta.weight);
+      }
+    });
+
+    partialUsage.forEach((item) => {
+      if (!item || !item.routeTitle || !item.meters) return;
+      usage.set(item.routeTitle, (usage.get(item.routeTitle) || 0) + item.meters);
+    });
+
+    return [...usage.entries()]
+      .map(([title, meters]) => ({
+        title,
+        label: formatRouteLabel(title),
+        meters,
+      }))
+      .sort((a, b) => b.meters - a.meters);
+  }
+
+  function buildGpx(routeSegments) {
+    const segments = routeSegments
+      .filter((segment) => Array.isArray(segment) && segment.length > 1)
+      .map((segment) => {
+        const trkpts = segment
+          .map(([lon, lat]) => `      <trkpt lat="${lat.toFixed(6)}" lon="${lon.toFixed(6)}"></trkpt>`)
+          .join("\n");
+        return `    <trkseg>\n${trkpts}\n    </trkseg>`;
+      })
+      .join("\n");
+
     return `<?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="Singapore PCN Planner" xmlns="http://www.topografix.com/GPX/1/1">
   <metadata>
@@ -519,9 +629,7 @@
   </metadata>
   <trk>
     <name>Singapore PCN Planned Route</name>
-    <trkseg>
-${trkpts}
-    </trkseg>
+${segments}
   </trk>
 </gpx>`;
   }
@@ -546,10 +654,8 @@ ${trkpts}
   function persistState() {
     try {
       const payload = {
-        targetDistanceMeters: state.targetDistanceMeters,
         waypoints: state.waypoints.map((waypoint) => waypoint.original),
         pathCoordinates: state.pathCoordinates,
-        targetPathCoordinates: state.targetPathCoordinates,
         totalDistance: state.totalDistance,
         zoomTransform: state.zoomTransform,
       };
@@ -572,17 +678,11 @@ ${trkpts}
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return;
       const parsed = JSON.parse(raw);
-      const nextTarget = Number(parsed.targetDistanceMeters);
-      if (Number.isFinite(nextTarget) && nextTarget > 0) {
-        state.targetDistanceMeters = nextTarget;
-        targetDistanceInput.value = (nextTarget / 1000).toFixed(1);
-      }
       const nextZoom = parsed.zoomTransform;
       if (nextZoom && Number.isFinite(nextZoom.k) && Number.isFinite(nextZoom.x) && Number.isFinite(nextZoom.y)) {
         state.zoomTransform = nextZoom;
       }
       if (!Array.isArray(parsed.waypoints) || !parsed.waypoints.length) {
-        recalculateTargetPath();
         updatePlannerInfo();
         renderMap();
         return;
@@ -596,148 +696,68 @@ ${trkpts}
     }
   }
 
-  function trimPathToDistance(routeCoordinates, targetMeters) {
-    if (!routeCoordinates.length || targetMeters <= 0) return [];
-    if (routeCoordinates.length === 1) return routeCoordinates.slice();
-
-    const trimmed = [routeCoordinates[0]];
-    let traveled = 0;
-
-    for (let i = 0; i < routeCoordinates.length - 1; i += 1) {
-      const start = routeCoordinates[i];
-      const end = routeCoordinates[i + 1];
-      const segmentDistance = distanceMeters(start, end);
-
-      if (traveled + segmentDistance <= targetMeters) {
-        trimmed.push(end);
-        traveled += segmentDistance;
-        continue;
-      }
-
-      const remaining = targetMeters - traveled;
-      const ratio = remaining / segmentDistance;
-      const interpolated = [
-        start[0] + (end[0] - start[0]) * ratio,
-        start[1] + (end[1] - start[1]) * ratio,
-      ];
-      trimmed.push(interpolated);
-      break;
-    }
-
-    return trimmed;
-  }
-
-  function recalculateTargetPath() {
-    if (state.pathCoordinates.length < 2 || state.targetDistanceMeters <= 0) {
-      state.targetPathCoordinates = [];
-      return;
-    }
-
-    if (state.totalDistance + 1e-6 < state.targetDistanceMeters) {
-      state.targetPathCoordinates = [];
-      return;
-    }
-
-    state.targetPathCoordinates = trimPathToDistance(state.pathCoordinates, state.targetDistanceMeters);
-  }
-
   function updatePlannerInfo() {
-    waypointCountEl.textContent = String(state.waypoints.length);
-    routeDistanceEl.textContent = formatKm(state.totalDistance);
-    targetDistanceDisplay.textContent = formatKm(state.targetDistanceMeters);
-    targetCurrentDistance.textContent = formatKmValue(state.totalDistance);
-
-    const gapMeters = state.totalDistance - state.targetDistanceMeters;
-    const gapPrefix = gapMeters >= 0 ? "+" : "-";
-    targetDistanceGap.textContent = `${gapPrefix}${formatKmValue(Math.abs(gapMeters))}`;
-
     if (!state.waypoints.length) {
-      plannerStatusTitle.textContent = "等待选点";
-      plannerStatusChip.textContent = "至少需要两个途经点";
-      plannerStatusNote.textContent = `点击地图任意位置即可添加途经点。系统会自动吸附到最近的 PCN 节点，并把 ${NEAR_CONNECTION_METERS} 米内的近接点视作可连通。`;
+      plannerInlineNote.textContent = `点击地图任意位置即可添加途经点。系统会自动吸附到最近的 PCN 线段，并把 ${NEAR_CONNECTION_METERS} 米内的近接点视作可连通。`;
+      plannerSummary.textContent = "还没有路线。点击地图开始选点。";
     } else if (state.waypoints.length === 1) {
-      plannerStatusTitle.textContent = "已选 1 个点";
-      plannerStatusChip.textContent = "再选一个点开始规划";
-      plannerStatusNote.textContent = `当前点吸附到最近 PCN 的距离约为 ${state.waypoints[0].snapDistance.toFixed(0)} 米，落在连通块 ${state.waypoints[0].componentSize} 节点范围内。`;
-    } else if (!state.pathCoordinates.length) {
-      plannerStatusTitle.textContent = "部分点无法连通";
-      plannerStatusChip.textContent = "当前途经点之间未找到完整路径";
+      plannerInlineNote.textContent = `已选 1 个点，当前吸附距离约 ${state.waypoints[0].snapDistance.toFixed(0)} 米。`;
+      plannerSummary.textContent = "再选一个点开始生成路线。";
+    } else if (!state.pathSegments.length) {
       const brokenSegment = state.segmentSummaries.find((segment) => !segment.connected);
-      plannerStatusNote.textContent = brokenSegment
+      plannerInlineNote.textContent = brokenSegment
         ? `${brokenSegment.from} 和 ${brokenSegment.to} 即使按 ${NEAR_CONNECTION_METERS} 米近接规则补连后，当前公开 PCN 数据里仍不能连通。`
         : "这通常表示两点分别落在当前公开 PCN 数据的不同连通分量中。";
+      plannerSummary.textContent = "当前选点之间没有完整可导出的路线。";
     } else {
-      plannerStatusTitle.textContent = "路线已生成";
-      plannerStatusChip.textContent = `${state.segmentSummaries.length} 段，总长 ${formatKm(state.totalDistance)}`;
-      plannerStatusNote.textContent = "可以继续加点重新规划，或直接导出 GPX。当前状态已自动保存到本地。";
+      const disconnectedCount = state.segmentSummaries.filter((segment) => !segment.connected).length;
+      if (disconnectedCount) {
+        plannerInlineNote.textContent = `有 ${disconnectedCount} 段未连通，已自动跳过；当前保留 ${state.pathSegments.length} 段连续路线，总长 ${formatKm(state.totalDistance)}。`;
+        plannerSummary.textContent = "GPX 会导出已连上的全部连续段，Google 会按你当前的选点顺序直接计算。";
+      } else {
+        plannerInlineNote.textContent = `已生成 ${state.segmentSummaries.length} 段路线，总长 ${formatKm(state.totalDistance)}。`;
+        plannerSummary.textContent = "可以直接导出 GPX，或者一键发送到 Google Maps。";
+      }
     }
 
-    if (!state.pathCoordinates.length) {
-      targetDistanceNote.textContent = "连通路线生成后，这里会告诉你距离目标公里数还差多少。";
-    } else if (!state.targetDistanceMeters || state.targetDistanceMeters <= 0) {
-      targetDistanceNote.textContent = "请输入一个大于 0 的目标公里数。";
-    } else if (state.totalDistance + 1e-6 < state.targetDistanceMeters) {
-      targetDistanceNote.textContent = `当前已连通路线为 ${formatKm(state.totalDistance)}，距离目标还差 ${formatKm(state.targetDistanceMeters - state.totalDistance)}。`;
-    } else {
-      targetDistanceNote.textContent = `当前路线已经覆盖目标距离，可以截出前 ${formatKm(state.targetDistanceMeters)} 并导出目标 GPX。`;
-    }
-
-    if (!state.waypoints.length) {
-      waypointList.innerHTML = '<li class="is-empty">还没有途经点。点击地图开始选点。</li>';
-    } else {
-      waypointList.innerHTML = state.waypoints.map((waypoint, index) => `
-        <li>
-          <span>点 ${index + 1} · 吸附 ${waypoint.snapDistance.toFixed(0)}m · 连通块 ${waypoint.componentId + 1}</span>
-          <strong>${waypoint.original[1].toFixed(4)}, ${waypoint.original[0].toFixed(4)}</strong>
-        </li>
-      `).join("");
-    }
-
-    if (!state.segmentSummaries.length) {
-      segmentList.innerHTML = '<li class="is-empty">至少两个点后，这里会显示逐段路径长度。</li>';
-    } else {
-      segmentList.innerHTML = state.segmentSummaries.map((segment, index) => `
-        <li>
-          <span>段 ${index + 1} · ${segment.from} → ${segment.to}</span>
-          <strong>${segment.connected ? formatKm(segment.distance) : "未连通"}</strong>
-        </li>
-      `).join("");
-    }
-
-    if (state.targetPathCoordinates.length) {
-      gpxPreview.value = buildGpx(state.targetPathCoordinates);
-      exportStatus.textContent = "目标 GPX 已生成，预览显示的是按目标公里数截断后的版本。";
-    } else if (state.pathCoordinates.length) {
-      gpxPreview.value = buildGpx(state.pathCoordinates);
-      exportStatus.textContent = "当前整条路线 GPX 已生成。";
-    } else {
-      gpxPreview.value = "";
-      exportStatus.textContent = "生成路线后，这里会出现可导出的 GPX 内容预览。";
-    }
-
-    state.googleMapsUrl = state.pathCoordinates.length ? buildGoogleMapsUrl(state.pathCoordinates) : "";
-    googleMapsLinkPreview.value = state.googleMapsUrl;
-    if (!state.googleMapsUrl) {
-      googleLinkNote.textContent = "生成连通路线后，这里会出现可直接打开的 Google Maps 骑行链接。";
-    } else {
+    state.googleMapsUrl = buildGoogleMapsUrlFromWaypoints(
+      state.waypoints.map((waypoint) => waypoint.original)
+    );
+    if (state.googleMapsUrl) {
       const waypointCount = new URL(state.googleMapsUrl).searchParams.get("waypoints")?.split("|").filter(Boolean).length || 0;
-      googleLinkNote.textContent = `当前链接已保留起点、终点和 ${waypointCount} 个关键转折点，用于让 Google Maps 尽量贴近这条 PCN 路线。`;
+      plannerExportNote.textContent = waypointCount
+        ? `Google 链接会按你当前的选点顺序生成，保留了 ${waypointCount} 个中途点，其余路段交给 Google 自己计算。`
+        : "Google 链接会按你当前的起终点生成，其余路线交给 Google 自己计算。";
+    } else {
+      plannerExportNote.textContent = "支持滚轮缩放、拖动平移，以及 100 米近接连通。";
+    }
+
+    if (!state.routeUsage.length) {
+      plannerRouteBreakdown.innerHTML = '<li class="is-empty">还没有路线。生成路线后，这里会显示当前经过哪些 PCN 线路以及各自里程。</li>';
+    } else {
+      plannerRouteBreakdown.innerHTML = state.routeUsage.map((item) => `
+        <li>
+          <span>${item.label}</span>
+          <strong>${formatKm(item.meters)}</strong>
+        </li>
+      `).join("");
     }
 
     undoButton.disabled = state.waypoints.length === 0;
     clearButton.disabled = state.waypoints.length === 0;
-    exportButton.disabled = state.pathCoordinates.length === 0;
-    exportTargetButton.disabled = state.targetPathCoordinates.length === 0;
-    openGoogleMapsButton.disabled = !state.googleMapsUrl;
-    copyGoogleMapsLinkButton.disabled = !state.googleMapsUrl;
+    exportButton.disabled = state.pathSegments.length === 0;
+    copyGpxButton.disabled = state.pathSegments.length === 0;
+    openGoogleMapsButton.disabled = state.waypoints.length < 2 || !state.googleMapsUrl;
+    copyGoogleMapsLinkButton.disabled = state.waypoints.length < 2 || !state.googleMapsUrl;
   }
 
   function rebuildRoute(options = {}) {
     const showModal = options.showModal !== false;
     closeConnectivityModal();
+    state.pathSegments = [];
     state.pathCoordinates = [];
-    state.targetPathCoordinates = [];
     state.segmentSummaries = [];
+    state.routeUsage = [];
     state.totalDistance = 0;
 
     if (state.waypoints.length < 2) {
@@ -748,34 +768,124 @@ ${trkpts}
     }
 
     const fullPath = [];
+    const fullPathNodeSegments = [];
+    const partialUsage = [];
     const summaries = [];
+    const pathSegments = [];
+    const disconnectedMessages = [];
+    let activePathCoords = [];
+    let activePathNodeIndices = [];
     let totalDistance = 0;
+
+    function flushActiveSegment() {
+      if (activePathCoords.length > 1) {
+        pathSegments.push(activePathCoords);
+        fullPathNodeSegments.push(activePathNodeIndices);
+      }
+      activePathCoords = [];
+      activePathNodeIndices = [];
+    }
 
     for (let i = 0; i < state.waypoints.length - 1; i += 1) {
       const start = state.waypoints[i];
       const end = state.waypoints[i + 1];
 
-      if (start.componentId !== end.componentId) {
-        const message = `${i + 1} 号点和 ${i + 2} 号点之间没有公开 PCN 连通路线，请改一个更接近同一条线路网络的点。`;
-        summaries.push({
-          from: `点 ${i + 1}`,
-          to: `点 ${i + 2}`,
-          distance: 0,
-          connected: false,
+      let result = null;
+      let pathExtraUsage = [];
+
+      if (start.segmentKey === end.segmentKey) {
+        const directDistance = distanceMeters(start.snapped, end.snapped);
+        result = {
+          distance: directDistance,
+          indices: [],
+          coordinates: [start.snapped, end.snapped],
+        };
+        pathExtraUsage = [{
+          routeTitle: start.routeTitle,
+          meters: directDistance,
+        }];
+      } else {
+        const combos = [
+          {
+            startNodeIndex: start.aIndex,
+            endNodeIndex: end.aIndex,
+            startExtra: start.distanceToA,
+            endExtra: end.distanceToA,
+          },
+          {
+            startNodeIndex: start.aIndex,
+            endNodeIndex: end.bIndex,
+            startExtra: start.distanceToA,
+            endExtra: end.distanceToB,
+          },
+          {
+            startNodeIndex: start.bIndex,
+            endNodeIndex: end.aIndex,
+            startExtra: start.distanceToB,
+            endExtra: end.distanceToA,
+          },
+          {
+            startNodeIndex: start.bIndex,
+            endNodeIndex: end.bIndex,
+            startExtra: start.distanceToB,
+            endExtra: end.distanceToB,
+          },
+        ];
+
+        let bestTotal = Infinity;
+
+        combos.forEach((combo) => {
+          const candidate = dijkstra(combo.startNodeIndex, combo.endNodeIndex);
+          if (!candidate) return;
+          const total = combo.startExtra + candidate.distance + combo.endExtra;
+          if (total >= bestTotal) return;
+          bestTotal = total;
+          result = {
+            distance: total,
+            indices: candidate.indices,
+            coordinates: candidate.coordinates,
+          };
+          pathExtraUsage = [
+            { routeTitle: start.routeTitle, meters: combo.startExtra },
+            { routeTitle: end.routeTitle, meters: combo.endExtra },
+          ];
         });
-        state.pathCoordinates = [];
-        state.segmentSummaries = summaries;
-        state.totalDistance = 0;
-        if (showModal) openConnectivityModal(message);
-        updatePlannerInfo();
-        persistState();
-        renderMap();
-        return;
       }
 
-      const result = dijkstra(start.nodeIndex, end.nodeIndex);
-
       if (!result) {
+        // #region debug-point B:no-route-found
+        reportDebug("B", "planner.js:rebuildRoute", "No route found between consecutive waypoints", {
+          segmentIndex: i,
+          startSegmentKey: start.segmentKey,
+          endSegmentKey: end.segmentKey,
+          startRouteTitle: start.routeTitle,
+          endRouteTitle: end.routeTitle,
+          startNodeOptions: [
+            {
+              index: start.aIndex,
+              componentId: state.componentIds[start.aIndex],
+              coord: start.aCoord,
+            },
+            {
+              index: start.bIndex,
+              componentId: state.componentIds[start.bIndex],
+              coord: start.bCoord,
+            },
+          ],
+          endNodeOptions: [
+            {
+              index: end.aIndex,
+              componentId: state.componentIds[end.aIndex],
+              coord: end.aCoord,
+            },
+            {
+              index: end.bIndex,
+              componentId: state.componentIds[end.bIndex],
+              coord: end.bCoord,
+            },
+          ],
+        });
+        // #endregion
         const message = `${i + 1} 号点和 ${i + 2} 号点之间当前没有可计算的 PCN 路线。`;
         summaries.push({
           from: `点 ${i + 1}`,
@@ -783,20 +893,31 @@ ${trkpts}
           distance: 0,
           connected: false,
         });
-        state.pathCoordinates = [];
-        state.segmentSummaries = summaries;
-        state.totalDistance = 0;
-        if (showModal) openConnectivityModal(message);
-        updatePlannerInfo();
-        persistState();
-        renderMap();
-        return;
+        disconnectedMessages.push(message);
+        flushActiveSegment();
+        continue;
       }
 
       const segmentCoords = result.coordinates.slice();
-      if (i > 0) segmentCoords.shift();
-      fullPath.push(...segmentCoords);
+      const segmentIndices = result.indices.slice();
+      if (segmentCoords.length) {
+        if (distanceMeters(segmentCoords[0], start.snapped) <= COORD_MERGE_EPSILON_METERS) {
+          segmentCoords[0] = start.snapped;
+        } else {
+          segmentCoords.unshift(start.snapped);
+        }
+        if (distanceMeters(segmentCoords[segmentCoords.length - 1], end.snapped) <= COORD_MERGE_EPSILON_METERS) {
+          segmentCoords[segmentCoords.length - 1] = end.snapped;
+        } else {
+          segmentCoords.push(end.snapped);
+        }
+      }
+      if (activePathCoords.length && segmentCoords.length) segmentCoords.shift();
+      if (activePathNodeIndices.length) segmentIndices.shift();
+      activePathCoords.push(...segmentCoords);
+      activePathNodeIndices.push(...segmentIndices);
       totalDistance += result.distance;
+      partialUsage.push(...pathExtraUsage);
       summaries.push({
         from: `点 ${i + 1}`,
         to: `点 ${i + 2}`,
@@ -805,24 +926,52 @@ ${trkpts}
       });
     }
 
+    flushActiveSegment();
+    pathSegments.forEach((segment) => {
+      fullPath.push(...segment);
+    });
+
+    state.pathSegments = pathSegments;
     state.pathCoordinates = fullPath;
     state.segmentSummaries = summaries;
     state.totalDistance = totalDistance;
-    recalculateTargetPath();
+    state.routeUsage = summarizeRouteUsage(fullPathNodeSegments, partialUsage);
     updatePlannerInfo();
     persistState();
     renderMap();
+
+    if (showModal && disconnectedMessages.length) {
+      openConnectivityModal(`${disconnectedMessages[0]} 已自动跳过这段，其余已连通部分仍可继续导出。`);
+    }
   }
 
   function createWaypoint(lonLat) {
-    const snapped = nearestGraphNode(lonLat);
+    const snapped = nearestGraphSegment(lonLat);
+    // #region debug-point A:waypoint-snap
+    reportDebug("A", "planner.js:createWaypoint", "Snapped waypoint to segment", {
+      original: lonLat,
+      snapped: snapped.snappedCoord,
+      routeTitle: snapped.routeTitle,
+      segmentKey: snapped.key,
+      aIndex: snapped.aIndex,
+      bIndex: snapped.bIndex,
+      distanceToSegmentMeters: Number(snapped.snappedDistance.toFixed(2)),
+      distanceToA: Number(snapped.distanceToA.toFixed(2)),
+      distanceToB: Number(snapped.distanceToB.toFixed(2)),
+    });
+    // #endregion
     return {
       original: lonLat,
-      snapped: snapped.coord,
-      nodeIndex: snapped.nodeIndex,
-      snapDistance: snapped.distance,
-      componentId: state.componentIds[snapped.nodeIndex],
-      componentSize: state.componentSizes[state.componentIds[snapped.nodeIndex]],
+      snapped: snapped.snappedCoord,
+      snapDistance: snapped.snappedDistance,
+      segmentKey: snapped.key,
+      routeTitle: snapped.routeTitle,
+      aIndex: snapped.aIndex,
+      bIndex: snapped.bIndex,
+      aCoord: snapped.aCoord,
+      bCoord: snapped.bCoord,
+      distanceToA: snapped.distanceToA,
+      distanceToB: snapped.distanceToB,
     };
   }
 
@@ -902,9 +1051,10 @@ ${trkpts}
         .attr("stroke-width", 1.8);
     });
 
-    if (state.pathCoordinates.length > 1) {
+    state.pathSegments.forEach((segment) => {
+      if (segment.length < 2) return;
       overlayGroup.append("path")
-        .datum({ type: "LineString", coordinates: state.pathCoordinates })
+        .datum({ type: "LineString", coordinates: segment })
         .attr("class", "planner-route")
         .attr("d", path)
         .attr("fill", "none")
@@ -912,31 +1062,7 @@ ${trkpts}
         .attr("stroke-width", 5.5)
         .attr("stroke-linecap", "round")
         .attr("stroke-linejoin", "round");
-    }
-
-    if (state.targetPathCoordinates.length > 1) {
-      overlayGroup.append("path")
-        .datum({ type: "LineString", coordinates: state.targetPathCoordinates })
-        .attr("class", "planner-route-target")
-        .attr("d", path)
-        .attr("fill", "none")
-        .attr("stroke", "#7fe0d2")
-        .attr("stroke-width", 7.2)
-        .attr("stroke-linecap", "round")
-        .attr("stroke-linejoin", "round");
-
-      const targetEnd = state.projection(state.targetPathCoordinates[state.targetPathCoordinates.length - 1]);
-      if (targetEnd) {
-        overlayGroup.append("circle")
-          .attr("class", "planner-target-end")
-          .attr("cx", targetEnd[0])
-          .attr("cy", targetEnd[1])
-          .attr("r", 5.4)
-          .attr("fill", "#7fe0d2")
-          .attr("stroke", "#082033")
-          .attr("stroke-width", 2);
-      }
-    }
+    });
 
     state.waypoints.forEach((waypoint, index) => {
       const originalXY = state.projection(waypoint.original);
@@ -1018,60 +1144,54 @@ ${trkpts}
   }
 
   function exportGpx() {
-    if (!state.pathCoordinates.length) return;
-    const blob = new Blob([buildGpx(state.pathCoordinates)], { type: "application/gpx+xml" });
+    if (!state.pathSegments.length) return;
+    const blob = new Blob([buildGpx(state.pathSegments)], { type: "application/gpx+xml" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
     link.download = "singapore-pcn-route.gpx";
     link.click();
     URL.revokeObjectURL(url);
-    exportStatus.textContent = "当前整条路线的 GPX 文件已开始下载。";
+    plannerSummary.textContent = state.pathSegments.length > 1
+      ? `已开始下载 GPX，包含 ${state.pathSegments.length} 段已连通路线。`
+      : "当前路线的 GPX 文件已开始下载。";
   }
 
-  function exportTargetGpx() {
-    if (!state.targetPathCoordinates.length) return;
-    const blob = new Blob([buildGpx(state.targetPathCoordinates)], { type: "application/gpx+xml" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `singapore-pcn-route-${formatKmValue(state.targetDistanceMeters)}km.gpx`;
-    link.click();
-    URL.revokeObjectURL(url);
-    exportStatus.textContent = `目标 ${formatKm(state.targetDistanceMeters)} 的 GPX 文件已开始下载。`;
+  async function copyGpx() {
+    if (!state.pathSegments.length) return;
+    try {
+      await navigator.clipboard.writeText(buildGpx(state.pathSegments));
+      plannerSummary.textContent = state.pathSegments.length > 1
+        ? `GPX 已复制到剪贴板，包含 ${state.pathSegments.length} 段已连通路线。`
+        : "当前路线的 GPX 已复制到剪贴板。";
+    } catch (error) {
+      console.error(error);
+      plannerSummary.textContent = "GPX 复制失败了，但仍然可以直接导出文件。";
+    }
   }
 
   function openGoogleMaps() {
     if (!state.googleMapsUrl) return;
     window.open(state.googleMapsUrl, "_blank", "noopener,noreferrer");
-    googleLinkNote.textContent = "Google Maps 链接已在新标签页打开。";
+    plannerSummary.textContent = "Google Maps 已按当前选点顺序在新标签页打开。";
   }
 
   async function copyGoogleMapsLink() {
     if (!state.googleMapsUrl) return;
     try {
       await navigator.clipboard.writeText(state.googleMapsUrl);
-      googleLinkNote.textContent = "Google Maps 链接已复制到剪贴板。";
+      plannerSummary.textContent = "Google Maps 链接已复制到剪贴板。";
     } catch (error) {
       console.error(error);
-      googleLinkNote.textContent = "复制失败了，但下方预览框里仍然有完整链接。";
+      plannerSummary.textContent = "Google 链接复制失败了，但仍然可以直接一键打开。";
     }
-  }
-
-  function handleTargetDistanceChange() {
-    const nextKm = Number.parseFloat(targetDistanceInput.value);
-    state.targetDistanceMeters = Number.isFinite(nextKm) && nextKm > 0 ? nextKm * 1000 : 0;
-    recalculateTargetPath();
-    updatePlannerInfo();
-    persistState();
-    renderMap();
   }
 
   function showError(message) {
     container.innerHTML = `<div style="display:grid;place-items:center;height:100%;padding:24px;color:#d9e7eb;text-align:center;">${message}</div>`;
-    plannerStatusTitle.textContent = "加载失败";
-    plannerStatusChip.textContent = "请检查数据文件";
-    plannerStatusNote.textContent = message;
+    plannerInlineNote.textContent = "加载失败";
+    plannerSummary.textContent = message;
+    plannerExportNote.textContent = "请检查 pcn 目录中的 GeoJSON 文件是否存在。";
   }
 
   async function loadData() {
@@ -1116,13 +1236,12 @@ ${trkpts}
   });
 
   exportButton.addEventListener("click", exportGpx);
-  exportTargetButton.addEventListener("click", exportTargetGpx);
+  copyGpxButton.addEventListener("click", copyGpx);
   openGoogleMapsButton.addEventListener("click", openGoogleMaps);
   copyGoogleMapsLinkButton.addEventListener("click", copyGoogleMapsLink);
   zoomInButton.addEventListener("click", () => zoomBy(1.35));
   zoomOutButton.addEventListener("click", () => zoomBy(1 / 1.35));
   zoomResetButton.addEventListener("click", resetZoom);
-  targetDistanceInput.addEventListener("input", handleTargetDistanceChange);
   connectivityModalClose.addEventListener("click", closeConnectivityModal);
   connectivityModal.addEventListener("click", (event) => {
     if (event.target === connectivityModal) closeConnectivityModal();
