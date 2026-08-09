@@ -92,6 +92,33 @@ button { font: inherit; }
   letter-spacing: 0.12em;
 }
 
+.masthead-tools {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.masthead-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.2rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(127, 224, 210, 0.24);
+  border-radius: 999px;
+  background: rgba(127, 224, 210, 0.08);
+  color: #eef8f6;
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.masthead-link:hover,
+.masthead-link:focus-visible {
+  background: rgba(127, 224, 210, 0.16);
+  transform: translateY(-1px);
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.7fr);
@@ -505,6 +532,11 @@ button { font: inherit; }
   .masthead {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .masthead-tools {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .hero {

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="基于中国 topojson 与 liucan 的省级探索清单绘制的中国探索地图。">
+  <meta name="theme-color" content="#081421">
+  <meta property="og:title" content="Liucan China Explore Map｜中国探索地图">
+  <meta property="og:description" content="除了新疆、西藏、台湾、澳门、云南、宁夏、吉林外，其余省级区均标记为已探索。">
+  <meta property="og:image" content="https://vvoliucano.github.io/favicon.png">
+  <title>Liucan China Explore Map｜中国探索地图</title>
+  <link rel="stylesheet" href="styles.css?v=20260809-8">
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="../../projects-zh/" aria-label="返回项目页">
+      <span class="brand-seal">华</span>
+      <span>Liucan China Explore Map</span>
+    </a>
+    <p class="masthead-note">TopoJSON · Province Explore Map · China</p>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Explore Map · China</p>
+        <h1 id="page-title">Liucan 的中国探索地图</h1>
+        <p class="lead">这一页直接读取你给的中国 topojson 底图，并按当前设定把除新疆、西藏、台湾、澳门、云南、宁夏、吉林之外的省级区标记为已探索。当前采用统一色系，亮色表示已去过，暗色表示尚未覆盖。</p>
+        <div class="hero-metrics">
+          <div>
+            <span>已探索省级区</span>
+            <strong id="china-total-explored">0</strong>
+            <small>visited provinces</small>
+          </div>
+          <div>
+            <span>未探索省级区</span>
+            <strong id="china-total-unvisited">0</strong>
+            <small>remaining provinces</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <span>当前口径</span>
+        <strong>省级区探索分布</strong>
+        <p>本页是预设版本，不需要再上传数据。底图使用 `china.topo.json`，探索清单使用本地 counts 文件，后续如果名单变化，我可以继续直接替你更新。</p>
+        <div class="hero-actions">
+          <a class="action-link" href="china.html">通用中国导入页</a>
+          <a class="action-link" href="liucan.html">新加坡探索图</a>
+          <a class="action-link" href="planner.html">新加坡 PCN 规划</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="中国探索地图与统计信息">
+      <div class="map-panel">
+        <div class="panel-head">
+          <div>
+            <p>地图</p>
+            <h2>Visited Provinces In China</h2>
+          </div>
+          <button id="china-preset-toggle-labels" class="ghost-button" type="button">显示名称</button>
+        </div>
+
+        <div class="map-stage">
+          <div id="china-preset-map-container" class="map-container" role="img" aria-label="Liucan 中国探索地图"></div>
+          <div id="china-preset-tooltip" class="map-tooltip" aria-hidden="true"></div>
+        </div>
+
+        <div class="legend-wrap">
+          <div>
+            <p>图例</p>
+            <div class="choropleth-legend">
+              <div id="china-preset-legend-ramp" class="legend-ramp"></div>
+              <div class="legend-scale">
+                <span>未探索</span>
+                <span>已探索</span>
+              </div>
+            </div>
+          </div>
+          <div class="map-footnote">
+            <p>底图文件：<code>china.topo.json</code></p>
+            <p>统计文件：<code>counts/liucan-china-explore-counts.json</code></p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="info-panel" aria-live="polite">
+        <div class="info-card current-card">
+          <p class="card-label">当前省级区</p>
+          <strong id="china-preset-current-area">移动鼠标查看</strong>
+          <span id="china-preset-current-state" class="district-pill">显示探索状态</span>
+          <p id="china-preset-current-note" class="card-note">亮色表示已探索，暗色表示当前还没有记录为已探索。</p>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">未探索省级区</p>
+          <ul id="china-preset-excluded-list" class="area-list"></ul>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">已探索省级区</p>
+          <ul id="china-preset-visited-list" class="area-list"></ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script src="china-liucan.js?v=20260809-1"></script>
+</body>
+</html>
