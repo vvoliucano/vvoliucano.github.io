@@ -9,6 +9,11 @@
   const SINGAPORE_REF_LAT = 1.3521 * Math.PI / 180;
   const METERS_PER_DEG_LON = Math.cos(SINGAPORE_REF_LAT) * METERS_PER_DEG_LAT;
   const NEAR_CONNECTION_METERS = 100;
+  const GOOGLE_SIMPLIFY_TOLERANCE_METERS = 18;
+  const GOOGLE_MIN_WAYPOINT_SPACING_METERS = 350;
+  const GOOGLE_TURN_THRESHOLD_DEGREES = 32;
+  const GOOGLE_ANCHOR_SEGMENT_METERS = 3500;
+  const GOOGLE_MAX_WAYPOINTS = 9;
 
   const state = {
     baseFeatures: [],
@@ -26,6 +31,7 @@
     targetDistanceMeters: 10000,
     hoveredRoute: null,
     zoomTransform: { k: 1, x: 0, y: 0 },
+    googleMapsUrl: "",
   };
 
   const container = document.querySelector("#map-container");
@@ -48,12 +54,16 @@
   const clearButton = document.querySelector("#clear-waypoints");
   const exportButton = document.querySelector("#export-gpx");
   const exportTargetButton = document.querySelector("#export-target-gpx");
+  const openGoogleMapsButton = document.querySelector("#open-google-maps");
+  const copyGoogleMapsLinkButton = document.querySelector("#copy-google-maps-link");
   const zoomInButton = document.querySelector("#zoom-in");
   const zoomOutButton = document.querySelector("#zoom-out");
   const zoomResetButton = document.querySelector("#zoom-reset");
   const connectivityModal = document.querySelector("#connectivity-modal");
   const connectivityModalMessage = document.querySelector("#connectivity-modal-message");
   const connectivityModalClose = document.querySelector("#connectivity-modal-close");
+  const googleMapsLinkPreview = document.querySelector("#google-maps-link-preview");
+  const googleLinkNote = document.querySelector("#google-link-note");
 
   let svg;
   let viewportGroup;
@@ -81,6 +91,171 @@
 
   function formatKmValue(meters) {
     return (meters / 1000).toFixed(1);
+  }
+
+  function coordToGoogleLatLon(coord) {
+    return `${coord[1].toFixed(6)},${coord[0].toFixed(6)}`;
+  }
+
+  function normalizeDegrees(angle) {
+    let normalized = angle;
+    while (normalized > 180) normalized -= 360;
+    while (normalized < -180) normalized += 360;
+    return normalized;
+  }
+
+  function bearingDegrees(a, b) {
+    const dx = (b[0] - a[0]) * METERS_PER_DEG_LON;
+    const dy = (b[1] - a[1]) * METERS_PER_DEG_LAT;
+    return Math.atan2(dy, dx) * 180 / Math.PI;
+  }
+
+  function turnAngleDegrees(prev, current, next) {
+    const inBearing = bearingDegrees(prev, current);
+    const outBearing = bearingDegrees(current, next);
+    return Math.abs(normalizeDegrees(outBearing - inBearing));
+  }
+
+  function pointLineDistanceMeters(point, start, end) {
+    const p = lonLatToMeterPoint(point);
+    const a = lonLatToMeterPoint(start);
+    const b = lonLatToMeterPoint(end);
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+
+    if (dx === 0 && dy === 0) {
+      return Math.hypot(p.x - a.x, p.y - a.y);
+    }
+
+    const t = Math.max(0, Math.min(1, ((p.x - a.x) * dx + (p.y - a.y) * dy) / (dx * dx + dy * dy)));
+    const projectionX = a.x + t * dx;
+    const projectionY = a.y + t * dy;
+    return Math.hypot(p.x - projectionX, p.y - projectionY);
+  }
+
+  function simplifyCoordinatesForGoogle(routeCoordinates, toleranceMeters) {
+    if (routeCoordinates.length <= 2) return routeCoordinates.slice();
+
+    const keep = new Array(routeCoordinates.length).fill(false);
+    keep[0] = true;
+    keep[routeCoordinates.length - 1] = true;
+    const stack = [[0, routeCoordinates.length - 1]];
+
+    while (stack.length) {
+      const [startIndex, endIndex] = stack.pop();
+      let maxDistance = -1;
+      let splitIndex = -1;
+
+      for (let i = startIndex + 1; i < endIndex; i += 1) {
+        const distance = pointLineDistanceMeters(
+          routeCoordinates[i],
+          routeCoordinates[startIndex],
+          routeCoordinates[endIndex]
+        );
+        if (distance > maxDistance) {
+          maxDistance = distance;
+          splitIndex = i;
+        }
+      }
+
+      if (maxDistance > toleranceMeters && splitIndex !== -1) {
+        keep[splitIndex] = true;
+        stack.push([startIndex, splitIndex], [splitIndex, endIndex]);
+      }
+    }
+
+    return routeCoordinates.filter((_, index) => keep[index]);
+  }
+
+  function cumulativeDistances(routeCoordinates) {
+    const distances = [0];
+    for (let i = 1; i < routeCoordinates.length; i += 1) {
+      distances.push(distances[i - 1] + distanceMeters(routeCoordinates[i - 1], routeCoordinates[i]));
+    }
+    return distances;
+  }
+
+  function buildGoogleWaypointCoordinates(routeCoordinates) {
+    const simplified = simplifyCoordinatesForGoogle(routeCoordinates, GOOGLE_SIMPLIFY_TOLERANCE_METERS);
+    if (simplified.length <= 2) {
+      return [];
+    }
+
+    const cumDist = cumulativeDistances(simplified);
+    const candidates = [];
+    let lastAcceptedDistance = 0;
+
+    for (let i = 1; i < simplified.length - 1; i += 1) {
+      const angle = turnAngleDegrees(simplified[i - 1], simplified[i], simplified[i + 1]);
+      const currentDistance = cumDist[i];
+      const remainingDistance = cumDist[cumDist.length - 1] - currentDistance;
+
+      if (
+        angle >= GOOGLE_TURN_THRESHOLD_DEGREES &&
+        currentDistance - lastAcceptedDistance >= GOOGLE_MIN_WAYPOINT_SPACING_METERS &&
+        remainingDistance >= GOOGLE_MIN_WAYPOINT_SPACING_METERS
+      ) {
+        candidates.push({
+          index: i,
+          coord: simplified[i],
+          score: angle,
+          distance: currentDistance,
+        });
+        lastAcceptedDistance = currentDistance;
+      }
+    }
+
+    let lastAnchorDistance = 0;
+    for (let i = 1; i < simplified.length - 1; i += 1) {
+      const currentDistance = cumDist[i];
+      const remainingDistance = cumDist[cumDist.length - 1] - currentDistance;
+      if (
+        currentDistance - lastAnchorDistance >= GOOGLE_ANCHOR_SEGMENT_METERS &&
+        remainingDistance >= GOOGLE_MIN_WAYPOINT_SPACING_METERS
+      ) {
+        candidates.push({
+          index: i,
+          coord: simplified[i],
+          score: 18,
+          distance: currentDistance,
+        });
+        lastAnchorDistance = currentDistance;
+      }
+    }
+
+    const uniqueByIndex = new Map();
+    candidates.forEach((candidate) => {
+      const existing = uniqueByIndex.get(candidate.index);
+      if (!existing || candidate.score > existing.score) {
+        uniqueByIndex.set(candidate.index, candidate);
+      }
+    });
+
+    return [...uniqueByIndex.values()]
+      .sort((a, b) => b.score - a.score || a.distance - b.distance)
+      .slice(0, GOOGLE_MAX_WAYPOINTS)
+      .sort((a, b) => a.distance - b.distance)
+      .map((candidate) => candidate.coord);
+  }
+
+  function buildGoogleMapsUrl(routeCoordinates) {
+    if (!routeCoordinates || routeCoordinates.length < 2) return "";
+    const origin = routeCoordinates[0];
+    const destination = routeCoordinates[routeCoordinates.length - 1];
+    const waypointCoords = buildGoogleWaypointCoordinates(routeCoordinates);
+    const params = new URLSearchParams({
+      api: "1",
+      origin: coordToGoogleLatLon(origin),
+      destination: coordToGoogleLatLon(destination),
+      travelmode: "bicycling",
+      dir_action: "navigate",
+    });
+
+    if (waypointCoords.length) {
+      params.set("waypoints", waypointCoords.map(coordToGoogleLatLon).join("|"));
+    }
+
+    return `https://www.google.com/maps/dir/?${params.toString()}`;
   }
 
   function featureCollectionForFit() {
@@ -540,10 +715,21 @@ ${trkpts}
       exportStatus.textContent = "生成路线后，这里会出现可导出的 GPX 内容预览。";
     }
 
+    state.googleMapsUrl = state.pathCoordinates.length ? buildGoogleMapsUrl(state.pathCoordinates) : "";
+    googleMapsLinkPreview.value = state.googleMapsUrl;
+    if (!state.googleMapsUrl) {
+      googleLinkNote.textContent = "生成连通路线后，这里会出现可直接打开的 Google Maps 骑行链接。";
+    } else {
+      const waypointCount = new URL(state.googleMapsUrl).searchParams.get("waypoints")?.split("|").filter(Boolean).length || 0;
+      googleLinkNote.textContent = `当前链接已保留起点、终点和 ${waypointCount} 个关键转折点，用于让 Google Maps 尽量贴近这条 PCN 路线。`;
+    }
+
     undoButton.disabled = state.waypoints.length === 0;
     clearButton.disabled = state.waypoints.length === 0;
     exportButton.disabled = state.pathCoordinates.length === 0;
     exportTargetButton.disabled = state.targetPathCoordinates.length === 0;
+    openGoogleMapsButton.disabled = !state.googleMapsUrl;
+    copyGoogleMapsLinkButton.disabled = !state.googleMapsUrl;
   }
 
   function rebuildRoute(options = {}) {
@@ -855,6 +1041,23 @@ ${trkpts}
     exportStatus.textContent = `目标 ${formatKm(state.targetDistanceMeters)} 的 GPX 文件已开始下载。`;
   }
 
+  function openGoogleMaps() {
+    if (!state.googleMapsUrl) return;
+    window.open(state.googleMapsUrl, "_blank", "noopener,noreferrer");
+    googleLinkNote.textContent = "Google Maps 链接已在新标签页打开。";
+  }
+
+  async function copyGoogleMapsLink() {
+    if (!state.googleMapsUrl) return;
+    try {
+      await navigator.clipboard.writeText(state.googleMapsUrl);
+      googleLinkNote.textContent = "Google Maps 链接已复制到剪贴板。";
+    } catch (error) {
+      console.error(error);
+      googleLinkNote.textContent = "复制失败了，但下方预览框里仍然有完整链接。";
+    }
+  }
+
   function handleTargetDistanceChange() {
     const nextKm = Number.parseFloat(targetDistanceInput.value);
     state.targetDistanceMeters = Number.isFinite(nextKm) && nextKm > 0 ? nextKm * 1000 : 0;
@@ -914,6 +1117,8 @@ ${trkpts}
 
   exportButton.addEventListener("click", exportGpx);
   exportTargetButton.addEventListener("click", exportTargetGpx);
+  openGoogleMapsButton.addEventListener("click", openGoogleMaps);
+  copyGoogleMapsLinkButton.addEventListener("click", copyGoogleMapsLink);
   zoomInButton.addEventListener("click", () => zoomBy(1.35));
   zoomOutButton.addEventListener("click", () => zoomBy(1 / 1.35));
   zoomResetButton.addEventListener("click", resetZoom);

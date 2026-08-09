@@ -70,6 +70,8 @@
             <button id="clear-waypoints" class="ghost-button" type="button">清空全部</button>
             <button id="export-gpx" class="ghost-button" type="button">导出当前 GPX</button>
             <button id="export-target-gpx" class="ghost-button" type="button">导出目标 GPX</button>
+            <button id="open-google-maps" class="ghost-button" type="button">打开 Google 地图</button>
+            <button id="copy-google-maps-link" class="ghost-button" type="button">复制 Google 链接</button>
           </div>
         </div>
 
@@ -143,6 +145,12 @@
           <p class="card-label">GPX 预览</p>
           <textarea id="gpx-preview" class="json-preview" readonly spellcheck="false"></textarea>
           <p id="export-status" class="card-note">生成路线后，这里会出现可导出的 GPX 内容预览。</p>
+        </div>
+
+        <div class="info-card">
+          <p class="card-label">Google Maps 链接</p>
+          <textarea id="google-maps-link-preview" class="json-preview compact-preview" readonly spellcheck="false"></textarea>
+          <p id="google-link-note" class="card-note">会自动保留起点、终点和少量大转弯点，避免链接里出现过多节点。</p>
         </div>
       </aside>
     </section>
