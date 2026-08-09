@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="《道德经》第四十七章：信息、知识、规律与不为而成。">
+  <meta name="theme-color" content="#f4f0e6">
+  <meta property="og:title" content="第四十七章｜不出户，知天下">
+  <meta property="og:description" content="不要把知道更多，误认为理解更深。看见现象的人很多，看见规律的人很少。">
+  <meta property="og:image" content="https://vvoliucano.github.io/projects/doraemon-laozhuang/chapter-47-1.png">
+  <meta property="og:url" content="https://vvoliucano.github.io/projects/doraemon-laozhuang/chapter-47.html">
+  <meta property="og:type" content="article">
+  <title>第四十七章｜多啦A梦谈老庄</title>
+  <link rel="stylesheet" href="styles.css?v=20260809-1">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","UA-146429859-1");</script>
+</head>
+<body>
+  <i class="reading-progress" aria-hidden="true"></i>
+  <header class="masthead">
+    <a class="brand" href="index.html"><span>道</span><b>多啦A梦谈老庄</b></a>
+    <a class="back" href="index.html#chapters">返回篇章 ↗</a>
+  </header>
+
+  <main>
+    <section class="chapter-hero">
+      <span class="big-number">四七</span>
+      <div>
+        <p class="eyebrow">《道德经》第四十七章</p>
+        <h1>不出户，<br><em>知天下。</em></h1>
+        <blockquote>看见得更多，真的等于理解得更深吗？</blockquote>
+      </div>
+    </section>
+
+    <article class="article">
+      <section class="section reveal">
+        <span class="section-kicker">原文</span>
+        <h2>不必看尽每一棵树，才认识森林</h2>
+        <p class="source-text">不出户，知天下；<br>不窥牖，见天道。<br>其出弥远，其知弥少。<br>是以圣人不行而知，不见而明，不为而成。</p>
+      </section>
+
+      <section class="section reveal">
+        <span class="section-kicker">今译</span>
+        <h2>走得越远，未必知道得越多</h2>
+        <p>不走出门户，也能够认识天下；不从窗户向外窥望，也能够洞见天地运行的规律。走得越远、追逐得越多，反而可能知道得越少。</p>
+        <p>所以圣人不必亲自奔波就能知晓，不必事事亲见就能明白，不刻意强作，反而能够成就事情。</p>
+      </section>
+
+      <section class="section reveal">
+        <span class="section-kicker">三页图解</span>
+        <h2>从看见现象，到看见规律</h2>
+        <div class="comic-series">
+          <figure><img src="chapter-47-1.png" width="941" height="1672" loading="lazy" alt="多啦A梦根据风、树叶和水杯的迹象，判断窗外大树倒下，解释不出户知天下"><figcaption>第一图 · 看见现象的人很多，看见规律的人很少。</figcaption></figure>
+          <figure><img src="chapter-47-2.png" width="864" height="1821" loading="lazy" alt="大雄陷入海量资料，多啦A梦把散乱事实抽象成原理、过程和结果"><figcaption>第二图 · 知道一万个事实，不如理解一个规律。</figcaption></figure>
+          <figure><img src="chapter-47-3.png" width="864" height="1821" loading="lazy" alt="大雄用力催促花生长，多啦A梦说明应当创造条件，让结果自然发生"><figcaption>第三图 · 不是推动结果，而是创造结果发生的条件。</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <span class="section-kicker">动手试试</span>
+        <h2>资料越来越多以后，会发生什么？</h2>
+        <p>向右拖动，让新闻、论文、案例、访谈与观点不断涌进来。信息量会增加，但如果它们没有结构，判断未必跟着变清楚。</p>
+        <div class="model-lab" id="model-lab">
+          <div class="model-controls">
+            <label for="information-slider"><span>读入的资料</span><b id="information-value">12 条</b></label>
+            <input id="information-slider" type="range" min="3" max="30" value="12" step="1" aria-label="增加或减少资料数量">
+            <div class="model-meters">
+              <p><span>信息量</span><i><b id="information-bar"></b></i><strong id="information-score">40</strong></p>
+              <p><span>理解度</span><i><b id="understanding-bar"></b></i><strong id="understanding-score">48</strong></p>
+            </div>
+            <button id="abstract-button" aria-pressed="false">抽象成一个模型 <span>→</span></button>
+          </div>
+          <div class="information-stage" aria-live="polite">
+            <div class="information-cloud" id="information-cloud" aria-label="散乱资料"></div>
+            <div class="model-structure" id="model-structure" aria-label="抽象后的结构">
+              <div><small>WHY</small><b>原理</b><span>为什么发生</span></div><i>→</i>
+              <div><small>HOW</small><b>过程</b><span>怎样发生</span></div><i>→</i>
+              <div><small>WHAT</small><b>结果</b><span>最后看见什么</span></div>
+            </div>
+            <p id="model-answer">你已经收集了不少材料；它们仍然各说各话。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <span class="section-kicker">第一层</span>
+        <h2>信息，不等于知识</h2>
+        <p>今天的人拥有古人无法想象的信息：新闻、论文、微博、小红书、YouTube、ChatGPT。一天之内，我们可以接触几百甚至几千条内容。</p>
+        <p>但信息增加，注意力也可能被切碎；关系变得模糊，判断反而更难形成。看完一百篇论文、五十个案例与三十个访谈，你可能知道“别人说了什么”，却仍不知道这个问题为什么会这样。</p>
+        <p class="source-text">知道一万个事实，不如理解一个规律。</p>
+      </section>
+
+      <section class="section reveal">
+        <span class="section-kicker">第二层</span>
+        <h2>把外部世界，变成内部模型</h2>
+        <p>“不出户，知天下”并不是拒绝外界，而是说：学习的最终目的，是让经验在心中形成结构。</p>
+        <p>优秀的程序员看到一个新系统，不必读完所有代码。他会先看 architecture、data flow、abstraction、interface 与 dependency，很快判断系统可能在哪里出问题。</p>
+        <p>成熟的研究者也不必读完一个领域的所有论文。他开始看见：谁解决了什么问题，为什么这样解决，哪些假设脆弱，哪些难题始终没有解决。此时，他看到的不再只是一篇篇论文，而是论文背后的结构。</p>
+      </section>
+
+      <section class="section reveal">
+        <span class="section-kicker">第三层</span>
+        <h2>搜索，也会制造一种焦虑</h2>
+        <p>“我还不知道，所以我要继续搜索。”Google、小红书、Reddit、YouTube、ChatGPT、论文，再回到搜索。每一次点击都像是在接近答案。</p>
+        <p>但资料越多，A 说这样，B 说那样，C 提供反例，D 又带来一个新理论。搜索没有自动带来确定，反而可能让人更混乱。</p>
+        <p>老子的提醒很简单：先停一下。不要立刻再找一条信息，先问自己——我用什么原则判断这些信息？</p>
+      </section>
+
+      <section class="section reveal">
+        <span class="section-kicker">不是闭门造车</span>
+        <h2>你必须先见过世界，才可能抽象世界</h2>
+        <p>如果把这章理解成“聪明人不用调查、不用实践，坐在家里就能知道一切”，便把它读反了。</p>
+        <div class="experience-flow" aria-label="从经验到规律的过程"><div><small>EXPERIENCE</small><b>经验</b></div><i>→</i><div><small>ABSTRACTION</small><b>抽象</b></div><i>→</i><div><small>PRINCIPLE</small><b>规律</b></div></div>
+        <p>先接触现实，才能形成模型；形成模型以后，才不必每遇到一个新情况，都从头经历一次。这时，“不行而知”才有了根基。</p>
+      </section>
+
+      <section class="section reveal">
+        <span class="section-kicker">放进科研</span>
+        <h2>很多新问题，只是换了一个表面</h2>
+        <p>年轻研究者很容易不断向外扩张：做实验、找数据、改模型、再跑实验。经验渐深后，另一种能力才会出现：看到一个问题，就知道它大概属于哪一种结构。</p>
+        <p>面对一个新的 visualization problem，你会自然追问：数据是什么？encoding 是什么？interaction 是什么？representation 在哪里？用户的认知瓶颈是什么？AI 解决的是生成、理解，还是探索？</p>
+        <p>科研经验真正的价值，不是“我做过很多项目”，而是“我逐渐知道哪些东西其实是同一个问题”。</p>
+      </section>
+
+      <section class="section reveal">
+        <span class="section-kicker">不为而成</span>
+        <h2>不再用力推动，而去创造条件</h2>
+        <p>“不为”不是不做事情，而是不以蛮力强行推动。低层次的办法是不断介入、控制每一步；更高明的办法，是把结构搭好，让事情自己运行。</p>
+        <div class="condition-grid">
+          <div><b>好的系统</b><span>不需要每天亲自操作。</span></div>
+          <div><b>好的组织</b><span>不需要每天催所有人。</span></div>
+          <div><b>好的研究方向</b><span>核心框架会长出后续问题。</span></div>
+          <div><b>好的工具</b><span>用户甚至感觉不到设计者。</span></div>
+        </div>
+        <p class="source-text">不是停止行动，而是从“推动结果”，转向“创造结果发生的条件”。</p>
+      </section>
+
+      <section class="section reveal">
+        <span class="section-kicker">本章收束</span>
+        <h2>从多少，走向多深</h2>
+        <div class="three-levels">
+          <div><span>壹</span><small>看见更多</small><b>事实</b><p>知道发生了什么。</p></div>
+          <div><span>贰</span><small>理解更多</small><b>关系</b><p>知道它们如何关联。</p></div>
+          <div><span>叁</span><small>看见规律</small><b>模型</b><p>即使没有新信息，也能继续推演。</p></div>
+        </div>
+      </section>
+    </article>
+
+    <section class="closing">
+      <p>不要把知道更多，<br>误认为<em>理解更深。</em></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="index.html#chapters">← 返回篇章</a><span>第四十七章 · 完</span>
+    <div class="visitor-map" aria-label="访问者地图"><script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=fefefe&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=1684b6&cmo=f2c756"></script></div>
+  </footer>
+  <script src="app.js?v=20260809-1"></script>
+</body>
+</html>

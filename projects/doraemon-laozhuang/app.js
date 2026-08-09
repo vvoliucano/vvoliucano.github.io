@@ -68,4 +68,49 @@
     inward.addEventListener("input", update);
     update();
   }
+
+  const information = document.querySelector("#information-slider");
+  if (information) {
+    const lab = document.querySelector("#model-lab");
+    const cloud = document.querySelector("#information-cloud");
+    const abstractButton = document.querySelector("#abstract-button");
+    const labels = ["新闻","论文","案例","访谈","观点 A","观点 B","反例","新理论","数据","图表","短视频","评论","报告","综述","博客","播客","知乎","Reddit","小红书","AI 回答","统计","假设","方法","样本","结论","争议","引用","趋势","异常","补充材料"];
+    labels.forEach((label,index) => {
+      const item = document.createElement("span");
+      item.textContent = label;
+      item.style.left = `${5 + (index * 37 % 84)}%`;
+      item.style.top = `${4 + (index * 53 % 82)}%`;
+      item.style.transform = `rotate(${(index * 29 % 17) - 8}deg)`;
+      cloud.appendChild(item);
+    });
+    const update = () => {
+      const count = Number(information.value);
+      const abstracted = lab.classList.contains("is-abstract");
+      document.querySelector("#information-value").textContent = `${count} 条`;
+      [...cloud.children].forEach((item,index) => item.style.display = index < count ? "block" : "none");
+      const informationScore = Math.round(count / 30 * 100);
+      const rawUnderstanding = count <= 9 ? 22 + count * 4.5 : Math.max(27, 66 - (count - 9) * 1.85);
+      const understandingScore = Math.round(abstracted ? Math.min(96, 58 + count * 1.15) : rawUnderstanding);
+      document.querySelector("#information-bar").style.width = `${informationScore}%`;
+      document.querySelector("#understanding-bar").style.width = `${understandingScore}%`;
+      document.querySelector("#information-score").textContent = informationScore;
+      document.querySelector("#understanding-score").textContent = understandingScore;
+      document.querySelector("#model-answer").textContent = abstracted
+        ? "资料没有减少，但它们现在进入了同一个结构：你开始看见可以推演的规律。"
+        : count < 9
+          ? "资料仍少，你正在建立问题的轮廓。"
+          : count < 18
+            ? "你已经收集了不少材料；它们仍然各说各话。"
+            : "信息继续增加，关系却被噪音盖住了。再搜一条，未必更接近答案。";
+    };
+    information.addEventListener("input", update);
+    abstractButton.addEventListener("click", () => {
+      const active = !lab.classList.contains("is-abstract");
+      lab.classList.toggle("is-abstract", active);
+      abstractButton.setAttribute("aria-pressed", String(active));
+      abstractButton.firstChild.textContent = active ? "拆回具体资料 " : "抽象成一个模型 ";
+      update();
+    });
+    update();
+  }
 })();
