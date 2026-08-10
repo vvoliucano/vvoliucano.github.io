@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="行万里路：记录在中国走过的省份与仍待抵达的远方。">
+  <meta name="theme-color" content="#173c38">
+  <title>行万里路｜中国旅行足迹</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../projects-zh/" aria-label="返回项目页"><span>行</span><b>行万里路</b></a>
+    <nav aria-label="页面导航"><a href="#map">探索地图</a><a href="#overview">足迹概览</a><a href="#places">未抵达清单</a></nav>
+    <a class="back" href="../../projects-zh/">返回项目 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">读万卷书 · 行万里路</p>
+      <h1>山河辽阔，<br><em>一步一步去看。</em></h1>
+      <p class="lead">这是一张不断生长的旅行地图。点亮走过的地方，也把尚未抵达的远方留在眼前。</p>
+      <a class="scroll-link" href="#map">展开中国地图 <span>↓</span></a>
+      <div class="hero-stamp" aria-hidden="true"><b>廿七</b><span>省区<br>已行</span></div>
+    </section>
+
+    <section id="map" class="map-section section-shell" aria-labelledby="map-title">
+      <div class="section-heading">
+        <p>壹 · 中国探索地图</p>
+        <h2 id="map-title">走过的地方，<br><em>在地图上留下颜色。</em></h2>
+      </div>
+      <div class="map-panel">
+        <div class="map-toolbar">
+          <div><span class="legend-dot visited"></span>已经走过</div>
+          <div><span class="legend-dot future"></span>等待抵达</div>
+          <p>悬停或轻触省份查看名称</p>
+        </div>
+        <div class="map-wrap">
+          <svg id="china-map" viewBox="0 0 900 720" role="img" aria-labelledby="map-title map-desc">
+            <defs>
+              <filter id="paper-shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173c38" flood-opacity=".16"/></filter>
+              <pattern id="travel-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="9" height="9" fill="#a84732"/><line x1="0" y1="0" x2="0" y2="9" stroke="#ca725d" stroke-width="2" opacity=".35"/></pattern>
+              <pattern id="future-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#d9d3c4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c3b9a6" stroke-width="1" opacity=".6"/></pattern>
+            </defs>
+            <g id="map-land" filter="url(#paper-shadow)"></g><g id="map-labels" aria-hidden="true"></g>
+          </svg>
+          <p id="map-desc" class="sr-only">中国省级行政区地图，西藏、新疆、云南、宁夏、台湾、吉林、澳门尚未点亮。</p>
+          <div id="tooltip" class="tooltip" role="status" aria-live="polite"></div>
+          <div id="map-status" class="map-status">正在展开山河……</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview" class="overview section-shell" aria-label="足迹概览">
+      <div class="section-heading light section-label-only">
+        <p>贰 · 足迹概览</p>
+      </div>
+      <div class="metrics">
+        <article><strong>27</strong><span>已走过省级行政区</span><small>从京津冀到大江南北</small></article>
+        <article><strong>79.4<sup>%</sup></strong><span>中国省级行政区点亮率</span><small>27 / 34</small></article>
+        <article><strong>07</strong><span>仍想抵达的省区</span><small>七处山河仍待相逢</small></article>
+      </div>
+      <blockquote>“知者行之始，行者知之成。”<cite>—— 王阳明</cite></blockquote>
+    </section>
+
+    <section id="places" class="places section-shell" aria-label="未抵达清单">
+      <div class="section-heading section-label-only">
+        <p>叁 · 未抵达清单</p>
+      </div>
+      <div class="place-grid">
+        <article><span class="number">01</span><p class="type">自治区</p><h3>西藏</h3><p>雪山、湖泊与高原之上的辽阔天光。</p><b>TIBET</b></article>
+        <article><span class="number">02</span><p class="type">自治区</p><h3>新疆</h3><p>越过天山，在绿洲、戈壁和古城之间远行。</p><b>XINJIANG</b></article>
+        <article><span class="number">03</span><p class="type">省</p><h3>云南</h3><p>从高原雪岭走进云雾、梯田与热带雨林。</p><b>YUNNAN</b></article>
+        <article><span class="number">04</span><p class="type">自治区</p><h3>宁夏</h3><p>黄河穿过塞上，在贺兰山下滋养平原。</p><b>NINGXIA</b></article>
+        <article><span class="number">05</span><p class="type">省</p><h3>台湾</h3><p>山海相接的岛屿，季风吹过纵谷与海岸。</p><b>TAIWAN</b></article>
+        <article><span class="number">06</span><p class="type">省</p><h3>吉林</h3><p>从长春到长白山，等待一次穿过林海与冰雪的抵达。</p><b>JILIN</b></article>
+        <article><span class="number">07</span><p class="type">特别行政区</p><h3>澳门</h3><p>在南海之滨，街巷、屋宇与海风交织成独特风景。</p><b>MACAO</b></article>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>行万里路</span><p>地图会继续生长，下一站尚未写下。</p><a href="#map">回到地图 ↑</a></footer>
+  <script src="map.js"></script>
+</body>
+</html>

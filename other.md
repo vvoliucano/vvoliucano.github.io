@@ -605,6 +605,7 @@ class: culture-page
         </div>
       </details>
       <div class="culture-actions">
+        <a class="culture-link" href="{{ '/projects/xingwanlilu/' | relative_url }}">行万里路：中国旅行足迹 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/chinese-mathematics/' | relative_url }}">未曾写下 x：华夏古代的方程思想 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/chinese-calculus/' | relative_url }}">割之又割：华夏古代的微积分思想 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/chinese-coordinates/' | relative_url }}">经天纬地：华夏古代怎样定位世界 <span aria-hidden="true">→</span></a>
