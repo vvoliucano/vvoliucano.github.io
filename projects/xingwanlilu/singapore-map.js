@@ -29,6 +29,7 @@
     return Promise.all(responses.map(response => response.json()));
   }).then(([geojson, countData]) => {
     const counts = countData.counts || {};
+    document.querySelector('#singapore-area-count').textContent = String(Object.values(counts).filter(count => count > 0).length);
     const projection = d3.geoMercator().fitExtent([[48, 48], [width - 48, height - 48]], geojson);
     const path = d3.geoPath(projection);
     const mapLayer = svg.append('g').attr('class', 'singapore-areas');

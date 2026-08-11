@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620">
+  <defs>
+    <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="stars" width="180" height="155" patternUnits="userSpaceOnUse">
+      <g fill="#f5d878" filter="url(#glow)">
+        <circle cx="17" cy="22" r="1.1" opacity=".7"/><circle cx="61" cy="48" r=".65" opacity=".48"/><circle cx="119" cy="19" r="1.45" opacity=".86"/><circle cx="158" cy="72" r=".8" opacity=".58"/>
+        <circle cx="35" cy="118" r="1.55" opacity=".78"/><circle cx="91" cy="137" r=".7" opacity=".5"/><circle cx="142" cy="112" r="1.05" opacity=".72"/><circle cx="174" cy="145" r=".55" opacity=".42"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="900" height="620" fill="url(#stars)"/>
+</svg>

@@ -22,28 +22,12 @@ const projection = d3.geoOrthographic()
   .translate([worldWidth / 2, worldHeight / 2])
   .scale(255)
   .clipAngle(90)
-  .precision(.2)
+  .precision(.4)
   .rotate(initialRotation);
 const worldPath = d3.geoPath(projection);
 
-const starLayer = worldSvg.append('g').attr('class', 'world-stars').attr('aria-hidden', 'true');
-let starSeed = 20260811;
-const starRandom = () => {
-  starSeed = (starSeed * 1664525 + 1013904223) >>> 0;
-  return starSeed / 4294967296;
-};
-const stars = d3.range(96).map(() => {
-  const angle = starRandom() * Math.PI * 2;
-  const radius = 360 + starRandom() * 180;
-  return {
-    x: worldWidth / 2 + Math.cos(angle) * radius,
-    y: worldHeight / 2 + Math.sin(angle) * radius * .72,
-    radius: .55 + starRandom() * 1.65,
-    opacity: .35 + starRandom() * .62
-  };
-});
-starLayer.selectAll('circle').data(stars).join('circle').attr('class', 'world-star')
-  .attr('cx', star => star.x).attr('cy', star => star.y).attr('r', star => star.radius).attr('opacity', star => star.opacity);
+worldSvg.append('image').attr('class', 'world-starfield').attr('href', 'data/starfield.svg')
+  .attr('width', worldWidth).attr('height', worldHeight).attr('preserveAspectRatio', 'none').attr('aria-hidden', 'true');
 
 const sphere = worldSvg.append('path').datum({ type: 'Sphere' }).attr('class', 'world-ocean').attr('filter', 'url(#globe-shadow)');
 const graticule = worldSvg.append('path').datum(d3.geoGraticule10()).attr('class', 'world-graticule');
@@ -149,17 +133,12 @@ function focusCity(city) {
 
 function updateCityLabels(center) {
   if (!flightCitySelection) return;
-  const occupied = [];
-  const minimumTrips = worldScale < 270 ? 6 : worldScale < 420 ? 4 : worldScale < 800 ? 2 : 1;
+  const fixedLabels = new Set(['北京', '厦门', '新加坡']);
   flightCitySelection.each(function(city) {
     const group = d3.select(this);
-    const point = projection(city.coordinates);
     const onFront = d3.geoDistance(center, city.coordinates) < Math.PI / 2;
-    const eligible = selectedCity === city || city.trip_count >= minimumTrips;
-    const collision = occupied.some(other => Math.hypot(other[0] - point[0], other[1] - point[1]) < (worldScale >= 800 ? 28 : worldScale >= 420 ? 34 : 46));
-    const show = onFront && eligible && (!collision || selectedCity === city);
+    const show = onFront && (selectedCity === city || fixedLabels.has(city.city));
     group.select('text').style('display', show ? null : 'none');
-    if (show) occupied.push(point);
   });
 }
 
@@ -328,6 +307,7 @@ Promise.all([
     }));
     const flightCities = [...cityMap.values()].sort((a, b) => b.trip_count - a.trip_count);
     allCities = flightCities;
+    document.querySelector('#china-city-count').textContent = String(flightCities.filter(city => city.country === 'China').length);
     const routes = [...routeMap.values()];
 
     landSelection = landLayer.append('path').datum(referenceLand.land).attr('class', 'ying-land');
@@ -340,6 +320,13 @@ Promise.all([
       .data(countryData.features.filter(feature => visitedCountries.has(feature.properties.name)))
       .join('path').attr('class', 'world-country visited');
     visitedSelection.append('title').text(feature => `${feature.properties.chinese_name || feature.properties.name} · 已经到访`);
+    document.querySelector('#country-count').textContent = String(visitedCountries.size);
+    const countryContinents = {
+      Australia: 'Oceania', Austria: 'Europe', Canada: 'North America', China: 'Asia', Germany: 'Europe',
+      Hungary: 'Europe', India: 'Asia', Indonesia: 'Asia', Malaysia: 'Asia', Singapore: 'Asia',
+      Slovakia: 'Europe', Thailand: 'Asia', Vietnam: 'Asia'
+    };
+    document.querySelector('#continent-count').textContent = String(new Set([...visitedCountries].map(country => countryContinents[country]).filter(Boolean)).size);
 
     flightCitySelection = flightCityLayer.selectAll('g').data(flightCities).join('g').attr('class', 'flight-city')
       .attr('tabindex', 0).attr('role', 'button').attr('aria-label', city => `${city.city}，查看到访年份`)
