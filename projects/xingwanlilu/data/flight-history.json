@@ -1,0 +1,3639 @@
+{
+  "schema_version": 1,
+  "generated_from": [
+    "codex-clipboard-3b2f603b-4fcd-417b-88a2-8d1418608ef3.jpg",
+    "codex-clipboard-a5a8b769-e8d6-40db-9f88-49a249d0618a.jpg",
+    "codex-clipboard-017d3ae9-4de1-4c21-be62-f8dd44ca79f3.jpg"
+  ],
+  "source_header_reported_count": 142,
+  "record_count": 136,
+  "flight_segment_count": 144,
+  "note": "The screenshots contain 136 visible date cards; connecting flights are stored in each card’s legs array. The app header reports 142 trips. Review records marked low confidence against the source images.",
+  "records": [
+    {
+      "id": "flight-001",
+      "date": "2026-06-14",
+      "month_day": "06-14",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA975"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA975",
+          "departure": {
+            "time": "01:00",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "07:25",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "06-14 & 中国国航 CA975\n2026\n当地   ° 01:00 北京首都T3\n。 07:25 ”新加坡樟宜T1"
+    },
+    {
+      "id": "flight-002",
+      "date": "2026-06-09",
+      "month_day": "06-09",
+      "airline": "吉祥航空",
+      "flight_numbers": [
+        "HO1257"
+      ],
+      "legs": [
+        {
+          "flight_number": "HO1257",
+          "departure": {
+            "time": "08:20",
+            "airport": "上海浦东"
+          },
+          "arrival": {
+            "time": "10:55",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "06-09 & 吉祥航空 HO1257\n2026\n当地    ° 08:20 上海浦东T2\n。10:55 北京大兴"
+    },
+    {
+      "id": "flight-003",
+      "date": "2026-06-08",
+      "month_day": "06-08",
+      "airline": "吉祥航空",
+      "flight_numbers": [
+        "HO1576"
+      ],
+      "legs": [
+        {
+          "flight_number": "HO1576",
+          "departure": {
+            "time": "23:45",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "05:54",
+            "airport": "上海浦东"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "06-08 & 吉祥航空 HO1576\n2026\n当地   ° 23:45 新加坡樟宜 T4\n© 05:154 上海浦东T2"
+    },
+    {
+      "id": "flight-004",
+      "date": "2026-05-31",
+      "month_day": "05-31",
+      "airline": "深圳航空",
+      "flight_numbers": [
+        "ZH239"
+      ],
+      "legs": [
+        {
+          "flight_number": "ZH239",
+          "departure": {
+            "time": "08:15",
+            "airport": "深圳宝安"
+          },
+          "arrival": {
+            "time": "12:20",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-31 fe 深圳航空 ZH239\n2026\n当地   ° 08:15 深圳宝安T3\n。 12:20 ”新加坡樟宜T1"
+    },
+    {
+      "id": "flight-005",
+      "date": "2026-05-28",
+      "month_day": "05-28",
+      "airline": "深圳航空",
+      "flight_numbers": [
+        "ZH240"
+      ],
+      "legs": [
+        {
+          "flight_number": "ZH240",
+          "departure": {
+            "time": "13:30",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "17:40",
+            "airport": "深圳宝安"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-28 fe 深圳航空 ZH240\n2026\n当地   ° 13:30 新加坡樟宜T1\n。 17:40 “深圳宝安T3"
+    },
+    {
+      "id": "flight-006",
+      "date": "2026-05-10",
+      "month_day": "05-10",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF851"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF851",
+          "departure": {
+            "time": "09:30",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "13:50",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-10 ~ 厦门航空 MF851\n2026            a\n当地    ? 09:30 厦门高崎T3\n。135:50 ”新加坡樟宜T1"
+    },
+    {
+      "id": "flight-007",
+      "date": "2026-05-09",
+      "month_day": "05-09",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8102"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8102",
+          "departure": {
+            "time": "16:30",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "18:55",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-09 ~ 厦门航空 MF8102\n2026          7\n当地   ° 16:30 北京大兴\n。 18:55 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-008",
+      "date": "2026-05-01",
+      "month_day": "05-01",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8590"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8590",
+          "departure": {
+            "time": "12:25",
+            "airport": "泉州晋江"
+          },
+          "arrival": {
+            "time": "15:05",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-01 ~ 厦门航空 MF8590\n2026\n0 12:25 went S WL\n© 15:05 “北京大兴"
+    },
+    {
+      "id": "flight-009",
+      "date": "2026-04-27",
+      "month_day": "04-27",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8676"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8676",
+          "departure": {
+            "time": "02:40",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "06:55",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "04-27 ~ 厦门航空 MF8676\n2026\n当地    ° 02:40 新加坡樟宜T1\n© 06:55 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-010",
+      "date": "2026-04-26",
+      "month_day": "04-26",
+      "airline": "酷航",
+      "flight_numbers": [],
+      "legs": [
+        {
+          "flight_number": null,
+          "departure": {
+            "time": "13:00",
+            "airport": "悉尼金斯福德·史密斯"
+          },
+          "arrival": {
+            "time": "19:50",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "04-26 @ 酷航 TRI\n2026\n当地   ° 13:00 ”悉尼人金斯福德T1\n。19:350 新加坡樟宜T1"
+    },
+    {
+      "id": "flight-011",
+      "date": "2026-04-18",
+      "month_day": "04-18",
+      "airline": "酷航",
+      "flight_numbers": [],
+      "legs": [
+        {
+          "flight_number": null,
+          "departure": {
+            "time": "02:10",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "11:45",
+            "airport": "悉尼金斯福德·史密斯"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "04-18 ”到 酷航 TRIO\n2026\n当地   。 02:10 ”新加坡樟宜T1\n。11:45 ”悉尼人金斯福德T1"
+    },
+    {
+      "id": "flight-012",
+      "date": "2026-03-22",
+      "month_day": "03-22",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA975"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA975",
+          "departure": {
+            "time": "00:15",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "06:50",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "03-22 g 中国国航 CA975\n2026\n当地   ° 00:15 ”北京首都T3\n。 06:50 新加坡樟宜T1"
+    },
+    {
+      "id": "flight-013",
+      "date": "2026-03-18",
+      "month_day": "03-18",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA788"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA788",
+          "departure": {
+            "time": "17:55",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "00:15",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "03-18 。 吸 中国国航 CA788         ‘\n2026\n当地   ° 17:55 新加坡樟宜T1\n© 00:15, 北京首都T3"
+    },
+    {
+      "id": "flight-014",
+      "date": "2026-02-23",
+      "month_day": "02-23",
+      "airline": "国泰航空",
+      "flight_numbers": [
+        "CX657",
+        "CX347"
+      ],
+      "legs": [
+        {
+          "flight_number": "CX657",
+          "departure": {
+            "time": "16:05",
+            "airport": "香港国际"
+          },
+          "arrival": {
+            "time": "20:10",
+            "airport": "新加坡樟宜"
+          }
+        },
+        {
+          "flight_number": "CX347",
+          "departure": {
+            "time": "10:00",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "14:00",
+            "airport": "香港国际"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "02-23 \\ 国泰航空 CX657\n2026\n当地   ° 16:05 香港国际T1\n。20:10 ”新加坡樟宜T4\n国泰航空 CX347\n? 10:00 ”北京首都T3\n。 14:00 香港国际T1"
+    },
+    {
+      "id": "flight-015",
+      "date": "2026-02-14",
+      "month_day": "02-14",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU5032"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU5032",
+          "departure": {
+            "time": "00:55",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "07:10",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "02-14 € 东方航空 MU5032\n2026\n当地    ? 00:55 新加坡樟宜T3\n。 07:10 “北京大兴"
+    },
+    {
+      "id": "flight-016",
+      "date": "2025-12-16",
+      "month_day": "12-16",
+      "airline": "国泰航空",
+      "flight_numbers": [
+        "CX691"
+      ],
+      "legs": [
+        {
+          "flight_number": "CX691",
+          "departure": {
+            "time": "07:50",
+            "airport": "香港国际"
+          },
+          "arrival": {
+            "time": "11:55",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "12-16 \\\\ 国泰航空 CX691\n2025\n当地    ° 07:50 香港国际T1\n。11:55 “新加坡樟宜T4"
+    },
+    {
+      "id": "flight-017",
+      "date": "2025-12-15",
+      "month_day": "12-15",
+      "airline": "国泰航空",
+      "flight_numbers": [
+        "CX963"
+      ],
+      "legs": [
+        {
+          "flight_number": "CX963",
+          "departure": {
+            "time": "19:30",
+            "airport": "杭州萧山"
+          },
+          "arrival": {
+            "time": "22:10",
+            "airport": "香港国际"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "12-15 。 \\ 国泰航空 CX963\n2025            加\n当地   ? 19:30 杭州萧山T4\n。 22:10 ”香港国际T1"
+    },
+    {
+      "id": "flight-018",
+      "date": "2025-12-12",
+      "month_day": "12-12",
+      "airline": null,
+      "flight_numbers": [
+        "TR188"
+      ],
+      "legs": [
+        {
+          "flight_number": "TR188",
+          "departure": {
+            "time": "16:45",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "21:55",
+            "airport": "杭州萧山"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "12-12 @ BS TR188\n2025\n当地   ° 16:45 新加坡樟宜T1\n。21:55 NAFTA"
+    },
+    {
+      "id": "flight-019",
+      "date": "2025-11-10",
+      "month_day": "11-10",
+      "airline": "印度航空",
+      "flight_numbers": [
+        "AL2115"
+      ],
+      "legs": [
+        {
+          "flight_number": "AL2115",
+          "departure": {
+            "time": "10:35",
+            "airport": "德里英迪拉甘地"
+          },
+          "arrival": {
+            "time": "18:55",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "11-10 fy 印度航空 Al2115\n2025\n当地   ° 10:35 德里英迪拉甘地T3\n。18:55 新加坡樟宜T2"
+    },
+    {
+      "id": "flight-020",
+      "date": "2025-11-09",
+      "month_day": "11-09",
+      "airline": "印度航空",
+      "flight_numbers": [
+        "A154"
+      ],
+      "legs": [
+        {
+          "flight_number": "A154",
+          "departure": {
+            "time": "20:30",
+            "airport": "维也纳国际"
+          },
+          "arrival": {
+            "time": "09:05",
+            "airport": "德里英迪拉甘地"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "11-09 fi 印度航空 A154\n2025\n当地    ? 20:30 维也纳国际T3\n© 09:05,1德里英迪拉甘地T3"
+    },
+    {
+      "id": "flight-021",
+      "date": "2025-11-01",
+      "month_day": "11-01",
+      "airline": "酷航",
+      "flight_numbers": [
+        "TR60"
+      ],
+      "legs": [
+        {
+          "flight_number": "TR60",
+          "departure": {
+            "time": "02:45",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "08:20",
+            "airport": "维也纳国际"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "11-01 @ 酷航 TR60\n2025\n当地   ° 02:45 新加坡樟宜T1\n© 08:20 维也纳国际T3"
+    },
+    {
+      "id": "flight-022",
+      "date": "2025-10-27",
+      "month_day": "10-27",
+      "airline": "酷航",
+      "flight_numbers": [
+        "TR115"
+      ],
+      "legs": [
+        {
+          "flight_number": "TR115",
+          "departure": {
+            "time": "14:45",
+            "airport": "巴厘岛伍拉·赖"
+          },
+          "arrival": {
+            "time": "18:45",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "10-27 ”人 酷航 TRIS\n2025\n当地   9? 14:45 MTR\n。18:45 “新加坡樟宜T1"
+    },
+    {
+      "id": "flight-023",
+      "date": "2025-10-20",
+      "month_day": "10-20",
+      "airline": "北部湾航空",
+      "flight_numbers": [
+        "GX8822"
+      ],
+      "legs": [
+        {
+          "flight_number": "GX8822",
+          "departure": {
+            "time": "22:25",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "00:50",
+            "airport": "南宁吴圩"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "10-20 北部湾航空 GX8822\n2025\n° 22:25 厦门高崎T4\n。 00:50,1南宁吴圩T2"
+    },
+    {
+      "id": "flight-024",
+      "date": "2025-10-12",
+      "month_day": "10-12",
+      "airline": "吉祥航空",
+      "flight_numbers": [
+        "HO1105"
+      ],
+      "legs": [
+        {
+          "flight_number": "HO1105",
+          "departure": {
+            "time": "08:35",
+            "airport": "上海浦东"
+          },
+          "arrival": {
+            "time": "10:35",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "10-12 © 吉祥航空 HO1105\n2025\n当地    9° 08:35 上海浦东T2\n° 10:35 ”厦门高崎T4"
+    },
+    {
+      "id": "flight-025",
+      "date": "2025-10-11",
+      "month_day": "10-11",
+      "airline": "吉祥航空",
+      "flight_numbers": [
+        "HO1606"
+      ],
+      "legs": [
+        {
+          "flight_number": "HO1606",
+          "departure": {
+            "time": "23:40",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "05:10",
+            "airport": "上海浦东"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "10-11 ”多 吉祥航空 HO1606         |\n2025\n当地    ° 23:40 新加坡樟宜 TA\n© 05:10\" 上海浦东T2"
+    },
+    {
+      "id": "flight-026",
+      "date": "2025-09-16",
+      "month_day": "09-16",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA969"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA969",
+          "departure": {
+            "time": "15:35",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "21:55",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "09-16 gf 中国国航 CA969\n2025          7\n当地   ° 15:35 北京首都T3\n。21:55 ”新加坡樟宜T1"
+    },
+    {
+      "id": "flight-027",
+      "date": "2025-09-13",
+      "month_day": "09-13",
+      "airline": "南方航空",
+      "flight_numbers": [
+        "CZ3127",
+        "CZ6084"
+      ],
+      "legs": [
+        {
+          "flight_number": "CZ3127",
+          "departure": {
+            "time": "12:00",
+            "airport": "长沙黄花"
+          },
+          "arrival": {
+            "time": "14:30",
+            "airport": "北京大兴"
+          }
+        },
+        {
+          "flight_number": "CZ6084",
+          "departure": {
+            "time": "04:20",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "09:10",
+            "airport": "长沙黄花"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "09-13 4 MARZ CZ3127           ‘\n2025\n当地   ° 12:00 长沙黄花T2\n© 14:30 ”北京大兴\n4 南方航空 CZ6084\n? 04:20 新加坡樟宜T1\n© 09:10 ”长沙黄花T2"
+    },
+    {
+      "id": "flight-028",
+      "date": "2025-08-11",
+      "month_day": "08-11",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8675",
+        "MF8102"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8675",
+          "departure": {
+            "time": "21:15",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "01:40",
+            "airport": "新加坡樟宜"
+          }
+        },
+        {
+          "flight_number": "MF8102",
+          "departure": {
+            "time": "15:55",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "18:50",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "08-11 ~ 厦门航空 MF8675\n2025\n当地   ? 21:15 ”厦门高崎T3\n。 01:40, 新加坡樟宜T1\na           去点评，\n~ 厦门航空 MF8102\n? 15:55 ”北京大兴\n。 18:50 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-029",
+      "date": "2025-08-07",
+      "month_day": "08-07",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CAOPEN",
+        "CZ3171",
+        "CZ8470"
+      ],
+      "legs": [
+        {
+          "flight_number": "CAOPEN",
+          "departure": {
+            "time": "07:20",
+            "airport": "深圳宝安"
+          },
+          "arrival": {
+            "time": "10:40",
+            "airport": "北京大兴"
+          }
+        },
+        {
+          "flight_number": "CZ3171",
+          "departure": {
+            "time": "16:45",
+            "airport": "河内内排"
+          },
+          "arrival": {
+            "time": "19:55",
+            "airport": "深圳宝安"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "08-07 g 中国国航 CAOPEN\n2025           7\nOPENZ  9-7    北京首都\n。 --    郑州新郑\n.                       已退票，\n无效 Lg’ 南方航空 CZ3171\n© 07:20 深圳宝安T3\n。10:40 “北京大兴\nEe                                          已退票\n无效 =’ 南方航空 CZ8470          =\n? 16:45 ”河内内排国际T2\n© 19:55 ”深圳宝安T3\n已作废，"
+    },
+    {
+      "id": "flight-030",
+      "date": "2025-08-07",
+      "month_day": "08-07",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA976"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA976",
+          "departure": {
+            "time": "09:00",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "14:55",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "08-07 。吸 中国国航 CA976\n2025\n当地    ° 09:00 新加坡樟宜T1\n。14:55 “北京首都T3"
+    },
+    {
+      "id": "flight-031",
+      "date": "2025-06-08",
+      "month_day": "06-08",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU5031"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU5031",
+          "departure": {
+            "time": "17:15",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "23:40",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "06-08 € 东方航空 MU5031\n2025\n当地   9? 17:15 ”北京大兴\n© 23:40 新加坡樟宜T3"
+    },
+    {
+      "id": "flight-032",
+      "date": "2025-06-07",
+      "month_day": "06-07",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU8169"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU8169",
+          "departure": {
+            "time": "16:15",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "19:05",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "06-07 € 东方航空 MU8169\n2025            加\n当地   ° 16:15 ”厦门高崎T4\n。19:05 “北京大兴"
+    },
+    {
+      "id": "flight-033",
+      "date": "2025-05-30",
+      "month_day": "05-30",
+      "airline": "亚洲航空",
+      "flight_numbers": [
+        "AK112"
+      ],
+      "legs": [
+        {
+          "flight_number": "AK112",
+          "departure": {
+            "time": "04:55",
+            "airport": "吉隆坡国际"
+          },
+          "arrival": {
+            "time": "09:15",
+            "airport": "广州白云"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-30 @ 亚洲航空 AK112\n2025\n当地    9? 04:55 吉隆坡国际T2\n© 09:15 “广州白云T1"
+    },
+    {
+      "id": "flight-034",
+      "date": "2025-05-29",
+      "month_day": "05-29",
+      "airline": "亚洲航空",
+      "flight_numbers": [
+        "AK6047"
+      ],
+      "legs": [
+        {
+          "flight_number": "AK6047",
+          "departure": {
+            "time": "23:10",
+            "airport": "新山MAIN"
+          },
+          "arrival": {
+            "time": "00:05",
+            "airport": "吉隆坡国际"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-29 @ 亚洲航空 AK6047\n2025\n当地   ° 23:10 新山MAIN\n© 00:05+ 吉隆坡国际T2"
+    },
+    {
+      "id": "flight-035",
+      "date": "2025-05-12",
+      "month_day": "05-12",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF851"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF851",
+          "departure": {
+            "time": "09:20",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "13:50",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-12 ~ 厦门航空 MF851\n2025            本\n当地    ° 09:20 厦门高崎T3\n。135:50 ”新加坡樟宜T1"
+    },
+    {
+      "id": "flight-036",
+      "date": "2025-05-11",
+      "month_day": "05-11",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8170"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8170",
+          "departure": {
+            "time": "21:10",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "23:55",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-11 ~ 厦门航空 MF8170\n2025\n当地   9? 21:10 ”北京大兴\n。 23:55 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-037",
+      "date": "2025-05-07",
+      "month_day": "05-07",
+      "airline": "长龙航空",
+      "flight_numbers": [
+        "GJ8987",
+        "D7302"
+      ],
+      "legs": [
+        {
+          "flight_number": "GJ8987",
+          "departure": {
+            "time": "15:55",
+            "airport": "杭州萧山"
+          },
+          "arrival": {
+            "time": "18:50",
+            "airport": "北京首都"
+          }
+        },
+        {
+          "flight_number": "D7302",
+          "departure": {
+            "time": "07:50",
+            "airport": "吉隆坡国际"
+          },
+          "arrival": {
+            "time": "13:10",
+            "airport": "杭州萧山"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-07 € 长龙航空 GJ8987           ‘\n2025\n当地   ? 15:55 杭州萧山T35\n。18:50 北京首都T3\n¥% 亚航X D7302\n° 07:50 吉隆坡国际T2\n。135:10 “杭州萧山T4"
+    },
+    {
+      "id": "flight-038",
+      "date": "2025-05-06",
+      "month_day": "05-06",
+      "airline": null,
+      "flight_numbers": [
+        "D7799"
+      ],
+      "legs": [
+        {
+          "flight_number": "D7799",
+          "departure": {
+            "time": "13:35",
+            "airport": "巴厘岛伍拉·赖"
+          },
+          "arrival": {
+            "time": "16:50",
+            "airport": "吉隆坡国际"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-06 3% WAX D7799             :\n2025\n当地   9 13:35 巴厘岛努拉莱伊|\n。 16:50 吉隆坡国际T2"
+    },
+    {
+      "id": "flight-039",
+      "date": "2025-05-05",
+      "month_day": "05-05",
+      "airline": "越捷航空",
+      "flight_numbers": [
+        "VJ998"
+      ],
+      "legs": [
+        {
+          "flight_number": "VJ998",
+          "departure": {
+            "time": "17:30",
+            "airport": "巴厘岛伍拉·赖"
+          },
+          "arrival": {
+            "time": "21:45",
+            "airport": "河内内排"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-05 wm 越捷航空 Vj998\n2025\n当地   9? 17:30 巴厘岛努拉莱伊|\n。21:45 “河内内排国际T2"
+    },
+    {
+      "id": "flight-040",
+      "date": "2025-05-02",
+      "month_day": "05-02",
+      "airline": "印尼亚航",
+      "flight_numbers": [
+        "QZZ507",
+        "QZZ501"
+      ],
+      "legs": [
+        {
+          "flight_number": "QZZ507",
+          "departure": {
+            "time": "17:30",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "20:10",
+            "airport": "巴厘岛伍拉·赖"
+          }
+        },
+        {
+          "flight_number": "QZZ501",
+          "departure": {
+            "time": "16:10",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "18:55",
+            "airport": "巴厘岛伍拉·赖"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "05-02 @ 印尼亚航 QZz507\n2025\n当地   ° 17:30 新加坡樟宜 T4\n。20:10 ”巴厘岛努拉莱伊|\n@ 印尼亚航 QZz501\n?16:10 ”新加坡樟宜 T4\n。 18:55 巴厘岛努拉莱伊|"
+    },
+    {
+      "id": "flight-041",
+      "date": "2025-04-24",
+      "month_day": "04-24",
+      "airline": "新加坡航空",
+      "flight_numbers": [
+        "SQ811"
+      ],
+      "legs": [
+        {
+          "flight_number": "SQ811",
+          "departure": {
+            "time": "09:25",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "15:50",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "04-24 §, 新加坡航空 SQ811\n2025\n当地    ° 09:25 北京大兴\n。 15:50 新加坡樟宜T1"
+    },
+    {
+      "id": "flight-042",
+      "date": "2025-04-16",
+      "month_day": "04-16",
+      "airline": "上海航空",
+      "flight_numbers": [
+        "FM9101",
+        "FM9264"
+      ],
+      "legs": [
+        {
+          "flight_number": "FM9101",
+          "departure": {
+            "time": "12:50",
+            "airport": "上海虹桥"
+          },
+          "arrival": {
+            "time": "15:10",
+            "airport": "北京大兴"
+          }
+        },
+        {
+          "flight_number": "FM9264",
+          "departure": {
+            "time": "09:40",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "11:40",
+            "airport": "上海虹桥"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "04-16 4 上海航空 FM9101\n2025\n5 12:50 ”上海虹桥T2\n。 15:10 ”北京大兴\n.0I 上海航空 FM9264\n° 09:40 厦门高崎T4\n。 11:40 “上海虹桥T2"
+    },
+    {
+      "id": "flight-043",
+      "date": "2025-04-11",
+      "month_day": "04-11",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MFOPEN"
+      ],
+      "legs": [],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "low",
+      "raw_text": "04-11 ~ 厦门航空 MFOPEN\n2025\nOPEN票 9 --   厦门高崎\n已作废，"
+    },
+    {
+      "id": "flight-044",
+      "date": "2025-04-11",
+      "month_day": "04-11",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF886"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF886",
+          "departure": {
+            "time": "08:55",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "13:20",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "04-11 ~« 厦门航空 MF886\n2025\n当地    ? 08:55 新加坡樟宜T1\n。 13:20 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-045",
+      "date": "2025-03-24",
+      "month_day": "03-24",
+      "airline": "深圳航空",
+      "flight_numbers": [
+        "ZH239"
+      ],
+      "legs": [
+        {
+          "flight_number": "ZH239",
+          "departure": {
+            "time": "07:35",
+            "airport": "深圳宝安"
+          },
+          "arrival": {
+            "time": "11:40",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "03-24 f 深圳航空 ZH239\n2025\n当地   ° 07:35 深圳宝安T3\n。11:40 ”新加坡樟宜T1"
+    },
+    {
+      "id": "flight-046",
+      "date": "2025-03-23",
+      "month_day": "03-23",
+      "airline": "深圳航空",
+      "flight_numbers": [
+        "ZH4419"
+      ],
+      "legs": [
+        {
+          "flight_number": "ZH4419",
+          "departure": {
+            "time": "16:30",
+            "airport": "成都双流"
+          },
+          "arrival": {
+            "time": "19:05",
+            "airport": "深圳宝安"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "03-23 f 深圳航空 ZH4419           ‘\n2025          ;\n当地   ? 16:30 ”成都双流T2\n© 19:05 深圳宝安T3"
+    },
+    {
+      "id": "flight-047",
+      "date": "2025-03-22",
+      "month_day": "03-22",
+      "airline": "深圳航空",
+      "flight_numbers": [
+        "ZH9403"
+      ],
+      "legs": [
+        {
+          "flight_number": "ZH9403",
+          "departure": {
+            "time": "08:00",
+            "airport": "深圳宝安"
+          },
+          "arrival": {
+            "time": "10:25",
+            "airport": "成都双流"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 3,
+      "confidence": "medium",
+      "raw_text": "03-22 Ff 深圳航空 ZH9403\n2025\n当地    ° 08:00 深圳宝安T3\n。10:25 ”成都双流T2"
+    },
+    {
+      "id": "flight-048",
+      "date": "2025-03-21",
+      "month_day": "03-21",
+      "airline": "深圳航空",
+      "flight_numbers": [
+        "ZH230"
+      ],
+      "legs": [
+        {
+          "flight_number": "ZH230",
+          "departure": {
+            "time": "18:30",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "22:50",
+            "airport": "深圳宝安"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "03-21 f 深圳航空 ZH230\n2025\n当地   ° 18:30 新加坡樟宜T1\n© 22:50 ”深圳宝安T3"
+    },
+    {
+      "id": "flight-049",
+      "date": "2025-01-30",
+      "month_day": "01-30",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF885"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF885",
+          "departure": {
+            "time": "17:50",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "22:15",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-30 ~~ 厦门航空 MF885\n2025            _\n当地   ° 17:50 ”厦门高崎T3\n。 22:15 ”新加坡樟宜T1"
+    },
+    {
+      "id": "flight-050",
+      "date": "2025-01-25",
+      "month_day": "01-25",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8718"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8718",
+          "departure": {
+            "time": "03:05",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "07:20",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-25 ~ 厦门航空 MF8718\n2025\n当地    ? 03:05 新加坡樟宜T1\n。 07:20 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-051",
+      "date": "2025-01-19",
+      "month_day": "01-19",
+      "airline": "酷航",
+      "flight_numbers": [
+        "TR279"
+      ],
+      "legs": [
+        {
+          "flight_number": "TR279",
+          "departure": {
+            "time": "20:15",
+            "airport": "雅加达苏加诺哈达"
+          },
+          "arrival": {
+            "time": "23:00",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-19 ”人 酷航 TR279\n2025\n当地   9? 20:15 “苏加诺哈达T2\n。 23:00 新加坡樟宜T1"
+    },
+    {
+      "id": "flight-052",
+      "date": "2025-01-18",
+      "month_day": "01-18",
+      "airline": "印尼连城航空",
+      "flight_numbers": [
+        "QG523"
+      ],
+      "legs": [
+        {
+          "flight_number": "QG523",
+          "departure": {
+            "time": "10:15",
+            "airport": "新加坡樟宜"
+          },
+          "arrival": {
+            "time": "11:05",
+            "airport": "雅加达苏加诺哈达"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-18 cm 印尼连城航空 QG523\n2025\n当地   ° 10:15 MINE TS\n© 11:05 ”苏加诺哈达T2"
+    },
+    {
+      "id": "flight-053",
+      "date": "2024-12-15",
+      "month_day": "12-15",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA975"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA975",
+          "departure": {
+            "time": "00:25",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "06:50",
+            "airport": "新加坡樟宜"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "12-15 中国国航 CA975\n2024\n当地    ° 00:25 北京首都T3\n。 06:50 新加坡樟宜T1"
+    },
+    {
+      "id": "flight-054",
+      "date": "2024-12-14",
+      "month_day": "12-14",
+      "airline": "山东航空",
+      "flight_numbers": [
+        "SC2123"
+      ],
+      "legs": [
+        {
+          "flight_number": "SC2123",
+          "departure": {
+            "time": "08:30",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "11:25",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "12-14 ”条 山东航空 SC2123                   |\n2024            oe\n当地    ? 08:30 厦门高崎T4\n。11:25 “北京首都T3"
+    },
+    {
+      "id": "flight-055",
+      "date": "2024-12-09",
+      "month_day": "12-09",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8106"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8106",
+          "departure": {
+            "time": "19:15",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "22:10",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "12-09 ~ 厦门航空 MF8106\n2024\n° 19:15 ”北京大兴\n。 22:10 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-056",
+      "date": "2024-10-05",
+      "month_day": "10-05",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1812"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1812",
+          "departure": {
+            "time": "21:30",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "00:55",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "10-05 gf 中国国航 CAI812        ‘\n2024            oe\n° 21:30 ”厦门高崎T4\n© 00:55,1北京首都T3"
+    },
+    {
+      "id": "flight-057",
+      "date": "2024-09-30",
+      "month_day": "09-30",
+      "airline": null,
+      "flight_numbers": [
+        "CZ9776"
+      ],
+      "legs": [
+        {
+          "flight_number": "CZ9776",
+          "departure": {
+            "time": "08:15",
+            "airport": "石家庄正定"
+          },
+          "arrival": {
+            "time": "11:00",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "09-30 4 MANZE CZ9776         ‘\n2024\n° 08:15 “石家庄正定T2\n。11:00 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-058",
+      "date": "2024-08-02",
+      "month_day": "08-02",
+      "airline": null,
+      "flight_numbers": [
+        "CZ3735"
+      ],
+      "legs": [
+        {
+          "flight_number": "CZ3735",
+          "departure": {
+            "time": "16:00",
+            "airport": "珠海金湾"
+          },
+          "arrival": {
+            "time": "19:20",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "08-02 4 MARZ CZ3735         ‘\n2024\n2° 16:00 珠海金湾\n。 19:20 ”北京大兴"
+    },
+    {
+      "id": "flight-059",
+      "date": "2024-07-31",
+      "month_day": "07-31",
+      "airline": "南方航空",
+      "flight_numbers": [
+        "CZ3732"
+      ],
+      "legs": [
+        {
+          "flight_number": "CZ3732",
+          "departure": {
+            "time": "13:05",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "16:40",
+            "airport": "珠海金湾"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "07-31 4 南方航空 CZ3732\n2024\n° 13:05 ”北京大兴\n。 16:40 HBSS"
+    },
+    {
+      "id": "flight-060",
+      "date": "2024-07-21",
+      "month_day": "07-21",
+      "airline": "山东航空",
+      "flight_numbers": [
+        "SC2129"
+      ],
+      "legs": [
+        {
+          "flight_number": "SC2129",
+          "departure": {
+            "time": "19:30",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "22:50",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "07-21  @ 山东航空 SC2129\n2024            国\n° 19:30 ”厦门高崎T4\n。22:50 北京首都T3"
+    },
+    {
+      "id": "flight-061",
+      "date": "2024-07-10",
+      "month_day": "07-10",
+      "airline": "河北航空",
+      "flight_numbers": [
+        "NS3290"
+      ],
+      "legs": [
+        {
+          "flight_number": "NS3290",
+          "departure": {
+            "time": "21:10",
+            "airport": "石家庄正定"
+          },
+          "arrival": {
+            "time": "23:55",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "07-10 ”人@@ 河北航空 NS3290\n2024\n”21:10 ”石家庄正定T2\n。 23:55 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-062",
+      "date": "2024-02-17",
+      "month_day": "02-17",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU5099"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU5099",
+          "departure": {
+            "time": "07:00",
+            "airport": "上海虹桥"
+          },
+          "arrival": {
+            "time": "09:20",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "02-17 € 东方航空 MU5099\n2024\n° 07:00 ”上海虹桥T2\n。 09:20 北京首都T2"
+    },
+    {
+      "id": "flight-063",
+      "date": "2024-02-09",
+      "month_day": "02-09",
+      "airline": "奥凯航空",
+      "flight_numbers": [
+        "BK2765"
+      ],
+      "legs": [
+        {
+          "flight_number": "BK2765",
+          "departure": {
+            "time": "06:55",
+            "airport": "长沙黄花"
+          },
+          "arrival": {
+            "time": "08:25",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "02-09 @ 奥凯航空 BK2765\n2024\n?9 06:55 长沙黄花T1\n。 08:25 厦门高崎T4"
+    },
+    {
+      "id": "flight-064",
+      "date": "2024-02-08",
+      "month_day": "02-08",
+      "airline": "湖南航空",
+      "flight_numbers": [],
+      "legs": [
+        {
+          "flight_number": null,
+          "departure": {
+            "time": "21:30",
+            "airport": "天津滨海"
+          },
+          "arrival": {
+            "time": "00:05",
+            "airport": "长沙黄花"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "02-08 > 湖南航空 A67372\n2024\n° 21:30 ”天津滨海T2\n© 00:05,1长沙黄花T2"
+    },
+    {
+      "id": "flight-065",
+      "date": "2024-01-26",
+      "month_day": "01-26",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1888",
+        "CA4657"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1888",
+          "departure": {
+            "time": "20:55",
+            "airport": "景德镇罗家"
+          },
+          "arrival": {
+            "time": "23:00",
+            "airport": "北京首都"
+          }
+        },
+        {
+          "flight_number": "CA4657",
+          "departure": {
+            "time": "14:00",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "15:25",
+            "airport": "景德镇罗家"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-26 gf 中国国航 CA1888\n2024\n”20:55，景德镇罗家\n。 23:00 北京首都T2\nG 中国国航 CA4657\n° 14:00 厦门高崎T4\n。 15:25 景德镇罗家"
+    },
+    {
+      "id": "flight-066",
+      "date": "2024-01-23",
+      "month_day": "01-23",
+      "airline": "山东航空",
+      "flight_numbers": [
+        "SC4781"
+      ],
+      "legs": [
+        {
+          "flight_number": "SC4781",
+          "departure": {
+            "time": "06:55",
+            "airport": "青岛胶东"
+          },
+          "arrival": {
+            "time": "09:40",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-23 Gy 山东航空 SC4781\n2024            .\n0 06:55 青岛胶东\n。 09:40 厦门高崎T4"
+    },
+    {
+      "id": "flight-067",
+      "date": "2024-01-22",
+      "month_day": "01-22",
+      "airline": "山东航空",
+      "flight_numbers": [
+        "SC4656"
+      ],
+      "legs": [
+        {
+          "flight_number": "SC4656",
+          "departure": {
+            "time": "21:25",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "23:05",
+            "airport": "青岛胶东"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-22 Gy 山东航空 SC4656\n2024\n° 21:25 “北京首都T3\n。235:05 青岛胶东"
+    },
+    {
+      "id": "flight-068",
+      "date": "2024-01-19",
+      "month_day": "01-19",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN2268"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN2268",
+          "departure": {
+            "time": "13:00",
+            "airport": "齐齐哈尔三家子"
+          },
+          "arrival": {
+            "time": "15:30",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-19 G 中国联合航空 KN2268\n2024\n° 13:00 ”齐齐哈尔三家子\n。15:30 ”北京大兴"
+    },
+    {
+      "id": "flight-069",
+      "date": "2024-01-16",
+      "month_day": "01-16",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN2267"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN2267",
+          "departure": {
+            "time": "09:15",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "11:30",
+            "airport": "齐齐哈尔三家子"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-16 © 中国联合航空 KN2267\n2024           7\n° 09:15 ”北京大兴\n。11:30 ”齐齐哈尔三家子"
+    },
+    {
+      "id": "flight-070",
+      "date": "2024-01-03",
+      "month_day": "01-03",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN5918"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN5918",
+          "departure": {
+            "time": "11:50",
+            "airport": "连城冠豸山"
+          },
+          "arrival": {
+            "time": "14:25",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-03 © 中国联合航空 KN5918\n2024\n° 11:50 bbws\n© 14:25 “北京大兴"
+    },
+    {
+      "id": "flight-071",
+      "date": "2023-12-31",
+      "month_day": "12-31",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN5917"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN5917",
+          "departure": {
+            "time": "08:15",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "11:05",
+            "airport": "连城冠豸山"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "12-31 © 中国联合航空 KN5917\n2023           7\n° 08:15 “北京大兴\n。11:05 tes"
+    },
+    {
+      "id": "flight-072",
+      "date": "2023-12-29",
+      "month_day": "12-29",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU5099"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU5099",
+          "departure": {
+            "time": "07:00",
+            "airport": "上海虹桥"
+          },
+          "arrival": {
+            "time": "09:20",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "12-29 € 东方航空 MU5099\n2023\n° 07:00 ”上海虹桥T2\n。 09:20 北京首都T2"
+    },
+    {
+      "id": "flight-073",
+      "date": "2023-12-26",
+      "month_day": "12-26",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU2812"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU2812",
+          "departure": {
+            "time": "11:30",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "13:30",
+            "airport": "南京禄口"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "12-26 € 东方航空 MU2812\n2023           7\n° 11:30 北京大兴\n。 13:30 MRROT2"
+    },
+    {
+      "id": "flight-074",
+      "date": "2023-12-25",
+      "month_day": "12-25",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU6281"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU6281",
+          "departure": {
+            "time": "08:00",
+            "airport": "成都天府"
+          },
+          "arrival": {
+            "time": "10:55",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "12-25 € 东方航空 MU6281\n2023          ;\n° 08:00 成都天府T2\n。10:55 ”北京大兴"
+    },
+    {
+      "id": "flight-075",
+      "date": "2023-12-20",
+      "month_day": "12-20",
+      "airline": "成都航空",
+      "flight_numbers": [
+        "EU6666"
+      ],
+      "legs": [
+        {
+          "flight_number": "EU6666",
+          "departure": {
+            "time": "16:20",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "19:45",
+            "airport": "成都双流"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "12-20 © 成都航空 EU6666\n2023           7\n° 16:20 ”北京大兴\n。19:45 ”成都双流T2"
+    },
+    {
+      "id": "flight-076",
+      "date": "2023-12-14",
+      "month_day": "12-14",
+      "airline": "海南航空",
+      "flight_numbers": [
+        "HU7188"
+      ],
+      "legs": [
+        {
+          "flight_number": "HU7188",
+          "departure": {
+            "time": "20:55",
+            "airport": "武汉天河"
+          },
+          "arrival": {
+            "time": "22:55",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "12-14 & 海南航空 HU7188\n2023\n° 20:55 武汉天河T3\n。22:55 北京首都T2"
+    },
+    {
+      "id": "flight-077",
+      "date": "2023-11-17",
+      "month_day": "11-17",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU2455"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU2455",
+          "departure": {
+            "time": "17:50",
+            "airport": "武汉天河"
+          },
+          "arrival": {
+            "time": "20:00",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "11-17 € 东方航空 MU2455\n2023\n° 17:50 武汉天河T3\n。20:00 北京大兴"
+    },
+    {
+      "id": "flight-078",
+      "date": "2023-11-12",
+      "month_day": "11-12",
+      "airline": "南方航空",
+      "flight_numbers": [
+        "CZ6606"
+      ],
+      "legs": [
+        {
+          "flight_number": "CZ6606",
+          "departure": {
+            "time": "08:55",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "11:10",
+            "airport": "武汉天河"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "11-12 4 南方航空 CZ6606\n2023           7\n° 08:55 北京大兴\n。11:10 ”武汉天河T3"
+    },
+    {
+      "id": "flight-079",
+      "date": "2023-11-01",
+      "month_day": "11-01",
+      "airline": "南方航空",
+      "flight_numbers": [
+        "CZ8705"
+      ],
+      "legs": [
+        {
+          "flight_number": "CZ8705",
+          "departure": {
+            "time": "18:00",
+            "airport": "武汉天河"
+          },
+          "arrival": {
+            "time": "20:15",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "11-01 4 南方航空 CZ8705\n2023\n° 18:00 武汉天河T3\n。20:15 “北京大兴"
+    },
+    {
+      "id": "flight-080",
+      "date": "2023-08-28",
+      "month_day": "08-28",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN6817"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN6817",
+          "departure": {
+            "time": "21:15",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "23:30",
+            "airport": "武汉天河"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "08-28 © 中国联合航空 KN6817\n2023           7\n9 21:15 ”北京大兴\n。 23:30 武汉天河T3"
+    },
+    {
+      "id": "flight-081",
+      "date": "2023-06-28",
+      "month_day": "06-28",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU6720"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU6720",
+          "departure": {
+            "time": "23:00",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "01:45",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "06-28 € 东方航空 MU6720\n2023            —\n° 23:00 厦门高崎T4\n© 01:45 北京大兴"
+    },
+    {
+      "id": "flight-082",
+      "date": "2023-06-20",
+      "month_day": "06-20",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1833"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1833",
+          "departure": {
+            "time": "11:25",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "14:20",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "06-20 & 中国国航 CA1833\n2023           7\n° 11:25 北京首都T3\n。14:20 ”厦门高崎T4"
+    },
+    {
+      "id": "flight-083",
+      "date": "2023-01-14",
+      "month_day": "01-14",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8276"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8276",
+          "departure": {
+            "time": "21:20",
+            "airport": "天津滨海"
+          },
+          "arrival": {
+            "time": "23:55",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-14 ~ 厦门航空 MF8276\n2023\n° 21:20 ”天津滨海T2\n。 23:55 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-084",
+      "date": "2022-07-27",
+      "month_day": "07-27",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU2443"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU2443",
+          "departure": {
+            "time": "15:50",
+            "airport": "西宁曹家堡"
+          },
+          "arrival": {
+            "time": "17:55",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "07-27 € 东方航空 MU2443\n2022\n”15:50 ”西宁曹家堡T2\n。17:55 “北京大兴"
+    },
+    {
+      "id": "flight-085",
+      "date": "2022-07-21",
+      "month_day": "07-21",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU2428"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU2428",
+          "departure": {
+            "time": "12:20",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "14:55",
+            "airport": "西宁曹家堡"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "07-21 € 东方航空 MU2428\n2022           7\n° 12:20 ”北京大兴\n© 14:55 ”西宁曹家堡T2"
+    },
+    {
+      "id": "flight-086",
+      "date": "2022-06-29",
+      "month_day": "06-29",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1810"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1810",
+          "departure": {
+            "time": "13:40",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "16:35",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "06-29 gf 中国国航 CAI810        ‘\n2022            oe\n? 13:40 ”厦门高崎T4\n。16:35 “北京首都T3"
+    },
+    {
+      "id": "flight-087",
+      "date": "2022-06-23",
+      "month_day": "06-23",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1871"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1871",
+          "departure": {
+            "time": "14:00",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "16:55",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "06-23 gf 中国国航 CAI871\n2022           7\n° 14:00 北京首都T3\n。 16:55 ”厦门高崎T4"
+    },
+    {
+      "id": "flight-088",
+      "date": "2022-04-06",
+      "month_day": "04-06",
+      "airline": "首都航空",
+      "flight_numbers": [
+        "JDOPEN",
+        "MU2106"
+      ],
+      "legs": [],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "low",
+      "raw_text": "04-06 2 首都航空 JDOPEN\n2022\nOPEN  9? 一   厦门高崎\n.                       已退票，\n无效 € 东方航空 MU2106         “\nir]\n首页           行程           经验           动态            我"
+    },
+    {
+      "id": "flight-089",
+      "date": "2022-01-24",
+      "month_day": "01-24",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN5917"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN5917",
+          "departure": {
+            "time": "10:30",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "13:50",
+            "airport": "连城冠豸山"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-24 © 中国联合航空 KN5917\n2022           7\n° 10:30 北京大兴\n。 13:50 aes"
+    },
+    {
+      "id": "flight-090",
+      "date": "2021-10-18",
+      "month_day": "10-18",
+      "airline": "海南航空",
+      "flight_numbers": [
+        "HU7170"
+      ],
+      "legs": [
+        {
+          "flight_number": "HU7170",
+          "departure": {
+            "time": "22:40",
+            "airport": "兰州中川"
+          },
+          "arrival": {
+            "time": "01:04",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "10-18 © 海南航空 HU7170\n2021\n5 22:40 兰州中川T1\n© 01:004 北京首都T2"
+    },
+    {
+      "id": "flight-091",
+      "date": "2021-10-17",
+      "month_day": "10-17",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1207"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1207",
+          "departure": {
+            "time": "09:40",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "12:15",
+            "airport": "兰州中川"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "10-17 。吸 中国国航 CAI207        ‘\n2021\n° 09:40 北京首都T3\n。12:15 “兰州中川T2"
+    },
+    {
+      "id": "flight-092",
+      "date": "2021-06-27",
+      "month_day": "06-27",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN5918"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN5918",
+          "departure": {
+            "time": "12:45",
+            "airport": "连城冠豸山"
+          },
+          "arrival": {
+            "time": "15:20",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "06-27 © 中国联合航空 KN5918\n2021\n° 12:45 bias W\n© 15:20 ”北京大兴"
+    },
+    {
+      "id": "flight-093",
+      "date": "2021-06-24",
+      "month_day": "06-24",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN5917"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN5917",
+          "departure": {
+            "time": "08:50",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "11:45",
+            "airport": "连城冠豸山"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "06-24 © 中国联合航空 KN5917\n2021           7\n° 08:50 北京大兴\n。11:45 SW"
+    },
+    {
+      "id": "flight-094",
+      "date": "2021-04-12",
+      "month_day": "04-12",
+      "airline": null,
+      "flight_numbers": [
+        "CZ3123"
+      ],
+      "legs": [
+        {
+          "flight_number": "CZ3123",
+          "departure": {
+            "time": "08:10",
+            "airport": "长沙黄花"
+          },
+          "arrival": {
+            "time": "10:45",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "04-12 HANA CZ3123         ‘\n2021\n。 08:10 “长沙黄花T2\n。10:45 “北京大兴"
+    },
+    {
+      "id": "flight-095",
+      "date": "2021-04-10",
+      "month_day": "04-10",
+      "airline": "首都航空",
+      "flight_numbers": [
+        "JD5252"
+      ],
+      "legs": [
+        {
+          "flight_number": "JD5252",
+          "departure": {
+            "time": "22:45",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "01:54",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "04-10 2 首都航空 JD5252\n2021\n”22:45 ”厦门高崎T4\n© 01:4541 北京大兴"
+    },
+    {
+      "id": "flight-096",
+      "date": "2021-04-08",
+      "month_day": "04-08",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8504"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8504",
+          "departure": {
+            "time": "21:20",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "23:05",
+            "airport": "长沙黄花"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "04-08 ~ 厦门航空 MF8504\n2021\n° 21:20 ”厦门高崎T3\n© 23:05 长沙黄花T2"
+    },
+    {
+      "id": "flight-097",
+      "date": "2021-04-03",
+      "month_day": "04-03",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN5917"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN5917",
+          "departure": {
+            "time": "09:15",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "12:00",
+            "airport": "连城冠豸山"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "04-03 © 中国联合航空 KN5917\n2021           7\n° 09:15 “北京大兴\n。 12:00 thes"
+    },
+    {
+      "id": "flight-098",
+      "date": "2020-11-03",
+      "month_day": "11-03",
+      "airline": "东方航空",
+      "flight_numbers": [
+        "MU2115"
+      ],
+      "legs": [
+        {
+          "flight_number": "MU2115",
+          "departure": {
+            "time": "18:00",
+            "airport": "西安咸阳"
+          },
+          "arrival": {
+            "time": "20:25",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "11-03 € 东方航空 MU2115\n2020\n° 18:00 西安咸阳T3\n。20:25 北京首都T2"
+    },
+    {
+      "id": "flight-099",
+      "date": "2020-10-31",
+      "month_day": "10-31",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1209"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1209",
+          "departure": {
+            "time": "09:55",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "12:30",
+            "airport": "西安咸阳"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "10-31 。吸 中国国航 CA1209\n2020           7\n° 09:55 北京首都T3\n。 12:30 ”西安咸阳T2"
+    },
+    {
+      "id": "flight-100",
+      "date": "2020-08-08",
+      "month_day": "08-08",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN5918"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN5918",
+          "departure": {
+            "time": "15:00",
+            "airport": "连城冠豸山"
+          },
+          "arrival": {
+            "time": "18:00",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "08-08 © 中国联合航空 KN5918\n2020\n”15:00 ”连城冠委山\n。18:00 ”北京大兴"
+    },
+    {
+      "id": "flight-101",
+      "date": "2020-08-05",
+      "month_day": "08-05",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8342"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8342",
+          "departure": {
+            "time": "15:55",
+            "airport": "海口美兰"
+          },
+          "arrival": {
+            "time": "17:45",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "08-05 ~ 厦门航空 MF8342\n2020\n?15:55 海口美兰T1\n。17:45 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-102",
+      "date": "2020-07-31",
+      "month_day": "07-31",
+      "airline": "海南航空",
+      "flight_numbers": [
+        "HU7048"
+      ],
+      "legs": [
+        {
+          "flight_number": "HU7048",
+          "departure": {
+            "time": "18:35",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "20:55",
+            "airport": "海口美兰"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "07-31 © 海南航空 HU7048\n2020            oe\n° 18:35 ”厦门高崎T4\n。20:355 海口美兰T1"
+    },
+    {
+      "id": "flight-103",
+      "date": "2020-01-20",
+      "month_day": "01-20",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN5917"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN5917",
+          "departure": {
+            "time": "09:10",
+            "airport": "北京大兴"
+          },
+          "arrival": {
+            "time": "12:05",
+            "airport": "连城冠豸山"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "01-20 © 中国联合航空 KN5917\n2020           7\n° 09:10 ”北京大兴\n。12:05 wes WW"
+    },
+    {
+      "id": "flight-104",
+      "date": "2019-12-17",
+      "month_day": "12-17",
+      "airline": "首都航空",
+      "flight_numbers": [
+        "JD5596"
+      ],
+      "legs": [
+        {
+          "flight_number": "JD5596",
+          "departure": {
+            "time": "18:40",
+            "airport": "梅州梅县"
+          },
+          "arrival": {
+            "time": "21:50",
+            "airport": "北京大兴"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "12-17 & 首都航空 JD5596\n2019\n? 18:40 ”梅州梅县\n。21:50 北京大兴"
+    },
+    {
+      "id": "flight-105",
+      "date": "2019-12-15",
+      "month_day": "12-15",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1815"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1815",
+          "departure": {
+            "time": "16:20",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "19:25",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 1,
+      "confidence": "medium",
+      "raw_text": "12-15 。吸 中国国航 CA1815\n2019           7\n° 16:20 ”北京首都T5\n。19:25 ”厦门高崎T4"
+    },
+    {
+      "id": "flight-106",
+      "date": "2019-10-27",
+      "month_day": "10-27",
+      "airline": "港龙航空",
+      "flight_numbers": [
+        "KA900"
+      ],
+      "legs": [
+        {
+          "flight_number": "KA900",
+          "departure": {
+            "time": "07:30",
+            "airport": "香港国际"
+          },
+          "arrival": {
+            "time": "10:45",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "10-27 \\ 港龙航空 KA900\n2019\n° 07:30 香港国际T1\n。10:45 “北京首都T3\nAly"
+    },
+    {
+      "id": "flight-107",
+      "date": "2019-10-25",
+      "month_day": "10-25",
+      "airline": "国泰航空",
+      "flight_numbers": [
+        "CX819"
+      ],
+      "legs": [
+        {
+          "flight_number": "CX819",
+          "departure": {
+            "time": "14:30",
+            "airport": "温哥华国际"
+          },
+          "arrival": {
+            "time": "19:15",
+            "airport": "香港国际"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "10-25 \\ 国泰航空 CX819\n2019\n当地   ? 14:30 温哥华国际 M\n。 19:15,，香港国际T1\nAly"
+    },
+    {
+      "id": "flight-108",
+      "date": "2019-10-20",
+      "month_day": "10-20",
+      "airline": "国泰航空",
+      "flight_numbers": [
+        "CX888"
+      ],
+      "legs": [
+        {
+          "flight_number": "CX888",
+          "departure": {
+            "time": "00:30",
+            "airport": "香港国际"
+          },
+          "arrival": {
+            "time": "21:25",
+            "airport": "温哥华国际"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "10-20 \\ 国泰航空 CX888             maid\n2019\n当地    ? 00:30 香港国际T1\n。21:25 “温哥华国际M"
+    },
+    {
+      "id": "flight-109",
+      "date": "2019-10-19",
+      "month_day": "10-19",
+      "airline": "港龙航空",
+      "flight_numbers": [
+        "KA903"
+      ],
+      "legs": [
+        {
+          "flight_number": "KA903",
+          "departure": {
+            "time": "19:45",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "23:20",
+            "airport": "香港国际"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "10-19 \\ 港龙航空 KA903\n2019           7\n当地   ° 19:45 ”北京首都T3\n。 235:20 ”香港国际T1"
+    },
+    {
+      "id": "flight-110",
+      "date": "2019-06-24",
+      "month_day": "06-24",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8103"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8103",
+          "departure": {
+            "time": "21:30",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "00:20",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "06-24 ~< 厦门航空 MF8103\n2019\n° 21:30 厦门高崎T3\n© 00:20 北京首都T2"
+    },
+    {
+      "id": "flight-111",
+      "date": "2019-06-21",
+      "month_day": "06-21",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8172"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8172",
+          "departure": {
+            "time": "18:55",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "21:45",
+            "airport": "福州长乐"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "06-21 ~ 厦门航空 MF8172\n2019           7\n° 18:55 北京首都T2\n。 21:45 ”福州长乐\nAly"
+    },
+    {
+      "id": "flight-112",
+      "date": "2019-04-26",
+      "month_day": "04-26",
+      "airline": "泰国航空",
+      "flight_numbers": [
+        "TG674"
+      ],
+      "legs": [
+        {
+          "flight_number": "TG674",
+          "departure": {
+            "time": "23:50",
+            "airport": "曼谷素万那普"
+          },
+          "arrival": {
+            "time": "05:50",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "04-26 & 泰国航空 TG674        二\n2019\n当地    ”23:50 曼谷素万那普国际\n© 05:350,1北京首都T3\nAly"
+    },
+    {
+      "id": "flight-113",
+      "date": "2019-04-21",
+      "month_day": "04-21",
+      "airline": "泰国航空",
+      "flight_numbers": [
+        "TG675"
+      ],
+      "legs": [
+        {
+          "flight_number": "TG675",
+          "departure": {
+            "time": "06:45",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "10:55",
+            "airport": "曼谷素万那普"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "04-21 & 泰国航空 TG675       an\n2019           7\n当地    ° 06:45 北京首都T3\n。 10:55 “曼谷素万那普国际--"
+    },
+    {
+      "id": "flight-114",
+      "date": "2019-04-05",
+      "month_day": "04-05",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8105"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8105",
+          "departure": {
+            "time": "15:00",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "17:50",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "04-05 ~ 厦门航空 MF8105\n2019            oe\n° 15:00 ”厦门高崎T3\n。17:50 北京首都T2"
+    },
+    {
+      "id": "flight-115",
+      "date": "2019-04-02",
+      "month_day": "04-02",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8106"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8106",
+          "departure": {
+            "time": "18:55",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "21:55",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "04-02 ~ 厦门航空 MF8106\n2019\n° 18:55 北京首都了2\n。21:55 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-116",
+      "date": "2018-12-18",
+      "month_day": "12-18",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1816"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1816",
+          "departure": {
+            "time": "20:25",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "23:20",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "12-18 。 吸 中国国航 CAI816\n2018            oe\n? 20:25 厦门高崎T4\n© 23:20 北京首都T3"
+    },
+    {
+      "id": "flight-117",
+      "date": "2018-12-15",
+      "month_day": "12-15",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1871"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1871",
+          "departure": {
+            "time": "07:15",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "10:20",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "12-15 。吸 中国国航 CA1871\n2018           7\n° 07:15 “北京首都T3\n。 10:20 ”厦门高崎T4\nAly"
+    },
+    {
+      "id": "flight-118",
+      "date": "2018-10-27",
+      "month_day": "10-27",
+      "airline": "奥地利航空",
+      "flight_numbers": [],
+      "legs": [
+        {
+          "flight_number": null,
+          "departure": {
+            "time": "17:40",
+            "airport": "维也纳国际"
+          },
+          "arrival": {
+            "time": "09:15",
+            "airport": "北京首都"
+          }
+        },
+        {
+          "flight_number": null,
+          "departure": {
+            "time": "14:40",
+            "airport": "柏林泰格尔"
+          },
+          "arrival": {
+            "time": "15:55",
+            "airport": "维也纳国际"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "10-27 + 奥地利航空 0S63\n2018\n当地   9 17:40 ”维也纳国际\n© 09:15 北京首都T3\n7 奥地利航空 0S230\n° 14:40 “柏林泰格尔\n。15:55 ”维也纳国际"
+    },
+    {
+      "id": "flight-119",
+      "date": "2018-10-20",
+      "month_day": "10-20",
+      "airline": "汉莎航空",
+      "flight_numbers": [
+        "LH2048",
+        "LH723"
+      ],
+      "legs": [
+        {
+          "flight_number": "LH2048",
+          "departure": {
+            "time": "18:00",
+            "airport": "慕尼黑"
+          },
+          "arrival": {
+            "time": "19:05",
+            "airport": "柏林泰格尔"
+          }
+        },
+        {
+          "flight_number": "LH723",
+          "departure": {
+            "time": "12:35",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "16:45",
+            "airport": "慕尼黑"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "10-20 © 汉莎航空 LH2048\n2018\n当地   ° 18:00 慕尼黑T2\n。19:05 “柏林泰格尔A\n© 汉莎航空 LH723                   ,\n? 12:35 北京首都T3\n。16:45 ”慕尼黑T2"
+    },
+    {
+      "id": "flight-120",
+      "date": "2018-06-27",
+      "month_day": "06-27",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8117"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8117",
+          "departure": {
+            "time": "07:00",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "09:45",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "06-27 ~ 厦门航空 MF8117\n2018            —\n° 07:00 厦门高崎T3\n。 09:45 北京首都T2"
+    },
+    {
+      "id": "flight-121",
+      "date": "2018-06-22",
+      "month_day": "06-22",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8170"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8170",
+          "departure": {
+            "time": "21:25",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "00:25",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "06-22 ~~ 厦门航空 MF8170\n2018           7\n0 21:25 北京首都T2\n。 00:25. 厦门高崎T3"
+    },
+    {
+      "id": "flight-122",
+      "date": "2018-04-11",
+      "month_day": "04-11",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8105"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8105",
+          "departure": {
+            "time": "15:00",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "17:50",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "04-11 ~ 厦门航空 MF8105\n2018            a\n° 15:00 ”厦门高崎T3\n。17:50 北京首都T2"
+    },
+    {
+      "id": "flight-123",
+      "date": "2018-04-08",
+      "month_day": "04-08",
+      "airline": "海南航空",
+      "flight_numbers": [
+        "HU7191"
+      ],
+      "legs": [
+        {
+          "flight_number": "HU7191",
+          "departure": {
+            "time": "09:00",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "11:45",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "04-08 © 海南航空 HU7191\n2018           7\n° 09:00 北京首都T1\n。11:45 ”厦门高崎T4"
+    },
+    {
+      "id": "flight-124",
+      "date": "2017-11-27",
+      "month_day": "11-27",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8103"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8103",
+          "departure": {
+            "time": "21:00",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "23:45",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "11-27 ~< 厦门航空 MF8103\n2017            oe\n° 21:00 厦门高崎T3\n© 23:45 北京首都T2"
+    },
+    {
+      "id": "flight-125",
+      "date": "2017-11-25",
+      "month_day": "11-25",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1815"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1815",
+          "departure": {
+            "time": "16:20",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "19:25",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "11-25 。蛛 中国国航 CA1815\n2017           7\n° 16:20 北京首都T3\n。19:25 ”厦门高崎T4"
+    },
+    {
+      "id": "flight-126",
+      "date": "2017-06-30",
+      "month_day": "06-30",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8169"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8169",
+          "departure": {
+            "time": "17:00",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "20:05",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "06-30 ~ 厦门航空 MF8169\n2017            oe\n° 17:00 ”厦门高崎T3\n。 20:05 北京首都T2"
+    },
+    {
+      "id": "flight-127",
+      "date": "2017-06-23",
+      "month_day": "06-23",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8120"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8120",
+          "departure": {
+            "time": "21:25",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "00:04",
+            "airport": "福州长乐"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "06-23 ~ 厦门航空 MF8120\n2017\n° 21:25 北京首都T2\n。 00:104 福州长乐"
+    },
+    {
+      "id": "flight-128",
+      "date": "2017-04-03",
+      "month_day": "04-03",
+      "airline": "中国联合航空",
+      "flight_numbers": [
+        "KN5926"
+      ],
+      "legs": [
+        {
+          "flight_number": "KN5926",
+          "departure": {
+            "time": "11:25",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "14:10",
+            "airport": "北京南苑"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "04-03 © 中国联合航空 KN5926\n2017\n”11:25 ”厦门高崎T4\n。 14:10 ”北京南苑"
+    },
+    {
+      "id": "flight-129",
+      "date": "2017-03-30",
+      "month_day": "03-30",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8102"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8102",
+          "departure": {
+            "time": "16:10",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "19:05",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "03-30 ~~ 厦门航空 MF8102\n2017           7\n° 16:10 北京首都T2\n。19:05 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-130",
+      "date": "2016-12-05",
+      "month_day": "12-05",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1384"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1384",
+          "departure": {
+            "time": "15:05",
+            "airport": "深圳宝安"
+          },
+          "arrival": {
+            "time": "18:15",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "12-05 § 中国国航 CA1384        ‘\n2016\n° 15:05 深圳宝安T3\n。18:15 “北京首都T3"
+    },
+    {
+      "id": "flight-131",
+      "date": "2016-11-30",
+      "month_day": "11-30",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1303"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1303",
+          "departure": {
+            "time": "13:20",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "16:40",
+            "airport": "深圳宝安"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "11-30 & 中国国航 CA1303\n2016\n? 13:20 北京首都T3\n。 16:40 IELTS"
+    },
+    {
+      "id": "flight-132",
+      "date": "2016-06-23",
+      "month_day": "06-23",
+      "airline": "中国国航",
+      "flight_numbers": [
+        "CA1809"
+      ],
+      "legs": [
+        {
+          "flight_number": "CA1809",
+          "departure": {
+            "time": "08:50",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "11:55",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "06-23 gf 中国国航 CAI809\n2016\n° 08:50 北京首都T3\n。11:55 ”厦门高崎T4"
+    },
+    {
+      "id": "flight-133",
+      "date": "2015-07-19",
+      "month_day": "07-19",
+      "airline": "西部航空",
+      "flight_numbers": [
+        "PN6323"
+      ],
+      "legs": [
+        {
+          "flight_number": "PN6323",
+          "departure": {
+            "time": "09:55",
+            "airport": "南京禄口"
+          },
+          "arrival": {
+            "time": "11:20",
+            "airport": "福州长乐"
+          }
+        }
+      ],
+      "manually_corrected": true,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "07-19 WW 西部航空 PN6323\n2015\n? 09:55 南京禄口T2\n。11:20 MINKE"
+    },
+    {
+      "id": "flight-134",
+      "date": "2014-09-06",
+      "month_day": "09-06",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8117"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8117",
+          "departure": {
+            "time": "07:00",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "09:35",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "09-06 ~< 厦门航空 MF8117\n2014            a\n° 07:00 厦门高崎T3\n。 09:35 北京首都T2"
+    },
+    {
+      "id": "flight-135",
+      "date": "2014-03-31",
+      "month_day": "03-31",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8118"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8118",
+          "departure": {
+            "time": "10:40",
+            "airport": "北京首都"
+          },
+          "arrival": {
+            "time": "13:30",
+            "airport": "厦门高崎"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "03-31 ~ 厦门航空 MF8118\n2014\n° 10:40 北京首都T2\n。13:30 ”厦门高崎T3"
+    },
+    {
+      "id": "flight-136",
+      "date": "2014-03-28",
+      "month_day": "03-28",
+      "airline": "厦门航空",
+      "flight_numbers": [
+        "MF8104"
+      ],
+      "legs": [
+        {
+          "flight_number": "MF8104",
+          "departure": {
+            "time": "20:30",
+            "airport": "厦门高崎"
+          },
+          "arrival": {
+            "time": "23:05",
+            "airport": "北京首都"
+          }
+        }
+      ],
+      "manually_corrected": false,
+      "source_image": 2,
+      "confidence": "medium",
+      "raw_text": "03-28 ~ 厦门航空 MF8104\n2014\n° 20:30 厦门高崎T3\n© 23:05 北京首都T2\n已作废，"
+    }
+  ]
+}

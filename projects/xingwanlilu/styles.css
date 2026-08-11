@@ -21,3 +21,69 @@ body,.brand span,.brand b,.hero h1,.section-heading h2,.lead,.hero-stamp b,.metr
 @media(prefers-reduced-motion:reduce){.city-marker circle:first-child{animation:none}}
 .section-heading.section-label-only{display:block;margin-bottom:32px}
 .section-heading.section-label-only>p{margin:0}
+
+/* 古地图：竖题、墨界与青黛水脉。 */
+.map-heading{grid-template-columns:1fr auto;min-height:260px;align-items:start}
+.map-heading h2{height:250px;display:flex;flex-direction:row-reverse;gap:.35em;writing-mode:horizontal-tb;line-height:1.35;letter-spacing:.12em}
+.map-heading h2 span,.map-heading h2 em{display:block;writing-mode:vertical-rl;text-orientation:upright}
+.map-panel{position:relative;border:1px solid rgba(74,57,38,.52);outline:1px solid rgba(74,57,38,.18);outline-offset:7px}
+.map-panel:before,.map-panel:after{content:"";position:absolute;width:28px;height:28px;z-index:1;pointer-events:none}
+.map-panel:before{left:10px;top:10px;border-left:2px solid var(--red);border-top:2px solid var(--red)}
+.map-panel:after{right:10px;bottom:10px;border-right:2px solid var(--red);border-bottom:2px solid var(--red)}
+.map-wrap{background-color:#eee5d2;background-image:linear-gradient(95deg,rgba(95,70,40,.035),transparent 35%,rgba(255,255,255,.22) 62%,transparent),radial-gradient(rgba(23,60,56,.11) .65px,transparent .65px);background-size:auto,9px 9px}
+.province{stroke:rgba(55,48,37,.72);stroke-width:.82}
+.province.visited{stroke:rgba(71,35,27,.78)}
+.province-label{writing-mode:vertical-rl;text-orientation:upright;letter-spacing:1px}
+.river{fill:none;stroke:#537f82;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:.88;pointer-events:none;filter:drop-shadow(0 1px 0 rgba(255,253,248,.8))}
+.river-label{font-family:"Ouyang Xun","KaiTi",serif;font-size:15px;letter-spacing:.18em;fill:#285d62;paint-order:stroke;stroke:#f4eedf;stroke-width:4px;pointer-events:none}
+@media(max-width:760px){.map-heading{min-height:0}.map-heading h2{height:auto;display:block;letter-spacing:.04em}.map-heading h2 span,.map-heading h2 em{display:inline;writing-mode:horizontal-tb}.map-heading h2 span:after{content:"\A";white-space:pre}.river{stroke-width:2}.river-label{font-size:11px}}
+
+/* 世界行旅：可转动的舆图与行迹册。 */
+.world-section{background:#eaf2f0;color:var(--ink);position:relative;overflow:hidden}
+.world-section:before{content:"四海";position:absolute;right:-.08em;top:-.18em;font:400 clamp(180px,28vw,430px)/1 "Ouyang Xun","KaiTi",serif;color:rgba(62,108,106,.045);pointer-events:none}
+.world-heading{display:grid;grid-template-columns:1.4fr .6fr;align-items:end;gap:60px;margin-bottom:54px;position:relative}
+.world-heading h2{font:600 clamp(42px,5.2vw,72px)/1.35 "Ouyang Xun","KaiTi",serif;letter-spacing:.06em;margin:12px 0 0}
+.world-heading .eyebrow,.map-heading>p,.singapore-heading>p{font:600 clamp(24px,2.8vw,38px)/1.2 "Ouyang Xun","KaiTi",serif;letter-spacing:.12em;color:var(--red);margin-bottom:20px}
+.world-heading h2 em{font-style:normal;color:var(--red)}
+.world-intro{max-width:360px;color:#506d68;font-size:15px;line-height:2;margin:0 0 8px}
+.world-window{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(260px,.8fr);height:660px;border:1px solid rgba(38,81,78,.28);background:rgba(255,253,248,.62);box-shadow:0 26px 70px rgba(23,60,56,.12);position:relative;overflow:hidden}
+.globe-pane{position:relative;min-width:0;height:100%;display:grid;place-items:center;overflow:hidden;overscroll-behavior:contain;background:radial-gradient(circle at 48% 43%,#173044 0,#0b1e30 52%,#050f1b 100%)}
+#world-map{display:block;width:100%;height:100%;cursor:grab;touch-action:none;background:transparent}
+#world-map:active{cursor:grabbing}
+.world-stars{pointer-events:none;transform-origin:center}.world-star{fill:#f5d878;filter:url(#star-glow)}
+.world-ocean{fill:url(#globe-ocean);stroke:#cfc5c6;stroke-width:.8}
+.world-graticule{fill:none;stroke:#dfe5e9;stroke-width:.4;opacity:.9}
+.ying-land{fill:#fffdfd;stroke:#e5c2c4;stroke-width:.5;vector-effect:non-scaling-stroke}
+.world-routes{pointer-events:none}.world-route{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round;opacity:.52}.world-route.flight{stroke:#3b8fbd;stroke-width:1.15}.world-route.train{stroke:#a97042;stroke-width:1.35;stroke-dasharray:4 3}.world-route.mixed{stroke:#596fa7;stroke-width:1.5}
+.ying-lines{fill:none;stroke:#d09a9e;stroke-width:.9;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.world-country{vector-effect:non-scaling-stroke;transition:fill .2s}
+.world-country.visited{fill:#9dcc9c;stroke:#63936d;stroke-width:.7}
+.china-province{fill:rgba(219,234,201,.2);stroke:#d1e1d2;stroke-width:.55;vector-effect:non-scaling-stroke}
+.world-shade{fill:url(#globe-shade);pointer-events:none}
+.world-solar-layer{pointer-events:none}.world-daylight{fill:rgba(255,247,211,.055);stroke:rgba(255,250,225,.08);stroke-width:10;vector-effect:non-scaling-stroke}.world-night{fill:rgba(7,36,72,.42);stroke:rgba(60,112,150,.2);stroke-width:10;vector-effect:non-scaling-stroke}
+.flight-city{cursor:pointer;outline:none}.flight-city circle{fill:#0f5f91;stroke:#e8f5f8;stroke-width:1.4;vector-effect:non-scaling-stroke;filter:drop-shadow(0 1px 2px rgba(7,53,80,.28));transition:r .18s,fill .18s}.flight-city:hover circle,.flight-city:focus circle,.flight-city.selected circle{fill:#53b8e8;stroke:#fff;stroke-width:2}.flight-city text{font:400 13px "Ouyang Xun","KaiTi",serif;fill:#0b4568;paint-order:stroke;stroke:#edf7f7;stroke-width:4px;stroke-linejoin:round;pointer-events:auto}
+.world-point{pointer-events:none}.world-point .point-ring{fill:rgba(232,245,248,.42);stroke:#2d6f96;stroke-width:1.5}.world-point .point-core{fill:#0f5f91}.world-point.visit .point-ring{stroke:#5a96b7}.world-point.visit .point-core{fill:#2d6f96}
+.world-point text{display:none}
+.globe-controls{position:absolute;z-index:3;left:18px;top:18px;display:flex;gap:8px;flex-wrap:wrap}
+.globe-controls button{border:1px solid rgba(23,60,56,.22);background:rgba(255,253,248,.86);color:var(--ink);min-width:36px;height:36px;padding:0 12px;font-family:inherit;cursor:pointer;box-shadow:0 4px 14px rgba(23,60,56,.07)}
+.globe-controls button:hover{border-color:var(--red);color:var(--red)}
+.map-level{display:flex;gap:4px;margin-left:4px;padding-left:9px;border-left:1px solid rgba(23,60,56,.18)}.map-level .level-button.active{background:#2d6f96;color:white;border-color:#2d6f96}
+.city-detail{position:absolute;z-index:3;left:20px;bottom:18px;min-width:190px;padding:12px 16px;background:rgba(255,253,248,.9);border-left:3px solid #2d6f96;box-shadow:0 8px 24px rgba(23,60,56,.1);display:flex;flex-direction:column;gap:3px}.city-detail span{font-size:12px;color:#607d78}.city-detail strong{font:500 20px "Ouyang Xun","KaiTi",serif;color:#0f5f91}.city-detail small{color:#78918d}
+.world-tooltip{position:absolute;z-index:8;display:flex;flex-direction:column;gap:2px;min-width:150px;padding:9px 12px;border:1px solid rgba(45,111,150,.22);background:rgba(250,253,252,.96);box-shadow:0 8px 22px rgba(18,61,76,.18);color:#385f68;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .14s,transform .14s}.world-tooltip.visible{opacity:1;transform:translateY(0)}.world-tooltip strong{font:500 17px "Ouyang Xun","KaiTi",serif;color:#0f5f91}.world-tooltip span{font-size:12px}.world-tooltip small{color:#78918d}
+.world-status{position:absolute;inset:0;display:grid;place-items:center;background:#dcebea;color:#607d78;z-index:2}.world-status.hidden{display:none}
+.journey-list{min-height:0;padding:18px;border-left:1px solid rgba(38,81,78,.22);display:flex;flex-direction:column;gap:10px;overflow:auto;background:rgba(255,253,248,.52)}
+.journey-card{width:100%;min-height:76px;border:1px solid rgba(23,60,56,.16);background:rgba(255,253,248,.76);color:var(--ink);padding:13px 13px 13px 15px;display:grid;grid-template-columns:76px 1fr auto;align-items:center;gap:12px;text-align:left;font-family:inherit;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
+.journey-card:hover,.journey-card.active{transform:translateX(-5px);border-color:var(--red);background:#fffdf8}
+.journey-card:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.journey-card.home{border-left:3px solid var(--red)}
+.journey-card.visit{border-left:3px solid #77918d}
+.journey-year{font-size:12px;letter-spacing:.04em;color:var(--red);font-variant-numeric:tabular-nums}
+.singapore-section{background:#e8efec}.singapore-heading{margin-bottom:34px}.singapore-heading h2 em{color:var(--red)}
+.singapore-panel{display:grid;grid-template-columns:minmax(0,3fr) minmax(220px,1fr);min-height:600px;border:1px solid rgba(38,81,78,.24);background:#f7f3e8;box-shadow:0 22px 60px rgba(23,60,56,.11)}
+.singapore-map-wrap{position:relative;min-width:0;overflow:hidden;background:radial-gradient(circle at 50% 45%,#edf5f0,#dce9e3)}
+#singapore-map{display:block;width:100%;height:600px}.singapore-area{fill:#d9d1bd;stroke:#f6f1e7;stroke-width:1.1;vector-effect:non-scaling-stroke;transition:fill .16s,filter .16s}.singapore-area.explored{fill:#ca8c80}.singapore-area:hover,.singapore-area:focus{fill:#a8473d;filter:drop-shadow(0 2px 4px rgba(70,34,28,.25));outline:none}.singapore-labels{pointer-events:none}.singapore-labels text{font:500 11px "Ouyang Xun","KaiTi",serif;fill:#4a332c;text-anchor:middle;paint-order:stroke;stroke:#f7f3e8;stroke-width:3px;stroke-linejoin:round}
+.singapore-note{padding:34px 28px;border-left:1px solid rgba(38,81,78,.2);display:flex;flex-direction:column;align-items:flex-start;background:rgba(255,253,248,.72)}.singapore-note>span{display:grid;place-items:center;width:74px;height:74px;border:1px solid var(--red);border-radius:50%;font:600 28px "Ouyang Xun","KaiTi",serif;color:var(--red);margin-bottom:auto}.singapore-note strong{font:600 28px "Ouyang Xun","KaiTi",serif;color:var(--ink);margin-top:28px}.singapore-note p{color:#718985;margin:8px 0 24px}.singapore-legend{display:grid;grid-template-columns:14px auto 14px auto;gap:8px;align-items:center;font-size:12px;color:#607d78}.singapore-legend i{width:12px;height:12px;background:#ca8c80}.singapore-legend i:nth-of-type(2){background:#d9d1bd}
+.singapore-tooltip{position:absolute;z-index:4;display:flex;flex-direction:column;gap:3px;min-width:145px;padding:10px 12px;background:rgba(255,253,248,.96);border-left:3px solid var(--red);box-shadow:0 8px 22px rgba(23,60,56,.16);pointer-events:none;opacity:0;transform:translateY(5px);transition:.15s}.singapore-tooltip.visible{opacity:1;transform:none}.singapore-tooltip strong{font:500 17px "Ouyang Xun","KaiTi",serif}.singapore-tooltip span{font-size:12px;color:#718985}.singapore-status{position:absolute;inset:0;display:grid;place-items:center;background:#dce9e3;color:#607d78}.singapore-status.hidden{display:none}
+.journey-place{display:flex;flex-direction:column;gap:6px}.journey-place strong{font:500 21px "Ouyang Xun","KaiTi",serif;letter-spacing:.08em}.journey-place small{color:#748b86}.journey-arrow{color:#9aaca7}
+@media(max-width:900px){.world-heading{grid-template-columns:1fr}.world-intro{max-width:560px}.world-window{height:auto;grid-template-columns:1fr;overflow:visible}.globe-pane{height:620px}.journey-list{border-left:0;border-top:1px solid rgba(38,81,78,.22);display:grid;grid-template-columns:repeat(2,1fr);max-height:none}.journey-card:hover,.journey-card.active{transform:translateY(-3px)}.singapore-panel{grid-template-columns:1fr}.singapore-note{border-left:0;border-top:1px solid rgba(38,81,78,.2);min-height:220px}.singapore-note>span{margin-bottom:0}}
+@media(max-width:760px){.world-window{min-height:0}.globe-pane{height:430px;min-height:430px}#world-map{height:100%}.globe-controls{left:10px;top:10px}.globe-controls button{height:32px;padding:0 9px}.map-level{width:100%;margin:0;padding:6px 0 0;border:0}.journey-list{grid-template-columns:1fr;padding:12px}.flight-city text{font-size:10px}.city-detail{left:10px;bottom:10px;min-width:150px}.world-heading{gap:18px;margin-bottom:34px}#singapore-map{height:430px}.singapore-note{padding:24px}.singapore-labels text{font-size:9px}}

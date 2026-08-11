@@ -6,27 +6,63 @@
   <meta name="description" content="行万里路：记录在中国走过的省份与仍待抵达的远方。">
   <meta name="theme-color" content="#173c38">
   <title>行万里路｜中国旅行足迹</title>
-  <link rel="stylesheet" href="styles.css">
+  <script>if(location.protocol==='file:')location.replace('http://localhost:1111/projects/xingwanlilu/');</script>
+  <link rel="stylesheet" href="styles.css?v=20260811-16">
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="../../projects-zh/" aria-label="返回项目页"><span>行</span><b>行万里路</b></a>
-    <nav aria-label="页面导航"><a href="#map">探索地图</a><a href="#overview">足迹概览</a></nav>
+    <nav aria-label="页面导航"><a href="#world">坤舆万国</a><a href="#map">九州万方</a><a href="#singapore">南洋图志</a><a href="#overview">足迹概览</a></nav>
     <a class="back" href="../../projects-zh/">返回项目 ↗</a>
   </header>
 
   <main>
     <section class="hero">
       <p class="eyebrow">读万卷书 · 行万里路</p>
-      <h1>山河辽阔，<br><em>一步一步去看。</em></h1>
-      <a class="scroll-link" href="#map">展开中国地图 <span>↓</span></a>
+      <h1>心有定向，<br><em>行遍九州。</em></h1>
+      <a class="scroll-link" href="#world">展开行旅地图 <span>↓</span></a>
       <div class="hero-stamp" aria-hidden="true"><b>廿七</b><span>省区<br>已行</span></div>
     </section>
 
+    <section id="world" class="world-section section-shell" aria-labelledby="world-title">
+      <div class="world-heading">
+        <div>
+          <p class="eyebrow">壹 · 坤舆万国</p>
+          <h2 id="world-title">此心光明，<br><em>亦复何言。</em></h2>
+        </div>
+        <p class="world-intro">知者行之始，行者知之成。循心而往，将所见山河一一收入坤舆。</p>
+      </div>
+      <div class="world-window">
+        <div class="globe-pane">
+          <div class="globe-controls" aria-label="世界地图控制">
+            <button type="button" id="world-zoom-in" aria-label="放大世界地图">＋</button>
+            <button type="button" id="world-zoom-out" aria-label="缩小世界地图">－</button>
+            <button type="button" id="world-spin" aria-pressed="true">自转 · 暂停</button>
+            <button type="button" id="world-home">全览</button>
+            <button type="button" id="world-routes" aria-pressed="false">显示航线</button>
+            <button type="button" id="world-rail-routes" aria-pressed="false">显示铁路</button>
+          </div>
+          <svg id="world-map" viewBox="0 0 900 620" role="img" aria-labelledby="world-title world-desc">
+            <defs>
+              <filter id="globe-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="22" flood-color="#3c505f" flood-opacity=".14"/></filter>
+              <filter id="star-glow" x="-400%" y="-400%" width="800%" height="800%"><feGaussianBlur stdDeviation="2.2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <radialGradient id="globe-ocean" cx="34%" cy="28%" r="78%"><stop offset="0%" stop-color="#dff4f8"/><stop offset="55%" stop-color="#a9d9e7"/><stop offset="100%" stop-color="#69a9c2"/></radialGradient>
+              <radialGradient id="globe-shade" cx="32%" cy="26%" r="80%"><stop offset="0%" stop-color="#fff" stop-opacity=".5"/><stop offset="45%" stop-color="#fff" stop-opacity="0"/><stop offset="100%" stop-color="#3a4e5a" stop-opacity=".22"/></radialGradient>
+            </defs>
+          </svg>
+          <p id="world-desc" class="sr-only">世界地图，点亮中国、新加坡、德国、加拿大和印度尼西亚，并标出七处生活与旅行地点。</p>
+          <div id="world-tooltip" class="world-tooltip" role="tooltip"></div>
+          <div id="city-detail" class="city-detail" aria-live="polite"><span>轻触蓝色城市</span><strong>查看到访年份</strong></div>
+          <div id="world-status" class="world-status">正在展开四海舆图……</div>
+        </div>
+        <div id="journey-list" class="journey-list" aria-label="坤舆万国行旅经历"></div>
+      </div>
+    </section>
+
     <section id="map" class="map-section section-shell" aria-labelledby="map-title">
-      <div class="section-heading">
-        <p>壹 · 中国探索地图</p>
-        <h2 id="map-title">走过的地方，<br><em>在地图上留下颜色。</em></h2>
+      <div class="section-heading map-heading">
+        <p>贰 · 九州万方</p>
+        <h2 id="map-title"><span>知行相照，</span><em>山河入怀。</em></h2>
       </div>
       <div class="map-panel">
         <div class="map-toolbar">
@@ -41,7 +77,9 @@
               <pattern id="travel-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="9" height="9" fill="#a84732"/><line x1="0" y1="0" x2="0" y2="9" stroke="#ca725d" stroke-width="2" opacity=".35"/></pattern>
               <pattern id="future-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#d9d3c4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c3b9a6" stroke-width="1" opacity=".6"/></pattern>
             </defs>
-            <g id="map-land" filter="url(#paper-shadow)"></g><g id="map-labels" aria-hidden="true"></g>
+            <g id="map-land" filter="url(#paper-shadow)"></g>
+            <g id="map-rivers" aria-hidden="true"></g>
+            <g id="map-labels" aria-hidden="true"></g>
           </svg>
           <p id="map-desc" class="sr-only">中国省级行政区地图，西藏、新疆、云南、宁夏、台湾、吉林、澳门尚未点亮。</p>
           <div id="tooltip" class="tooltip" role="status" aria-live="polite"></div>
@@ -50,9 +88,30 @@
       </div>
     </section>
 
+    <section id="singapore" class="singapore-section section-shell" aria-labelledby="singapore-title">
+      <div class="section-heading singapore-heading">
+        <p>叁 · 南洋图志</p>
+        <h2 id="singapore-title"><span>异乡见万物，</span><em>万物由心明。</em></h2>
+      </div>
+      <div class="singapore-panel">
+        <div class="singapore-map-wrap">
+          <svg id="singapore-map" viewBox="0 0 900 560" role="img" aria-labelledby="singapore-title singapore-desc"></svg>
+          <p id="singapore-desc" class="sr-only">新加坡规划区行旅地图，以淡红色标记已经到访的区域。</p>
+          <div id="singapore-tooltip" class="singapore-tooltip" role="status" aria-live="polite"></div>
+          <div id="singapore-status" class="singapore-status">正在展开南洋图志……</div>
+        </div>
+        <aside class="singapore-note">
+          <span>星洲</span>
+          <strong id="singapore-current">轻触图中区域</strong>
+          <p id="singapore-current-note">查看规划区与所属大区</p>
+          <div class="singapore-legend"><i></i>已行之地 <i></i>未至之境</div>
+        </aside>
+      </div>
+    </section>
+
     <section id="overview" class="overview section-shell" aria-label="足迹概览">
       <div class="section-heading light section-label-only">
-        <p>贰 · 足迹概览</p>
+        <p>肆 · 足迹概览</p>
       </div>
       <div class="metrics">
         <article><strong>27</strong><span>已走过省级行政区</span><small>从京津冀到大江南北</small></article>
@@ -65,6 +124,9 @@
   </main>
 
   <footer><span>行万里路</span><p>地图会继续生长，下一站尚未写下。</p><a href="#map">回到地图 ↑</a></footer>
+  <script src="d3v6.min.js"></script>
+  <script src="world-map.js?v=20260811-17"></script>
   <script src="map.js"></script>
+  <script src="singapore-map.js?v=20260811-1"></script>
 </body>
 </html>

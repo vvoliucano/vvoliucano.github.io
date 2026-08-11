@@ -1,5 +1,6 @@
 const map = document.querySelector('#china-map');
 const land = document.querySelector('#map-land');
+const rivers = document.querySelector('#map-rivers');
 const labels = document.querySelector('#map-labels');
 const tooltip = document.querySelector('#tooltip');
 const status = document.querySelector('#map-status');
@@ -15,12 +16,23 @@ function provinceName(feature) {
   return feature.properties.name || feature.properties.NAME || feature.properties.fullname || '未命名地区';
 }
 
-fetch('data/china-provinces.geojson')
-  .then(response => {
-    if (!response.ok) throw new Error('地图数据读取失败');
-    return response.json();
+function linePath(geometry, project) {
+  const lines = geometry.type === 'LineString' ? [geometry.coordinates] : geometry.coordinates;
+  return lines.map(line => line.map((point, index) => {
+    const [x, y] = project(point);
+    return `${index ? 'L' : 'M'}${x.toFixed(2)},${y.toFixed(2)}`;
+  }).join('')).join('');
+}
+
+Promise.all([
+  fetch('data/china-provinces.geojson'),
+  fetch('data/china-rivers.geojson')
+])
+  .then(async responses => {
+    if (responses.some(response => !response.ok)) throw new Error('地图数据读取失败');
+    return Promise.all(responses.map(response => response.json()));
   })
-  .then(data => {
+  .then(([data, riverData]) => {
     const points = [];
     data.features.forEach(feature => visitCoordinates(feature.geometry, point => points.push(point)));
     const xs = points.map(point => point[0]);
@@ -69,6 +81,25 @@ fetch('data/china-provinces.geojson')
         label.setAttribute('class', `province-label${isVisited ? '' : ' future-label'}`);
         label.textContent = labelNames.get(name) || name.replace(/[省市]$/, '');
         labels.appendChild(label);
+      }
+    });
+
+    const riverLabelPoints = new Map([['长江', [112.2, 29.8]], ['黄河', [110.4, 35.8]]]);
+    riverData.features.forEach(feature => {
+      const river = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      river.setAttribute('d', linePath(feature.geometry, project));
+      river.setAttribute('class', 'river');
+      rivers.appendChild(river);
+
+      const labelPoint = riverLabelPoints.get(feature.properties.name);
+      if (labelPoint) {
+        const [x, y] = project(labelPoint);
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', x);
+        label.setAttribute('y', y);
+        label.setAttribute('class', 'river-label');
+        label.textContent = feature.properties.name;
+        rivers.appendChild(label);
       }
     });
     status.classList.add('hidden');
