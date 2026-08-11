@@ -26,7 +26,7 @@ const projection = d3.geoOrthographic()
   .rotate(initialRotation);
 const worldPath = d3.geoPath(projection);
 
-worldSvg.append('image').attr('class', 'world-starfield').attr('href', 'data/starfield.svg')
+worldSvg.append('image').attr('class', 'world-starfield').attr('href', 'data/starfield.svg?v=2')
   .attr('width', worldWidth).attr('height', worldHeight).attr('preserveAspectRatio', 'none').attr('aria-hidden', 'true');
 
 const sphere = worldSvg.append('path').datum({ type: 'Sphere' }).attr('class', 'world-ocean').attr('filter', 'url(#globe-shadow)');

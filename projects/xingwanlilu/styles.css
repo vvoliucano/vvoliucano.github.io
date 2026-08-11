@@ -53,11 +53,11 @@ body,.brand span,.brand b,.hero h1,.section-heading h2,.lead,.hero-stamp b,.metr
 .world-starfield{pointer-events:none}
 .world-ocean{fill:url(#globe-ocean);stroke:#cfc5c6;stroke-width:.8}
 .world-graticule{fill:none;stroke:#dfe5e9;stroke-width:.4;opacity:.9}
-.ying-land{fill:#fffdfd;stroke:#e5c2c4;stroke-width:.5;vector-effect:non-scaling-stroke}
+.ying-land{fill:#dfeade;stroke:#c1d1c2;stroke-width:.5;vector-effect:non-scaling-stroke}
 .world-routes{pointer-events:none}.world-route{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round;opacity:.52}.world-route.flight{stroke:#3b8fbd;stroke-width:1.15}.world-route.train{stroke:#a97042;stroke-width:1.35;stroke-dasharray:4 3}.world-route.mixed{stroke:#596fa7;stroke-width:1.5}
-.ying-lines{fill:none;stroke:#d09a9e;stroke-width:.9;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.ying-lines{fill:none;stroke:#aec2b0;stroke-width:.8;stroke-linecap:round;vector-effect:non-scaling-stroke}
 .world-country{vector-effect:non-scaling-stroke;transition:fill .2s}
-.world-country.visited{fill:#9dcc9c;stroke:#63936d;stroke-width:.7}
+.world-country.visited{fill:#d77b68;stroke:#a84c3c;stroke-width:.85}
 .china-province{fill:rgba(219,234,201,.2);stroke:#d1e1d2;stroke-width:.55;vector-effect:non-scaling-stroke}
 .world-shade{fill:url(#globe-shade);pointer-events:none}
 .world-solar-layer{pointer-events:none}.world-daylight{fill:rgba(255,247,211,.055);stroke:rgba(255,250,225,.08);stroke-width:10;vector-effect:non-scaling-stroke}.world-night{fill:rgba(7,36,72,.42);stroke:rgba(60,112,150,.2);stroke-width:10;vector-effect:non-scaling-stroke}
