@@ -1,6 +1,14 @@
 /**
  * Basic styling
  */
+@font-face {
+  font-family: "OuyangxunKaishu";
+  src: url("/assets/font/%E6%AD%A3%E6%AC%A7%E9%98%B3%E8%AF%A2%E6%A5%B7%E4%B9%A6%2B%E7%AE%80%E7%B9%81.TTF") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
 html, body {
   width: 100%;
   min-height: 100vh;
@@ -40,6 +48,10 @@ body {
 
   // nicer text underlines
   text-decoration-skip: ink;
+}
+
+html[lang="zh-CN"] body.home {
+  font-family: "OuyangxunKaishu", "STKaiti", "KaiTi", "Kaiti SC", serif;
 }
 
 

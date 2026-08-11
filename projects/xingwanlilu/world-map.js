@@ -55,6 +55,7 @@ let trainRoutesVisible = false;
 let selectedCity = null;
 let allCities = [];
 let lastListSignature = '';
+let globeDragging = false;
 
 function drawWorld() {
   const center = projection.invert([worldWidth / 2, worldHeight / 2]);
@@ -133,11 +134,37 @@ function focusCity(city) {
 
 function updateCityLabels(center) {
   if (!flightCitySelection) return;
-  const fixedLabels = new Set(['北京', '厦门', '新加坡']);
+  const isRotating = spinning || globeDragging;
+  const labelLimit = isRotating
+    ? (worldScale < 700 ? 3 : 5)
+    : worldScale < 290 ? 4
+      : worldScale < 520 ? 7
+        : worldScale < 1100 ? 12
+          : worldScale < 2200 ? 18 : 28;
+  const viewportPadding = 28;
+  const visibleLabels = new Set(allCities
+    .map(city => ({ city, point: projection(city.coordinates) }))
+    .filter(({ city, point }) => point
+      && d3.geoDistance(center, city.coordinates) < Math.PI / 2
+      && point[0] >= viewportPadding && point[0] <= worldWidth - viewportPadding
+      && point[1] >= viewportPadding && point[1] <= worldHeight - viewportPadding)
+    .sort((a, b) => {
+      const distanceA = Math.hypot(a.point[0] - worldWidth / 2, a.point[1] - worldHeight / 2);
+      const distanceB = Math.hypot(b.point[0] - worldWidth / 2, b.point[1] - worldHeight / 2);
+      return distanceA - distanceB
+        || b.city.trip_count - a.city.trip_count
+        || a.city.city.localeCompare(b.city.city, 'zh-CN');
+    })
+    .slice(0, labelLimit)
+    .map(({ city }) => city));
   flightCitySelection.each(function(city) {
     const group = d3.select(this);
-    const onFront = d3.geoDistance(center, city.coordinates) < Math.PI / 2;
-    const show = onFront && (selectedCity === city || fixedLabels.has(city.city));
+    const point = projection(city.coordinates);
+    const inViewport = point
+      && d3.geoDistance(center, city.coordinates) < Math.PI / 2
+      && point[0] >= viewportPadding && point[0] <= worldWidth - viewportPadding
+      && point[1] >= viewportPadding && point[1] <= worldHeight - viewportPadding;
+    const show = inViewport && (selectedCity === city || visibleLabels.has(city));
     group.select('text').style('display', show ? null : 'none');
   });
 }
@@ -227,12 +254,18 @@ document.querySelector('#world-home').addEventListener('click', () => {
   projection.rotate(initialRotation); setWorldScale(255);
 });
 worldSvg.call(d3.drag()
-  .on('start', () => { spinning = false; updateSpinButton(); })
+  .on('start', () => { globeDragging = true; spinning = false; updateSpinButton(); })
   .on('drag', event => {
     const rotation = projection.rotate();
-    projection.rotate([rotation[0] + event.dx * .28, Math.max(-75, Math.min(75, rotation[1] - event.dy * .28)), 0]);
+    const dragSensitivity = .28 * Math.min(1.25, 255 / worldScale);
+    projection.rotate([
+      rotation[0] + event.dx * dragSensitivity,
+      Math.max(-75, Math.min(75, rotation[1] - event.dy * dragSensitivity)),
+      0
+    ]);
     drawWorld();
-  }));
+  })
+  .on('end', () => { globeDragging = false; drawWorld(); }));
 
 worldSvg.call(d3.zoom()
   .filter(event => event.type === 'wheel' || (event.touches && event.touches.length > 1))
