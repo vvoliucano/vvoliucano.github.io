@@ -25,7 +25,8 @@ function updateStatus(){
   if(cameraLive&&liveSensors&&geoLive){$('notice').textContent='FIELD LINK ACTIVE';$('retry').hidden=true;$('live-dot').classList.add('live')}
   else if(missing.length){$('notice').textContent=`${missing.join(' + ')} WAITING`;$('retry').hidden=false}
 }
-function orientation(e){let next=null;if(typeof e.webkitCompassHeading==='number')next=e.webkitCompassHeading;else if(typeof e.alpha==='number')next=norm(360-e.alpha);if(next===null||!Number.isFinite(next))return;filtered=norm(filtered+delta(next,filtered)*.16);heading=filtered;liveSensors=true;$('scan-label').textContent='LIVE ORIENTATION';$('live-dot').classList.add('live');updateStatus();render()}
+function screenAngle(){const angle=screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:0;return angle}
+function orientation(e){let next=null;if(typeof e.webkitCompassHeading==='number')next=norm(e.webkitCompassHeading-screenAngle());else if(typeof e.alpha==='number')next=norm(360-e.alpha-screenAngle());if(next===null||!Number.isFinite(next))return;filtered=norm(filtered+delta(next,filtered)*.16);heading=filtered;liveSensors=true;$('scan-label').textContent='LIVE ORIENTATION';$('live-dot').classList.add('live');updateStatus();render()}
 function requestSensorAccess(){
   let orientationRequest;
   try{const DOE=window.DeviceOrientationEvent;if(DOE&&typeof DOE.requestPermission==='function')orientationRequest=DOE.requestPermission();else orientationRequest=Promise.resolve('granted')}catch(e){orientationRequest=Promise.reject(e)}
@@ -55,5 +56,6 @@ function start(){
 }
 $('start').addEventListener('click',start);$('retry').addEventListener('click',enableSensors);$('menu').addEventListener('click',()=>$('panel').classList.toggle('open'));$('scan').addEventListener('click',()=>{heading=norm(heading+45);render()});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&cameraLive)$('camera').play().catch(()=>{})});
+window.addEventListener('orientationchange',()=>{filtered=heading;setTimeout(render,120)});
 window.addEventListener('pointermove',e=>{if(!$('hud').hidden&&!liveSensors){heading=norm(e.clientX/innerWidth*360);render()}});
 setInterval(()=>$('clock').textContent=new Date().toLocaleTimeString('en-SG',{hour12:false}),1000);render();
