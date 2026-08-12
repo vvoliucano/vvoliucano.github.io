@@ -10,6 +10,7 @@
   <meta property="og:image" content="https://liucan.mestore/projects/wayfinder/og.png">
   <title>Wayfinder — Spatial Navigation</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="sensors.css">
 </head>
 <body>
   <main class="field" id="field">
@@ -36,7 +37,7 @@
     <section class="hud" id="hud" hidden>
       <header class="topbar">
         <div class="brand"><span class="brand-mark">W</span><span>WAYFINDER<small>FIELD MODE · 01</small></span></div>
-        <div class="status"><i id="live-dot"></i><span id="notice">ACQUIRING FIELD SIGNALS</span></div>
+        <div class="status"><i id="live-dot"></i><span id="notice">ACQUIRING FIELD SIGNALS</span><button id="retry" hidden>RETRY</button></div>
         <button class="menu" id="menu" aria-label="显示目标列表"><span></span><span></span></button>
       </header>
       <div class="compass">
@@ -54,6 +55,6 @@
       </footer>
     </section>
   </main>
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>

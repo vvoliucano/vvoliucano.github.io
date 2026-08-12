@@ -3,7 +3,7 @@ const points = [
   {id:'nie',name:'NTU · NIE',sub:'NATIONAL INSTITUTE OF EDUCATION',lat:1.3486,lng:103.6784,accent:'#70f6ff'},
   {id:'cck',name:'CHOA CHU KANG',sub:'MRT · NS4 / JS1',lat:1.3854,lng:103.7443,accent:'#ffb86c'}
 ];
-let position={lat:1.3621,lng:103.7492,accuracy:14}, heading=302, filtered=302, liveSensors=false, cameraLive=false;
+let position={lat:1.3621,lng:103.7492,accuracy:14}, heading=302, filtered=302, liveSensors=false, cameraLive=false, geoLive=false;
 const $=id=>document.getElementById(id), rad=v=>v*Math.PI/180, deg=v=>v*180/Math.PI, norm=v=>(v%360+360)%360;
 const delta=(a,b)=>((a-b+540)%360)-180;
 const dir=d=>['N','NE','E','SE','S','SW','W','NW'][Math.round(norm(d)/45)%8];
@@ -20,15 +20,40 @@ function render(){
   $('edge-space').innerHTML=ts.map(t=>{const d=delta(t.bearing,heading);if(Math.abs(d)<58)return'';return `<div class="edge ${d<0?'left':'right'}" style="--accent:${t.accent}"><span>${d<0?'‹':'›'}</span><b>${t.name}</b><small>${fmt(t.distance)}</small></div>`}).join('');
   $('panel-items').innerHTML=ts.map(t=>`<div class="panel-item"><i style="background:${t.accent}"></i><span><b>${t.name}</b><small>${Math.round(t.bearing)}° · ${dir(t.bearing)}</small></span><strong>${fmt(t.distance)}</strong></div>`).join('');
 }
-function orientation(e){let next=null;if(typeof e.webkitCompassHeading==='number')next=e.webkitCompassHeading;else if(typeof e.alpha==='number'&&e.absolute)next=360-e.alpha;if(next===null)return;filtered=norm(filtered+delta(next,filtered)*.16);heading=filtered;liveSensors=true;$('scan-label').textContent='LIVE ORIENTATION';$('live-dot').classList.add('live');render()}
-async function start(){
-  $('launch').hidden=true;$('hud').hidden=false;$('field').classList.add('started');render();
-  let any=false;
-  try{const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1920},height:{ideal:1080}},audio:false});$('camera').srcObject=stream;await $('camera').play();$('camera').classList.add('live');cameraLive=true;any=true;$('live-dot').classList.add('live')}catch(e){console.warn('Camera unavailable',e)}
-  if(navigator.geolocation)navigator.geolocation.watchPosition(({coords})=>{position={lat:coords.latitude,lng:coords.longitude,accuracy:coords.accuracy};any=true;$('notice').textContent='FIELD LINK ACTIVE';$('live-dot').classList.add('live');render()},()=>{$('notice').textContent=any?'FIELD LINK ACTIVE':'DEMO SIGNAL · PERMISSION LIMITED'},{enableHighAccuracy:true,maximumAge:3000,timeout:12000});
-  try{if(typeof DeviceOrientationEvent.requestPermission==='function'){const p=await DeviceOrientationEvent.requestPermission(true);if(p!=='granted')throw Error('denied')}window.addEventListener('deviceorientationabsolute',orientation,true);window.addEventListener('deviceorientation',orientation,true)}catch(e){console.warn('Orientation unavailable',e)}
-  setTimeout(()=>{$('notice').textContent=any?'FIELD LINK ACTIVE':'DEMO SIGNAL · DRAG TO SCAN'},1400);
+function updateStatus(){
+  const missing=[];if(!cameraLive)missing.push('CAMERA');if(!liveSensors)missing.push('COMPASS');
+  if(cameraLive&&liveSensors&&geoLive){$('notice').textContent='FIELD LINK ACTIVE';$('retry').hidden=true;$('live-dot').classList.add('live')}
+  else if(missing.length){$('notice').textContent=`${missing.join(' + ')} WAITING`;$('retry').hidden=false}
 }
-$('start').addEventListener('click',start);$('menu').addEventListener('click',()=>$('panel').classList.toggle('open'));$('scan').addEventListener('click',()=>{heading=norm(heading+45);render()});
+function orientation(e){let next=null;if(typeof e.webkitCompassHeading==='number')next=e.webkitCompassHeading;else if(typeof e.alpha==='number')next=norm(360-e.alpha);if(next===null||!Number.isFinite(next))return;filtered=norm(filtered+delta(next,filtered)*.16);heading=filtered;liveSensors=true;$('scan-label').textContent='LIVE ORIENTATION';$('live-dot').classList.add('live');updateStatus();render()}
+function requestSensorAccess(){
+  let orientationRequest;
+  try{const DOE=window.DeviceOrientationEvent;if(DOE&&typeof DOE.requestPermission==='function')orientationRequest=DOE.requestPermission();else orientationRequest=Promise.resolve('granted')}catch(e){orientationRequest=Promise.reject(e)}
+  let cameraRequest;
+  try{cameraRequest=navigator.mediaDevices&&navigator.mediaDevices.getUserMedia?navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1920},height:{ideal:1080}},audio:false}):Promise.reject(Error('Camera API unavailable'))}catch(e){cameraRequest=Promise.reject(e)}
+  return {orientationRequest,cameraRequest};
+}
+async function enableSensors(){
+  $('retry').hidden=true;$('notice').textContent='REQUESTING PERMISSIONS';
+  const {orientationRequest,cameraRequest}=requestSensorAccess();
+  const [orientationResult,cameraResult]=await Promise.allSettled([orientationRequest,cameraRequest]);
+  if(orientationResult.status==='fulfilled'&&orientationResult.value==='granted'){
+    window.removeEventListener('deviceorientationabsolute',orientation,true);window.removeEventListener('deviceorientation',orientation,true);
+    window.addEventListener('deviceorientationabsolute',orientation,true);window.addEventListener('deviceorientation',orientation,true);
+  }else{liveSensors=false;console.warn('Orientation permission unavailable',orientationResult)}
+  if(cameraResult.status==='fulfilled'){
+    const old=$('camera').srcObject;if(old&&old!==cameraResult.value)old.getTracks().forEach(t=>t.stop());
+    $('camera').srcObject=cameraResult.value;try{await $('camera').play()}catch(e){console.warn('Video play failed',e)}
+    $('camera').classList.add('live');cameraLive=true;
+  }else{cameraLive=false;$('camera').classList.remove('live');console.warn('Camera permission unavailable',cameraResult)}
+  updateStatus();setTimeout(updateStatus,1800);
+}
+function start(){
+  $('launch').hidden=true;$('hud').hidden=false;$('field').classList.add('started');render();
+  enableSensors();
+  if(navigator.geolocation)navigator.geolocation.watchPosition(({coords})=>{position={lat:coords.latitude,lng:coords.longitude,accuracy:coords.accuracy};geoLive=true;$('live-dot').classList.add('live');updateStatus();render()},()=>{geoLive=false;updateStatus()},{enableHighAccuracy:true,maximumAge:3000,timeout:12000});
+}
+$('start').addEventListener('click',start);$('retry').addEventListener('click',enableSensors);$('menu').addEventListener('click',()=>$('panel').classList.toggle('open'));$('scan').addEventListener('click',()=>{heading=norm(heading+45);render()});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&cameraLive)$('camera').play().catch(()=>{})});
 window.addEventListener('pointermove',e=>{if(!$('hud').hidden&&!liveSensors){heading=norm(e.clientX/innerWidth*360);render()}});
 setInterval(()=>$('clock').textContent=new Date().toLocaleTimeString('en-SG',{hour12:false}),1000);render();
