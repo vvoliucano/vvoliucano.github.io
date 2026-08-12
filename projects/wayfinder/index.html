@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#050806">
+  <meta name="description" content="Turn your phone into a spatial compass and discover what lies in every direction.">
+  <meta property="og:title" content="Wayfinder — See What Lies Beyond.">
+  <meta property="og:description" content="A live spatial compass for the world around you.">
+  <meta property="og:image" content="https://liucan.mestore/projects/wayfinder/og.png">
+  <title>Wayfinder — Spatial Navigation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="field" id="field">
+    <video id="camera" class="camera" playsinline muted aria-label="后置摄像头画面"></video>
+    <div class="ambient"><div class="orb a"></div><div class="orb b"></div><div class="terrain"></div></div>
+    <div class="noise"></div>
+
+    <section class="launch" id="launch">
+      <div class="launch-top"><span>WAYFINDER</span><span>SG // 01</span></div>
+      <div class="launch-center">
+        <div class="radar"><i></i><i></i><span>W</span></div>
+        <p class="eyebrow">SPATIAL NAVIGATION SYSTEM</p>
+        <h1>SEE WHAT LIES<br><em>BEYOND.</em></h1>
+        <p class="intro">将你的手机变成空间罗盘。抬起镜头，发现藏在每个方向里的目的地。</p>
+        <button class="launch-button" id="start">
+          <span class="button-icon">⌁</span>
+          <span><b>ENTER FIELD MODE</b><small>开启摄像头 · 定位 · 空间方向</small></span>
+          <span class="button-arrow">↗</span>
+        </button>
+      </div>
+      <div class="launch-foot"><span>CAMERA</span><span>GPS</span><span>ORIENTATION</span></div>
+    </section>
+
+    <section class="hud" id="hud" hidden>
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">W</span><span>WAYFINDER<small>FIELD MODE · 01</small></span></div>
+        <div class="status"><i id="live-dot"></i><span id="notice">ACQUIRING FIELD SIGNALS</span></div>
+        <button class="menu" id="menu" aria-label="显示目标列表"><span></span><span></span></button>
+      </header>
+      <div class="compass">
+        <div class="heading"><span id="direction">NW</span><b id="degrees">302°</b></div>
+        <div class="ticks" id="ticks"></div><div class="pin"></div>
+      </div>
+      <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span></span><small>ALIGN TARGET</small></div>
+      <div class="target-space" id="target-space"></div>
+      <div class="edge-space" id="edge-space"></div>
+      <aside class="panel" id="panel"><div class="panel-head"><span>FIELD TARGETS</span><b>03</b></div><div id="panel-items"></div><p>移动手机，对准方向以锁定目标。</p></aside>
+      <footer class="bottom">
+        <div><small>POSITION</small><b id="lat">1.3621° N</b><b id="lng">103.7492° E</b></div>
+        <div class="scan"><button id="scan" aria-label="顺时针扫描">⌁</button><small id="scan-label">DRAG TO SCAN</small></div>
+        <div class="telemetry"><span><small>GPS</small><b id="accuracy">±14 M</b></span><span><small>LOCAL</small><b id="clock">--:--:--</b></span></div>
+      </footer>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
