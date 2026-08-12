@@ -369,7 +369,7 @@ Promise.all([
     }));
     const flightCities = [...cityMap.values()].sort((a, b) => b.trip_count - a.trip_count);
     allCities = flightCities;
-    document.querySelector('#china-city-count').textContent = String(flightCities.filter(city => city.country === 'China').length);
+    document.querySelector('#china-city-count').innerHTML = `${flightCities.filter(city => city.country === 'China').length}<small class="metric-total">/691</small>`;
     const routes = [...routeMap.values()];
 
     landSelection = landLayer.append('path').datum(referenceLand.land).attr('class', 'ying-land');
@@ -382,13 +382,13 @@ Promise.all([
       .data(countryData.features.filter(feature => visitedCountries.has(feature.properties.name)))
       .join('path').attr('class', 'world-country visited');
     visitedSelection.append('title').text(feature => `${worldIsEnglish ? feature.properties.name : (feature.properties.chinese_name || feature.properties.name)} · ${worldText('已经到访', 'Visited')}`);
-    document.querySelector('#country-count').textContent = String(visitedCountries.size);
+    document.querySelector('#country-count').innerHTML = `${visitedCountries.size}<small class="metric-total">/195</small>`;
     const countryContinents = {
       Australia: 'Oceania', Austria: 'Europe', Canada: 'North America', China: 'Asia', Germany: 'Europe',
       Hungary: 'Europe', India: 'Asia', Indonesia: 'Asia', Malaysia: 'Asia', Singapore: 'Asia',
       Slovakia: 'Europe', Thailand: 'Asia', Vietnam: 'Asia'
     };
-    document.querySelector('#continent-count').textContent = String(new Set([...visitedCountries].map(country => countryContinents[country]).filter(Boolean)).size);
+    document.querySelector('#continent-count').innerHTML = `${new Set([...visitedCountries].map(country => countryContinents[country]).filter(Boolean)).size}<small class="metric-total">/7</small>`;
 
     flightCitySelection = flightCityLayer.selectAll('g').data(flightCities).join('g').attr('class', 'flight-city')
       .attr('tabindex', 0).attr('role', 'button').attr('aria-label', city => `${worldCityName(city)}, ${worldText('查看到访年份', 'view years visited')}`)
