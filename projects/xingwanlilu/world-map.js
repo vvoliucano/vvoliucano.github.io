@@ -11,7 +11,7 @@ const worldText = (zh, en) => worldIsEnglish ? en : zh;
 const cityNamesEn = new Map(Object.entries({
   '北京':'Beijing','厦门':'Xiamen','新加坡':'Singapore','龙岩':'Longyan','武平':'Wuping','深圳':'Shenzhen','上海':'Shanghai','香港':'Hong Kong','武汉':'Wuhan','郑州':'Zhengzhou','开封':'Kaifeng','安顺':'Anshun','贵阳':'Guiyang','杭州':'Hangzhou','长沙':'Changsha','成都':'Chengdu','重庆':'Chongqing','巴厘岛':'Bali','维也纳':'Vienna','吉隆坡':'Kuala Lumpur','河池':'Hechi','南宁':'Nanning','石家庄':'Shijiazhuang','福州':'Fuzhou','悉尼':'Sydney','德里':'Delhi','河内':'Hanoi','广州':'Guangzhou','雅加达':'Jakarta','珠海':'Zhuhai','天津':'Tianjin','景德镇':'Jingdezhen','青岛':'Qingdao','齐齐哈尔':'Qiqihar','哈尔滨':'Harbin','南京':'Nanjing','西宁':'Xining','兰州':'Lanzhou','西安':'Xi’an','海口':'Haikou','梅州':'Meizhou','曼谷':'Bangkok','柏林':'Berlin','慕尼黑':'Munich','柳州':'Liuzhou','惠州':'Huizhou','徐州':'Xuzhou','沈阳':'Shenyang','广汉':'Guanghan','泉州':'Quanzhou','新山':'Johor Bahru','忻州':'Xinzhou','张家口':'Zhangjiakou','大同':'Datong','布达佩斯':'Budapest','布拉迪斯拉发':'Bratislava','温哥华':'Vancouver'
 }));
-Object.entries({'应县':'Yingxian','赣州':'Ganzhou','三亚':'Sanya','凌川':'Lingchuan'}).forEach(([zh, en]) => cityNamesEn.set(zh, en));
+Object.entries({'应县':'Yingxian','赣州':'Ganzhou','三亚':'Sanya','凌川':'Lingchuan','苏州':'Suzhou','承德':'Chengde','赤峰':'Chifeng','来宾':'Laibin','揭阳':'Jieyang','海南州':'Hainan Prefecture'}).forEach(([zh, en]) => cityNamesEn.set(zh, en));
 const worldCityName = city => worldIsEnglish ? (cityNamesEn.get(city.city) || city.city) : city.city;
 const worldCountryName = city => worldIsEnglish ? city.country : city.country_zh;
 const worldModeName = mode => mode === 'flight' ? worldText('航空', 'Flight') : mode === 'train' ? worldText('铁路', 'Rail') : worldText('汽车', 'Road');
@@ -19,6 +19,7 @@ const worldWidth = 900;
 const worldHeight = 620;
 const initialRotation = [-104, -24, 0];
 const visitedCountries = new Set();
+const nonPrefectureLevelChinaPlaces = new Set(['北京', '上海', '天津', '重庆', '香港', '武平', '凌川', '应县', '广汉', '海南州']);
 const journeys = [
   { year: '2014—2023', city: '北京', country: '中国', markerRadius: 11, coordinates: [116.4074, 39.9042], label: [13, -8], kind: 'home' },
   { year: '2023', city: '武汉', country: '中国', markerRadius: 7, coordinates: [114.3055, 30.5928], label: [11, 15], kind: 'home' },
@@ -304,8 +305,8 @@ Promise.all([
   fetch(worldAsset('data/airport-cities.json')),
   fetch(worldAsset('data/train-history.json?v=20260812-4')),
   fetch(worldAsset('data/train-cities.json?v=20260812-5')),
-  fetch(worldAsset('data/car-history.json?v=20260812-1')),
-  fetch(worldAsset('data/car-cities.json?v=20260812-1')),
+  fetch(worldAsset('data/car-history.json?v=20260812-4')),
+  fetch(worldAsset('data/car-cities.json?v=20260812-4')),
   fetch(worldAsset('data/singapore-supplement.geojson'))
 ])
   .then(async responses => {
@@ -369,7 +370,8 @@ Promise.all([
     }));
     const flightCities = [...cityMap.values()].sort((a, b) => b.trip_count - a.trip_count);
     allCities = flightCities;
-    document.querySelector('#china-city-count').innerHTML = `${flightCities.filter(city => city.country === 'China').length}<small class="metric-total">/691</small>`;
+    const prefectureLevelCityCount = flightCities.filter(city => city.country === 'China' && !nonPrefectureLevelChinaPlaces.has(city.city)).length;
+    document.querySelector('#china-city-count').innerHTML = `${prefectureLevelCityCount}<small class="metric-total">/293</small>`;
     const routes = [...routeMap.values()];
 
     landSelection = landLayer.append('path').datum(referenceLand.land).attr('class', 'ying-land');

@@ -4,5 +4,16 @@
   "海口": {"country":"China","country_zh":"中国","province":"海南省","coordinates":[110.1983,20.0440]},
   "三亚": {"country":"China","country_zh":"中国","province":"海南省","coordinates":[109.5119,18.2528]},
   "北京": {"country":"China","country_zh":"中国","province":"北京市","coordinates":[116.4074,39.9042]},
-  "凌川": {"country":"China","country_zh":"中国","province":"山西省","coordinates":[113.2806,35.7757]}
+  "凌川": {"country":"China","country_zh":"中国","province":"山西省","coordinates":[113.2806,35.7757]},
+  "南京": {"country":"China","country_zh":"中国","province":"江苏省","coordinates":[118.7969,32.0603]},
+  "苏州": {"country":"China","country_zh":"中国","province":"江苏省","coordinates":[120.5853,31.2989]},
+  "上海": {"country":"China","country_zh":"中国","province":"上海市","coordinates":[121.4737,31.2304]},
+  "承德": {"country":"China","country_zh":"中国","province":"河北省","coordinates":[117.9634,40.9541]},
+  "赤峰": {"country":"China","country_zh":"中国","province":"内蒙古自治区","coordinates":[118.8876,42.2569]},
+  "河池": {"country":"China","country_zh":"中国","province":"广西壮族自治区","coordinates":[108.0854,24.6929]},
+  "柳州": {"country":"China","country_zh":"中国","province":"广西壮族自治区","coordinates":[109.4281,24.3264]},
+  "来宾": {"country":"China","country_zh":"中国","province":"广西壮族自治区","coordinates":[109.2215,23.7503]},
+  "揭阳": {"country":"China","country_zh":"中国","province":"广东省","coordinates":[116.3727,23.5497]},
+  "西宁": {"country":"China","country_zh":"中国","province":"青海省","coordinates":[101.7782,36.6171]},
+  "海南州": {"country":"China","country_zh":"中国","province":"青海省","place_type":"autonomous_prefecture","coordinates":[100.6204,36.2804]}
 }

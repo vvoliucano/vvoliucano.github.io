@@ -1,11 +1,16 @@
 {
   "schema_version": 1,
   "source": "manual",
-  "record_count": 3,
-  "completed_count": 3,
+  "record_count": 8,
+  "completed_count": 8,
   "records": [
     {"date":"2020","status":"completed","note":"武平—赣州","legs":[{"departure":{"city":"武平"},"arrival":{"city":"赣州"}}]},
     {"date":"2020","status":"completed","note":"海口—三亚往返","legs":[{"departure":{"city":"海口"},"arrival":{"city":"三亚"}},{"departure":{"city":"三亚"},"arrival":{"city":"海口"}}]},
-    {"date":"2024","status":"completed","note":"北京—山西凌川往返","legs":[{"departure":{"city":"北京"},"arrival":{"city":"凌川"}},{"departure":{"city":"凌川"},"arrival":{"city":"北京"}}]}
+    {"date":"2024","status":"completed","note":"北京—山西凌川往返","legs":[{"departure":{"city":"北京"},"arrival":{"city":"凌川"}},{"departure":{"city":"凌川"},"arrival":{"city":"北京"}}]},
+    {"date":"2023","status":"completed","note":"南京—苏州—上海","legs":[{"departure":{"city":"南京"},"arrival":{"city":"苏州"}},{"departure":{"city":"苏州"},"arrival":{"city":"上海"}}]},
+    {"date":"2019","status":"completed","note":"北京—承德—赤峰；赤峰根据“承德旁边的内蒙古城市”推定","inference":"赤峰","legs":[{"departure":{"city":"北京"},"arrival":{"city":"承德"}},{"departure":{"city":"承德"},"arrival":{"city":"赤峰"}}]},
+    {"date":null,"status":"completed","source":"manual","note":"河池—柳州—来宾；年份待补","legs":[{"departure":{"city":"河池"},"arrival":{"city":"柳州"}},{"departure":{"city":"柳州"},"arrival":{"city":"来宾"}}]},
+    {"date":null,"status":"completed","source":"manual","note":"武平—揭阳；年份待补","legs":[{"departure":{"city":"武平"},"arrival":{"city":"揭阳"}}]},
+    {"date":"2022","status":"completed","source":"manual","note":"西宁—海南州，前往青海湖","legs":[{"departure":{"city":"西宁"},"arrival":{"city":"海南州"}}]}
   ]
 }

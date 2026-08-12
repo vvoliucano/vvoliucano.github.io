@@ -42,8 +42,8 @@ Promise.all([
   fetch(`${chinaAssetBase}data/airport-cities.json`),
   fetch(`${chinaAssetBase}data/train-history.json?v=20260812-4`),
   fetch(`${chinaAssetBase}data/train-cities.json?v=20260812-5`),
-  fetch(`${chinaAssetBase}data/car-history.json?v=20260812-1`),
-  fetch(`${chinaAssetBase}data/car-cities.json?v=20260812-1`)
+  fetch(`${chinaAssetBase}data/car-history.json?v=20260812-4`),
+  fetch(`${chinaAssetBase}data/car-cities.json?v=20260812-4`)
 ])
   .then(async responses => {
     if (responses.some(response => !response.ok)) throw new Error(chinaText('地图数据读取失败', 'Map data could not be loaded'));
@@ -156,6 +156,10 @@ Promise.all([
       addRoute(from && { ...from, city: leg.departure.city }, to && { ...to, city: leg.arrival.city }, 'car');
     }));
     const renderRoutes = (layer, routesForMode, mode) => routesForMode.forEach(route => {
+      const halo = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      halo.setAttribute('d', chinaArcPath(route.from.coordinates, route.to.coordinates, project));
+      halo.setAttribute('class', `china-route-halo ${mode}`);
+      layer.appendChild(halo);
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.setAttribute('d', chinaArcPath(route.from.coordinates, route.to.coordinates, project));
       path.setAttribute('class', `china-route ${mode}`);
