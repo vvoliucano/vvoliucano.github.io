@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "source": "manual",
+  "record_count": 3,
+  "completed_count": 3,
+  "records": [
+    {"date":"2020","status":"completed","note":"武平—赣州","legs":[{"departure":{"city":"武平"},"arrival":{"city":"赣州"}}]},
+    {"date":"2020","status":"completed","note":"海口—三亚往返","legs":[{"departure":{"city":"海口"},"arrival":{"city":"三亚"}},{"departure":{"city":"三亚"},"arrival":{"city":"海口"}}]},
+    {"date":"2024","status":"completed","note":"北京—山西凌川往返","legs":[{"departure":{"city":"北京"},"arrival":{"city":"凌川"}},{"departure":{"city":"凌川"},"arrival":{"city":"北京"}}]}
+  ]
+}

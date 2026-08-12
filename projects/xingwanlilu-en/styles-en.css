@@ -1,0 +1,60 @@
+.english-page,
+.english-page button {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.english-page .brand b,
+.english-page .topbar nav,
+.english-page .back,
+.english-page .eyebrow,
+.english-page .section-heading > p,
+.english-page .world-intro,
+.english-page .map-toolbar,
+.english-page .metrics,
+.english-page footer {
+  letter-spacing: .045em;
+}
+
+.english-page .hero h1,
+.english-page .world-heading h2,
+.english-page .section-heading h2 {
+  line-height: 1.04;
+  letter-spacing: -.035em;
+}
+
+.english-page .hero h1 { max-width: 980px; }
+.english-page .world-heading h2 { max-width: 760px; }
+.english-page .section-heading h2 { max-width: 1040px; }
+.english-page .journey-place strong { font-size: clamp(1.05rem, 1.5vw, 1.35rem); }
+.english-page .province-label { font-size: 12px; letter-spacing: 0; }
+.english-page .singapore-note strong { line-height: 1.1; }
+.english-page .map-heading {
+  min-height: 0;
+  grid-template-columns: 1fr 2fr;
+}
+.english-page .map-heading h2 {
+  height: auto;
+  display: block;
+  writing-mode: horizontal-tb;
+}
+.english-page .map-heading h2 span,
+.english-page .map-heading h2 em {
+  display: inline;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+}
+.english-page .map-heading h2 span::after { content: "\A"; white-space: pre; }
+.english-page .province-label {
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  font-family: Georgia, "Times New Roman", serif;
+}
+.english-page .river-label,
+.english-page .china-route-city-label { font-family: Georgia, "Times New Roman", serif; }
+
+@media (max-width: 760px) {
+  .english-page .brand b { display: none; }
+  .english-page .topbar nav { font-size: .72rem; gap: 12px; }
+  .english-page .hero h1 { font-size: clamp(2.6rem, 12vw, 4.5rem); }
+  .english-page .map-heading { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,8 @@
+{
+  "武平": {"country":"China","country_zh":"中国","province":"福建省","coordinates":[116.1004,25.0953]},
+  "赣州": {"country":"China","country_zh":"中国","province":"江西省","coordinates":[114.9350,25.8311]},
+  "海口": {"country":"China","country_zh":"中国","province":"海南省","coordinates":[110.1983,20.0440]},
+  "三亚": {"country":"China","country_zh":"中国","province":"海南省","coordinates":[109.5119,18.2528]},
+  "北京": {"country":"China","country_zh":"中国","province":"北京市","coordinates":[116.4074,39.9042]},
+  "凌川": {"country":"China","country_zh":"中国","province":"山西省","coordinates":[113.2806,35.7757]}
+}

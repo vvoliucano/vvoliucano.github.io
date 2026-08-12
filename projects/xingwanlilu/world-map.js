@@ -4,6 +4,17 @@ const journeyList = document.querySelector('#journey-list');
 const cityDetail = document.querySelector('#city-detail');
 const worldTooltip = document.querySelector('#world-tooltip');
 const globePane = document.querySelector('.globe-pane');
+const worldIsEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
+const worldAssetBase = document.documentElement.dataset.assetBase || '';
+const worldAsset = path => `${worldAssetBase}${path}`;
+const worldText = (zh, en) => worldIsEnglish ? en : zh;
+const cityNamesEn = new Map(Object.entries({
+  '北京':'Beijing','厦门':'Xiamen','新加坡':'Singapore','龙岩':'Longyan','武平':'Wuping','深圳':'Shenzhen','上海':'Shanghai','香港':'Hong Kong','武汉':'Wuhan','郑州':'Zhengzhou','开封':'Kaifeng','安顺':'Anshun','贵阳':'Guiyang','杭州':'Hangzhou','长沙':'Changsha','成都':'Chengdu','重庆':'Chongqing','巴厘岛':'Bali','维也纳':'Vienna','吉隆坡':'Kuala Lumpur','河池':'Hechi','南宁':'Nanning','石家庄':'Shijiazhuang','福州':'Fuzhou','悉尼':'Sydney','德里':'Delhi','河内':'Hanoi','广州':'Guangzhou','雅加达':'Jakarta','珠海':'Zhuhai','天津':'Tianjin','景德镇':'Jingdezhen','青岛':'Qingdao','齐齐哈尔':'Qiqihar','哈尔滨':'Harbin','南京':'Nanjing','西宁':'Xining','兰州':'Lanzhou','西安':'Xi’an','海口':'Haikou','梅州':'Meizhou','曼谷':'Bangkok','柏林':'Berlin','慕尼黑':'Munich','柳州':'Liuzhou','惠州':'Huizhou','徐州':'Xuzhou','沈阳':'Shenyang','广汉':'Guanghan','泉州':'Quanzhou','新山':'Johor Bahru','忻州':'Xinzhou','张家口':'Zhangjiakou','大同':'Datong','布达佩斯':'Budapest','布拉迪斯拉发':'Bratislava','温哥华':'Vancouver'
+}));
+Object.entries({'应县':'Yingxian','赣州':'Ganzhou','三亚':'Sanya','凌川':'Lingchuan'}).forEach(([zh, en]) => cityNamesEn.set(zh, en));
+const worldCityName = city => worldIsEnglish ? (cityNamesEn.get(city.city) || city.city) : city.city;
+const worldCountryName = city => worldIsEnglish ? city.country : city.country_zh;
+const worldModeName = mode => mode === 'flight' ? worldText('航空', 'Flight') : mode === 'train' ? worldText('铁路', 'Rail') : worldText('汽车', 'Road');
 const worldWidth = 900;
 const worldHeight = 620;
 const initialRotation = [-104, -24, 0];
@@ -26,7 +37,7 @@ const projection = d3.geoOrthographic()
   .rotate(initialRotation);
 const worldPath = d3.geoPath(projection);
 
-worldSvg.append('image').attr('class', 'world-starfield').attr('href', 'data/starfield.svg?v=2')
+worldSvg.append('image').attr('class', 'world-starfield').attr('href', worldAsset('data/starfield.svg?v=2'))
   .attr('width', worldWidth).attr('height', worldHeight).attr('preserveAspectRatio', 'none').attr('aria-hidden', 'true');
 
 const sphere = worldSvg.append('path').datum({ type: 'Sphere' }).attr('class', 'world-ocean').attr('filter', 'url(#globe-shadow)');
@@ -52,6 +63,7 @@ let worldScale = 255;
 let lastFrame = performance.now();
 let flightRoutesVisible = false;
 let trainRoutesVisible = false;
+let carRoutesVisible = false;
 let selectedCity = null;
 let allCities = [];
 let lastListSignature = '';
@@ -65,7 +77,7 @@ function drawWorld() {
   if (visitedSelection) visitedSelection.attr('d', worldPath);
   if (borderSelection) borderSelection.attr('d', worldPath);
   if (routeSelection) routeSelection.attr('d', route => {
-    const visible = (flightRoutesVisible && route.properties.modes.has('flight')) || (trainRoutesVisible && route.properties.modes.has('train'));
+    const visible = (flightRoutesVisible && route.properties.modes.has('flight')) || (trainRoutesVisible && route.properties.modes.has('train')) || (carRoutesVisible && route.properties.modes.has('car'));
     return visible ? worldPath(route) : null;
   });
   shadeLayer.attr('d', worldPath);
@@ -87,7 +99,7 @@ function drawWorld() {
 
 function yearRange(years) {
   const ordered = [...years].filter(Boolean).sort();
-  if (!ordered.length) return '年份待核';
+  if (!ordered.length) return worldText('年份待核', 'Dates to be confirmed');
   return ordered.length === 1 ? ordered[0] : `${ordered[0]}-${ordered[ordered.length - 1]}`;
 }
 
@@ -111,7 +123,7 @@ function updateSolarLayer(now = new Date()) {
 function updateVisibleCityList(center) {
   const limit = worldScale < 290 ? 7 : worldScale < 520 ? 10 : worldScale < 1100 ? 14 : 20;
   const visible = allCities.filter(city => d3.geoDistance(center, city.coordinates) < Math.PI / 2)
-    .sort((a, b) => b.trip_count - a.trip_count || a.city.localeCompare(b.city, 'zh-CN')).slice(0, limit);
+    .sort((a, b) => b.trip_count - a.trip_count || worldCityName(a).localeCompare(worldCityName(b), worldIsEnglish ? 'en' : 'zh-CN')).slice(0, limit);
   const signature = `${limit}:${visible.map(city => `${city.country}:${city.city}`).join('|')}`;
   if (signature === lastListSignature) return;
   lastListSignature = signature;
@@ -119,7 +131,7 @@ function updateVisibleCityList(center) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'journey-card';
-    button.innerHTML = `<span class="journey-year">${yearRange(city.years)}</span><span class="journey-place"><strong>${city.city}</strong><small>${city.country_zh}</small></span><span class="journey-arrow" aria-hidden="true">↗</span>`;
+    button.innerHTML = `<span class="journey-year">${yearRange(city.years)}</span><span class="journey-place"><strong>${worldCityName(city)}</strong><small>${worldCountryName(city)}</small></span><span class="journey-arrow" aria-hidden="true">↗</span>`;
     button.addEventListener('click', () => focusCity(city));
     return button;
   }));
@@ -153,7 +165,7 @@ function updateCityLabels(center) {
       const distanceB = Math.hypot(b.point[0] - worldWidth / 2, b.point[1] - worldHeight / 2);
       return distanceA - distanceB
         || b.city.trip_count - a.city.trip_count
-        || a.city.city.localeCompare(b.city.city, 'zh-CN');
+        || worldCityName(a.city).localeCompare(worldCityName(b.city), worldIsEnglish ? 'en' : 'zh-CN');
     })
     .slice(0, labelLimit)
     .map(({ city }) => city));
@@ -173,14 +185,14 @@ function selectCity(city) {
   selectedCity = city;
   flightCitySelection.classed('selected', item => item === city);
   const years = yearRange(city.years);
-  const modes = [...city.modes].map(mode => mode === 'flight' ? '航空' : '铁路').join(' / ');
-  cityDetail.innerHTML = `<span>${city.city} · ${city.country_zh}</span><strong>${years || '年份待核'}</strong><small>${modes}</small>`;
+  const modes = [...city.modes].map(worldModeName).join(' / ');
+  cityDetail.innerHTML = `<span>${worldCityName(city)} · ${worldCountryName(city)}</span><strong>${years || worldText('年份待核', 'Dates to be confirmed')}</strong><small>${modes}</small>`;
   drawWorld();
 }
 
 function showWorldTooltip(event, title, years, modes = '') {
   const pane = document.querySelector('.globe-pane').getBoundingClientRect();
-  worldTooltip.innerHTML = `<strong>${title}</strong><span>${years || '年份待核'}</span>${modes ? `<small>${modes}</small>` : ''}`;
+  worldTooltip.innerHTML = `<strong>${title}</strong><span>${years || worldText('年份待核', 'Dates to be confirmed')}</span>${modes ? `<small>${modes}</small>` : ''}`;
   worldTooltip.style.left = `${Math.max(10, Math.min(pane.width - 190, event.clientX - pane.left + 14))}px`;
   worldTooltip.style.top = `${Math.max(10, Math.min(pane.height - 92, event.clientY - pane.top + 14))}px`;
   worldTooltip.classList.add('visible');
@@ -204,7 +216,7 @@ function focusJourney(index) {
 function updateSpinButton() {
   const button = document.querySelector('#world-spin');
   button.setAttribute('aria-pressed', String(spinning));
-  button.textContent = spinning ? '自转 · 暂停' : '自转 · 开始';
+  button.textContent = spinning ? worldText('自转 · 暂停', 'Rotation · Pause') : worldText('自转 · 开始', 'Rotation · Start');
 }
 
 function setWorldScale(nextScale) {
@@ -235,13 +247,19 @@ document.querySelector('#world-spin').addEventListener('click', () => { spinning
 document.querySelector('#world-routes').addEventListener('click', event => {
   flightRoutesVisible = !flightRoutesVisible;
   event.currentTarget.setAttribute('aria-pressed', String(flightRoutesVisible));
-  event.currentTarget.textContent = flightRoutesVisible ? '隐藏航线' : '显示航线';
+  event.currentTarget.textContent = flightRoutesVisible ? worldText('隐藏航线', 'Hide flights') : worldText('显示航线', 'Show flights');
   drawWorld();
 });
 document.querySelector('#world-rail-routes').addEventListener('click', event => {
   trainRoutesVisible = !trainRoutesVisible;
   event.currentTarget.setAttribute('aria-pressed', String(trainRoutesVisible));
-  event.currentTarget.textContent = trainRoutesVisible ? '隐藏铁路' : '显示铁路';
+  event.currentTarget.textContent = trainRoutesVisible ? worldText('隐藏铁路', 'Hide rail') : worldText('显示铁路', 'Show rail');
+  drawWorld();
+});
+document.querySelector('#world-car-routes').addEventListener('click', event => {
+  carRoutesVisible = !carRoutesVisible;
+  event.currentTarget.setAttribute('aria-pressed', String(carRoutesVisible));
+  event.currentTarget.textContent = carRoutesVisible ? worldText('隐藏汽车路线', 'Hide roads') : worldText('显示汽车路线', 'Show roads');
   drawWorld();
 });
 globePane.addEventListener('mouseenter', () => { spinning = false; updateSpinButton(); });
@@ -280,19 +298,21 @@ updateSolarLayer();
 setInterval(() => updateSolarLayer(), 60000);
 
 Promise.all([
-  fetch('data/world-countries-vvoliucano.geojson'),
-  fetch('data/ying-land.json'),
-  fetch('data/flight-history.json'),
-  fetch('data/airport-cities.json'),
-  fetch('data/train-history.json'),
-  fetch('data/train-cities.json'),
-  fetch('data/singapore-supplement.geojson')
+  fetch(worldAsset('data/world-countries-vvoliucano.geojson')),
+  fetch(worldAsset('data/ying-land.json')),
+  fetch(worldAsset('data/flight-history.json')),
+  fetch(worldAsset('data/airport-cities.json')),
+  fetch(worldAsset('data/train-history.json?v=20260812-4')),
+  fetch(worldAsset('data/train-cities.json?v=20260812-5')),
+  fetch(worldAsset('data/car-history.json?v=20260812-1')),
+  fetch(worldAsset('data/car-cities.json?v=20260812-1')),
+  fetch(worldAsset('data/singapore-supplement.geojson'))
 ])
   .then(async responses => {
-    if (responses.some(response => !response.ok)) throw new Error('世界地图数据读取失败');
+    if (responses.some(response => !response.ok)) throw new Error(worldText('世界地图数据读取失败', 'World map data could not be loaded'));
     return Promise.all(responses.map(response => response.json()));
   })
-  .then(([countryData, referenceLand, flightHistory, airportCities, trainHistory, trainCities, singaporeData]) => {
+  .then(([countryData, referenceLand, flightHistory, airportCities, trainHistory, trainCities, carHistory, carCities, singaporeData]) => {
     countryData.features.push(...singaporeData.features);
     countryData.features.forEach(feature => {
       if (d3.geoArea(feature) <= Math.PI * 2) return;
@@ -338,6 +358,15 @@ Promise.all([
         if (place) addCity({ ...place, city: cityName }, record.date?.slice(0, 4), 'train');
       });
     }));
+    carHistory.records.filter(record => record.status === 'completed').forEach(record => record.legs.forEach(leg => {
+      const departure = carCities[leg.departure.city];
+      const arrival = carCities[leg.arrival.city];
+      addRoute(departure && { ...departure, city: leg.departure.city }, arrival && { ...arrival, city: leg.arrival.city }, 'car');
+      [leg.departure.city, leg.arrival.city].forEach(cityName => {
+        const place = carCities[cityName];
+        if (place) addCity({ ...place, city: cityName }, record.date?.slice(0, 4), 'car');
+      });
+    }));
     const flightCities = [...cityMap.values()].sort((a, b) => b.trip_count - a.trip_count);
     allCities = flightCities;
     document.querySelector('#china-city-count').textContent = String(flightCities.filter(city => city.country === 'China').length);
@@ -347,12 +376,12 @@ Promise.all([
     borderSelection = borderLayer.append('path').datum(referenceLand.lines).attr('class', 'ying-lines');
     routeSelection = routeLayer.selectAll('path').data(routes).join('path')
       .attr('class', route => `world-route ${route.properties.modes.size > 1 ? 'mixed' : [...route.properties.modes][0]}`)
-      .attr('aria-label', route => `${route.properties.from}至${route.properties.to}，${[...route.properties.modes].map(mode => mode === 'flight' ? '航线' : '铁路').join('与')}`);
-    routeSelection.append('title').text(route => `${route.properties.from} ↔ ${route.properties.to}`);
+      .attr('aria-label', route => `${worldIsEnglish ? (cityNamesEn.get(route.properties.from) || route.properties.from) : route.properties.from} ${worldText('至', 'to')} ${worldIsEnglish ? (cityNamesEn.get(route.properties.to) || route.properties.to) : route.properties.to}, ${[...route.properties.modes].map(worldModeName).join(worldText('与', ' and '))}`);
+    routeSelection.append('title').text(route => `${worldIsEnglish ? (cityNamesEn.get(route.properties.from) || route.properties.from) : route.properties.from} ↔ ${worldIsEnglish ? (cityNamesEn.get(route.properties.to) || route.properties.to) : route.properties.to}`);
     visitedSelection = visitedLayer.selectAll('path')
       .data(countryData.features.filter(feature => visitedCountries.has(feature.properties.name)))
       .join('path').attr('class', 'world-country visited');
-    visitedSelection.append('title').text(feature => `${feature.properties.chinese_name || feature.properties.name} · 已经到访`);
+    visitedSelection.append('title').text(feature => `${worldIsEnglish ? feature.properties.name : (feature.properties.chinese_name || feature.properties.name)} · ${worldText('已经到访', 'Visited')}`);
     document.querySelector('#country-count').textContent = String(visitedCountries.size);
     const countryContinents = {
       Australia: 'Oceania', Austria: 'Europe', Canada: 'North America', China: 'Asia', Germany: 'Europe',
@@ -362,24 +391,24 @@ Promise.all([
     document.querySelector('#continent-count').textContent = String(new Set([...visitedCountries].map(country => countryContinents[country]).filter(Boolean)).size);
 
     flightCitySelection = flightCityLayer.selectAll('g').data(flightCities).join('g').attr('class', 'flight-city')
-      .attr('tabindex', 0).attr('role', 'button').attr('aria-label', city => `${city.city}，查看到访年份`)
-      .on('pointermove', (event, city) => showWorldTooltip(event, `${city.city} · ${city.country_zh}`, yearRange(city.years), [...city.modes].map(mode => mode === 'flight' ? '航空' : '铁路').join(' / ')))
+      .attr('tabindex', 0).attr('role', 'button').attr('aria-label', city => `${worldCityName(city)}, ${worldText('查看到访年份', 'view years visited')}`)
+      .on('pointermove', (event, city) => showWorldTooltip(event, `${worldCityName(city)} · ${worldCountryName(city)}`, yearRange(city.years), [...city.modes].map(worldModeName).join(' / ')))
       .on('pointerleave', hideWorldTooltip)
       .on('pointerdown', (event, city) => { event.stopPropagation(); spinning = false; updateSpinButton(); selectCity(city); })
       .on('click', (event, city) => { event.stopPropagation(); selectCity(city); })
       .on('keydown', (event, city) => { if (event.key === 'Enter' || event.key === ' ') selectCity(city); });
     flightCitySelection.append('circle').attr('r', city => Math.min(6.5, 2.6 + Math.sqrt(city.trip_count) * .32));
-    flightCitySelection.append('text').attr('x', 8).attr('y', -7).text(city => city.city);
-    flightCitySelection.append('title').text(city => `${city.city} · ${city.country_zh}`);
+    flightCitySelection.append('text').attr('x', 8).attr('y', -7).text(worldCityName);
+    flightCitySelection.append('title').text(city => `${worldCityName(city)} · ${worldCountryName(city)}`);
 
     pointSelection = pointLayer.selectAll('g').data(journeys).join('g')
       .attr('class', journey => `world-point ${journey.kind}`)
       .attr('tabindex', 0)
       .attr('role', 'img')
-      .attr('aria-label', journey => `${journey.year}，${journey.city}，${journey.country}`);
+      .attr('aria-label', journey => `${journey.year}, ${worldIsEnglish ? (cityNamesEn.get(journey.city) || journey.city) : journey.city}, ${worldIsEnglish ? ({'中国':'China','新加坡':'Singapore','德国':'Germany','加拿大':'Canada','印度尼西亚':'Indonesia'}[journey.country] || journey.country) : journey.country}`);
     pointSelection.append('circle').attr('class', 'point-ring').attr('r', journey => journey.markerRadius);
     pointSelection.append('circle').attr('class', 'point-core').attr('r', journey => Math.max(2.5, journey.markerRadius * .42));
-    pointSelection.append('text').attr('x', journey => journey.label?.[0] ?? 10).attr('y', journey => journey.label?.[1] ?? 4).text(journey => journey.city);
+    pointSelection.append('text').attr('x', journey => journey.label?.[0] ?? 10).attr('y', journey => journey.label?.[1] ?? 4).text(journey => worldIsEnglish ? (cityNamesEn.get(journey.city) || journey.city) : journey.city);
     drawWorld();
     worldStatus.classList.add('hidden');
 
@@ -393,6 +422,6 @@ Promise.all([
       }
     });
   })
-  .catch(() => { worldStatus.textContent = '世界地图暂时未能展开，请刷新重试。'; });
+  .catch(() => { worldStatus.textContent = worldText('世界地图暂时未能展开，请刷新重试。', 'The world map could not be opened. Please refresh and try again.'); });
 
 drawWorld();

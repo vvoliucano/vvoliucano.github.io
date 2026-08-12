@@ -7,13 +7,13 @@
   <meta name="theme-color" content="#173c38">
   <title>行万里路｜中国旅行足迹</title>
   <script>if(location.protocol==='file:')location.replace('http://localhost:1111/projects/xingwanlilu/');</script>
-  <link rel="stylesheet" href="styles.css?v=20260811-20">
+  <link rel="stylesheet" href="styles.css?v=20260812-8">
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="../../projects-zh/" aria-label="返回项目页"><span>行</span><b>行万里路</b></a>
     <nav aria-label="页面导航"><a href="#world">坤舆万国</a><a href="#map">九州万方</a><a href="#singapore">南洋图志</a><a href="#overview">足迹概览</a></nav>
-    <a class="back" href="../../projects-zh/">返回项目 ↗</a>
+    <div class="topbar-actions"><a class="language-link" href="../xingwanlilu-en/" onclick="this.href='../xingwanlilu-en/'+location.hash">English ↗</a><a class="back" href="../../projects-zh/">返回项目 ↗</a></div>
   </header>
 
   <main>
@@ -41,6 +41,7 @@
             <button type="button" id="world-home">全览</button>
             <button type="button" id="world-routes" aria-pressed="false">显示航线</button>
             <button type="button" id="world-rail-routes" aria-pressed="false">显示铁路</button>
+            <button type="button" id="world-car-routes" aria-pressed="false">显示汽车路线</button>
           </div>
           <svg id="world-map" viewBox="0 0 900 620" role="img" aria-labelledby="world-title world-desc">
             <defs>
@@ -68,6 +69,12 @@
         <div class="map-toolbar">
           <div><span class="legend-dot visited"></span>已经走过</div>
           <div><span class="legend-dot future"></span>等待抵达</div>
+          <button type="button" id="china-zoom-in" class="map-route-toggle" aria-label="放大中国地图">＋</button>
+          <button type="button" id="china-zoom-out" class="map-route-toggle" aria-label="缩小中国地图">－</button>
+          <button type="button" id="china-zoom-home" class="map-route-toggle">全览</button>
+          <button type="button" id="china-flight-routes" class="map-route-toggle" aria-pressed="false">显示航线</button>
+          <button type="button" id="china-rail-routes" class="map-route-toggle" aria-pressed="false">显示铁路</button>
+          <button type="button" id="china-car-routes" class="map-route-toggle" aria-pressed="false">显示汽车路线</button>
           <p>悬停或轻触省份查看名称</p>
         </div>
         <div class="map-wrap">
@@ -77,9 +84,15 @@
               <pattern id="travel-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="9" height="9" fill="#a84732"/><line x1="0" y1="0" x2="0" y2="9" stroke="#ca725d" stroke-width="2" opacity=".35"/></pattern>
               <pattern id="future-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#d9d3c4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c3b9a6" stroke-width="1" opacity=".6"/></pattern>
             </defs>
-            <g id="map-land" filter="url(#paper-shadow)"></g>
-            <g id="map-rivers" aria-hidden="true"></g>
-            <g id="map-labels" aria-hidden="true"></g>
+            <g id="china-map-viewport">
+              <g id="map-land" filter="url(#paper-shadow)"></g>
+              <g id="map-rivers" aria-hidden="true"></g>
+              <g id="map-flight-routes" class="china-route-layer" aria-hidden="true"></g>
+              <g id="map-rail-routes" class="china-route-layer" aria-hidden="true"></g>
+              <g id="map-car-routes" class="china-route-layer" aria-hidden="true"></g>
+              <g id="map-route-cities" class="china-route-cities"></g>
+              <g id="map-labels" aria-hidden="true"></g>
+            </g>
           </svg>
           <p id="map-desc" class="sr-only">中国省级行政区地图，西藏、新疆、云南、宁夏、台湾、吉林、澳门尚未点亮。</p>
           <div id="tooltip" class="tooltip" role="status" aria-live="polite"></div>
@@ -116,7 +129,7 @@
       <div class="metrics">
         <article><strong id="country-count">13</strong><span>已走过国家</span><small>坤舆万国 · 所至为记</small></article>
         <article><strong id="continent-count">4</strong><span>足迹所至大洲</span><small>亚欧北美 · 及至大洋洲</small></article>
-        <article><strong>27</strong><span>已走过中国省区</span><small>九州万方 · 山河入怀</small></article>
+        <article><strong>27<small class="metric-total">/34</small></strong><span>已走过中国省区</span><small>九州万方 · 山河入怀</small></article>
         <article><strong id="china-city-count">—</strong><span>已走过中国城市</span><small>航空铁路 · 城市去重</small></article>
         <article><strong id="singapore-area-count">44</strong><span>已走过新加坡区域</span><small>南洋图志 · 异乡所见</small></article>
       </div>
@@ -127,8 +140,8 @@
 
   <footer><span>行万里路</span><p>地图会继续生长。</p><a href="#map">回到地图 ↑</a></footer>
   <script src="d3v6.min.js"></script>
-  <script src="world-map.js?v=20260811-22"></script>
-  <script src="map.js"></script>
-  <script src="singapore-map.js?v=20260811-2"></script>
+  <script src="world-map.js?v=20260812-5"></script>
+  <script src="map.js?v=20260812-9"></script>
+  <script src="singapore-map.js?v=20260812-1"></script>
 </body>
 </html>

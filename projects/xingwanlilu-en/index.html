@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-asset-base="../xingwanlilu/">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ten Thousand Miles is a living atlas of the countries, cities, provinces, and places I have travelled through.">
+  <meta name="theme-color" content="#173c38">
+  <title>Ten Thousand Miles | A Living Travel Atlas</title>
+  <script>if(location.protocol==='file:')location.replace('http://localhost:1111/projects/xingwanlilu-en/');</script>
+  <link rel="stylesheet" href="../xingwanlilu/styles.css?v=20260812-8">
+  <link rel="stylesheet" href="styles-en.css?v=20260812-2">
+</head>
+<body class="english-page">
+  <header class="topbar">
+    <a class="brand" href="../../projects/" aria-label="Back to projects"><span>行</span><b>Ten Thousand Miles</b></a>
+    <nav aria-label="Page navigation"><a href="#world">坤舆万国</a><a href="#map">九州万方</a><a href="#singapore">南洋图志</a><a href="#overview">Footprints</a></nav>
+    <div class="topbar-actions"><a class="language-link" href="../xingwanlilu/" onclick="this.href='../xingwanlilu/'+location.hash">中文 ↗</a><a class="back" href="../../projects/">Projects ↗</a></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Read ten thousand books · Travel ten thousand miles</p>
+      <h1>The heart knows its bearing;<br><em>the road unfolds across the land.</em></h1>
+      <a class="scroll-link" href="#world">Open the travel atlas <span>↓</span></a>
+      <div class="hero-stamp" aria-hidden="true"><b>27</b><span>regions<br>travelled</span></div>
+    </section>
+
+    <section id="world" class="world-section section-shell" aria-labelledby="world-title">
+      <div class="world-heading">
+        <div><p class="eyebrow">I · 坤舆万国 · Atlas of the World</p><h2 id="world-title">This heart is luminous;<br><em>what more is there to say?</em></h2></div>
+        <p class="world-intro">Knowledge begins in action; action completes knowledge. I follow the heart and gather each landscape into this living atlas.</p>
+      </div>
+      <div class="world-window">
+        <div class="globe-pane">
+          <div class="globe-controls" aria-label="World map controls">
+            <button type="button" id="world-zoom-in" aria-label="Zoom in">＋</button>
+            <button type="button" id="world-zoom-out" aria-label="Zoom out">－</button>
+            <button type="button" id="world-spin" aria-pressed="true">Rotation · Pause</button>
+            <button type="button" id="world-home">Full view</button>
+            <button type="button" id="world-routes" aria-pressed="false">Show flights</button>
+            <button type="button" id="world-rail-routes" aria-pressed="false">Show rail</button><button type="button" id="world-car-routes" aria-pressed="false">Show roads</button>
+          </div>
+          <svg id="world-map" viewBox="0 0 900 620" role="img" aria-labelledby="world-title world-desc">
+            <defs>
+              <filter id="globe-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="22" flood-color="#3c505f" flood-opacity=".14"/></filter>
+              <filter id="star-glow" x="-400%" y="-400%" width="800%" height="800%"><feGaussianBlur stdDeviation="2.2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <radialGradient id="globe-ocean" cx="34%" cy="28%" r="78%"><stop offset="0%" stop-color="#dff4f8"/><stop offset="55%" stop-color="#a9d9e7"/><stop offset="100%" stop-color="#69a9c2"/></radialGradient>
+              <radialGradient id="globe-shade" cx="32%" cy="26%" r="80%"><stop offset="0%" stop-color="#fff" stop-opacity=".5"/><stop offset="45%" stop-color="#fff" stop-opacity="0"/><stop offset="100%" stop-color="#3a4e5a" stop-opacity=".22"/></radialGradient>
+            </defs>
+          </svg>
+          <p id="world-desc" class="sr-only">An interactive world map marking visited countries and cities, with flight and rail routes available on demand.</p>
+          <div id="world-tooltip" class="world-tooltip" role="tooltip"></div>
+          <div id="city-detail" class="city-detail" aria-live="polite"><span>Touch a blue city</span><strong>to view years visited</strong></div>
+          <div id="world-status" class="world-status">Opening the world atlas…</div>
+        </div>
+        <div id="journey-list" class="journey-list" aria-label="Places travelled"></div>
+      </div>
+    </section>
+
+    <section id="map" class="map-section section-shell" aria-labelledby="map-title">
+      <div class="section-heading map-heading"><p>II · 九州万方 · Across China</p><h2 id="map-title"><span>Knowledge and action illuminate each other;</span><em>mountains and rivers are held close.</em></h2></div>
+      <div class="map-panel">
+        <div class="map-toolbar"><div><span class="legend-dot visited"></span>Visited</div><div><span class="legend-dot future"></span>Yet to arrive</div><button type="button" id="china-zoom-in" class="map-route-toggle" aria-label="Zoom in on China">＋</button><button type="button" id="china-zoom-out" class="map-route-toggle" aria-label="Zoom out of China">－</button><button type="button" id="china-zoom-home" class="map-route-toggle">Full view</button><button type="button" id="china-flight-routes" class="map-route-toggle" aria-pressed="false">Show flights</button><button type="button" id="china-rail-routes" class="map-route-toggle" aria-pressed="false">Show rail</button><button type="button" id="china-car-routes" class="map-route-toggle" aria-pressed="false">Show roads</button><p>Hover over or touch a region to see its name</p></div>
+        <div class="map-wrap">
+          <svg id="china-map" viewBox="0 0 900 720" role="img" aria-labelledby="map-title map-desc">
+            <defs>
+              <filter id="paper-shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173c38" flood-opacity=".16"/></filter>
+              <pattern id="travel-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="9" height="9" fill="#a84732"/><line x1="0" y1="0" x2="0" y2="9" stroke="#ca725d" stroke-width="2" opacity=".35"/></pattern>
+              <pattern id="future-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#d9d3c4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c3b9a6" stroke-width="1" opacity=".6"/></pattern>
+            </defs>
+            <g id="china-map-viewport"><g id="map-land" filter="url(#paper-shadow)"></g><g id="map-rivers" aria-hidden="true"></g><g id="map-flight-routes" class="china-route-layer" aria-hidden="true"></g><g id="map-rail-routes" class="china-route-layer" aria-hidden="true"></g><g id="map-car-routes" class="china-route-layer" aria-hidden="true"></g><g id="map-route-cities" class="china-route-cities"></g><g id="map-labels" aria-hidden="true"></g></g>
+          </svg>
+          <p id="map-desc" class="sr-only">A provincial map of China showing regions already visited and places still awaiting a journey.</p>
+          <div id="tooltip" class="tooltip" role="status" aria-live="polite"></div><div id="map-status" class="map-status">Opening the map of mountains and rivers…</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="singapore" class="singapore-section section-shell" aria-labelledby="singapore-title">
+      <div class="section-heading singapore-heading"><p>III · 南洋图志 · Notes from the South Seas</p><h2 id="singapore-title"><span>In a foreign land, the world comes into view;</span><em>and all things become clear through the heart.</em></h2></div>
+      <div class="singapore-panel">
+        <div class="singapore-map-wrap">
+          <svg id="singapore-map" viewBox="0 0 900 560" role="img" aria-labelledby="singapore-title singapore-desc"></svg>
+          <p id="singapore-desc" class="sr-only">A map of Singapore planning areas, with explored places shown in pale red.</p>
+          <div id="singapore-tooltip" class="singapore-tooltip" role="status" aria-live="polite"></div><div id="singapore-status" class="singapore-status">Opening the South Seas atlas…</div>
+        </div>
+        <aside class="singapore-note"><span>Singapore</span><strong id="singapore-current">Touch an area</strong><p id="singapore-current-note">View its planning area and district</p><div class="singapore-legend"><i></i>Visited <i></i>Not visited</div></aside>
+      </div>
+    </section>
+
+    <section id="overview" class="overview section-shell" aria-label="Footprint summary">
+      <div class="section-heading light section-label-only"><p>IV · Footprint Summary</p></div>
+      <div class="metrics">
+        <article><strong id="country-count">13</strong><span>countries visited</span><small>Each arrival enters the atlas</small></article>
+        <article><strong id="continent-count">4</strong><span>continents reached</span><small>Asia · Europe · North America · Oceania</small></article>
+        <article><strong>27<small class="metric-total">/34</small></strong><span>regions of China visited</span><small>Mountains and rivers held close</small></article>
+        <article><strong id="china-city-count">—</strong><span>Chinese cities visited</span><small>Distinct cities by air and rail</small></article>
+        <article><strong id="singapore-area-count">44</strong><span>Singapore areas explored</span><small>Places encountered in the South Seas</small></article>
+      </div>
+      <blockquote>“Knowledge is the beginning of action; action is the completion of knowledge.”<cite>— Wang Yangming</cite></blockquote>
+    </section>
+  </main>
+
+  <footer><span>Ten Thousand Miles</span><p>The map will keep growing.</p><a href="#map">Back to the map ↑</a></footer>
+  <script src="../xingwanlilu/d3v6.min.js"></script>
+  <script src="../xingwanlilu/world-map.js?v=20260812-5"></script>
+  <script src="../xingwanlilu/map.js?v=20260812-9"></script>
+  <script src="../xingwanlilu/singapore-map.js?v=20260812-1"></script>
+</body>
+</html>
