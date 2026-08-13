@@ -11,6 +11,7 @@
   <title>Wayfinder — Spatial Navigation</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="sensors.css">
+  <link rel="stylesheet" href="luopan.css">
 </head>
 <body>
   <main class="field" id="field">
@@ -43,6 +44,8 @@
       <div class="compass">
         <div class="heading"><span id="direction">NW</span><b id="degrees">302°</b></div>
         <div class="ticks" id="ticks"></div><div class="pin"></div>
+        <div class="mountains" id="mountains" aria-label="二十四山"></div>
+        <div class="bagua" id="bagua" aria-label="后天八卦"></div>
       </div>
       <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span></span><small>ALIGN TARGET</small></div>
       <div class="target-space" id="target-space"></div>
@@ -55,6 +58,6 @@
       </footer>
     </section>
   </main>
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>

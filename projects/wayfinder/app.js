@@ -8,6 +8,8 @@ let position={lat:1.3621,lng:103.7492,accuracy:14}, heading=302, filtered=302, l
 const $=id=>document.getElementById(id), rad=v=>v*Math.PI/180, deg=v=>v*180/Math.PI, norm=v=>(v%360+360)%360;
 const delta=(a,b)=>((a-b+540)%360)-180;
 const dir=d=>['N 北','NE 东北','E 东','SE 东南','S 南','SW 西南','W 西','NW 西北'][Math.round(norm(d)/45)%8];
+const mountainNames=['子','癸','丑','艮','寅','甲','卯','乙','辰','巽','巳','丙','午','丁','未','坤','申','庚','酉','辛','戌','乾','亥','壬'];
+const baguaNames=['坎 ☵','艮 ☶','震 ☳','巽 ☴','离 ☲','坤 ☷','兑 ☱','乾 ☰'];
 function distance(p,t){const R=6371,dLat=rad(t.lat-p.lat),dLng=rad(t.lng-p.lng),x=Math.sin(dLat/2)**2+Math.cos(rad(p.lat))*Math.cos(rad(t.lat))*Math.sin(dLng/2)**2;return 2*R*Math.asin(Math.sqrt(x))}
 function bearing(p,t){const a=rad(p.lat),b=rad(t.lat),dl=rad(t.lng-p.lng);return norm(deg(Math.atan2(Math.sin(dl)*Math.cos(b),Math.cos(a)*Math.sin(b)-Math.sin(a)*Math.cos(b)*Math.cos(dl))))}
 function fmt(km){return km<1?`${Math.round(km*1000)} M`:`${km.toFixed(km<10?1:0)} KM`}
@@ -16,6 +18,10 @@ function render(){
   $('degrees').textContent=`${String(Math.round(heading)).padStart(3,'0')}°`;$('direction').textContent=dir(heading);
   $('lat').textContent=`${position.lat.toFixed(4)}° N`;$('lng').textContent=`${position.lng.toFixed(4)}° E`;$('accuracy').textContent=`±${Math.round(position.accuracy)} M`;
   $('ticks').innerHTML=Array.from({length:25},(_,i)=>{const rel=(i-12)*5,v=norm(Math.round(heading/5)*5+rel),major=v%15===0,label=major?(v===0?'N 北':v===90?'E 东':v===180?'S 南':v===270?'W 西':v):'';return `<div class="tick ${major?'major':''}"><i></i>${label?`<span>${label}</span>`:''}</div>`}).join('');
+  const mountainCenter=Math.round(heading/15)*15;
+  $('mountains').innerHTML=Array.from({length:11},(_,i)=>mountainCenter+(i-5)*15).map(center=>{const rel=delta(norm(center),heading),name=mountainNames[Math.round(norm(center)/15)%24],current=Math.abs(rel)<7.5;return `<span class="luopan-item ${current?'current':''}" style="left:${50+rel/1.2}%">${name}</span>`}).join('');
+  const baguaCenter=Math.round(heading/45)*45;
+  $('bagua').innerHTML=Array.from({length:5},(_,i)=>baguaCenter+(i-2)*45).map(center=>{const rel=delta(norm(center),heading),name=baguaNames[Math.round(norm(center)/45)%8],current=Math.abs(rel)<22.5;return `<span class="luopan-item ${current?'current':''}" style="left:${50+rel/1.2}%">${name}</span>`}).join('');
   const ts=targets();
   $('target-space').innerHTML=ts.map((t,i)=>{const d=delta(t.bearing,heading),visible=Math.abs(d)<58,x=50+d/58*48,locked=Math.abs(d)<7;return `<article class="target ${visible?'visible':''} ${locked?'aligned':''}" style="left:${x}%;top:${39+i*12}%;--accent:${t.accent}"><div class="target-line"></div><div class="target-dot"><i></i></div><div class="target-card"><div class="target-index">0${i+1}<span>${locked?'LOCKED':`${Math.abs(Math.round(d))}° ${d>0?'RIGHT':'LEFT'}`}</span></div><h2>${t.name}</h2><p>${t.sub}</p><div class="target-meta"><b>${fmt(t.distance)}</b><span>${Math.round(t.bearing)}° ${dir(t.bearing)}</span></div></div></article>`}).join('');
   $('edge-space').innerHTML=ts.map(t=>{const d=delta(t.bearing,heading);if(Math.abs(d)<58)return'';return `<div class="edge ${d<0?'left':'right'}" style="--accent:${t.accent}"><span>${d<0?'‹':'›'}</span><b>${t.name}</b><small>${fmt(t.distance)}</small></div>`}).join('');
