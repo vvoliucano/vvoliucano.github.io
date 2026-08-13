@@ -35,7 +35,9 @@ function updateStatus(){
 function screenAngle(){const angle=screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:0;return angle}
 function circularAverage(values){const x=values.reduce((s,v)=>s+Math.cos(rad(v)),0),y=values.reduce((s,v)=>s+Math.sin(rad(v)),0);return norm(deg(Math.atan2(y,x)))}
 function orientation(e){
-  let next=null;if(typeof e.webkitCompassHeading==='number')next=norm(e.webkitCompassHeading-screenAngle());else if(typeof e.alpha==='number')next=norm(360-e.alpha-screenAngle());if(next===null||!Number.isFinite(next))return;
+  // iOS webkitCompassHeading already follows the top of the visible screen.
+  // Only the generic alpha coordinate needs screen-rotation compensation.
+  let next=null;if(typeof e.webkitCompassHeading==='number')next=norm(e.webkitCompassHeading);else if(typeof e.alpha==='number')next=norm(360-e.alpha-screenAngle());if(next===null||!Number.isFinite(next))return;
   headingSamples.push(next);if(headingSamples.length>18)headingSamples.shift();
   const average=circularAverage(headingSamples);
   if(!liveSensors){filtered=average;heading=average}else{const change=delta(average,filtered);if(Math.abs(change)>1.5){const gain=Math.abs(change)>25?.28:Math.abs(change)>10?.16:.08;filtered=norm(filtered+change*gain);heading=filtered}}
