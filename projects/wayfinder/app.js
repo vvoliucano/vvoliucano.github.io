@@ -1,12 +1,13 @@
 const points = [
   {id:'bt',name:'BUKIT TIMAH',sub:'SUMMIT · 163 M',lat:1.3541,lng:103.7764,accent:'#d8ff3e'},
   {id:'nie',name:'NTU · NIE',sub:'NATIONAL INSTITUTE OF EDUCATION',lat:1.3486,lng:103.6784,accent:'#70f6ff'},
-  {id:'cck',name:'CHOA CHU KANG',sub:'MRT · NS4 / JS1',lat:1.3854,lng:103.7443,accent:'#ffb86c'}
+  {id:'cck',name:'CHOA CHU KANG',sub:'MRT · NS4 / JS1',lat:1.3854,lng:103.7443,accent:'#ffb86c'},
+  {id:'tiananmen',name:'北京 · 天安门',sub:'TIANANMEN · BEIJING',lat:39.9087,lng:116.3975,accent:'#ff6b5f'}
 ];
-let position={lat:1.3621,lng:103.7492,accuracy:14}, heading=302, filtered=302, liveSensors=false, cameraLive=false, geoLive=false;
+let position={lat:1.3621,lng:103.7492,accuracy:14}, heading=302, filtered=302, liveSensors=false, cameraLive=false, geoLive=false, headingSamples=[];
 const $=id=>document.getElementById(id), rad=v=>v*Math.PI/180, deg=v=>v*180/Math.PI, norm=v=>(v%360+360)%360;
 const delta=(a,b)=>((a-b+540)%360)-180;
-const dir=d=>['N','NE','E','SE','S','SW','W','NW'][Math.round(norm(d)/45)%8];
+const dir=d=>['N 北','NE 东北','E 东','SE 东南','S 南','SW 西南','W 西','NW 西北'][Math.round(norm(d)/45)%8];
 function distance(p,t){const R=6371,dLat=rad(t.lat-p.lat),dLng=rad(t.lng-p.lng),x=Math.sin(dLat/2)**2+Math.cos(rad(p.lat))*Math.cos(rad(t.lat))*Math.sin(dLng/2)**2;return 2*R*Math.asin(Math.sqrt(x))}
 function bearing(p,t){const a=rad(p.lat),b=rad(t.lat),dl=rad(t.lng-p.lng);return norm(deg(Math.atan2(Math.sin(dl)*Math.cos(b),Math.cos(a)*Math.sin(b)-Math.sin(a)*Math.cos(b)*Math.cos(dl))))}
 function fmt(km){return km<1?`${Math.round(km*1000)} M`:`${km.toFixed(km<10?1:0)} KM`}
@@ -14,7 +15,7 @@ function targets(){return points.map(p=>({...p,bearing:bearing(position,p),dista
 function render(){
   $('degrees').textContent=`${String(Math.round(heading)).padStart(3,'0')}°`;$('direction').textContent=dir(heading);
   $('lat').textContent=`${position.lat.toFixed(4)}° N`;$('lng').textContent=`${position.lng.toFixed(4)}° E`;$('accuracy').textContent=`±${Math.round(position.accuracy)} M`;
-  $('ticks').innerHTML=Array.from({length:25},(_,i)=>{const rel=(i-12)*5,v=norm(Math.round(heading/5)*5+rel),major=v%15===0,label=major?(v===0?'N':v===90?'E':v===180?'S':v===270?'W':v):'';return `<div class="tick ${major?'major':''}"><i></i>${label?`<span>${label}</span>`:''}</div>`}).join('');
+  $('ticks').innerHTML=Array.from({length:25},(_,i)=>{const rel=(i-12)*5,v=norm(Math.round(heading/5)*5+rel),major=v%15===0,label=major?(v===0?'N 北':v===90?'E 东':v===180?'S 南':v===270?'W 西':v):'';return `<div class="tick ${major?'major':''}"><i></i>${label?`<span>${label}</span>`:''}</div>`}).join('');
   const ts=targets();
   $('target-space').innerHTML=ts.map((t,i)=>{const d=delta(t.bearing,heading),visible=Math.abs(d)<58,x=50+d/58*48,locked=Math.abs(d)<7;return `<article class="target ${visible?'visible':''} ${locked?'aligned':''}" style="left:${x}%;top:${39+i*12}%;--accent:${t.accent}"><div class="target-line"></div><div class="target-dot"><i></i></div><div class="target-card"><div class="target-index">0${i+1}<span>${locked?'LOCKED':`${Math.abs(Math.round(d))}° ${d>0?'RIGHT':'LEFT'}`}</span></div><h2>${t.name}</h2><p>${t.sub}</p><div class="target-meta"><b>${fmt(t.distance)}</b><span>${Math.round(t.bearing)}° ${dir(t.bearing)}</span></div></div></article>`}).join('');
   $('edge-space').innerHTML=ts.map(t=>{const d=delta(t.bearing,heading);if(Math.abs(d)<58)return'';return `<div class="edge ${d<0?'left':'right'}" style="--accent:${t.accent}"><span>${d<0?'‹':'›'}</span><b>${t.name}</b><small>${fmt(t.distance)}</small></div>`}).join('');
@@ -26,7 +27,14 @@ function updateStatus(){
   else if(missing.length){$('notice').textContent=`${missing.join(' + ')} WAITING`;$('retry').hidden=false}
 }
 function screenAngle(){const angle=screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:0;return angle}
-function orientation(e){let next=null;if(typeof e.webkitCompassHeading==='number')next=norm(e.webkitCompassHeading-screenAngle());else if(typeof e.alpha==='number')next=norm(360-e.alpha-screenAngle());if(next===null||!Number.isFinite(next))return;filtered=norm(filtered+delta(next,filtered)*.16);heading=filtered;liveSensors=true;$('scan-label').textContent='LIVE ORIENTATION';$('live-dot').classList.add('live');updateStatus();render()}
+function circularAverage(values){const x=values.reduce((s,v)=>s+Math.cos(rad(v)),0),y=values.reduce((s,v)=>s+Math.sin(rad(v)),0);return norm(deg(Math.atan2(y,x)))}
+function orientation(e){
+  let next=null;if(typeof e.webkitCompassHeading==='number')next=norm(e.webkitCompassHeading-screenAngle());else if(typeof e.alpha==='number')next=norm(360-e.alpha-screenAngle());if(next===null||!Number.isFinite(next))return;
+  headingSamples.push(next);if(headingSamples.length>18)headingSamples.shift();
+  const average=circularAverage(headingSamples);
+  if(!liveSensors){filtered=average;heading=average}else{const change=delta(average,filtered);if(Math.abs(change)>1.5){const gain=Math.abs(change)>25?.28:Math.abs(change)>10?.16:.08;filtered=norm(filtered+change*gain);heading=filtered}}
+  liveSensors=true;$('scan-label').textContent='STABLE ORIENTATION';$('live-dot').classList.add('live');updateStatus();render()
+}
 function requestSensorAccess(){
   let orientationRequest;
   try{const DOE=window.DeviceOrientationEvent;if(DOE&&typeof DOE.requestPermission==='function')orientationRequest=DOE.requestPermission();else orientationRequest=Promise.resolve('granted')}catch(e){orientationRequest=Promise.reject(e)}
@@ -56,6 +64,6 @@ function start(){
 }
 $('start').addEventListener('click',start);$('retry').addEventListener('click',enableSensors);$('menu').addEventListener('click',()=>$('panel').classList.toggle('open'));$('scan').addEventListener('click',()=>{heading=norm(heading+45);render()});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&cameraLive)$('camera').play().catch(()=>{})});
-window.addEventListener('orientationchange',()=>{filtered=heading;setTimeout(render,120)});
+window.addEventListener('orientationchange',()=>{filtered=heading;headingSamples=[];setTimeout(render,120)});
 window.addEventListener('pointermove',e=>{if(!$('hud').hidden&&!liveSensors){heading=norm(e.clientX/innerWidth*360);render()}});
 setInterval(()=>$('clock').textContent=new Date().toLocaleTimeString('en-SG',{hour12:false}),1000);render();
