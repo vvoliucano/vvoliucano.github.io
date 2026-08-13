@@ -32,12 +32,10 @@ function updateStatus(){
   if(cameraLive&&liveSensors&&geoLive){$('notice').textContent='FIELD LINK ACTIVE';$('retry').hidden=true;$('live-dot').classList.add('live')}
   else if(missing.length){$('notice').textContent=`${missing.join(' + ')} WAITING`;$('retry').hidden=false}
 }
-function screenAngle(){const angle=screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:0;return angle}
 function circularAverage(values){const x=values.reduce((s,v)=>s+Math.cos(rad(v)),0),y=values.reduce((s,v)=>s+Math.sin(rad(v)),0);return norm(deg(Math.atan2(y,x)))}
 function orientation(e){
-  // iOS webkitCompassHeading already follows the top of the visible screen.
-  // Only the generic alpha coordinate needs screen-rotation compensation.
-  let next=null;if(typeof e.webkitCompassHeading==='number')next=norm(e.webkitCompassHeading);else if(typeof e.alpha==='number')next=norm(360-e.alpha-screenAngle());if(next===null||!Number.isFinite(next))return;
+  // Always use the browser's original heading; never apply screen/device offsets.
+  let next=null;if(typeof e.webkitCompassHeading==='number')next=norm(e.webkitCompassHeading);else if(typeof e.alpha==='number')next=norm(360-e.alpha);if(next===null||!Number.isFinite(next))return;
   headingSamples.push(next);if(headingSamples.length>18)headingSamples.shift();
   const average=circularAverage(headingSamples);
   if(!liveSensors){filtered=average;heading=average}else{const change=delta(average,filtered);if(Math.abs(change)>1.5){const gain=Math.abs(change)>25?.28:Math.abs(change)>10?.16:.08;filtered=norm(filtered+change*gain);heading=filtered}}
@@ -72,6 +70,5 @@ function start(){
 }
 $('start').addEventListener('click',start);$('retry').addEventListener('click',enableSensors);$('menu').addEventListener('click',()=>$('panel').classList.toggle('open'));$('scan').addEventListener('click',()=>{heading=norm(heading+45);render()});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&cameraLive)$('camera').play().catch(()=>{})});
-window.addEventListener('orientationchange',()=>{filtered=heading;headingSamples=[];setTimeout(render,120)});
 window.addEventListener('pointermove',e=>{if(!$('hud').hidden&&!liveSensors){heading=norm(e.clientX/innerWidth*360);render()}});
 setInterval(()=>$('clock').textContent=new Date().toLocaleTimeString('en-SG',{hour12:false}),1000);render();
