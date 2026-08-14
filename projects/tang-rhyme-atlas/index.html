@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="以一千个常用汉字为样本，比较唐代韵部与官话、晋、吴、徽、赣、湘、闽、粤、客家以及韩国、越南汉字音的韵类划分。">
+  <meta name="theme-color" content="#111815">
+  <meta property="og:title" content="千字同韵｜唐代韵部的现代回声">
+  <meta property="og:description" content="一千个常用汉字，中古汉语与十一个现代读音系统，一幅跨越千年的韵类关系图。">
+  <meta property="og:image" content="/projects/tang-rhyme-atlas/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>千字同韵｜唐代韵部的现代回声</title>
+  <link rel="stylesheet" href="styles.css?v=20260813-5">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../other/"><span>韵</span>千字同韵</a>
+    <nav aria-label="页面导航"><a href="#method">方法</a><a href="#relations">关系</a><a href="#rhyme-reader">对韵</a><a href="#table">字表</a></nav>
+    <a class="back" href="../../other/">华夏专区 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">A COMPARATIVE PHONOLOGY ATLAS · 研究原型</p>
+        <h1>千字同韵<small>唐代韵部的现代回声</small></h1>
+        <p class="lead">选取 1,000 个常用汉字，从《切韵》—《广韵》音系出发，对照官话、晋语、吴语、徽语、赣语、湘语、闽语、粤语、客家话，以及韩国与越南汉字音，观察一千多年后韵尾与韵类留下的痕迹。</p>
+        <div class="hero-actions"><a class="button primary" href="#relations">进入比较</a><a class="button" href="#method">查看研究设计</a></div>
+        <p class="status"><i></i> 当前比较集 · 240 个来源可追溯常用字</p>
+      </div>
+      <div class="echo-stage" aria-label="东、冬、江三组韵部在不同语言中的读音回声">
+        <div class="rings"><i></i><i></i><i></i><i></i></div>
+        <div class="center-glyph">東</div>
+        <div class="echo e1"><b>中古</b><span>tuwng</span></div><div class="echo e2"><b>粤</b><span>dung¹</span></div>
+        <div class="echo e3"><b>闽</b><span>tong</span></div><div class="echo e4"><b>韩</b><span>dong</span></div>
+        <div class="echo e5"><b>越</b><span>đông</span></div><div class="echo e6"><b>吴</b><span>ton</span></div>
+      </div>
+      <div class="hero-index"><span>研究维度</span><b>中古汉语基准</b><b>11 个现代系统</b><b>16 个摄 · 206 韵</b></div>
+    </section>
+
+    <section class="thesis"><span>我们要测量的不是“谁更古老”</span><strong>而是哪一种语音特征，在什么韵部、什么系统中被保留下来</strong></section>
+
+    <section id="method" class="section paper">
+      <div class="section-head"><p>01 · 研究设计</p><h2>把“听起来像”<br>变成可复查的数据。</h2></div>
+      <div class="pipeline">
+        <article><em>壹</em><h3>定字</h3><p>以现代汉语高频字为主体，兼顾各韵摄、声调与入声字；按字而非词比较。</p><span>频率 × 韵部覆盖</span></article>
+        <article><em>贰</em><h3>定音</h3><p>中古音记录韵摄、韵、等、呼、声调、声母；现代读音统一转写为 IPA。</p><span>一字允许多音</span></article>
+        <article><em>叁</em><h3>拆特征</h3><p>把韵母拆成介音、主元音、鼻音/塞音韵尾及声调，避免只比较拼写。</p><span>feature encoding</span></article>
+        <article><em>肆</em><h3>算关系</h3><p>按特征距离、规则一致率与互信息计算系统关系，并以重抽样给出区间。</p><span>全局 + 分韵部</span></article>
+      </div>
+      <div class="scope-grid">
+        <div><span>九类汉语系统</span><b>官话 · 晋 · 吴 · 徽 · 赣<br>湘 · 闽 · 粤 · 客家</b><p>这里将客家话单列。每一类先选一个明确代表点，之后再扩展地点层级，避免把方言区误当成单一口音。</p></div>
+        <div><span>域外汉字音</span><b>韩国汉字音<br>越南汉越音</b><p>记录其历史输入层次；韩国以标准韩语汉字音、越南以标准汉越音作为第一版基准。</p></div>
+        <div><span>历史基准</span><b>《广韵》小韵<br>中古音拟音</b><p>韵部是分类标签，拟音是分析假设；两者分栏保存，允许替换不同拟音体系。</p></div>
+      </div>
+      <div class="sample-points">
+        <div class="sample-intro"><span>本页采用的代表点</span><h3>每一个“大方言”<br>都必须落到一个地点。</h3><p>这些代表点只是第一版比较基准，不等于整个方言区。切换代表点时，矩阵应重新计算。</p></div>
+        <div id="sample-grid" class="sample-grid"></div>
+      </div>
+      <div class="dialect-source-note"><span>其余方言数据源</span><p>已定位中央研究院／台大“小学堂”字音库：<a href="https://xiaoxue.iis.sinica.edu.tw/Jinyu">晋语</a>、<a href="https://xiaoxue.iis.sinica.edu.tw/Wuyu">吴语</a>、<a href="https://xiaoxue.iis.sinica.edu.tw/Huiyu">徽语</a>、<a href="https://xiaoxue.iis.sinica.edu.tw/Ganyu">赣语</a>、<a href="https://xiaoxue.iis.sinica.edu.tw/Xiangyu">湘语</a>、<a href="https://xiaoxue.iis.sinica.edu.tw/Minyu">闽语</a>。这些记录直接提供方言点、声母、韵母、调值和《广韵》韵目；导入时将固定太原、苏州、绩溪、南昌、长沙、厦门六个代表点。</p></div>
+    </section>
+
+    <section id="relations" class="section night">
+      <div class="section-head"><p>02 · 系统关系</p><h2>原来同韵的字，<br>后来还同韵吗？</h2><span>矩阵从行读到列：对行系统的每个韵，找出列系统中人数最多的对应韵部，再统计落入这些主要对应的字数。当前中古侧使用与读音逐字对齐的 Unihan kTang 韵母；少于200个共同字不报分数。</span></div>
+      <div class="matrix-layout">
+        <div><div id="matrix" class="matrix" role="grid" aria-label="读音系统相关矩阵"></div><div class="legend"><i></i><span>差异较大</span><i></i><span>较多对应</span></div></div>
+        <aside class="compare-card"><p>当前比较</p><h3 id="pair-title">中古 → 客家话</h3><strong id="pair-score">—</strong><span>单向韵部保持率 · 按字数</span><div id="pair-bars"></div><small>每个源韵以目标系统中人数最多的韵部作为主要对应。落入主要对应的字计为保持，其余计为分化；不做反向统计，也不再枚举字对。</small></aside>
+      </div>
+      <div class="formula-card">
+        <div><p>源系统的韵部</p><h3>逐韵寻找主要对应</h3><span>中古侧暂按 kTang 韵母归类；现代侧按韵基归部。每个源韵中人数最多的目标韵是该韵的主要对应。</span></div>
+        <div><p>按字数计算保持率</p><code>R(A→B) = major-mapping characters / valid characters</code><span>落入各源韵主要对应的字计为保持，其余字计为分化。单字源韵计入字数，同时单独提示其证据有限。</span></div>
+        <div><p>方向性</p><code>R(A→B) ≠ R(B→A)</code><span>B 把多个 A 韵合并不会降低 A→B；因此它精确回答“原先属于同一个韵的字，后来是否还在同一韵部”。</span></div>
+      </div>
+    </section>
+
+    <section id="sankey" class="section sankey-section">
+      <div class="section-head"><p>03 · 客家韵部</p><h2>二百四十个字，<br>怎样流入客家韵部？</h2><span>两侧都先按阴声韵、阳声韵与入声韵分区，再按韵尾和主元音排布；分区内以对应关系微调顺序，让较强的对应汇成相邻流带。</span></div>
+      <div class="sankey-tools"><span>全量关系图</span><span id="sankey-sample"></span></div>
+      <div class="sankey-frame"><canvas id="sankey-canvas" aria-label="中古韵类流向现代读音韵类的桑基图"></canvas><div id="sankey-legend" class="sankey-legend"></div></div>
+      <p class="source-note">客家韵母按教育部<a href="https://language.moe.gov.tw/001/Upload/files/site_content/M0001/language_110/wp-content/uploads/2022/06/%E5%85%AD%E8%85%94%E9%9F%B3%E7%AF%80%E8%A1%A8.pdf">《台湾客家语拼音方案·六腔音节表》</a>拆分声母、韵母与声调；图中同时保留 240 字、全部四县韵母与全部 <a href="https://unicode.org/reports/tr38/">Unihan kTang</a> 唐音韵母，不设置“其他”。</p>
+    </section>
+
+    <section id="retention" class="section paper">
+      <div class="section-head"><p>04 · 韵部保留</p><h2>每一个韵摄，<br>都留下不同的轨迹。</h2><span>这里的鼻音、塞音韵尾保留率是解释分类结果的辅助视图，不再作为两个语言系统的总相似分数。</span></div>
+      <div class="retention-controls" id="system-tabs" role="tablist"></div>
+      <div class="retention-layout"><div id="retention-chart" class="retention-chart"></div><aside class="rhyme-note"><span id="system-name">粤语</span><h3 id="system-summary">塞音韵尾形成清晰的历史轮廓</h3><p id="system-detail"></p><div class="key"><i class="nasal"></i>鼻音韵尾 /m n ŋ/<i class="stop"></i>塞音韵尾 /p t k/</div></aside></div>
+    </section>
+
+    <section id="rhyme-reader" class="section rhyme-reader">
+      <div class="section-head"><p>05 · 对韵读本</p><h2>天对地，<br>雨对风。</h2><span>《笠翁对韵》以平水韵组织声律。选择一个系统，听见同一段文字在中古与各地读音中的不同韵脚结构。</span></div>
+      <div class="verse-layout">
+        <div class="verse-original"><span>上卷 · 一东</span><blockquote>天对地，雨对风。<br>大陆对长空。<br>山花对海树，<br>赤日对苍穹。</blockquote><cite>《笠翁对韵》节选</cite></div>
+        <div class="verse-reading"><div id="verse-tabs" class="retention-controls"></div><p id="verse-point"></p><div id="verse-text" class="romanized-verse"></div></div>
+      </div>
+      <div class="rhyme-catalogue-head"><span>平水韵 · 平声三十韵</span><p>《笠翁对韵》上下卷依次使用十五个上平声韵与十五个下平声韵。每一韵列一个代表字组；它们是阅读索引，不等同于《广韵》206 韵。</p></div>
+      <div id="rhyme-catalogue" class="rhyme-catalogue"></div>
+      <div id="rhyme-detail" class="rhyme-detail" aria-live="polite"></div>
+    </section>
+
+    <section id="table" class="section ink-table">
+      <div class="section-head"><p>06 · 字表</p><h2>从一个字，追踪十二条回声。</h2><span>当前核心比较集为 240 个常用字；搜索字、韵部或读音，检验中古分类与现代读音的对应。没有可靠来源的格子保持空白。</span></div>
+      <div class="table-tools"><label><span>搜索</span><input id="search" type="search" placeholder="例如：東、通摄、dong"></label><label><span>韵摄</span><select id="rhyme-filter"><option value="">全部韵摄</option></select></label><button id="download" type="button">下载数据模板 ↓</button></div>
+      <div class="table-wrap"><table><thead><tr><th>字</th><th>中古</th><th>韵摄 / 韵</th><th>官话</th><th>吴</th><th>闽</th><th>粤</th><th>客家</th><th>韩</th><th>越</th></tr></thead><tbody id="data-rows"></tbody></table></div>
+      <p id="result-count" class="result-count"></p>
+    </section>
+
+  </main>
+  <footer><b>千字同韵</b><span>中古汉语 × 九类汉语系统 × 韩国 × 越南</span><a href="../../other/">返回华夏专区</a></footer>
+  <script src="data-240.js?v=20260813-4"></script>
+  <script src="xiaoxuetang-240.js?v=20260813-2"></script>
+  <script src="app.js?v=20260813-13"></script>
+</body>
+</html>

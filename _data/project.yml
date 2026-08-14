@@ -120,6 +120,13 @@
   demo: "/projects/fengshui/"
   demo_en: "/projects/fengshui/en.html"
 
+- id: tang-rhyme-atlas
+  title: 千字同韵
+  image: tang-rhyme-atlas.png
+  description: "A research prototype comparing Middle Chinese rhyme groups with nine modern Chinese systems—including Hakka—plus Korean and Vietnamese Sino-Xenic readings across 1,000 common characters."
+  description_zh: "以一千个常用汉字为样本，比较唐代韵部与官话、晋、吴、徽、赣、湘、闽、粤、客家以及韩国、越南汉字音的韵类划分。"
+  demo: "/projects/tang-rhyme-atlas/"
+
 - id: chinese-calculus
   title: 割之又割
   image: chinese-calculus.png
