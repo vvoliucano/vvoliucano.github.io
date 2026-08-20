@@ -65,11 +65,14 @@ h1 em{color:var(--blue);font-style:normal}
 .big-number{font-family:var(--kai);font-size:clamp(110px,18vw,220px);color:var(--blue);line-height:.8}
 .chapter-hero h1{font-size:clamp(54px,8vw,100px)}
 .chapter-hero blockquote{margin:24px 0 0;color:#66757b;font-family:var(--kai);font-size:clamp(18px,2vw,26px)}
+.chapter-hero blockquote .translation{display:block;margin-top:7px;color:#8a9497;font-family:Georgia,"Times New Roman",serif;font-size:14px;line-height:1.6}
 .article{width:min(980px,calc(100% - 40px));margin:auto;padding-bottom:120px}
 .section{padding:82px 0;border-top:1px solid var(--line)}
 .section-kicker{color:var(--red);font-size:12px;font-weight:700;letter-spacing:.2em}
 .section h2{max-width:14em;margin:14px 0 28px;font-family:var(--kai);font-size:clamp(36px,5vw,62px);font-weight:400;line-height:1.3}
 .section p{max-width:780px;margin:0 0 22px;color:#44555d;font-size:clamp(17px,1.7vw,20px);line-height:2}
+.section p.translation{margin:-10px 0 30px;color:#7a8589;font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.75;letter-spacing:.01em}
+.section p.source-translation{margin-top:-8px;padding:0 28px;border-left:2px solid rgba(22,132,182,.35);font-style:italic}
 .source-text{padding:clamp(28px,5vw,60px);border-left:4px solid var(--blue);background:rgba(255,255,255,.5);font-family:var(--kai);font-size:clamp(21px,2.6vw,31px)!important;line-height:2.1!important}
 .comic{margin:30px 0 0}
 .comic img{display:block;width:100%;height:auto;object-fit:contain;border:1px solid var(--line);box-shadow:0 24px 70px rgba(25,42,52,.12)}
@@ -78,6 +81,7 @@ h1 em{color:var(--blue);font-style:normal}
 .comic-series figure{width:min(760px,100%);margin:0 auto}
 .comic-series img{display:block;width:100%;height:auto;object-fit:contain;border:1px solid var(--line);background:#efe5ce;box-shadow:0 24px 70px rgba(25,42,52,.12)}
 .comic-series figcaption{margin-top:13px;color:#74838a;font-size:13px;line-height:1.7;text-align:center}
+.comic-series figcaption .translation{display:block;margin-top:2px;color:#98a1a4;font-family:Georgia,"Times New Roman",serif;font-size:12px}
 .lab{display:grid;margin-top:34px;padding:30px;grid-template-columns:1fr 1fr;gap:32px;border:1px solid var(--line);background:rgba(255,255,255,.44)}
 .lab label{display:flex;justify-content:space-between;margin-bottom:18px;color:#56666d}
 .lab input{width:100%;accent-color:var(--blue)}
@@ -120,9 +124,11 @@ h1 em{color:var(--blue);font-style:normal}
 .quality{padding:30px;border:1px solid var(--line);background:rgba(255,255,255,.45)}
 .quality b{display:block;margin-bottom:12px;color:var(--blue-deep);font-family:var(--kai);font-size:30px;font-weight:400}
 .quality span{color:#596970;font-size:16px;line-height:1.8}
+.quality span.translation{display:block;margin-top:10px;color:#879297;font-family:Georgia,"Times New Roman",serif;font-size:14px;line-height:1.65}
 .closing{padding:110px 20px;background:#102b3a;color:white;text-align:center}
 .closing p{margin:0;font-family:var(--kai);font-size:clamp(38px,6vw,74px);line-height:1.5}
 .closing em{color:var(--yellow);font-style:normal}
+.closing .translation{display:block;margin-top:18px;color:rgba(255,255,255,.62);font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.6}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.is-visible{opacity:1;transform:none}
 @keyframes turn{to{transform:rotate(360deg)}}
