@@ -70,6 +70,8 @@ h1 em{color:var(--blue);font-style:normal}
 .section{padding:82px 0;border-top:1px solid var(--line)}
 .section-kicker{color:var(--red);font-size:12px;font-weight:700;letter-spacing:.2em}
 .section h2{max-width:14em;margin:14px 0 28px;font-family:var(--kai);font-size:clamp(36px,5vw,62px);font-weight:400;line-height:1.3}
+.heading-translation{max-width:44em;margin:-18px 0 30px;color:#7a8589;font-family:Georgia,"Times New Roman",serif;font-size:16px;font-style:italic;line-height:1.55;letter-spacing:.01em}
+.hero-heading-translation{max-width:42em;margin:10px 0 0;font-size:16px}
 .section p{max-width:780px;margin:0 0 22px;color:#44555d;font-size:clamp(17px,1.7vw,20px);line-height:2}
 .section p.translation{margin:-10px 0 30px;color:#7a8589;font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.75;letter-spacing:.01em}
 .section p.source-translation{margin-top:-8px;padding:0 28px;border-left:2px solid rgba(22,132,182,.35);font-style:italic}
