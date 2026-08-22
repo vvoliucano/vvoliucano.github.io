@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="把郑和第一次下西洋的舰队与现代美国航母战斗群放到同一把尺上，交互比较船数、人数与船体尺度。">
+  <meta name="theme-color" content="#071f29">
+  <title>巨舶连樯｜郑和舰队有多大</title>
+  <link rel="stylesheet" href="styles.css?v=20260822-2">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","UA-146429859-1");</script>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../other/"><span>物</span><b>巨舶连樯</b></a>
+    <nav><a href="#ship">船</a><a href="#fleet">舰</a><a href="#route">航</a><a href="#people">众</a><a href="#meaning">势</a></nav>
+    <a class="home" href="../../other/">华夏专区 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <canvas id="hero-sea" width="1600" height="900" aria-label="郑和舰队在海上展开的动画"></canvas>
+      <div class="hero-wash" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p>永乐三年 · 一四〇五</p>
+        <h1>巨舶连樯，<br><em>海天无际。</em></h1>
+        <span>郑和第一次下西洋，究竟带走了怎样的一支舰队？</span>
+        <a href="#ship">先看一艘船 <b>↓</b></a>
+      </div>
+      <div class="hero-number"><small>第一次下西洋</small><strong>27,800</strong><span>人 · 317 艘船</span></div>
+    </section>
+
+    <section class="thesis">
+      <span>十五世纪初</span>
+      <strong>中华的力量，<br>已经投射到辽阔远洋</strong>
+      <span>数百艘船 · 近三万人 · 七下西洋</span>
+    </section>
+
+    <section id="ship" class="chapter paper">
+      <div class="intro">
+        <p>壹 · 一艘船</p>
+        <h2>四艘船，<br><em>同一把尺。</em></h2>
+        <span>按史料所载“四十四丈四尺、广十八丈”，把郑和宝船与同时代欧洲帆船、当代中美航母并排画出。</span>
+      </div>
+      <div class="stage scale-stage">
+        <div class="scale-head">
+          <div><small>《明史》记载换算</small><strong id="treasure-length">约 137 米</strong></div>
+          <div class="legend"><i class="legend-junk"></i>风帆木船 <i class="legend-carrier"></i>现代航空母舰</div>
+        </div>
+        <div class="ship-ruler" id="ship-ruler" aria-label="郑和宝船、圣玛利亚号、福建舰与福特级航母等比例比较">
+          <div class="ticks" aria-hidden="true"></div>
+          <div class="ship-row ship-row--carrier">
+            <span class="row-name"><b>福特级航母</b><small>美国 · 333 米</small></span>
+            <div class="carrier silhouette" style="--length:100%"><i></i><b>333 m</b></div>
+          </div>
+          <div class="ship-row ship-row--fujian">
+            <span class="row-name"><b>福建舰</b><small>中国 · 约 316 米</small></span>
+            <div class="fujian silhouette"><i></i><i></i><i></i><b>约 316 m</b></div>
+          </div>
+          <div class="ship-row ship-row--junk">
+            <span class="row-name"><b>郑和宝船</b><small id="treasure-mode">明代 · 史料记载</small></span>
+            <div class="junk silhouette" id="treasure-ship"><i></i><i></i><i></i><i></i><i></i><b id="ship-label">约 137 m</b></div>
+          </div>
+          <div class="ship-row ship-row--santa">
+            <span class="row-name"><b>圣玛利亚号</b><small>哥伦布船队最大船 · 约 19 米</small></span>
+            <div class="santa silhouette"><i></i><i></i><i></i><b>约 19 m</b></div>
+          </div>
+          <div class="ruler-labels" aria-hidden="true"><span>0</span><span>50</span><span>100</span><span>150</span><span>200</span><span>250</span><span>300</span><span>333 米</span></div>
+        </div>
+        <div class="scale-facts">
+          <div><small>郑和宝船</small><b>长约 137 米</b><span>宽约 56 米</span></div>
+          <div><small>圣玛利亚号</small><b>长约 19 米</b><span>哥伦布三船中最大</span></div>
+          <div><small>福建舰</small><b>长约 316 米</b><span>满载排水量 8 万余吨</span></div>
+          <div><small>福特级航母</small><b>长约 333 米</b><span>满载排水量约 10 万吨</span></div>
+        </div>
+        <p class="discover" id="size-note">宝船约为圣玛利亚号的七倍长。更震撼的还不是一艘宝船，而是六十余艘大型宝船与数百艘配套船只共同驶向印度洋。</p>
+      </div>
+    </section>
+
+    <section id="fleet" class="chapter night">
+      <div class="intro">
+        <p>贰 · 一支舰队</p>
+        <h2>不是一艘巨船，<br><em>是海上的一座城。</em></h2>
+        <span>推动滑杆，让记录中的船只逐一驶入海面。</span>
+      </div>
+      <div class="stage fleet-stage">
+        <div class="fleet-tabs" role="tablist" aria-label="切换舰队">
+          <button class="active" data-fleet="zheng" role="tab">郑和第一次下西洋</button>
+          <button data-fleet="carrier" role="tab">典型美国航母战斗群</button>
+        </div>
+        <div class="fleet-summary">
+          <div><small>画面中的船</small><strong id="visible-ships">0</strong><span id="visible-unit">／317 艘</span></div>
+          <p id="fleet-caption">317 艘船、27,800 人：宝船、马船、粮船、坐船、战船、水船共同组成一套完整的远洋体系。</p>
+        </div>
+        <div id="fleet-sea" class="fleet-sea" aria-live="polite"></div>
+        <label class="slider-label" for="fleet-slider"><span>一艘</span><b>展开队形</b><span id="fleet-end">317 艘</span></label>
+        <input id="fleet-slider" type="range" min="1" max="317" value="1" aria-label="展开舰队船只">
+        <div class="fleet-key" id="fleet-key"><span><i class="key-big"></i>宝船等大型船</span><span><i class="key-mid"></i>马船、粮船等</span><span><i class="key-small"></i>坐船、战船等</span></div>
+        <p class="discover">六十余艘大型宝船居于舰队核心，运输、供水、运马、作战与通信船只层层展开。它带出去的，是十五世纪中国完整的造船、航海、外交与国家动员能力。</p>
+      </div>
+    </section>
+
+    <section id="route" class="chapter route-chapter">
+      <div class="intro">
+        <p>叁 · 七下西洋</p>
+        <h2>云帆高张，<br><em>昼夜星驰。</em></h2>
+        <span>选择一次航行，再拖动海程。航路从长江口出发，经东南亚横渡印度洋，最远抵达红海入口与东非。</span>
+      </div>
+      <div class="stage route-stage">
+        <div class="voyage-tabs" role="tablist" aria-label="郑和七次下西洋">
+          <button class="active" data-voyage="0"><b>一</b><span>1405—1407</span></button>
+          <button data-voyage="1"><b>二</b><span>1407—1409</span></button>
+          <button data-voyage="2"><b>三</b><span>1409—1411</span></button>
+          <button data-voyage="3"><b>四</b><span>1413—1415</span></button>
+          <button data-voyage="4"><b>五</b><span>1417—1419</span></button>
+          <button data-voyage="5"><b>六</b><span>1421—1422</span></button>
+          <button data-voyage="6"><b>七</b><span>1431—1433</span></button>
+        </div>
+        <div class="route-map-wrap">
+          <canvas id="route-map" width="1100" height="650" aria-label="郑和七次下西洋航路图"></canvas>
+          <div class="compass-rose" aria-hidden="true"><b>北</b><i></i><span>東</span><span>西</span><small>南</small></div>
+          <div class="route-distance"><small>当前抵达</small><b id="route-place">太仓</b><span id="route-sea">长江入海口</span></div>
+        </div>
+        <div class="route-control">
+          <button id="route-play" aria-label="播放航路">▶ 放洋</button>
+          <label for="route-slider"><span>太仓</span><b id="route-reading">第一次 · 抵达古里</b><span id="route-end">古里</span></label>
+          <input id="route-slider" type="range" min="0" max="1000" value="0" aria-label="推动郑和舰队航行">
+        </div>
+        <div class="voyage-story">
+          <div><small id="voyage-year">永乐三年至五年</small><h3 id="voyage-title">第一次：开通印度洋主航路</h3><p id="voyage-copy">舰队自太仓启航，经占城、爪哇、旧港、满剌加与苏门答剌，横渡印度洋抵达古里。返航途中在旧港击败陈祖义海盗集团，海道为之一清。</p></div>
+          <strong id="voyage-reach">最远抵达<br><em>古里</em></strong>
+        </div>
+        <div class="event-ledger" aria-label="郑和下西洋重要事迹">
+          <article><span>1407 · 旧港</span><b>扫清陈祖义海盗</b><p>返航途中击败盘踞旧港的海盗集团，保障马六甲海峡航路。</p></article>
+          <article><span>1415 · 忽鲁谟斯</span><b>抵达波斯湾门户</b><p>第四次航行越过印度，抵达连接波斯湾与印度洋的国际贸易中心。</p></article>
+          <article><span>1417—1433</span><b>航至阿拉伯与东非</b><p>后续航行抵达亚丁、木骨都束、卜剌哇、麻林等地，联通西印度洋世界。</p></article>
+        </div>
+        <p class="discover">海岸线与航路均由 GeoJSON 绘制。路线经过长乐候风港，并以海上节点穿行南海、马六甲海峡、孟加拉湾和阿拉伯海；舰队依靠季风转换、天文导航、海道针经、分段补给与海外港口网络，把中国与东南亚、印度、阿拉伯和非洲东岸连成一片海上世界。</p>
+      </div>
+    </section>
+
+    <section id="people" class="chapter people-chapter">
+      <div class="intro">
+        <p>肆 · 船上的人</p>
+        <h2>把数字，<br><em>变成人群。</em></h2>
+        <span>每一个光点代表一百人。两支舰队的人数口径均取常见估算。</span>
+      </div>
+      <div class="stage people-stage">
+        <div class="people-compare">
+          <article>
+            <header><span>明 · 第一次下西洋</span><strong>约 27,800 人</strong></header>
+            <div class="people-dots" data-dots="278" aria-label="278 个点，每点代表 100 人"></div>
+            <p>官校、旗军、水手、舵工、翻译、医生、工匠、账房……一支远洋舰队，也是一套移动的社会组织。</p>
+          </article>
+          <article>
+            <header><span>今 · 一支航母战斗群</span><strong>约 7,500 人</strong></header>
+            <div class="people-dots people-dots--modern" data-dots="75" aria-label="75 个点，每点代表 100 人"></div>
+            <p>数字包含航母、舰载机联队、护航舰艇与指挥机构；具体人数随部署编成而变化。</p>
+          </article>
+        </div>
+        <div class="ratio"><small>同一口径：每点 100 人</small><strong>约 3.7 倍</strong><span>郑和第一次下西洋人数 ÷ 一支约 7,500 人的现代航母战斗群</span></div>
+      </div>
+    </section>
+
+    <section class="chapter paper formation-chapter">
+      <div class="intro">
+        <p>伍 · 同样是舰队</p>
+        <h2>力量如何，<br><em>抵达远洋？</em></h2>
+        <span>点击舰种，看一支远洋舰队怎样把国家能力带到海上。</span>
+      </div>
+      <div class="stage formation-stage">
+        <div class="formation-switch"><button class="active" data-system="zheng">郑和舰队</button><button data-system="modern">航母战斗群</button></div>
+        <div class="formation-map" id="formation-map"></div>
+        <div class="formation-copy"><small id="formation-kicker">多船协同</small><h3 id="formation-title">远航所需的一切，都要装进舰队</h3><p id="formation-text">旗舰与大型宝船之外，还需要运马、载粮、供水、作战与传令的船只。规模首先意味着组织：怎样编队、补给、通信，并让近三万人横越季风海域。</p></div>
+      </div>
+    </section>
+
+    <section id="meaning" class="meaning">
+      <p>陆 · 规模意味着什么</p>
+      <h2>海面上的尺度，<br><em>是陆地组织能力的投影。</em></h2>
+      <div class="meaning-grid">
+        <article><span>郑和舰队</span><b>人员与船只更庞大</b><p>以风帆、季风和人工协作，承担外交、贸易、礼仪、运输与武装护航。</p></article>
+        <article><span>航母战斗群</span><b>平台更少，单舰能力更集中</b><p>以核动力、舰载航空兵、传感器与远程武器，承担威慑、制海与力量投射。</p></article>
+        <article><span>远洋之力</span><b>一艘巨舰背后，是完整国家体系</b><p>补给、协同、航海知识、人员训练与工业能力，共同决定一支舰队能走多远。</p></article>
+      </div>
+      <blockquote>船越过海面，<br>制度与知识才使它抵达远方。<cite>—— 巨舶连樯</cite></blockquote>
+    </section>
+
+    <section class="sources">
+      <p>据与尺</p>
+      <h2>数字从哪里来</h2>
+      <div>
+        <a href="https://afe.easia.columbia.edu/special/china_1000ce_mingvoyages.htm" target="_blank" rel="noreferrer"><b>哥伦比亚大学 Asia for Educators</b><span>第一次航行约 317 艘、近 28,000 人</span></a>
+        <a href="https://exploration.marinersmuseum.org/subject/zheng-he/" target="_blank" rel="noreferrer"><b>The Mariners’ Museum</b><span>船数与人员的另一种史料整理</span></a>
+        <a href="https://www.icm.gov.mo/rc/viewer/20027/1169" target="_blank" rel="noreferrer"><b>澳门海事研究</b><span>宝船四十四丈、常见换算约 137 米</span></a>
+        <a href="https://www.americanhistory.si.edu/collections/object/nmah_844077" target="_blank" rel="noreferrer"><b>史密森尼美国历史博物馆</b><span>圣玛利亚号是哥伦布船队最大的船</span></a>
+        <a href="https://www.mod.gov.cn/gfbw/spbb_214126/mtbd/4913224.html" target="_blank" rel="noreferrer"><b>中国国防部：福建舰</b><span>首艘弹射型航母，满载排水量 8 万余吨</span></a>
+        <a href="https://www.history.navy.mil/content/dam/nhhc/news-and-events/multimedia%20gallery/New%20Infographics/Ford%20Media%20Kit-2.pdf" target="_blank" rel="noreferrer"><b>美国海军福特号资料</b><span>舰长 1,092 英尺，约 333 米</span></a>
+        <a href="https://www.nepa.navy.mil/Portals/20/Documents/affteis3/final-chapters/1.0%20AFTT%20FEIS%20Purpose%20and%20Need.pdf" target="_blank" rel="noreferrer"><b>美国海军典型战斗群编成</b><span>航母、巡洋舰、驱逐舰、潜艇与补给舰</span></a>
+        <a href="https://www.pacom.mil/Media/News/News-Articles/Article/4115059/carl-vinson-carrier-strike-group-departs-busan-republic-of-korea/" target="_blank" rel="noreferrer"><b>美国印太司令部</b><span>卡尔·文森战斗群近 7,500 名水兵</span></a>
+        <a href="https://www.nationalgeographic.com/history/history-magazine/article/china-zheng-he-naval-explorer-sailed-treasure-fleet-east-africa" target="_blank" rel="noreferrer"><b>National Geographic</b><span>七次航行从古里延伸至忽鲁谟斯与东非</span></a>
+        <a href="https://www.naturalearthdata.com/" target="_blank" rel="noreferrer"><b>Natural Earth</b><span>海图所用世界海岸线 GeoJSON 数据</span></a>
+      </div>
+      <p class="note">船体轮廓为等比例示意。圣玛利亚号原船尺度未完整保存，本页采用约 19 米的常见估算；福建舰约 316 米来自公开测量，官方已公布其满载排水量为 8 万余吨。</p>
+    </section>
+  </main>
+
+  <footer>
+    <b>巨舶连樯</b><span>船有尺度，海无尽头</span><a href="#ship">再看一遍 ↑</a>
+    <div class="visitor-map" aria-label="访问者地图"><script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=f5dfac&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=133b47&cmo=d2a94f"></script></div>
+  </footer>
+  <script src="data/world.geojson.js?v=20260822-1"></script>
+  <script src="data/zheng-he-routes.geojson.js?v=20260822-2"></script>
+  <script src="app.js?v=20260822-1"></script>
+</body>
+</html>
