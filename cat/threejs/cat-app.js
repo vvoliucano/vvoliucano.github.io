@@ -22,6 +22,9 @@ const ground = new THREE.Mesh(new THREE.CircleGeometry(2.5,64),new THREE.ShadowM
 ground.scale.setScalar(180); ground.rotation.x=-Math.PI/2; ground.position.y=-190; ground.receiveShadow=true; scene.add(ground);
 
 let cat, catFrame, mixer, head, eyeL, eyeR, earL, earR;
+let framed=false;
+const catPalette=new THREE.TextureLoader().load('./threejs/model/my-cat-palette.png');
+catPalette.colorSpace=THREE.SRGBColorSpace; catPalette.flipY=false; catPalette.magFilter=THREE.NearestFilter; catPalette.minFilter=THREE.LinearFilter;
 const pointer = new THREE.Vector2();
 let targetX=0,targetY=0,lookX=0,lookY=0;
 
@@ -32,16 +35,16 @@ loader.load('./threejs/model/toon_cat_free.glb', gltf => {
   head=cat.getObjectByName('head_018'); eyeL=cat.getObjectByName('eye.L_022'); eyeR=cat.getObjectByName('eye.R_023');
   earL=cat.getObjectByName('ear.L_019'); earR=cat.getObjectByName('ear.R_020');
   cat.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true; stylize(o.material);}});
-  scene.add(cat);
+  catFrame=new THREE.Group(); catFrame.add(cat); scene.add(catFrame);
   const visibleMesh=cat.getObjectByName('Object_43');
   const viewBox=new THREE.Box3().setFromObject(visibleMesh), viewCenter=viewBox.getCenter(new THREE.Vector3()), viewSize=viewBox.getSize(new THREE.Vector3()), span=Math.max(viewSize.x,viewSize.y,viewSize.z);
-  camera.position.set(viewCenter.x,viewCenter.y+span*.08,viewCenter.z+span*5.2); camera.near=Math.max(.1,span/1000); camera.far=span*30; camera.lookAt(viewCenter); camera.updateProjectionMatrix();
+  camera.position.set(0,span*.08,span*3.15); camera.near=Math.max(.1,span/1000); camera.far=span*30; camera.lookAt(0,0,0); camera.updateProjectionMatrix();
   mixer=new THREE.AnimationMixer(cat); if(gltf.animations[0]) mixer.clipAction(gltf.animations[0]).play();
   document.querySelector('#loading').style.opacity=0;
 }, undefined, e=>{document.querySelector('#loading').textContent='猫咪模型加载失败';console.error(e)});
 
 function stylize(mat){
-  mat.color.set(0x8f806d); mat.roughness=.84; mat.metalness=0;
+  mat.map=catPalette; mat.color.set(0xffffff); mat.roughness=.84; mat.metalness=0;
   mat.onBeforeCompile=s=>{
     s.uniforms.stripeDark={value:new THREE.Color(0x211d1a)};
     s.uniforms.furBase={value:new THREE.Color(0x93836e)};
@@ -53,9 +56,10 @@ function stylize(mat){
         float tailish = smoothstep(.38,.75,side);
         float stripe = bands * (.38 + .62*tailish);
         float belly = smoothstep(.12,.8,vNormal.z) * smoothstep(.12,.48,.5-abs(vMapUv.x-.5));
-        vec3 tabby = mix(furBase, stripeDark, stripe*.72);
-        tabby = mix(tabby, furLight, belly*.38);
-        diffuseColor.rgb *= tabby;`);
+        vec3 baseTex = diffuseColor.rgb;
+        vec3 tabby = mix(baseTex, stripeDark, stripe*.48);
+        tabby = mix(tabby, furLight, belly*.22);
+        diffuseColor.rgb = tabby;`);
   };
   mat.needsUpdate=true;
 }
@@ -67,6 +71,7 @@ addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updat
 const clock=new THREE.Clock();
 function frame(t){
   requestAnimationFrame(frame); const dt=Math.min(clock.getDelta(),.05); mixer?.update(dt);
+  if(cat&&!framed){cat.updateMatrixWorld(true);const b=new THREE.Box3().setFromObject(cat),c=b.getCenter(new THREE.Vector3());catFrame.position.set(-c.x,-c.y,-c.z);framed=true;}
   lookX+=(targetX-lookX)*.055;lookY+=(targetY-lookY)*.055;
   if(head){head.rotation.y += ((-lookX*.38)-head.rotation.y)*.12;head.rotation.x += ((lookY*.18)-head.rotation.x)*.12;}
   if(eyeL&&eyeR){eyeL.rotation.y=eyeR.rotation.y=-lookX*.3;eyeL.rotation.x=eyeR.rotation.x=lookY*.18;}

@@ -1,4 +1,4 @@
-"""Build the browser-ready 240-character comparison set from checked-in sources."""
+"""Build the browser-ready 1,000-character comparison set from checked-in sources."""
 import csv
 import json
 import re
@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SOURCE = ROOT.parent / "hanzi658"
+SAMPLE_SIZE = 1000
 UNIHAN_FIELDS = {"kTang", "kMandarin", "kCantonese", "kKorean", "kVietnamese"}
 HAKKA_INITIALS = sorted(
     {"chh", "tsh", "ph", "th", "kh", "zh", "ch", "sh", "ng", "b", "p", "m", "f", "v", "d", "t", "n", "l", "g", "k", "h", "j", "q", "x", "z", "c", "s", "r", "y", "w"},
@@ -66,11 +67,9 @@ with (SOURCE / "hakka_sixian_source.csv").open(encoding="utf-8") as source:
             hakka.setdefault(char, {"pfs": pfs, "display": display})
 
 frequency_order = []
-with (SOURCE / "hanzi658.csv").open(encoding="utf-8-sig") as source:
-    for row in csv.DictReader(source):
-        for char in row["hanzi"]:
-            if "\u4e00" <= char <= "\u9fff" and char not in frequency_order:
-                frequency_order.append(char)
+for char in (ROOT / "frequency-junda.txt").read_text(encoding="utf-8"):
+    if "\u4e00" <= char <= "\u9fff" and char not in frequency_order:
+        frequency_order.append(char)
 
 records = []
 for char in frequency_order:
@@ -90,9 +89,9 @@ for char in frequency_order:
         "vietnamese": first_reading(item["kVietnamese"]),
         "source": "Unicode Unihan 17.0 + 客語辭典四縣腔",
     })
-    if len(records) == 240:
+    if len(records) == SAMPLE_SIZE:
         break
 
 output = "window.TANG_RHYME_DATA = " + json.dumps(records, ensure_ascii=False, separators=(",", ":")) + ";\n"
-(ROOT / "data-240.js").write_text(output, encoding="utf-8")
-print(f"Wrote {len(records)} records to {ROOT / 'data-240.js'}")
+(ROOT / "data-1000.js").write_text(output, encoding="utf-8")
+print(f"Wrote {len(records)} records to {ROOT / 'data-1000.js'}")
