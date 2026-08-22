@@ -4,7 +4,7 @@ const points = [
   {id:'cck',name:'CHOA CHU KANG',sub:'MRT · NS4 / JS1',lat:1.3854,lng:103.7443,accent:'#ffb86c'},
   {id:'tiananmen',name:'北京 · 天安门',sub:'TIANANMEN · BEIJING',lat:39.9087,lng:116.3975,accent:'#ff6b5f'}
 ];
-let position={lat:1.3621,lng:103.7492,accuracy:14}, heading=302, filtered=302, liveSensors=false, cameraLive=false, geoLive=false, headingSamples=[];
+let position={lat:1.3621,lng:103.7492,accuracy:14}, heading=302, filtered=302, liveSensors=false, cameraLive=false, geoLive=false, headingSamples=[], absoluteHeadingSeen=false;
 const $=id=>document.getElementById(id), rad=v=>v*Math.PI/180, deg=v=>v*180/Math.PI, norm=v=>(v%360+360)%360;
 const delta=(a,b)=>((a-b+540)%360)-180;
 const dir=d=>['N 北','NE 东北','E 东','SE 东南','S 南','SW 西南','W 西','NW 西北'][Math.round(norm(d)/45)%8];
@@ -33,9 +33,26 @@ function updateStatus(){
   else if(missing.length){$('notice').textContent=`${missing.join(' + ')} WAITING`;$('retry').hidden=false}
 }
 function circularAverage(values){const x=values.reduce((s,v)=>s+Math.cos(rad(v)),0),y=values.reduce((s,v)=>s+Math.sin(rad(v)),0);return norm(deg(Math.atan2(y,x)))}
+function cameraHeading(alpha,beta,gamma){
+  const a=rad(alpha),b=rad(beta),g=rad(gamma);
+  // Project the rear camera's viewing vector onto the horizontal plane.
+  const east=-Math.cos(a)*Math.sin(g)-Math.sin(a)*Math.sin(b)*Math.cos(g);
+  const north=-Math.sin(a)*Math.sin(g)+Math.cos(a)*Math.sin(b)*Math.cos(g);
+  // When the phone is nearly flat the camera points vertically, so its horizontal
+  // heading is undefined. Use the top edge of the device as a stable fallback.
+  return Math.hypot(east,north)>.08?norm(deg(Math.atan2(east,north))):norm(360-alpha)
+}
 function orientation(e){
-  // Always use the browser's original heading; never apply screen/device offsets.
-  let next=null;if(typeof e.webkitCompassHeading==='number')next=norm(e.webkitCompassHeading);else if(typeof e.alpha==='number')next=norm(360-e.alpha);if(next===null||!Number.isFinite(next))return;
+  const webkitHeading=typeof e.webkitCompassHeading==='number'&&Number.isFinite(e.webkitCompassHeading);
+  const isAbsolute=webkitHeading||e.type==='deviceorientationabsolute'||e.absolute===true;
+  // Android can emit both absolute and relative events. Once true-north data has
+  // arrived, do not let a relative event overwrite it.
+  if(!isAbsolute&&absoluteHeadingSeen)return;
+  if(isAbsolute&&!absoluteHeadingSeen){absoluteHeadingSeen=true;headingSamples=[];liveSensors=false}
+  let next=null;
+  if(webkitHeading)next=norm(e.webkitCompassHeading);
+  else if(typeof e.alpha==='number'&&typeof e.beta==='number'&&typeof e.gamma==='number')next=cameraHeading(e.alpha,e.beta,e.gamma);
+  if(next===null||!Number.isFinite(next))return;
   headingSamples.push(next);if(headingSamples.length>18)headingSamples.shift();
   const average=circularAverage(headingSamples);
   if(!liveSensors){filtered=average;heading=average}else{const change=delta(average,filtered);if(Math.abs(change)>1.5){const gain=Math.abs(change)>25?.28:Math.abs(change)>10?.16:.08;filtered=norm(filtered+change*gain);heading=filtered}}
