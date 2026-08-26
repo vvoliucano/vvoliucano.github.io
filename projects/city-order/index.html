@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="先建一座理想王城，再让真实的人进入：交互理解中心、边界、流动与地形如何共同塑造中国古代城市。">
+  <meta name="theme-color" content="#111c1f">
+  <meta property="og:title" content="秩序落于大地｜理想都城与日常街市">
+  <meta property="og:description" content="城市既被规划出来，也被生活重新写出来。">
+  <meta property="og:image" content="https://vvoliucano.github.io/projects/city-order/og.png">
+  <title>秩序落于大地｜理想都城与日常街市</title>
+  <link rel="stylesheet" href="styles.css?v=20260820-1">
+</head>
+<body>
+  <div class="paper-grain" aria-hidden="true"></div>
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="../../other/" aria-label="返回华夏专区"><span>城</span><b>秩序落于大地</b></a>
+    <nav aria-label="章节导航"><a href="#ideal">正</a><a href="#ward">分</a><a href="#flow">流</a><a href="#terrain">因</a></nav>
+    <a class="home-link" href="../../other/">华夏专区 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">理想都城与日常街市 · City as Order</p>
+        <h1 id="page-title">秩序，<br><em>落于大地。</em></h1>
+        <p class="lead">古代城市不是建筑的集合。道路通向哪里、谁居于中心、市场放在哪里、城门何时关闭，都在回答：天下应当怎样被看见、被接近、被管理，也被生活。</p>
+        <blockquote>“匠人营国，方九里，旁三门。国中九经九纬，经涂九轨。左祖右社，面朝后市。”<cite>《周礼·考工记》</cite></blockquote>
+        <a class="start-link" href="#ideal">先建一座理想城市 <span aria-hidden="true">↓</span></a>
+      </div>
+
+      <div class="hero-city" id="hero-city" aria-label="由理想网格逐渐转为生活城市的示意图">
+        <div class="hero-wall"></div>
+        <div class="hero-axis"></div>
+        <div class="hero-river"></div>
+        <div class="hero-palace">宫</div>
+        <div class="hero-market">市</div>
+        <div class="hero-gates"><i></i><i></i><i></i><i></i></div>
+        <div class="hero-crowd" aria-hidden="true"></div>
+        <span class="north">北</span><span class="south">南</span>
+      </div>
+
+      <div class="hero-control">
+        <div><span>从蓝图到街市</span><b id="hero-state">理想秩序</b></div>
+        <input id="hero-slider" type="range" min="0" max="100" value="0" aria-label="让真实生活进入理想城市">
+        <p id="hero-note">城墙、宫城、轴线与功能分区各居其位。</p>
+      </div>
+    </section>
+
+    <section class="thesis-strip" aria-label="叙事主线"><span>先建一座理想城市</span><strong>再让真实的人进入</strong><span>中心 · 边界 · 流动 · 地形</span></section>
+
+    <section id="ideal" class="chapter chapter-paper">
+      <div class="chapter-intro">
+        <p class="chapter-no">壹 · 正 / ORIENT</p>
+        <h2>先确定中心，<br><em>再安排天下。</em></h2>
+        <p>《考工记》把政治关系翻译成一组空间关系：宫、朝、市、祖、社各得其位。它首先是一种理想王城范式，不是每座中国古城都必须复制的施工图。</p>
+      </div>
+
+      <div class="stage build-stage">
+        <div class="stage-head"><span>王城营造台</span><b>选一枚印，再落到城中</b><small>图中北向上；君主面南而治</small></div>
+        <div class="build-workspace">
+          <div class="piece-tray" role="toolbar" aria-label="王城设施">
+            <button class="city-piece is-selected" type="button" data-piece="palace" aria-pressed="true"><span>宫</span><b>王者居中</b></button>
+            <button class="city-piece" type="button" data-piece="court" aria-pressed="false"><span>朝</span><b>面朝 · 宫前</b></button>
+            <button class="city-piece" type="button" data-piece="market" aria-pressed="false"><span>市</span><b>后市 · 宫后</b></button>
+            <button class="city-piece" type="button" data-piece="ancestor" aria-pressed="false"><span>祖</span><b>左祖 · 面南之左</b></button>
+            <button class="city-piece" type="button" data-piece="soil" aria-pressed="false"><span>社</span><b>右社 · 面南之右</b></button>
+          </div>
+          <div class="ideal-plan-wrap">
+            <span class="plan-north">北 · 宫后 · 市 ↑</span>
+            <span class="plan-side plan-west">西<br><b>面南之右</b><em>右社</em></span>
+            <div class="ideal-plan" id="ideal-plan" aria-label="五乘五王城规划网格；北向上，君主面南，左祖在东，右社在西"></div>
+            <span class="plan-side plan-east">东<br><b>面南之左</b><em>左祖</em></span>
+            <span class="plan-south">↓ 南 · 宫前 · 朝</span>
+          </div>
+          <div class="build-reading" aria-live="polite">
+            <span id="build-kicker">已选 · 宫</span>
+            <h3 id="build-title">把中心落下</h3>
+            <p id="build-copy">点击城中一格安放王宫。位置不是装饰：它决定谁可以接近中心，也决定其他空间怎样围绕它组织。</p>
+            <div class="relation-meter"><span>与理想范式重合</span><b id="relation-score">0 / 5</b></div>
+            <p class="ghost-key"><i aria-hidden="true"></i><span>半透明虚影：当前印的理想位置</span></p>
+            <div class="build-actions">
+              <button id="ideal-plan-demo" class="text-button primary" type="button">演示左祖右社</button>
+              <button id="people-plan" class="text-button" type="button" aria-pressed="false">让人进入城市</button>
+              <button id="reset-plan" class="text-button" type="button">清空城图 ↺</button>
+            </div>
+          </div>
+        </div>
+        <p class="finding"><b>不是“古人很早就会方格网”</b><span>而是政治秩序被翻译成了空间秩序。</span></p>
+      </div>
+    </section>
+
+    <section id="ward" class="chapter chapter-night">
+      <div class="chapter-intro">
+        <p class="chapter-no">贰 · 分 / DIVIDE</p>
+        <h2>整齐的城市，<br><em>也在管理时间。</em></h2>
+        <p>唐长安不只是棋盘式道路，更是一座由坊墙、坊门、市场与夜禁共同运作的城市。边界划分空间，鼓声划分时间；同一条街，在一天之中会成为不同的城市。</p>
+      </div>
+
+      <div class="stage chang-an-stage">
+        <div class="time-head"><span>长安十二时辰</span><strong id="clock-reading">午时 · 坊门开启</strong><b id="city-status">通行</b></div>
+        <div class="chang-an-shell">
+          <div class="chang-an-map" id="chang-an-map" aria-label="唐长安里坊开闭及行人流动模型"></div>
+          <div class="role-panel">
+            <span>换一个人进入城市</span>
+            <div class="role-portrait" id="role-portrait" data-role="official" aria-hidden="true"><i></i><b>官</b><small>当前人物</small></div>
+            <div class="role-tabs" role="tablist" aria-label="身份切换">
+              <button class="is-active" type="button" data-role="official" role="tab" aria-selected="true">官员</button>
+              <button type="button" data-role="merchant" role="tab" aria-selected="false">商人</button>
+              <button type="button" data-role="monk" role="tab" aria-selected="false">僧侣</button>
+              <button type="button" data-role="resident" role="tab" aria-selected="false">居民</button>
+            </div>
+            <h3 id="role-title">官员 · 沿朱雀大街趋向皇城</h3>
+            <p id="role-copy">白日可沿主轴进入官署区；接近宫城的权利依然受身份与礼仪约束。</p>
+            <div class="access-list" id="access-list"></div>
+            <label class="people-label" for="crowd-slider"><span>街上有多少人？</span><b id="crowd-value">24 人</b></label>
+            <input id="crowd-slider" type="range" min="4" max="48" value="24" step="4" aria-label="改变长安街道上的人数">
+            <p class="people-count"><b id="visible-people">24</b><span>人正在街道与坊市之间移动</span></p>
+          </div>
+        </div>
+        <label class="range-label" for="time-slider"><span>卯时 · 城醒</span><b>拖动一天，听坊门开合</b><span>子时 · 城静</span></label>
+        <input id="time-slider" type="range" min="5" max="24" value="12" step="1" aria-label="改变唐长安的时辰">
+        <p class="finding inverse"><b>坊是一种时空治理机制</b><span id="time-finding">白日的街道把坊、市与皇城连接起来。</span></p>
+      </div>
+    </section>
+
+    <section id="flow" class="chapter chapter-river">
+      <div class="chapter-intro">
+        <p class="chapter-no">叁 · 流 / CIRCULATE</p>
+        <h2>当生活变多，<br><em>边界就开始松动。</em></h2>
+        <p>晚唐至宋，沿街商铺、夜市、娱乐空间与水陆交通逐渐改写城市。北宋开封同时拥有纵向的御街秩序与横向的汴河网络：中心不再只由宫殿决定，也被桥梁、码头与人群重新塑造。</p>
+      </div>
+
+      <div class="stage flow-stage">
+        <div class="flow-layout">
+          <canvas id="kaifeng-canvas" width="960" height="600" aria-label="开封政治轴线、河流、桥梁与商业热点模型"></canvas>
+          <div class="flow-controls">
+            <p><span>城市状态</span><strong id="flow-state">礼制轴线仍清晰，街市开始生长</strong></p>
+            <label for="people-slider"><span>人口与人流</span><b id="people-value">45</b></label><input id="people-slider" type="range" min="0" max="100" value="45">
+            <label for="trade-slider"><span>商业活跃度</span><b id="trade-value">35</b></label><input id="trade-slider" type="range" min="0" max="100" value="35">
+            <label for="canal-slider"><span>河运货流</span><b id="canal-value">55</b></label><input id="canal-slider" type="range" min="0" max="100" value="55">
+            <label for="night-slider"><span>夜间活动</span><b id="night-value">20</b></label><input id="night-slider" type="range" min="0" max="100" value="20">
+            <div class="legend"><span><i class="dot-person"></i>人流</span><span><i class="dot-goods"></i>货流</span><span><i class="dot-market"></i>商业热点</span></div>
+          </div>
+        </div>
+        <p class="finding"><b>规划划定边界，生活产生流动</b><span>城市的历史，发生在二者之间。</span></p>
+      </div>
+    </section>
+
+    <section id="terrain" class="chapter chapter-water">
+      <div class="chapter-intro">
+        <p class="chapter-no">肆 · 因 / ADAPT</p>
+        <h2>理想落地之前，<br><em>先要遇见山河。</em></h2>
+        <p>水源、排水、漕运、山体、旧聚落与历代城墙都在限制新的蓝图。苏州尤其能说明：城市秩序不只来自一个中心，也来自道路与水系并行的流动网络。</p>
+      </div>
+
+      <div class="stage terrain-stage">
+        <div class="terrain-layout">
+          <div class="terrain-visual">
+            <canvas id="suzhou-canvas" width="900" height="620" aria-label="理想网格逐渐适应河网与历史遗存的模型"></canvas>
+            <div class="terrain-caption"><span id="terrain-mode">理想方格</span><b id="terrain-percent">0% 现实约束</b></div>
+          </div>
+          <div class="terrain-reading">
+            <span>把蓝图拖入真实世界</span>
+            <h3 id="terrain-title">先画一张不受阻碍的网格</h3>
+            <p id="terrain-copy">地势被假定为平整，街道可以等距展开，功能围绕中心排布。</p>
+            <label class="range-label stacked" for="terrain-slider"><span>制度理想</span><b>地形 · 水系 · 旧城 · 工程</b><span>现实适应</span></label>
+            <input id="terrain-slider" type="range" min="0" max="100" value="0" aria-label="让理想方格适应真实地形">
+            <div class="constraint-list">
+              <div data-threshold="22"><span>水</span><b>河道带来运输，也要求道路与桥梁回应水势。</b></div>
+              <div data-threshold="46"><span>地</span><b>低洼、排水与地形改变直线最短的想象。</b></div>
+              <div data-threshold="68"><span>史</span><b>旧城墙、寺院与聚落让城市成为层层叠加的结果。</b></div>
+              <div data-threshold="86"><span>生</span><b>临水街市与日常路径最终形成新的空间中心。</b></div>
+            </div>
+          </div>
+        </div>
+        <p class="finding"><b>因地制宜不是一句“天人合一”</b><span>而是制度、地形、工程与生活不断彼此妥协。</span></p>
+      </div>
+    </section>
+
+    <section class="conclusion">
+      <p class="chapter-no">城为何如此</p>
+      <h2>城是被规划出来的，<br><em>也是被生活重新写出来的。</em></h2>
+      <div class="principles">
+        <article><span>正</span><b>中心使权力可见。</b><p>A center makes authority visible.</p></article>
+        <article><span>分</span><b>边界使人群可治。</b><p>Boundaries make populations governable.</p></article>
+        <article><span>流</span><b>道路使人和物移动。</b><p>Streets and waterways carry movement.</p></article>
+        <article><span>因</span><b>生活使规划发生改变。</b><p>Everyday life transforms every plan.</p></article>
+      </div>
+      <div class="today-question"><span>把问题带回今天</span><p>城市不再关闭坊门，但门禁社区、学校围墙、商业中心、地铁网络和算法导航，仍然决定谁能到达哪里。</p><strong>空间秩序从未消失，只是改变了形式。</strong></div>
+    </section>
+
+    <section class="sources">
+      <div><p>据与界</p><h2>原文与核对</h2></div>
+      <div class="source-grid">
+        <a href="https://ctext.org/rites-of-zhou/kao-gong-ji/zh" target="_blank" rel="noopener"><span>理想王城</span><b>《周礼·考工记》“匠人营国”</b><i>原文 ↗</i></a>
+        <a href="https://whc.unesco.org/en/list/1714" target="_blank" rel="noopener"><span>中心与轴线</span><b>UNESCO：北京中轴线</b><i>世界遗产说明 ↗</i></a>
+        <a href="https://english.suzhou.gov.cn/szsenglish/sz4ajjq/201911/39c24a78b929414cb00a80f1ec75865f.shtml" target="_blank" rel="noopener"><span>水陆并行</span><b>苏州市政府：平江历史街区的水陆双棋盘</b><i>城市遗产说明 ↗</i></a>
+        <a href="https://www.nature.com/articles/s40494-026-02299-9" target="_blank" rel="noopener"><span>商业流动</span><b>北宋开封城市形态与商业热点研究</b><i>Heritage Science ↗</i></a>
+      </div>
+      <p class="source-note">本页以机制模型帮助理解城市史，不复原某一时刻的精确城市地图。“唐代封闭、宋代开放”只是过度简化；坊市关系的转变从晚唐开始，历经长期而不均衡的演化。</p>
+    </section>
+  </main>
+
+  <footer><b>秩序落于大地</b><span>理想都城与日常街市</span><a href="#ideal">重新营城 ↑</a></footer>
+  <script src="app.js?v=20260820-2"></script>
+</body>
+</html>

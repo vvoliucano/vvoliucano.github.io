@@ -112,55 +112,6 @@
   description_zh: "基于深度学习的三维模拟数据体渲染最佳视角选取方法。"
   paper: "http://vis.pku.edu.cn/research/publication/JOV_dlbv_Changhe.pdf"
 
-- id: fengshui-environment
-  title: 藏风聚气
-  image: fengshui-environment.png
-  description: "A draggable village for exploring wind, sunlight, drainage, vegetation, and prospect-refuge as a modern environmental reading of feng shui."
-  description_zh: "一座可以拖动的村庄：先观察风、雨、日照与庇护感如何改变居住环境，最后再理解传统风水术语产生的背景。"
-  demo: "/projects/fengshui/"
-  demo_en: "/projects/fengshui/en.html"
-
-- id: tang-rhyme-atlas
-  title: 千字同韵
-  image: tang-rhyme-atlas.png
-  description: "A research prototype comparing Middle Chinese rhyme groups with nine modern Chinese systems—including Hakka—plus Korean and Vietnamese Sino-Xenic readings across 1,000 common characters."
-  description_zh: "以一千个常用汉字为样本，比较唐代韵部与官话、晋、吴、徽、赣、湘、闽、粤、客家以及韩国、越南汉字音的韵类划分。"
-  demo: "/projects/tang-rhyme-atlas/"
-
-- id: chinese-calculus
-  title: 割之又割
-  image: chinese-calculus.png
-  description: "An interactive visual essay on ideas of exhaustion, approximation, accumulation, and volume in classical Chinese mathematics."
-  description_zh: "从割、逼、积、合四个动作，体验刘徽与祖暅数学中的分割、逼近与等截面求积思想。"
-  demo: "/projects/chinese-calculus/"
-  demo_en: "/projects/chinese-calculus/en.html"
-
-- id: chinese-calendar
-  title: 观天授时
-  image: chinese-calendar.png
-  description: "An interactive time machine for discovering how the traditional Chinese lunisolar calendar coordinates lunar months, solar seasons, leap months, and the 24 solar terms."
-  description_zh: "一部可以拖动的华夏历法时间机器：从日、月、年出发，亲手发现置闰与二十四节气如何协调月相和季节。"
-  demo: "/projects/chinese-calendar/"
-  demo_en: "/projects/chinese-calendar/en.html"
-
-- id: chinese-mathematics
-  title: 未曾写下 x
-  image: chinese-math.png
-  description: "An interactive visual essay on equation thought in classical China: fangcheng elimination, the Heavenly Unknown, and the Four Unknowns."
-  description_zh: "一场可操作的中国古代方程思想展：从《九章算术》的方程术，到天元术与《四元玉鉴》。"
-  demo: "/projects/chinese-mathematics/"
-  demo_en: "/projects/chinese-mathematics/en.html"
-
-- id: yijing-first-principles
-  title: 时与位
-  image: yijing-first-principles.png
-  description: "An interactive exploration of change, polarity, timing, position, the six stages of Qian, and the 64 hexagrams as first principles of the I Ching."
-  description_zh: "一场关于变化的交互实验：拨动阴阳与生命周期，亲手理解时、位、乾卦六爻与六十四卦怎样描述变化中的判断。"
-  demo: "/projects/yijing/"
-  demo_en: "/projects/yijing/en.html"
-
-
-
 # - title: Auto-Caption
 #   image: 19-AutoCap.gif
 #   description: "I co-authored AutoCaption with Can Liu. We designed and trained deep learning models to generate short descriptions for SVG-formatted charts automatically."
