@@ -101,3 +101,21 @@ body,.brand span,.brand b,.hero h1,.section-heading h2,.lead,.hero-stamp b,.metr
 .map-heading{grid-template-columns:1fr 2fr;min-height:0;align-items:start}.map-heading h2,.singapore-heading h2{height:auto;display:block;writing-mode:horizontal-tb;line-height:1.22;letter-spacing:.04em}.map-heading h2 span,.map-heading h2 em,.singapore-heading h2 span,.singapore-heading h2 em{display:block;writing-mode:horizontal-tb;text-orientation:mixed}
 @media(max-width:760px){.map-heading{grid-template-columns:1fr}.world-section{background:linear-gradient(155deg,#071724,#0b2231 62%,#071522)}}
 @media(max-width:760px){.world-window{min-height:0}.globe-pane{height:430px;min-height:430px}#world-map{height:100%}.globe-controls{left:10px;top:10px}.globe-controls button{height:32px;padding:0 9px}.map-level{width:100%;margin:0;padding:6px 0 0;border:0}.journey-list{grid-template-columns:1fr;padding:12px}.flight-city text{font-size:10px}.city-detail{left:10px;bottom:10px;min-width:150px}.world-heading{gap:18px;margin-bottom:34px}#singapore-map{height:430px}.singapore-note{padding:24px}.singapore-labels text{font-size:9px}.metrics{grid-template-columns:1fr}}
+
+/* 页尾终章：NASA 月面视角下的地球升起。 */
+.earthrise{min-height:clamp(620px,86vh,940px);position:relative;display:flex;align-items:flex-start;justify-content:center;padding:clamp(70px,10vh,120px) 7vw 52px;overflow:hidden;color:#f4f5f2;background:#020810}
+.earthrise:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,3,4,.12),transparent 48%,rgba(2,3,4,.4)),radial-gradient(circle at 50% 34%,transparent 20%,rgba(2,3,4,.2) 58%,rgba(2,3,4,.68) 100%);pointer-events:none}
+.earthrise-copy{position:relative;z-index:1;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,.8)}
+.earthrise-copy p{margin:0 0 16px;color:#b7c9cc;font-size:13px;letter-spacing:.28em}
+.earthrise-copy h2{margin:0;font:500 clamp(34px,4.6vw,64px)/1.38 "Ouyang Xun","KaiTi",serif;letter-spacing:.08em}
+.earthrise-copy h2 em{font-style:normal;color:#e9aa98}
+.earthrise-credit{position:absolute;z-index:1;right:4vw;bottom:24px;color:rgba(230,238,238,.58);font-size:10px;letter-spacing:.05em;transition:color .2s}.earthrise-credit:hover{color:#fff}
+.earthrise+footer{border-top:1px solid rgba(198,218,218,.14)}
+@media(max-width:760px){.earthrise{min-height:650px;padding-top:70px;background-position:center 48%;background-size:auto 650px}.earthrise-copy h2{font-size:38px}.earthrise-credit{left:6vw;right:6vw;text-align:center;font-size:9px}}
+
+/* 页尾终章升级：按当前月份切换的卫星地球与球面行迹。 */
+.earthrise{background:#020810;padding-top:clamp(65px,8vh,96px)}.earthrise:before{z-index:1;background:linear-gradient(180deg,rgba(2,8,16,.36),transparent 38%,rgba(2,8,16,.08) 72%,rgba(2,8,16,.5));pointer-events:none}.season-earth-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#020810;z-index:0}.earthrise-copy,.earthrise-credit{z-index:2}.earthrise-copy{pointer-events:none}.earthrise-credit{padding:8px 10px;background:rgba(2,8,16,.48);border:1px solid rgba(200,222,226,.15)}
+
+/* 首屏：只留下自动旋转的行迹地球与页面标题。 */
+.topbar{background:#020810;color:#edf4f4;border-bottom-color:rgba(198,220,224,.15)}.topbar .back{color:#91a9af}.hero{min-height:calc(100vh - 74px);padding:0;background:#020810;color:#edf4f4}.hero:after{display:none}.hero-earth-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#020810;z-index:0}.hero-copy{position:relative;z-index:2;padding:clamp(78px,12vh,135px) 8vw;pointer-events:none;text-shadow:0 4px 30px rgba(0,6,12,.9)}.hero-copy .eyebrow{color:#8fb0b9}.hero-copy h1{margin:.25em 0;font-size:clamp(50px,7.3vw,102px);color:#f0f5f4}.hero-copy h1 em{color:#df8b75}.hero-hint{margin:24px 0 0;color:#91a9af;font-size:12px;letter-spacing:.18em}.hero-copy .scroll-link{pointer-events:auto;color:#dce8e8;border-color:rgba(220,232,232,.55)}
+@media(max-width:760px){.hero{padding:0}.hero-copy{padding:68px 7vw}.hero-copy h1{font-size:50px}.hero-hint{margin-top:18px}}

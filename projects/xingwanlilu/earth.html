@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#020810">
+  <meta name="description" content="行万里路的卫星地球视觉实验。">
+  <title>地球贴图实验｜行万里路</title>
+  <link rel="stylesheet" href="earth.css?v=20260826-6">
+</head>
+<body>
+  <main class="earth-lab">
+    <canvas id="earth" aria-label="使用 NASA 卫星影像贴图的可旋转地球"></canvas>
+    <canvas id="routes" aria-label="投影在地球表面的个人航空、铁路与汽车轨迹"></canvas>
+    <div class="star-noise" aria-hidden="true"></div>
+
+    <header class="lab-header">
+      <a class="brand" href="./"><span>坤</span><b>地球视觉实验</b></a>
+      <div class="lab-actions">
+        <label class="month-control">地表月份
+          <select id="month" aria-label="选择卫星地表月份">
+            <option value="1">一月</option><option value="2">二月</option><option value="3">三月</option><option value="4">四月</option>
+            <option value="5">五月</option><option value="6">六月</option><option value="7">七月</option><option value="8">八月</option>
+            <option value="9">九月</option><option value="10">十月</option><option value="11">十一月</option><option value="12">十二月</option>
+          </select>
+        </label>
+        <button id="spin" type="button" aria-pressed="true">自转 · 暂停</button>
+        <button id="reset" type="button">归于东方</button>
+        <a href="./">返回行万里路 ↗</a>
+      </div>
+    </header>
+
+    <section class="intro">
+      <p>卫星地表 · BLUE MARBLE</p>
+      <h1>身在寰宇，<br><em>行于大地。</em></h1>
+      <div class="instruction"><i></i><span>拖动地球，转向不同经度</span></div>
+      <div class="route-legend" aria-label="轨迹图例"><span><i class="flight"></i>航空</span><span><i class="rail"></i>铁路</span><span><i class="road"></i>汽车</span></div>
+    </section>
+
+    <aside class="earth-note">
+      <span>真实卫星拼接影像</span>
+      <strong>NASA · 2004 年 <b id="current-month">—</b></strong>
+      <a href="https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-map/" target="_blank" rel="noopener">Blue Marble: Next Generation ↗</a>
+    </aside>
+
+    <div id="loading" class="loading">正在铺展地表……</div>
+  </main>
+  <script src="earth.js?v=20260826-6"></script>
+</body>
+</html>

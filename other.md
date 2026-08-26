@@ -621,6 +621,7 @@ body.culture-page {
         <a class="culture-link" href="{{ '/projects/chinese-calculus/' | relative_url }}">割之又割：华夏古代的微积分思想 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/chinese-coordinates/' | relative_url }}">经天纬地：华夏古代怎样定位世界 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/zheng-he-fleet/' | relative_url }}">巨舶连樯：郑和舰队有多大 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/city-order/' | relative_url }}">城有其序：理想都城与日常街市 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/fengshui/' | relative_url }}">藏风聚气：风水的现代环境解释 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/xiangyouxinsheng/' | relative_url }}">相由心生：面容怎样留下生活的刻痕 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/singapore-map/planner.html' | relative_url }}">新加坡公园骑行路线规划 <span aria-hidden="true">→</span></a>

@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#173c38">
   <title>行万里路｜中国旅行足迹</title>
   <script>if(location.protocol==='file:')location.replace('http://localhost:1111/projects/xingwanlilu/');</script>
-  <link rel="stylesheet" href="styles.css?v=20260812-11">
+  <link rel="stylesheet" href="styles.css?v=20260826-14">
 </head>
 <body>
   <header class="topbar">
@@ -18,10 +18,13 @@
 
   <main>
     <section class="hero">
-      <p class="eyebrow">读万卷书 · 行万里路</p>
-      <h1>心有定向，<br><em>行遍九州。</em></h1>
-      <a class="scroll-link" href="#world">展开行旅地图 <span>↓</span></a>
-      <div class="hero-stamp" aria-hidden="true"><b>廿七</b><span>省区<br>已行</span></div>
+      <iframe class="hero-earth-frame" src="earth.html?embed=1&amp;hero=1&amp;v=6" title="自动旋转的卫星地球与个人行旅轨迹" scrolling="no"></iframe>
+      <div class="hero-copy">
+        <p class="eyebrow">读万卷书 · 行万里路</p>
+        <h1>行于大地，<br><em>心向寰宇。</em></h1>
+        <p class="hero-hint">拖动地球 · 寻找走过的路</p>
+        <a class="scroll-link" href="#world">展开行旅地图 <span>↓</span></a>
+      </div>
     </section>
 
     <section id="world" class="world-section section-shell" aria-labelledby="world-title">
@@ -136,6 +139,14 @@
       <blockquote>“知者行之始，行者知之成。”<cite>—— 王阳明</cite></blockquote>
     </section>
 
+    <section class="earthrise" aria-label="随月份变化的卫星地球与个人行旅轨迹">
+      <iframe class="season-earth-frame" src="earth.html?embed=1&amp;v=4" title="随当前月份变化的 NASA 卫星地球，叠加个人航空、铁路和汽车轨迹" loading="lazy"></iframe>
+      <div class="earthrise-copy">
+        <p>四时流转 · 行迹纵横</p>
+        <h2>所行万里，<br><em>仍在此一方天地。</em></h2>
+      </div>
+      <a class="earthrise-credit" href="earth.html">打开完整卫星地球 · 可拖动与切换月份 ↗</a>
+    </section>
   </main>
 
   <footer><span>行万里路</span><p>地图会继续生长。</p><a href="#map">回到地图 ↑</a></footer>
