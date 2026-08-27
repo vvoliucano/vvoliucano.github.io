@@ -40,13 +40,22 @@ class: home
   
 </div>
 
-<h2>Featured Publications</h2>
+<h2>Recent Publications</h2>
+{% assign highlighted_publications = site.data.publication | where_exp: "pub", "pub.highlight > 0" %}
 <div class="featured-publications">
-  {% for pub in site.data.publication %}
-  {% if pub.highlight > 0 %}
+  {% for pub in highlighted_publications limit:5 %}
     {% include featured-publication.html pub=pub lang="en" %}
-  {% endif %}
   {% endfor %}
+  {% if highlighted_publications.size > 5 %}
+  <details class="publication-more">
+    <summary>Show more publications</summary>
+    <div class="publication-more-list">
+      {% for pub in highlighted_publications offset:5 %}
+        {% include featured-publication.html pub=pub lang="en" %}
+      {% endfor %}
+    </div>
+  </details>
+  {% endif %}
 </div>
 <a href="{{ "/publications/" | relative_url }}" class="button">
   <i class="fas fa-chevron-circle-right"></i>

@@ -11,9 +11,10 @@ body,.brand span,.brand b,.hero h1,.section-heading h2,.lead,.hero-stamp b,.metr
 .map-panel{background:radial-gradient(circle at 30% 22%,rgba(255,255,255,.9),transparent 28%),linear-gradient(145deg,#eee6d5,#f8f3e7 55%,#e8deca);box-shadow:0 28px 70px rgba(23,60,56,.12)}
 .map-wrap{overflow:hidden;background-image:radial-gradient(rgba(23,60,56,.12) .7px,transparent .7px);background-size:9px 9px}
 #china-map{overflow:visible}
-.province{fill:url(#future-hatch);stroke:#fff9ec;stroke-width:1.8;filter:saturate(.8);transition:filter .25s,opacity .25s}
-.province.visited{fill:url(#travel-hatch)}
-.province:hover,.province:focus{filter:saturate(1.15) brightness(1.08);opacity:.88}
+.china-satellite{pointer-events:none;opacity:1;filter:saturate(1.12) contrast(1.14) brightness(1.03)}
+.province{fill:#d7d2c7;stroke:#fff9ec;stroke-width:1.8;filter:saturate(.8);transition:filter .25s,fill-opacity .25s}
+.province.visited{fill:#b14f3c}
+.province:hover,.province:focus{filter:saturate(1.15) brightness(1.08);fill-opacity:.08}
 .province-label{font-family:"Ouyang Xun","KaiTi",serif;font-size:10px;text-anchor:middle;dominant-baseline:middle;fill:#fffaf0;pointer-events:none;paint-order:stroke;stroke:rgba(87,33,25,.55);stroke-width:2.5px;stroke-linejoin:round}
 .province-label.future-label{fill:#4d5d57;stroke:rgba(255,253,248,.8);stroke-width:2px}
 .city-marker{pointer-events:none}.city-marker circle:first-child{fill:none;stroke:#173c38;stroke-width:1.5;animation:city-pulse 2.4s ease-out infinite}.city-marker circle:nth-child(2){fill:#173c38}.city-marker text{font-family:"Ouyang Xun","KaiTi",serif;font-size:12px;fill:#173c38;paint-order:stroke;stroke:#fffdf8;stroke-width:3px}

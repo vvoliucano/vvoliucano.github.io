@@ -139,6 +139,26 @@
     display: grid;
     gap: 1rem;
 
+    .publication-more {
+      min-width: 0;
+
+      summary {
+        width: fit-content;
+        color: $brand-color;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      &[open] summary {
+        margin-bottom: 1rem;
+      }
+
+      .publication-more-list {
+        display: grid;
+        gap: 1rem;
+      }
+    }
+
     .publication {
       display: grid;
       grid-template-columns: 148px minmax(0, 1fr);

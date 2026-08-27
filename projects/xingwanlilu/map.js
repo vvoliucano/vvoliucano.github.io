@@ -81,16 +81,46 @@ Promise.all([
       }).join('') + 'Z').join('')).join('');
     };
 
+    const svgNamespace = 'http://www.w3.org/2000/svg';
+    const mapDefs = map.querySelector('defs');
+    const satelliteClip = document.createElementNS(svgNamespace, 'clipPath');
+    satelliteClip.setAttribute('id', 'china-satellite-clip');
+    satelliteClip.setAttribute('clipPathUnits', 'userSpaceOnUse');
+    mapDefs.appendChild(satelliteClip);
+
+    data.features.forEach(feature => {
+      const clipProvince = document.createElementNS(svgNamespace, 'path');
+      clipProvince.setAttribute('d', pathFor(feature.geometry));
+      satelliteClip.appendChild(clipProvince);
+    });
+
+    const satellite = document.createElementNS(svgNamespace, 'image');
+    const [satelliteX, satelliteY] = project([-180, 90]);
+    satellite.setAttribute('x', satelliteX);
+    satellite.setAttribute('y', satelliteY);
+    satellite.setAttribute('width', 360 * longitudeFactor * scale);
+    satellite.setAttribute('height', 180 * scale);
+    satellite.setAttribute('preserveAspectRatio', 'none');
+    satellite.setAttribute('clip-path', 'url(#china-satellite-clip)');
+    satellite.setAttribute('class', 'china-satellite');
+    const mapMonth = new Date().getMonth() + 1;
+    const mapMonthFiles = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+    const satelliteSource = `${chinaAssetBase}data/blue-marble-${String(mapMonth).padStart(2, '0')}-${mapMonthFiles[mapMonth - 1]}-4096.jpg`;
+    satellite.setAttribute('href', satelliteSource);
+    satellite.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', satelliteSource);
+    land.parentNode.insertBefore(satellite, land);
+
     data.features.forEach(feature => {
       const name = provinceName(feature);
       const displayName = chinaIsEnglish ? (provinceNamesEn.get(name) || name) : name;
       const isVisited = !unvisited.has(name) && name !== '未命名地区';
-      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      const path = document.createElementNS(svgNamespace, 'path');
       path.setAttribute('d', pathFor(feature.geometry));
       path.setAttribute('class', `province${isVisited ? ' visited' : ' future'}`);
       path.setAttribute('tabindex', '0');
       path.setAttribute('role', 'img');
       path.setAttribute('aria-label', `${displayName}, ${isVisited ? chinaText('已经走过', 'visited') : chinaText('等待抵达', 'not yet visited')}`);
+      path.setAttribute('fill-opacity', isVisited ? '.16' : '.32');
       const show = event => {
         const wrapRect = map.parentElement.getBoundingClientRect();
         const rect = path.getBoundingClientRect();

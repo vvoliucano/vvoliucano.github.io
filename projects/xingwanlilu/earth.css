@@ -8,4 +8,5 @@
 .month-control{height:35px;border:1px solid rgba(206,225,228,.24);background:rgba(7,21,34,.56);color:#91aeb6;padding:0 7px 0 12px;display:flex;align-items:center;gap:7px;font-size:11px}.month-control select{border:0;background:transparent;color:#eef5f5;font:inherit;outline:none;cursor:pointer}.month-control option{background:#071522}
 .route-legend{display:flex;gap:18px;margin-top:18px;color:#9fb7bc;font-size:11px;letter-spacing:.12em}.route-legend span{display:flex;align-items:center;gap:7px}.route-legend i{width:18px;height:2px;display:block}.route-legend .flight{background:#55c8ff;box-shadow:0 0 7px #55c8ff}.route-legend .rail{background:#d49cff}.route-legend .road{background:#efb44d}.earth-note strong b{font-weight:400;color:var(--red)}
 body.embed .lab-header,body.embed .intro,body.embed .earth-note{display:none}body.embed .earth-lab{min-height:100%}
+body.plain-earth #routes{display:none}
 @media(max-width:760px){.month-control{display:none}.route-legend{gap:12px}}

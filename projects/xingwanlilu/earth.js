@@ -9,6 +9,7 @@ const currentMonthLabel = document.querySelector('#current-month');
 const pageParameters = new URLSearchParams(location.search);
 document.body.classList.toggle('embed', pageParameters.has('embed'));
 document.body.classList.toggle('hero-embed', pageParameters.has('hero'));
+document.body.classList.toggle('plain-earth', pageParameters.has('plain'));
 const gl = canvas.getContext('webgl', { antialias: true, alpha: true });
 
 if (!gl) {
@@ -113,6 +114,15 @@ const monthFiles = ['january','february','march','april','may','june','july','au
 const monthNames = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
 let textureReady = false;
 let routes = [];
+let routesStarted = false;
+
+function scheduleRoutes() {
+  if (routesStarted || document.body.classList.contains('plain-earth')) return;
+  routesStarted = true;
+  const start = () => loadRoutes().catch(() => { routes = []; });
+  if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 1200 });
+  else window.setTimeout(start, 250);
+}
 
 function loadMonth(month) {
   const value = Math.max(1, Math.min(12, Number(month)));
@@ -130,6 +140,7 @@ function loadMonth(month) {
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
   textureReady = true;
   loading.classList.add('hidden');
+  scheduleRoutes();
   };
   image.onerror = () => { loading.textContent = '卫星贴图未能载入，请刷新重试。'; };
   image.src = `data/blue-marble-${String(value).padStart(2,'0')}-${monthFiles[value - 1]}-4096.jpg`;
@@ -219,7 +230,6 @@ function render(now) {
   requestAnimationFrame(render);
 }
 
-loadRoutes().catch(() => { routes = []; });
 loadMonth(new Date().getMonth() + 1);
 requestAnimationFrame(render);
 

@@ -16,6 +16,14 @@ body.culture-page {
   max-width: none;
 }
 
+body.culture-page .page-content {
+  padding-bottom: 0;
+}
+
+body.culture-page > footer {
+  display: none;
+}
+
 .page-content > .culture-page {
   width: 100%;
   max-width: 1040px;
@@ -470,11 +478,15 @@ body.culture-page {
 }
 
 .culture-closing {
-  margin: 0 0 2.6rem;
-  padding: clamp(2.8rem, 7vw, 5rem) 0;
-  border-top: 1px solid var(--culture-line);
-  border-bottom: 1px solid var(--culture-line);
-  color: var(--culture-ink);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100vw;
+  min-height: clamp(36rem, 72vh, 54rem);
+  margin: 0 0 0 calc(50% - 50vw);
+  padding: clamp(5rem, 12vh, 8rem) 1rem;
+  border: 0;
+  color: #f5f2e9;
   font-family: var(--culture-serif);
   font-size: clamp(2.5rem, 6vw, 4.6rem);
   font-weight: 400;
@@ -483,13 +495,38 @@ body.culture-page {
   text-align: center;
 }
 
+.culture-closing::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 8, 16, 0.08), rgba(2, 8, 16, 0.36));
+  pointer-events: none;
+}
+
+.culture-closing-earth {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+
+.culture-closing-copy {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
 .culture-closing span {
   display: block;
   white-space: nowrap;
 }
 
 .culture-closing span:last-child {
-  color: var(--culture-jade);
+  color: #a8c8ba;
 }
 
 @media (max-width: 760px) {
@@ -651,5 +688,8 @@ body.culture-page {
     </article>
   </section>
 
-  <p class="culture-closing" aria-label="由字入诗 由器见道"><span>由字入诗</span><span>由器见道</span></p>
+  <section class="culture-closing" aria-label="由字入诗 由器见道">
+    <iframe class="culture-closing-earth" src="{{ '/projects/xingwanlilu/earth.html' | relative_url }}?embed=1&amp;v=9" title="带有行旅轨迹的缓慢旋转卫星地球" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe>
+    <p class="culture-closing-copy"><span>由字入诗</span><span>由器见道</span></p>
+  </section>
 </main>

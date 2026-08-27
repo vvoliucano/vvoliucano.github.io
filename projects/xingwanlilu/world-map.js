@@ -142,7 +142,7 @@ function focusCity(city) {
   spinning = false;
   updateSpinButton();
   selectCity(city);
-  animateWorldView([-city.coordinates[0], -city.coordinates[1], 0], Math.max(worldScale, 360));
+  animateWorldView([-city.coordinates[0], -city.coordinates[1], 0]);
 }
 
 function updateCityLabels(center) {
@@ -220,30 +220,15 @@ function updateSpinButton() {
   button.textContent = spinning ? worldText('自转 · 暂停', 'Rotation · Pause') : worldText('自转 · 开始', 'Rotation · Start');
 }
 
-function setWorldScale(nextScale) {
-  worldScale = Math.max(120, Math.min(5000, nextScale));
-  projection.scale(worldScale);
-  worldSvg.node().__zoom = d3.zoomIdentity.scale(worldScale / 255);
-  drawWorld();
-}
-
-function animateWorldView(targetRotation, targetScale) {
+function animateWorldView(targetRotation) {
   const startRotation = projection.rotate();
-  const startScale = worldScale;
   const rotationTween = d3.interpolate(startRotation, targetRotation);
-  const scaleTween = d3.interpolateNumber(startScale, targetScale);
   worldSvg.interrupt().transition().duration(720).ease(d3.easeCubicInOut).tween('world-view', () => t => {
-    worldScale = scaleTween(t);
-    projection.rotate(rotationTween(t)).scale(worldScale);
-    drawWorld();
-  }).on('end', () => {
-    worldSvg.node().__zoom = d3.zoomIdentity.scale(worldScale / 255);
+    projection.rotate(rotationTween(t));
     drawWorld();
   });
 }
 
-document.querySelector('#world-zoom-in').addEventListener('click', () => setWorldScale(worldScale * 1.32));
-document.querySelector('#world-zoom-out').addEventListener('click', () => setWorldScale(worldScale / 1.32));
 document.querySelector('#world-spin').addEventListener('click', () => { spinning = !spinning; updateSpinButton(); });
 document.querySelector('#world-routes').addEventListener('click', event => {
   flightRoutesVisible = !flightRoutesVisible;
@@ -265,12 +250,13 @@ document.querySelector('#world-car-routes').addEventListener('click', event => {
 });
 globePane.addEventListener('mouseenter', () => { spinning = false; updateSpinButton(); });
 globePane.addEventListener('mouseleave', () => { spinning = true; hideWorldTooltip(); updateSpinButton(); });
-globePane.addEventListener('wheel', event => event.preventDefault(), { passive: false });
 document.querySelector('#world-home').addEventListener('click', () => {
   spinning = false;
   updateSpinButton();
   journeyList.querySelectorAll('.journey-card').forEach(card => card.classList.remove('active'));
-  projection.rotate(initialRotation); setWorldScale(255);
+  projection.rotate(initialRotation).scale(255);
+  worldScale = 255;
+  drawWorld();
 });
 worldSvg.call(d3.drag()
   .on('start', () => { globeDragging = true; spinning = false; updateSpinButton(); })
@@ -285,15 +271,6 @@ worldSvg.call(d3.drag()
     drawWorld();
   })
   .on('end', () => { globeDragging = false; drawWorld(); }));
-
-worldSvg.call(d3.zoom()
-  .filter(event => event.type === 'wheel' || (event.touches && event.touches.length > 1))
-  .scaleExtent([120 / 255, 5000 / 255])
-  .on('zoom', event => {
-    worldScale = 255 * event.transform.k;
-    projection.scale(worldScale);
-    drawWorld();
-  }));
 
 updateSolarLayer();
 setInterval(() => updateSolarLayer(), 60000);

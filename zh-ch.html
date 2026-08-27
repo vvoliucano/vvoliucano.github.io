@@ -38,13 +38,22 @@ class: home
   
 </div>
 
-<h2>部分文章</h2>
+<h2>最近发表</h2>
+{% assign highlighted_publications = site.data.publication | where_exp: "pub", "pub.highlight > 0" %}
 <div class="featured-publications">
-  {% for pub in site.data.publication %}
-  {% if pub.highlight > 0 %}
+  {% for pub in highlighted_publications limit:5 %}
     {% include featured-publication.html pub=pub lang="zh" %}
-  {% endif %}
   {% endfor %}
+  {% if highlighted_publications.size > 5 %}
+  <details class="publication-more">
+    <summary>展开更多发表物</summary>
+    <div class="publication-more-list">
+      {% for pub in highlighted_publications offset:5 %}
+        {% include featured-publication.html pub=pub lang="zh" %}
+      {% endfor %}
+    </div>
+  </details>
+  {% endif %}
 </div>
 <a href="{{ "/publications-zh/" | relative_url }}" class="button">
   <i class="fas fa-chevron-circle-right"></i>
