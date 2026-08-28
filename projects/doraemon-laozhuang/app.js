@@ -23,6 +23,56 @@
     reveals.forEach((item) => item.classList.add("is-visible"));
   }
 
+  const englishToggle = document.querySelector("#english-toggle");
+  if (englishToggle) {
+    const label = englishToggle.querySelector(".language-toggle-label");
+    englishToggle.addEventListener("click", () => {
+      const showing = englishToggle.getAttribute("aria-pressed") === "true";
+      englishToggle.setAttribute("aria-pressed", String(!showing));
+      document.body.classList.toggle("english-hidden", showing);
+      label.textContent = showing ? "英文说明：关闭" : "英文说明：显示";
+    });
+  }
+
+  const bambooGrid = document.querySelector("#bamboo-slip-grid");
+  if (bambooGrid) {
+    const pageSize = 20;
+    const slips = [...bambooGrid.querySelectorAll(".bamboo-slip")];
+    const pagination = document.querySelector("#bamboo-pagination");
+    const previous = document.querySelector("#bamboo-prev");
+    const next = document.querySelector("#bamboo-next");
+    const status = document.querySelector("#bamboo-page-status");
+    const pageCount = Math.ceil(slips.length / pageSize);
+    let page = 0;
+    const renderBambooPage = () => {
+      const first = page * pageSize;
+      slips.forEach((slip, index) => {
+        slip.hidden = index < first || index >= first + pageSize;
+      });
+      if (pageCount > 1) {
+        pagination.hidden = false;
+        previous.disabled = page === 0;
+        next.disabled = page === pageCount - 1;
+        status.textContent = `${page + 1} / ${pageCount}`;
+      }
+    };
+    previous.addEventListener("click", () => {
+      if (page > 0) {
+        page -= 1;
+        renderBambooPage();
+        bambooGrid.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+    next.addEventListener("click", () => {
+      if (page < pageCount - 1) {
+        page += 1;
+        renderBambooPage();
+        bambooGrid.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+    renderBambooPage();
+  }
+
   const slider = document.querySelector("#control-slider");
   if (slider) {
     const value = document.querySelector("#control-value");
