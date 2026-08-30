@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="拖动岷江水量，观察都江堰如何通过鱼嘴、飞沙堰与宝瓶口完成分水、泄洪、排沙与灌溉。">
+  <meta name="theme-color" content="#092a32">
+  <title>水旱从人｜都江堰的水利算法</title>
+  <link rel="stylesheet" href="styles.css?v=20260828-1">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","UA-146429859-1");</script>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../other/"><span>物</span><b>水旱从人</b></a>
+    <nav><a href="#play">水</a><a href="#fish">分</a><a href="#sand">沙</a><a href="#bottle">引</a><a href="#algorithm">法</a></nav>
+    <a class="home" href="../../other/">华夏专区 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <canvas id="hero-water" width="1600" height="900" aria-label="岷江从群山流向成都平原的动态画面"></canvas>
+      <div class="hero-wash" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p>蜀郡 · 公元前三世纪</p>
+        <h1>水来有势，<br><em>分流有度。</em></h1>
+        <span>鱼嘴分水，飞沙堰泄洪排沙，宝瓶口引水入平原。三道地形，把岷江写成一套运行至今的水利算法。</span>
+        <a href="#play">亲手推动一场洪水 <b>↓</b></a>
+      </div>
+      <div class="hero-number"><small>持续运行</small><strong>2,250+</strong><span>年</span></div>
+    </section>
+
+    <section class="thesis">
+      <span>同一条岷江 · 两种季节</span>
+      <strong>枯水多引，<br>洪水多排</strong>
+      <span>四六分水 · 溢洪排沙 · 瓶口节流 · 自流灌溉</span>
+    </section>
+
+    <section id="play" class="play-section">
+      <div class="play-intro">
+        <p>壹 · 把水交给地形</p>
+        <h2>从枯水，<br><em>拖到洪峰。</em></h2>
+        <span>水量增大时，鱼嘴两侧的分水比例自动反转；进入内江的过量水沙再从飞沙堰溢回外江；宝瓶口最后控制进入成都平原的水量。</span>
+      </div>
+
+      <div class="water-lab">
+        <div class="lab-head">
+          <div><small>岷江来水</small><strong id="season-name">平水期</strong></div>
+          <div class="season-icon" id="season-icon" aria-hidden="true">☁</div>
+          <div class="lab-result"><small>成都平原</small><strong id="plain-state">水量安稳</strong></div>
+        </div>
+
+        <div class="river-map" id="river-map">
+          <svg viewBox="0 0 1000 700" role="img" aria-labelledby="river-title river-desc">
+            <title id="river-title">都江堰分水、排沙和引水动态图</title>
+            <desc id="river-desc">岷江从北向南流至鱼嘴，分为外江与内江；内江经飞沙堰排出多余水沙，再由宝瓶口进入成都平原。</desc>
+            <defs>
+              <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#64b8c6"/><stop offset="1" stop-color="#24768b"/></linearGradient>
+              <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <path class="terrain terrain-left" d="M0 0H390C342 105 332 190 354 278C278 344 235 420 208 520C165 600 93 648 0 700Z"/>
+            <path class="terrain terrain-right" d="M610 0H1000V700H802C752 610 720 530 735 424C682 347 648 274 655 194C638 118 622 55 610 0Z"/>
+            <path class="plain" d="M650 515C756 481 880 500 1000 556V700H586C599 622 619 565 650 515Z"/>
+            <path id="upstream" class="river main-river" d="M500 -30C492 92 506 171 500 263"/>
+            <path id="outer-river" class="river" d="M475 264C383 324 330 397 300 485C272 569 208 635 116 724"/>
+            <path id="inner-river" class="river" d="M525 264C591 327 624 380 630 452C638 516 665 551 715 565"/>
+            <path id="spill-river" class="river spill" d="M617 418C540 447 458 456 375 477"/>
+            <path id="irrigation-river" class="river irrigation" d="M715 565C806 599 884 624 1020 650"/>
+            <path class="canal-line" d="M766 612L814 690M822 624L889 690M879 634L964 682"/>
+            <path class="fish-mouth" d="M500 248L459 315L500 296L541 315Z"/>
+            <path class="flying-weir" d="M590 417Q544 437 494 442"/>
+            <path class="mountain-cut" d="M692 505Q732 526 748 573Q715 605 678 576Q664 533 692 505Z"/>
+            <g class="labels">
+              <g transform="translate(500 74)"><text>岷江</text><text class="sub" y="20">自山中来</text></g>
+              <g transform="translate(494 334)"><text>鱼嘴</text><text class="sub" y="20">第一道：分</text></g>
+              <g transform="translate(243 413)"><text>外江</text><text class="sub" y="20">泄洪排沙</text></g>
+              <g transform="translate(679 361)"><text>内江</text><text class="sub" y="20">引水灌溉</text></g>
+              <g transform="translate(505 486)"><text>飞沙堰</text><text class="sub" y="20">第二道：排</text></g>
+              <g transform="translate(747 544)"><text>宝瓶口</text><text class="sub" y="20">第三道：控</text></g>
+              <g transform="translate(859 665)"><text>成都平原</text><text class="sub" y="20">渠系展开</text></g>
+            </g>
+            <g id="water-particles" aria-hidden="true"></g>
+            <g id="sand-particles" aria-hidden="true"></g>
+          </svg>
+          <div class="map-readout readout-fish"><small>鱼嘴分水</small><strong><span id="inner-share">50</span>％入内江</strong><span><b id="outer-share">50</b>％入外江</span></div>
+          <div class="map-readout readout-sand"><small>飞沙堰</small><strong id="spill-state">少量调节</strong><span id="sand-state">泥沙随外江下泄</span></div>
+          <div class="map-readout readout-bottle"><small>宝瓶口</small><strong id="bottle-state">平稳入渠</strong><span>总进水口</span></div>
+        </div>
+
+        <label class="slider-label" for="water-slider"><span>枯水</span><b>岷江来水：<em id="water-value">50</em></b><span>洪峰</span></label>
+        <input id="water-slider" type="range" min="0" max="100" value="50" aria-label="从枯水期拖到丰水期">
+        <div class="season-presets" role="group" aria-label="选择水情">
+          <button data-water="8"><b>枯水期</b><span>内江多引，保灌溉</span></button>
+          <button class="active" data-water="50"><b>平水期</b><span>内外相衡</span></button>
+          <button data-water="92"><b>丰水期</b><span>外江多排，飞沙堰溢洪</span></button>
+        </div>
+        <p class="lab-note" id="lab-note" aria-live="polite">水势平稳：鱼嘴均衡分流，飞沙堰只作少量调节，宝瓶口持续向平原供水。</p>
+      </div>
+    </section>
+
+    <section id="fish" class="chapter paper">
+      <div class="intro"><p>贰 · 鱼嘴</p><h2>水少向内，<br><em>水多向外。</em></h2><span>内江窄而深，外江宽而浅。河流主线随水位变化，分水比例便随季节反转。</span></div>
+      <div class="stage split-stage">
+        <div class="split-diagram">
+          <div class="split-source"><b>岷江</b><span>来水 100％</span></div>
+          <div class="split-branches"><div class="branch inner"><i id="inner-bar"></i><b>内江 <em id="inner-big">50%</em></b><span>通向灌区</span></div><div class="branch outer"><i id="outer-bar"></i><b>外江 <em id="outer-big">50%</em></b><span>承接洪水与泥沙</span></div></div>
+        </div>
+        <div class="rule"><span>枯水</span><strong>内六外四</strong><i></i><strong>内四外六</strong><span>洪水</span></div>
+        <p class="discover">河道的宽窄、深浅、弯势与鱼嘴的位置，本身就是判断水情的“传感器”：水位一变，分水比例随之改变。</p>
+      </div>
+    </section>
+
+    <section id="sand" class="chapter deep">
+      <div class="intro"><p>叁 · 飞沙堰</p><h2>水满则溢，<br><em>沙重则排。</em></h2><span>内江水位升高后，多余水量越过低堰回到外江；弯道水流又把泥沙带向溢流方向。</span></div>
+      <div class="stage sand-stage">
+        <div class="vortex" id="vortex" aria-label="弯道环流与飞沙堰排沙示意"><div class="vortex-water"></div><div class="sand-dots"></div><div class="weir"><b>飞沙堰</b><span>低堰溢流</span></div><div class="outer-arrow">→ 外江</div></div>
+        <div class="sand-facts"><div><small>平时</small><b>保持内江通畅</b><p>把随水进入内江的泥沙继续排向外江。</p></div><div><small>洪水时</small><b>成为第二泄洪道</b><p>超过堰顶的水量横向溢出，减轻宝瓶口压力。</p></div></div>
+      </div>
+    </section>
+
+    <section id="bottle" class="chapter bottle-chapter">
+      <div class="intro"><p>肆 · 宝瓶口</p><h2>山开一口，<br><em>水得其限。</em></h2><span>人工凿开的狭窄进水口像固定口径的阀门：江水再大，进入平原的流量仍受到约束。</span></div>
+      <div class="stage bottle-stage">
+        <div class="bottle-visual"><div class="cliff left"></div><div class="cliff right"></div><div class="bottle-water"><i></i><i></i><i></i><i></i></div><div class="bottle-label"><b>宝瓶口</b><span>总进水口</span></div></div>
+        <div class="bottle-flow"><span>内江来水</span><i><b id="gate-fill"></b></i><span>平原渠系</span></div>
+        <p class="discover">鱼嘴先分一次，飞沙堰再减一次，宝瓶口最后限流。三道工程前后相承，共同分担整条岷江的压力。</p>
+      </div>
+    </section>
+
+    <section id="algorithm" class="algorithm">
+      <p>伍 · 写进山河的算法</p>
+      <h2>读水势，<br><em>再让地形作答。</em></h2>
+      <div class="algorithm-flow">
+        <article><span>一</span><b>鱼嘴读水位</b><p>枯水内六外四；洪水内四外六。</p></article>
+        <i>→</i><article><span>二</span><b>飞沙堰看余量</b><p>水满则溢，借弯道环流排走水沙。</p></article>
+        <i>→</i><article><span>三</span><b>宝瓶口守上限</b><p>固定口门控制进入成都平原的流量。</p></article>
+      </div>
+      <blockquote>因势利导，<br>以分代堵，<br><strong>水旱从人。</strong></blockquote>
+    </section>
+
+    <section class="sources">
+      <p>据与水</p><h2>资料与口径</h2>
+      <div>
+        <a href="https://whc.unesco.org/en/list/1001/" target="_blank" rel="noreferrer"><b>联合国教科文组织</b><span>始建于公元前三世纪，至今仍调节岷江并灌溉成都平原</span></a>
+        <a href="https://www.neac.gov.cn/seac/c103391/202308/1166522.shtml" target="_blank" rel="noreferrer"><b>国家民委 · 道中华</b><span>鱼嘴四六分水、飞沙堰溢洪排沙与宝瓶口控流</span></a>
+        <a href="https://doi.org/10.1016/j.jher.2009.09.003" target="_blank" rel="noreferrer"><b>Journal of Hydro-environment Research</b><span>都江堰与现代水力学：弯道环流、排沙、维护和整体布局</span></a>
+      </div>
+      <p class="note">页面以相对水量演示季节变化，不对应某一日的实测流量。鱼嘴“四六分水”是传统概括；真实分流还会随河床、来水、工程维护与现代调度而变化。都江堰历代持续扩建、维修，今天的系统也包含现代工程设施。</p>
+    </section>
+  </main>
+
+  <footer><b>水旱从人</b><span>因势利导，岁岁维修</span><a href="#play">再推一次洪水 ↑</a><div class="visitor-map" aria-label="访问者地图"><script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=6fc3d0&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=0b3e4a&cmo=61aeb9"></script></div></footer>
+  <script src="app.js?v=20260828-1"></script>
+</body>
+</html>

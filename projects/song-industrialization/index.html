@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="通过冶铁、煤炭、工场、运河、市场与纸币，交互观察北宋一度出现的早期工业化特征。">
+  <meta name="theme-color" content="#151a18">
+  <title>炉火照夜｜北宋离工业化有多近</title>
+  <link rel="stylesheet" href="styles.css?v=20260828-1">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146429859-1"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","UA-146429859-1");</script>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="brand" href="../../other/"><span>物</span><b>炉火照夜</b></a>
+    <nav><a href="#iron">铁</a><a href="#system">业</a><a href="#energy">煤</a><a href="#money">钞</a><a href="#answer">问</a></nav>
+    <a class="home" href="../../other/">华夏专区 ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <canvas id="hero-forge" width="1600" height="900" aria-label="矿山、运河、城市与冶铁工场共同运转的北宋经济图景"></canvas>
+      <div class="hero-wash" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p>熙宁元丰之间 · 十一世纪</p>
+        <h1>炉火照夜，<br><em>铁走天下。</em></h1>
+        <span>一座高炉不是工业化。若矿、煤、工场、运输、市场与货币同时运转呢？</span>
+        <a href="#iron">先看十二万五千吨 <b>↓</b></a>
+      </div>
+      <div class="hero-number"><small>1078 年经典估算</small><strong>125,000</strong><span>吨铁／年</span></div>
+    </section>
+
+    <section class="thesis">
+      <span>不是一项孤立发明</span>
+      <strong>北宋一度让一整套<br>工业要素彼此咬合</strong>
+      <span>矿山 · 煤炭 · 高炉 · 工场 · 运河 · 市场 · 纸币</span>
+    </section>
+
+    <section id="iron" class="chapter paper">
+      <div class="intro">
+        <p>壹 · 铁有多重</p>
+        <h2>十二万五千吨，<br><em>是什么尺度？</em></h2>
+        <span>哥伦比亚大学教学资料采用约 12.5 万吨的经典估算；学界对税额、统计范围和插值方式仍有不同判断。</span>
+      </div>
+      <div class="stage iron-stage">
+        <div class="estimate-switch" role="group" aria-label="切换北宋铁产量估算">
+          <button data-output="75000"><b>75,000 吨</b><span>Hartwell 1962 的估算</span></button>
+          <button class="active" data-output="125000"><b>125,000 吨</b><span>经典教学资料常用值</span></button>
+        </div>
+        <div class="iron-number"><small>1078 年前后 · 年产铁估算</small><strong id="iron-output">125,000</strong><span>吨</span></div>
+        <div class="iron-yard" id="iron-yard" aria-label="以铁块阵列呈现估算产量"></div>
+        <div class="iron-compare" aria-label="北宋与英国历史铁产量比较">
+          <div class="compare-heading">
+            <small>把时间拨快七百年</small>
+            <strong id="compare-verdict">北宋约是 1720 年英国的 5.7 倍</strong>
+          </div>
+          <div class="compare-row song">
+            <span>北宋 · 1078</span>
+            <i><b id="compare-song-bar" style="--share:100%"></b></i>
+            <strong><span id="compare-song-value">12.5</span> 万吨</strong>
+          </div>
+          <div class="compare-row">
+            <span>英国 · 1720</span>
+            <i><b style="--share:17.6%"></b></i>
+            <strong>2.2 万吨</strong>
+          </div>
+          <div class="compare-row">
+            <span>英国 · 1796</span>
+            <i><b style="--share:88%"></b></i>
+            <strong>11 万吨</strong>
+          </div>
+          <p>不是“相当于 1720 年的英国”。按经典估算，北宋比它大约五倍；英国直到十八世纪末，才走到相近的产量。</p>
+        </div>
+        <div class="iron-uses" aria-label="铁的主要用途">
+          <button class="active" data-use="农具"><i>耒</i><b>农具</b><span>进入乡村生产</span></button>
+          <button data-use="军器"><i>甲</i><b>军器</b><span>箭镞、甲具与刀剑</span></button>
+          <button data-use="工程"><i>桥</i><b>工程</b><span>铁链、铁钉与构件</span></button>
+          <button data-use="钱币"><i>泉</i><b>钱币</b><span>铁钱铸造需要大量铁料</span></button>
+        </div>
+        <p class="discover" id="use-note">它不是堆在库房里的数字。大量铁制农具进入市场，把冶铁工场和最广阔的乡村需求连接起来。</p>
+      </div>
+    </section>
+
+    <section id="system" class="chapter night">
+      <div class="intro">
+        <p>贰 · 接通系统</p>
+        <h2>一炉铁，<br><em>要多少世界托住？</em></h2>
+        <span>点亮或关闭任一环节。真正惊人的不是单项技术，而是这些环节能否同时运转。</span>
+      </div>
+      <div class="stage system-stage">
+        <div class="system-head">
+          <div><small>已接通</small><strong id="system-count">7／7</strong></div>
+          <p id="system-status" aria-live="polite">矿石、能源、冶炼、制造、运输、需求与信用彼此连接。</p>
+          <button id="system-run">逐项演示</button>
+        </div>
+        <div class="system-map" id="system-map" aria-label="北宋工业系统关系图">
+          <svg viewBox="0 0 1000 560" role="img" aria-label="七个工业要素通过运输和交换相连">
+            <path class="link" data-link="mine forge" d="M188 148 C300 90 355 120 438 223"/>
+            <path class="link" data-link="coal forge" d="M180 382 C300 440 360 360 438 282"/>
+            <path class="link" data-link="forge workshop" d="M540 250 C625 200 655 174 744 160"/>
+            <path class="link" data-link="workshop demand" d="M822 202 C864 260 865 310 812 365"/>
+            <path class="link" data-link="demand money" d="M744 412 C645 464 590 440 524 378"/>
+            <path class="link" data-link="money canal" d="M435 382 C345 447 275 430 216 360"/>
+            <path class="link" data-link="canal mine" d="M145 310 C105 260 110 210 151 180"/>
+            <path class="link inner" data-link="canal workshop" d="M220 322 C430 315 587 252 744 184"/>
+            <path class="link inner" data-link="canal demand" d="M222 340 C420 385 612 397 744 390"/>
+          </svg>
+          <button class="node active" data-node="mine" style="--x:16%;--y:24%"><i>矿</i><b>矿山</b><span>铁矿石</span></button>
+          <button class="node active" data-node="coal" style="--x:15%;--y:69%"><i>煤</i><b>煤炭</b><span>高温能源</span></button>
+          <button class="node active core" data-node="forge" style="--x:49%;--y:45%"><i>炉</i><b>高炉冶炼</b><span>铁水出炉</span></button>
+          <button class="node active" data-node="workshop" style="--x:79%;--y:28%"><i>作</i><b>专业工场</b><span>分工制造</span></button>
+          <button class="node active" data-node="demand" style="--x:79%;--y:70%"><i>市</i><b>广阔需求</b><span>军工与农具</span></button>
+          <button class="node active" data-node="money" style="--x:48%;--y:76%"><i>钞</i><b>货币信用</b><span>交换媒介</span></button>
+          <button class="node active" data-node="canal" style="--x:18%;--y:55%"><i>漕</i><b>运河运输</b><span>跨区流通</span></button>
+          <div class="forge-glow" aria-hidden="true"></div>
+        </div>
+        <p class="discover">这是一张结构示意图，不是产量计算模型。它要呈现的是：北宋的突破不只发生在炉内，也发生在炉外。</p>
+      </div>
+    </section>
+
+    <section id="energy" class="chapter coal-chapter">
+      <div class="intro">
+        <p>叁 · 换掉燃料</p>
+        <h2>木炭将尽，<br><em>煤火接上。</em></h2>
+        <span>拖动燃料比例，看森林压力与炉温怎样一起变化。这里表达的是方向，不是历史产量的精确复原。</span>
+      </div>
+      <div class="stage energy-stage">
+        <div class="energy-scene" id="energy-scene">
+          <div class="mountains" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="forest" id="forest" aria-label="剩余林木"></div>
+          <div class="kiln" aria-hidden="true"><i></i><b>炉</b></div>
+          <div class="smoke" aria-hidden="true"></div>
+          <div class="energy-readout"><small>炉火状态</small><strong id="heat-state">连续高温</strong><span id="forest-state">森林压力较低</span></div>
+        </div>
+        <label class="slider-label" for="coal-slider"><span>木炭</span><b>煤炭占燃料比例：<em id="coal-value">82%</em></b><span>煤</span></label>
+        <input id="coal-slider" type="range" min="0" max="100" value="82" aria-label="煤炭占燃料比例">
+        <div class="energy-facts">
+          <div><small>燃料转变</small><b>从森林转向地下能源</b><p>哥伦比亚大学资料称，十一世纪末煤已在北方冶铁中大体取代木炭。</p></div>
+          <div><small>工业意义</small><b>炉火不再只受木材约束</b><p>能源来源扩大，使冶铁中心能够在更大规模上持续生产。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="money" class="chapter money-chapter">
+      <div class="intro">
+        <p>肆 · 让交换变轻</p>
+        <h2>铜钱太重，<br><em>信用上纸。</em></h2>
+        <span>纸币让远距离交易不必搬运成串铜钱；但发行越过信用边界，便利也会反转为贬值。</span>
+      </div>
+      <div class="stage money-stage">
+        <div class="money-machine">
+          <div class="coin-load"><span id="coin-weight">重</span><b>铜钱搬运</b></div>
+          <div class="trade-river"><i id="trade-flow"></i><span>市场交换</span></div>
+          <div class="note-stack" id="note-stack" aria-label="交子发行量示意"></div>
+          <div class="trust"><small>货币信用</small><strong id="trust-value">稳</strong><span id="trade-value">交易顺畅</span></div>
+        </div>
+        <label class="slider-label" for="issue-slider"><span>钱荒</span><b>纸币发行：<em id="issue-value">55</em></b><span>滥发</span></label>
+        <input id="issue-slider" type="range" min="0" max="100" value="55" aria-label="纸币发行强度">
+        <p class="discover" id="money-note">发行与可兑现能力大致相称：纸币减轻运输负担，信用帮助市场扩张。</p>
+      </div>
+    </section>
+
+    <section id="answer" class="answer">
+      <p>伍 · 离工业化有多近</p>
+        <h2>炉火很旺，<br><em>差点就出现工业革命。</em></h2>
+      <div class="answer-grid">
+        <article><span>已经出现</span><b>煤炭进入大规模生产</b><p>北方冶铁从木炭转向煤，突破了部分传统生物能源约束。</p></article>
+        <article><span>已经出现</span><b>工场、市场与运输网络</b><p>专业化生产、运河运输、城市消费与国家需求彼此支撑。</p></article>
+        <article><span>尚未持续</span><b>机械动力替代人力</b><p>水力鼓风等技术很重要，但没有扩展为跨行业、持续加速的机械化体系。</p></article>
+        <article><span>尚未完成</span><b>自我强化的增长循环</b><p>能源、机器、生产率与资本没有形成近代工业革命那种连续跃升。</p></article>
+      </div>
+      <blockquote>北宋接近的，<br>不是一个现代名词，<br><strong>而是一套工业系统的门槛。</strong></blockquote>
+    </section>
+
+    <section class="sources">
+      <p>据与尺</p>
+      <h2>数字从哪里来</h2>
+      <div>
+        <a href="https://afe.easia.columbia.edu/songdynasty-module/econ-rev-iron-steel.html" target="_blank" rel="noreferrer"><b>哥伦比亚大学 · 宋代铁与煤</b><span>1078 年约 12.5 万吨、十一世纪末煤替代木炭的教学资料</span></a>
+        <a href="https://www.cambridge.org/core/journals/journal-of-asian-studies/article/abs/revolution-in-the-chinese-iron-and-coal-industries-during-the-northern-sung-9601126-ad/C4ED428E19B0A04C7225BB57822C89DF" target="_blank" rel="noreferrer"><b>Robert Hartwell · 1962</b><span>北宋铁煤产业“革命”与约 7.5 万吨估算的经典论文</span></a>
+        <a href="https://www.cambridge.org/core/journals/journal-of-economic-history/article/abs/markets-technology-and-the-structure-of-enterprise-in-the-development-of-the-eleventhcentury-chinese-iron-and-steel-industry/14F6FC80DC69C83A1C726A719CA82947" target="_blank" rel="noreferrer"><b>Hartwell · 市场、技术与企业结构</b><span>十一世纪冶铁业的市场范围、企业与技术分析</span></a>
+        <a href="https://web.umoncton.ca/umcm-noweb/cours/hi1000/DOCUMENTS/08_fer.php" target="_blank" rel="noreferrer"><b>英国铁产量 · 1720—1850</b><span>1720 年约 2.2 万吨，1796 年约 11 万吨</span></a>
+        <a href="https://afe.easia.columbia.edu/songdynasty-module/econ-rev-commercial.html" target="_blank" rel="noreferrer"><b>哥伦比亚大学 · 商业化与运输</b><span>跨区域市场、专业商人、行会和运河水运</span></a>
+        <a href="https://afe.easia.columbia.edu/songdynasty-module/econ-rev-money.html" target="_blank" rel="noreferrer"><b>哥伦比亚大学 · 宋代纸币</b><span>商人存款凭证与 1020 年代政府接管发行</span></a>
+        <a href="https://www.cambridge.org/core/books/abs/money-as-god/mothers-and-children-discourses-on-paper-money-during-the-song-period/2DEB0B622DC9531ACBEDDF146280690A" target="_blank" rel="noreferrer"><b>剑桥大学出版社 · 宋代纸币论述</b><span>纸币、铜钱与国家信用之间的历史讨论</span></a>
+      </div>
+      <p class="note">“早期工业化”“工业革命前夜”是比较性的历史解释，不是宋人自有概念。页面把已见于史料和研究的要素放在同一系统中观察；交互强弱为结构示意，不代表可直接量化的历史因果。</p>
+    </section>
+  </main>
+
+  <footer>
+    <b>炉火照夜</b><span>铁从炉中来，工业从系统中来</span><a href="#iron">再看一遍 ↑</a>
+    <div class="visitor-map" aria-label="访问者地图"><script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=f0c36c&w=a&t=n&d=72wQxy69VEZjYgVEkgRSumDalkpS08uZtCqP1BHyMMU&co=181d1b&cmo=c97832"></script></div>
+  </footer>
+  <script src="app.js?v=20260828-1"></script>
+</body>
+</html>

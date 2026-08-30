@@ -649,6 +649,14 @@ body.culture-page > footer {
               <strong>航海与造船</strong>
               <span>从郑和舰队的船只、人员与编成出发，观察风帆时代的远洋组织能力。</span>
             </div>
+            <div class="culture-topic">
+              <strong>冶铁与经济</strong>
+              <span>从矿山、煤炭、高炉、工场、运河、市场与纸币出发，观察北宋工业系统的尺度。</span>
+            </div>
+            <div class="culture-topic">
+              <strong>水利与地形</strong>
+              <span>从鱼嘴、飞沙堰与宝瓶口出发，观察都江堰怎样随水势分流、排沙和灌溉。</span>
+            </div>
           </div>
         </div>
       </details>
@@ -658,6 +666,8 @@ body.culture-page > footer {
         <a class="culture-link" href="{{ '/projects/chinese-calculus/' | relative_url }}">割之又割：华夏古代的微积分思想 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/chinese-coordinates/' | relative_url }}">经天纬地：华夏古代怎样定位世界 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/zheng-he-fleet/' | relative_url }}">巨舶连樯：郑和舰队有多大 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/song-industrialization/' | relative_url }}">炉火照夜：北宋离工业化有多近 <span aria-hidden="true">→</span></a>
+        <a class="culture-link" href="{{ '/projects/dujiangyan/' | relative_url }}">水旱从人：都江堰的水利算法 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/city-order/' | relative_url }}">城有其序：理想都城与日常街市 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/fengshui/' | relative_url }}">藏风聚气：风水的现代环境解释 <span aria-hidden="true">→</span></a>
         <a class="culture-link" href="{{ '/projects/xiangyouxinsheng/' | relative_url }}">相由心生：面容怎样留下生活的刻痕 <span aria-hidden="true">→</span></a>
