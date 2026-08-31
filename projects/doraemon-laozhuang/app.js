@@ -17,7 +17,7 @@
         entry.target.classList.add("is-visible");
         observer.unobserve(entry.target);
       }
-    }), { threshold: .12 });
+    }), { threshold: .02 });
     reveals.forEach((item) => observer.observe(item));
   } else {
     reveals.forEach((item) => item.classList.add("is-visible"));
