@@ -12,6 +12,10 @@ production_url: "https://vvoliucano.github.io"
 github_username: vvoliucano
 permalink: /blog/:year/:month/:title.html
 
+# Preserve the Next.js client bundle for the temporary ReviveVis questionnaire.
+include:
+  - projects/revivevis-questionnaire/_next
+
 twitter:
   username: 
 
@@ -37,5 +41,4 @@ gems: ['jekyll/itafroma/collapse_newlines']
 #   - jekyll-feed
 #   - jekyll-seo-tag
 #   - jekyll-mentions
-
 
