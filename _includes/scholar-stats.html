@@ -1,0 +1,11 @@
+<section class="scholar-stats" aria-label="Google Scholar citations"
+  data-author="c_qeUtUAAAAJ" data-lang="{{ include.lang | default: 'en' }}"
+  data-source="https://raw.githubusercontent.com/vvoliucano/vvoliucano.github.io/google-scholar-stats/gs_data.json"
+  data-fallback="{{ '/assets/data/scholar.json' | relative_url }}">
+  <a class="scholar-stats__heading" href="https://scholar.google.com/citations?user=c_qeUtUAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+  <p class="scholar-stats__total"></p>
+  <div class="scholar-stats__chart" role="img" aria-label="Citations by year"></div>
+  <p class="scholar-stats__updated" aria-live="polite">{% if include.lang == 'zh' %}正在加载引用数据…{% else %}Loading citation data…{% endif %}</p>
+  <noscript><a href="https://scholar.google.com/citations?user=c_qeUtUAAAAJ">View citation statistics ↗</a></noscript>
+</section>
+<script src="{{ '/assets/js/scholar-stats.js' | relative_url }}" defer></script>

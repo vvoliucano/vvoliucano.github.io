@@ -1,4 +1,5 @@
 /vendor/*
+__pycache__/
 assets/.DS_Store
 projects/.DS_Store
 .DS_Store
