@@ -22,8 +22,8 @@ concurrency:
 
 jobs:
   update:
-    # Scholar rejected requests from the Ubuntu runner with HTTP 403.
-    runs-on: macos-latest
+    # Scholar may reject hosted runners; failures never replace the last snapshot.
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4

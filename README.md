@@ -31,3 +31,13 @@ python3 -m pip install -r scripts/scholar-requirements.txt
 python3 -m unittest discover -s scripts -p test_scholar.py
 python3 scripts/update_scholar.py
 ```
+
+Scholar rejected the initial GitHub-hosted Ubuntu and macOS runs (the Ubuntu
+run returned HTTP 403). The daily workflow remains enabled to retry; its
+presence does not guarantee a successful refresh. On a computer with working
+Scholar access and Git push access, publish a fresh snapshot without switching
+or changing the working checkout:
+
+```sh
+python3 scripts/publish_scholar.py
+```
