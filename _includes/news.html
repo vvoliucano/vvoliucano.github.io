@@ -1,5 +1,30 @@
-
-<div class="news-item">
-<div class="news-content">{{ news.message | markdownify | remove: '<p>' | remove: '</p>' }}</div>
-<span class="time-span"><time datetime="{{ news.date }}">{{ news.date | date: "%b %-d, %y" }}</time></span>
-</div>
+{% assign news_entries = site.data.news | sort: "date" | reverse %}
+{% if news_entries.size > 0 %}
+{% assign news_heading = "News" %}
+{% assign news_date_format = "%b %Y" %}
+{% assign news_paper_label = "Paper" %}
+{% if include.lang == "zh" %}
+  {% assign news_heading = "近期动态" %}
+  {% assign news_date_format = "%Y年%-m月" %}
+  {% assign news_paper_label = "论文" %}
+{% endif %}
+<section class="home-news" aria-label="{{ news_heading }}">
+  <h2>{{ news_heading }}</h2>
+  <ul class="news-list">
+    {% for item in news_entries %}
+    <li class="news-item">
+      <time class="news-date" datetime="{{ item.date }}">{{ item.date | append: "-01" | date: news_date_format }}</time>
+      <div class="news-content">
+        {% if include.lang == "zh" %}{{ item.message_zh | default: item.message | escape }}{% else %}{{ item.message | escape }}{% endif %}
+        {% if item.publication_id %}
+          {% assign news_paper = site.data.publication | where: "id", item.publication_id | first %}
+          {% if news_paper.doi %}
+            <a href="{% unless news_paper.doi contains '://' %}https://doi.org/{% endunless %}{{ news_paper.doi | escape }}" title="{{ news_paper.title | escape }}">{{ news_paper_label }}</a>
+          {% endif %}
+        {% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

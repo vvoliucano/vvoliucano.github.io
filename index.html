@@ -19,7 +19,7 @@ class: home
   </div>
 
   <div class="intro">
-    <p> I am a research fellow in the College of Computing and Data Science (CCDS), Nanyang Technological University.
+    <p> I am at the Central University of Finance and Economics (CUFE). Previously, I was a research fellow in the College of Computing and Data Science (CCDS) at Nanyang Technological University.
       I received my Ph.D. in Intelligent Science (2023), B.Sc. in Computer Science (2018), and B.Ec in Economics (2018) degrees from Peking University.
 
       My research focuses on AI-driven data visualization and human–computer interaction, with particular emphasis on how AI can support human understanding of complex data. Specifically, I am interested in intelligent data interaction, intelligent visual design, and intelligent data management. I also explore how AI enables more creative visual representations and supports applications in digital humanities.
@@ -27,18 +27,11 @@ class: home
     <p>
       I enjoy writing Chinese poetry and hiking, often at the same time. Visit <a class="site-title" href="{{ '/mushan/' | relative_url }}" target="_blank" rel="noopener noreferrer">Mushan Collection</a> to read some of my ancient-style poems.
     </p>
-
-    <!-- <div class="news">
-      <h5>Latest ----------------------</h5>
-      <div>
-        {% for news in site.data.news limit:4 %}
-        {% include news.html news=news %}
-        {% endfor %}
-        </div>
-    </div> -->
   </div>
   
 </div>
+
+{% include news.html lang="en" %}
 
 <h2>Recent Publications</h2>
 {% assign highlighted_publications = site.data.publication | where_exp: "pub", "pub.highlight > 0" %}
