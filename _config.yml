@@ -1,8 +1,8 @@
  # Site settings
 title: Can Liu
 email: can.liu.1996[at]gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  A PhD student from PKU VIS Group.
+description: "Can Liu (刘灿) at the Central University of Finance and Economics. Research on AI-driven data visualization and human–computer interaction."
+description_zh: "刘灿的个人主页。任职于中央财经大学，研究方向为 AI 驱动的数据可视化与人机交互。"
 # baseurl: "/people/canliu" # the subpath of your site, e.g. /blog
 baseurl: "" # the subpath of your site, e.g. /blog
 # url: "http://vis.pku.edu.cn/people/canliu/" # the base hostname & protocol for your site  

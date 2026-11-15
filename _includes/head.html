@@ -1,12 +1,15 @@
 
+{% assign page_description = site.description %}
+{% if include.lang == "zh" %}
+  {% assign page_description = site.description_zh | default: site.description %}
+{% endif %}
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="application-name" content="{{ site.title }}">
 <meta name="theme-color" content="#2c9f64">
-<meta name="keywords" content="liucan, Can Liu, LIU Can, Liu Can, 刘灿, 北京大学刘灿, 可视化刘灿, 可视化, 深度学习, 数据分析, 北京大学, Peking University, Peking, Visualization, Data Analytics, PKU, PKUVIS, Beida, 博士, 博士生, 可视分析, 京师大学堂">
-<meta name="description" content="Website of Can Liu (刘灿), a PhD student. 北京大学可视化博士研究生刘灿">
+<meta name="description" content="{{ page_description | escape }}">
 <title>Can Liu</title>
 {% if page.url == "/" %}
 <script>
@@ -34,7 +37,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{site.url}}">
 <meta property="og:image" content="">
-<meta property="og:description" content="Website of Can Liu (刘灿), a student of data visualization.">
+<meta property="og:description" content="{{ page_description | escape }}">
 <meta name="author" content="Can Liu (刘灿)">
 <link rel="icon" type="image/png" href="{{ '/favicon.png' | relative_url }}" />
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
