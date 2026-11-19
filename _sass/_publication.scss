@@ -105,14 +105,14 @@
   padding: 0.4em;
 }
 
-.pubs {
+.container.pubs {
   padding-top: 1.4rem;
   max-width: 1420px;
 
   .publication-map {
     position: relative;
     display: grid;
-    grid-template-columns: 150px minmax(0, 1fr) 170px;
+    grid-template-columns: 192px minmax(0, 1fr) 170px;
     column-gap: 72px;
     align-items: start;
   }
@@ -127,8 +127,7 @@
   .publication-map-sidebar {
     position: sticky;
     top: 1.25rem;
-    width: 192px;
-    margin-left: -42px;
+    min-width: 0;
     padding-top: 2rem;
     background: #fff;
 
@@ -954,7 +953,7 @@
 
   @media screen and (max-width: 1100px) {
     .publication-map {
-      grid-template-columns: 150px minmax(0, 1fr);
+      grid-template-columns: 192px minmax(0, 1fr);
       column-gap: 80px;
     }
 
