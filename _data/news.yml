@@ -1,4 +1,9 @@
 # Dates use YYYY-MM. Both homepages show the newest entries first.
+- date: "2026-11"
+  message: "DataRecycle is accepted by IEEE Transactions on Visualization and Computer Graphics."
+  message_zh: "DataRecycle 被 IEEE Transactions on Visualization and Computer Graphics 录用。"
+  publication_id: datarecycle
+
 - date: "2026-09"
   message: "Joined the Central University of Finance and Economics (CUFE)."
   message_zh: "加入中央财经大学。"

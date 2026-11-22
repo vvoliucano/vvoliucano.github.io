@@ -1,3 +1,26 @@
+- id: datarecycle
+  title: "DataRecycle: Trustworthy Distillation of Structured Data from Scattered Web Evidence"
+  topics:
+    - Visual Analytics
+    - AI4Vis
+    - Human-AI
+  authors:
+    - Can Liu
+    - Tengteng Zhu
+    - Xinyu Jiang
+    - Xiaolin Wen
+    - Yong Wang
+  venue: IEEE Transactions on Visualization and Computer Graphics
+  venue_tags:
+    - TVCG
+  year: "2026"
+  accept: true
+  image: 26_datarecycle.png
+  highlight: 1
+  pdf: /assets/paper/26-datarecycle.pdf
+  type:
+    - Journal
+
 - id: author_inter
   title: "From Static to Interactive: Authoring Interactive Visualizations via Natural Language"
   topics:

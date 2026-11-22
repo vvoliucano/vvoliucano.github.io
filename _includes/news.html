@@ -20,6 +20,8 @@
           {% assign news_paper = site.data.publication | where: "id", item.publication_id | first %}
           {% if news_paper.doi %}
             <a href="{% unless news_paper.doi contains '://' %}https://doi.org/{% endunless %}{{ news_paper.doi | escape }}" title="{{ news_paper.title | escape }}">{{ news_paper_label }}</a>
+          {% elsif news_paper.pdf %}
+            <a href="{{ news_paper.pdf | relative_url | escape }}" title="{{ news_paper.title | escape }}">{{ news_paper_label }}</a>
           {% endif %}
         {% endif %}
       </div>
