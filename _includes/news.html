@@ -2,11 +2,9 @@
 {% if news_entries.size > 0 %}
 {% assign news_heading = "News" %}
 {% assign news_date_format = "%b %Y" %}
-{% assign news_paper_label = "Paper" %}
 {% if include.lang == "zh" %}
   {% assign news_heading = "近期动态" %}
   {% assign news_date_format = "%Y年%-m月" %}
-  {% assign news_paper_label = "论文" %}
 {% endif %}
 <section class="home-news" aria-label="{{ news_heading }}">
   <h2>{{ news_heading }}</h2>
@@ -15,14 +13,24 @@
     <li class="news-item">
       <time class="news-date" datetime="{{ item.date }}">{{ item.date | append: "-01" | date: news_date_format }}</time>
       <div class="news-content">
-        {% if include.lang == "zh" %}{{ item.message_zh | default: item.message | escape }}{% else %}{{ item.message | escape }}{% endif %}
+        {% assign news_message = item.message %}
+        {% if include.lang == "zh" %}{% assign news_message = item.message_zh | default: item.message %}{% endif %}
+        {% assign news_message = news_message | escape %}
+        {% assign news_paper_url = "" %}
         {% if item.publication_id %}
           {% assign news_paper = site.data.publication | where: "id", item.publication_id | first %}
           {% if news_paper.doi %}
-            <a href="{% unless news_paper.doi contains '://' %}https://doi.org/{% endunless %}{{ news_paper.doi | escape }}" title="{{ news_paper.title | escape }}">{{ news_paper_label }}</a>
+            {% capture news_paper_url %}{% unless news_paper.doi contains '://' %}https://doi.org/{% endunless %}{{ news_paper.doi }}{% endcapture %}
           {% elsif news_paper.pdf %}
-            <a href="{{ news_paper.pdf | relative_url | escape }}" title="{{ news_paper.title | escape }}">{{ news_paper_label }}</a>
+            {% assign news_paper_url = news_paper.pdf | relative_url %}
           {% endif %}
+        {% endif %}
+        {% if news_paper_url != "" and item.publication_name %}
+          {% assign news_paper_name = item.publication_name | escape %}
+          {% capture news_paper_link %}<a class="news-paper-link" href="{{ news_paper_url | escape }}" title="{{ news_paper.title | escape }}">{{ news_paper_name }}</a>{% endcapture %}
+          {{ news_message | replace_first: news_paper_name, news_paper_link }}
+        {% else %}
+          {{ news_message }}
         {% endif %}
       </div>
     </li>

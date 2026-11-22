@@ -3,6 +3,7 @@
   message: "DataRecycle is accepted by IEEE Transactions on Visualization and Computer Graphics."
   message_zh: "DataRecycle 被 IEEE Transactions on Visualization and Computer Graphics 录用。"
   publication_id: datarecycle
+  publication_name: "DataRecycle"
 
 - date: "2026-09"
   message: "Joined the Central University of Finance and Economics (CUFE)."
@@ -17,6 +18,7 @@
   message_zh: "参加 ACM DIS 2026 会议。"
 
 - date: "2026-04"
-  message: "Received the Best Paper Award in the Conference Track at IEEE PacificVis 2026."
-  message_zh: "获 IEEE PacificVis 2026 Conference Track 最佳论文奖。"
+  message: "Athanor received the Best Paper Award in the Conference Track at IEEE PacificVis 2026."
+  message_zh: "Athanor 获 IEEE PacificVis 2026 Conference Track 最佳论文奖。"
   publication_id: author_inter
+  publication_name: "Athanor"

@@ -323,9 +323,20 @@
       white-space: nowrap;
     }
 
-    .news-content a {
-      margin-inline-start: 0.35em;
-      white-space: nowrap;
+    .news-paper-link {
+      color: inherit;
+      font-style: italic;
+      font-weight: 400;
+      text-decoration: underline;
+      text-decoration-color: rgba($brand-color, 0.35);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+
+      &:hover,
+      &:focus-visible {
+        color: $brand-color;
+        text-decoration-color: currentColor;
+      }
     }
   }
 
