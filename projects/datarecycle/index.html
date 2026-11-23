@@ -1,0 +1,62 @@
+---
+layout: null
+permalink: /projects/datarecycle/
+---
+{% assign paper = site.data.publication | where: "id", "datarecycle" | first %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ paper.title | escape }}</title>
+  <meta name="description" content="{{ paper.abstract | escape }}">
+  <meta property="og:title" content="{{ paper.title | escape }}">
+  <meta property="og:description" content="DataRecycle transforms scattered web evidence into structured tables with traceable sources and support for inspecting uncertainty.">
+  <meta property="og:image" content="{{ '/projects/datarecycle/overview.png' | absolute_url }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="icon" href="{{ '/favicon.png' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/projects/datarecycle/style.css' | relative_url }}">
+  <script src="{{ '/projects/datarecycle/script.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <nav class="project-nav" aria-label="Site navigation">
+    <a href="{{ '/projects/' | relative_url }}">All Projects</a>
+    <a href="{{ '/' | relative_url }}">Can Liu</a>
+  </nav>
+
+  <main>
+    <header class="paper-header">
+      <h1><span class="paper-name">DataRecycle</span><span class="paper-subtitle">{{ paper.title | remove_first: 'DataRecycle: ' | escape }}</span></h1>
+      <p class="authors">{% for author in paper.authors %}<span>{% include person.html person=author %}</span>{% unless forloop.last %}<span class="author-separator">, </span>{% endunless %}{% endfor %}</p>
+      <p class="venue">{{ paper.venue | escape }} <span class="status">Accepted · {{ paper.year }}</span></p>
+      <div class="paper-links">
+        <a class="button primary" href="{{ paper.pdf | relative_url }}" target="_blank" rel="noopener">Paper PDF</a>
+        <a class="button" href="#bibtex">BibTeX</a>
+      </div>
+    </header>
+
+    <figure class="overview">
+      <a href="{{ '/projects/datarecycle/overview.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open full-size DataRecycle interface image">
+        <img src="{{ '/projects/datarecycle/overview.png' | relative_url }}" alt="DataRecycle interface showing a provenance inspector, a comparison table of renewable energy data, and a chat panel." width="2522" height="1108" fetchpriority="high">
+      </a>
+      <figcaption>DataRecycle brings together a provenance inspector (A), a metadata panel (B), an interactive comparison table (C), and a chat interface (D) to help users inspect numerical evidence from the web.</figcaption>
+    </figure>
+
+    <section class="text-section" aria-labelledby="abstract-heading">
+      <h2 id="abstract-heading">Abstract</h2>
+      <p>{{ paper.abstract | escape }}</p>
+    </section>
+
+    <section class="text-section citation" aria-labelledby="bibtex">
+      <div class="section-heading">
+        <h2 id="bibtex">BibTeX</h2>
+        <button type="button" id="copy-bibtex">Copy BibTeX</button>
+      </div>
+      <pre><code id="bibtex-code">{{ paper.bibtex | escape }}</code></pre>
+      <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+</body>
+</html>

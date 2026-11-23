@@ -18,6 +18,17 @@
   image: 26_datarecycle.png
   highlight: 1
   pdf: /assets/paper/26-datarecycle.pdf
+  link: /projects/datarecycle/
+  abstract: >-
+    The web contains vast amounts of scattered quantitative evidence that is difficult to organize into comparable and verifiable structures. Yet its unstructured, sparse, and sometimes conflicting nature makes a systematic distillation costly and error-prone. Existing approaches force users to make a trade-off: search engines return document lists that require labor-intensive extraction and reconciliation, while generative AI systems produce fluent summaries that obscure data provenance, introduce reporting bias, and hide inconsistencies. We present DataRecycle, an interactive system that helps transform scattered web evidence into structured tables of comparable numerical facts. Given a user's query or statement, DataRecycle decomposes it into entities and attributes, retrieves candidate evidence, and organizes scattered, potentially conflicting records in a table-based evidence view. To address key challenges in automated data distillation (i.e., incomplete retrieval, untraceable generation, sparse data distribution, and multi-source inconsistency), DataRecycle adopts an ontology-guided, top-down data acquisition strategy, visualizes the recorded lineage from retrieved snippets to extracted values, and aligns heterogeneous data across dimensions such as time, definition, and scale. We evaluate DataRecycle through module-level experiments, a usage scenario, and a user study, showing that the system helps users organize numerical web evidence into provenance-linked tables and inspect uncertainty and conflicting sources.
+  bibtex: |
+    @article{liu2026datarecycle,
+      title = {DataRecycle: Trustworthy Distillation of Structured Data from Scattered Web Evidence},
+      author = {Liu, Can and Zhu, Tengteng and Jiang, Xinyu and Wen, Xiaolin and Wang, Yong},
+      journal = {IEEE Transactions on Visualization and Computer Graphics},
+      year = {2026},
+      note = {accepted}
+    }
   type:
     - Journal
 
@@ -45,6 +56,39 @@
   pdf: "https://arxiv.org/pdf/2601.17736.pdf"
   type:
     - Conference
+
+- id: glyphweaver
+  title: "GlyphWeaver: Unlocking Glyph Design Creativity with Uniform Glyph DSL and AI"
+  topics:
+    - Expressivity
+    - AI4Vis
+    - Human-AI
+  authors:
+    - Can Liu
+    - Shiwei Chen
+    - Zhibang Jiang
+    - Yong Wang
+  venue: "arXiv preprint arXiv:2509.08444"
+  year: "2025"
+  type:
+    - preprint
+  highlight: 2
+  image: 25_glyphweaver.png
+  pdf: /assets/paper/25-glyphweaver.pdf
+  doi: 10.48550/arXiv.2509.08444
+  arxiv: "2509.08444"
+  primaryClass: cs.HC
+  link: https://glyphweaver.github.io/
+  bibtex: |
+    @misc{liu2025glyphweaver,
+      title = {GlyphWeaver: Unlocking Glyph Design Creativity with Uniform Glyph DSL and AI},
+      author = {Can Liu and Shiwei Chen and Zhibang Jiang and Yong Wang},
+      year = {2025},
+      eprint = {2509.08444},
+      archivePrefix = {arXiv},
+      primaryClass = {cs.HC},
+      url = {https://arxiv.org/abs/2509.08444}
+    }
 
 - id: proteus
   title: "Proteus: Shapeshifting Desktop Visualizations for Mobile via Multi-level Intelligent Adaptation"

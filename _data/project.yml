@@ -1,3 +1,13 @@
+- id: datarecycle
+  title: DataRecycle
+  image: 26_datarecycle.png
+  description: "An interactive system for distilling scattered web evidence into structured tables with traceable sources and visual support for inspecting uncertainty."
+  description_zh: "将散落的网页证据整理为结构化表格，支持来源追溯、不确定性展示与冲突检查的交互系统。"
+  paper: /assets/paper/26-datarecycle.pdf
+  link: /projects/datarecycle/
+  url: /projects/datarecycle/
+  highlight: 1
+
 - id: proteus
   title: Proteus Mobile
   image: proteus.png
