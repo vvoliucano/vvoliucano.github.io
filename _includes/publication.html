@@ -1,12 +1,8 @@
 {% capture anchor %}{% if pub.id %}{{ pub.id }}{% else %}{{ (pub.title | slugify) }}{% endif %}{% endcapture %}
-{% assign pub_image = pub.image | default: "/assets/project/none.png" %}
-{% unless pub_image contains "/" %}
-  {% assign pub_image = "/assets/project/" | append: pub_image %}
-{% endunless %}
 
 <div class="publication" data-pub='{{ pub | jsonify | escape }}'>
   <div class="publication-media">
-    <img src="{{ pub_image | relative_url }}" alt="{{ pub.title | escape }} preview" loading="lazy">
+    {% include publication-image.html image=pub.image title=pub.title eager=include.eager %}
   </div>
 
   <div class="publication-body">

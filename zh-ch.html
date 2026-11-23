@@ -34,7 +34,7 @@ class: home
 {% assign highlighted_publications = site.data.publication | where_exp: "pub", "pub.highlight > 0" %}
 <div class="featured-publications">
   {% for pub in highlighted_publications limit:5 %}
-    {% include featured-publication.html pub=pub lang="zh" %}
+    {% include featured-publication.html pub=pub lang="zh" eager=forloop.first %}
   {% endfor %}
   {% if highlighted_publications.size > 5 %}
   <details class="publication-more">

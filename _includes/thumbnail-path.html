@@ -1,0 +1,13 @@
+{%- assign thumbnail_path = include.image | default: "/assets/project/none.png" -%}
+{%- unless thumbnail_path contains "/" -%}
+  {%- assign thumbnail_path = "/assets/project/" | append: thumbnail_path -%}
+{%- endunless -%}
+{%- unless thumbnail_path contains "://" -%}
+  {%- assign image_extension = thumbnail_path | split: "." | last | prepend: "." -%}
+  {%- assign webp_path = thumbnail_path | replace: image_extension, ".webp" -%}
+  {%- assign webp_file = site.static_files | where: "path", webp_path | first -%}
+  {%- if webp_file -%}
+    {%- assign thumbnail_path = webp_path -%}
+  {%- endif -%}
+{%- endunless -%}
+{{- thumbnail_path | relative_url -}}

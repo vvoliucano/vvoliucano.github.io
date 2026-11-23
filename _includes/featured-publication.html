@@ -1,17 +1,13 @@
 {% capture anchor %}{% if pub.id %}{{ pub.id }}{% else %}{{ (pub.title | slugify) }}{% endif %}{% endcapture %}
-{% assign pub_image = pub.image | default: "/assets/project/none.png" %}
-{% unless pub_image contains "/" %}
-  {% assign pub_image = "/assets/project/" | append: pub_image %}
-{% endunless %}
 
 <div class="publication">
   <div class="publication-media">
     {% if pub.doi %}
       <a href="{% if pub.doi contains '://' %}{{ pub.doi }}{% else %}https://doi.org/{{ pub.doi }}{% endif %}" target="_blank" aria-label="{{ pub.title }} preview">
-        <img src="{{ pub_image | relative_url }}" alt="{{ pub.title | escape }} preview" loading="lazy">
+        {% include publication-image.html image=pub.image title=pub.title eager=include.eager %}
       </a>
     {% else %}
-      <img src="{{ pub_image | relative_url }}" alt="{{ pub.title | escape }} preview" loading="lazy">
+      {% include publication-image.html image=pub.image title=pub.title eager=include.eager %}
     {% endif %}
   </div>
 

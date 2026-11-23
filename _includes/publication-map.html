@@ -37,7 +37,9 @@
         <h3 class="pub-year year" id="y{{ group.name }}">{{ group.name }}</h3>
         <div class="year-group">
           {% for pub in group.items %}
-            {% include publication.html pub=pub lang=include.lang %}
+            {% assign image_eager = false %}
+            {% if forloop.first and forloop.parentloop.first %}{% assign image_eager = true %}{% endif %}
+            {% include publication.html pub=pub lang=include.lang eager=image_eager %}
           {% endfor %}
         </div>
       </section>

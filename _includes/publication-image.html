@@ -1,0 +1,2 @@
+{%- capture image_path -%}{%- include thumbnail-path.html image=include.image -%}{%- endcapture -%}
+<img src="{{ image_path }}" alt="{{ include.title | escape }} preview" loading="{% if include.eager %}eager{% else %}lazy{% endif %}" decoding="async"{% if include.eager %} fetchpriority="high"{% endif %}>

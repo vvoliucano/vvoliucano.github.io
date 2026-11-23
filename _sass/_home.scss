@@ -17,6 +17,14 @@
     .intro {
       flex: 1;
       font-size: 1em;
+
+      p {
+        text-align: justify;
+        text-align-last: left;
+        -webkit-hyphens: none;
+        hyphens: none;
+      }
+
       a {
          color: inherit;
          text-decoration: underline;
@@ -357,6 +365,10 @@
 
       .intro {
         order: 2;
+
+        p {
+          text-align: left;
+        }
       }
       .me {
         order: 1;

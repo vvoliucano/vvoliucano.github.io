@@ -4,6 +4,7 @@
     - Visual Analytics
     - AI4Vis
     - Human-AI
+    - AI4Economy
   authors:
     - Can Liu
     - Tengteng Zhu
@@ -31,6 +32,40 @@
     }
   type:
     - Journal
+
+- id: figflux
+  title: "Presenting Your Figures: Data-informed Animated Transitions Across Scientific Figure Panels"
+  topics:
+    - Expressivity
+    - AI4Vis
+    - Human-AI
+  authors:
+    - Lu Ying
+    - Can Liu
+    - Yuxiao Yang
+    - Jianing Yin
+    - Xiaolin Wen
+    - Yong Wang
+  venue: "arXiv preprint arXiv:2611.26036"
+  year: "2026"
+  type:
+    - preprint
+  highlight: 0
+  image: 26_figflux.png
+  pdf: https://arxiv.org/pdf/2611.26036
+  arxiv: "2611.26036"
+  primaryClass: cs.HC
+  link: https://figflux.github.io/
+  bibtex: |
+    @misc{ying2026presenting,
+      title = {Presenting Your Figures: Data-informed Animated Transitions Across Scientific Figure Panels},
+      author = {Lu Ying and Can Liu and Yuxiao Yang and Jianing Yin and Xiaolin Wen and Yong Wang},
+      year = {2026},
+      eprint = {2611.26036},
+      archivePrefix = {arXiv},
+      primaryClass = {cs.HC},
+      url = {https://arxiv.org/abs/2611.26036}
+    }
 
 - id: author_inter
   title: "From Static to Interactive: Authoring Interactive Visualizations via Natural Language"
